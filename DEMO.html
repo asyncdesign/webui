@@ -11,7 +11,6 @@
 	<!--<link rel="stylesheet" href="normalize.css">-->
 	
 	<link rel="stylesheet" href="dist/css/webui.min.css">
-	<!--<link rel="stylesheet" href="webui-overrides.css">-->
 	
 	<link rel="stylesheet" href="vendor/css/font-awesome.min.css">
 	<link rel="stylesheet" href="site.css">
@@ -24,19 +23,27 @@
 
 <body>
 
-<div id="MainTitle" class="panel text-lg rounded-sm">
-	<div class="content-row row-align">
-		<div class="content-col col-spacing-right-lg lg">
-			<img src="images/webui64x64.png" />
+<div id="MainTitle" class="panel">
+	<div class="content-row">
+		<div class="content-col-15 text-xl color-accent-1">
+			Webui - A fully responsive framework for modern browsers that allows you to be in control
 		</div>
-		<div class="form-col lg">
-			Webui 4.0.0 
-		</div>
-		<div class="form-col width-1 lg"></div>
-		<div class="form-col lg">
-			A fully responsive framework for modern browsers that allows you to be in control.<div class="row-spacing-sm"></div>Built with SASS.
+		<div class="content-col-5 md">
+			<div class="content-row move-right">
+				<div class="content-col-5">
+					<img src="images/webui_blue_64x64.png" />
+				</div>
+			</div>
+			<div class="content-row move-right">
+				<div class="content-row">
+					<div class="content-col-20 text-sm text-italic">
+						Built with SASS
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
 </div>
 
 <div class="row-spacing-md"></div>
@@ -132,7 +139,7 @@
 
 <div class="row-spacing-xs"></div>
 
-<div class="panel background-accent-4 rounded-sm">
+<div class="panel background-default rounded-sm">
 	<div class="content-row">
 		<div class="form-col lg">
 			<button type="button" class="button-sm button-accent-1">Accent 1 color</button>
@@ -203,7 +210,7 @@
 					</div>
 				</div>
 				<div class="form-col-10 xl">             
-					<span class="tooltip tooltip-dynamic tooltip-animate-fadein tooltip-danger">
+					<span class="tooltip tooltip-dynamic tooltip-danger">
 						<input id="FirstName" type="text" class="input-sm width-10 rounded-sm" />
 						<span id="tooltipFirstName" class="tooltip-bottom-md rounded-md">First name is required.</span>
 					</span>
@@ -635,95 +642,74 @@
 		
 		<div class="form-col-10 col-spacing-sm md">
 			<div class="row-spacing-md"></div>
-			<div class="box primary hide-block-xs table-adjust-img-16">
+			<div class="box primary hide-block-xs">
 				<div class="table-row accent-1">
 					<div class="table-col-5">Name</div>
 					<div class="table-col-6">Profession</div>
 					<div class="table-col-4">Experience</div>
 					<div class="table-col-5">CV</div>
 				</div>
-				<div class="table-row">
+				<div class="table-row table-adjust-img-64">
 					<div class="table-col-5">John Doe</div>
 					<div class="table-col-6">Management</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Steven Jones</div>
 					<div class="table-col-6">Development</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Sara O'Keefe</div>
 					<div class="table-col-6">Accounting</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Debora Kaine</div>
 					<div class="table-col-6">CEO</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Matt Williams</div>
 					<div class="table-col-6">Development</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Gareth Brown</div>
 					<div class="table-col-6">Management</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Jack Taylor</div>
 					<div class="table-col-6">Support</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
 				</div>
 			</div>
 			<div class="show-block-xs">
 			
 				<div class="table-group panel table-adjust-img-16 primary">
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Name</div>
-						<div class="table-col-14">John Doe</div>
+						<div class="table-col-10 accent-1">Name</div>
+						<div class="table-col-10">John Doe</div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Profession</div>
-						<div class="table-col-14">Management</div>
+						<div class="table-col-10 accent-1">Profession</div>
+						<div class="table-col-10">Management</div>
 					</div>
-					<div class="table-row">
-						<div class="table-col-6 accent-1">Experience</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
+					<div class="table-row table-adjust-img-64">
+						<div class="table-col-10 accent-1">Experience</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" /></a></div>
 					</div>
-					<div class="table-row">
-						<div class="table-col-6 accent-1">CV</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
-					</div>
-				</div>
-				
-				<div class="row-spacing-md"></div>
-				
-				<div class="table-group panel table-adjust-img-16 primary">
-					<div class="table-row">
-						<div class="table-col-6 accent-1">Name</div>
-						<div class="table-col-14">Steven Jones</div>
-					</div>
-					<div class="table-row">
-						<div class="table-col-6 accent-1">Profession</div>
-						<div class="table-col-14">Development</div>
-					</div>
-					<div class="table-row">
-						<div class="table-col-6 accent-1">Experience</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
-					</div>
-					<div class="table-row">
-						<div class="table-col-6 accent-1">CV</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+					<div class="table-row table-adjust-img-64">
+						<div class="table-col-10 accent-1">CV</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" /></a></div>
 					</div>
 				</div>
 				
@@ -731,20 +717,20 @@
 				
 				<div class="table-group panel table-adjust-img-16 primary">
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Name</div>
-						<div class="table-col-14">Sara O'Keefe</div>
+						<div class="table-col-10 accent-1">Name</div>
+						<div class="table-col-10">Steven Jones</div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Profession</div>
-						<div class="table-col-14">Accounting</div>
+						<div class="table-col-10 accent-1">Profession</div>
+						<div class="table-col-10">Development</div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Experience</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
+						<div class="table-col-10 accent-1">Experience</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">CV</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+						<div class="table-col-10 accent-1">CV</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
 					</div>
 				</div>
 				
@@ -752,20 +738,41 @@
 				
 				<div class="table-group panel table-adjust-img-16 primary">
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Name</div>
-						<div class="table-col-14">Debora Kaine</div>
+						<div class="table-col-10 accent-1">Name</div>
+						<div class="table-col-10">Sara O'Keefe</div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Profession</div>
-						<div class="table-col-14">CEO</div>
+						<div class="table-col-10 accent-1">Profession</div>
+						<div class="table-col-10">Accounting</div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">Experience</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Info16x16.png" /></a></div>
+						<div class="table-col-10 accent-1">Experience</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
 					</div>
 					<div class="table-row">
-						<div class="table-col-6 accent-1">CV</div>
-						<div class="table-col-14"><a href="javascript:void(0)"><img src="images/Document16x16.png" /></a></div>
+						<div class="table-col-10 accent-1">CV</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
+					</div>
+				</div>
+				
+				<div class="row-spacing-md"></div>
+				
+				<div class="table-group panel table-adjust-img-16 primary">
+					<div class="table-row">
+						<div class="table-col-10 accent-1">Name</div>
+						<div class="table-col-10">Debora Kaine</div>
+					</div>
+					<div class="table-row">
+						<div class="table-col-10 accent-1">Profession</div>
+						<div class="table-col-10">CEO</div>
+					</div>
+					<div class="table-row">
+						<div class="table-col-10 accent-1">Experience</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
+					</div>
+					<div class="table-row">
+						<div class="table-col-10 accent-1">CV</div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
 					</div>
 				</div>
 			</div>
@@ -894,7 +901,7 @@
 		<div class="form-col-20">
 			<div class="container">
 				<div class="content-row">
-					<div class="content-col-20 accent-4 hide-block-md">
+					<div class="content-col-20 default hide-block-md">
 						<div class="content-row">
 							<div class="content-col-1 md">
 								<div class="form-row">
@@ -905,29 +912,29 @@
 							</div>
 							<div class="content-col-2 md">
 								<div class="dropdown">
-									<button id="Menu1" type="button" class="menu-button-sm menu-button-accent-4 menu-button-dynamic align-left">Menu 1 <i class="fa fa-caret-down"></i></button>
-									<div class="dropdown-content width-7 accent-4">
+									<button id="Menu1" type="button" class="menu-button-sm menu-button-default menu-button-dynamic align-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+									<div class="dropdown-content width-7 default">
 										<div class="content-row">
-											<button type="button" class="menu-button-sm button-accent-4 align-left">Getting Started</button>
+											<button type="button" class="menu-button-sm button-default align-left">Typography</button>
 										</div>
 										<div class="content-row">
-											<button type="button" class="menu-button-sm button-accent-4 align-left">Creating Components</button>
+											<button type="button" class="menu-button-sm button-default align-left">Colours</button>
 										</div>
 										<div class="content-row">
-											<button type="button" class="menu-button-sm button-accent-4 align-left">Binding</button>
+											<button type="button" class="menu-button-sm button-default align-left">Forms</button>
 										</div>
 										<div class="content-row">
-											<button type="button" class="menu-button-sm button-accent-4 align-left">Templating</button>
+											<button type="button" class="menu-button-sm button-default align-left">Boxes and columns</button>
 										</div>
 										<div class="content-row">
-											<button type="button" class="menu-button-sm button-accent-4 align-left">Routing</button>
+											<button type="button" class="menu-button-sm button-default align-left">Form controls</button>
 										</div>
 										<div class="row-spacing-xs"></div>								
 									</div>
 								</div>
 							</div>
 							<div class="content-col-2 md">
-								<button id="Menu2" type="button" class="menu-button-sm menu-button-accent-4 menu-button-dynamic align-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+								<button id="Menu2" type="button" class="menu-button-sm menu-button-default menu-button-dynamic align-left">Menu 2 <i class="fa fa-caret-down"></i></button>
 								<div class="dropdown-sheet">
 									<div class="form-col-1 background-transparent"></div>
 									<div class="form-col-18 background-primary">
@@ -981,45 +988,45 @@
 								</div>
 							</div>
 							<div class="content-col-2 md">
-								<button id="Menu3" type="button" class="menu-button-sm menu-button-accent-4 menu-button-static align-left">Menu 3</button>								
+								<button id="Menu3" type="button" class="menu-button-sm menu-button-default menu-button-static align-left">Menu 3</button>								
 							</div>
 							<div class="content-col-2 md">
-								<button id="Menu4" type="button" class="menu-button-sm menu-button-accent-4 menu-button-static align-left">Menu 4</button>
+								<button id="Menu4" type="button" class="menu-button-sm menu-button-default menu-button-static align-left">Menu 4</button>
 							</div>
 							<div class="form-col-11 col-spacing-md">
 								<input type="text" class="input-sm rounded-sm width-10 move-right md" />
 							</div>
 						</div>
 					</div>
-					<div class="content-col-12 accent-4 show-block-md">
+					<div class="content-col-12 default show-block-md">
 						<div class="content-row">					
 							<div class="form-col-20 col-spacing-md">
 								<input type="text" class="input-sm rounded-sm width-full md" />
 							</div>
 						</div>
 					</div>
-					<div class="content-col-8 accent-4 show-block-md align-right">
+					<div class="content-col-8 default show-block-md align-right">
 						<div class="dropdown">
-							<button id="MenuHamburger" type="button" class="menu-button-sm menu-button-accent-4 menu-button-static width-2 md"><i class="fa fa-bars"></i></button>
-							<div class="dropdown-content dropdown-right accent-4 width-10 raised">
+							<button id="MenuHamburger" type="button" class="menu-button-sm menu-button-default menu-button-static width-2 md"><i class="fa fa-bars"></i></button>
+							<div class="dropdown-content dropdown-right default width-10 raised">
 								<div class="content-row">
 									<div class="content-col width-10">
 										<button id="Menu5" type="button" class="menu-button-sm menu-button-accent-2 menu-button-static align-left">Menu 1 <i class="fa fa-caret-down"></i></button>
-										<div class="dropdown-content accent-4 width-full">
+										<div class="dropdown-content default width-full">
 											<div class="content-row">
-												<button type="button" class="menu-button-sm button-accent-4 align-left">Getting Started</button>
+												<button type="button" class="menu-button-sm button-default align-left">Getting Started</button>
 											</div>
 											<div class="content-row">
-												<button type="button" class="menu-button-sm button-accent-4 align-left">Creating Components</button>
+												<button type="button" class="menu-button-sm button-default align-left">Creating Components</button>
 											</div>
 											<div class="content-row">
-												<button type="button" class="menu-button-sm button-accent-4 align-left">Binding</button>
+												<button type="button" class="menu-button-sm button-default align-left">Binding</button>
 											</div>
 											<div class="content-row">
-												<button type="button" class="menu-button-sm button-accent-4 align-left">Templating</button>
+												<button type="button" class="menu-button-sm button-default align-left">Templating</button>
 											</div>
 											<div class="content-row">
-												<button type="button" class="menu-button-sm button-accent-4 align-left">Routing</button>
+												<button type="button" class="menu-button-sm button-default align-left">Routing</button>
 											</div>
 											<div class="row-spacing-xs"></div>
 											<button id="Menu6" type="button" class="menu-button-sm menu-button-accent-2 menu-button-static align-left">Menu 2 <i class="fa fa-caret-down"></i></button>
@@ -1070,9 +1077,9 @@
 														</div>
 													</div>
 												</div>
-												<button id="Menu7" type="button" class="menu-button-sm menu-button-accent-4 menu-button-static align-left">Menu 3</button>
+												<button id="Menu7" type="button" class="menu-button-sm menu-button-accent-2 menu-button-static align-left">Menu 3</button>
 												<div class="dropdown-content width-full component">
-													<button id="Menu8" type="button" class="menu-button-sm menu-button-accent-4 menu-button-static align-left">Menu 4</button>
+													<button id="Menu8" type="button" class="menu-button-sm menu-button-accent-2 menu-button-static align-left">Menu 4</button>
 												</div>
 											</div>
 											
@@ -1562,97 +1569,97 @@
 		
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandAdd" class="flex-button button-accent-3 default">Move selected options from list 1 to list 2</button>
+					<button type="button" id="commandAdd" class="button-flex button-default">Move selected options from list 1 to list 2</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandRemove" class="flex-button button-accent-3 default">Move selected options from list 2 to list 1</button>
+					<button type="button" id="commandRemove" class="button-flex button-default">Move selected options from list 2 to list 1</button>
 				</div>
 			</div>
 		
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandClearSelected" class="flex-button button-accent-3 default">Clear selected items from list 2</button>
+					<button type="button" id="commandClearSelected" class="button-flex button-default">Clear selected items from list 2</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandSetInvalid" class="flex-button button-accent-3 default">Highlight list 1</button>
+					<button type="button" id="commandSetInvalid" class="button-flex button-default">Highlight list 1</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandReset" class="flex-button button-accent-3 default">Reset lists</button>
+					<button type="button" id="commandReset" class="button-flex button-default">Reset lists</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandNormalise" class="flex-button button-accent-3 default">Normalise lists</button>
+					<button type="button" id="commandNormalise" class="button-flex button-default default">Normalise lists</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandDisableListConditionally" class="flex-button button-accent-3 default">Disable both lists if textbox 1 contains 0</button>
+					<button type="button" id="commandDisableListConditionally" class="button-flex button-default default">Disable both lists if textbox 1 contains 0</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandGetOptionValues" class="flex-button button-accent-3 default">Get list 2 option values</button>
+					<button type="button" id="commandGetOptionValues" class="button-flex button-default default">Get list 2 option values</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandGetOptionTexts" class="flex-button button-accent-3 default">Get list 2 option texts</button>
+					<button type="button" id="commandGetOptionTexts" class="button-flex button-default default">Get list 2 option texts</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandGetSelection" class="flex-button button-accent-3 default">Get page selected text specifying textbox 1 as the target.</button>
+					<button type="button" id="commandGetSelection" class="button-flex button-default default">Get page selected text specifying textbox 1 as the target.</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandCheckboxChecked" class="flex-button button-accent-3 default">Is checkbox 1 checked and checkbox 2 unckecked</button>
+					<button type="button" id="commandCheckboxChecked" class="button-flex button-default default">Is checkbox 1 checked and checkbox 2 unckecked</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandConformingString" class="flex-button button-accent-3 default">Does textbox 1 conform to an email address allowing for empty. Textbox 2 must contain a value.</button>
+					<button type="button" id="commandConformingString" class="button-flex button-default default">Does textbox 1 conform to an email address allowing for empty. Textbox 2 must contain a value.</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandNumericRange" class="flex-button button-accent-3 default">Is textbox 1 a numeric value in range 0.5 - 99.9 disallowing empty?</button>
+					<button type="button" id="commandNumericRange" class="button-flex button-default default">Is textbox 1 a numeric value in range 0.5 - 99.9 disallowing empty?</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandIntegerRange" class="flex-button button-accent-3 default">Is textbox 1 an integer value in range -20 - +20 disallowing empty? Checkbox 1 must not be checked.</button>
+					<button type="button" id="commandIntegerRange" class="button-flex button-default default">Is textbox 1 an integer value in range -20 - +20 disallowing empty? Checkbox 1 must not be checked.</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandValidateInteger" class="flex-button button-accent-3 default">Is textbox 1 an integer between 1 and 31 allowing empty? 'Albania' must be selected in list 1</button>
+					<button type="button" id="commandValidateInteger" class="button-flex button-default default">Is textbox 1 an integer between 1 and 31 allowing empty? 'Albania' must be selected in list 1</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandValidDate" class="flex-button button-accent-3 default">Is textbox 1 a valid date DD/MM/YYYY</button>
+					<button type="button" id="commandValidDate" class="button-flex button-default default">Is textbox 1 a valid date DD/MM/YYYY</button>
 				</div>
 			</div>
 
@@ -1662,85 +1669,85 @@
 		
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandRetrospectiveDate" class="flex-button button-accent-3 default">Is textbox 1 a retrospective date DD/MM/YYYY, and allowing empty.</button>
+					<button type="button" id="commandRetrospectiveDate" class="button-flex button-default default">Is textbox 1 a retrospective date DD/MM/YYYY, and allowing empty.</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandFutureDate" class="flex-button button-accent-3 default">Is textbox 1 a future date DD/MM/YYYY</button>
+					<button type="button" id="commandFutureDate" class="button-flex button-default default">Is textbox 1 a future date DD/MM/YYYY</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandDateGreaterThan" class="flex-button button-accent-3 default">Is textbox 2 > textbox 1 using format DD/MM/YYYY HH:mm:ss</button>
+					<button type="button" id="commandDateGreaterThan" class="button-flex button-default default">Is textbox 2 > textbox 1 using format DD/MM/YYYY HH:mm:ss</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandDisableTextboxConditionally" class="flex-button button-accent-3 default">Disable textbox 2 if textbox 1 contains 0, and set value with disabled text</button>
+					<button type="button" id="commandDisableTextboxConditionally" class="button-flex button-default default">Disable textbox 2 if textbox 1 contains 0, and set value with disabled text</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandEnableTextboxConditionally" class="flex-button button-accent-3 default">Enable textbox 3 if textbox 1 contains 0, and set value with enabled text</button>
+					<button type="button" id="commandEnableTextboxConditionally" class="button-flex button-default default">Enable textbox 3 if textbox 1 contains 0, and set value with enabled text</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandDisableWithValue" class="flex-button button-accent-3 default">Disable button 1 and set with value</button>
+					<button type="button" id="commandDisableWithValue" class="button-flex button-default default">Disable button 1 and set with value</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandEnableWithValue" class="flex-button button-accent-3 default">Enable button 1 and set with value</button>
+					<button type="button" id="commandEnableWithValue" class="button-flex button-default default">Enable button 1 and set with value</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandAddSelectOption" class="flex-button button-accent-3 default">Add option to dropdown list</button>
+					<button type="button" id="commandAddSelectOption" class="button-flex button-default default">Add option to dropdown list</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandInitialiseSelect" class="flex-button button-accent-3 default">Initialise the dropdown</button>
+					<button type="button" id="commandInitialiseSelect" class="button-flex button-default default">Initialise the dropdown</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandInitialiseSelect0WithClasses" class="flex-button button-accent-3 default">Initialise the dropdown stating 0 items and with css classes</button>
+					<button type="button" id="commandInitialiseSelect0WithClasses" class="button-flex button-default default">Initialise the dropdown stating 0 items and with css classes</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandInitialiseSelect1WithClasses" class="flex-button button-accent-3 default">Initialise the dropdown stating 1 item and with css classes</button>
+					<button type="button" id="commandInitialiseSelect1WithClasses" class="button-flex button-default default">Initialise the dropdown stating 1 item and with css classes</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandInitialiseSelect0WithClassesWithValues" class="flex-button button-accent-3 default">Initialise the dropdown stating 0 items, with css classes, and with available and unavailable text</button>
+					<button type="button" id="commandInitialiseSelect0WithClassesWithValues" class="button-flex button-default default">Initialise the dropdown stating 0 items, with css classes, and with available and unavailable text</button>
 				</div>
 			</div>
 
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandInitialiseSelect1WithClassesWithValues" class="flex-button button-accent-3 default">Initialise the dropdown stating 1 item, with css classes, and with available and unavailable text</button>
+					<button type="button" id="commandInitialiseSelect1WithClassesWithValues" class="button-flex button-default default">Initialise the dropdown stating 1 item, with css classes, and with available and unavailable text</button>
 				</div>
 			</div>
 			
 			<div class="content-row">
 				<div class="form-col-20">
-					<button type="button" id="commandSetSelectedIndex" class="flex-button button-accent-3 default">Set the dropdown selected index to 2</button>
+					<button type="button" id="commandSetSelectedIndex" class="button-flex button-default default">Set the dropdown selected index to 2</button>
 				</div>
 			</div>	
 			
