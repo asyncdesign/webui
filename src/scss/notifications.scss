@@ -1,0 +1,89 @@
+
+.notification-container {
+	width: 300px;
+	position: absolute;
+	@include layer-6();
+}
+.notification-item {
+	color: $theme_accent_3_foreground;
+	background: $theme_accent_3;
+	height: auto;	
+    opacity: 0.8;
+	border: none;
+	display: block;
+	position: relative;
+	margin: 0 0 12px 0;
+}
+.notification-type-success {
+	color: $theme_success_foreground;
+	background-color: $theme_success;
+}
+.notification-icon-success {
+	width: 32px;
+	height: 32px;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOBs0TtgAAAB4UExURf///4jMiIzJjI3HjY7MjpDPkJHMkZbNlpzYnJ3VnZ7Snp/Un6nQqarRqqvVq7Xgtbfdt7nbubnducTfxMblxsbmxsnoyc3ozdHs0dfp1tfs19ju2Ofz5+n06e737vL68vP58/b69vf79/n8+fv9+/3+/f7+/v////HkPhUAAAABdFJOUwBA5thmAAAAgElEQVQYGd3BRwKCQBBFwW/OOWdEZ979b2ijuBBpDkCVam126qjKFmjLN8Cs5YuYrlxXzFGuDeYuHxn5UsxSv/q3vXI7zEUFQKoPTFQR5qlMgpmq6IEJkuaYs/40yMSmIkYlRrxFzEJlhnwlKtcjJ08rkjnIF4CgKgEmqrQaq5Ze/GQTuDju9KQAAAAASUVORK5CYII=");
+}
+.notification-type-info {
+	color: $theme_info_foreground;
+	background-color: $theme_info;
+}
+.notification-icon-info {
+	width: 32px;
+	height: 32px;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOBs0TtgAAACHUExURf///4qK04uLxZGRzJGR1JaWw6CgzaGhxKOj1Ken2qmpza2t07Cw0LKy1LW137a24L2938PD5MTE4MXF28fH5snJ6c/P49bW6NbW7dfX6uLi8uPj8uTk7+Tk8Onp9ezs8+3t9e/v9fDw9vPz9/Pz+fT0+fj4+vj4/Pr6/Pz8/f7+/v7+/////y/+0fwAAAABdFJOUwBA5thmAAAAd0lEQVQYGc3BRRICURBEwYe7u/sAQ93/fPxmTbEjYjIpotJdmvHDS8kAq6qwx1MY4bVyac2fVZo4/eVVoYwx3Sg88RTGeAp4QyU3vIeSDp4C3krJDk+hhlVXkuMdlczxFOAy4bueAtszxkIfGU5b4YTXzXRoUEBvhdwTe1U5qkMAAAAASUVORK5CYII=");
+}
+.notification-type-warning {
+	color: $theme_warning_foreground;
+	background-color: $theme_warning;
+}
+.notification-icon-warning {
+	width: 32px;
+	height: 32px;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOBs0TtgAAAB1UExURf///+e7jOnFmOnInOrIne68je7Hm+7Jnu7Pp+7Wse7ZtfDgwvLVsPLauPLkyPXZtvXnzvbbufbdvfbkyPbu2/jjx/js2Pju2/jx4/nnz/ny5Pnz5/rv3vrv3/rw4fvz5vv06Pz48Pz59P379/79/P7+/v////vM4XgAAAABdFJOUwBA5thmAAAAcUlEQVQYGc3BNxbCUAxFwQs2YKLJOcN/+18iOuqlhsYzdM/qeluT+MoUQju5O5GT3INIK7chMpAbEpIj9pR5EZvJzEnIkClSIbOXDmRGUkNKIieRe4tcr+ZP/YrMUuZMqJZbEBnLbQl9ZAqJyfEypXN+DW0OoU8PJCQAAAAASUVORK5CYII=");
+}
+.notification-type-danger {
+	color: $theme_danger_foreground;
+	background-color: $theme_danger;
+}
+.notification-icon-danger {
+	width: 32px;
+	height: 32px;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOBs0TtgAAACuUExURf///75wcMVlZcmDg8qDg894eNOUlNSjo9uiotympt2lpd6iouKenuK+vuO2tuO4uOS2tuXBweeysui7u+q9veq+vurS0uvT0+zIyO3X1+3Y2O/Ly/LU1PLX1/PU1PPY2PPb2/Pd3fTl5fTm5vXp6fbp6fbs7Pfo6Pfr6/js7Pjy8vnt7fnx8fny8vru7vrw8Prx8fv09Pv29vz4+P36+v37+/78/P79/f7+/v///7s3L5AAAAABdFJOUwBA5thmAAAAp0lEQVQYGd3BV0LCUBQA0bFiF3sXO4gNG2T2vzFvePlIQuICOId5dK09/vFuGNHq0qkr2ugFHCktXvwk9B3RaEtvCKe6QZNv/SDc6g8N9g2EX3WXWWPDCiwaJsw4NNeFNXN71GXmvmBgLqPmwGRn3WSbqrE1Eyo2LTzeW+hQ9myyCssmT5SZPBDOTCgzuSMcm1D2ZrIEC5lTQyosnJ9kJtS8WjFkrvwB3FkyM6nSo6kAAAAASUVORK5CYII=");
+}
+.notification-icon-cancel {
+	width: 24px;
+	height: 24px;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOBs0TtgAAABRUExURf///+zs9vLy+fPz+PT0+vX1+vb2+fb2+vb2+/f3+vf3+/j4+/n5+/r6/Pz8/f7+/uzs9vPz+PPz+fPz+vX1+fX1+/f3+vv7/f7+/v7+//////Qla6IAAAAQdFJOUwD+/v7+/v7+/v7+/v7+/v7QI3kwAAAAY0lEQVQYGc3BaxaBUABG0S+EvE6JcOY/UK1+dWsC7Z1N45BJRQo/6TOqlMy9xT5p0UsKNXDeAU0WahUZsnJldM/aU/GWlUpFuiy06OchdilUQJOcgH3mlCGjo5KCTSavb7bsDyfFBirOMIPtAAAAAElFTkSuQmCC");
+}
+.notification-top-left {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+.notification-top-center {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    margin-left: -150px;
+}
+.notification-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.notification-bottom-left {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+}
+.notification-bottom-center {
+    position: fixed;
+    left: 50%;
+	bottom: 20px;
+    margin-left: -150px;
+}
+.notification-bottom-right {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}

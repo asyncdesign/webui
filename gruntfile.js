@@ -10,12 +10,18 @@ module.exports = function(grunt) {
 					compress: false,
 					preserveComments: "all"
 				},
-				src: "src/js/*.js",
-				dest: "dist/js/webui.js"			
+				files: {
+					"dist/js/webui.js" : "src/js/webui.js",
+					"dist/js/webui-utils.js" : "src/js/webui-utils.js",
+					"dist/js/webui-validation.js" : "src/js/webui-validation.js"
+				}
 			},
 			dist: {
-				src: "src/js/*.js",
-				dest: "dist/js/webui.min.js"
+				files: {
+					"dist/js/webui.min.js" : "src/js/webui.js",
+					"dist/js/webui-utils.min.js" : "src/js/webui-utils.js",
+					"dist/js/webui-validation.min.js" : "src/js/webui-validation.js"
+				}
 			}
 		},
 		sass: {
@@ -24,7 +30,7 @@ module.exports = function(grunt) {
 					outputStyle: "expanded"
 				},
 				files: {
-					"dist/css/webui.css" : "src/scss/webui-4.0.0.scss"
+					"dist/css/webui.css" : "src/scss/webui.scss"
 				}
 			},
 			dist: {
@@ -32,7 +38,7 @@ module.exports = function(grunt) {
 					outputStyle: "compressed"
 				},
 				files: {
-					"dist/css/webui.min.css" : "src/scss/webui-4.0.0.scss"
+					"dist/css/webui.min.css" : "src/scss/webui.scss"
 				}
 			}
 		},

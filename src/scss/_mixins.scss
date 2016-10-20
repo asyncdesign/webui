@@ -1,0 +1,34 @@
+
+// Mixins
+
+@mixin layer-1() {
+	z-index: 110;
+}
+@mixin layer-2() {
+	z-index: 120;
+}
+@mixin layer-3() {
+	z-index: 130;
+}
+@mixin layer-4() {
+	z-index: 140;
+}
+@mixin layer-5() {
+	z-index: 150;
+}
+@mixin layer-6() {
+	z-index: 160;
+}
+
+@mixin pointer-top($color) {
+	border-color: transparent transparent $color transparent;
+}
+@mixin pointer-right($color) {
+	border-color: transparent transparent transparent $color;
+}
+@mixin pointer-bottom($color) {
+	border-color: $color transparent transparent transparent;
+}
+@mixin pointer-left($color) {
+	border-color: transparent $color transparent transparent;
+}
