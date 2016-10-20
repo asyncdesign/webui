@@ -1,7 +1,7 @@
 
 ##
 
-<img src="images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
+<img src="assets/images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
 
 ## **Webui**
 
