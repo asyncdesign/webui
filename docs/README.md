@@ -1,90 +1,67 @@
-# minima
 
-*Minima is a one-size-fits-all Jekyll theme for writers*. It's Jekyll's default (and first) theme. It's what you get when you run `jekyll new`.
+##
 
-![minima theme preview](/screenshot.png)
+<img src="images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
 
-## Installation
+## **Webui**
 
-Add this line to your Jekyll site's Gemfile:
+*Web design made easy*
 
-```ruby
-gem "minima"
-```
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
+[![David](https://img.shields.io/david/strongloop/express.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/AFNetworking.svg?percent=60)]()
 
-And add this line to your Jekyll site:
 
-```yaml
-theme: minima
-```
+The purpose of webui is to offer an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a *Simplicity is the ultimate sophistication* approach, providing the tools and not the answer. Therefore, this framework supports responsive behaviour on any container or column. Complex data entry forms can be created in a precise layout with optional responsive containers or columns, whilst allowing the flexibility to create fixed non-responsive layouts or layout sections.
 
-And then execute:
+You won't find default gutters, negative margins, column offsets, pushing and pulling, etc.
 
-    $ bundle
-    
+**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
 
-## Usage
+### **Getting Started**
 
-### Customization
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.1.0.zip)
+* Extract the CSS and JavaScript files from the dist folder to your project folders.
+* You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later.
+* In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
 
-To override the default structure and style of minima, simply create the concerned directory at the root of your site, copy the file you wish to customize to that directory, and then edit the file.
-e.g., to override the [`_includes/head.html `](_includes/head.html) file to specify a custom style path, create an `_includes` directory, copy `_includes/head.html` from minima gem folder to `<yoursite>/_includes` and start editing that file.
+````html
+<html>
+<head>
+  <link rel="stylesheet" href="css/webui.min.css"> 
+</head>
+<body>
 
-The site's default CSS has now moved to a new place within the gem itself, [`assets/main.scss`](assets/main.scss). To **override the default CSS**, the file has to exist at your site source. Do either of the following:
-- Create a new instance of `main.scss` at site source.
-  - Create a new file `main.scss` at `<your-site>/assets/`
-  - Add the frontmatter dashes, and
-  - Add `@import "minima";`, to `<your-site>/assets/main.scss`
-  - Add your custom CSS.
-- Download the file from this repo
-  - Create  a new file `main.scss` at `<your-site>/assets/`
-  - Copy the contents at [assets/main.scss](assets/main.scss) onto the `main.scss` you just created, and edit away!
-- Copy directly from Minima 2.0 gem
-  - Go to your local minima gem installation directory ( run `bundle show minima` to get the path to it ).
-  - Copy the `assets/` folder from there into the root of `<your-site>`
-  - Change whatever values you want, inside `<your-site>/assets/main.scss`
+  <script src="js/jquery-2.2.0.min.js"></script>
+  <script src="js/webui.min.js"></script>
+</body>
+</html>
+````
 
---
+That's it. You are ready to start developing with Webui.
 
-### Enabling comments (via Disqus)
+If you want to download and build the project please see detailed instructions on cloning the Git repository and performing builds see the [Cloning the repository](DOCUMENTATION.md#cloneRepository) and [Performing builds](DOCUMENTATION.md#performBuilds) sections.
 
-Optionally, if you have a Disqus account, you can tell Jekyll to use it to show a comments section below each post.
+### **Creating page layouts**
 
-To enable it, add the following lines to your Jekyll site:
+Webui uses a 20 column grid system to create layouts. In general, each row will contain from 1 to 20 columns, and each column can contain any other content. Most likely you will be using a shared layout to display common parts of your website. Here is a quick example of a shared layout structure with a container and some rows and columns:
 
-```yaml
-  disqus:
-    shortname: my_disqus_shortname
-```
+````html
+<div class="container">
+  <div class="form-row">
+    <div class="form-col-20">
+      <!-- Your heading goes here -->
+    </div>  
+  </div>
+  <div class="form-row">
+    <div class="form-col-4">
+      <!-- Your left navigation goes here -->
+    </div>
+    <div class="form-col-16">
+      <!-- Your main content goes here -->
+    </div>
+  </div>
+</div>
+````
 
-You can find out more about Disqus' shortnames [here](https://help.disqus.com/customer/portal/articles/466208).
-
-Comments are enabled by default and will only appear in production, i.e., `JEKYLL_ENV=production`
-
-If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
-
---
-
-### Enabling Google Analytics
-
-To enable Google Anaytics, add the following lines to your Jekyll site:
-
-```yaml
-  google_analytics: UA-NNNNNNNN-N
-```
-
-Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/jekyll/minima. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-To test your theme, run `bundle exec rake preview` and open your browser at `http://localhost:4000/minima/`. This starts a Jekyll server using your theme and the contents of the `example/` directory. As you make modifications to your theme and to the example site, your site will regenerate and you should see the changes in the browser after a refresh.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
