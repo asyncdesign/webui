@@ -1,7 +1,7 @@
 
 ##
 
-<img src="assets/images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
+<img src="{{ site.baseurl }}/assets/images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
 
 ## **Webui**
 
@@ -16,7 +16,7 @@ The purpose of webui is to offer an alternative to larger frameworks, providing 
 
 You won't find default gutters, negative margins, column offsets, pushing and pulling, etc.
 
-**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
 
 ### **Getting Started**
 
@@ -64,4 +64,4 @@ Webui uses a 20 column grid system to create layouts. In general, each row will 
 </div>
 ````
 
-**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
