@@ -16,11 +16,11 @@ The purpose of webui is to offer an alternative to larger frameworks, providing 
 
 You won't find default gutters, negative margins, column offsets, pushing and pulling, etc.
 
-**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
 
 ### **Getting Started**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.1.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.2.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -64,4 +64,4 @@ Webui uses a 20 column grid system to create layouts. In general, each row will 
 </div>
 ````
 
-**Check out the [full documentation](https://github.com/asyncdesign/webui/blob/master/docs/index.html) to learn more about webui**
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
