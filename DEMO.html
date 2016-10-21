@@ -1540,14 +1540,16 @@
 </div>
 
 <div id="dialog1" class="dialog-modal">
-	<div class="dialog-xs dialog-animate">		
-		<div class="dialog-content panel background-primary raised">
+	<div class="dialog-md dialog-animate">		
+		<div class="dialog-content background-primary raised">
 			<div class="form-row text-lg">
-				<div class="form-col-17">
-					Popups
-				</div>
-				<div class="form-col-3 align-right">
-					<a href="javascript:void(0)"><i id="commandHidePopup1" class="fa fa-close color-accent-1 color-hover-accent-2"></i></a>
+				<div class="form-col-20 background-secondary">
+					<div class="form-col-17 col-spacing-left-sm">
+						Popups
+					</div>
+					<div class="form-col-3 col-spacing-right-sm align-right">
+						<a href="javascript:void(0)"><i onclick="ui.toggleControl($('#dialog1'))" class="fa fa-close color-accent-1 color-hover-accent-2"></i></a>
+					</div>
 				</div>
 			</div>
 			<div class="form-row">
@@ -1555,11 +1557,19 @@
 					<div class="area">
 						<div class="row-spacing-xs"></div>
 						<div class="content-row">
-							<div class="content-col">
-								Create responsive modal dialogs, and optionally add animation effects.
+							<div class="content-col-20">
+								Create responsive modal dialogs, and optionally add animation.
+							</div>
+						</div>
+						<div class="content-row">
+							<div class="content-col col-spacing-right-md place-bottom-right">
+								<button type="button" class="button-sm button-info width-4">Save</button>
+								<button type="button" onclick="ui.toggleControl($('#dialog1'))" class="button-sm button-accent-4 width-4">Cancel</button>
+								<div class="row-spacing-sm"></div>
 							</div>
 						</div>
 					</div>
+						
 				</div>
 			</div>
 		</div>
@@ -1822,9 +1832,9 @@
 			 $("#dialog1").show();
 		});
 		
-		$("#commandHidePopup1").click( function() { 
-			 $("#dialog1").hide();
-		});
+		//$("#commandHidePopup1").click( function() { 
+		//	 $("#dialog1").hide();
+		//});
 		
 		
 		ui.toggleVisibleControl("box1", ["box2", "box3", "box4", "box5"]);
