@@ -12,9 +12,9 @@
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/AFNetworking.svg?percent=60)]()
 
 
-The purpose of webui is to offer an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a *Simplicity is the ultimate sophistication* approach, providing the tools and not the answer. Therefore, this framework supports responsive behaviour on any container or column. Complex data entry forms can be created in a precise layout with optional responsive containers or columns, whilst allowing the flexibility to create fixed non-responsive layouts or layout sections.
+The purpose of webui is to offer an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a <span class="color-accent-2">"Simplicity is the ultimate sophistication"</span> approach, providing simple building blocks to contruct much larger CSS components without the pain. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
 
-You won't find default gutters, negative margins, column offsets, pushing and pulling, etc.
+Webui allows you to create your web app without getting distracted by complexity.
 
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
 
