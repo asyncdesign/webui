@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
 	<meta charset="UTF-8">
@@ -28,7 +28,7 @@
 			<div class="row-spacing-sm"></div>
 			<div class="content-row move-right respond-md">
 				<div class="content-col-5">
-					<img src="images/webui_blue_64x64.png" />
+					<img src="images/webui_blue_64x64.png" alt="Media" />
 				</div>
 			</div>
 			<div class="content-row move-right respond-md">
@@ -199,14 +199,16 @@
 		<div class="form-col-9 respond-xl">
 			<div class="form-row">
 				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					<div class="content-col">
-						First name
-					</div>
-					<div class="content-col text-xl color-danger col-spacing-sm">
-						*
+					<div class="content-col width-5">
+						<div class="content-col">
+							First name
+						</div>
+						<div class="content-col text-xl color-danger col-spacing-sm">
+							*
+						</div>
 					</div>
 				</div>
-				<div class="form-col-10 respond-xl">
+				<div class="form-col-15 respond-md">
 					<div class="tooltip">
 						<div class="tooltip-focus tooltip-bottom tooltip-sm tooltip-animate tooltip-danger rounded-md">
 							First name is required.
@@ -214,17 +216,16 @@
 						<input id="FirstName" type="text" class="input-sm width-10 rounded-sm" />
 					</div>				
 				</div>
-				<div class="form-col respond-md">
-					<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm">Find Patient</button>
-				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-col-5 form-col-label-sm respond-md">
-					<div class="content-col">
-						Last name
-					</div>
-					<div class="content-col text-xl color-danger col-spacing-sm">
-						*
+					<div class="content-col width-5">
+						<div class="content-col">
+							Last name
+						</div>
+						<div class="content-col text-xl color-danger col-spacing-sm">
+							*
+						</div>
 					</div>
 				</div>
 				<div class="form-col-15 respond-md">
@@ -290,7 +291,15 @@
 						<option value="4">Other</option>
 					</select>
 				</div>
-			</div>					
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-sm respond-md">
+						<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm">Find Patient</button>
+				</div>
+				<div class="form-col-15 respond-md">             
+					
+				</div>
+			</div>			
 			<div class="form-row-empty-sm"></div>
 			<div class="form-row">
 				<div class="form-col-5 respond-md">
@@ -429,11 +438,8 @@
 				<div class="form-col-5 form-col-label-bold-sm respond-md">
 					GP name
 				</div>
-				<div class="form-col-10 respond-xl">
+				<div class="form-col-15 respond-md">
 					<input id="GpName" type="text" class="input-sm width-10 rounded-sm" />  
-				</div>
-				<div class="form-col respond-md">
-					<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm">Find GP</button>
 				</div>
 			</div>
 			<div class="form-row">
@@ -457,7 +463,7 @@
 					Address
 				</div>
 				<div class="form-col-15 respond-md">
-					<textarea id="Address" rows="3" class="control width-10 rounded-sm"></textarea>
+					<textarea id="GpAddress" rows="3" class="control width-10 rounded-sm"></textarea>
 				</div>
 			</div>
 			<div class="form-row">
@@ -465,7 +471,7 @@
 					Town / City
 				</div>
 				<div class="form-col-15 respond-md">
-					<input id="TownCity" type="text" class="input-sm width-10 rounded-sm" />  
+					<input id="GpTownCity" type="text" class="input-sm width-10 rounded-sm" />  
 				</div>
 			</div>
 			<div class="form-row">
@@ -473,7 +479,15 @@
 					Postcode
 				</div>
 				<div class="form-col-15 respond-md">
-					<input id="Postcode" type="text" class="input-sm width-3 rounded-sm" />  
+					<input id="GpPostcode" type="text" class="input-sm width-3 rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-sm respond-md">
+						<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm">Find GP</button>
+				</div>
+				<div class="form-col-15 respond-md">
+					 
 				</div>
 			</div>
 			<div class="form-row-empty-sm"></div>
@@ -545,7 +559,7 @@
 						<div class="tooltip-static tooltip-right tooltip-lg tooltip-animate tooltip-accent-2 rounded-md">
 							
 						</div>
-						<button id="commandShowPopup1" type="button" class="button-sm button-accent-1 rounded-sm">Show popup</label>
+						<button id="commandShowPopup1" type="button" class="button-sm button-accent-1 rounded-sm">Show popup</button>
 					</div>								
 				</div>
 			</div>
@@ -653,44 +667,44 @@
 				<div class="table-row table-adjust-img-64">
 					<div class="table-col-5">John Doe</div>
 					<div class="table-col-6">Management</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Steven Jones</div>
 					<div class="table-col-6">Development</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Sara O'Keefe</div>
 					<div class="table-col-6">Accounting</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Debora Kaine</div>
 					<div class="table-col-6">CEO</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Matt Williams</div>
 					<div class="table-col-6">Development</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Gareth Brown</div>
 					<div class="table-col-6">Management</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 				<div class="table-row">
 					<div class="table-col-5">Jack Taylor</div>
 					<div class="table-col-6">Support</div>
-					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" /></a></div>
-					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" /></a></div>
+					<div class="table-col-4"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" class="image" alt="Media" /></a></div>
+					<div class="table-col-5"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" class="image" alt="Media" /></a></div>
 				</div>
 			</div>
 			<div class="show-xs">
@@ -706,11 +720,11 @@
 					</div>
 					<div class="table-row table-adjust-img-64">
 						<div class="table-col-10 accent-1">Experience</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" alt="Media" /></a></div>
 					</div>
 					<div class="table-row table-adjust-img-64">
 						<div class="table-col-10 accent-1">CV</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/webui_blue_64x64.png" alt="Media" /></a></div>
 					</div>
 				</div>
 				
@@ -727,11 +741,11 @@
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">Experience</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">CV</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 				</div>
 				
@@ -748,11 +762,11 @@
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">Experience</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">CV</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 				</div>
 				
@@ -769,11 +783,11 @@
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">Experience</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/info_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 					<div class="table-row">
 						<div class="table-col-10 accent-1">CV</div>
-						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" /></a></div>
+						<div class="table-col-10"><a href="javascript:void(0)"><img src="images/document_blue_16x16.png" alt="Media" /></a></div>
 					</div>
 				</div>
 			</div>
@@ -943,7 +957,7 @@
 											<div class="form-col-eq-3">
 												<div class="panel">
 													<span class="text-lg color-accent">Heading 1</span>
-													<ul class="list">
+													<ul class="list" role="menu">
 														<li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-2"><i class="fa fa-dot-circle-o"></i><span class="col-spacing-md">Item 1</span></a></li>
 														<li role="menuitem"><a href="#">Item 2</a></li>
 														<li role="menuitem"><a href="#">Item 3</a></li>
@@ -957,7 +971,7 @@
 											<div class="form-col-eq-3" style="border-left: 1px solid #bbb">
 												<div class="panel">
 													<span class="text-lg color-accent">Heading 2</span>
-													<ul class="list">
+													<ul class="list" role="menu">
 														<li role="menuitem"><a href="#">Item 1</a></li>
 														<li role="menuitem"><a href="#">Item 2</a></li>
 														<li role="menuitem"><a href="#">Item 3</a></li>
@@ -971,7 +985,7 @@
 											<div class="form-col-eq-3" style="border-left: 1px solid #bbb">
 												<div class="panel">
 													<span class="text-lg color-accent">Heading 3</span>
-													<ul class="list">
+													<ul class="list" role="menu">
 														<li role="menuitem"><a href="#">Item 1</a></li>
 														<li role="menuitem"><a href="#">Item 2</a></li>
 														<li role="menuitem"><a href="#">Item 3</a></li>
@@ -1037,7 +1051,7 @@
 												<div class="form-col-eq-3 respond-md">
 													<div class="panel">
 														<span class="text-lg color-accent-1">Heading 1</span>
-														<ul class="list">
+														<ul class="list" role="menu">
 															<li role="menuitem"><a href="#" class="text-md color-accent-4"><i class="fa fa-dot-circle-o"></i><span class="col-spacing-md">Item 1</span></a></li>
 															<li role="menuitem"><a href="#">Item 2</a></li>
 															<li role="menuitem"><a href="#">Item 3</a></li>
@@ -1052,7 +1066,7 @@
 													<div class="panel">
 														<hr />
 														<span class="text-lg color-accent-1">Heading 2</span>
-														<ul class="list">
+														<ul class="list" role="menu">
 															<li role="menuitem"><a href="#">Item 1</a></li>
 															<li role="menuitem"><a href="#">Item 2</a></li>
 															<li role="menuitem"><a href="#">Item 3</a></li>
@@ -1067,7 +1081,7 @@
 													<div class="panel">
 														<hr />
 														<span class="text-lg color-accent-1">Heading 3</span>
-														<ul class="list">
+														<ul class="list" role="menu">
 															<li role="menuitem"><a href="#">Item 1</a></li>
 															<li role="menuitem"><a href="#">Item 2</a></li>
 															<li role="menuitem"><a href="#">Item 3</a></li>
@@ -1279,7 +1293,7 @@
 										<div class="tooltip-dynamic tooltip-left tooltip-sm tooltip-animate tooltip-default rounded-md">
 											Castle 1
 										</div>
-										<img src="images/scotland2.png" width="85" height="75" />
+										<img src="images/scotland2.png" width="85" height="75" alt="Media" />
 									</div>								
 								</div>
 								<div class="container move-right-stacked hide-xs">
@@ -1287,7 +1301,7 @@
 										<div class="tooltip-dynamic tooltip-left tooltip-sm tooltip-animate tooltip-default rounded-md">
 											Castle 2
 										</div>
-										<img src="images/scotland3.png" width="85" height="75" />										
+										<img src="images/scotland3.png" width="85" height="75" alt="Media" />										
 									</div>
 								</div>
 								<div class="container show-xs">
@@ -1299,7 +1313,7 @@
 														<div class="tooltip-dynamic tooltip-top tooltip-sm tooltip-animate tooltip-default rounded-md">
 															Castle 1
 														</div>
-														<img src="images/scotland2.png" width="85" height="75" />
+														<img src="images/scotland2.png" width="85" height="75" alt="Media" />
 													</div>								
 												</div>
 											</div>
@@ -1309,7 +1323,7 @@
 														<div class="tooltip-dynamic tooltip-bottom tooltip-sm tooltip-animate tooltip-default rounded-md">
 															Castle 2
 														</div>
-														<img src="images/scotland3.png" width="85" height="75" />										
+														<img src="images/scotland3.png" width="85" height="75" alt="Media" />										
 													</div>
 												</div>
 											</div>
@@ -1557,7 +1571,7 @@
 					<div class="area">
 						<div class="row-spacing-xs"></div>
 						<div class="content-row">
-							<div class="content-col-20 height-20">
+							<div class="content-col-20">
 								Create responsive modal dialogs, and optionally add animation.
 							</div>
 						</div>

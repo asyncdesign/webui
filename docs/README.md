@@ -101,7 +101,7 @@ You may prefer a bootstrap style centered layout, and you can easily do that wit
   </div>
 </div>
 ````
-This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes.
+This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just inside the second column of the second row.
 
 <img src="assets/images/centered_layout.png" />
 

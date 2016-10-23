@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 4.2.1
-* Author: Levi Keogh, 2016-10-21
+* Version: 4.2.2
+* Author: Levi Keogh, 2016-10-23
 */
 
 "use strict";
@@ -1489,6 +1489,6 @@
 	ui.SHADOW_BOTTOM = 3;
 	
 	
-	ui.version = "webui-4.2.1";
+	ui.version = "webui-4.2.2";
 
 }( window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery ));
