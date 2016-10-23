@@ -47,19 +47,67 @@ Webui uses a 20 column grid system to create layouts. In general, each row will 
 ````html
 <div class="container">
   <div class="form-row">
-    <div class="form-col-20">
-      <!-- Your heading goes here -->
+    <div class="form-col-20 align-center respond-md">
+      <div class="panel secondary">
+        Heading
+      </div>
     </div>  
   </div>
   <div class="form-row">
-    <div class="form-col-4">
-      <!-- Your left navigation goes here -->
+    <div class="form-col-4 respond-md">
+      <div class="panel secondary height-10">
+        Navigation
+      </div>
     </div>
-    <div class="form-col-16">
-      <!-- Your main content goes here -->
+    <div class="form-col-16 respond-md">
+      <div class="panel secondary height-10">
+        Main content
+      </div>
     </div>
   </div>
 </div>
 ````
+The respond-md class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. You won't normally need the height-10 class as it's just added here to give some height in the browser for the screenshot, but it is a class that is available in Webui. Then, within each column there is a panel container using the secondary foreground and background theme colors. 
+
+Here is the result of the above code in the browser.
+
+<img src="images/basic_layout.png" />
+
+When the screen width is reduced to the medium breakpoint size it would appear as follows. 
+
+<img src="images/basic_layout_breakpoint.png" />
+
+You may prefer a bootstrap style centered layout, and you can easily do that with the the code below.
+
+````html
+<div class="container">
+  <div class="content-row menu-bar-sm default align-center">
+    <div class="content-row">   
+      <div class="form-col-20 form-col-align-sm">
+        Menu bar
+      </div>
+    </div>
+  </div>
+  <div class="content-row"> 
+    <div class="content-col-3 respond-md">      
+    </div>
+    <div class="content-col-14 height-10 secondary respond-md">
+      <div class="area">
+        Page content
+      </div>
+    </div>
+    <div class="content-col-3 respond-md">      
+    </div>
+  </div>
+</div>
+````
+This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just inside the second column of the second row.
+
+<img src="images/centered_layout.png" />
+
+Then, at a medium screen size it would look like this
+
+<img src="images/centered_layout_breakpoint.png" />
 
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
+
