@@ -28,29 +28,33 @@
 				<div class="content-col-20 default">
 					<div class="container hide-md">
 						<div class="content-row menu-bar primary raised">
-							<div class="content-col width-10">
+							<div class="content-col width-xl">
 								<div class="content-row">
 									<div class="content-col-6 col-spacing-sm content-col-align-sm">
 										<img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
 									</div>
-									<div class="content-col-14 text-xl text-bold color-accent-4 content-col-align-md">
+									<div class="content-col-14 text-xl text-bold color-accent-1 content-col-align-md">
 										Webui
 									</div>
 								</div>
 							</div>
-							<div class="content-col width-5">
+							<div class="content-col col-spacing-right-md">
 								<div class="dropdown">
 									<button type="button" class="menu-button button-primary align-left" id="menuButtonHome">Main</button>
 								</div>			
 							</div>
-							<div class="content-col width-7">
+							<div class="content-col col-spacing-right-md">							
 								<div class="dropdown">
 									<button type="button" class="menu-button button-primary align-left" id="menuButtonDocumentation">Documentation</button>
-								</div>			
+								</div>						
 							</div>					
-							<div class="content-col width-7">
+							<div class="content-col">
 								<div class="dropdown">
-									<button type="button" class="menu-button button-primary align-left" id="menuButtonExamples">Examples</button>
+									<button type="button" class="menu-activator-dynamic menu-button button-default align-left" id="menuButtonExamples">Examples</button>
+									<div class="dropdown-content menu-close default width-lg">
+										<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default align-left"><span class="col-spacing-left-xs">Forms</span></button>
+										<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default align-left"><span class="col-spacing-left-xs">Cards</span></button>
+									</div>
 								</div>			
 							</div>
 							<div class="content-col">
@@ -67,7 +71,7 @@
 							<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-primary content-col-align-sm col-spacing-right-md move-right"></i></a>
 							<a href="https://mobile.twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md move-right"></i></a>						
 
-							<button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-1 width-2"><i class="fa fa-bars"></i></button>
+							<button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-1 width-7"><i class="fa fa-bars"></i></button>
 							<div class="dropdown-content menu-inclusive default width-full">
 								<div class="content-row">
 									<div class="content-col width-full">
@@ -98,6 +102,7 @@
 										</div>
 										<button class="menu-activator menu-button-sm button-default align-left" id="menuButtonExamplesMobile">Examples</button>					
 										<div class="dropdown-content-expand menu-close accent-4 width-full">
+											<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
 											<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
 										</div>
 
@@ -114,7 +119,7 @@
     
 <div class="container text-xl" id="pageDocumentation">
 	<div class="content-row">
-		<div class="content-col default width-11 translucent-3 hide-md" id="leftPanel">
+		<div class="content-col default width-xl translucent-3 hide-md" id="leftPanel">
 			<div class="content-row">
 				<div class="content-col-20 accent-1 hide-md" id="leftHeaderPanel">
 
@@ -122,10 +127,10 @@
 			</div>
 
 			<div class="content-row">
-				<div class="content-col text-sm default width-11" id="leftMenuColumn">
+				<div class="content-col text-sm default width-xl" id="leftMenuColumn">
 					<div class="row-spacing-xl"></div>
 					
-					<button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-1"></i>Documentation</button>
+					<button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
 					<div class="dropdown-content-expand accent-4 width-full" id="dropdownDocumentation">
 						<button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
 						<button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
@@ -143,15 +148,16 @@
 						<button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
 						<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
 					</div>
-					<button id="sideNavButtonExamples" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-1"></i>Examples</button>
+					<button id="sideNavButtonExamples" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
 					<div class="dropdown-content-expand accent-4 width-full">
+						<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
 						<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
 					</div>
 				</div>
 			</div>
 		</div>
 									
-		<div class="content-col width-adjacent-11 width-respond-md text-sm" id="rightPanel">
+		<div class="content-col width-adjacent-xl width-respond-md text-sm" id="rightPanel">
 			<div class="content-row">
 				<div class="content-col-20 background-secondary hide-md" id="rightHeaderPanel">
 							
@@ -159,7 +165,7 @@
 						<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-animate tooltip-default text-sm rounded-md">
 							<span class="col-spacing-xs">Toggle menu.</span>
 						</div>
-						<button class="menu-button button-secondary width-2 align-left" id="menuShrink"><i class="fa fa-bars"></i></button>
+						<button class="menu-button button-secondary align-left" id="menuShrink"><i class="fa fa-bars"></i></button>
 					</div>				
 					
 					<span class="col-spacing-right-lg move-right">&nbsp;</span>
@@ -235,7 +241,7 @@
 <div class="container color-muted show-md height-2">
 	<div class="content-row">
 		<div class="form-col-20">
-			<button onclick="location.href='#top'" class="menu-button button-accent-2 width-3 translucent-6 dock-bottom-right" id="buttonPageTop">TOP</button>
+			<button onclick="location.href='#top'" class="menu-button button-accent-2 width-7 translucent-6 dock-bottom-right" id="buttonPageTop">TOP</button>
 		</div>
 	</div>
 </div>
@@ -290,16 +296,16 @@
         
         $("#menuShrink").click( function() { 
           
-          if ($("#leftPanel").hasClass("width-11")) {
+          if ($("#leftPanel").hasClass("width-xl")) {
             $("#leftPanel").addClass("hidden");
-            $("#leftPanel").removeClass("width-11");
+            $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
-            $("#rightPanel").removeClass("width-adjacent-11");	
+            $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
             $("#leftPanel").removeClass("hidden");
-            $("#leftPanel").addClass("width-11");
-            $("#rightPanel").addClass("width-adjacent-11");
+            $("#leftPanel").addClass("width-xl");
+            $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
           }
         });			

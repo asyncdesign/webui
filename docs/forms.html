@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/dialogs.html">
+  <link rel="canonical" href="http://localhost:4000/webui/forms.html">
   <link rel="alternate" type="application/rss+xml" title="webui" href="/webui/feed.xml">
   
   
@@ -181,114 +181,319 @@
     <div class="content-row">
       <div class="content-col-20">
         <div class="area background-primary color-accent-4 scroll-y" id="mainContentContainer">
-          											<p id="cloneRepository" class="text-lg color-accent-3 text-bold">
-												Dialogs<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
-											</p>
-											<div class="content-row">
-												<div class="content-col-20">
-													<p><b>Setting up a modal dialog</b></p>
-													<div class="body">
-														<p>Webui allows you to easily create responsive model dialogs in 3 different sizes: small, medium, and large. Modal dialogs are positioned at the center of the screen and will be fixed in that position regardless of the browser viewport. You can override the positioning using your own css or by using Webui positioning classes. These dialogs are responsive out of the box, so the width and height will adjust according to the available screen area - this is so that a dialog can never go off screen. As far as the dialog content goes there is no special layout for dialogs, so you can design your dialog how you want it. However, it's always best to design your layout to suit the initial dialog sizes. But if you need more height and you don't mind a vertical scrollbar, then you can add as much as you wish.</p>
-														
-														<p>Here is an example dialog with a heading, content area, and some buttons.</p>
-														
-<div class="row-spacing-md"></div>
-<div id="snippet40" class="area background-default color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-</pre>
-</div>
-<div class="content-col-18">
-<pre>&lt;div id="dialog1" class="dialog-modal"&gt;
-  &lt;div class="dialog-md dialog-animate"&gt;        
-    &lt;div class="dialog-content background-primary raised"&gt;
-      &lt;div class="form-row text-lg"&gt;
-        &lt;div class="form-col-20 background-secondary"&gt;
-          &lt;div class="form-col-17 col-spacing-left-sm"&gt;
-            Popups
-          &lt;/div&gt;
-          &lt;div class="form-col-3 col-spacing-right-sm align-right"&gt;
-            &lt;a href="javascript:void(0)"&gt;&lt;i onclick="ui.toggleControl($('#dialog1'))" class="fa fa-close color-accent-1 color-hover-accent-2"&gt;&lt;/i&gt;&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="form-row"&gt;
-        &lt;div class="form-col-20"&gt;
-          &lt;div class="area"&gt;
-            &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
-              &lt;div class="content-row"&gt;
-              &lt;div class="content-col-20"&gt;
-                Create responsive modal dialogs, and optionally add animation.
-              &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class="content-row"&gt;
-              &lt;div class="content-col col-spacing-right-md place-bottom-right"&gt;
-                &lt;button type="button" class="button-sm button-info width-4"&gt;Save&lt;/button&gt;
-                &lt;button type="button" onclick="ui.toggleControl($('#dialog1'))" class="button-sm button-accent-4 width-4"&gt;Cancel&lt;/button&gt;
-                &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
+          <div class="panel text-sm color-default">
 
-
-														<p>Let's go through the code above. The first line is where the wrapper is defined for the modal - that's actually the overlay that you see covering the page behind. Then on line 02, the actual modal dialog is defined at the size we want, in this case the class dialog-md is a medium size. You may notice the dialog-animate class also, which just makes the dialog fade in and out. The final part is the dialog content, where the class dialog-content is applied. There is also a backgound color set using the primary theme color, in this case it's white. The rest of the markup is entirely your choice, but it's worth taking a closer look at how we open and close the dialog and at some of the classes used in the above example.</p>
-                            <p>So to open the dialog it's just a case of adding an id to the outer wrapper and calling ui.toggleControl and passing in the id or the object, or you can just use jquery to show it. You will also see that ui.toggleControl is used for closing the dialog too.</p>
-														<p>In the above example, there are a few spacing and positioning classes of interest. On line 06 the class col-spacing-left-sm is used - this just moves the text away from the left of the heading, and we do something similar for the small X button in the top right. Finally, an important class used here is place-bottom-right - this positions the buttons at the bottom right of the dialog, but some space is needed between the buttons and the bottom edge, so just add some row spacing. If the content of the dialog is longer than the dialog itself, the positioned buttons will stay exactly where you put them relative to the dialog view window.</p>
-														
-
-                            <p>This is how the markup above would look in the browser.</p>
-														
-														<img src="/webui/assets/images/screenshot40.png" class="image border-accent-4" alt="Media" />
-
-													
-													</div>										
-												</div>
-											</div>
+	<form>		
+	<div class="form-row">
+		<div class="form-col-2 respond-xl">
+		</div>
+		<div class="form-col-9 respond-xl">
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					<div class="content-col width-8">
+						<div class="content-col">
+							First name
+						</div>
+						<div class="content-col text-xl color-danger col-spacing-sm">
+							*
+						</div>
+					</div>
+				</div>
+				<div class="form-col-15 respond-md">
+					<div class="tooltip">
+						<input id="FirstName" type="text" class="input-sm width-xl rounded-sm" />
+					</div>				
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					<div class="content-col width-8">
+						<div class="content-col">
+							Last name
+						</div>
+						<div class="content-col text-xl color-danger col-spacing-sm">
+							*
+						</div>
+					</div>
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="LastName" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Company
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="Company" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Address
+				</div>
+				<div class="form-col-15 respond-md">
+					<textarea id="Address" rows="3" class="control width-xl rounded-sm"></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Town / City
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="TownCity" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm label-required respond-md">
+					Postcode
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="Postcode" type="text" class="input-sm width-md rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Telephone
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="Telephone" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Date of birth
+				</div>
+				<div class="form-col-15 respond-md">             
+					<input id="DateOfBirth" type="text" class="input-sm width-8 rounded-sm" />
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Gender
+				</div>
+				<div class="form-col-15 respond-md">             
+					<select id="Gender" class="input-sm width-8 rounded-sm">
+						<option value="1">Male</option>
+						<option value="3">Female</option>
+						<option value="4">Other</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 respond-md">
+						<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm">Find Patient</button>
+				</div>
+				<div class="form-col-15 respond-md">             
+					
+				</div>
+			</div>			
+			<div class="form-row-empty-sm"></div>
+			<div class="form-row">
+				<div class="form-col-5 respond-md">
+					<span class=" color-accent-4 text-lg form-col-align-sm">Questionnaire</span>
+				</div>
+				<div class="form-col respond-md">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Vaccinations
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="checkbox-sm rounded-sm">
+							  <input type="checkbox" value="" id="checkboxHepatitis" />
+							  <label for="checkboxHepatitis"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>Hep</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="checkbox-sm rounded-sm">
+							  <input type="checkbox" value="" id="checkboxTetanus" />
+							  <label for="checkboxTetanus"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>Tet</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="checkbox-sm rounded-sm">
+							  <input type="checkbox" value="" id="checkboxTyphoid" />
+							  <label for="checkboxTyphoid"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>Typ</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row-empty-sm"></div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Alcohol
+				</div>
+				<div class="form-col-3 respond-md">             
+					<input id="Alcohol" type="number" class="input-sm width-md rounded-sm" />	
+					(units per week)
+				</div>
+				<div class="form-col respond-md">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Smoking
+				</div>
+				<div class="form-col-3 respond-md">             
+					<input id="Smoking" type="number" class="input-sm width-md rounded-sm" />	
+					(cigarettes per day)
+				</div>
+				<div class="form-col respond-md">
+				</div>
+			</div>
+			<div class="form-row-empty-sm"></div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Time excercising
+				</div>
+				<div class="form-col-4 respond-md">             
+					<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm" />
+					(per week)
+				</div>
+				<div class="form-col respond-md">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Sleep (Hours)
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="radio-sm">
+							  <input type="radio" value="1" name="sleep" id="radio4" />
+							  <label for="radio4"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>4</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="radio-sm">
+							  <input type="radio" value="2" name="sleep" id="radio6" />
+							  <label for="radio6"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>6</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-col width-8 form-col-align-sm respond-md">
+					<div class="content-row">
+						<div class="content-col width-6">
+							<div class="radio-sm">
+							  <input type="radio" value="3" name="sleep" id="radio8" />
+							  <label for="radio8"></label>				  	
+							</div>
+						</div>
+						<div class="content-col">
+							<span>8</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-spacing-xl"></div>
+		</div>
+		<div class="form-col-9 respond-xl">
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					GP name
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="GpName" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					GP code
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="GpCode" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Surgery
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="Surgery" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Address
+				</div>
+				<div class="form-col-15 respond-md">
+					<textarea id="GpAddress" rows="3" class="control width-xl rounded-sm"></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Town / City
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="GpTownCity" type="text" class="input-sm width-xl rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 form-col-label-bold-sm respond-md">
+					Postcode
+				</div>
+				<div class="form-col-15 respond-md">
+					<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />  
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-5 respond-md">
+						<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm">Find GP</button>
+				</div>
+				<div class="form-col-15 respond-md">
+					 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-col-2 respond-xl">
+		</div>
+		<div class="form-col-9">
+			<div class="form-row">
+				<div class="form-col">
+					<button id="Save" type="button" class="button-sm button-disabled rounded-sm">Save</button>
+				</div>
+			</div>			
+		</div>
+	</div>
+	</form>
+	
+</div>
 
         </div>
       </div>
