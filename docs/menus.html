@@ -50,10 +50,15 @@
 							</div>					
 							<div class="content-col">
 								<div class="dropdown">
-									<button type="button" class="menu-activator-dynamic menu-button button-default align-left" id="menuButtonExamples">Examples</button>
-									<div class="dropdown-content menu-close default width-lg">
-										<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default align-left"><span class="col-spacing-left-xs">Forms</span></button>
-										<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default align-left"><span class="col-spacing-left-xs">Cards</span></button>
+									<button type="button" class="menu-activator-dynamic menu-button button-default align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
+									<div class="dropdown-content menu-close transparent width-9">
+										<div class="col-spacing-left-md">
+											<div class="pointer-top-sm pointer-top-default"></div>
+										</div>
+										<div class="surround-md background-default rounded-md">
+											<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm button-default align-left"><span class="col-spacing-left-xs">Forms</span></button>
+											<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm button-default align-left"><span class="col-spacing-left-xs">Cards</span></button>
+										</div>
 									</div>
 								</div>			
 							</div>
@@ -519,7 +524,7 @@
         });
 
         ui.initMenus({
-          dropdownFadeInDuration: 1000,
+          dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
         });
 
