@@ -307,7 +307,7 @@
         &lt;div class="form-col-10 respond-lg"&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-bold-sm respond-sm"&gt;
-              &lt;div class="content-col width-5"&gt;
+              &lt;div class="content-col width-8"&gt;
                 &lt;div class="content-col"&gt;
                   First name
                 &lt;/div&gt;
@@ -316,13 +316,13 @@
                 &lt;/div&gt;
               &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;input id="FirstName" type="text" class="input-sm width-10 rounded-sm" /&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="FirstName" type="text" class="input-sm width-full rounded-sm" /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
-              &lt;div class="content-col width-5"&gt;
+              &lt;div class="content-col width-8"&gt;
                 &lt;div class="content-col"&gt;
                   Last name
                 &lt;/div&gt;
@@ -331,24 +331,24 @@
                 &lt;/div&gt;
               &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;input id="LastName" type="text" class="input-sm width-10 rounded-sm" /&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="LastName" type="text" class="input-sm width-full rounded-sm" /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
               Date of birth
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;input id="DateOfBirth" type="text" class="input-sm width-6 rounded-sm" /&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;input id="DateOfBirth" type="text" class="input-sm width-8 rounded-sm" /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
               Gender
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;select id="Gender" class="input-sm width-4 rounded-sm"&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;select id="Gender" class="input-sm width-8 rounded-sm"&gt;
                 &lt;option value="1"&gt;Male&lt;/option&gt;
                 &lt;option value="3"&gt;Female&lt;/option&gt;
                 &lt;option value="4"&gt;Other&lt;/option&gt;
@@ -361,24 +361,24 @@
             &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
               Address
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;textarea id="Address" rows="3" class="control width-10 rounded-sm"&gt;&lt;/textarea&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;textarea id="Address" rows="5" class="control width-full rounded-sm"&gt;&lt;/textarea&gt;
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
               Town / City
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;input id="TownCity" type="text" class="input-sm width-10 rounded-sm" /&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="TownCity" type="text" class="input-sm width-full rounded-sm" /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
           &lt;div class="form-row"&gt;
             &lt;div class="form-col-5 form-col-label-sm label-required respond-sm"&gt;
               Postcode
             &lt;/div&gt;
-            &lt;div class="form-col-15 respond-sm"&gt;
-              &lt;input id="Postcode" type="text" class="input-sm width-3 rounded-sm" /&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;input id="Postcode" type="text" class="input-sm width-md rounded-sm" /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -403,9 +403,9 @@
 <div class="row-spacing-md"></div>
 
 
-														<p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is the overall structure, so we can make use of various types of containers and columns to do that. Here you will see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content sit nicely in the middle. In this example the input form itself is within the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form. The next bit is important. On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from the save button at the bottom. You can see the save button has it's own row below that, purely because the row above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on a larger screen size. So, on line 07 and line 59 you can see 2 equal columns by using the class form-col-10, noting that we have a maximum of 20 columns to use on a single row. </p>
+														<p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is the overall structure, and we can make use of various types of containers and columns to do that. Here you will see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content sit nicely in the middle. In this example the input form itself is within the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form. The next bit is important. On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from the save button at the bottom. You can see the save button has it's own row below that, purely because the row above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on a larger screen size. So, on line 07 and line 59 you can see 2 equal columns by using the class form-col-10, noting that we have a maximum of 20 columns to use on a single row. </p>
 														
-														<p>Now take a look at lines 08 - 22. This row represents one form label, a mandatory marker, and an input field. You might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are based on percentages by default, and when the browser size changes some of elements will adjust their position (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width coloumn using width-* classes does that.</p>
+														<p>Now take a look at lines 08 - 22. This row represents one form label, a mandatory marker, and an input field. You might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are based on percentages by default, and when the browser size changes some of elements will adjust their position (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width column using width-* classes does that.</p>
 														
 
 
@@ -424,7 +424,7 @@
 </pre>
 </div>
 <div class="content-col-18">
-<pre>&lt;div class="content-col width-5"&gt;
+<pre>&lt;div class="content-col width-8"&gt;
   &lt;div class="content-col"&gt;
 	First name
   &lt;/div&gt;
@@ -438,7 +438,11 @@
 </div>
 <div class="row-spacing-md"></div>
 
-														<p>Finally, 2 stages of responsive classes have been added to the columns. First is the respond-lg class which has be applied to the 2 main form columns, and second is the respond-sm class which is applied to each column enclosing a label and an input field. The respond-lg makes column 2 drop below column 1 when the screen hits the large breakpoint, then the respond-sm classes come into effect when the screen hits the small breakpoint width. </p>
+                          </div>
+													<p><b>Making the form responsive</b></p>
+													<div class="body">
+
+														<p>Two stages of responsive classes have been added to the columns. First is the respond-lg class which has be applied to the 2 main form columns, and second is the respond-sm class which is applied to each column enclosing a label and an input field. The respond-lg makes column 2 drop below column 1 when the screen hits the large breakpoint, then the respond-sm classes come into effect when the screen hits the small breakpoint width. </p>
 
 														<p>Here are 3 screenshots showing the input form above at large screen and above, large down to small, and finally small and under.</p>
 
@@ -454,6 +458,13 @@
 														Small and under
 														<img src="/webui/assets/images/screenshot62.png" class="image border-accent-4" alt="Media" />
 
+
+                          </div>
+													<p><b>Making the controls responsive</b></p>
+													<div class="body">
+                              <p>Finally, we just need to ensure that our form fields are sized appropriately for both large and small screens. Rather than forcing you to have form controls that always expand to the full width of a percentage based column, Webui allows you to choose by providing a selection of width classes. For expamle, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with these types of controls all we do is use content-col, form-col, or table-col without the division number, then add a width-* class to the control itself. If you want the control to always expand to the size of the column use width-full instead. You can see how it's done in the code example above.</p>
+
+                              <p>See the <a href="/webui/forms.html" class="color-accent-3 color-hover-accent-4">forms example</a> to see how it looks in the browser.</p>
 													</div>										
 												</div>
 											</div>
