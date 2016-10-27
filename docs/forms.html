@@ -25,9 +25,9 @@
 	<div class="content-row">
 		<div class="content-col-20">
 			<div class="content-row">
-				<div class="content-col-20 default">
+				<div class="content-col-20 accent-5">
 					<div class="container hide-md">
-						<div class="content-row menu-bar primary raised">
+						<div class="content-row menu-bar primary">
 							<div class="content-col width-xl">
 								<div class="content-row">
 									<div class="content-col-6 col-spacing-sm content-col-align-sm">
@@ -40,24 +40,25 @@
 							</div>
 							<div class="content-col col-spacing-right-md">
 								<div class="dropdown">
-									<button type="button" class="menu-button button-primary align-left" id="menuButtonHome">Main</button>
+									<button type="button" class="menu-button menu-button-primary align-left" id="menuButtonHome">Main</button>
 								</div>			
 							</div>
 							<div class="content-col col-spacing-right-md">							
 								<div class="dropdown">
-									<button type="button" class="menu-button button-primary align-left" id="menuButtonDocumentation">Documentation</button>
+									<button type="button" class="menu-button menu-button-primary align-left" id="menuButtonDocumentation">Documentation</button>
 								</div>						
 							</div>					
 							<div class="content-col">
 								<div class="dropdown">
-									<button type="button" class="menu-activator-dynamic menu-button button-default align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
+									<button type="button" class="menu-activator-dynamic menu-button menu-button-accent-5 align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
 									<div class="dropdown-content menu-close transparent width-9">
 										<div class="col-spacing-left-md">
-											<div class="pointer-top-sm pointer-top-default"></div>
+											<div class="pointer-top-sm pointer-top-accent-5"></div>
 										</div>
-										<div class="surround-md background-default rounded-md">
-											<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm button-default align-left"><span class="col-spacing-left-xs">Forms</span></button>
-											<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm button-default align-left"><span class="col-spacing-left-xs">Cards</span></button>
+										<div>
+											<button onclick="location.href='/webui/cards_example.html'" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 align-left rounded-top-sm"><span class="col-spacing-left-xs">Cards</span></button>
+											<button onclick="location.href='/webui/forms_example.html'" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 align-left"><span class="col-spacing-left-xs">Forms</span></button>
+											<button onclick="location.href='/webui/controls_example.html'" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 align-left rounded-bottom-sm"><span class="col-spacing-left-xs">Form controls</span></button>										
 										</div>
 									</div>
 								</div>			
@@ -69,7 +70,7 @@
 					</div>
 
 					<div class="container show-md">
-						<div class="default width-full">
+						<div class="accent-5 width-full">
 							<span id="top"></span>
 							<i class="fa fa-facebook fa-2x color-muted content-col-align-sm col-spacing-right-md move-right"></i>
 							<i class="fa fa-stack-overflow fa-2x color-muted content-col-align-sm col-spacing-right-md move-right"></i>
@@ -77,38 +78,39 @@
 							<a href="https://mobile.twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md move-right"></i></a>						
 
 							<button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-1 width-7"><i class="fa fa-bars"></i></button>
-							<div class="dropdown-content menu-inclusive default width-full">
+							<div class="dropdown-content menu-inclusive accent-5 width-full">
 								<div class="content-row">
 									<div class="content-col width-full">
 									
-										<button class="menu-activator menu-button-sm button-default align-left" id="menuButtonHomeMobile">Main</button>
+										<button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonHomeMobile">Main</button>
 										
 										<div class="dropdown-content-expand menu-close accent-4 width-full">
 										</div>
 										
-										<button class="menu-activator menu-button-sm button-default align-left" id="menuButtonDocumentationMobile">Documentation</button>
+										<button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonDocumentationMobile">Documentation</button>
 										
 										<div class="dropdown-content-expand menu-close accent-4 width-full">										
-											<button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-											<button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-											<button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-											<button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-											<button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-											<button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-											<button onclick="location.href='/webui/form_controls.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>
-											<button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-											<button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-											<button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-											<button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-											<button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-											<button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-											<button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-											<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+											<button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+											<button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+											<button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+											<button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
+											<button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+											<button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+											<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
+											<button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
+											<button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+											<button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+											<button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+											<button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+											<button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+											<button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+											<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
 										</div>
-										<button class="menu-activator menu-button-sm button-default align-left" id="menuButtonExamplesMobile">Examples</button>					
+										<button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonExamplesMobile">Examples</button>					
 										<div class="dropdown-content-expand menu-close accent-4 width-full">
-											<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-											<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
+											<button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
+											<button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
+											<button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>										
 										</div>
 
 									</div>
@@ -124,7 +126,7 @@
     
 <div class="container text-xl" id="pageDocumentation">
 	<div class="content-row">
-		<div class="content-col default width-xl translucent-3 hide-md" id="leftPanel">
+		<div class="content-col accent-5 width-xl translucent-3 hide-md" id="leftPanel">
 			<div class="content-row">
 				<div class="content-col-20 accent-1 hide-md" id="leftHeaderPanel">
 
@@ -132,31 +134,33 @@
 			</div>
 
 			<div class="content-row">
-				<div class="content-col text-sm default width-xl" id="leftMenuColumn">
+				<div class="content-col text-sm accent-5 width-xl" id="leftMenuColumn">
 					<div class="row-spacing-xl"></div>
 					
-					<button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
+					<button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
 					<div class="dropdown-content-expand accent-4 width-full" id="dropdownDocumentation">
-						<button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-						<button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-						<button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-						<button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-						<button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-						<button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-						<button onclick="location.href='/webui/form_controls.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>
-						<button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-						<button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-						<button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-						<button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-						<button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-						<button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-						<button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-						<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+						<button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+						<button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+						<button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+						<button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
+						<button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+						<button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+						<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
+						<button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
+						<button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+						<button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+						<button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+						<button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+						<button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+						<button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+						<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
 					</div>
-					<button id="sideNavButtonExamples" class="menu-activator menu-button-sm button-default color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
+					<button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
 					<div class="dropdown-content-expand accent-4 width-full">
-						<button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-						<button onclick="location.href='/webui/cards.html'" class="menu-button menu-button-sm menu-button-default color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
+						<button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
+						<button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>						
+						<button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>
+					
 					</div>
 				</div>
 			</div>
@@ -167,16 +171,16 @@
 				<div class="content-col-20 background-secondary hide-md" id="rightHeaderPanel">
 							
 					<div class="tooltip">
-						<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-animate tooltip-default text-sm rounded-md">
+						<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-animate tooltip-accent-5 text-sm rounded-md">
 							<span class="col-spacing-xs">Toggle menu.</span>
 						</div>
-						<button class="menu-button button-secondary align-left" id="menuShrink"><i class="fa fa-bars"></i></button>
+						<button class="menu-button menu-button-secondary align-left" id="menuShrink"><i class="fa fa-bars"></i></button>
 					</div>				
 					
 					<span class="col-spacing-right-lg move-right">&nbsp;</span>
 					<i class="fa fa-facebook color-muted content-col-align-lg col-spacing-right-md move-right"></i>
 					<i class="fa fa-stack-overflow color-muted content-col-align-lg col-spacing-right-md move-right"></i>
-					<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github color-default content-col-align-lg col-spacing-right-md move-right"></i></a>
+					<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github color-accent-5 content-col-align-lg col-spacing-right-md move-right"></i></a>
 					<a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter color-info content-col-align-lg col-spacing-right-md move-right"></i></a>
 			
 				</div>
@@ -186,317 +190,294 @@
     <div class="content-row">
       <div class="content-col-20">
         <div class="area background-primary color-accent-4 scroll-y" id="mainContentContainer">
-          <div class="panel text-sm color-default">
+          											<p id="cloneRepository" class="text-lg color-accent-3 text-bold">
+												Forms<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
+											</p>
+											<div class="content-row">
+												<div class="content-col-20">
+													<p><b>Form layouts</b></p>
+													<div class="body">
+														<p>Webui has classes available to style forms in a consistent way and to ensure that form controls all line up correctly. Html controls should be arranged within a grid layout - this will enable you to easily add responsive behaviour and generally place the controls neatly on the page. Form layouts are one of Webui's most capable features. Laying out html forms should not be difficult, but it often is. Hopefully, you will find Webui excels in this area and will provide the tools to create professional looking forms.</p>
 
-	<form>		
-	<div class="form-row">
-		<div class="form-col-2 respond-xl">
-		</div>
-		<div class="form-col-9 respond-xl">
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					<div class="content-col width-8">
-						<div class="content-col">
-							First name
-						</div>
-						<div class="content-col text-xl color-danger col-spacing-sm">
-							*
-						</div>
-					</div>
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="FirstName" type="text" class="input-sm width-full rounded-sm" />			
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					<div class="content-col width-8">
-						<div class="content-col">
-							Last name
-						</div>
-						<div class="content-col text-xl color-danger col-spacing-sm">
-							*
-						</div>
-					</div>
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="LastName" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Company
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="Company" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Address
-				</div>
-				<div class="form-col-9 respond-md">
-					<textarea id="Address" rows="3" class="control width-full rounded-sm"></textarea>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Town / City
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="TownCity" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm label-required respond-md">
-					Postcode
-				</div>
-				<div class="form-col respond-md">
-					<input id="Postcode" type="text" class="input-sm width-md rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Telephone
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="Telephone" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Date of birth
-				</div>
-				<div class="form-col respond-md">             
-					<input id="DateOfBirth" type="text" class="input-sm width-8 rounded-sm" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Gender
-				</div>
-				<div class="form-col respond-md">             
-					<select id="Gender" class="input-sm width-8 rounded-sm">
-						<option value="1">Male</option>
-						<option value="3">Female</option>
-						<option value="4">Other</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 respond-md">
-						<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm">Find Patient</button>
-				</div>
-				<div class="form-col respond-md">             
-					
-				</div>
-			</div>			
-			<div class="form-row-empty-sm"></div>
-			<div class="form-row">
-				<div class="form-col-5 respond-md">
-					<span class=" color-accent-4 text-lg form-col-align-sm">Questionnaire</span>
-				</div>
-				<div class="form-col respond-md">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Vaccinations
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="checkbox-sm rounded-sm">
-							  <input type="checkbox" value="" id="checkboxHepatitis" />
-							  <label for="checkboxHepatitis"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>Hep</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="checkbox-sm rounded-sm">
-							  <input type="checkbox" value="" id="checkboxTetanus" />
-							  <label for="checkboxTetanus"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>Tet</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="checkbox-sm rounded-sm">
-							  <input type="checkbox" value="" id="checkboxTyphoid" />
-							  <label for="checkboxTyphoid"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>Typ</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-row-empty-sm"></div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Alcohol
-				</div>
-				<div class="form-col respond-md">             
-					<input id="Alcohol" type="number" class="input-sm width-md rounded-sm" />	
-					(units per week)
-				</div>
-				<div class="form-col respond-md">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Smoking
-				</div>
-				<div class="form-col respond-md">             
-					<input id="Smoking" type="number" class="input-sm width-md rounded-sm" />	
-					(cigarettes per day)
-				</div>
-				<div class="form-col respond-md">
-				</div>
-			</div>
-			<div class="form-row-empty-sm"></div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Time exercising
-				</div>
-				<div class="form-col respond-md">             
-					<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm" />
-					(per week)
-				</div>
-				<div class="form-col respond-md">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Sleep (Hours)
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="radio-sm">
-							  <input type="radio" value="1" name="sleep" id="radio4" />
-							  <label for="radio4"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>4</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="radio-sm">
-							  <input type="radio" value="2" name="sleep" id="radio6" />
-							  <label for="radio6"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>6</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-col width-8 form-col-align-sm respond-md">
-					<div class="content-row">
-						<div class="content-col width-6">
-							<div class="radio-sm">
-							  <input type="radio" value="3" name="sleep" id="radio8" />
-							  <label for="radio8"></label>				  	
-							</div>
-						</div>
-						<div class="content-col">
-							<span>8</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row-spacing-xl"></div>
-		</div>
-		<div class="form-col-9 respond-xl">
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					GP name
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="GpName" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					GP code
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="GpCode" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Surgery
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="Surgery" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Address
-				</div>
-				<div class="form-col-9 respond-md">
-					<textarea id="GpAddress" rows="3" class="control width-full rounded-sm"></textarea>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Town / City
-				</div>
-				<div class="form-col-9 respond-md">
-					<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 form-col-label-bold-sm respond-md">
-					Postcode
-				</div>
-				<div class="form-col respond-md">
-					<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />  
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-5 respond-md">
-						<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm">Find GP</button>
-				</div>
-				<div class="form-col respond-md">
-					 
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="form-col-2 respond-xl">
-		</div>
-		<div class="form-col">
-			<div class="form-row">
-				<div class="form-col">
-					<button id="Save" type="button" class="button-sm button-disabled rounded-sm">Save</button>
-				</div>
-			</div>			
-		</div>
-	</div>
-	</form>
-	
+														<p>In many examples found on the internet, you are shown a couple of fields and a button if you're lucky, so here we won't do that. Instead here is a proper example of a small responsive form layout.<p>
+
+
+<div class="row-spacing-md"></div>
+<div id="snippet60" class="area background-accent-5 color-secondary text-sm">
+<div class="content-row">
+<div class="content-col-2 hide-sm">
+<pre>01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+</pre>
 </div>
+<div class="content-col-18">
+<pre>&lt;div class="area"&gt;
+  &lt;div class="content-col-2 respond-sm"&gt;
+  &lt;/div&gt;
+  &lt;div class="content-col-16 secondary respond-sm"&gt;
+    &lt;div class="area"&gt;
+      &lt;div class="form-row"&gt;
+        &lt;div class="form-col-10 respond-lg"&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-bold-sm respond-sm"&gt;
+              &lt;div class="content-col width-8"&gt;
+                &lt;div class="content-col"&gt;
+                  First name
+                &lt;/div&gt;
+                &lt;div class="content-col text-xl color-danger col-spacing-sm"&gt;
+                  *
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="FirstName" type="text" class="input-sm width-full rounded-sm" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
+              &lt;div class="content-col width-8"&gt;
+                &lt;div class="content-col"&gt;
+                  Last name
+                &lt;/div&gt;
+                &lt;div class="content-col text-xl color-danger col-spacing-sm"&gt;
+                  *
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="LastName" type="text" class="input-sm width-full rounded-sm" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
+              Date of birth
+            &lt;/div&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;input id="DateOfBirth" type="text" class="input-sm width-8 rounded-sm" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
+              Gender
+            &lt;/div&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;select id="Gender" class="input-sm width-8 rounded-sm"&gt;
+                &lt;option value="1"&gt;Male&lt;/option&gt;
+                &lt;option value="3"&gt;Female&lt;/option&gt;
+                &lt;option value="4"&gt;Other&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-col-10 respond-lg"&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
+              Address
+            &lt;/div&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;textarea id="Address" rows="5" class="control width-full rounded-sm"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm respond-sm"&gt;
+              Town / City
+            &lt;/div&gt;
+            &lt;div class="form-col-9 respond-sm"&gt;
+              &lt;input id="TownCity" type="text" class="input-sm width-full rounded-sm" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-row"&gt;
+            &lt;div class="form-col-5 form-col-label-sm label-required respond-sm"&gt;
+              Postcode
+            &lt;/div&gt;
+            &lt;div class="form-col respond-sm"&gt;
+              &lt;input id="Postcode" type="text" class="input-sm width-md rounded-sm" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="form-row"&gt;
+        &lt;div class="form-row-empty-sm"&gt;&lt;/div&gt;
+        &lt;div class="form-col"&gt;
+          &lt;div class="form-col respond-sm"&gt;
+            &lt;button id="SavePerson" type="button" class="button-sm button-accent-1 rounded-sm"&gt;Save&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="content-col-2 respond-sm"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+</div>
+</div>
+<div class="row-spacing-md"></div>
+
+
+														<p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is the overall structure, and we can make use of various types of containers and columns to do that. Here you will see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content sit nicely in the middle. In this example the input form itself is within the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form. The next bit is important. On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from the save button at the bottom. You can see the save button has it's own row below that, purely because the row above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on a larger screen size. So, on line 07 and line 59 you can see 2 equal columns by using the class form-col-10, noting that we have a maximum of 20 columns to use on a single row. </p>
+														
+														<p>Now take a look at lines 08 - 22. This row represents one form label, a mandatory marker, and an input field. You might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are based on percentages by default, and when the browser size changes some of elements will adjust their position (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width column using width-* classes does that.</p>
+														
+
+
+<div class="row-spacing-md"></div>
+<div id="snippet61" class="area background-accent-5 color-secondary text-sm">
+<div class="content-row">
+<div class="content-col-2 hide-sm">
+<pre>10
+11
+12
+13
+14
+15
+16
+17
+</pre>
+</div>
+<div class="content-col-18">
+<pre>&lt;div class="content-col width-8"&gt;
+  &lt;div class="content-col"&gt;
+	First name
+  &lt;/div&gt;
+  &lt;div class="content-col text-xl color-danger col-spacing-sm"&gt;
+	*
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+</div>
+</div>
+<div class="row-spacing-md"></div>
+
+                          </div>
+													<p><b>Making the form responsive</b></p>
+													<div class="body">
+
+														<p>Two stages of responsive classes have been added to the columns. First is the respond-lg class which has be applied to the 2 main form columns, and second is the respond-sm class which is applied to each column enclosing a label and an input field. The respond-lg makes column 2 drop below column 1 when the screen hits the large breakpoint, then the respond-sm classes come into effect when the screen hits the small breakpoint width. </p>
+
+														<p>Here are 3 screenshots showing the input form above at large screen and above, large down to small, and finally small and under.</p>
+
+														<div class="row-spacing-md"></div>
+														Large and above
+														<img src="/webui/assets/images/screenshot60.png" class="image border-accent-4" alt="Media" />
+
+														<div class="row-spacing-md"></div>
+														Large down to small
+														<img src="/webui/assets/images/screenshot61.png" class="image border-accent-4" alt="Media" />
+
+														<div class="row-spacing-md"></div>
+														Small and under
+														<img src="/webui/assets/images/screenshot62.png" class="image border-accent-4" alt="Media" />
+
+
+                          </div>
+													<p><b>Making the controls responsive</b></p>
+													<div class="body">
+                              <p>Finally, we just need to ensure that our form fields are sized appropriately for both large and small screens. Rather than forcing you to have form controls that always expand to the full width of a percentage based column, Webui allows you to choose by providing a selection of width classes. For expamle, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with these types of controls all we do is use content-col, form-col, or table-col without the division number, then add a width-* class to the control itself. If you want the control to always expand to the size of the column use width-full instead. You can see how it's done in the code example above.</p>
+
+                              <p>See the <a href="/webui/forms.html" class="color-accent-3 color-hover-accent-4">forms example</a> to see how it looks in the browser.</p>
+													</div>										
+												</div>
+											</div>
+
 
         </div>
       </div>

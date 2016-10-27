@@ -16,7 +16,7 @@ textarea {
 	box-sizing: border-box;
 }
 body {
-	color: $theme_default;
+	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 }
 input[type=checkbox], 
@@ -159,6 +159,139 @@ input[type=radio] {
 	padding: 3px;
 	display: block;
 }
+.input {
+	color: $theme_primary_foreground;
+	background-color: $theme_primary;
+	border: 1px solid $theme_default_border;
+	padding: 0 5px;
+	height: 34px;
+	max-height: 34px;
+}
+.input-sm {
+	color: $theme_primary_foreground;
+	background-color: $theme_primary;
+	border: 1px solid $theme_default_border;
+	padding: 0 5px;
+	height: 26px;
+	max-height: 26px;
+}
+.input-highlight {
+	color: $theme_highlight_foreground;
+	background-color: $theme_highlight;
+	border: 1px solid $theme_danger_border;
+}
+.input-disabled {
+	color: $theme_disabled_foreground;
+	background-color: $theme_disabled;
+	border: 1px solid $theme_disabled_border;
+}
+.control {
+	color: $theme_primary_foreground;
+	background-color: $theme_primary;
+	border: 1px solid $theme_default_border;
+	padding: 5px;
+}
+.control-highlight {
+	color: $theme_highlight_foreground;
+	background-color: $theme_highlight;
+	border: 1px solid $theme_danger_border;
+}
+.control-disabled {
+	color: $theme_disabled_foreground;
+	background-color: $theme_disabled;
+	border: 1px solid $theme_disabled_border;
+}
+.control-append {
+	display: table;
+	width: inherit;
+}
+.control-append > * {
+  margin: 0;
+  white-space: nowrap;
+  display: table-cell;
+  vertical-align: middle;
+}
+.checkbox-sm {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  border: 1px solid $theme_default_border;
+  label {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $theme_primary;
+	margin: 2px;
+    &:after {
+      content: '';
+      width: 7px;
+      height: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 3px solid $theme_primary_foreground;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }
+    &:not(:checked) + label:after {
+      opacity: 1;
+      content: '';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+	  border: none;
+      background-color: $theme_primary;
+	  transform: rotate(0deg);
+    }
+  } 
+}
+.radio-sm {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border: 1px solid $theme_default_border;
+  border-radius: 50%;
+  label {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $theme_primary;
+	border-radius: 50%;
+	margin: 4px;
+    &:after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $theme_primary_foreground;
+	  border-radius: 50%;
+	  opacity: 0;
+    }
+  }
+  input[type=radio] {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }   
+  } 
+}
 .button {
 	padding: 0 12px;
 	height: 34px;
@@ -193,9 +326,11 @@ input[type=radio] {
 	border: 1px solid $theme_default_border;
 	&:hover {
 		background-color: $theme_default_hover;
+		border-color: $theme_default_hover;
 	}
 	&:active {
 		background-color: $theme_default_active;
+		border-color: $theme_default_active;
 	}
 }
 .button-primary {
@@ -204,9 +339,11 @@ input[type=radio] {
 	border: 1px solid $theme_primary_border;
 	&:hover {
 		background-color: $theme_primary_hover;
+		border-color: $theme_primary_hover;
 	}
 	&:active {
 		background-color: $theme_primary_active;
+		border-color: $theme_primary_active;
 	}
 }
 .button-secondary {
@@ -215,9 +352,11 @@ input[type=radio] {
 	border: 1px solid $theme_secondary_border;
 	&:hover {
 		background-color: $theme_secondary_hover;
+		border-color: $theme_secondary_hover;
 	}
 	&:active {
 		background-color: $theme_secondary_active;
+		border-color: $theme_secondary_active;
 	}
 }
 .button-accent-1 {
@@ -262,6 +401,17 @@ input[type=radio] {
 	}
 	&:active {
 		background-color: $theme_accent_4_active;
+	}
+}
+.button-accent-5 {
+	color: $theme_accent_5_foreground;
+	background-color: $theme_accent_5;
+	border: 1px solid $theme_accent_5_border;
+	&:hover {
+		background-color: $theme_accent_5_hover;
+	}
+	&:active {
+		background-color: $theme_accent_5_active;
 	}
 }
 .button-success {
@@ -337,128 +487,182 @@ input[type=radio] {
 	background-color: $theme_disabled;
 	border: 1px solid $theme_disabled_border;
 }
-.input {
-	color: $theme_default;
-	background-color: $theme_primary;
-	border: 1px solid $theme_border;
-	padding: 0 5px;
-	height: 34px;
-	max-height: 34px;
+.menu-button {
+	padding: 0 17px;
+	height: 44px;
+	max-height: 44px;
 }
-.input-sm {
-	color: $theme_default;
-	background-color: $theme_primary;
-	border: 1px solid $theme_border;
-	padding: 0 5px;
-	height: 26px;
-	max-height: 26px;
+.menu-button-sm {
+	padding: 0 13px;
+	height: 36px;
+	max-height: 36px;
 }
-.input-highlight {
-	color: $theme_default;
-	background-color: $theme_highlight;
+.menu-button,
+.menu-button-sm {
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+	cursor: pointer;
+	width: 100%;
+	min-width: 100%;
+	box-sizing: border-box;
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+	border: 1px solid $theme_default_border;
+}
+.menu-button-default {
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+	border: 1px solid $theme_default_border;
+	&:focus {
+		background-color: $theme_default_active;
+		border-color: $theme_default_active;
+	}
+}
+.menu-button-primary {
+	color: $theme_primary_foreground;
+	background-color: $theme_primary;
+	border: 1px solid $theme_primary_border;
+	&:focus {
+		background-color: $theme_primary_active;
+		border-color: $theme_primary_active;
+	}
+}
+.menu-button-secondary {
+	color: $theme_secondary_foreground;
+	background-color: $theme_secondary;
+	border: 1px solid $theme_secondary_border;
+	&:focus {
+		background-color: $theme_secondary_active;
+		border-color: $theme_secondary_active;
+	}
+}
+.menu-button-accent-1 {
+	color: $theme_accent_1_foreground;
+	background-color: $theme_accent_1;
+	border: 1px solid $theme_accent_1_border;
+	&:focus {
+		background-color: $theme_accent_1_active;
+	}
+}
+.menu-button-accent-2 {
+	color: $theme_accent_2_foreground;
+	background-color: $theme_accent_2;
+	border: 1px solid $theme_accent_2_border;
+	&:focus {
+		background-color: $theme_accent_2_active;
+	}
+}
+.menu-button-accent-3 {
+	color: $theme_accent_3_foreground;
+	background-color: $theme_accent_3;
+	border: 1px solid $theme_accent_3_border;
+	&:focus {
+		background-color: $theme_accent_3_active;
+	}
+}
+.menu-button-accent-4 {
+	color: $theme_accent_4_foreground;
+	background-color: $theme_accent_4;
+	border: 1px solid $theme_accent_4_border;
+	&:focus {
+		background-color: $theme_accent_4_active;
+	}
+}
+.menu-button-accent-5 {
+	color: $theme_accent_5_foreground;
+	background-color: $theme_accent_5;
+	border: 1px solid $theme_accent_5_border;
+	&:focus {
+		background-color: $theme_accent_5_active;
+	}
+}
+.menu-button-success {
+	color: $theme_success_foreground;
+	background-color: $theme_success;
+	border: 1px solid $theme_success_border;
+	&:focus {
+		background-color: $theme_success_active;
+	}
+}
+.menu-button-info {
+	color: $theme_info_foreground;
+	background-color: $theme_info;
+	border: 1px solid $theme_info_border;
+	&:focus {
+		background-color: $theme_info_active;
+	}
+}
+.menu-button-warning {
+	color: $theme_warning_foreground;
+	background-color: $theme_warning;
+	border: 1px solid $theme_warning_border;
+	&:focus {
+		background-color: $theme_warning_active;
+	}
+}
+.menu-button-danger {
+	color: $theme_danger_foreground;
+	background-color: $theme_danger;
 	border: 1px solid $theme_danger_border;
+	&:focus {
+		background-color: $theme_danger_active;
+	}
 }
-.input-disabled {
+.menu-button-highlight {
+	color: $theme_highlight_foreground;
+	background-color: $theme_highlight;
+	border: 1px solid $theme_highlight_border;
+	&:focus {
+		background-color: $theme_highlight_active;
+	}
+}
+.menu-button-transparent {
+	color: $theme_transparent_foreground;
+	background-color: $theme_transparent;
+	border: 1px solid $theme_transparent_border;
+	&:focus {
+		color: $theme_transparent_hover;
+		background-color: $theme_transparent;
+	}
+}
+.menu-button-disabled {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
 	border: 1px solid $theme_disabled_border;
 }
-.control {
-	color: $theme_default;
-	background-color: $theme_primary;
-	border: 1px solid $theme_border;
-	padding: 5px;
+.menu-bar {
+	height: 44px;
+	max-height: 44px;
 }
-.control-highlight {
-	color: $theme_default;
-	background-color: $theme_highlight;
-	border: 1px solid $theme_danger_border;
+.menu-bar-sm {
+	height: 36px;
+	max-height: 36px;
 }
-.control-disabled {
-	color: $theme_disabled_foreground;
-	background-color: $theme_disabled;
-	border: 1px solid $theme_disabled_border;
+.dropdown {
+	position: relative;
+	display: inline-block;
 }
-.checkbox-sm {
-  width: 14px;
-  height: 14px;
-  position: relative;
-  border: 1px solid $theme_border;
-  label {
-    width: 10px;
-    height: 10px;
+.dropdown-right {
+	right: 0;
+}
+.dropdown-content {
+    display: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $theme_primary;
-	margin: 2px;
-    &:after {
-      content: '';
-      width: 7px;
-      height: 4px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 3px solid $theme_default;
-      border-top: none;
-      border-right: none;
-      background: transparent;
-      opacity: 0;
-      transform: rotate(-45deg);
-    }
-  }
-  input[type=checkbox] {
-    visibility: hidden;
-    &:checked + label:after {
-      opacity: 1;
-    }
-    &:not(:checked) + label:after {
-      opacity: 1;
-      content: '';
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 0;
-      left: 0;
-	  border: none;
-      background-color: $theme_primary;
-	  transform: rotate(0deg);
-    }
-  } 
+	@include layer-2();	
 }
-.radio-sm {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  border: 1px solid $theme_border;
-  border-radius: 50%;
-  label {
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $theme_primary;
-	border-radius: 50%;
-	margin: 3px;
-    &:after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: $theme_default;
-	  border-radius: 50%;
-	  opacity: 0;
-    }
-  }
-  input[type=radio] {
-    visibility: hidden;
-    &:checked + label:after {
-      opacity: 1;
-    }   
-  } 
+.dropdown-content-expand {
+    display: none;
+    position: relative;
+	@include layer-2();	
+}
+.dropdown-sheet {
+    display: none;
+    position: absolute; 
+	left: 0; 
+	width: 100%; 
+	background-color: transparent;
+	@include layer-2();	
 }
 .media-block {
 	padding: 7px;
@@ -482,7 +686,7 @@ input[type=radio] {
 	display: table-cell;
 }
 .table { 
-	border: 1px solid $theme_border; 
+	border: 1px solid $theme_default_border; 
 	border-collapse: collapse; 
 }
 .table caption { 
@@ -490,7 +694,7 @@ input[type=radio] {
 }
 .table th, 
 .table td { 
-	border: 1px solid $theme_border;
+	border: 1px solid $theme_default_border;
 	padding: 0.5rem 2rem;
 }
 .table th { 
@@ -868,18 +1072,6 @@ input[type=radio] {
 .pointer-left-lg {
     border-width: 9px 13px 9px 0;
 }
-.pointer-top-default {
-	@include pointer-top($theme_default);
-}
-.pointer-right-default {
-	@include pointer-right($theme_default);
-}
-.pointer-bottom-default {
-	@include pointer-bottom($theme_default);
-}
-.pointer-left-default {
-	@include pointer-left($theme_default);
-}
 .pointer-top-primary {
 	@include pointer-top($theme_primary);
 }
@@ -903,6 +1095,18 @@ input[type=radio] {
 }
 .pointer-left-secondary {
 	@include pointer-left($theme_secondary);
+}
+.pointer-top-default {
+	@include pointer-top($theme_default);
+}
+.pointer-right-default {
+	@include pointer-right($theme_default);
+}
+.pointer-bottom-default {
+	@include pointer-bottom($theme_default);
+}
+.pointer-left-default {
+	@include pointer-left($theme_default);
 }
 .pointer-top-accent-1 {
 	@include pointer-top($theme_accent_1);
@@ -951,6 +1155,18 @@ input[type=radio] {
 }
 .pointer-left-accent-4 {
 	@include pointer-left($theme_accent_4);
+}
+.pointer-top-accent-5 {
+	@include pointer-top($theme_accent_5);
+}
+.pointer-right-accent-5 {
+	@include pointer-right($theme_accent_5);
+}
+.pointer-bottom-accent-5 {
+	@include pointer-bottom($theme_accent_5);
+}
+.pointer-left-accent-5 {
+	@include pointer-left($theme_accent_5);
 }
 .pointer-top-success {
 	@include pointer-top($theme_success);
@@ -1029,11 +1245,6 @@ input[type=radio] {
     height: 0;
     border-style: solid;
 }
-.color-default,
-.color-odd-default > div:nth-child(odd),
-.color-even-default > div:nth-child(even) {
-	color: $theme_default;
-}
 .color-primary,
 .color-odd-primary > div:nth-child(odd),
 .color-even-primary > div:nth-child(even) {
@@ -1043,6 +1254,11 @@ input[type=radio] {
 .color-odd-secondary > div:nth-child(odd),
 .color-even-secondary > div:nth-child(even) {
 	color: $theme_secondary;
+}
+.color-default,
+.color-odd-default > div:nth-child(odd),
+.color-even-default > div:nth-child(even) {
+	color: $theme_default;
 }
 .color-accent-1,
 .color-odd-accent-1 > div:nth-child(odd),
@@ -1063,6 +1279,11 @@ input[type=radio] {
 .color-odd-accent-4 > div:nth-child(odd),
 .color-even-accent-4 > div:nth-child(even) {
 	color: $theme_accent_4;
+}
+.color-accent-5,
+.color-odd-accent-5 > div:nth-child(odd),
+.color-even-accent-5 > div:nth-child(even) {
+	color: $theme_accent_5;
 }
 .color-success,
 .color-odd-success > div:nth-child(odd),
@@ -1099,11 +1320,6 @@ input[type=radio] {
 .color-even-muted > div:nth-child(even) {
 	color: $theme_muted;
 }
-.color-hover-default {
-	&:hover {
-		color: $theme_default;
-	}
-}
 .color-hover-primary {
 	&:hover {
 		color: $theme_primary;
@@ -1112,6 +1328,11 @@ input[type=radio] {
 .color-hover-secondary {
 	&:hover {
 		color: $theme_secondary;
+	}
+}
+.color-hover-default {
+	&:hover {
+		color: $theme_default;
 	}
 }
 .color-hover-accent-1 {
@@ -1132,6 +1353,11 @@ input[type=radio] {
 .color-hover-accent-4 {
 	&:hover {
 		color: $theme_accent_4;
+	}
+}
+.color-hover-accent-5 {
+	&:hover {
+		color: $theme_accent_5;
 	}
 }
 .color-hover-success {
@@ -1169,11 +1395,6 @@ input[type=radio] {
 		color: $theme_muted;
 	}
 }
-.background-default,
-.background-odd-default > div:nth-child(odd),
-.background-even-default > div:nth-child(even) {
-	background-color: $theme_default;
-}
 .background-primary,
 .background-odd-primary > div:nth-child(odd),
 .background-even-primary > div:nth-child(even) {
@@ -1183,6 +1404,11 @@ input[type=radio] {
 .background-odd-secondary > div:nth-child(odd),
 .background-even-secondary > div:nth-child(even) {
 	background-color: $theme_secondary;
+}
+.background-default,
+.background-odd-default > div:nth-child(odd),
+.background-even-default > div:nth-child(even) {
+	background-color: $theme_default;
 }
 .background-accent-1,
 .background-odd-accent-1 > div:nth-child(odd),
@@ -1203,6 +1429,11 @@ input[type=radio] {
 .background-odd-accent-4 > div:nth-child(odd),
 .background-even-accent-4 > div:nth-child(even) {
 	background-color: $theme_accent_4;
+}
+.background-accent-5,
+.background-odd-accent-5 > div:nth-child(odd),
+.background-even-accent-5 > div:nth-child(even) {
+	background-color: $theme_accent_5;
 }
 .background-success,
 .background-odd-success > div:nth-child(odd),
@@ -1239,11 +1470,6 @@ input[type=radio] {
 .background-even-muted > div:nth-child(even) {
 	background-color: $theme_muted;
 }
-.background-hover-default {
-	&:hover {
-		background-color: $theme_default;
-	}
-}
 .background-hover-primary {
 	&:hover {
 		background-color: $theme_primary;
@@ -1252,6 +1478,11 @@ input[type=radio] {
 .background-hover-secondary {
 	&:hover {
 		background-color: $theme_secondary;
+	}
+}
+.background-hover-default {
+	&:hover {
+		background-color: $theme_default;
 	}
 }
 .background-hover-accent-1 {
@@ -1272,6 +1503,11 @@ input[type=radio] {
 .background-hover-accent-4 {
 	&:hover {
 		background-color: $theme_accent_4;
+	}
+}
+.background-hover-accent-5 {
+	&:hover {
+		background-color: $theme_accent_5;
 	}
 }
 .background-hover-success {
@@ -1309,14 +1545,14 @@ input[type=radio] {
 		background-color: $theme_muted;
 	}	
 }
-.border-default {
-	border: 1px solid $theme_default;
-}
 .border-primary {
 	border: 1px solid $theme_primary;
 }
 .border-secondary {
 	border: 1px solid $theme_secondary;
+}
+.border-default {
+	border: 1px solid $theme_default;
 }
 .border-accent-1 {
 	border: 1px solid $theme_accent_1;
@@ -1329,6 +1565,9 @@ input[type=radio] {
 }
 .border-accent-4 {
 	border: 1px solid $theme_accent_4;
+}
+.border-accent-5 {
+	border: 1px solid $theme_accent_5;
 }
 .border-success {
 	border: 1px solid $theme_success;
@@ -1351,11 +1590,6 @@ input[type=radio] {
 .border-muted {
 	border: 1px solid $theme_muted;
 }
-.border-hover-default {
-	&:hover {
-		border-color: $theme_default;
-	}
-}
 .border-hover-primary {
 	&:hover {
 		border-color: $theme_primary;
@@ -1364,6 +1598,11 @@ input[type=radio] {
 .border-hover-secondary {
 	&:hover {
 		border-color: $theme_secondary;
+	}
+}
+.border-hover-default {
+	&:hover {
+		border-color: $theme_default;
 	}
 }
 .border-hover-accent-1 {
@@ -1384,6 +1623,11 @@ input[type=radio] {
 .border-hover-accent-4 {
 	&:hover {
 		border-color: $theme_accent_4;
+	}
+}
+.border-hover-accent-5 {
+	&:hover {
+		border-color: $theme_accent_5;
 	}
 }
 .border-hover-success {
@@ -1421,17 +1665,17 @@ input[type=radio] {
 		border-color: $theme_muted;
 	}	
 }
-.default {
-	color: $theme_primary;
-	background-color: $theme_default;
-}
 .primary {
-	color: $theme_default;
+	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 }
 .secondary {
-	color: $theme_default;
+	color: $theme_secondary_foreground;
 	background-color: $theme_secondary;
+}
+.default {
+	color: $theme_default_foreground;
+	background-color: $theme_default;
 }
 .accent-1 {
 	color: $theme_accent_1_foreground;
@@ -1448,6 +1692,10 @@ input[type=radio] {
 .accent-4 {
 	color: $theme_accent_4_foreground;
 	background-color: $theme_accent_4;
+}
+.accent-5 {
+	color: $theme_accent_5_foreground;
+	background-color: $theme_accent_5;
 }
 .success {
 	color: $theme_success_foreground;
@@ -1466,7 +1714,7 @@ input[type=radio] {
 	background-color: $theme_danger;
 }
 .highlight {
-	color: $theme_default;
+	color: $theme_highlight_foreground;
 	background-color: $theme_highlight;
 }
 .muted {
@@ -1537,6 +1785,57 @@ input[type=radio] {
 	-webkit-border-radius: 9px;
 	-moz-border-radius: 9px;	
 	border-radius: 9px;
+}
+.rounded-full {
+	border-radius: 50%;
+}
+.rounded-left-sm {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.rounded-right-sm {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.rounded-top-sm {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.rounded-bottom-sm {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.rounded-left-md {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+.rounded-right-md {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.rounded-top-md {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.rounded-bottom-md {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.rounded-left-lg {
+	border-top-left-radius: 9px;
+	border-bottom-left-radius: 9px;
+}
+.rounded-right-lg {
+	border-top-right-radius: 9px;
+	border-bottom-right-radius: 9px;
+}
+.rounded-top-lg {
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+.rounded-bottom-lg {
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
 }
 .screen-reader, sr {
 	position: absolute;
