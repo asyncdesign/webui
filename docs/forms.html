@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>webui</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
+  <title>Webui mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/forms.html">
-  <link rel="alternate" type="application/rss+xml" title="webui" href="/webui/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
 </head>
@@ -197,7 +197,7 @@
 												<div class="content-col-20">
 													<p><b>Form layouts</b></p>
 													<div class="body">
-														<p>Webui has classes available to style forms in a consistent way and to ensure that form controls all line up correctly. Html controls should be arranged within a grid layout - this will enable you to easily add responsive behaviour and generally place the controls neatly on the page. Form layouts are one of Webui's most capable features. Laying out html forms should not be difficult, but it often is. Hopefully, you will find Webui excels in this area and will provide the tools to create professional looking forms.</p>
+														<p>Webui has classes available to style forms in a consistent way, and to ensure that form controls all line up correctly. Html controls should be arranged within a grid layout - this will enable you to easily add responsive behaviour and generally place the controls neatly on the page. Form layouts are one of Webui's most capable features. Laying out html forms should not be difficult, but it often is. Hopefully, you will find Webui excels in this area and will provide the tools to create professional looking forms.</p>
 
 														<p>In many examples found on the internet, you are shown a couple of fields and a button if you're lucky, so here we won't do that. Instead here is a proper example of a small responsive form layout.<p>
 
@@ -412,9 +412,9 @@
 <div class="row-spacing-md"></div>
 
 
-														<p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is the overall structure, and we can make use of various types of containers and columns to do that. Here you will see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content sit nicely in the middle. In this example the input form itself is within the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form. The next bit is important. On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from the save button at the bottom. You can see the save button has it's own row below that, purely because the row above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on a larger screen size. So, on line 07 and line 59 you can see 2 equal columns by using the class form-col-10, noting that we have a maximum of 20 columns to use on a single row. </p>
+														<p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is the overall structure, and we can make use of various types of containers and columns to do that. Here you will see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content sit nicely in the middle. In this example the input form itself is within the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form. The next bit is important. On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from the save button at the bottom. You can see the save button has it's own row below that, purely because the row above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on a larger screen size. So, on line 07 and line 59 you can see 2 equal columns by using the class <span class="color-accent-3 text-bold">form-col-10</span>, noting that we have a maximum of 20 columns to use on a single row. </p>
 														
-														<p>Now take a look at lines 08 - 22. This row represents one form label, a mandatory marker, and an input field. You might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are based on percentages by default, and when the browser size changes some of elements will adjust their position (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width column using width-* classes does that.</p>
+														<p>Now take a look at lines 08 - 22. This row represents one form label, a mandatory marker, and an input field. You might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are based on percentages by default, and when the browser size changes some of elements will adjust their position (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width column using <span class="color-accent-3 text-bold">width-*</span> classes does that.</p>
 														
 
 
@@ -451,7 +451,7 @@
 													<p><b>Making the form responsive</b></p>
 													<div class="body">
 
-														<p>Two stages of responsive classes have been added to the columns. First is the respond-lg class which has be applied to the 2 main form columns, and second is the respond-sm class which is applied to each column enclosing a label and an input field. The respond-lg makes column 2 drop below column 1 when the screen hits the large breakpoint, then the respond-sm classes come into effect when the screen hits the small breakpoint width. </p>
+														<p>Two stages of responsive classes have been added to the columns. First is the <span class="color-accent-3 text-bold">respond-lg</span> class which has be applied to the 2 main form columns, and second is the <span class="color-accent-3 text-bold">respond-sm</span> class which is applied to each column enclosing a label and an input field. The <span class="color-accent-3 text-bold">respond-lg</span> makes column 2 drop below column 1 when the screen hits the large breakpoint, then the <span class="color-accent-3 text-bold">respond-sm</span> classes come into effect when the screen hits the small breakpoint width. </p>
 
 														<p>Here are 3 screenshots showing the input form above at large screen and above, large down to small, and finally small and under.</p>
 
@@ -471,10 +471,20 @@
                           </div>
 													<p><b>Making the controls responsive</b></p>
 													<div class="body">
-                              <p>Finally, we just need to ensure that our form fields are sized appropriately for both large and small screens. Rather than forcing you to have form controls that always expand to the full width of a percentage based column, Webui allows you to choose by providing a selection of width classes. For expamle, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with these types of controls all we do is use content-col, form-col, or table-col without the division number, then add a width-* class to the control itself. If you want the control to always expand to the size of the column use width-full instead. You can see how it's done in the code example above.</p>
+                              <p>Finally, we just need to ensure that our form fields are sized appropriately for both large and small screens. Rather than forcing you to have form controls that always expand to the full width of a percentage based column, Webui allows you to choose by providing a selection of width classes. For expamle, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with these types of controls all we do is use <span class="color-accent-3 text-bold">content-col</span>, <span class="color-accent-3 text-bold">form-col</span>, or <span class="color-accent-3 text-bold">table-col</span> without the division number, then add a <span class="color-accent-3 text-bold">width-*</span> class to the control itself. If you want the control to always expand to the size of the column use <span class="color-accent-3 text-bold">width-full</span> instead. You can see how it's done in the code example above.</p>
 
-                              <p>See the <a href="/webui/forms.html" class="color-accent-3 color-hover-accent-4">forms example</a> to see how it looks in the browser.</p>
+                              <p>See the <a href="/webui/forms_example.html" class="color-accent-3 color-hover-accent-4">forms example</a> to see how it looks in the browser.</p>
+													</div>
+
+													<p><b>Grouping controls</b></p>
+													<div class="body">
+                              <p>Form controls may be joined together by just adding the <span class="color-accent-3 text-bold">control-append</span> class on the parent element of the controls you want to join together. The controls will then stay fixed together regardless of column adjustment or browser resizing.</p>
+
+                              See the <a href="/webui/controls_example.html" class="color-accent-3 color-hover-accent-4">controls example</a> to get some ideas about how you might use this feature.
+
+                              <div class="row-spacing-lg"></div>
 													</div>										
+										
 												</div>
 											</div>
 

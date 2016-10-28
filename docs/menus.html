@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>webui</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
+  <title>Webui mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/menus.html">
-  <link rel="alternate" type="application/rss+xml" title="webui" href="/webui/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
 </head>
@@ -276,7 +276,7 @@
 
 														<p>The code example above shows a basic menu for a typical desktop layout, where a number of fixed widths are used and we haven't added any media flags for responsive behaviour. Webui allows the use of almost any html elements to build a menu, and you are not limited to buttons or lists. It is worth noting that Webui includes menu button types that are specifically styled and sized to suit menu layouts Let's examine the important parts as follows:</p>
 														
-														<p><span class="color-accent-3 text-bold">menu-bar-sm</span> The are two menu-bar classes - menu-bar and menu-bar-sm. You don't always need them, but it's as well to add one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably don't want it.</p>
+														<p><span class="color-accent-3 text-bold">menu-bar-sm</span> There are two menu-bar classes - <span class="color-accent-3 text-bold">menu-bar</span> and <span class="color-accent-3 text-bold">menu-bar-sm</span>. You don't always need them, but it's as well to add one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably don't want it.</p>
 														<p><span class="color-accent-3 text-bold">menu-activator</span> This class registers a control as the element that will be the trigger to open and close a menu. You can use just about any element as the menu activator.</p>
 														<p><span class="color-accent-3 text-bold">dropdown-content</span> The dropdown-content class registers an element to be the container for any dropdown content. The dropdown content itself can be anything you want.</p>
 														<p><span class="color-accent-3 text-bold">menu-close</span> Specifying menu-close on the dropdown container will make the dropdown close after a menu item such as a button or link is clicked or tapped. If you happened to have content other than buttons and links and you want to toggle it via script, you can do that by calling the toggleMenuItem Webui function and passing in the menu activator element id or as an object.</p>
@@ -415,7 +415,7 @@
 </div>
 <div class="row-spacing-md"></div>
 														
-														<p>The first thing is to change the class menu-activator to menu-activator-dynamic - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap. The next change is the addition of the pointer (lines 04 - 06). Here we just need a div with two classes, pointer-top-sm and pointer-top-default. The first class establishes that we are defining a pointer at a given size (in this case small), and the second makes a top pointer in the default theme colour. You could easily use a different theme colour for the pointer using another class such as pointer-top-accent-1, for example. Then we can wrap the pointer div just to give some left spacing and push it to the right a bit. Finally, the menu dropdown buttons have been wrapped with a surround with a border and rounding. The surround classes come in 3 flavours, surround-sm, surround-md, and surround-lg having 1px, 2px, and 3px padding respectively. Of course, there's no reason why you can't wrap the dropdown buttons with a container or whatever customisation you like.</p>
+														<p>The first thing is to change the class <span class="color-accent-3 text-bold">menu-activator</span> to <span class="color-accent-3 text-bold">menu-activator-dynamic</span> - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap. The next change is the addition of the pointer (lines 04 - 06). Here we just need a div with two classes, <span class="color-accent-3 text-bold">pointer-top-sm</span> and <span class="color-accent-3 text-bold">pointer-top-default</span>. The first class establishes that we are defining a pointer at a given size (in this case small), and the second makes a top pointer in the default theme colour. You could easily use a different theme colour for the pointer using another class such as pointer-top-accent-1, for example. Then we can wrap the pointer div just to give some left spacing and push it to the right a bit. Finally, the menu dropdown buttons have been wrapped with a surround with a border and rounding. The surround classes come in 3 flavours, <span class="color-accent-3 text-bold">surround-sm</span>, <span class="color-accent-3 text-bold">surround-md</span>, and <span class="color-accent-3 text-bold">surround-lg</span> having 1px, 2px, and 3px padding respectively. Of course, there's no reason why you can't wrap the dropdown buttons with a container or whatever customisation you like.</p>
 														<p>Here's how that looks in the browser.</p>
 														
 														<img src="/webui/assets/images/screenshot22.png" class="image border-accent-4" alt="Media" />
@@ -424,7 +424,7 @@
 													<p><b>Configuration options</b></p>
 													<div class="body">
 													
-													<p>There are two configuartion options available for menus which control animation transitions when dropdowns are shown and hidden. If you want to disable the fade-in and fade-out animations just set both dropdownFadeInDuration and dropdownFadeOutDuration to 0. The following code shows how to configure these options.
+													<p>There are two configuartion options available for menus which control animation transitions when dropdowns are shown and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-3 text-bold">dropdownFadeInDuration</span> and <span class="color-accent-3 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure these options.
 
 														
 <div class="row-spacing-md"></div>
