@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI logic, formatting, validation, and utilities
-* Version: 4.3.1
-* Author: Levi Keogh, 2016-10-27
+* Version: 4.3.2
+* Author: Levi Keogh, 2016-12-06
 */
 .content-row {
   white-space: normal;
@@ -1410,9 +1410,14 @@
   border-right-color: #C0C0C0;
 }
 
+.tooltip-animate {
+  animation: animate-fadein 0.5s ease-in-out;
+}
+
 html {
   font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
@@ -1426,6 +1431,7 @@ textarea {
   line-height: inherit;
   font-size: 14px !important;
   box-sizing: border-box;
+  border-radius: 0;
 }
 
 body {
@@ -1523,36 +1529,120 @@ input[type=radio] {
   box-sizing: border-box;
 }
 
-.list {
-  padding-left: 0;
+.list, .list-inline {
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 
+.list-inline > * {
+  float: left;
+}
+
 .list-bullet {
-  padding-left: 0;
+  padding-left: 15px;
   list-style-type: disc;
 }
 
 .list-alpha {
-  padding-left: 0;
+  padding-left: 15px;
   list-style-type: lower-alpha;
 }
 
 .list-number {
-  padding-left: 0;
+  padding-left: 15px;
   list-style-type: decimal;
 }
 
 .list-spacing-sm li {
-  padding-bottom: 6px;
+  padding-bottom: 5px;
 }
 
 .list-spacing-md li {
-  padding-bottom: 12px;
+  padding-bottom: 10px;
 }
 
 .list-spacing-lg li {
-  padding-bottom: 18px;
+  padding-bottom: 15px;
+}
+
+.list-inline-spacing-sm li:not(:last-of-type) {
+  padding-right: 5px;
+}
+
+.list-inline-spacing-md li:not(:last-of-type) {
+  padding-right: 10px;
+}
+
+.list-inline-spacing-lg li:not(:last-of-type) {
+  padding-right: 15px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+.breadcrumb > :not(:last-child):after {
+  content: "/";
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #CCCCCC;
+}
+
+.breadcrumb-default > :not(:last-child) a {
+  color: #D3D3D3;
+}
+
+.breadcrumb-primary > :not(:last-child) a {
+  color: #ffffff;
+}
+
+.breadcrumb-secondary > :not(:last-child) a {
+  color: #F2F2F2;
+}
+
+.breadcrumb-accent-1 > :not(:last-child) a {
+  color: #3883C7;
+}
+
+.breadcrumb-accent-2 > :not(:last-child) a {
+  color: #3C9E87;
+}
+
+.breadcrumb-accent-3 > :not(:last-child) a {
+  color: #4196E0;
+}
+
+.breadcrumb-accent-4 > :not(:last-child) a {
+  color: #7C7C7C;
+}
+
+.breadcrumb-accent-5 > :not(:last-child) a {
+  color: #000000;
+}
+
+.breadcrumb-success > :not(:last-child) a {
+  color: #2DB200;
+}
+
+.breadcrumb-info > :not(:last-child) a {
+  color: #0072FF;
+}
+
+.breadcrumb-warning > :not(:last-child) a {
+  color: #FF9300;
+}
+
+.breadcrumb-danger > :not(:last-child) a {
+  color: #FF0000;
+}
+
+.breadcrumb-highlight > :not(:last-child) a {
+  color: #FFF9F4;
+}
+
+*[class*="breadcrumb-"] > :last-child {
+  color: #CCCCCC;
 }
 
 .container {
@@ -2188,6 +2278,7 @@ input[type=radio] {
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
 .dropdown-right {
@@ -3508,26 +3599,18 @@ input[type=radio] {
 }
 
 .raised {
-  -webkit-box-shadow: 1px 1px 4px -1px rgba(153, 153, 153, 0.45);
-  -moz-box-shadow: 1px 1px 4px -1px rgba(153, 153, 153, 0.45);
   box-shadow: 1px 1px 4px -1px rgba(153, 153, 153, 0.45);
 }
 
 .rounded-sm {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   border-radius: 3px;
 }
 
 .rounded-md {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
   border-radius: 6px;
 }
 
 .rounded-lg {
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
   border-radius: 9px;
 }
 

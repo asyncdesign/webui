@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.3.1
-* Author: Levi Keogh, 2016-10-27
+* Version: 4.3.2
+* Author: Levi Keogh, 2016-12-06
 */
 "use strict";
 
@@ -15,8 +15,6 @@
     var notificationFadeOutDuration = 300;
     var menuDropdownFadeInDuration = 500;
     var menuDropdownFadeOutDuration = 500;
-    var tooltipFadeInDuration = 200;
-    var tooltipFadeOutDuration = 200;
     var tooltipAutoPos = false;
     var tooltipAutoPosMargin = 0;
     var tooltipAutoSize = true;
@@ -134,27 +132,32 @@
             }
         } catch (ex) {}
     };
+    var resetTooltips = function() {
+        try {
+            if (tooltipAutoPos) {
+                var tooltips = $(".tooltip");
+                $(tooltips).each(function() {
+                    var tooltip = $(this).children("*[class^='tooltip-']:first");
+                    tooltip.css("margin-left", "");
+                    tooltip.css("margin-top", "");
+                    tooltip.css("left", "");
+                    tooltip.css("top", "");
+                    if (tooltip.hasClass("shadow-left")) {
+                        flipTooltip(tooltip, ui.LEFT);
+                    } else if (tooltip.hasClass("shadow-top")) {
+                        flipTooltip(tooltip, ui.TOP);
+                    } else if (tooltip.hasClass("shadow-right")) {
+                        flipTooltip(tooltip, ui.RIGHT);
+                    } else if (tooltip.hasClass("shadow-bottom")) {
+                        flipTooltip(tooltip, ui.BOTTOM);
+                    }
+                    ui.showTooltip(this, null, true);
+                });
+            }
+        } catch (ex) {}
+    };
     var windowEventHandler = function() {
-        if (tooltipAutoPos) {
-            var tooltips = $(".tooltip");
-            $(tooltips).each(function() {
-                var tooltip = $(this).children("*[class^='tooltip-']:first");
-                tooltip.css("margin-left", "");
-                tooltip.css("margin-top", "");
-                tooltip.css("left", "");
-                tooltip.css("top", "");
-                if (tooltip.hasClass("shadow-left")) {
-                    flipTooltip(tooltip, ui.LEFT);
-                } else if (tooltip.hasClass("shadow-top")) {
-                    flipTooltip(tooltip, ui.TOP);
-                } else if (tooltip.hasClass("shadow-right")) {
-                    flipTooltip(tooltip, ui.RIGHT);
-                } else if (tooltip.hasClass("shadow-bottom")) {
-                    flipTooltip(tooltip, ui.BOTTOM);
-                }
-                ui.showTooltip($(this), null, true);
-            });
-        }
+        resetTooltips();
     };
     if (typeof window !== void 0 && typeof window.addEventListener !== void 0) {
         $(window).resize(function() {
@@ -652,28 +655,30 @@
                 }
                 var viewport = {
                     left: 0,
-                    top: 0
+                    top: 0,
+                    right: win.innerWidth(),
+                    bottom: win.innerHeight()
                 };
-                viewport.right = win.innerWidth();
-                viewport.bottom = win.innerHeight();
-                var pos = el.getBoundingClientRect();
+                var offsetWidth = element.siblings(":first").outerWidth();
+                var offsetHeight = element.siblings(":first").outerHeight();
+                var clientRect = el.getBoundingClientRect();
                 var bounds = {
-                    left: pos.left - element.outerWidth() - margin,
-                    top: pos.top - element.outerHeight() - margin,
-                    right: pos.right + element.outerWidth() + margin,
-                    bottom: pos.bottom + element.outerHeight() + margin
+                    top: clientRect.top - (clientRect.bottom - clientRect.top) - margin,
+                    left: clientRect.left - (clientRect.right - clientRect.left) - margin,
+                    bottom: clientRect.bottom + offsetHeight + margin,
+                    right: clientRect.right + offsetWidth + margin
                 };
                 return {
-                    result: !(viewport.left > bounds.left || viewport.top > bounds.top || viewport.right < bounds.right || viewport.bottom < bounds.bottom),
-                    leftExceeded: bounds.left < viewport.left,
+                    result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
                     topExceeded: bounds.top < viewport.top,
-                    rightExceeded: bounds.right > viewport.right,
-                    bottomExceeded: bounds.bottom > viewport.bottom
+                    leftExceeded: bounds.left < viewport.left,
+                    bottomExceeded: bounds.bottom > viewport.bottom,
+                    rightExceeded: bounds.right > viewport.right
                 };
             }
-            return false;
+            return null;
         } catch (ex) {
-            return false;
+            return null;
         }
     };
     ui.isWindowInBreakPointRange = function(breakPointRange) {
@@ -1003,171 +1008,127 @@
         }
     };
     ui.initTooltips = function(options) {
-        tooltipFadeInDuration = options.fadeInDuration !== void 0 ? options.fadeInDuration : tooltipFadeInDuration;
-        tooltipFadeOutDuration = options.fadeOutDuration !== void 0 ? options.fadeOutDuration : tooltipFadeOutDuration;
         tooltipAutoPos = options.autoPositioning !== void 0 ? options.autoPositioning : tooltipAutoPos;
         tooltipAutoPosMargin = options.autoPositioningMargin !== void 0 ? options.autoPositioningMargin : tooltipAutoPosMargin;
         tooltipAutoSize = options.autoResizing !== void 0 ? options.autoResizing : tooltipAutoSize;
     };
     ui.showTooltip = function(tooltipObject, message, resetOnly) {
-        var tooltip = $(tooltipObject).children("*[class^='tooltip-']:first");
-        if (tooltip.length > 0) {
-            var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 0;
-            if (tooltip.hasClass("tooltip-left")) {
-                if (tooltipAutoSize) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                        tooltipWidth = 125;
+        try {
+            var tooltip = $(tooltipObject).children("*[class^='tooltip-']:first");
+            if (tooltip.length > 0) {
+                var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 0;
+                if (tooltip.hasClass("tooltip-left")) {
+                    if (tooltipAutoSize) {
+                        if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            tooltipWidth = 125;
+                        }
                     }
-                }
-                if (tooltipAutoPos) {
-                    if (tooltip.css("display") == "block") {
-                        if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                                flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
-                            } else {
+                    if (tooltipAutoPos) {
+                        if (tooltip.css("display") == "block") {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
                                 flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_LEFT);
                             }
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_LEFT);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
-                        } else {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
+                                flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
+                            }
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
                                 flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_LEFT);
-                            } else {
-                                flipTooltip(tooltip, ui.LEFT, ui.SHADOW_LEFT);
+                            }
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
+                                flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
                             }
                         }
                     }
-                }
-            } else if (tooltip.hasClass("tooltip-top")) {
-                if (tooltipAutoSize) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                        tooltipWidth = 125;
+                } else if (tooltip.hasClass("tooltip-top")) {
+                    if (tooltipAutoSize) {
+                        if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            tooltipWidth = 125;
+                        }
                     }
-                }
-                if (tooltipAutoPos) {
-                    if (tooltip.css("display") == "block") {
-                        if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_TOP);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_TOP);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                                flipTooltip(tooltip, ui.TOP, ui.SHADOW_TOP);
-                            } else {
-                                flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_TOP);
-                            }
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (tooltipAutoPos) {
+                        if (tooltip.css("display") == "block") {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
                                 flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_TOP);
-                            } else {
-                                flipTooltip(tooltip, ui.LEFT, ui.SHADOW_TOP);
                             }
-                        } else {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_TOP);
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
+                                flipTooltip(tooltip, ui.TOP, ui.SHADOW_TOP);
+                            }
                         }
                     }
-                }
-            } else if (tooltip.hasClass("tooltip-right")) {
-                if (tooltipAutoSize) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                        tooltipWidth = 125;
+                } else if (tooltip.hasClass("tooltip-right")) {
+                    if (tooltipAutoSize) {
+                        if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            tooltipWidth = 125;
+                        }
                     }
-                }
-                if (tooltipAutoPos) {
-                    if (tooltip.css("display") == "block") {
-                        if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_RIGHT);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                                flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
-                            } else {
+                    if (tooltipAutoPos) {
+                        if (tooltip.css("display") == "block") {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
                                 flipTooltip(tooltip, ui.LEFT, ui.SHADOW_RIGHT);
                             }
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_RIGHT);
-                        } else {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
+                                flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
+                            }
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
                                 flipTooltip(tooltip, ui.TOP, ui.SHADOW_RIGHT);
-                            } else {
-                                flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_RIGHT);
+                            }
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
+                                flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
                             }
                         }
                     }
-                }
-            } else if (tooltip.hasClass("tooltip-bottom")) {
-                if (tooltipAutoSize) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
-                        tooltipWidth = 125;
+                } else if (tooltip.hasClass("tooltip-bottom")) {
+                    if (tooltipAutoSize) {
+                        if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            tooltipWidth = 125;
+                        }
                     }
-                }
-                if (tooltipAutoPos) {
-                    if (tooltip.css("display") == "block") {
-                        if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded || ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded && ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_BOTTOM);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_BOTTOM);
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (tooltipAutoPos) {
+                        if (tooltip.css("display") == "block") {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
                                 flipTooltip(tooltip, ui.TOP, ui.SHADOW_BOTTOM);
-                            } else {
-                                flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_BOTTOM);
                             }
-                        } else if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                            if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
                                 flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_BOTTOM);
-                            } else {
-                                flipTooltip(tooltip, ui.LEFT, ui.SHADOW_BOTTOM);
                             }
-                        } else {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_BOTTOM);
                         }
                     }
                 }
-            }
-            if (tooltipWidth > 0) {
-                tooltip.css("width", tooltipWidth + "px");
-                if (arguments.length > 1 && message != null && message.length > 0) {
-                    tooltip.html(message);
-                }
-                var target = $(tooltipObject).children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static):first");
-                if (target.length > 0) {
-                    var targetLeft = target.position().left;
-                    var targetTop = target.position().top;
-                    var targetWidth = target.outerWidth();
-                    var targetHeight = target.outerHeight();
-                    var tooltipHeight = tooltip.outerHeight();
-                    positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
-                    if (arguments.length < 3 || arguments.length > 2 && !resetOnly) {
-                        if (tooltip.hasClass("tooltip-animate")) {
-                            tooltip.show(tooltipFadeInDuration);
-                        } else {
+                if (tooltipWidth > 0) {
+                    tooltip.css("width", tooltipWidth + "px");
+                    if (arguments.length > 1 && message != null && message.length > 0) {
+                        tooltip.html(message);
+                    }
+                    var target = $(tooltipObject).children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static):first");
+                    if (target.length > 0) {
+                        var targetLeft = target.position().left;
+                        var targetTop = target.position().top;
+                        var targetWidth = target.outerWidth();
+                        var targetHeight = target.outerHeight();
+                        var tooltipHeight = tooltip.outerHeight();
+                        positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
+                        if (arguments.length < 3 || arguments.length > 2 && !resetOnly) {
                             tooltip.show();
+                            setTimeout(function() {
+                                resetTooltips();
+                            }, 50);
                         }
                     }
                 }
             }
-        }
+        } catch (ex) {}
     };
     ui.hideTooltip = function(tooltipObject) {
         var tooltip = $(tooltipObject).children("*[class^='tooltip-']:first");
         if (tooltip.length > 0) {
-            if (tooltip.hasClass("tooltip-animate")) {
-                tooltip.hide(tooltipFadeOutDuration);
-            } else {
-                tooltip.hide();
-            }
+            tooltip.hide();
         }
     };
     $(".tooltip").hover(function() {
         var tooltip = $(this).children(".tooltip-dynamic:first");
         if (tooltip.length > 0) {
             ui.showTooltip(this);
+            resetTooltips();
         }
     }, function() {
         var tooltip = $(this).children(".tooltip-dynamic:first");
@@ -1179,6 +1140,7 @@
         var tooltip = $(this).children(".tooltip-focus:first");
         if (tooltip.length > 0) {
             ui.showTooltip(this);
+            resetTooltips();
         }
     });
     $(".tooltip").focusout(function() {
@@ -1196,5 +1158,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.3.1";
+    ui.version = "webui-4.3.2";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
