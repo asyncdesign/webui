@@ -1,0 +1,28 @@
+
+@media print {
+    a {
+        text-decoration: underline;
+    }
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    p a[href^="http://"]:after {
+        content: " (" attr(href) ")";
+    }
+    pre,
+    code,
+    blockquote {
+        border: 1px solid $theme_muted;
+        page-break-inside: avoid;
+    }
+    button {
+        display: none;
+    }
+    img {
+        max-width: 600px;
+    }
+    *[class*="menu-"], *[class*="dropdown-"] {
+        display: none;
+    }
+
+}

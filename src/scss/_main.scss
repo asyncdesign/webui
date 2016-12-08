@@ -5,6 +5,10 @@ html {
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
+body {
+	color: $theme_primary_foreground;
+	background-color: $theme_primary;
+}
 body,
 button,
 input,
@@ -17,14 +21,27 @@ textarea {
 	box-sizing: border-box;
 	border-radius: 0;
 }
-body {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
+a.accessibility:focus, textarea.accessibility:focus {
+	outline: 3px solid $theme_default_border;
 }
 input[type=checkbox], 
 input[type=radio] {
 	vertical-align: -2px !important;
 	margin-top: -1px !important;
+}
+h1 {
+	font-size: 1.7em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-size: 1.3em;
+}
+blockquote {
+  border-left: 4px solid $theme_default;
+  margin: 10px 20px 10px 10px;
+  padding: 10px;
 }
 :focus {
 	outline: none;
@@ -272,6 +289,9 @@ input[type=radio] {
 	word-spacing: -0.43em;
 	width: inherit;
 }
+*[class*="input"].accessibility:focus, *[class*="control"].accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_default_border;
+}
 .checkbox-sm {
 	width: 14px;
 	height: 14px;
@@ -319,6 +339,10 @@ input[type=radio] {
 		}
   	} 
 }
+*[class*="checkbox"].accessibility label:focus {
+	border: 2px solid $theme_default_border;
+	margin: 0;	
+}
 .radio-sm {
 	width: 16px;
 	height: 16px;
@@ -352,6 +376,10 @@ input[type=radio] {
 			opacity: 1;
 		}   
 	} 
+}
+*[class*="radio"].accessibility label:focus {
+	border: 4px solid $theme_default_border;
+	margin: 0;
 }
 .button {
 	padding: 0 12px;
@@ -394,6 +422,11 @@ input[type=radio] {
 		border-color: $theme_default_active;
 	}
 }
+.button-default.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_default_border;
+	background-color: $theme_primary;
+	color: $theme_default_border;
+}
 .button-primary {
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
@@ -406,6 +439,11 @@ input[type=radio] {
 		background-color: $theme_primary_active;
 		border-color: $theme_primary_active;
 	}
+}
+.button-primary.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_primary_border;
+	background-color: $theme_primary;
+	color: $theme_primary_border;
 }
 .button-secondary {
 	color: $theme_secondary_foreground;
@@ -420,6 +458,11 @@ input[type=radio] {
 		border-color: $theme_secondary_active;
 	}
 }
+.button-secondary.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_secondary_border;
+	background-color: $theme_primary;
+	color: $theme_secondary_border;
+}
 .button-accent-1 {
 	color: $theme_accent_1_foreground;
 	background-color: $theme_accent_1;
@@ -430,6 +473,11 @@ input[type=radio] {
 	&:active {
 		background-color: $theme_accent_1_active;
 	}
+}
+.button-accent-1.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_1_border;
+	background-color: $theme_primary;
+	color: $theme_accent_1_border;
 }
 .button-accent-2 {
 	color: $theme_accent_2_foreground;
@@ -442,6 +490,11 @@ input[type=radio] {
 		background-color: $theme_accent_2_active;
 	}
 }
+.button-accent-2.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_2_border;
+	background-color: $theme_primary;
+	color: $theme_accent_2_border;
+}
 .button-accent-3 {
 	color: $theme_accent_3_foreground;
 	background-color: $theme_accent_3;
@@ -452,6 +505,11 @@ input[type=radio] {
 	&:active {
 		background-color: $theme_accent_3_active;
 	}
+}
+.button-accent-3.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_3_border;
+	background-color: $theme_primary;
+	color: $theme_accent_3_border;
 }
 .button-accent-4 {
 	color: $theme_accent_4_foreground;
@@ -464,6 +522,11 @@ input[type=radio] {
 		background-color: $theme_accent_4_active;
 	}
 }
+.button-accent-4.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_4_border;
+	background-color: $theme_primary;
+	color: $theme_accent_4_border;
+}
 .button-accent-5 {
 	color: $theme_accent_5_foreground;
 	background-color: $theme_accent_5;
@@ -474,6 +537,11 @@ input[type=radio] {
 	&:active {
 		background-color: $theme_accent_5_active;
 	}
+}
+.button-accent-5.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_5_border;
+	background-color: $theme_primary;
+	color: $theme_accent_5_border;
 }
 .button-success {
 	color: $theme_success_foreground;
@@ -486,6 +554,11 @@ input[type=radio] {
 		background-color: $theme_success_active;
 	}
 }
+.button-success.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_success_border;
+	background-color: $theme_primary;
+	color: $theme_success_border;
+}
 .button-info {
 	color: $theme_info_foreground;
 	background-color: $theme_info;
@@ -496,6 +569,11 @@ input[type=radio] {
 	&:active {
 		background-color: $theme_info_active;
 	}
+}
+.button-info.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_info_border;
+	background-color: $theme_primary;
+	color: $theme_info_border;
 }
 .button-warning {
 	color: $theme_warning_foreground;
@@ -508,6 +586,11 @@ input[type=radio] {
 		background-color: $theme_warning_active;
 	}
 }
+.button-warning.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_warning_border;
+	background-color: $theme_primary;
+	color: $theme_warning_border;
+}
 .button-danger {
 	color: $theme_danger_foreground;
 	background-color: $theme_danger;
@@ -519,6 +602,11 @@ input[type=radio] {
 		background-color: $theme_danger_active;
 	}
 }
+.button-danger.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_danger_border;
+	background-color: $theme_primary;
+	color: $theme_danger_border;
+}
 .button-highlight {
 	color: $theme_highlight_foreground;
 	background-color: $theme_highlight;
@@ -529,6 +617,11 @@ input[type=radio] {
 	&:active {
 		background-color: $theme_highlight_active;
 	}
+}
+.button-highlight.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_highlight_border;
+	background-color: $theme_primary;
+	color: $theme_highlight_border;
 }
 .button-transparent {
 	color: $theme_transparent_foreground;
@@ -542,6 +635,11 @@ input[type=radio] {
 		color: $theme_transparent_active;
 		background-color: $theme_transparent;
 	}
+}
+.button-transparent.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_transparent_border;
+	background-color: $theme_primary;
+	color: $theme_transparent_border;
 }
 .button-disabled {
 	color: $theme_disabled_foreground;
@@ -580,6 +678,11 @@ input[type=radio] {
 		border-color: $theme_default_active;
 	}
 }
+.menu-button-default.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_default_border;
+	background-color: $theme_primary;
+	color: $theme_default_border;
+}
 .menu-button-primary {
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
@@ -588,6 +691,11 @@ input[type=radio] {
 		background-color: $theme_primary_active;
 		border-color: $theme_primary_active;
 	}
+}
+.menu-button-primary.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_primary_border;
+	background-color: $theme_primary;
+	color: $theme_primary_border;
 }
 .menu-button-secondary {
 	color: $theme_secondary_foreground;
@@ -598,6 +706,11 @@ input[type=radio] {
 		border-color: $theme_secondary_active;
 	}
 }
+.menu-button-secondary.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_secondary_border;
+	background-color: $theme_primary;
+	color: $theme_secondary_border;
+}
 .menu-button-accent-1 {
 	color: $theme_accent_1_foreground;
 	background-color: $theme_accent_1;
@@ -605,6 +718,11 @@ input[type=radio] {
 	&:focus {
 		background-color: $theme_accent_1_active;
 	}
+}
+.menu-button-accent-1.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_1_border;
+	background-color: $theme_primary;
+	color: $theme_accent_1_border;
 }
 .menu-button-accent-2 {
 	color: $theme_accent_2_foreground;
@@ -614,6 +732,11 @@ input[type=radio] {
 		background-color: $theme_accent_2_active;
 	}
 }
+.menu-button-accent-2.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_2_border;
+	background-color: $theme_primary;
+	color: $theme_accent_2_border;
+}
 .menu-button-accent-3 {
 	color: $theme_accent_3_foreground;
 	background-color: $theme_accent_3;
@@ -621,6 +744,11 @@ input[type=radio] {
 	&:focus {
 		background-color: $theme_accent_3_active;
 	}
+}
+.menu-button-accent-3.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_3_border;
+	background-color: $theme_primary;
+	color: $theme_accent_3_border;
 }
 .menu-button-accent-4 {
 	color: $theme_accent_4_foreground;
@@ -630,6 +758,11 @@ input[type=radio] {
 		background-color: $theme_accent_4_active;
 	}
 }
+.menu-button-accent-4.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_4_border;
+	background-color: $theme_primary;
+	color: $theme_accent_4_border;
+}
 .menu-button-accent-5 {
 	color: $theme_accent_5_foreground;
 	background-color: $theme_accent_5;
@@ -637,6 +770,11 @@ input[type=radio] {
 	&:focus {
 		background-color: $theme_accent_5_active;
 	}
+}
+.menu-button-accent-5.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_accent_5_border;
+	background-color: $theme_primary;
+	color: $theme_accent_5_border;
 }
 .menu-button-success {
 	color: $theme_success_foreground;
@@ -646,6 +784,11 @@ input[type=radio] {
 		background-color: $theme_success_active;
 	}
 }
+.menu-button-success.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_success_border;
+	background-color: $theme_primary;
+	color: $theme_success_border;
+}
 .menu-button-info {
 	color: $theme_info_foreground;
 	background-color: $theme_info;
@@ -653,6 +796,11 @@ input[type=radio] {
 	&:focus {
 		background-color: $theme_info_active;
 	}
+}
+.menu-button-info.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_info_border;
+	background-color: $theme_primary;
+	color: $theme_info_border;
 }
 .menu-button-warning {
 	color: $theme_warning_foreground;
@@ -662,6 +810,11 @@ input[type=radio] {
 		background-color: $theme_warning_active;
 	}
 }
+.menu-button-warning.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_warning_border;
+	background-color: $theme_primary;
+	color: $theme_warning_border;
+}
 .menu-button-danger {
 	color: $theme_danger_foreground;
 	background-color: $theme_danger;
@@ -669,6 +822,11 @@ input[type=radio] {
 	&:focus {
 		background-color: $theme_danger_active;
 	}
+}
+.menu-button-danger.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_danger_border;
+	background-color: $theme_primary;
+	color: $theme_danger_border;
 }
 .menu-button-highlight {
 	color: $theme_highlight_foreground;
@@ -678,6 +836,11 @@ input[type=radio] {
 		background-color: $theme_highlight_active;
 	}
 }
+.menu-button-highlight.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_highlight_border;
+	background-color: $theme_primary;
+	color: $theme_highlight_border;
+}
 .menu-button-transparent {
 	color: $theme_transparent_foreground;
 	background-color: $theme_transparent;
@@ -686,6 +849,11 @@ input[type=radio] {
 		color: $theme_transparent_hover;
 		background-color: $theme_transparent;
 	}
+}
+.menu-button-transparent.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_transparent_border;
+	background-color: $theme_primary;
+	color: $theme_transparent_border;
 }
 .menu-button-disabled {
 	color: $theme_disabled_foreground;

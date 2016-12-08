@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.3.2
-* Author: Levi Keogh, 2016-12-06
+* Version: 4.3.3
+* Author: Levi Keogh, 2016-12-08
 */
 "use strict";
 
@@ -42,6 +42,29 @@
     var isSelect = function(selector) {
         return $("#" + selector).is("select");
     };
+    var configureAccessibility = function() {
+        var checkboxes = $(".checkbox-sm label");
+        var radiobuttons = $(".radio-sm label");
+        checkboxes.attr({
+            tabindex: "0",
+            role: "checkbox"
+        });
+        radiobuttons.attr({
+            tabindex: "0",
+            role: "radio"
+        });
+        checkboxes.keydown(function(e) {
+            if (e.which == 13 || e.which == 32) {
+                $(this).click();
+            }
+        });
+        radiobuttons.keydown(function(e) {
+            if (e.which == 13 || e.which == 32) {
+                $(this).click();
+            }
+        });
+    };
+    configureAccessibility();
     var dependsOnSelectorValueMatches = function(dependsOnSelector, dependsOnValue) {
         return isTextbox(dependsOnSelector) && dependsOnValue === $("#" + dependsOnSelector).val() || isTextarea(dependsOnSelector) && dependsOnValue === $("#" + dependsOnSelector).text() || isSelect(dependsOnSelector) && dependsOnValue === $("#" + dependsOnSelector + " option:selected").text() || isCheckbox(dependsOnSelector) && dependsOnValue === $("#" + dependsOnSelector).is(":checked");
     };
@@ -180,13 +203,15 @@
                     } else {
                         toggleItem.css("display", "block");
                     }
-                } else if (arguments.length === 2 && toggleState === "on") {
-                    if (toggleItem.css("display") === "none") {
-                        toggleItem.css("display", "block");
-                    }
-                } else {
-                    if (toggleItem.css("display") === "block") {
-                        toggleItem.css("display", "none");
+                } else if (arguments.length > 1) {
+                    if (toggleState === "on") {
+                        if (toggleItem.css("display") === "none") {
+                            toggleItem.css("display", "block");
+                        }
+                    } else {
+                        if (toggleItem.css("display") === "block") {
+                            toggleItem.css("display", "none");
+                        }
                     }
                 }
             }
@@ -1158,5 +1183,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.3.2";
+    ui.version = "webui-4.3.3";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
