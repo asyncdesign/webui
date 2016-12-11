@@ -217,54 +217,25 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        											<p id="menus" class="text-lg color-accent-3 text-bold">
-												Menus<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css, webui.js]</span>
-											</p>
-											<div class="content-row">
-												<div class="content-col-20">
-													<p><b>Creating menus</b></p>
-													<div class="body">
-														<p>Webui places a lot of emphasis on the ability to create menus in the style that you want. As you will see, there are a lot of customisation options available. Menus do require the webui.js javascript file to be included in your project as well as the CSS, but you won't have to write any javascript except for setting configuration options as explained a bit later. First, let's take a look at some simple menus and then progress to the more advanced features.</p>
-														<p></p>
-														
-														
-<div class="row-spacing-md"></div>
-<div id="snippet20" class="area background-accent-5 color-secondary text-sm">
+                        <p id="menus" class="text-lg color-accent-3 text-bold">
+  Menus<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css, webui.js]</span>
+</p>
 <div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+  <div class="content-col-20">
+    <p><b>Creating menus</b></p>
+
+    <p>Webui places a lot of emphasis on the ability to create menus in the style that you want. As you will see, there are
+      a lot of customisation options available. Menus do require the webui.js javascript file to be included in your project
+      as well as the CSS, but you won't have to write any javascript except for setting configuration options as explained
+      a bit later. First, let's take a look at some simple menus and then progress to the more advanced features.</p>
+    <p></p>
+
+
+    <div class="row-spacing-md"></div>
+    <div id="snippet20" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="content-row menu-bar-sm" role="navigation"&gt;
   &lt;div class="content-col-20 accent-1"&gt;
     &lt;div class="form-col width-2"&gt;
@@ -296,64 +267,50 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
 
-														<p>The code example above shows a basic menu for a typical desktop layout, where a number of fixed widths are used and we haven't added any media flags for responsive behaviour. Webui allows the use of almost any html elements to build a menu, and you are not limited to buttons or lists. It is worth noting that Webui includes menu button types that are specifically styled and sized to suit menu layouts Let's examine the important parts as follows:</p>
-														
-														<p><span class="color-accent-3 text-bold">menu-bar-sm</span> There are two menu-bar classes - <span class="color-accent-3 text-bold">menu-bar</span> and <span class="color-accent-3 text-bold">menu-bar-sm</span>. You don't always need them, but it's as well to add one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably don't want it.</p>
-														<p><span class="color-accent-3 text-bold">menu-activator</span> This class registers a control as the element that will be the trigger to open and close a menu. You can use just about any element as the menu activator.</p>
-														<p><span class="color-accent-3 text-bold">dropdown-content</span> The dropdown-content class registers an element to be the container for any dropdown content. The dropdown content itself can be anything you want.</p>
-														<p><span class="color-accent-3 text-bold">menu-close</span> Specifying menu-close on the dropdown container will make the dropdown close after a menu item such as a button or link is clicked or tapped. If you happened to have content other than buttons and links and you want to toggle it via script, you can do that by calling the toggleMenuItem Webui function and passing in the menu activator element id or as an object.</p>
-														
-														<p>Here's how the above code example would look.</p>
-														
-														<img src="/webui/assets/images/screenshot20.png" class="image border-accent-4" alt="Media" />
-														
-														<p>So, what if we want a menu option near to the right of the menu and we want the dropdown to point from right to left? In this case we can just add the dropdown-right class to the dropdown content container.</p>
-														
-													</div>
-													<p><b>Creating responsive menus</b></p>
-													<div class="body">
-														There are many styles of responsive menu, and one of the most popular for smaller screen sizes is the full width collapsible type. The menu simply expands and shrinks as you open and close menus options. Very often the menu will also push down any page content that may be displayed below it.
-																												
-														<p>The following code will produce that kind of menu</p>
+    <p>The code example above shows a basic menu for a typical desktop layout, where a number of fixed widths are used and we
+      haven't added any media flags for responsive behaviour. Webui allows the use of almost any html elements to build a
+      menu, and you are not limited to buttons or lists. It is worth noting that Webui includes menu button types that are
+      specifically styled and sized to suit menu layouts Let's examine the important parts as follows:</p>
 
-<div class="row-spacing-md"></div>
-<div id="snippet21" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <p><span class="color-accent-3 text-bold">menu-bar-sm</span> There are two menu-bar classes - <span class="color-accent-3 text-bold">menu-bar</span>      and <span class="color-accent-3 text-bold">menu-bar-sm</span>. You don't always need them, but it's as well to add
+      one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls
+      that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably
+      don't want it.</p>
+    <p><span class="color-accent-3 text-bold">menu-activator</span> This class registers a control as the element that will
+      be the trigger to open and close a menu. You can use just about any element as the menu activator.</p>
+    <p><span class="color-accent-3 text-bold">dropdown-content</span> The dropdown-content class registers an element to be
+      the container for any dropdown content. The dropdown content itself can be anything you want.</p>
+    <p><span class="color-accent-3 text-bold">menu-close</span> Specifying menu-close on the dropdown container will make the
+      dropdown close after a menu item such as a button or link is clicked or tapped. If you happened to have content other
+      than buttons and links and you want to toggle it via script, you can do that by calling the toggleMenuItem Webui function
+      and passing in the menu activator element id or as an object.</p>
+
+    <p>Here's how the above code example would look.</p>
+
+    <img src="/webui/assets/images/screenshot20.png" class="image border-accent-4" alt="Media" />
+
+    <p>So, what if we want a menu option near to the right of the menu and we want the dropdown to point from right to left?
+      In this case we can just add the dropdown-right class to the dropdown content container.</p>
+
+
+    <p><b>Creating responsive menus</b></p>
+
+    There are many styles of responsive menu, and one of the most popular for smaller screen sizes is the full width collapsible
+    type. The menu simply expands and shrinks as you open and close menus options. Very often the menu will also push down
+    any page content that may be displayed below it.
+
+    <p>The following code will produce that kind of menu</p>
+
+    <div class="row-spacing-md"></div>
+    <div id="snippet21" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="content-row menu-bar" role="navigation"&gt;
   &lt;div class="content-col-20 accent-1"&gt;
     &lt;div class="secondary width-full"&gt;
@@ -381,46 +338,39 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														<p>On line 05 a the class dropdown-content-expand is added - this is actually the class that will make the menu push any page content down as you expand the menu. If you prefer the menu to overlay any page content you can replace just that single top most dropdown-content-expand with dropdown-content. There is a third kind of dropdown container called dropdown-sheet - this is used mainly for desktop sized screens and is often used on eCommerce sites.</p>
-														
-														<p>NOTE: If you do use dropdown-content instead of dropdown-content-expand on the top most activator button for a mobile menu, you will need to add the menu-inclusive class as well, otherwise the menu will close when selecting sub menu activators. That's because dropdown-content on it's own will close all other menus by default and would normally be used for the desktop style menu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
+    <p>On line 05 a the class dropdown-content-expand is added - this is actually the class that will make the menu push any
+      page content down as you expand the menu. If you prefer the menu to overlay any page content you can replace just that
+      single top most dropdown-content-expand with dropdown-content. There is a third kind of dropdown container called dropdown-sheet
+      - this is used mainly for desktop sized screens and is often used on eCommerce sites.</p>
 
-														<p>The screenshot below shows the result of the above code.</p>
-														
-														<img src="/webui/assets/images/screenshot21.png" class="image border-accent-4" alt="Media" />
-														
-													</div>
-													<p><b>Customisation</b></p>
-													<div class="body">
+    <p>NOTE: If you do use dropdown-content instead of dropdown-content-expand on the top most activator button for a mobile
+      menu, you will need to add the menu-inclusive class as well, otherwise the menu will close when selecting sub menu
+      activators. That's because dropdown-content on it's own will close all other menus by default and would normally be
+      used for the desktop style menu.</p>
 
-														<p>OK, now let's do some customisation of our first menu. Say we want to have a white dropdown with a small arrow on top, and maybe a black border and make the corners a bit rounded. Oh, and let's make it dropdown on hover instead if the default click. No problem, taking the first menu section (lines 06 - 15) from our first example we can change it as follows:</p>
-														
-<div class="row-spacing-md"></div>
-<div id="snippet22" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <p>The screenshot below shows the result of the above code.</p>
+
+    <img src="/webui/assets/images/screenshot21.png" class="image border-accent-4" alt="Media" />
+
+
+    <p><b>Customisation</b></p>
+
+
+    <p>OK, now let's do some customisation of our first menu. Say we want to have a white dropdown with a small arrow on top,
+      and maybe a black border and make the corners a bit rounded. Oh, and let's make it dropdown on hover instead if the
+      default click. No problem, taking the first menu section (lines 06 - 15) from our first example we can change it as
+      follows:
+    </p>
+
+    <div class="row-spacing-md"></div>
+    <div id="snippet22" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="content-col col-spacing-left-sm width-5"&gt;
   &lt;button id="Menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-default align-left"&gt;Option 1&lt;i class="fa fa-caret-down col-spacing-left-xs"&gt;&lt;/i&gt;&lt;/button&gt;
   &lt;div class="dropdown-content menu-close width-10 transparent"&gt;
@@ -437,38 +387,38 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														
-														<p>The first thing is to change the class <span class="color-accent-3 text-bold">menu-activator</span> to <span class="color-accent-3 text-bold">menu-activator-dynamic</span> - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap. The next change is the addition of the pointer (lines 04 - 06). Here we just need a div with two classes, <span class="color-accent-3 text-bold">pointer-top-sm</span> and <span class="color-accent-3 text-bold">pointer-top-default</span>. The first class establishes that we are defining a pointer at a given size (in this case small), and the second makes a top pointer in the default theme colour. You could easily use a different theme colour for the pointer using another class such as pointer-top-accent-1, for example. Then we can wrap the pointer div just to give some left spacing and push it to the right a bit. Finally, the menu dropdown buttons have been wrapped with a surround with a border and rounding. The surround classes come in 3 flavours, <span class="color-accent-3 text-bold">surround-sm</span>, <span class="color-accent-3 text-bold">surround-md</span>, and <span class="color-accent-3 text-bold">surround-lg</span> having 1px, 2px, and 3px padding respectively. Of course, there's no reason why you can't wrap the dropdown buttons with a container or whatever customisation you like.</p>
-														<p>Here's how that looks in the browser.</p>
-														
-														<img src="/webui/assets/images/screenshot22.png" class="image border-accent-4" alt="Media" />
-														
-													</div>
-													<p><b>Configuration options</b></p>
-													<div class="body">
-													
-													<p>There are two configuartion options available for menus which control animation transitions when dropdowns are shown and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-3 text-bold">dropdownFadeInDuration</span> and <span class="color-accent-3 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure these options.
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
 
-														
-<div class="row-spacing-md"></div>
-<div id="snippet23" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <p>The first thing is to change the class <span class="color-accent-3 text-bold">menu-activator</span> to <span class="color-accent-3 text-bold">menu-activator-dynamic</span>      - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap.
+      The next change is the addition of the pointer (lines 04 - 06). Here we just need a div with two classes, <span class="color-accent-3 text-bold">pointer-top-sm</span>      and <span class="color-accent-3 text-bold">pointer-top-default</span>. The first class establishes that we are defining
+      a pointer at a given size (in this case small), and the second makes a top pointer in the default theme colour. You
+      could easily use a different theme colour for the pointer using another class such as pointer-top-accent-1, for example.
+      Then we can wrap the pointer div just to give some left spacing and push it to the right a bit. Finally, the menu dropdown
+      buttons have been wrapped with a surround with a border and rounding. The surround classes come in 3 flavours,
+      <span class="color-accent-3 text-bold">surround-sm</span>, <span class="color-accent-3 text-bold">surround-md</span>,
+      and <span class="color-accent-3 text-bold">surround-lg</span> having 1px, 2px, and 3px padding respectively. Of course,
+      there's no reason why you can't wrap the dropdown buttons with a container or whatever customisation you like.</p>
+    <p>Here's how that looks in the browser.</p>
+
+    <img src="/webui/assets/images/screenshot22.png" class="image border-accent-4" alt="Media" />
+
+
+    <p><b>Configuration options</b></p>
+
+
+    <p>There are two configuartion options available for menus which control animation transitions when dropdowns are shown
+      and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-3 text-bold">dropdownFadeInDuration</span>      and <span class="color-accent-3 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure
+      these options.
+
+
+      <div class="row-spacing-md"></div>
+      <div id="snippet23" class="body background-accent-5 color-secondary text-sm">
+        <div class="content-row">
+
+          <div class="content-col-20 scroll-y">
 <pre>$( document ).ready(function() {
     
   ui.initMenus({
@@ -478,16 +428,14 @@
         
 });
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row-spacing-md"></div>
 
-													</div>
-																										
-												</div>
-											</div>
 
+  </div>
+</div>
                       </div>
                     </div>
                   </div>

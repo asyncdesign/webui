@@ -217,36 +217,49 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        											<p id="containers" class="text-lg color-accent-3 text-bold">
-												Containers<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
-											</p>
-											<div class="content-row">
-												<div class="content-col-20">
-													<p><b>Using containers</b></p>
-													<div class="body">
-														<p>All container types expand to the size of the content placed within them - this is really the main reason you would want to use them. It allows styles to be applied, whether it's just a simple background, padding, or some custom behaviour. Containers do not have any automatic built-in resizing behaviour controlling margins or padding, but Webui allows you to implement and adjust this type of behaviour using a combination of <span class="color-accent-3 text-bold">width-*, width-adjacent-*, and width-respond-*</span> classes. This gives you full control over how your content adapts to available space.</p>
-														These are the container classes available in Webui:
+                        <p id="containers" class="text-lg color-accent-3 text-bold">
+	Containers<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
+</p>
+<div class="content-row">
+	<div class="content-col-20">
+		<p><b>Using containers</b></p>
 
-														<p><span class="color-accent-3 text-bold">container</span> (The most basic container with no padding and allows content to overflow)</p>
-														<p><span class="color-accent-3 text-bold">body</span> (Similar to container, but has a 10 pixel padding)</p>
-														<p><span class="color-accent-3 text-bold">box</span> (Has no padding, but any overflow is hidden)</p>
-														<p><span class="color-accent-3 text-bold">panel</span> (Similar to box, has a 10 pixel padding, and overflow is hidden.)</p>
-														<p><span class="color-accent-3 text-bold">area</span> (Similar to panel, has a 30 pixel padding, and overflow is hidden.)</p>
+		<p>All container types expand to the size of the content placed within them - this is really the main reason you would want
+			to use them. It allows styles to be applied, whether it's just a simple background, padding, or some custom behaviour.
+			Containers do not have any automatic built-in resizing behaviour controlling margins or padding, but Webui allows you
+			to implement and adjust this type of behaviour using a combination of <span class="color-accent-3 text-bold">width-*, width-adjacent-*, and width-respond-*</span>classes. This gives you full control over how your content adapts to available space.</p>
+		These are the container classes available in Webui:
 
-														<div class="row-spacing-md"></div>
-														There is no particular requirement to use containers in any specific place, but they each have slighly different behaviours which can be useful. In fact, you could easily structure your whole site using only rows and columns. Here are some reasons why you may wish to use containers:
-														
-														<p><span class="color-accent-3 text-bold">container</span> - You may want to apply styles to show some separation of content, or apply behaviour. For example showing or hiding content.</p>
-														<p><span class="color-accent-3 text-bold">body</span> - Good for wrapping areas of content, where it is important that any overflow is not hidden. For example you might want to use it as a container for a menu, since dropdowns could be any size - the container class is equally suitable for this purpose.</p>
-														<p><span class="color-accent-3 text-bold">box</span> - Good for laying out areas of content, where you don't want any content to go outside the bounds of the container. For example you might want to use it to lay out sections within a dialog or Facebook style media block.</p>
-														<p><span class="color-accent-3 text-bold">panel</span> - Great for an alternative to box with a bit more padding.</p>
-														<p><span class="color-accent-3 text-bold">area</span> - Great for wrapping user input forms, where more padding may be required.</p>
-															
-														None of the containers above have a width or height defined, and this means they can be used just about anywhere you like, but there are some things you might want to avoid. For example, it wouldn't make much sense placing a container directly inside a row, since rows are really just containers for columns to start on a new line. But there's nothing stopping you from placing them inside columns or even nesting containers.
-													</div>
-												</div>
-											</div>
+		<p><span class="color-accent-3 text-bold">container</span> (The most basic container with no padding and allows content to
+			overflow)</p>
+		<p><span class="color-accent-3 text-bold">body</span> (Similar to container, but has a 10 pixel padding)</p>
+		<p><span class="color-accent-3 text-bold">box</span> (Has no padding, but any overflow is hidden)</p>
+		<p><span class="color-accent-3 text-bold">panel</span> (Similar to box, has a 10 pixel padding, and overflow is hidden.)</p>
+		<p><span class="color-accent-3 text-bold">area</span> (Similar to panel, has a 30 pixel padding, and overflow is hidden.)</p>
 
+		<div class="row-spacing-md"></div>
+		There is no particular requirement to use containers in any specific place, but they each have slighly different behaviours
+		which can be useful. In fact, you could easily structure your whole site using only rows and columns. Here are some reasons
+		why you may wish to use containers:
+
+		<p><span class="color-accent-3 text-bold">container</span> - You may want to apply styles to show some separation of content,
+			or apply behaviour. For example showing or hiding content.</p>
+		<p><span class="color-accent-3 text-bold">body</span> - Good for wrapping areas of content, where it is important that any
+			overflow is not hidden. For example you might want to use it as a container for a menu, since dropdowns could be any size
+			- the container class is equally suitable for this purpose.</p>
+		<p><span class="color-accent-3 text-bold">box</span> - Good for laying out areas of content, where you don't want any content
+			to go outside the bounds of the container. For example you might want to use it to lay out sections within a dialog or
+			Facebook style media block.</p>
+		<p><span class="color-accent-3 text-bold">panel</span> - Great for an alternative to box with a bit more padding.</p>
+		<p><span class="color-accent-3 text-bold">area</span> - Great for wrapping user input forms, where more padding may be required.</p>
+
+		None of the containers above have a width or height defined, and this means they can be used just about anywhere you like,
+		but there are some things you might want to avoid. For example, it wouldn't make much sense placing a container directly
+		inside a row, since rows are really just containers for columns to start on a new line. But there's nothing stopping you
+		from placing them inside columns or even nesting containers.
+
+	</div>
+</div>
                       </div>
                     </div>
                   </div>

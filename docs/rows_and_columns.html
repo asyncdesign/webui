@@ -217,52 +217,29 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        											<p id="rowsAndColumns" class="text-lg color-accent-3 text-bold">
-												Rows and columns<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
-											</p>
-											<div class="content-row">
-												<div class="content-col-20">
-													<p><b>Using rows and columns</b></p>
-													<div class="body">
-														Rows and columns are at the core of the Webui 20 column grid system, which is divided into 3 main grid types as follows:
-														<p><span class="color-accent-3 text-bold">content</span> - Content type rows and columns have no padding, so they are ideal for precise positioning or if you want components to be close to each other.</p>
-														<p><span class="color-accent-3 text-bold">form</span> - Form type rows and colums have a 5 pixel padding all around, so will give a default separation of compontents.</p>
-														<p><span class="color-accent-3 text-bold">table</span> - Table rows and columns also have a 5 pixel padding, and in addition includes a outline border on all rows and columns.</p>
-														
-														Here is a breakdown of each type of grid system:
-														<div class="row-spacing-md"></div>
-														<p><b>Content type rows and columns</b></p>
-<div class="row-spacing-md"></div>
-<div id="snippet20" class="area background-accent-5 color-secondary text-sm">
+                        <p id="rowsAndColumns" class="text-lg color-accent-3 text-bold">
+  Rows and columns<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css]</span>
+</p>
 <div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+  <div class="content-col-20">
+    <p><b>Using rows and columns</b></p>
+
+    Rows and columns are at the core of the Webui 20 column grid system, which is divided into 3 main grid types as follows:
+    <p><span class="color-accent-3 text-bold">content</span> - Content type rows and columns have no padding, so they are ideal
+      for precise positioning or if you want components to be close to each other.</p>
+    <p><span class="color-accent-3 text-bold">form</span> - Form type rows and colums have a 5 pixel padding all around, so
+      will give a default separation of compontents.</p>
+    <p><span class="color-accent-3 text-bold">table</span> - Table rows and columns also have a 5 pixel padding, and in addition
+      includes a outline border on all rows and columns.</p>
+
+    Here is a breakdown of each type of grid system:
+    <div class="row-spacing-md"></div>
+    <p><b>Content type rows and columns</b></p>
+    <div class="row-spacing-md"></div>
+    <div id="snippet20" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="area"&gt;
   &lt;div class="content-row"&gt;
     &lt;div class="content-col-5 respond-sm"&gt;
@@ -288,56 +265,33 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														<p>This is quite a basic scenario, and here you can see that the row is made up of 4 equal columns, each taking up one quarter of the full 20 column width</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
+    <p>This is quite a basic scenario, and here you can see that the row is made up of 4 equal columns, each taking up one quarter
+      of the full 20 column width</p>
 
-														<p>Here is the output of the above:</p>
-														
-														<img src="/webui/assets/images/screenshot1.png" class="image border-accent-4" alt="Media" />
-														
-														<p>You may have noticed the "sm" media flags. These are simply saying that these columns are responsive, so when the screen gets to a small size (which happens to be 768 pixels wide), then move this column to the next line and expand to the full width of the container.</p>
-														
-														<p>At 768px or less it would look like this:</p>
-														
-														<img src="/webui/assets/images/screenshot2.png" class=" image border-accent-4" alt="Media" />
+    <p>Here is the output of the above:</p>
+
+    <img src="/webui/assets/images/screenshot1.png" class="image border-accent-4" alt="Media" />
+
+    <p>You may have noticed the "sm" media flags. These are simply saying that these columns are responsive, so when the screen
+      gets to a small size (which happens to be 768 pixels wide), then move this column to the next line and expand to the
+      full width of the container.</p>
+
+    <p>At 768px or less it would look like this:</p>
+
+    <img src="/webui/assets/images/screenshot2.png" class=" image border-accent-4" alt="Media" />
 
 
-														<div class="row-spacing-md"></div>
-														<p><b>Form type rows and columns</b></p>
-<div class="row-spacing-md"></div>
-<div id="snippet21" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <div class="row-spacing-md"></div>
+    <p><b>Form type rows and columns</b></p>
+    <div class="row-spacing-md"></div>
+    <div id="snippet21" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="area"&gt;
   &lt;div class="form-row"&gt;
     &lt;div class="form-col-5 respond-sm"&gt;
@@ -363,53 +317,30 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														<p>In this case we now have some separation between each column. However, if you want more separation just add one of the col-spacing-* classes to the column. If you prefer, you could wrap the content of each column with a body or panel container.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
+    <p>In this case we now have some separation between each column. However, if you want more separation just add one of the
+      col-spacing-* classes to the column. If you prefer, you could wrap the content of each column with a body or panel
+      container.
+    </p>
 
-														<p>Here is the output of the above:</p>
-														
-														<img src="/webui/assets/images/screenshot3.png" class="image border-accent-4" alt="Media" />
-																										
-														<p>At 768px or less it would look like this when the respond-sm media flag is applied:</p>
-														
-														<img src="/webui/assets/images/screenshot4.png" class="image border-accent-4" alt="Media" />
+    <p>Here is the output of the above:</p>
 
-														<div class="row-spacing-md"></div>
-														<p><b>Table type rows and columns</b></p>
-<div class="row-spacing-md"></div>
-<div id="snippet22" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <img src="/webui/assets/images/screenshot3.png" class="image border-accent-4" alt="Media" />
+
+    <p>At 768px or less it would look like this when the respond-sm media flag is applied:</p>
+
+    <img src="/webui/assets/images/screenshot4.png" class="image border-accent-4" alt="Media" />
+
+    <div class="row-spacing-md"></div>
+    <p><b>Table type rows and columns</b></p>
+    <div class="row-spacing-md"></div>
+    <div id="snippet22" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="area"&gt;
   &lt;div class="table-row"&gt;
     &lt;div class="table-col-5 respond-sm"&gt;
@@ -435,60 +366,34 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														<p>Table rows and columns are a bit different to the other two types. Besides having borders by default, they are designed primarily for displaying content in a tabular format. As with content and form type grids, table grids are responsive when media flags are applied. But they differ in 2 key areas: Firstly, you can't have columns that add up to more than 20 in a single row. Secondly, if you want to add spacing between rows using say row-spacing-md, then you also have to add the class table-group to each row in the table.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
+    <p>Table rows and columns are a bit different to the other two types. Besides having borders by default, they are designed
+      primarily for displaying content in a tabular format. As with content and form type grids, table grids are responsive
+      when media flags are applied. But they differ in 2 key areas: Firstly, you can't have columns that add up to more than
+      20 in a single row. Secondly, if you want to add spacing between rows using say row-spacing-md, then you also have
+      to add the class table-group to each row in the table.</p>
 
-														<p>Here is the output of the above:</p>
-														
-														<img src="/webui/assets/images/screenshot5.png" class="image border-accent-4" alt="Media" />
-																										
-														<p>At 768px or less it would look like this when the respond-sm media flag is applied:</p>
-														
-														<img src="/webui/assets/images/screenshot6.png" class="image border-accent-4" alt="Media" />
-														
-														<p>One important aspect of all 3 grid types is that you don't need to repeat the use of rows when nesting columns, and this is also the method of setting varying numbers of columns per row at different screen sizes. Take a look at the example below. But you do need to define a row each time you want to start a new row in your layout.</p>
-												
+    <p>Here is the output of the above:</p>
 
-<div class="row-spacing-md"></div>
-<div id="snippet23" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+    <img src="/webui/assets/images/screenshot5.png" class="image border-accent-4" alt="Media" />
+
+    <p>At 768px or less it would look like this when the respond-sm media flag is applied:</p>
+
+    <img src="/webui/assets/images/screenshot6.png" class="image border-accent-4" alt="Media" />
+
+    <p>One important aspect of all 3 grid types is that you don't need to repeat the use of rows when nesting columns, and this
+      is also the method of setting varying numbers of columns per row at different screen sizes. Take a look at the example
+      below. But you do need to define a row each time you want to start a new row in your layout.</p>
+
+
+    <div class="row-spacing-md"></div>
+    <div id="snippet23" class="body background-accent-5 color-secondary text-sm">
+      <div class="content-row">
+
+        <div class="content-col-20 scroll-y">
 <pre>&lt;div class="area"&gt;
   &lt;div class="content-row"&gt;
     &lt;div class="content-col-20 respond-lg"&gt;
@@ -520,27 +425,36 @@
   &lt;/div&gt;    
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen size down to small, and 4 rows of 1 column at the small size or less. You may be thinking that the markup is a bit verbose, and there are different approaches offered by different frameworks. In fact, there are pros and cons to each method. One method might be to have helper classes for each screen size and column count that can all be applied to the same column definition, but if you had 5 screen size steps it could get a bit strange. So in Webui, we opted for the nesting approach - it does seem a bit more extensible.
-														
-														<div class="row-spacing-md"></div>
-														<p><b>Equal columns</b></p>
-														
-														Webui supports any number of equal columns within the maximum of 20 for all grid types. The classes used take the format [column type]-col-eq-[number of equal columns], for example form-col-eq-9. However, you won't find classes for the number of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and flexibility here as you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and split columns is any number of ways, and all responsive too.
-														
-														<p>Just for a bit of fun here's a brick wall...</p>
-														
-														<img src="/webui/assets/images/screenshot7.png" class="image border-accent-4" alt="Media" />
-														
-														<p>Here we have 6 equal columns each containing 3 unequal columns, which have been stacked after hitting a medium breakpoint. The column types have also been mixed - each equal column group uses a content-col and columns within each group use a form-col, making the separation between groups the same as the separation between each column within a group.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-spacing-md"></div>
+    This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen
+    size down to small, and 4 rows of 1 column at the small size or less. You may be thinking that the markup is a bit verbose,
+    and there are different approaches offered by different frameworks. In fact, there are pros and cons to each method.
+    One method might be to have helper classes for each screen size and column count that can all be applied to the same
+    column definition, but if you had 5 screen size steps it could get a bit strange. So in Webui, we opted for the nesting
+    approach - it does seem a bit more extensible.
 
-													</div>										
-												</div>
-											</div>
+    <div class="row-spacing-md"></div>
+    <p><b>Equal columns</b></p>
 
+    Webui supports any number of equal columns within the maximum of 20 for all grid types. The classes used take the format
+    [column type]-col-eq-[number of equal columns], for example form-col-eq-9. However, you won't find classes for the number
+    of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and flexibility here as
+    you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and
+    split columns is any number of ways, and all responsive too.
+
+    <p>Just for a bit of fun here's a brick wall...</p>
+
+    <img src="/webui/assets/images/screenshot7.png" class="image border-accent-4" alt="Media" />
+
+    <p>Here we have 6 equal columns each containing 3 unequal columns, which have been stacked after hitting a medium breakpoint.
+      The column types have also been mixed - each equal column group uses a content-col and columns within each group use
+      a form-col, making the separation between groups the same as the separation between each column within a group.</p>
+
+  </div>
+</div>
                       </div>
                     </div>
                   </div>

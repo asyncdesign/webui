@@ -217,35 +217,24 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        											<p id="gettingStarted" class="text-lg color-accent-3 text-bold">
-												Getting Started
-											</p>														
-											<div class="content-row">
-												<div class="content-col-20">		
-													<b>Setting up your project</b>
-													<div class="body">
-														<ul class="list-bullet list-spacing-md">
-															<li><a href="https://github.com/asyncdesign/webui/archive/v4.3.3.zip" class="color-accent-3 text-bold color-hover-accent-4">Download the latest release</a></li>
-															<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
-															<li>You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).</li>
-															<li>In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
-<div class="row-spacing-md"></div>
-<div id="snippet1" class="area background-accent-5 color-secondary text-sm">
+                        <p id="gettingStarted" class="text-lg color-accent-3 text-bold">
+	Getting Started
+</p>
 <div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+	<div class="content-col-20">
+		<b>Setting up your project</b>
+		<ul class="list-bullet list-spacing-md">
+			<li><a href="https://github.com/asyncdesign/webui/archive/v4.3.3.zip" class="color-accent-3 text-bold color-hover-accent-4">Download the latest release</a></li>
+			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
+			<li>You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
+			</li>
+			<li>In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom
+				of the body section, for example:</li>
+		</ul>
+		<div class="row-spacing-sm"></div>
+		<div id="snippet1" class="body background-accent-5 color-secondary text-sm">
+			<div class="content-row">
+				<div class="content-col-20 scroll-y">
 <pre>&lt;html&gt;
 &lt;head&gt;
   &lt;link rel="stylesheet" href="css/webui.min.css"&gt; 
@@ -257,51 +246,27 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-																
-															</li>
-															<li>That's it. You are ready to start developing with Webui.</li>
-															<li>Be sure to look at the static DEMO.html page at the root of the download, which shows examples of most features.</li>
-														</ul>
-														
-													</div>
-													<div class="row-spacing-md"></div>
-													<p><b>Creating page layouts</b></p>
-													<div class="body">
-														Webui uses a 20 column grid system to create layouts. In general, each row will contain from 1 to 20 columns, and each column can contain any other content.
-														Most likely you will be using a shared layout to display common parts of your website. Here is a quick example of a shared layout structure with a container and some rows and columns:
-												
-<div class="row-spacing-md"></div>
-<div id="snippet2" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+				</div>
+			</div>
+		</div>
+		<div class="row-spacing-md"></div>
+
+		<ul class="list-bullet list-spacing-md">
+			<li>That's it. You are ready to start developing with Webui.</li>
+			<li>Be sure to look at the static DEMO.html page at the root of the download, which shows examples of most features.</li>
+		</ul>
+
+		<div class="row-spacing-md"></div>
+		<p><b>Creating page layouts</b></p>
+
+		Webui uses a 20 column grid system to create layouts. In general, each row will contain from 1 to 20 columns, and each column
+		can contain any other content. Most likely you will be using a shared layout to display common parts of your website. Here
+		is a quick example of a shared layout structure with a container and some rows and columns:
+
+		<div class="row-spacing-md"></div>
+		<div id="snippet2" class="body background-accent-5 color-secondary text-sm">
+			<div class="content-row">
+				<div class="content-col-20 scroll-y">
 <pre>&lt;div class="container"&gt;
   &lt;div class="form-row"&gt;
     &lt;div class="form-col-20 align-center respond-md"&gt;
@@ -324,62 +289,41 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-</div>
-<div class="row-spacing-md"></div>
-														
-														The respond-md class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. You won't normally need the height-10 class as it's just added here to give some height in the browser for the screenshot, but it is a class that is available in Webui. Then, within each column there is a panel container using the secondary foreground and background theme colors. 
+				</div>
+			</div>
+		</div>
+		<div class="row-spacing-md"></div>
 
-														<p>Here is the result of the above code in the browser.</p>
+		The respond-md class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. You
+		won't normally need the height-10 class as it's just added here to give some height in the browser for the screenshot,
+		but it is a class that is available in Webui. Then, within each column there is a panel container using the secondary foreground
+		and background theme colors.
 
-														<div class="row-spacing-sm"></div>
-														<div class="content-row">
-															<div class="content-col-20">
-																<img src="/webui/assets/images/basic_layout.png" class="image" alt="Media" />
-															</div>
-														</div>
-														<div class="row-spacing-sm"></div>
+		<p>Here is the result of the above code in the browser.</p>
 
-														<p>When the screen width is reduced to the medium breakpoint size it would appear as follows.</p> 
+		<div class="row-spacing-sm"></div>
+		<div class="content-row">
+			<div class="content-col-20">
+				<img src="/webui/assets/images/basic_layout.png" class="image" alt="Media" />
+			</div>
+		</div>
+		<div class="row-spacing-sm"></div>
 
-														<div class="row-spacing-sm"></div>
-														<div class="content-row">
-															<div class="content-col-20">
-																<img src="/webui/assets/images/basic_layout_breakpoint.png" class="image" alt="Media" />
-															</div>
-														</div>
-														<div class="row-spacing-sm"></div>
+		<p>When the screen width is reduced to the medium breakpoint size it would appear as follows.</p>
 
-														<p>You may prefer a bootstrap style centered layout, and you can easily do that with the code below.</p>
+		<div class="row-spacing-sm"></div>
+		<div class="content-row">
+			<div class="content-col-20">
+				<img src="/webui/assets/images/basic_layout_breakpoint.png" class="image" alt="Media" />
+			</div>
+		</div>
+		<div class="row-spacing-sm"></div>
 
-<div class="row-spacing-md"></div>
-<div id="snippet3" class="area background-accent-5 color-secondary text-sm">
-<div class="content-row">
-<div class="content-col-2 hide-sm">
-<pre>01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre>
-</div>
-<div class="content-col-18 scroll-y">
+		<p>You may prefer a bootstrap style centered layout, and you can easily do that with the code below.</p>
+
+		<div class="row-spacing-md"></div>
+		<div id="snippet3" class="body background-accent-5 color-secondary text-sm">
+			<div class="content-col-20 scroll-y">
 <pre>&lt;div class="container"&gt;
   &lt;div class="content-row menu-bar-sm default align-center"&gt;
     &lt;div class="content-row"&gt;   
@@ -401,45 +345,46 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+			</div>
+		</div>
+	</div>
+	<div class="row-spacing-md"></div>
+
+
+	<p>This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted
+		the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just
+		inside the second column of the second row.</p>
+
+	<div class="row-spacing-sm"></div>
+	<div class="content-row">
+		<div class="content-col-20">
+			<img src="/webui/assets/images/centered_layout.png" class="image" alt="Media" />
+		</div>
+	</div>
+	<div class="row-spacing-sm"></div>
+
+	<p>Then, at a medium screen size it would look like this</p>
+
+	<div class="row-spacing-sm"></div>
+	<div class="content-row">
+		<div class="content-col-20">
+			<img src="/webui/assets/images/centered_layout_breakpoint.png" class="image" alt="Media" />
+		</div>
+	</div>
+	<div class="row-spacing-sm"></div>
+
+	<p>For more information on various types of containers, and row and column types see the <a href="/webui/containers.html"
+			class="color-accent-3 color-hover-accent-4">Containers</a> and <a href="/webui/rows_and_columns.html" class="color-accent-3 color-hover-accent-4">Row and columns</a>		sections.</p>
+
+
+	<p><b>Adding theme colours</b></p>
+
+	Theme colours are a big part of Webui, making it very easy to add colour to almost any container, column, or control. There
+	is a lot more than just applying a colour - you can add background, foreground, border, and hover effects too. For more
+	information on using theme colours please see the <a href="/webui/theme_colors.html" class="color-accent-3 color-hover-accent-4">Theme colours</a>	section.
+
 </div>
 </div>
-</div>
-<div class="row-spacing-md"></div>
-
-
-														<p>This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just inside the second column of the second row.</p>
-
-														<div class="row-spacing-sm"></div>
-														<div class="content-row">
-															<div class="content-col-20">
-																<img src="/webui/assets/images/centered_layout.png" class="image" alt="Media" />
-															</div>
-														</div>
-														<div class="row-spacing-sm"></div>
-
-														<p>Then, at a medium screen size it would look like this</p>
-
-														<div class="row-spacing-sm"></div>
-														<div class="content-row">
-															<div class="content-col-20">
-																<img src="/webui/assets/images/centered_layout_breakpoint.png" class="image" alt="Media" />
-															</div>
-														</div>
-														<div class="row-spacing-sm"></div>
-
-														<p>For more information on various types of containers, and row and column types see the <a href="/webui/containers.html" class="color-accent-3 color-hover-accent-4">Containers</a> and <a href="/webui/rows_and_columns.html" class="color-accent-3 color-hover-accent-4">Row and columns</a> sections.</p>
-
-													</div>
-													<p><b>Adding theme colours</b></p>
-													<div class="body">
-														Theme colours are a big part of Webui, making it very easy to add colour to almost any container, column, or control. There is a lot more than just applying a colour - you can add background, foreground, border, and hover effects too. For more information on using theme colours please see the <a href="/webui/theme_colors.html" class="color-accent-3 color-hover-accent-4">Theme colours</a> section.
-													</div>
-												</div>
-											</div>
-
-
-
-
                       </div>
                     </div>
                   </div>

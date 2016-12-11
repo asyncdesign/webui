@@ -217,53 +217,57 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        											<p id="gettingStarted" class="text-lg color-accent-3 text-bold">
-												Alignment and spacing
-											</p>														
-											<div class="content-row">
-												<div class="content-col-20">		
-													<b>Alignment</b>
+                        <p id="gettingStarted" class="text-lg color-accent-3 text-bold">
+	Alignment and spacing
+</p>
+<div class="content-row">
+	<div class="content-col-20">
+		<b>Alignment</b> There are 2 main types of alignment classes in Webui: align-* and move-*. Here is a summary of each type:
 
-													<div class="body">
+		<p><span class="color-accent-3 text-bold">align-*</span> Available as align-left, align-center, align-right, and align-justify.
+			They simply use the text-align CSS properties.</p>
+		<p><span class="color-accent-3 text-bold">move-*</span> Available as move-left, move-left-stacked, move-right, and move-right-stacked.
+			These classes use combinations of float and clear CSS properties.</p>
 
-														There are 2 main types of alignment classes in Webui: align-* and move-*. Here is a summary of each type:
-
-														<p><span class="color-accent-3 text-bold">align-*</span> Available as align-left, align-center, align-right, and align-justify. They simply use the text-align CSS properties.</p>
-														<p><span class="color-accent-3 text-bold">move-*</span> Available as move-left, move-left-stacked, move-right, and move-right-stacked. These classes use combinations of float and clear CSS properties.</p>
-														
-														The move-left-stacked and move-right-stacked classes can be used to shift a group of elements to either the left or right and stack them in a vertical arrangement.
-
-													</div>
-													<p><b>Postioning</b></p>
-													<div class="body">
-														There are 2 main types of postioning classes in Webui: place-* and dock-*. Here is a summary of each type:
-
-														<p><span class="color-accent-3 text-bold">place-*</span> Available as place-top-left, place-top-right, place-bottom-left, and place-bottom-right</p>
-														<p><span class="color-accent-3 text-bold">dock-*</span> Available as dock-top, dock-top-left, dock-top-right, dock-bottom, dock-bottom-left, and dock-bottom-right.</p>
-
-														<p>The place-* classes will allow you to place any control using absolute postioning within the container, so these are useful if you wanted to place some buttons at the bottom of a page, for example.</p>
-														<p>In contrast, dock-* classes allow you to dock controls in a location using fixed positioning within the browser window. This is useful for docking headers or footers when you want them to stay in that position regardless of scrolling or resizing.</p>
-													</div>
-
-													<p><b>Spacing</b></p>
-													<div class="body">
-														There are 4 main types of spacing classes in Webui: row-spacing-* and col-spacing-*. Here is a summary of each type:
-
-														<p><span class="color-accent-3 text-bold">row-spacing-*</span> Available as row-spacing-xs, row-spacing-sm, row-spacing-md, row-spacing-lg, row-spacing-xl.</p>
-														<p><span class="color-accent-3 text-bold">col-spacing-*</span> Available as col-spacing-xs, col-spacing-sm, col-spacing-md, col-spacing-lg, col-spacing-xl.</p>
-														<p><span class="color-accent-3 text-bold">col-spacing-left-*</span> Available as col-spacing-left-xs, col-spacing-left-sm, col-spacing-left-md, col-spacing-left-lg, col-spacing-left-xl.</p>
-														<p><span class="color-accent-3 text-bold">col-spacing-right-*</span> Available as col-spacing-right-xs, col-spacing-right-sm, col-spacing-right-md, col-spacing-right-lg, col-spacing-right-xl.</p>
-
-														<p>The row-spacing-* classes can be used almost anywhere, as they simply add vertical padding.</p>
-														<p>The col-spacing-* classes are similar to row-spacing-* classes, but they add left and right padding. If you specify left or right in the class name, then it will apply left padding only or right padding only respectively.</p>
-													</div>
-
-												</div>
-											</div>
+		The move-left-stacked and move-right-stacked classes can be used to shift a group of elements to either the left or right
+		and stack them in a vertical arrangement.
 
 
+		<p><b>Postioning</b></p>
+
+		There are 2 main types of postioning classes in Webui: place-* and dock-*. Here is a summary of each type:
+
+		<p><span class="color-accent-3 text-bold">place-*</span> Available as place-top-left, place-top-right, place-bottom-left,
+			and place-bottom-right</p>
+		<p><span class="color-accent-3 text-bold">dock-*</span> Available as dock-top, dock-top-left, dock-top-right, dock-bottom,
+			dock-bottom-left, and dock-bottom-right.</p>
+
+		<p>The place-* classes will allow you to place any control using absolute postioning within the container, so these are useful
+			if you wanted to place some buttons at the bottom of a page, for example.</p>
+		<p>In contrast, dock-* classes allow you to dock controls in a location using fixed positioning within the browser window.
+			This is useful for docking headers or footers when you want them to stay in that position regardless of scrolling or resizing.</p>
 
 
+		<p><b>Spacing</b></p>
+
+		There are 4 main types of spacing classes in Webui: row-spacing-* and col-spacing-*. Here is a summary of each type:
+
+		<p><span class="color-accent-3 text-bold">row-spacing-*</span> Available as row-spacing-xs, row-spacing-sm, row-spacing-md,
+			row-spacing-lg, row-spacing-xl.</p>
+		<p><span class="color-accent-3 text-bold">col-spacing-*</span> Available as col-spacing-xs, col-spacing-sm, col-spacing-md,
+			col-spacing-lg, col-spacing-xl.</p>
+		<p><span class="color-accent-3 text-bold">col-spacing-left-*</span> Available as col-spacing-left-xs, col-spacing-left-sm,
+			col-spacing-left-md, col-spacing-left-lg, col-spacing-left-xl.</p>
+		<p><span class="color-accent-3 text-bold">col-spacing-right-*</span> Available as col-spacing-right-xs, col-spacing-right-sm,
+			col-spacing-right-md, col-spacing-right-lg, col-spacing-right-xl.</p>
+
+		<p>The row-spacing-* classes can be used almost anywhere, as they simply add vertical padding.</p>
+		<p>The col-spacing-* classes are similar to row-spacing-* classes, but they add left and right padding. If you specify left
+			or right in the class name, then it will apply left padding only or right padding only respectively.</p>
+
+
+	</div>
+</div>
                       </div>
                     </div>
                   </div>

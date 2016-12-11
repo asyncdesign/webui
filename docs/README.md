@@ -20,7 +20,7 @@ Webui allows you to create your web app without getting distracted by complexity
 
 * [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.3.3.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
-* You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later.
+* You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
 
 ````html
@@ -30,7 +30,7 @@ Webui allows you to create your web app without getting distracted by complexity
 </head>
 <body>
 
-  <script src="js/jquery-2.2.0.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
   <script src="js/webui.min.js"></script>
 </body>
 </html>
