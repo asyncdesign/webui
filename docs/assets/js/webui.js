@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 4.3.3
-* Author: Levi Keogh, 2016-12-08
+* Version: 4.3.4
+* Author: Levi Keogh, 2016-12-13
 */
 
 "use strict";
@@ -23,6 +23,9 @@
 	var tooltipAutoPos = false;
 	var tooltipAutoPosMargin = 0;
 	var tooltipAutoSize = true;
+
+	var uploadScrollX = false;
+	var uploadScrollY = false;
 
 
 	var isDiv = function (selector) {
@@ -1359,6 +1362,73 @@
 			ui.hideTooltip(this);
 		}
 	});
+		
+	ui.initUploadControls = function (options) {
+		uploadScrollX = options.scrollX !== void 0 ? options.scrollX : uploadScrollX;
+		uploadScrollY = options.scrollY !== void 0 ? options.scrollY : uploadScrollY;
+
+		$(".upload + label, .upload-sm + label").each(function( index ) {
+			if (uploadScrollX) {
+				$(this).css("overflow-x", "scroll");
+			}
+			if (uploadScrollY) {
+				$(this).css("overflow-y", "scroll");
+			}
+		});
+
+		$(".upload.upload-icon-right + label").each(function( index ) {
+			if (uploadScrollY) {
+				$(this).css("background-position", "calc(97% - 15px) 5px");
+			}
+		});
+
+		$(".upload-sm.upload-icon-right + label").each(function( index ) {
+			if (uploadScrollY) {
+				$(this).css("background-position", "calc(97% - 15px) 2px");
+			}
+		});
+
+		$(".upload.upload-icon-bottom + label, .upload-sm.upload-icon-bottom + label").each(function( index ) {
+			if (uploadScrollX) {
+				$(this).css("background-position", "center calc(96% - 15px)");
+			}
+		});
+
+	};
+
+	$(".upload, .upload-sm").change(function() {
+		try {
+			var element = $(this);
+			
+			if (element) {	
+				var label = element.siblings("label:first");
+				if (element.length > 0) {
+					var files = element[0].files;
+					if (files != null && files.length > 0) {		
+						if (label) {
+							var textValue = "";
+							for (var i = 0; i < files.length; i++) {
+								textValue += files[i].name + "<br />";
+							}
+							if (files.length > 1) {
+								textValue += "<br />(" + files.length + ") files";
+							}
+							label.html(textValue);
+						}
+					}
+					else {
+						if (element.val() !== null && 
+								element.val().length > 0) {
+							if (label) {
+								label.text(element.val().replace("C:\\fakepath\\", ""));
+							}
+						}		
+					}			
+				}
+			}
+		}
+		catch (ex) { }
+	});
 
 
 	/* ENUMERATIONS */
@@ -1374,6 +1444,6 @@
 	ui.SHADOW_BOTTOM = 3;
 
 
-	ui.version = "webui-4.3.3";
+	ui.version = "webui-4.3.4";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));

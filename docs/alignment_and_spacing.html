@@ -27,25 +27,28 @@
 			<div class="content-row">
 				<div class="content-col-20 accent-5">
 					<div class="container hide-md">
-						<div class="content-row menu-bar primary">
+						<div class="content-row menu-bar accent-2">
 							<div class="content-col width-xl">
 								<div class="content-row">
 									<div class="content-col-6 col-spacing-sm content-col-align-sm">
 										<img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
 									</div>
 									<div class="content-col-14 text-xl text-bold color-accent-1 content-col-align-md">
-										Webui
+										
 									</div>
 								</div>
 							</div>
 							<div class="content-col col-spacing-right-md">
+								<!--
 								<div class="dropdown">
-									<button type="button" class="menu-button menu-button-primary color-hover-accent-1 align-left" id="menuButtonHome">Home</button>
-								</div>			
+									<button type="button" class="menu-button menu-button-transparent border-transparent color-primary color-hover-muted align-left" id="menuButtonHome">Home</button>
+								</div>
+								-->		
 							</div>
 							<div class="content-col">
+								<!--
 								<div class="dropdown">
-									<button type="button" class="menu-activator-dynamic menu-button menu-button-primary color-hover-accent-1 align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
+									<button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-primary color-hover-muted align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
 									<div class="dropdown-content menu-close transparent width-9">
 										<div class="col-spacing-left-md">
 											<div class="pointer-top-sm pointer-top-accent-5"></div>
@@ -56,7 +59,8 @@
 											<button onclick="location.href='/webui/controls_example.html'" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 align-left rounded-bottom-sm"><span class="col-spacing-left-xs">Form controls</span></button>										
 										</div>
 									</div>
-								</div>			
+								</div>
+								-->			
 							</div>
 							<div class="content-col">
 								<!-- Spare column -->
@@ -68,59 +72,53 @@
 
               
               <div class="container show-md">
-                <div class="accent-3 width-full">
+                <div class="accent-2 width-full">
                   <span id="top"></span>
-                  <!--
-                  <i class="fa fa-facebook fa-2x color-muted content-col-align-sm col-spacing-right-md move-right"></i>
-                  <a href="http://stackoverflow.com/search?tab=newest&q=asyncdesign+webui"><i class="fa fa-stack-overflow fa-2x color-warning content-col-align-sm col-spacing-right-md move-right"></i></a>
-                  <a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-primary content-col-align-sm col-spacing-right-md move-right"></i></a>
-                  <a href="https://mobile.twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md move-right"></i></a>						
-                  -->
-                  <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-3 color-accent-5 width-7"><i class="fa fa-bars fa-lg"></i></button>
-                  <div class="dropdown-content-expand accent-5 width-full">
+                  <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-2 color-dark width-7"><i class="fa fa-bars fa-lg"></i></button>
+                  <div class="dropdown-content-expand accent-4 width-full">
                     <div class="content-row">
                       <div class="content-col width-full">
                       
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonHomeMobile">Home</button>
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonHomeMobile">Home</button>
                         
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
                         </div>
                         
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonDocumentationMobile">Documentation</button>
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonDocumentationMobile">Documentation</button>
                         
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">										
-                          <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                          <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-                          <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-                          <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-                          <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-                          <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-                          <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-                          <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-                          <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">										
+                          <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+                          <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+                          <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+                          <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Containers</span></button>
+                          <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+                          <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+                          <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                          <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Menus</span></button>
+                          <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+                          <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                         </div>
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonExamplesMobile">Examples</button>					
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">
-                          <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
-                          <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>										
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonExamplesMobile">Examples</button>					
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
+                          <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cards</span></button>
+                          <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                          <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Form controls</span></button>										
                         </div>
 
-                        <button type="button" class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonAboutMobile">About</button>
+                        <button type="button" class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonAboutMobile">About</button>
                         <div class="dropdown-content-expand">
-                            <div class="panel primary">
+                            <div class="panel background-primary color-accent-4">
                                 <div class="content-row">
-                                    <div class="form-col-20">
-                                        <p class="text-lg color-accent-1">About Webui</p>
+                                    <div class="form-col-20 text">
+                                        <p class="text-lg color-dark">About Webui</p>
                                         <p>Webui offers an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a "Simplicity is the ultimate sophistication" approach, providing simple building blocks to construct much larger CSS components without the pain. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.</p>
                                         <p>Webui allows you to create your web app without getting distracted by complexity.</p>
-                                        <p><span class="color-accent-1">Current version:</span> 4.3.3.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.3.4.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -155,40 +153,43 @@
 
             <div class="container text-xl" id="pageDocumentation">
               <div class="content-row">
-                <div class="content-col accent-5 width-xl translucent-3 hide-md" id="leftPanel">
+                <div class="content-col dark width-xl hide-md" id="leftPanel">
                   <div class="content-row">
-                    <div class="content-col-20 accent-1 hide-md" id="leftHeaderPanel">
+                    <div class="content-col-20 dark hide-md" id="leftHeaderPanel">
 
                     </div>
                   </div>
 
                   <div class="content-row">
-                    <div class="content-col text-sm accent-5 width-xl" id="leftMenuColumn">
-                      <div class="row-spacing-xl"></div>
+                    <div class="content-col text-sm dark width-xl" id="leftMenuColumn">
+                      <div class="row-spacing-sm"></div>
+
+                      <button onclick="location.href='/webui/index.html'" class="menu-button menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-home width-sm"></i>Home</span></button>
+
                       
-                      <button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
-                      <div class="dropdown-content-expand accent-4 width-full" id="dropdownDocumentation">
-                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                        <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-                        <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-                        <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-                        <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-                        <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-                        <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                        <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-                        <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-                        <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+                      <button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
+                      <div class="dropdown-content-expand accent-5 width-full" id="dropdownDocumentation">
+                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+                        <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+                        <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+                        <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Containers</span></button>
+                        <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+                        <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+                        <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                        <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Menus</span></button>
+                        <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+                        <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+                        <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                       </div>
-                      <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
-                      <div class="dropdown-content-expand accent-4 width-full">
-                        <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
-                        <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>						
-                        <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
+                      <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
+                      <div class="dropdown-content-expand accent-5 width-full">
+                        <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cards</span></button>
+                        <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>						
+                        <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
                       </div>
                     </div>
                   </div>
@@ -217,57 +218,63 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        <p id="gettingStarted" class="text-lg color-accent-3 text-bold">
+                        <p id="gettingStarted" class="text-lg color-accent-2 text-bold">
 	Alignment and spacing
 </p>
-<div class="content-row">
-	<div class="content-col-20">
-		<b>Alignment</b> There are 2 main types of alignment classes in Webui: align-* and move-*. Here is a summary of each type:
 
-		<p><span class="color-accent-3 text-bold">align-*</span> Available as align-left, align-center, align-right, and align-justify.
-			They simply use the text-align CSS properties.</p>
-		<p><span class="color-accent-3 text-bold">move-*</span> Available as move-left, move-left-stacked, move-right, and move-right-stacked.
-			These classes use combinations of float and clear CSS properties.</p>
+<div class="row-spacing-xs"></div>
 
-		The move-left-stacked and move-right-stacked classes can be used to shift a group of elements to either the left or right
-		and stack them in a vertical arrangement.
+<div class="text">
 
+	<p class="color-accent-5 text-bold">Alignment</p>
 
-		<p><b>Postioning</b></p>
-
-		There are 2 main types of postioning classes in Webui: place-* and dock-*. Here is a summary of each type:
-
-		<p><span class="color-accent-3 text-bold">place-*</span> Available as place-top-left, place-top-right, place-bottom-left,
-			and place-bottom-right</p>
-		<p><span class="color-accent-3 text-bold">dock-*</span> Available as dock-top, dock-top-left, dock-top-right, dock-bottom,
-			dock-bottom-left, and dock-bottom-right.</p>
-
-		<p>The place-* classes will allow you to place any control using absolute postioning within the container, so these are useful
-			if you wanted to place some buttons at the bottom of a page, for example.</p>
-		<p>In contrast, dock-* classes allow you to dock controls in a location using fixed positioning within the browser window.
-			This is useful for docking headers or footers when you want them to stay in that position regardless of scrolling or resizing.</p>
+	There are 2 main types of alignment classes in Webui: align-* and move-*. Here is a summary of each type:
+	<blockquote>
+		<span class="color-accent-2 text-bold col-spacing-right-sm">align-*</span> Available as align-left, align-center, align-right, and align-justify. They simply use the text-align CSS properties.
+		<br />
+		<span class="color-accent-2 text-bold col-spacing-right-sm">move-*</span> Available as move-left, move-left-stacked, move-right, and move-right-stacked. These classes use combinations of float and clear CSS properties.
+	</blockquote>
+	The move-left-stacked and move-right-stacked classes can be used to shift a group of elements to either the left or right and stack them in a vertical arrangement.
 
 
-		<p><b>Spacing</b></p>
+	<div class="row-spacing-md"></div>
 
-		There are 4 main types of spacing classes in Webui: row-spacing-* and col-spacing-*. Here is a summary of each type:
+	<p class="color-accent-5 text-bold">Postioning</p>
 
-		<p><span class="color-accent-3 text-bold">row-spacing-*</span> Available as row-spacing-xs, row-spacing-sm, row-spacing-md,
-			row-spacing-lg, row-spacing-xl.</p>
-		<p><span class="color-accent-3 text-bold">col-spacing-*</span> Available as col-spacing-xs, col-spacing-sm, col-spacing-md,
-			col-spacing-lg, col-spacing-xl.</p>
-		<p><span class="color-accent-3 text-bold">col-spacing-left-*</span> Available as col-spacing-left-xs, col-spacing-left-sm,
-			col-spacing-left-md, col-spacing-left-lg, col-spacing-left-xl.</p>
-		<p><span class="color-accent-3 text-bold">col-spacing-right-*</span> Available as col-spacing-right-xs, col-spacing-right-sm,
-			col-spacing-right-md, col-spacing-right-lg, col-spacing-right-xl.</p>
-
-		<p>The row-spacing-* classes can be used almost anywhere, as they simply add vertical padding.</p>
-		<p>The col-spacing-* classes are similar to row-spacing-* classes, but they add left and right padding. If you specify left
-			or right in the class name, then it will apply left padding only or right padding only respectively.</p>
+	There are 2 main types of postioning classes in Webui: place-* and dock-*. Here is a summary of each type:
+	<blockquote>
+		<span class="color-accent-2 text-bold col-spacing-right-sm">place-*</span> Available as place-top-left, place-top-right, place-bottom-left, and place-bottom-right
+		<br />
+		<span class="color-accent-2 text-bold col-spacing-right-sm">dock-*</span> Available as dock-top, dock-top-left, dock-top-right, dock-bottom, dock-bottom-left, and dock-bottom-right.
+	</blockquote>
+	The place-* classes will allow you to place any control using absolute postioning within the container, so these are useful 
+	if you wanted to place some buttons at the bottom of a page, for example. In contrast, dock-* classes allow you to dock controls 
+	in a location using fixed positioning within the browser window. This is useful for docking headers or footers when you want them 
+	to stay in that position regardless of scrolling or resizing.
 
 
-	</div>
+	<div class="row-spacing-md"></div>
+
+	<p class="color-accent-5 text-bold">Spacing</p>
+
+	There are 4 main types of spacing classes in Webui. Here is a summary of each type:
+	<blockquote>
+		<span class="color-accent-2 text-bold col-spacing-right-sm">row-spacing-*</span> Available as row-spacing-xs, row-spacing-sm, row-spacing-md, row-spacing-lg, row-spacing-xl.
+		<br />
+		<span class="color-accent-2 text-bold col-spacing-right-sm">col-spacing-*</span> Available as col-spacing-xs, col-spacing-sm, col-spacing-md, col-spacing-lg, col-spacing-xl.
+		<br />
+		<span class="color-accent-2 text-bold col-spacing-right-sm">col-spacing-left-*</span> Available as col-spacing-left-xs, col-spacing-left-sm, col-spacing-left-md, col-spacing-left-lg, col-spacing-left-xl.
+		<br />
+		<span class="color-accent-2 text-bold col-spacing-right-sm">col-spacing-right-*</span> Available as col-spacing-right-xs, col-spacing-right-sm, col-spacing-right-md, col-spacing-right-lg, col-spacing-right-xl.
+	</blockquote>
+
+	The row-spacing-* classes can be used almost anywhere, as they simply add vertical padding. The col-spacing-* classes are similar 
+	to row-spacing-* classes, but they add left and right padding. If you specify left or right in the class name, then it will apply 
+	left padding only or right padding only respectively.
+
+	<div class="row-spacing-md"></div>
 </div>
+
                       </div>
                     </div>
                   </div>
@@ -283,7 +290,7 @@
 
     </div>
 
-
+    <!--
     <div class="container background-secondary color-muted dock-bottom hide-md">
       <div class="content-row">
         <div class="form-col-20">
@@ -293,9 +300,10 @@
         </div>
       </div>
     </div>
+    -->
     <div class="container color-muted show-md">
       <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button button-accent-3 width-7 translucent-6 dock-bottom-right" id="buttonPageTop">TOP</button>
+        <button onclick="location.href='#top'" class="menu-button button-accent-2 width-7 background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
       </div>
     </div>
 
@@ -315,8 +323,9 @@
         
         ui.setMediaHeight("leftHeaderPanel", "44px");
         ui.setMediaHeight("rightHeaderPanel", "44px");
-        ui.setMediaHeight("mainContentContainer", (window.innerHeight - 180) + "px", null, ["md", ""]);
-        ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 120) + "px", "min", ["md", ""]);
+        ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 90) + "px", "min", ["md", ""]);
+        ui.setMediaHeight("mainContentContainer", (window.innerHeight - 150) + "px", null, ["md", ""]);
+        
 
         // Initialisation
 
@@ -340,8 +349,8 @@
         // Events
 
         $( window ).resize(function() {
-          ui.setMediaHeight("mainContentContainer", (window.innerHeight - 180) + "px", null, ["md", ""]);
-          ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 120) + "px", "min", ["md", ""]);
+          ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 90) + "px", "min", ["md", ""]);
+          ui.setMediaHeight("mainContentContainer", (window.innerHeight - 150) + "px", null, ["md", ""]);  
         });                      
 
         
@@ -362,9 +371,9 @@
         });			
         
         
-        $("#menuButtonHome").click( function() {
-          document.location.href = "/webui/index.html"
-        });			
+        //$("#menuButtonHome").click( function() {
+        //  document.location.href = "/webui/index.html"
+        //});			
 
         $("#menuButtonDocumentation").click( function() {
           document.location.href = "/webui/getting_started.html"

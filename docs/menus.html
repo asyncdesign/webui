@@ -27,25 +27,28 @@
 			<div class="content-row">
 				<div class="content-col-20 accent-5">
 					<div class="container hide-md">
-						<div class="content-row menu-bar primary">
+						<div class="content-row menu-bar accent-2">
 							<div class="content-col width-xl">
 								<div class="content-row">
 									<div class="content-col-6 col-spacing-sm content-col-align-sm">
 										<img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
 									</div>
 									<div class="content-col-14 text-xl text-bold color-accent-1 content-col-align-md">
-										Webui
+										
 									</div>
 								</div>
 							</div>
 							<div class="content-col col-spacing-right-md">
+								<!--
 								<div class="dropdown">
-									<button type="button" class="menu-button menu-button-primary color-hover-accent-1 align-left" id="menuButtonHome">Home</button>
-								</div>			
+									<button type="button" class="menu-button menu-button-transparent border-transparent color-primary color-hover-muted align-left" id="menuButtonHome">Home</button>
+								</div>
+								-->		
 							</div>
 							<div class="content-col">
+								<!--
 								<div class="dropdown">
-									<button type="button" class="menu-activator-dynamic menu-button menu-button-primary color-hover-accent-1 align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
+									<button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-primary color-hover-muted align-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
 									<div class="dropdown-content menu-close transparent width-9">
 										<div class="col-spacing-left-md">
 											<div class="pointer-top-sm pointer-top-accent-5"></div>
@@ -56,7 +59,8 @@
 											<button onclick="location.href='/webui/controls_example.html'" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 align-left rounded-bottom-sm"><span class="col-spacing-left-xs">Form controls</span></button>										
 										</div>
 									</div>
-								</div>			
+								</div>
+								-->			
 							</div>
 							<div class="content-col">
 								<!-- Spare column -->
@@ -68,59 +72,53 @@
 
               
               <div class="container show-md">
-                <div class="accent-3 width-full">
+                <div class="accent-2 width-full">
                   <span id="top"></span>
-                  <!--
-                  <i class="fa fa-facebook fa-2x color-muted content-col-align-sm col-spacing-right-md move-right"></i>
-                  <a href="http://stackoverflow.com/search?tab=newest&q=asyncdesign+webui"><i class="fa fa-stack-overflow fa-2x color-warning content-col-align-sm col-spacing-right-md move-right"></i></a>
-                  <a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-primary content-col-align-sm col-spacing-right-md move-right"></i></a>
-                  <a href="https://mobile.twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md move-right"></i></a>						
-                  -->
-                  <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-3 color-accent-5 width-7"><i class="fa fa-bars fa-lg"></i></button>
-                  <div class="dropdown-content-expand accent-5 width-full">
+                  <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-accent-2 color-dark width-7"><i class="fa fa-bars fa-lg"></i></button>
+                  <div class="dropdown-content-expand accent-4 width-full">
                     <div class="content-row">
                       <div class="content-col width-full">
                       
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonHomeMobile">Home</button>
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonHomeMobile">Home</button>
                         
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
                         </div>
                         
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonDocumentationMobile">Documentation</button>
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonDocumentationMobile">Documentation</button>
                         
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">										
-                          <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                          <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-                          <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-                          <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-                          <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-                          <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-                          <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-                          <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-                          <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">										
+                          <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+                          <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+                          <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+                          <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Containers</span></button>
+                          <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+                          <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+                          <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                          <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Menus</span></button>
+                          <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+                          <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                         </div>
-                        <button class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonExamplesMobile">Examples</button>					
-                        <div class="dropdown-content-expand menu-close accent-4 width-full">
-                          <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
-                          <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>										
+                        <button class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonExamplesMobile">Examples</button>					
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
+                          <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cards</span></button>
+                          <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                          <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Form controls</span></button>										
                         </div>
 
-                        <button type="button" class="menu-activator menu-button-sm menu-button-accent-5 align-left" id="menuButtonAboutMobile">About</button>
+                        <button type="button" class="menu-activator menu-button-sm menu-button-dark align-left" id="menuButtonAboutMobile">About</button>
                         <div class="dropdown-content-expand">
-                            <div class="panel primary">
+                            <div class="panel background-primary color-accent-4">
                                 <div class="content-row">
-                                    <div class="form-col-20">
-                                        <p class="text-lg color-accent-1">About Webui</p>
+                                    <div class="form-col-20 text">
+                                        <p class="text-lg color-dark">About Webui</p>
                                         <p>Webui offers an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a "Simplicity is the ultimate sophistication" approach, providing simple building blocks to construct much larger CSS components without the pain. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.</p>
                                         <p>Webui allows you to create your web app without getting distracted by complexity.</p>
-                                        <p><span class="color-accent-1">Current version:</span> 4.3.3.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.3.4.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -155,40 +153,43 @@
 
             <div class="container text-xl" id="pageDocumentation">
               <div class="content-row">
-                <div class="content-col accent-5 width-xl translucent-3 hide-md" id="leftPanel">
+                <div class="content-col dark width-xl hide-md" id="leftPanel">
                   <div class="content-row">
-                    <div class="content-col-20 accent-1 hide-md" id="leftHeaderPanel">
+                    <div class="content-col-20 dark hide-md" id="leftHeaderPanel">
 
                     </div>
                   </div>
 
                   <div class="content-row">
-                    <div class="content-col text-sm accent-5 width-xl" id="leftMenuColumn">
-                      <div class="row-spacing-xl"></div>
+                    <div class="content-col text-sm dark width-xl" id="leftMenuColumn">
+                      <div class="row-spacing-sm"></div>
+
+                      <button onclick="location.href='/webui/index.html'" class="menu-button menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-home width-sm"></i>Home</span></button>
+
                       
-                      <button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
-                      <div class="dropdown-content-expand accent-4 width-full" id="dropdownDocumentation">
-                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                        <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Typography</span></button>	
-                        <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-                        <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Containers</span></button>
-                        <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
-                        <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-                        <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>
-                        <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Menus</span></button>
-                        <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-                        <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Notifications</span></button>
-                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
+                      <button id="sideNavButtonDocumentation" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-file width-sm"></i>Documentation</button>
+                      <div class="dropdown-content-expand accent-5 width-full" id="dropdownDocumentation">
+                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+                        <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Typography</span></button>	
+                        <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Theme colours</span></button>
+                        <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Containers</span></button>
+                        <button onclick="location.href='/webui/rows_and_columns.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Rows and columns</span></button>
+                        <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
+                        <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>
+                        <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Menus</span></button>
+                        <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Tooltips</span></button>
+                        <button onclick="location.href='/webui/dialogs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Dialogs</span></button>
+                        <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
+                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Performing builds</span></button>
+                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">CSS reference</span></button>
+                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                       </div>
-                      <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-accent-5 color-secondary align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
-                      <div class="dropdown-content-expand accent-4 width-full">
-                        <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Cards</span></button>
-                        <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Forms</span></button>						
-                        <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary translucent-4 align-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
+                      <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold align-left"><i class="fa fa-angle-down move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
+                      <div class="dropdown-content-expand accent-5 width-full">
+                        <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Cards</span></button>
+                        <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Forms</span></button>						
+                        <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary align-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
                       </div>
                     </div>
                   </div>
@@ -217,48 +218,49 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        <p id="menus" class="text-lg color-accent-3 text-bold">
-  Menus<span class="text-xs color-warning col-spacing-left-md">[Requires: webui.css, webui.js]</span>
+                        <p id="menus" class="text-lg color-accent-2 text-bold">
+  Menus<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
-<div class="content-row">
-  <div class="content-col-20">
-    <p><b>Creating menus</b></p>
+
+<div class="row-spacing-xs"></div>
+
+<div class="text">
 
     <p>Webui places a lot of emphasis on the ability to create menus in the style that you want. As you will see, there are
       a lot of customisation options available. Menus do require the webui.js javascript file to be included in your project
       as well as the CSS, but you won't have to write any javascript except for setting configuration options as explained
       a bit later. First, let's take a look at some simple menus and then progress to the more advanced features.</p>
-    <p></p>
-
-
+    
     <div class="row-spacing-md"></div>
-    <div id="snippet20" class="body background-accent-5 color-secondary text-sm">
-      <div class="content-row">
+</div>
 
-        <div class="content-col-20 scroll-y">
+<div id="snippet20" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
 <pre>&lt;div class="content-row menu-bar-sm" role="navigation"&gt;
   &lt;div class="content-col-20 accent-1"&gt;
-    &lt;div class="form-col width-2"&gt;
-      &lt;i class="fa fa-photo menu-header-image"&gt;&lt;/i&gt;
+    &lt;div class="content-col width-lg text-xl content-col-align-sm col-spacing-left-md"&gt;
+      &lt;i class="fa fa-photo"&gt;&lt;/i&gt;
     &lt;/div&gt;
-    &lt;div class="content-col width-5"&gt;
+    &lt;div class="content-col width-lg"&gt;
       &lt;button id="Menu1" type="button" class="menu-activator menu-button-sm menu-button-accent-1 align-left"&gt;Option 1&lt;i class="fa fa-caret-down col-spacing-left-xs"&gt;&lt;/i&gt;&lt;/button&gt;
       &lt;div class="dropdown-content menu-close width-10 accent-1"&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 1&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 2&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 3&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 4&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 5&lt;/button&gt;                     
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 1&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 2&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 3&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 4&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 5&lt;/button&gt;                     
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="content-col width-5"&gt;
+    &lt;div class="content-col width-lg"&gt;
       &lt;button id="Menu2" type="button" class="menu-activator menu-button-sm menu-button-accent-1 align-left"&gt;Option 2&lt;i class="fa fa-caret-down col-spacing-left-xs"&gt;&lt;/i&gt;&lt;/button&gt;
       &lt;div class="dropdown-content menu-close width-10 accent-1"&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 1&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 2&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 3&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 4&lt;/button&gt;
-        &lt;button type="button" class="menu-button-sm button-accent-1 align-left"&gt;Item 5&lt;/button&gt;                     
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 1&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 2&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 3&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 4&lt;/button&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-1 background-hover-accent-2 align-left"&gt;Item 5&lt;/button&gt;                     
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="content-col col-spacing-md content-col-align-sm move-right"&gt;
@@ -267,38 +269,56 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
+
+<div class="text">
+
     <div class="row-spacing-md"></div>
 
     <p>The code example above shows a basic menu for a typical desktop layout, where a number of fixed widths are used and we
-      haven't added any media flags for responsive behaviour. Webui allows the use of almost any html elements to build a
-      menu, and you are not limited to buttons or lists. It is worth noting that Webui includes menu button types that are
-      specifically styled and sized to suit menu layouts Let's examine the important parts as follows:</p>
+    haven't added any media flags for responsive behaviour. Webui allows the use of almost any html elements to build a
+    menu, and you are not limited to buttons or lists. It is worth noting that Webui includes menu button types that are
+    specifically styled and sized to suit menu layouts.<p> 
+      
+    <p>Let's examine the important parts as follows:</p>
 
-    <p><span class="color-accent-3 text-bold">menu-bar-sm</span> There are two menu-bar classes - <span class="color-accent-3 text-bold">menu-bar</span>      and <span class="color-accent-3 text-bold">menu-bar-sm</span>. You don't always need them, but it's as well to add
-      one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls
-      that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably
-      don't want it.</p>
-    <p><span class="color-accent-3 text-bold">menu-activator</span> This class registers a control as the element that will
-      be the trigger to open and close a menu. You can use just about any element as the menu activator.</p>
-    <p><span class="color-accent-3 text-bold">dropdown-content</span> The dropdown-content class registers an element to be
-      the container for any dropdown content. The dropdown content itself can be anything you want.</p>
-    <p><span class="color-accent-3 text-bold">menu-close</span> Specifying menu-close on the dropdown container will make the
-      dropdown close after a menu item such as a button or link is clicked or tapped. If you happened to have content other
-      than buttons and links and you want to toggle it via script, you can do that by calling the toggleMenuItem Webui function
-      and passing in the menu activator element id or as an object.</p>
+    <blockquote>
+        <p><span class="color-accent-2 text-bold">menu-bar-sm</span> - There are two menu-bar classes - <span class="color-accent-2 text-bold">menu-bar</span> 
+          and <span class="color-accent-2 text-bold">menu-bar-sm</span>. You don't always need them, but it's as well to add
+          one of them, since they set a height and maximum height on the menu bar to match the height of corresponding controls
+          that may be used. Of course, if you have your own custom elements that don't fit those dimensions, then you probably
+          don't want it.
+        </p>
+        <p>
+          <span class="color-accent-2 text-bold">menu-activator</span> - This class registers a control as the element that will
+          be the trigger to open and close a menu. You can use just about any element as the menu activator.
+        </p>
+        <p>
+          <span class="color-accent-2 text-bold">dropdown-content</span> - The dropdown-content class registers an element to be
+          the container for any dropdown content. The dropdown content itself can be anything you want.
+        </p>
+        <p>
+          <span class="color-accent-2 text-bold">menu-close</span> - Specifying menu-close on the dropdown container will make the
+          dropdown close after a menu item such as a button or link is clicked or tapped. If you happened to have content other
+          than buttons and links and you want to toggle it via script, you can do that by calling the toggleMenuItem Webui function
+          and passing in the menu activator element id or as an object.
+        </p>
+    </blockquote>
+
+    <div class="row-spacing-md"></div>
 
     <p>Here's how the above code example would look.</p>
 
-    <img src="/webui/assets/images/screenshot20.png" class="image border-accent-4" alt="Media" />
+    <img src="/webui/assets/images/screenshot20.png" class="image border-sm border-accent-4" alt="Media" />
 
     <p>So, what if we want a menu option near to the right of the menu and we want the dropdown to point from right to left?
-      In this case we can just add the dropdown-right class to the dropdown content container.</p>
+    In this case we can just add the dropdown-right class to the dropdown content container.</p>
 
+    <div class="row-spacing-md"></div>
 
-    <p><b>Creating responsive menus</b></p>
+    <p class="color-accent-5 text-bold">Creating responsive menus</p>
 
     There are many styles of responsive menu, and one of the most popular for smaller screen sizes is the full width collapsible
     type. The menu simply expands and shrinks as you open and close menus options. Very often the menu will also push down
@@ -307,118 +327,139 @@
     <p>The following code will produce that kind of menu</p>
 
     <div class="row-spacing-md"></div>
-    <div id="snippet21" class="body background-accent-5 color-secondary text-sm">
-      <div class="content-row">
+</div>
 
-        <div class="content-col-20 scroll-y">
+
+<div id="snippet21" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
 <pre>&lt;div class="content-row menu-bar" role="navigation"&gt;
   &lt;div class="content-col-20 accent-1"&gt;
     &lt;div class="secondary width-full"&gt;
-      &lt;button id="menuButtonHamburgerMobile" type="button" class="menu-activator menu-button menu-button-accent-1 width-2"&gt;&lt;i class="fa fa-bars"&gt;&lt;/i&gt;&lt;/button&gt;
-      &lt;div class="dropdown-content-expand default width-full"&gt;
-        &lt;button type="button" class="menu-activator menu-button-sm button-default align-left"&gt;Menu 1&lt;/button&gt;       
-        &lt;div class="dropdown-content-expand menu-close accent-4 width-full"&gt;
-        &lt;/div&gt;
-        &lt;button type="button" class="menu-activator menu-button-sm button-default align-left"&gt;Menu 2&lt;/button&gt;       
+      &lt;button id="menuButtonHamburgerMobile" type="button" class="menu-activator menu-button menu-button-accent-1 width-7"&gt;&lt;i class="fa fa-bars"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;div class="dropdown-content-expand accent-5 width-full"&gt;
+        &lt;button type="button" class="menu-button-sm menu-button-accent-5 align-left"&gt;Menu 1&lt;/button&gt;       
+        &lt;button type="button" class="menu-activator menu-button-sm menu-button-accent-5 align-left"&gt;Menu 2&lt;/button&gt;       
         &lt;div class="dropdown-content-expand menu-close accent-4 width-full"&gt;                                     
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 1&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 2&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 3&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 4&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 5&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 1&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 2&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 3&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 4&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 5&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;              
-        &lt;button type="button" class="menu-activator menu-button-sm button-default align-left"&gt;Menu 3&lt;/button&gt;       
+        &lt;button type="button" class="menu-activator menu-button-sm menu-button-accent-5 align-left"&gt;Menu 3&lt;/button&gt;       
         &lt;div class="dropdown-content-expand menu-close accent-4 width-full"&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 1&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 2&lt;/span&gt;&lt;/button&gt;
-          &lt;button type="button" class="menu-button menu-button-sm button-default translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 3&lt;/span&gt;&lt;/button&gt;                                 
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 1&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 2&lt;/span&gt;&lt;/button&gt;
+          &lt;button type="button" class="menu-button menu-button-sm menu-button-accent-5 translucent-4 align-left"&gt;&lt;span class="col-spacing-left-lg"&gt;Item 3&lt;/span&gt;&lt;/button&gt;                                 
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
+
+<div class="text">
+
     <div class="row-spacing-md"></div>
+
     <p>On line 05 a the class dropdown-content-expand is added - this is actually the class that will make the menu push any
-      page content down as you expand the menu. If you prefer the menu to overlay any page content you can replace just that
-      single top most dropdown-content-expand with dropdown-content. There is a third kind of dropdown container called dropdown-sheet
-      - this is used mainly for desktop sized screens and is often used on eCommerce sites.</p>
+    page content down as you expand the menu. If you prefer the menu to overlay any page content you can replace just that
+    single top most dropdown-content-expand with dropdown-content. There is a third kind of dropdown container called dropdown-sheet
+    - this is used mainly for desktop sized screens and is often used on eCommerce sites.</p>
 
     <p>NOTE: If you do use dropdown-content instead of dropdown-content-expand on the top most activator button for a mobile
-      menu, you will need to add the menu-inclusive class as well, otherwise the menu will close when selecting sub menu
-      activators. That's because dropdown-content on it's own will close all other menus by default and would normally be
-      used for the desktop style menu.</p>
+    menu, you will need to add the menu-inclusive class as well, otherwise the menu will close when selecting sub menu
+    activators. That's because dropdown-content on it's own will close all other menus by default and would normally be
+    used for the desktop style menu.</p>
+
+    <div class="row-spacing-md"></div>
 
     <p>The screenshot below shows the result of the above code.</p>
 
-    <img src="/webui/assets/images/screenshot21.png" class="image border-accent-4" alt="Media" />
+    <img src="/webui/assets/images/screenshot21.png" class="image border-sm border-accent-4" alt="Media" />
 
+    <div class="row-spacing-lg"></div>
 
-    <p><b>Customisation</b></p>
-
+    <p class="color-accent-5 text-bold">Customisation</p>
 
     <p>OK, now let's do some customisation of our first menu. Say we want to have a white dropdown with a small arrow on top,
-      and maybe a black border and make the corners a bit rounded. Oh, and let's make it dropdown on hover instead if the
-      default click. No problem, taking the first menu section (lines 06 - 15) from our first example we can change it as
-      follows:
-    </p>
+    and maybe a black border and make the corners a bit rounded. Oh, and let's make it dropdown on hover instead if the
+    default click. No problem, taking the second menu section (lines 7 - 14) from our first example we can change it as
+    follows:</p>
 
     <div class="row-spacing-md"></div>
-    <div id="snippet22" class="body background-accent-5 color-secondary text-sm">
-      <div class="content-row">
 
-        <div class="content-col-20 scroll-y">
-<pre>&lt;div class="content-col col-spacing-left-sm width-5"&gt;
-  &lt;button id="Menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-default align-left"&gt;Option 1&lt;i class="fa fa-caret-down col-spacing-left-xs"&gt;&lt;/i&gt;&lt;/button&gt;
+</div>
+
+<div id="snippet22" class="body background-secondary text-sm">
+  <div class="content-row">
+
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="content-col col-spacing-left-sm"&gt;
+  &lt;button id="Menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-accent-5 align-left"&gt;Option 1&lt;i class="fa fa-caret-down col-spacing-left-xs"&gt;&lt;/i&gt;&lt;/button&gt;
   &lt;div class="dropdown-content menu-close width-10 transparent"&gt;
     &lt;div class="col-spacing-left-md"&gt;
-      &lt;div class="pointer-top-sm pointer-top-default"&gt;&lt;/div&gt;
+      &lt;div class="pointer-top-sm pointer-top-accent-5"&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="surround-md border-default rounded-md"&gt;
-      &lt;button type="button" class="menu-button-sm button-primary align-left"&gt;Item 1&lt;/button&gt;
-      &lt;button type="button" class="menu-button-sm button-primary align-left"&gt;Item 2&lt;/button&gt;
-      &lt;button type="button" class="menu-button-sm button-primary align-left"&gt;Item 3&lt;/button&gt;
-      &lt;button type="button" class="menu-button-sm button-primary align-left"&gt;Item 4&lt;/button&gt;
-      &lt;button type="button" class="menu-button-sm button-primary align-left"&gt;Item 5&lt;/button&gt;
+    &lt;div class="border-sm border-accent-5 rounded-md"&gt;
+      &lt;button type="button" class="menu-button-sm menu-button-primary background-hover-secondary align-left rounded-top-md"&gt;Item 1&lt;/button&gt;
+      &lt;button type="button" class="menu-button-sm menu-button-primary background-hover-secondary align-left"&gt;Item 2&lt;/button&gt;
+      &lt;button type="button" class="menu-button-sm menu-button-primary background-hover-secondary align-left"&gt;Item 3&lt;/button&gt;
+      &lt;button type="button" class="menu-button-sm menu-button-primary background-hover-secondary align-left"&gt;Item 4&lt;/button&gt;
+      &lt;button type="button" class="menu-button-sm menu-button-primary background-hover-secondary align-left rounded-bottom-md"&gt;Item 5&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
+
+<div class="text">
+
     <div class="row-spacing-md"></div>
 
-    <p>The first thing is to change the class <span class="color-accent-3 text-bold">menu-activator</span> to <span class="color-accent-3 text-bold">menu-activator-dynamic</span>      - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap.
-      The next change is the addition of the pointer (lines 04 - 06). Here we just need a div with two classes, <span class="color-accent-3 text-bold">pointer-top-sm</span>      and <span class="color-accent-3 text-bold">pointer-top-default</span>. The first class establishes that we are defining
+    <p>The first thing is to change the class <span class="color-accent-2 text-bold">menu-activator</span> to <span class="color-accent-2 text-bold">menu-activator-dynamic</span>
+     - this makes the menu activate on hover instead of a click. On touch screen devices it will be converted to a tap.
+      The next change is the addition of the pointer (lines 4 - 6). Here we just need a div with two classes, <span class="color-accent-2 text-bold">pointer-top-sm</span> 
+      and <span class="color-accent-2 text-bold">pointer-top-default</span>. The first class establishes that we are defining
       a pointer at a given size (in this case small), and the second makes a top pointer in the default theme colour. You
       could easily use a different theme colour for the pointer using another class such as pointer-top-accent-1, for example.
       Then we can wrap the pointer div just to give some left spacing and push it to the right a bit. Finally, the menu dropdown
       buttons have been wrapped with a surround with a border and rounding. The surround classes come in 3 flavours,
-      <span class="color-accent-3 text-bold">surround-sm</span>, <span class="color-accent-3 text-bold">surround-md</span>,
-      and <span class="color-accent-3 text-bold">surround-lg</span> having 1px, 2px, and 3px padding respectively. Of course,
+      <span class="color-accent-2 text-bold">surround-sm</span>, <span class="color-accent-2 text-bold">surround-md</span>,
+      and <span class="color-accent-2 text-bold">surround-lg</span> having 1px, 2px, and 3px padding respectively. Of course,
       there's no reason why you can't wrap the dropdown buttons with a container or whatever customisation you like.</p>
+
     <p>Here's how that looks in the browser.</p>
 
-    <img src="/webui/assets/images/screenshot22.png" class="image border-accent-4" alt="Media" />
+    <img src="/webui/assets/images/screenshot22.png" class="image border-sm border-accent-4" alt="Media" />
 
 
-    <p><b>Configuration options</b></p>
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Configuration options</p>
 
 
-    <p>There are two configuartion options available for menus which control animation transitions when dropdowns are shown
-      and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-3 text-bold">dropdownFadeInDuration</span>      and <span class="color-accent-3 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure
-      these options.
+    There are two configuartion options available for menus which control animation transitions when dropdowns are shown
+    and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-2 text-bold">dropdownFadeInDuration</span> 
+    and <span class="color-accent-2 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure these options.
 
 
-      <div class="row-spacing-md"></div>
-      <div id="snippet23" class="body background-accent-5 color-secondary text-sm">
-        <div class="content-row">
+    <div class="row-spacing-md"></div>
 
-          <div class="content-col-20 scroll-y">
+</div>
+
+<div id="snippet23" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
 <pre>$( document ).ready(function() {
     
   ui.initMenus({
@@ -428,14 +469,12 @@
         
 });
 </pre>
-          </div>
-        </div>
-      </div>
-      <div class="row-spacing-md"></div>
-
-
+    </div>
   </div>
 </div>
+
+<div class="row-spacing-md"></div>
+
                       </div>
                     </div>
                   </div>
@@ -451,7 +490,7 @@
 
     </div>
 
-
+    <!--
     <div class="container background-secondary color-muted dock-bottom hide-md">
       <div class="content-row">
         <div class="form-col-20">
@@ -461,9 +500,10 @@
         </div>
       </div>
     </div>
+    -->
     <div class="container color-muted show-md">
       <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button button-accent-3 width-7 translucent-6 dock-bottom-right" id="buttonPageTop">TOP</button>
+        <button onclick="location.href='#top'" class="menu-button button-accent-2 width-7 background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
       </div>
     </div>
 
@@ -483,8 +523,9 @@
         
         ui.setMediaHeight("leftHeaderPanel", "44px");
         ui.setMediaHeight("rightHeaderPanel", "44px");
-        ui.setMediaHeight("mainContentContainer", (window.innerHeight - 180) + "px", null, ["md", ""]);
-        ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 120) + "px", "min", ["md", ""]);
+        ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 90) + "px", "min", ["md", ""]);
+        ui.setMediaHeight("mainContentContainer", (window.innerHeight - 150) + "px", null, ["md", ""]);
+        
 
         // Initialisation
 
@@ -508,8 +549,8 @@
         // Events
 
         $( window ).resize(function() {
-          ui.setMediaHeight("mainContentContainer", (window.innerHeight - 180) + "px", null, ["md", ""]);
-          ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 120) + "px", "min", ["md", ""]);
+          ui.setMediaHeight("leftMenuColumn", (window.innerHeight - 90) + "px", "min", ["md", ""]);
+          ui.setMediaHeight("mainContentContainer", (window.innerHeight - 150) + "px", null, ["md", ""]);  
         });                      
 
         
@@ -530,9 +571,9 @@
         });			
         
         
-        $("#menuButtonHome").click( function() {
-          document.location.href = "/webui/index.html"
-        });			
+        //$("#menuButtonHome").click( function() {
+        //  document.location.href = "/webui/index.html"
+        //});			
 
         $("#menuButtonDocumentation").click( function() {
           document.location.href = "/webui/getting_started.html"
