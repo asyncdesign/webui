@@ -18,7 +18,7 @@ Webui allows you to create your web app without getting distracted by complexity
 
 ### **Getting Started**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.3.3.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.3.4.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -81,7 +81,7 @@ You may prefer a bootstrap style centered layout, and you can easily do that wit
 
 ````html
 <div class="container">
-  <div class="content-row menu-bar-sm default align-center">
+  <div class="content-row menu-bar-sm accent-5 align-center">
     <div class="content-row">   
       <div class="form-col-20 form-col-align-sm">
         Menu bar
