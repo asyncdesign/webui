@@ -118,7 +118,7 @@
                                         <p class="text-lg color-dark">About Webui</p>
                                         <p>Webui offers an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a "Simplicity is the ultimate sophistication" approach, providing simple building blocks to construct much larger CSS components without the pain. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.</p>
                                         <p>Webui allows you to create your web app without getting distracted by complexity.</p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.3.4.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.4.0.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -229,12 +229,13 @@
     <p class="color-accent-5 text-bold">Setting up a modal dialog</p>
 
     Webui allows you to easily create responsive model dialogs in 3 different sizes: small, medium, and large. Modal dialogs
-    are positioned at the center of the screen and will be fixed in that position regardless of the browser viewport. You
-    can override the positioning using your own css or by using Webui positioning classes. These dialogs are responsive
-    out of the box, so the width and height will adjust according to the available screen area - this is so that a dialog
-    can never go off screen. As far as the dialog content goes there is no special layout for dialogs, so you can design
-    your dialog how you want it. However, it's always best to design your layout to suit the initial dialog sizes. But
-    if you need more height and you don't mind a vertical scrollbar, then you can add as much as you wish.
+    can be positioned in one of 9 different screen locations, these are: top left, top center, top right, middle left, 
+    middle center (default), middle right, bottom left, bottom center, and bottom right.
+
+    <p>These dialogs are responsive out of the box, so the width and height will adjust according to the available screen area - this is so that a dialog
+    can never go off screen. As far as the dialog content goes there is no special layout for dialogs, so you can design your dialog how you want it. 
+    However, it's always best to design your layout to suit the initial dialog sizes. But if you need more height and you don't mind a vertical scrollbar, 
+    then you can add as much as you wish.</p>
 
     <div class="row-spacing-md"></div>
 
@@ -246,33 +247,31 @@
         <div class="content-col-20 scroll-y">
 
 <pre>&lt;div id="dialog1" class="dialog-modal"&gt;
-  &lt;div class="dialog-md dialog-animate"&gt;        
-    &lt;div class="dialog-content background-primary raised"&gt;
-      &lt;div class="form-row text-lg"&gt;
-        &lt;div class="form-col-20 background-secondary"&gt;
-          &lt;div class="form-col-17 col-spacing-left-sm"&gt;
-            Popups
-          &lt;/div&gt;
-          &lt;div class="form-col-3 col-spacing-right-sm align-right"&gt;
-            &lt;a href="javascript:void(0)"&gt;&lt;i onclick="ui.toggleControl($('#dialog1'))" class="fa fa-close color-accent-2 color-hover-accent-3"&gt;&lt;/i&gt;&lt;/a&gt;
-          &lt;/div&gt;
+  &lt;div class="dialog-md dialog-bottom-right dialog-animate background-primary raised-sm"&gt;
+    &lt;div class="form-row text-lg"&gt;
+      &lt;div class="form-col-20 background-secondary"&gt;
+        &lt;div class="form-col-17 col-spacing-left-sm"&gt;
+          Popups
+        &lt;/div&gt;
+        &lt;div class="form-col-3 col-spacing-right-sm align-right"&gt;
+          &lt;a href="javascript:void(0)"&gt;&lt;i onclick="ui.hideDialog($('#dialog1'))" class="fa fa-close color-accent-2 color-hover-accent-3"&gt;&lt;/i&gt;&lt;/a&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class="form-row"&gt;
-        &lt;div class="form-col-20"&gt;
-          &lt;div class="area"&gt;
-            &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
-              &lt;div class="content-row"&gt;
-              &lt;div class="content-col-20"&gt;
-                Create responsive modal dialogs, and optionally add animation.
-              &lt;/div&gt;
-            &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="form-col-20"&gt;
+        &lt;div class="area"&gt;
+          &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
             &lt;div class="content-row"&gt;
-              &lt;div class="content-col col-spacing-right-md place-bottom-right"&gt;
-                &lt;button type="button" class="button-sm button-info width-md"&gt;Save&lt;/button&gt;
-                &lt;button type="button" onclick="ui.toggleControl($('#dialog1'))" class="button-sm button-accent-4 width-md"&gt;Cancel&lt;/button&gt;
-                &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
-              &lt;/div&gt;
+            &lt;div class="content-col-20"&gt;
+               Create responsive modal dialogs, and optionally add animation.
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="content-row"&gt;
+            &lt;div class="content-col col-spacing-right-md place-bottom-right"&gt;
+              &lt;button type="button" class="button-sm button-info width-md"&gt;Save&lt;/button&gt;
+              &lt;button type="button" onclick="ui.hideDialog($('#dialog1'))" class="button-sm button-accent-4 width-md"&gt;Cancel&lt;/button&gt;
+              &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -291,24 +290,36 @@
 
     Let's go through the code above. The first line is where the wrapper is defined for the modal - that's actually the overlay
     that you see covering the page behind. Then on line 2, the actual modal dialog is defined at the size we want, in
-    this case the class <span class="color-accent-2 text-bold">dialog-md</span> is a medium size. You may notice the
-    <span class="color-accent-2 text-bold">dialog-animate</span> class also, which just makes the dialog fade in and out. The final part is the dialog content,
-    where the class <span class="color-accent-2 text-bold">dialog-content</span> is applied. There is also a backgound
-    color set using the primary theme color, in this case it's white. The rest of the markup is entirely your choice,
-    but it's worth taking a closer look at how we open and close the dialog and at some of the classes used in the above
-    example.
+    this case the class <span class="color-accent-2 text-bold">dialog-md</span> is a medium size. There's also a positional class on the same 
+    line, <span class="color-accent-2 text-bold">dialog-bottom-right</span>, which means the modal will open near to the bottom right of
+    the browser window. You may notice the <span class="color-accent-2 text-bold">dialog-animate</span> class also, which just makes the dialog 
+    fade in and out. There is also a backgound color set using the primary theme color, in this case it's white. The rest of the markup is entirely your choice,
+    but it's worth taking a closer look at how we open and close the dialog and at some of the classes used in the above example.
 
     <div class="row-spacing-md"></div>
 
-    <p>So to open the dialog it's just a case of adding an id to the outer wrapper and calling <span class="color-accent-2 text-bold">ui.toggleControl</span>
-    and passing in the id or the object, or you can just use jquery to show it. You will also see that <span class="color-accent-2 text-bold">ui.toggleControl</span> 
-    is used for closing the dialog too.</p>
+    <p>So to open the dialog it's just a case of adding an id to the outer wrapper and calling <span class="color-accent-2 text-bold">ui.showDialog</span>
+    and passing in the id or the object. You will also see that <span class="color-accent-2 text-bold">ui.hideDialog</span> 
+    is used for closing the dialog.</p>
+
+    <div class="content-row">
+      <div class="content-col-6 respond-sm">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>It is important that the functions <span class="color-accent-2 text-bold">ui.showDialog</span> and <span class="color-accent-2 text-bold">ui.hideDialog</span>
+          are used to open and close modal dialogs as some background tasks need to be completed, such as disabling and re-enabling scrolling for the underlying page.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row-spacing-md"></div>
 
     <p>In the above example, there are a few spacing and positioning classes of interest. On line 6 the class <span class="color-accent-2 text-bold">col-spacing-left-sm</span> 
     is used - this just moves the text away from the left of the heading, and we do something similar for the small X button in the top right. Finally, 
     an important class used here is <span class="color-accent-2 text-bold">place-bottom-right</span> - this positions the buttons at the bottom right of the dialog, 
     but some space is needed between the buttons and the bottom edge, so just add some row spacing. If the content of the dialog is longer than the 
-    dialog itself, the positioned buttons will stay exactly where you put them relative to the dialog view window.</p>
+    dialog itself, the positioned buttons will stay exactly where you put them relative to the dialog view window. But a better way is to make a footer area to 
+    house the buttons, and you can easily add a scrolling body section in the middle by using the class <span class="color-accent-2 text-bold">scroll-y</span></p>
 
     <div class="row-spacing-sm"></div>
 
@@ -321,7 +332,7 @@
 <pre>$( document ).ready(function() {
     
     $("#commandShowPopup1").click( function() { 
-        $("#dialog1").show();
+        ui.showDialog("#dialog1");
     });
         
 });
@@ -338,6 +349,30 @@
 
     <div class="row-spacing-md"></div>
 </div>
+
+<div class="row-spacing-lg"></div>
+
+<p class="color-accent-5 text-bold">Configuration</p>
+
+<p>There is one configuration option to enable or disable the ability to close the modal by clicking or tapping outside the
+  modal on the backdrop. By default it is turned off, but the following shows how to enable it.
+
+<div id="snippet42" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+    
+  ui.initDialogs({
+    closeFromBackdrop: true
+  });
+        
+});
+</pre>
+    </div>
+  </div>
+</div>
+
                       </div>
                     </div>
                   </div>

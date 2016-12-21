@@ -13,7 +13,7 @@
 	position: absolute;
 	box-sizing: border-box;
 	white-space: normal;
-	@include layer-3();
+	@include layer-2();
 }
 .tooltip-dynamic:after,
 .tooltip-focus:after,
@@ -88,6 +88,22 @@
 }
 .tooltip-secondary.tooltip-right:after {
 	border-right-color: $theme_secondary_border;
+}
+.tooltip .tooltip-dark {
+	color: $theme_dark_foreground;
+	background-color: $theme_dark;
+}
+.tooltip-dark.tooltip-top:after {
+	border-top-color: $theme_dark_border;
+}
+.tooltip-dark.tooltip-left:after {
+	border-left-color: $theme_dark_border;
+}
+.tooltip-dark.tooltip-bottom:after {
+	border-bottom-color: $theme_dark_border;
+}
+.tooltip-dark.tooltip-right:after {
+	border-right-color: $theme_dark_border;
 }
 .tooltip .tooltip-accent-1 {
 	color: $theme_accent_1_foreground;
@@ -232,22 +248,6 @@
 }
 .tooltip-danger.tooltip-right:after {
 	border-right-color: $theme_danger_border;
-}
-.tooltip .tooltip-highlight {
-	color: $theme_highlight_foreground;
-	background-color: $theme_highlight;
-}
-.tooltip-highlight.tooltip-top:after {
-	border-top-color: $theme_highlight_border;
-}
-.tooltip-highlight.tooltip-left:after {
-	border-left-color: $theme_highlight_border;
-}
-.tooltip-highlight.tooltip-bottom:after {
-	border-bottom-color: $theme_highlight_border;
-}
-.tooltip-highlight.tooltip-right:after {
-	border-right-color: $theme_highlight_border;
 }
 .tooltip .tooltip-transparent {
 	color: $theme_transparent_foreground;

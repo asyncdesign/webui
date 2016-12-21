@@ -21,7 +21,7 @@ textarea {
 	box-sizing: border-box;
 	border-radius: 0;
 }
-a.accessibility:focus, textarea.accessibility:focus {
+a.accessibility:focus {
 	outline: 3px solid $theme_accessibility;
 }
 input[type=checkbox], 
@@ -863,12 +863,12 @@ blockquote {
 .dropdown-content {
 	display: none;
 	position: absolute;
-	@include layer-2();	
+	@include layer-3();	
 }
 .dropdown-content-expand {
 	display: none;
 	position: relative;
-	@include layer-2();	
+	@include layer-3();	
 }
 .dropdown-sheet {
 	display: none;
@@ -876,7 +876,7 @@ blockquote {
 	left: 0; 
 	width: 100%; 
 	background-color: transparent;
-	@include layer-2();	
+	@include layer-3();	
 }
 .media-block {
 	padding: 7px;
@@ -2291,4 +2291,10 @@ blockquote {
 }
 .hidden {
 	display: none;
+}
+.scrollbar-measure {
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
 }

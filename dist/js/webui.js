@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.3.4
-* Author: Levi Keogh, 2016-12-13
+* Version: 4.4.0
+* Author: Levi Keogh, 2016-12-21
 */
 "use strict";
 
@@ -20,6 +20,7 @@
     var tooltipAutoSize = true;
     var uploadScrollX = false;
     var uploadScrollY = false;
+    var dialogCloseFromBackdrop = false;
     var isDiv = function(selector) {
         return $("#" + selector).is("div");
     };
@@ -635,6 +636,18 @@
             }
         } catch (ex) {}
     };
+    ui.getScrollbarWidth = function() {
+        try {
+            var ruler = document.createElement("div");
+            ruler.className = "scrollbar-measure";
+            document.body.appendChild(ruler);
+            var scrollbarWidth = ruler.offsetWidth - ruler.clientWidth;
+            document.body.removeChild(ruler);
+            return scrollbarWidth;
+        } catch (ex) {
+            return -1;
+        }
+    };
     ui.getColorShade = function(hexColor, rgbValue) {
         try {
             if (arguments.length === 2) {
@@ -1176,32 +1189,69 @@
             ui.hideTooltip(this);
         }
     });
+    ui.initDialogs = function(options) {
+        try {
+            dialogCloseFromBackdrop = options.closeFromBackdrop !== void 0 ? options.closeFromBackdrop : dialogCloseFromBackdrop;
+            if (dialogCloseFromBackdrop) {
+                $(".dialog-modal").click(function(e) {
+                    if (e.target !== this) {
+                        return;
+                    }
+                    ui.hideDialog(this);
+                });
+            }
+        } catch (ex) {}
+    };
+    ui.showDialog = function(dialogObject) {
+        try {
+            var dialog = $(dialogObject);
+            if (dialog) {
+                dialog.show();
+                var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+                $("body").css("padding-right", scrollShift);
+                $("body").css("overflow", "hidden");
+            }
+        } catch (ex) {}
+    };
+    ui.hideDialog = function(dialogObject) {
+        try {
+            var dialog = $(dialogObject);
+            if (dialog) {
+                $("body").removeAttr("style");
+                dialog.hide();
+            }
+        } catch (ex) {}
+    };
     ui.initUploadControls = function(options) {
-        uploadScrollX = options.scrollX !== void 0 ? options.scrollX : uploadScrollX;
-        uploadScrollY = options.scrollY !== void 0 ? options.scrollY : uploadScrollY;
-        $(".upload + label, .upload-sm + label").each(function(index) {
-            if (uploadScrollX) {
-                $(this).css("overflow-x", "scroll");
+        try {
+            uploadScrollX = options.scrollX !== void 0 ? options.scrollX : uploadScrollX;
+            uploadScrollY = options.scrollY !== void 0 ? options.scrollY : uploadScrollY;
+            if (uploadScrollX || uploadScrollY) {
+                $(".upload + label, .upload-sm + label").each(function(index) {
+                    if (uploadScrollX) {
+                        $(this).css("overflow-x", "scroll");
+                    }
+                    if (uploadScrollY) {
+                        $(this).css("overflow-y", "scroll");
+                    }
+                });
+                $(".upload.upload-icon-right + label").each(function(index) {
+                    if (uploadScrollY) {
+                        $(this).css("background-position", "calc(97% - 15px) 5px");
+                    }
+                });
+                $(".upload-sm.upload-icon-right + label").each(function(index) {
+                    if (uploadScrollY) {
+                        $(this).css("background-position", "calc(97% - 15px) 2px");
+                    }
+                });
+                $(".upload.upload-icon-bottom + label, .upload-sm.upload-icon-bottom + label").each(function(index) {
+                    if (uploadScrollX) {
+                        $(this).css("background-position", "center calc(96% - 15px)");
+                    }
+                });
             }
-            if (uploadScrollY) {
-                $(this).css("overflow-y", "scroll");
-            }
-        });
-        $(".upload.upload-icon-right + label").each(function(index) {
-            if (uploadScrollY) {
-                $(this).css("background-position", "calc(97% - 15px) 5px");
-            }
-        });
-        $(".upload-sm.upload-icon-right + label").each(function(index) {
-            if (uploadScrollY) {
-                $(this).css("background-position", "calc(97% - 15px) 2px");
-            }
-        });
-        $(".upload.upload-icon-bottom + label, .upload-sm.upload-icon-bottom + label").each(function(index) {
-            if (uploadScrollX) {
-                $(this).css("background-position", "center calc(96% - 15px)");
-            }
-        });
+        } catch (ex) {}
     };
     $(".upload, .upload-sm").change(function() {
         try {
@@ -1241,5 +1291,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.3.4";
+    ui.version = "webui-4.4.0";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
