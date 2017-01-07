@@ -19,7 +19,7 @@
 </head>
 
 
-  <body class="background-primary">
+  <body class="background-dark">
 
     <div class="container">
 	<div class="content-row">
@@ -223,7 +223,7 @@
                   </div>
                 </div>
                               
-                <div class="content-col width-adjacent-xl width-respond-md text-sm" id="rightPanel">
+                <div class="content-col primary width-adjacent-xl width-respond-md text-sm" id="rightPanel">
                   <div class="content-row">
                     <div class="content-col-20 background-secondary hide-md" id="rightHeaderPanel">
                           
@@ -469,11 +469,12 @@
     </div>
 
     <script src="/webui/assets/js/jquery-3.1.1.js"></script>
-    <script src="/webui/assets/js/mark.js"></script>
+  
     <script src="/webui/assets/js/webui.js"></script>
     <script src="/webui/assets/js/webui-utils.js"></script>
     <script src="/webui/assets/js/webui-validation.js"></script>
 
+    <script src="/webui/assets/js/mark.js"></script>
     <script src="/webui/assets/js/site.js"></script>
 
     <script>
@@ -550,17 +551,33 @@
         });			
         
                              
-        
+        /*
         $("a").click( function() { 
           var url = this.href;                
           document.location.href = url;
+          console.log(url);
         });
-                  
+        */
 
-        // Initialise syntax highlighter
         
-        codeHighlighter.highlight(["snippet1", "snippet2", "snippet3", "snippet10", "snippet20", "snippet21", "snippet22", "snippet23", "snippet30", "snippet33", "snippet40", "snippet60", "snippet61", "snippet70", "snippet72", "snippet80", "snippet90", "snippet91", "snippet92"]);
-        
+        var loc = document.location.pathname;
+        var parts = loc.split("\/");
+        if (parts && parts.length > 0) {
+          switch(parts[parts.length -1]) {
+            case "getting_started.html": codeHighlighter.highlight(["snippet1", "snippet2", "snippet3"]); break;
+            case "theme_colors.html": codeHighlighter.highlight(["snippet10"]); break;
+            case "rows_and_columns.html": codeHighlighter.highlight(["snippet20", "snippet21", "snippet22", "snippet23"]); break;
+            case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
+            case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
+            case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
+            case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
+            case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
+            default: break;
+          }
+        }
+
       });
 
     </script>
