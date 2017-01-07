@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/notifications.html">
+  <link rel="canonical" href="http://localhost:4000/webui/modals.html">
   <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -246,81 +246,202 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
-                        <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Notifications<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+                        <p id="tooltips" class="text-lg color-accent-2 text-bold">
+	Modals<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-		<p>The simplest way to get up and running with notifications is to first configure some settings, then just call one of the following
-			functions.
-		</p>
+    <p class="color-accent-5 text-bold">Setting up a modal</p>
 
-		<blockquote>
-			<p><span class="color-accent-5">ui.showSuccessNotification(message, dynamic, showIcon)</span></p>
+    Webui allows you to easily create responsive model dailogs in 3 different sizes: small, medium, and large. Modal dialogs
+    can be positioned in one of 9 different screen locations, these are: top left, top center, top right, middle left, 
+    middle center (default), middle right, bottom left, bottom center, and bottom right.
 
-			<p><span class="color-accent-5">ui.showInfoNotification(message, dynamic, showIcon)</span></p>
+    <p>These modals are responsive out of the box, so the width and height will adjust according to the available screen area - this is so that a modal
+    can never go off screen. As far as the modal content goes there is no special layout, so you can design your modal how you want it. 
+    However, it's always best to design your layout to suit the initial modal sizes. But if you need more height and you don't mind a vertical scrollbar, 
+    then you can add as much as you wish.</p>
 
-			<p><span class="color-accent-5">ui.showWarningNotification(message, dynamic, showIcon)</span></p>
+    <div class="row-spacing-md"></div>
 
-			<p><span class="color-accent-5">ui.showDangerNotification(message, dynamic, showIcon)</span></p>
+    <p>Here is an example modal with a heading, content area, and some buttons.</p>
+</div>
 
-			<p><span class="color-accent-5">ui.showNotification(message, type, dynamic, showIcon)</span></p>
-		</blockquote>
+    <div id="snippet40" class="body background-secondary text-sm">
+      <div class="content-row">
+        <div class="content-col-20 scroll-y">
 
-		<div class="row-spacing-sm"></div>
+<pre>&lt;div id="modal1" class="modal"&gt;
+  &lt;div class="modal-md modal-bottom-right modal-animate background-primary raised-sm"&gt;
+    &lt;div class="form-row text-lg"&gt;
+      &lt;div class="form-col-20 background-secondary"&gt;
+        &lt;div class="form-col-17 col-spacing-left-sm"&gt;
+          Popups
+        &lt;/div&gt;
+        &lt;div class="form-col-3 col-spacing-right-sm align-right"&gt;
+          &lt;a href="javascript:void(0)"&gt;&lt;i onclick="ui.hideModal($('#modal1'))" class="fa fa-close color-accent-2 color-hover-accent-3"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-row"&gt;
+      &lt;div class="form-col-20"&gt;
+        &lt;div class="area"&gt;
+          &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
+            &lt;div class="content-row"&gt;
+            &lt;div class="content-col-20"&gt;
+               Create responsive modals, and optionally add animation.
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="content-row"&gt;
+            &lt;div class="content-col col-spacing-right-md place-bottom-right"&gt;
+              &lt;button type="button" class="button-sm button-info width-md"&gt;Save&lt;/button&gt;
+              &lt;button type="button" onclick="ui.hideModal($('#modal1'))" class="button-sm button-accent-4 width-md"&gt;Cancel&lt;/button&gt;
+              &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+      </div>
+    </div>
 
-		<p>The <span class="color-accent-2 text-bold">dynamic</span> argument can be true or false. If true you don't have to hide the notification
-			yourself, as it will fade out depending on the configuration settings. If you specify false, then it will stay visible until you close it.
-			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
-			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
-			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above id for a generic call, where you can specify the
-			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
-			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
-			the class name using the type argument.
+<div class="text">
 
-		<p>The script below will initialise all notifications. The last line is how you might show a notification, perhaps as a result of some 
-			system status or other condition.</p>
+    <div class="row-spacing-md"></div>
+
+    Let's go through the code above. The first line is where the wrapper is defined for the modal - that's actually the overlay
+    that you see covering the page behind. Then on line 2, the actual modal dialog is defined at the size we want, in
+    this case the class <span class="color-accent-2 text-bold">modal-md</span> is a medium size. There's also a positional class on the same 
+    line, <span class="color-accent-2 text-bold">modal-bottom-right</span>, which means the modal will open near to the bottom right of
+    the browser window. You may notice the <span class="color-accent-2 text-bold">modal-animate</span> class also, which just makes the modal 
+    fade in and out. There is also a backgound color set using the primary theme color, in this case it's white. The rest of the markup is entirely your choice,
+    but it's worth taking a closer look at how we open and close the modal and at some of the classes used in the above example.
+
+    <div class="row-spacing-md"></div>
+
+    <p>So to open the modal it's just a case of adding an id to the outer wrapper and calling <span class="color-accent-2 text-bold">ui.showModal</span>
+    and passing in the id or the object. You will also see that <span class="color-accent-2 text-bold">ui.hideModal</span> 
+    is used for closing the modal.</p>
+
+    <div class="content-row">
+      <div class="content-col-6 respond-sm">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>It is important that the functions <span class="color-accent-2 text-bold">ui.showModal</span> and <span class="color-accent-2 text-bold">ui.hideModal</span>
+          are used to open and close modal dialogs as some background tasks need to be completed, such as disabling and re-enabling scrolling for the underlying page.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row-spacing-md"></div>
+
+    <p>In the above example, there are a few spacing and positioning classes of interest. On line 6 the class <span class="color-accent-2 text-bold">col-spacing-left-sm</span> 
+    is used - this just moves the text away from the left of the heading, and we do something similar for the small X button in the top right. Finally, 
+    an important class used here is <span class="color-accent-2 text-bold">place-bottom-right</span> - this positions the buttons at the bottom right of the modal, 
+    but some space is needed between the buttons and the bottom edge, so just add some row spacing. If the content of the modal is longer than the 
+    modal itself, the positioned buttons will stay exactly where you put them relative to the modal view window. But a better way is to make a footer area to 
+    house the buttons, and you can easily add a scrolling body section in the middle by using the class <span class="color-accent-2 text-bold">scroll-y</span></p>
+
+    <div class="row-spacing-sm"></div>
 
 </div>
 
-<div id="snippet70" class="body background-secondary text-sm">
+<div id="snippet41" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+    
+    $("#commandShowModal1").click( function() { 
+        ui.showModal("#modal1");
+    });
+        
+});
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <p>This is how the markup above would look in the browser.</p>
+
+    <img src="/webui/assets/images/screenshot40.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <div class="row-spacing-md"></div>
+</div>
+
+<div class="row-spacing-lg"></div>
+
+<p class="color-accent-5 text-bold">Configuration</p>
+
+<p>There is one configuration option to enable or disable the ability to close the modal by clicking or tapping outside the
+  modal on the backdrop. By default it is turned off, but the following shows how to enable it.
+
+<div id="snippet42" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+    
+  $("#modal1").modalControl({
+    closeFromBackdrop: true
+  });
+        
+});
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Events</p>
+
+    <p>There are 4 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.modal.show.before</span>, 
+    <span class="color-accent-2 text-bold">ui.modal.show.after</span>, <span class="color-accent-2 text-bold">ui.modal.hide.before</span>, and
+    <span class="color-accent-2 text-bold">ui.modal.hide.after</span>. The following script shows how to setup the event callbacks.</p>
+
+</div>
+
+<div id="snippet43" class="body background-secondary text-sm">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
 <pre>$( document ).ready(function() {
 
-  ui.initNotifications({
-    showIcon: true,
-    dynamic: false,
-    position: "top-right",
-    duration: 6000,
-    fadeInDuration: 600,
-    fadeOutDuration: 300
+  $( "#modal1" ).on("ui.modal.show.before", function(e) {
+    // Take some action
   });
-  
-  ui.showSuccessNotification("Sample notification text", true, true);
-	
+
+  $( "#modal1" ).on("ui.modal.show.after", function(e) {
+    // Take some action
+  });
+
+  $( "#modal1" ).on("ui.modal.hide.before", function(e) {
+    // Take some action
+  });
+
+  $( "#modal1" ).on("ui.modal.hide.after", function(e) {
+    // Take some action
+  });
+
 });
 </pre>				
 		</div>
 	</div>
 </div>
 
-<div class="text">
-
-		<div class="row-spacing-md"></div>
-
-
-
-		<div class="row-spacing-md"></div>
-
-</div>
-
-
+<div class="row-spacing-md"></div>
                       </div>
                     </div>
                   </div>

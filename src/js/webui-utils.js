@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui-utils - utility functions
-* Version: 4.4.0
-* Author: Levi Keogh, 2016-12-21
+* Version: 4.5.0
+* Author: Levi Keogh, 2016-12-23
 */
 
 "use strict";
@@ -180,6 +180,6 @@
 	};
 
 
-	ui.version = "webui-utils-4.4.0";
+	ui.version = "webui-utils-4.5.0";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));

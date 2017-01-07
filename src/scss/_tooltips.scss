@@ -3,7 +3,7 @@
 	position: relative;
 	display: inline-block;
 }
-.tooltip *[class^="tooltip-"] {
+.tooltip *[class*="tooltip-"] {
 	display: none;
 	color: $theme_default_foreground;
 	background-color: $theme_default;
@@ -57,37 +57,21 @@
 	left: calc(50% - 5px);
 	@include pointer-top($theme_default);
 }
-.tooltip .tooltip-primary {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
+.tooltip .tooltip-light {
+	color: $theme_light_foreground;
+	background-color: $theme_light;
 }
-.tooltip-primary.tooltip-top:after {
-	border-top-color: $theme_primary_border;
+.tooltip-light.tooltip-top:after {
+	border-top-color: $theme_light_border;
 }
-.tooltip-primary.tooltip-left:after {
-	border-left-color: $theme_primary_border;
+.tooltip-light.tooltip-left:after {
+	border-left-color: $theme_light_border;
 }
-.tooltip-primary.tooltip-bottom:after {
-	border-bottom-color: $theme_primary_border;
+.tooltip-light.tooltip-bottom:after {
+	border-bottom-color: $theme_light_border;
 }
-.tooltip-primary.tooltip-right:after {
-	border-right-color: $theme_primary_border;
-}
-.tooltip .tooltip-secondary {
-	color: $theme_secondary_foreground;
-	background-color: $theme_secondary;
-}
-.tooltip-secondary.tooltip-top:after {
-	border-top-color: $theme_secondary_border;
-}
-.tooltip-secondary.tooltip-left:after {
-	border-left-color: $theme_secondary_border;
-}
-.tooltip-secondary.tooltip-bottom:after {
-	border-bottom-color: $theme_secondary_border;
-}
-.tooltip-secondary.tooltip-right:after {
-	border-right-color: $theme_secondary_border;
+.tooltip-light.tooltip-right:after {
+	border-right-color: $theme_light_border;
 }
 .tooltip .tooltip-dark {
 	color: $theme_dark_foreground;

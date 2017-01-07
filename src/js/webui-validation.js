@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui-validation - validation functions
-* Version: 4.4.0
-* Author: Levi Keogh, 2016-12-21
+* Version: 4.5.0
+* Author: Levi Keogh, 2016-12-23
 */
 
 "use strict";
@@ -10,20 +10,23 @@
 
 	/* PRIVATE */
 
-	var dependsOnRegExpMatches = function (dependsOnSelector, dependsOnRegExp) {
-		return ($("#" + dependsOnSelector).is("input:text") && dependsOnRegExp.test($("#" + dependsOnSelector).val())) ||
-			($("#" + dependsOnSelector).is("textarea") && dependsOnRegExp.test($("#" + dependsOnSelector).text())) ||
-			($("#" + dependsOnSelector).is("select") && dependsOnRegExp.test($("#" + dependsOnSelector + " option:selected").text())) ||
-			($("#" + dependsOnSelector).is("input:checkbox") && dependsOnRegExp.test($("#" + dependsOnSelector).is(':checked')));
+	var selectorRegExpMatches = function (selector, regExp) {
+		var element = $(selector);
+
+		return (element.is("input:text") && regExp.test(element.val())) ||
+			(element.is("textarea") && regExp.test(element.text())) ||
+			(element.is("select") && regExp.test($("option:selected", element).text())) ||
+			(element.is("input:checkbox") && regExp.test(element.is(':checked')));
 	};
 
 	var containsSpaceOrDot = function (selector) {
-		return /^\s$/.test($("#" + selector).val()) ||
-			$("#" + selector).val().indexOf('.') > -1;
+		var element = $(selector);
+
+		return /^\s$/.test(element.val()) || element.val().indexOf('.') > -1;
 	};
 
 	var containsSpace = function (selector) {
-		return /^\s$/.test($("#" + selector).val());
+		return /^\s$/.test($(selector).val());
 	};
 
 	var toDateObject = function (year, month, day, hour, minute, second) {
@@ -44,14 +47,16 @@
 
 	ui.isCheckedValue = function (selector, dependsOnSelector, dependsOnRegExp) {
 		try {
+			var element = $(selector);
+
 			if (arguments.length === 1) {
-				return $("#" + selector).is(':checked');
+				return element.is(':checked');
 			}
 			else if (arguments.length === 3) {
 
-				if (dependsOnRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+				if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
 
-					return $("#" + selector).is(':checked');
+					return element.is(':checked');
 				}
 			}
 			return false;
@@ -63,14 +68,16 @@
 
 	ui.isConformingString = function (selector, selectorRegExp, allowEmpty, dependsOnSelector, dependsOnRegExp) {
 		try {
+			var element = $(selector);
+
 			if (arguments.length === 3) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (!selectorRegExp.test($("#" + selector).val())) {
+					if (!selectorRegExp.test(element.val())) {
 						return false;
 					}
 				}
@@ -78,14 +85,14 @@
 			}
 			else if (arguments.length === 5) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (dependsOnRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+					if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
 
-						if (!selectorRegExp.test($("#" + selector).val())) {
+						if (!selectorRegExp.test(element.val())) {
 							return false;
 						}
 						return true;
@@ -103,19 +110,20 @@
 
 	ui.isNumericInRange = function (selector, lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
 		try {
+			var element = $(selector);
 
 			if (arguments.length === 4) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (isNaN($("#" + selector).val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
+					if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
 						return false;
 					}
 					else {
-						if (containsSpace(selector) || $("#" + selector).val() < lowerLimit || $("#" + selector).val() > upperLimit) {
+						if (containsSpace(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
 							return false;
 						}
 					}
@@ -124,18 +132,18 @@
 			}
 			else if (arguments.length === 6) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (dependsOnRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+					if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
 
-						if (isNaN($("#" + selector).val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
+						if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
 							return false;
 						}
 						else {
-							if (containsSpace(selector) || $("#" + selector).val() < lowerLimit || $("#" + selector).val() > upperLimit) {
+							if (containsSpace(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
 								return false;
 							}
 						}
@@ -154,19 +162,20 @@
 
 	ui.isIntegerInRange = function (selector, lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
 		try {
+			var element = $(selector);
 
 			if (arguments.length === 4) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (isNaN($("#" + selector).val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
+					if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
 						return false;
 					}
 					else {
-						if (containsSpaceOrDot(selector) || $("#" + selector).val() < lowerLimit || $("#" + selector).val() > upperLimit) {
+						if (containsSpaceOrDot(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
 							return false;
 						}
 					}
@@ -175,18 +184,18 @@
 			}
 			else if (arguments.length === 6) {
 
-				if (!allowEmpty && $("#" + selector).val().length < 1) {
+				if (!allowEmpty && element.val().length < 1) {
 					return false;
 				}
-				else if ($("#" + selector).val().length > 0) {
+				else if (element.val().length > 0) {
 
-					if (dependsOnRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+					if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
 
-						if (isNaN($("#" + selector).val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
+						if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
 							return false;
 						}
 						else {
-							if (containsSpaceOrDot(selector) || $("#" + selector).val() < lowerLimit || $("#" + selector).val() > upperLimit) {
+							if (containsSpaceOrDot(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
 								return false;
 							}
 						}
@@ -207,7 +216,7 @@
 		try {
 			if (arguments.length > 1) {
 
-				var strDate = $("#" + selector).val();
+				var strDate = $(selector).val();
 
 				if (allowEmpty && strDate.length < 1) {
 					return true;
@@ -227,7 +236,7 @@
 		try {
 			if (arguments.length > 1) {
 
-				var strDate = $("#" + selector).val();
+				var strDate = $(selector).val();
 
 				if (allowEmpty && strDate.length < 1) {
 					return true;
@@ -250,7 +259,7 @@
 		try {
 			if (arguments.length > 1) {
 
-				var strDate = $("#" + selector).val();
+				var strDate = $(selector).val();
 
 				if (allowEmpty && strDate.length < 1) {
 					return true;
@@ -273,7 +282,7 @@
 		try {
 			if (arguments.length > 1) {
 
-				var strDate = $("#" + selector).val();
+				var strDate = $(selector).val();
 
 				if (allowEmpty && strDate.length < 1) {
 					return true;
@@ -296,7 +305,7 @@
 		try {
 			if (arguments.length > 3) {
 
-				var strDate = $("#" + selector).val();
+				var strDate = $(selector).val();
 
 				if (allowEmpty && strDate.length < 1) {
 					return true;
@@ -526,6 +535,6 @@
 	ui.ANY_VALUE = /^(?!\s*$).+/;
 
 
-	ui.version = "webui-validation-4.4.0";
+	ui.version = "webui-validation-4.5.0";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));

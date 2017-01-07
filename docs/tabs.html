@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/notifications.html">
+  <link rel="canonical" href="http://localhost:4000/webui/tabs.html">
   <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -247,43 +247,22 @@
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
                         <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Notifications<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+	Tabs<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-		<p>The simplest way to get up and running with notifications is to first configure some settings, then just call one of the following
-			functions.
+		<p>Webui attempts to make tabs easy to customise, not limited to links or ordered and unordered lists. With this tab control you can
+			use any link or button type, or even any html element for the navigation. Below is an example of using links styled as menu buttons.
 		</p>
 
-		<blockquote>
-			<p><span class="color-accent-5">ui.showSuccessNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showInfoNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showWarningNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showDangerNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showNotification(message, type, dynamic, showIcon)</span></p>
-		</blockquote>
+		<img src="/webui/assets/images/screenshot70.png" class="image border-sm border-accent-4" alt="Media" />
 
 		<div class="row-spacing-sm"></div>
 
-		<p>The <span class="color-accent-2 text-bold">dynamic</span> argument can be true or false. If true you don't have to hide the notification
-			yourself, as it will fade out depending on the configuration settings. If you specify false, then it will stay visible until you close it.
-			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
-			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
-			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above id for a generic call, where you can specify the
-			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
-			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
-			the class name using the type argument.
-
-		<p>The script below will initialise all notifications. The last line is how you might show a notification, perhaps as a result of some 
-			system status or other condition.</p>
+		<p>Here's the markup to create the above tabs layout.</p>
 
 </div>
 
@@ -291,21 +270,34 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>&lt;div id="tabs1" class="tabs width-xl"&gt;
 
-  ui.initNotifications({
-    showIcon: true,
-    dynamic: false,
-    position: "top-right",
-    duration: 6000,
-    fadeInDuration: 600,
-    fadeOutDuration: 300
-  });
-  
-  ui.showSuccessNotification("Sample notification text", true, true);
-	
-});
-</pre>				
+  &lt;div class="content-row"&gt;         
+    &lt;div class="content-col col-spacing-right-xs"&gt;
+      &lt;a href="#tab1" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 1&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col col-spacing-right-xs"&gt;
+      &lt;a href="#tab2" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 2&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col col-spacing-right-xs"&gt;
+      &lt;a href="#tab3" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 3&lt;/a&gt;
+    &lt;/div&gt;          
+  &lt;/div&gt;
+                
+  &lt;div class="content-row border-sm border-accent-2"&gt;
+    &lt;div class="tab-item panel primary height-7" id="tab1"&gt;
+      Tab 1 content
+    &lt;/div&gt;
+    &lt;div class="tab-item panel primary height-7 hidden" id="tab2"&gt;
+      Tab 2 content
+    &lt;/div&gt;
+    &lt;div class="tab-item panel primary height-7 hidden" id="tab3"&gt;
+      Tab 3 content
+    &lt;/div&gt;
+  &lt;/div&gt;
+                
+&lt;/div&gt;
+</pre>
 		</div>
 	</div>
 </div>
@@ -314,13 +306,133 @@
 
 		<div class="row-spacing-md"></div>
 
-
-
-		<div class="row-spacing-md"></div>
+		<p>No addition code is needed for fully working tabs and the above code is all that is required. However, if you want to select a default tab you
+			can just do the following.
+		</p>
 
 </div>
 
+<div id="snippet71" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
 
+<pre>$( document ).ready(function() {
+
+  $("#tabs1").tabControl({ 
+    activeTabId: "#tab2", 
+    activeTabFocused: true 
+  });
+	
+});
+</pre>				
+		</div>
+	</div>
+</div>
+
+<div class="text">
+		<p>If you don't want to use links, but prefer to use regular buttons, you can easily do that too. The following is an example of using
+			view buttons - these are actually buttons that have the Webui view button style.
+		</p>
+
+		<img src="/webui/assets/images/screenshot71.png" class="image border-sm border-accent-4" alt="Media" />
+
+		<div class="row-spacing-sm"></div>
+		
+		<p>This is the markup for the above expample.</p>
+
+</div>
+
+<div id="snippet72" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div id="tabs2" class="tabs width-xl"&gt;
+            
+  &lt;div class="content-row"&gt;         
+    &lt;div class="content-col"&gt;
+      &lt;input type="button" value="Tab 1" data-target="#tab1" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col"&gt;
+      &lt;input type="button" value="Tab 2" data-target="#tab2" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col"&gt;
+      &lt;input type="button" value="Tab 3" data-target="#tab3" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col"&gt;
+      &lt;input type="button" value="Tab 4" data-target="#tab4" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+    &lt;/div&gt;          
+  &lt;/div&gt;
+                
+  &lt;div class="content-row"&gt;
+    &lt;div class="tab-item panel primary border-sm border-accent-2 height-8" id="tab1"&gt;
+      Tab 1 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-item panel primary border-sm border-accent-2 height-8" id="tab2"&gt;
+      Tab 2 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-item panel primary border-sm border-accent-2 height-8" id="tab3"&gt;
+      Tab 3 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-item panel primary border-sm border-accent-2 height-8" id="tab4"&gt;
+      Tab 4 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+        
+&lt;/div&gt;
+</pre>
+		</div>
+	</div>
+</div>
+
+<div class="text">
+
+
+		<p>There are many possible customisations that can be done such as side or bottom tabs, dropdowns, badges, etc.</p>
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Events</p>
+
+    <p>There are 2 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.tabs.change.before</span> and 
+    <span class="color-accent-2 text-bold">ui.tabs.change.after</span>. The before event is fired just before the tab change occurs,
+    and the after event is fired just after the tab has changed. The following script shows how to setup the event callbacks.</p>
+
+</div>
+
+<div id="snippet73" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+
+  $( "#tabs1" ).on("ui.tabs.change.before", function(e, prevTabId, tabId) {
+    // Take some action
+  });
+
+  $( "#tabs1" ).on("ui.tabs.change.after", function(e, prevTabId, tabId) {
+    // Take some action
+  });
+	
+});
+</pre>				
+		</div>
+	</div>
+</div>
+
+
+<div class="text">
+
+    <p>When selecting a new tab the before and after events are raised, and you can get the id of the previous and
+      newly selected tabs, since they will be passed into the callback for you. If no previous tab was selected when a tab change occurs, then the prevTabId will be undefined.
+      You might want to handle that scenario.</p>
+
+</div>
+
+<div class="row-spacing-md"></div>
                       </div>
                     </div>
                   </div>

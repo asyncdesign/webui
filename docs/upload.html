@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/notifications.html">
+  <link rel="canonical" href="http://localhost:4000/webui/upload.html">
   <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -247,65 +247,56 @@
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
                         <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Notifications<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+	Upload Control<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-		<p>The simplest way to get up and running with notifications is to first configure some settings, then just call one of the following
-			functions.
+		<p>The upload control works in the same way as the native browser file upload, but is re-styled in such a way that single or multiple files
+			are listed neatly with a file count at the end. The screenshot below shows a selection of styles by just adding some of the Webui classes.
 		</p>
 
-		<blockquote>
-			<p><span class="color-accent-5">ui.showSuccessNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showInfoNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showWarningNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showDangerNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showNotification(message, type, dynamic, showIcon)</span></p>
-		</blockquote>
+		<img src="/webui/assets/images/screenshot80.png" class="image border-sm border-accent-4" alt="Media" />
 
 		<div class="row-spacing-sm"></div>
 
-		<p>The <span class="color-accent-2 text-bold">dynamic</span> argument can be true or false. If true you don't have to hide the notification
-			yourself, as it will fade out depending on the configuration settings. If you specify false, then it will stay visible until you close it.
-			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
-			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
-			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above id for a generic call, where you can specify the
-			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
-			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
-			the class name using the type argument.
-
-		<p>The script below will initialise all notifications. The last line is how you might show a notification, perhaps as a result of some 
-			system status or other condition.</p>
+		<p>Here's the markup for the file uploads shown above.</p>
 
 </div>
 
-<div id="snippet70" class="body background-secondary text-sm">
+<div id="snippet80" class="body background-secondary text-sm">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>&lt;div class="form-row"&gt;
+  &lt;div class="form-col-7 respond-md"&gt;
+    &lt;input id="fileUpload1" type="file" class="upload upload-icon-right upload-icon-dark" /&gt;
+    &lt;label for="fileUpload1" class="control color-accent-3 border-accent-3 rounded-md"&gt;
+      Click or tap to upload file
+    &lt;/label&gt;        
+  &lt;/div&gt;
+&lt;/div&gt;
+    
+&lt;div class="form-row"&gt;
+  &lt;div class="form-col-7 respond-md"&gt;
+    &lt;input id="fileUpload2" type="file" multiple class="upload-sm upload-icon-dark upload-icon-bottom" /&gt;
+    &lt;label for="fileUpload2" class="control color-success border-md border-success background-secondary height-lg"&gt;
+      Click or tap to upload files
+    &lt;/label&gt;                        
+  &lt;/div&gt;
+&lt;/div&gt;
 
-  ui.initNotifications({
-    showIcon: true,
-    dynamic: false,
-    position: "top-right",
-    duration: 6000,
-    fadeInDuration: 600,
-    fadeOutDuration: 300
-  });
-  
-  ui.showSuccessNotification("Sample notification text", true, true);
-	
-});
-</pre>				
+&lt;div class="form-row"&gt;
+  &lt;div class="form-col-7 respond-md"&gt;
+    &lt;input id="fileUpload3" type="file" multiple class="upload upload-icon-right upload-icon-dark" /&gt;
+    &lt;label for="fileUpload3" class="view-button view-button-accent-2 height-lg"&gt;
+      Click or tap to upload files
+    &lt;/label&gt;        
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
 		</div>
 	</div>
 </div>
@@ -314,9 +305,83 @@
 
 		<div class="row-spacing-md"></div>
 
-
+		<p>For the file upload control it is important that the label is associated with the imput control by id. Also note that upload specific
+			CSS classes are applied to the input control, but general CSS classes are applied to the label. You don't have to include the upload
+			icon or the icon position and color classes if you don't want them. To allow uploading multiple files, just include multiple on
+			the input control. 
+		</p>
 
 		<div class="row-spacing-md"></div>
+
+		<p class="color-accent-5 text-bold">Configuration</p>
+		<p>You can add scrollbars to the control by using the config options below. By default, scrollbars are turned off. From an aesthetic point
+			of view, it can be better to adjust the height of the upload control to allow enough room for the anticipated number of files. But,
+			there are additional settings to specify whether the filenames are listed and whether the file count is shown. If both showFiles and
+			showCount are set to false, then the upload control will display the text "Files loaded." The default setting is to show files and
+			a file count.
+		</p>
+		<p>Here's an example of the settings script.</p>
+
+</div>
+
+<div id="snippet81" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+
+  $("#fileUpload1").uploadControl({
+    showFiles: true,
+    showCount: false,
+    scrollX: false,
+    scrollY: false
+  });
+	
+});
+</pre>				
+		</div>
+	</div>
+</div>
+
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Events</p>
+
+    <p>There are 2 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.upload.change.before</span> and 
+    <span class="color-accent-2 text-bold">ui.upload.change.after</span>. The before event is fired just before the files are loaded
+	into the control, and the after event is fired just after the files are loaded. The following script shows how to setup the event callbacks.</p>
+
+</div>
+
+<div id="snippet82" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+
+  $( "#fileUpload1" ).on("ui.upload.change.before", function(e) {
+    // Take some action
+  });
+
+  $( "#fileUpload1" ).on("ui.upload.change.after", function(e) {
+    // Take some action
+  });
+	
+});
+</pre>				
+		</div>
+	</div>
+</div>
+
+
+<div class="text">
+
+    <p></p>
+
+	<div class="row-spacing-md"></div>
 
 </div>
 

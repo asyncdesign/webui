@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/notifications.html">
+  <link rel="canonical" href="http://localhost:4000/webui/toggle_container.html">
   <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -247,65 +247,59 @@
                     <div class="content-col-20">
                       <div class="area color-accent-4 scroll-y" id="mainContentContainer">
                         <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Notifications<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+	Toggle Container<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-		<p>The simplest way to get up and running with notifications is to first configure some settings, then just call one of the following
-			functions.
+		<p>The toggle container is a generic component used to manage the showing and hiding of elements, but it is a bit more than that.
+			It combines funtionality found in menus and tabs, but adds various behaviours such as inclusive and exclusive behaviour, off-canvas shifting, 
+			and transitions. The result is a component that allows you to invent new ways to present web content. The hope is that new and better
+			capabilities will be added to this component over time, and that it becomes much more than the sum of it's parts.
 		</p>
 
-		<blockquote>
-			<p><span class="color-accent-5">ui.showSuccessNotification(message, dynamic, showIcon)</span></p>
+		<p>Right now, it is a trivial task to setup off-canvas menus, fly-out menus, and accordions, etc. It is important to know the patterns
+			to use for each type of component you want. Here are some patterns to implement various common components.
+		</p>
 
-			<p><span class="color-accent-5">ui.showInfoNotification(message, dynamic, showIcon)</span></p>
+		<div class="row-spacing-md"></div>
 
-			<p><span class="color-accent-5">ui.showWarningNotification(message, dynamic, showIcon)</span></p>
+		<p class="color-accent-5 text-bold">Off-canvas menus</p>
 
-			<p><span class="color-accent-5">ui.showDangerNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showNotification(message, type, dynamic, showIcon)</span></p>
-		</blockquote>
-
-		<div class="row-spacing-sm"></div>
-
-		<p>The <span class="color-accent-2 text-bold">dynamic</span> argument can be true or false. If true you don't have to hide the notification
-			yourself, as it will fade out depending on the configuration settings. If you specify false, then it will stay visible until you close it.
-			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
-			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
-			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above id for a generic call, where you can specify the
-			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
-			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
-			the class name using the type argument.
-
-		<p>The script below will initialise all notifications. The last line is how you might show a notification, perhaps as a result of some 
-			system status or other condition.</p>
+		<p>A basic template to create a left side off-canvas menu is as follows:</p>
 
 </div>
 
-<div id="snippet70" class="body background-secondary text-sm">
+<div id="snippet90" class="body background-secondary text-sm">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
 
-  ui.initNotifications({
-    showIcon: true,
-    dynamic: false,
-    position: "top-right",
-    duration: 6000,
-    fadeInDuration: 600,
-    fadeOutDuration: 300
-  });
-  
-  ui.showSuccessNotification("Sample notification text", true, true);
-	
-});
-</pre>				
+  &lt;div class="content-col dock-top-left"&gt;
+    &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="content-col dock-top-left"&gt;
+
+    &lt;div class="toggle-item light border-sm border-secondary off-canvas-left" id="panel1"&gt;
+                        
+      &lt;div class="content-col place-top-left"&gt;
+        &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;/div&gt;        
+            
+      &lt;div class="area width-lg"&gt;
+                
+        &lt;!-- Menu content goes here --&gt;
+                
+      &lt;/div&gt;            
+            
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
 		</div>
 	</div>
 </div>
@@ -314,11 +308,154 @@
 
 		<div class="row-spacing-md"></div>
 
+		<p>You don't need to worry about button styles and colors, that's up to you. But the structure must be as above. You can also create a right
+			side off-canvas by simply changing the left classes to right - the toggle container will take care of the rest.
+		</p>
 
+</div>
+
+<div class="text">
 
 		<div class="row-spacing-md"></div>
 
+		<p class="color-accent-5 text-bold">Fly-out menus</p>
+
+		<p>A basic template to create a right side fly-out menu is as follows:</p>
+
 </div>
+
+<div id="snippet91" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
+        
+  &lt;div class="content-col dock-top-right"&gt;
+    &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="content-col dock-top-right"&gt;
+
+    &lt;div class="toggle-item dark hidden place-top-right" id="panel1"&gt;
+        
+      &lt;div class="content-col place-top-right"&gt;
+        &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;/div&gt;        
+        
+      &lt;div class="area text-xl"&gt;
+        &lt;!-- menu content goes here --&gt;
+      &lt;/div&gt;
+                            
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+	</div>
+</div>
+
+<div class="text">
+
+		<div class="row-spacing-md"></div>
+
+		<p>One important difference with the fly-out menu is that the toggle-item is explicitly hidden using the hidden class - this is because the toggle container
+			handles fly-out menus in a more generic way, so is not concerned with the initial visibility. It is possible that this could change in the future. 
+		</p>
+
+</div>
+
+<div class="text">
+
+		<div class="row-spacing-md"></div>
+
+		<p class="color-accent-5 text-bold">Accordions</p>
+
+		<p>A basic template to create an accordion menu is as follows:</p>
+
+</div>
+
+<div id="snippet92" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
+            
+  &lt;div class="content-col-20"&gt;
+    
+    &lt;button data-target="#panel1" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 1&lt;/button&gt;
+    &lt;div id="panel1" class="toggle-item width-full hidden"&gt;
+      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
+        &lt;!-- Content for panel 1 --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+        
+    &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
+        
+    &lt;button data-target="#panel2" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 2&lt;/button&gt;
+    &lt;div id="panel2" class="toggle-item width-full hidden"&gt;
+      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
+        &lt;!-- Content for panel 2 --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+        
+    &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
+        
+    &lt;button data-target="#panel3" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 3&lt;/button&gt;
+    &lt;div id="panel3" class="toggle-item width-full hidden"&gt;
+      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
+        &lt;!-- Content for panel 3 --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;        
+&lt;/div&gt;
+</pre>
+		</div>
+	</div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Events</p>
+
+    <p>There are 4 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.toggle.show.before</span>, 
+    <span class="color-accent-2 text-bold">ui.toggle.show.after</span>, <span class="color-accent-2 text-bold">ui.toggle.hide.before</span>, and
+    <span class="color-accent-2 text-bold">ui.toggle.hide.after</span>. The following script shows how to setup the event callbacks.</p>
+
+</div>
+
+<div id="snippet93" class="body background-secondary text-sm">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+
+  $( "#panel1" ).on("ui.toggleItem.show.before", function(e) {
+    // Take some action
+  });
+
+  $( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
+    // Take some action
+  });
+
+  $( "#panel1" ).on("ui.toggleItem.hide.before", function(e) {
+    // Take some action
+  });
+
+  $( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
+    // Take some action
+  });
+
+});
+</pre>				
+		</div>
+	</div>
+</div>
+
+<div class="row-spacing-md"></div>
+
 
 
                       </div>

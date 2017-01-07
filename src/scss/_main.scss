@@ -6,6 +6,7 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 body {
+	font-size: 14px !important;
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 }
@@ -13,15 +14,23 @@ body,
 button,
 input,
 select,
-textarea {
+datalist,
+textarea,
+meter,
+progress {
 	font: inherit;
-	font-family: inherit;
-	line-height: inherit;
-	font-size: 14px !important;
 	box-sizing: border-box;
-	border-radius: 0;
+	border-radius: 0;	
 }
-a.accessibility:focus {
+button,
+input,
+select {
+	padding: 1px 7px;
+}
+textarea {
+	resize: vertical;
+}
+a:not(.button-link):not(.button-link-sm):not(.view-button-link):not(.view-button-link-sm):not(.menu-button-link):not(.menu-button-link-sm).accessibility:focus {
 	outline: 3px solid $theme_accessibility;
 }
 input[type=checkbox], 
@@ -42,6 +51,10 @@ blockquote {
   border-left: 7px solid $theme_default;
   margin: 15px 0 15px 0;
   padding: 10px 0 10px 20px;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 :focus {
 	outline: none;
@@ -87,7 +100,7 @@ blockquote {
 .text-capital {
     text-transform: capitalize;
 }
-*[class^="text-"] {
+*[class*="text-"] {
 	text-decoration: none;
 	white-space: normal;
 }
@@ -107,17 +120,17 @@ blockquote {
 	padding-top: 4px;
 	font-weight: bold;	
 }
-*[class^="label-"] {
+*[class*="label-"] {
 	display: block;
 	box-sizing: border-box;
+}
+.list-inline > * {
+	float: left;
 }
 .list, .list-inline {
 	padding: 0;
 	margin: 0;
   	list-style-type: none;
-}
-.list-inline > * {
-	float: left;
 }
 .list-bullet {
 	padding-left: 15px;
@@ -161,11 +174,8 @@ blockquote {
 .breadcrumb-default > :not(:last-child) a {
 	color: $theme_default;
 }
-.breadcrumb-primary > :not(:last-child) a {
-	color: $theme_primary;
-}
-.breadcrumb-secondary > :not(:last-child) a {
-	color: $theme_secondary;
+.breadcrumb-light > :not(:last-child) a {
+	color: $theme_light;
 }
 .breadcrumb-dark > :not(:last-child) a {
 	color: $theme_dark;
@@ -196,6 +206,9 @@ blockquote {
 }
 .breadcrumb-danger > :not(:last-child) a {
 	color: $theme_danger;
+}
+.breadcrumb-transparent > :not(:last-child) a {
+	color: $theme_transparent;
 }
 *[class*="breadcrumb-"] > :last-child {
 	color: $theme_muted;
@@ -230,7 +243,7 @@ blockquote {
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 	border: 1px solid $theme_default_border;
-	padding: 0 5px;
+	padding: 0 7px;
 	height: 34px;
 	max-height: 34px;
 }
@@ -238,7 +251,7 @@ blockquote {
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 	border: 1px solid $theme_default_border;
-	padding: 0 5px;
+	padding: 0 7px;
 	height: 26px;
 	max-height: 26px;
 }
@@ -256,7 +269,7 @@ blockquote {
 	color: $theme_primary_foreground;
 	background-color: $theme_primary;
 	border: 1px solid $theme_default_border;
-	padding: 5px;
+	padding: 5px 7px;
 }
 .control-highlight {
 	color: $theme_highlight_foreground;
@@ -271,7 +284,11 @@ blockquote {
 .control-append {
 	letter-spacing: normal;
 	word-spacing: -0.43em;
+	white-space: nowrap;
 	width: inherit;
+	> :not(.text):not(.text-xs):not(.text-sm):not(.text-md):not(.text-lg):not(.text-xl) {
+		word-spacing: normal;
+	}
 }
 *[class*="input"].accessibility:focus, *[class*="control"].accessibility:focus {
 	box-shadow: inset 0px 0px 0px 2px $theme_accessibility;
@@ -368,12 +385,18 @@ blockquote {
 .button {
 	padding: 0 12px;
 	height: 34px;
-	max-height: 34px;	
+	max-height: 34px;
 }
 .button-sm {
 	padding: 0 8px;
 	height: 26px;
-	max-height: 26px;	
+	max-height: 26px;
+}
+.button-link {
+	line-height: 34px;	
+}
+.button-link-sm {
+	line-height: 26px;	
 }
 .button,
 .button-sm {
@@ -384,7 +407,12 @@ blockquote {
 	background-color: $theme_default;
 	border: 1px solid $theme_default_border;
 }
-.button-flex {
+.button-link,
+.button-link-sm {
+	display: block;
+	text-align: center;
+}
+.button-fluid {
 	text-decoration: none;
 	white-space: normal;
 	outline: none;
@@ -399,11 +427,9 @@ blockquote {
 	border: 1px solid $theme_default_border;
 	&:hover {
 		background-color: $theme_default_hover;
-		border-color: $theme_default_hover;
 	}
 	&:active {
 		background-color: $theme_default_active;
-		border-color: $theme_default_active;
 	}
 }
 .button-default.accessibility:focus {
@@ -411,41 +437,21 @@ blockquote {
 	background-color: $theme_primary;
 	color: $theme_default_border;
 }
-.button-primary {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
-	border: 1px solid $theme_primary_border;
+.button-light {
+	color: $theme_light_foreground;
+	background-color: $theme_light;
+	border: 1px solid $theme_light_border;
 	&:hover {
-		background-color: $theme_primary_hover;
-		border-color: $theme_primary_hover;
+		background-color: $theme_light_hover;
 	}
 	&:active {
-		background-color: $theme_primary_active;
-		border-color: $theme_primary_active;
+		background-color: $theme_light_active;
 	}
 }
-.button-primary.accessibility:focus {
-	box-shadow: inset 0px 0px 0px 2px $theme_primary_border;
-	background-color: $theme_primary;
-	color: $theme_primary_border;
-}
-.button-secondary {
-	color: $theme_secondary_foreground;
-	background-color: $theme_secondary;
-	border: 1px solid $theme_secondary_border;
-	&:hover {
-		background-color: $theme_secondary_hover;
-		border-color: $theme_secondary_hover;
-	}
-	&:active {
-		background-color: $theme_secondary_active;
-		border-color: $theme_secondary_active;
-	}
-}
-.button-secondary.accessibility:focus {
-	box-shadow: inset 0px 0px 0px 2px $theme_secondary_border;
-	background-color: $theme_primary;
-	color: $theme_secondary_border;
+.button-light.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_light_border;
+	background-color: $theme_dark;
+	color: $theme_light_border;
 }
 .button-dark {
 	color: $theme_dark_foreground;
@@ -460,7 +466,7 @@ blockquote {
 }
 .button-dark.accessibility:focus {
 	box-shadow: inset 0px 0px 0px 2px $theme_dark_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_dark_border;
 }
 .button-accent-1 {
@@ -622,13 +628,238 @@ blockquote {
 }
 .button-transparent.accessibility:focus {
 	box-shadow: inset 0px 0px 0px 2px $theme_transparent_border;
-	background-color: $theme_primary;
+	background-color: $theme_transparent;
 	color: $theme_transparent_border;
 }
 .button-disabled {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
 	border: 1px solid $theme_disabled_border;
+}
+.view-button {
+	padding: 0 17px;
+	height: 44px;
+	max-height: 44px;
+}
+.view-button-sm {
+	padding: 0 13px;
+	height: 36px;
+	max-height: 36px;
+}
+.view-button-link {
+	line-height: 44px;	
+}
+.view-button-link-sm {
+	line-height: 36px;	
+}
+.view-button,
+.view-button-sm {
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+	cursor: pointer;
+	width: 100%;
+	min-width: 100%;
+	box-sizing: border-box;
+	color: $theme_default;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_default;
+}
+.view-button-link,
+.view-button-link-sm {
+	display: block;
+	text-align: center;
+}
+.view-button-default {
+	color: $theme_default;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_default;
+	&:focus {
+		color: $theme_default_active;
+		border-color: $theme_default_active;
+	}
+}
+.view-button-default.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_default_active;
+}
+.view-button-light {
+	color: $theme_light;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_light;
+	&:focus {
+		color: $theme_light_active;
+		border-color: $theme_light_active;
+	}
+}
+.view-button-light.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_light_active;
+}
+.view-button-dark {
+	color: $theme_dark;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_dark;
+	&:focus {
+		color: $theme_dark_active;
+		border-color: $theme_dark_active;
+	}
+}
+.view-button-dark.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_dark_active;
+}
+.view-button-accent-1 {
+	color: $theme_accent_1;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_accent_1;
+	&:focus {
+		color: $theme_accent_1_active;
+		border-color: $theme_accent_1_active;
+	}
+}
+.view-button-accent-1.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_accent_1_active;
+}
+.view-button-accent-2 {
+	color: $theme_accent_2;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_accent_2;
+	&:focus {
+		color: $theme_accent_2_active;
+		border-color: $theme_accent_2_active;
+	}
+}
+.view-button-accent-2.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_accent_2_active;
+}
+.view-button-accent-3 {
+	color: $theme_accent_3;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_accent_3;
+	&:focus {
+		color: $theme_accent_3_active;
+		border-color: $theme_accent_3_active;
+	}
+}
+.view-button-accent-3.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_accent_3_active;
+}
+.view-button-accent-4 {
+	color: $theme_accent_4;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_accent_4;
+	&:focus {
+		color: $theme_accent_4_active;
+		border-color: $theme_accent_4_active;
+	}
+}
+.view-button-accent-4.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_accent_4_active;
+}
+.view-button-accent-5 {
+	color: $theme_accent_5;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_accent_5;
+	&:focus {
+		color: $theme_accent_5_active;
+		border-color: $theme_accent_5_active;
+	}
+}
+.view-button-accent-5.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_accent_5_active;
+}
+.view-button-success {
+	color: $theme_success;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_success;
+	&:focus {
+		color: $theme_success_active;
+		border-color: $theme_success_active;
+	}
+}
+.view-button-success.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_success_active;
+}
+.view-button-info {
+	color: $theme_info;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_info;
+	&:focus {
+		color: $theme_info_active;
+		border-color: $theme_info_active;
+	}
+}
+.view-button-info.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_info_active;
+}
+.view-button-warning {
+	color: $theme_warning;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_warning;
+	&:focus {
+		color: $theme_warning_active;
+		border-color: $theme_warning_active;
+	}
+}
+.view-button-warning.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_warning_active;
+}
+.view-button-danger {
+	color: $theme_danger;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_danger;
+	&:focus {
+		color: $theme_danger_active;
+		border-color: $theme_danger_active;
+	}
+}
+.view-button-danger.accessibility:focus {
+	box-shadow: inset 0 -4px $theme_danger_active;
+}
+.view-button-disabled {
+	color: $theme_disabled;
+	background-color: $theme_transparent;
+	border: none;
+	border-bottom: 4px solid $theme_disabled;
+}
+.view-button-top {
+  border: none;
+  border-top: 4px solid;
+}
+.view-button-top.accessibility:focus {
+  box-shadow: inset 0 4px;
+}
+.view-button-left {
+  border: none;
+  border-left: 4px solid;
+}
+.view-button-left.accessibility:focus {
+  box-shadow: inset 4px 0 0 0;
+}
+.view-button-bottom {
+  border: none;
+  border-bottom: 4px solid;
+}
+.view-button-bottom.accessibility:focus {
+  box-shadow: inset 0 -4px;
+}
+.view-button-right {
+  border: none;
+  border-right: 4px solid;
+}
+.view-button-right.accessibility:focus {
+  box-shadow: inset -4px 0 0 0;
 }
 .menu-button {
 	padding: 0 17px;
@@ -639,6 +870,12 @@ blockquote {
 	padding: 0 13px;
 	height: 36px;
 	max-height: 36px;
+}
+.menu-button-link {
+	line-height: 44px;	
+}
+.menu-button-link-sm {
+	line-height: 36px;	
 }
 .menu-button,
 .menu-button-sm {
@@ -653,13 +890,17 @@ blockquote {
 	background-color: $theme_default;
 	border: 1px solid $theme_default_border;
 }
+.menu-button-link,
+.menu-button-link-sm {
+	display: block;
+	text-align: center;
+}
 .menu-button-default {
 	color: $theme_default_foreground;
 	background-color: $theme_default;
 	border: 1px solid $theme_default_border;
 	&:focus {
 		background-color: $theme_default_active;
-		border-color: $theme_default_active;
 	}
 }
 .menu-button-default.accessibility:focus {
@@ -667,33 +908,18 @@ blockquote {
 	background-color: $theme_primary;
 	color: $theme_default_border;
 }
-.menu-button-primary {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
-	border: 1px solid $theme_primary_border;
+.menu-button-light {
+	color: $theme_light_foreground;
+	background-color: $theme_light;
+	border: 1px solid $theme_light_border;
 	&:focus {
-		background-color: $theme_primary_active;
-		border-color: $theme_primary_active;
+		background-color: $theme_light_active;
 	}
 }
-.menu-button-primary.accessibility:focus {
-	box-shadow: inset 0px 0px 0px 2px $theme_primary_border;
-	background-color: $theme_primary;
-	color: $theme_primary_border;
-}
-.menu-button-secondary {
-	color: $theme_secondary_foreground;
-	background-color: $theme_secondary;
-	border: 1px solid $theme_secondary_border;
-	&:focus {
-		background-color: $theme_secondary_active;
-		border-color: $theme_secondary_active;
-	}
-}
-.menu-button-secondary.accessibility:focus {
-	box-shadow: inset 0px 0px 0px 2px $theme_secondary_border;
-	background-color: $theme_primary;
-	color: $theme_secondary_border;
+.menu-button-light.accessibility:focus {
+	box-shadow: inset 0px 0px 0px 2px $theme_light_border;
+	background-color: $theme_dark;
+	color: $theme_light_border;
 }
 .menu-button-dark {
 	color: $theme_dark_foreground;
@@ -830,13 +1056,13 @@ blockquote {
 	background-color: $theme_transparent;
 	border: 1px solid $theme_transparent_border;
 	&:focus {
-		color: $theme_transparent_hover;
+		color: $theme_transparent_active;
 		background-color: $theme_transparent;
 	}
 }
 .menu-button-transparent.accessibility:focus {
 	box-shadow: inset 0px 0px 0px 2px $theme_transparent_border;
-	background-color: $theme_primary;
+	background-color: $theme_transparent;
 	color: $theme_transparent_border;
 }
 .menu-button-disabled {
@@ -877,6 +1103,18 @@ blockquote {
 	width: 100%; 
 	background-color: transparent;
 	@include layer-3();	
+}
+.off-canvas-left {
+	top: 0;
+	left: 0;
+}
+.off-canvas-right {
+	top: 0;
+	right: 0;
+}
+.off-canvas-left, .off-canvas-right {
+	position: absolute;
+	display: none;
 }
 .media-block {
 	padding: 7px;
@@ -925,6 +1163,226 @@ blockquote {
 	vertical-align: top;
 	white-space: nowrap;
 }
+.badge-xs {
+	padding: 2px 4.5px;
+	border-radius: 20px;
+}
+.badge-sm {
+	padding: 2px 5.5px;
+	border-radius: 20px;
+}
+.badge-md {
+	padding: 2px 6px;
+	border-radius: 20px;
+}
+.badge-lg {
+	padding: 2px 7.5px;
+	border-radius: 20px;
+}
+.badge-xl {
+	padding: 2px 8.5px;
+	border-radius: 20px;
+}
+.badge-narrow {
+	padding: 2px 3.5px;
+}
+.pointer-top-sm {
+	border-width: 0 5px 7px 5px;
+}
+.pointer-top-md {
+	border-width: 0 7px 10px 7px;
+}
+.pointer-top-lg {
+	border-width: 0 9px 13px 9px;
+}
+.pointer-right-sm {
+	border-width: 5px 0 5px 7px;
+}
+.pointer-right-md {
+	border-width: 7px 0 7px 10px;
+}
+.pointer-right-lg {
+	border-width: 9px 0 9px 13px;
+}
+.pointer-bottom-sm {
+	border-width: 7px 5px 0 5px;
+}
+.pointer-bottom-md {
+	border-width: 10px 7px 0 7px;
+}
+.pointer-bottom-lg {
+	border-width: 13px 9px 0 9px;
+}
+.pointer-left-sm {
+	border-width: 5px 7px 5px 0;
+}
+.pointer-left-md {
+	border-width: 7px 10px 7px 0;
+}
+.pointer-left-lg {
+	border-width: 9px 13px 9px 0;
+}
+.pointer-top-default {
+	@include pointer-top($theme_default);
+}
+.pointer-right-default {
+	@include pointer-right($theme_default);
+}
+.pointer-bottom-default {
+	@include pointer-bottom($theme_default);
+}
+.pointer-left-default {
+	@include pointer-left($theme_default);
+}
+.pointer-top-light {
+	@include pointer-top($theme_light);
+}
+.pointer-right-light {
+	@include pointer-right($theme_light);
+}
+.pointer-bottom-light {
+	@include pointer-bottom($theme_light);
+}
+.pointer-left-light {
+	@include pointer-left($theme_light);
+}
+.pointer-top-dark {
+	@include pointer-top($theme_dark);
+}
+.pointer-right-dark {
+	@include pointer-right($theme_dark);
+}
+.pointer-bottom-dark {
+	@include pointer-bottom($theme_dark);
+}
+.pointer-left-dark {
+	@include pointer-left($theme_dark);
+}
+.pointer-top-accent-1 {
+	@include pointer-top($theme_accent_1);
+}
+.pointer-right-accent-1 {
+	@include pointer-right($theme_accent_1);
+}
+.pointer-bottom-accent-1 {
+	@include pointer-bottom($theme_accent_1);
+}
+.pointer-left-accent-1 {
+	@include pointer-left($theme_accent_1);
+}
+.pointer-top-accent-2 {
+	@include pointer-top($theme_accent_2);
+}
+.pointer-right-accent-2 {
+	@include pointer-right($theme_accent_2);
+}
+.pointer-bottom-accent-2 {
+	@include pointer-bottom($theme_accent_2);
+}
+.pointer-left-accent-2 {
+	@include pointer-left($theme_accent_2);
+}
+.pointer-top-accent-3 {
+	@include pointer-top($theme_accent_3);
+}
+.pointer-right-accent-3 {
+	@include pointer-right($theme_accent_3);
+}
+.pointer-bottom-accent-3 {
+	@include pointer-bottom($theme_accent_3);
+}
+.pointer-left-accent-3 {
+	@include pointer-left($theme_accent_3);
+}
+.pointer-top-accent-4 {
+	@include pointer-top($theme_accent_4);
+}
+.pointer-right-accent-4 {
+	@include pointer-right($theme_accent_4);
+}
+.pointer-bottom-accent-4 {
+	@include pointer-bottom($theme_accent_4);
+}
+.pointer-left-accent-4 {
+	@include pointer-left($theme_accent_4);
+}
+.pointer-top-accent-5 {
+	@include pointer-top($theme_accent_5);
+}
+.pointer-right-accent-5 {
+	@include pointer-right($theme_accent_5);
+}
+.pointer-bottom-accent-5 {
+	@include pointer-bottom($theme_accent_5);
+}
+.pointer-left-accent-5 {
+	@include pointer-left($theme_accent_5);
+}
+.pointer-top-success {
+	@include pointer-top($theme_success);
+}
+.pointer-right-success {
+	@include pointer-right($theme_success);
+}
+.pointer-bottom-success {
+	@include pointer-bottom($theme_success);
+}
+.pointer-left-success {
+	@include pointer-left($theme_success);
+}
+.pointer-top-info {
+	@include pointer-top($theme_info);
+}
+.pointer-right-info {
+	@include pointer-right($theme_info);
+}
+.pointer-bottom-info {
+	@include pointer-bottom($theme_info);
+}
+.pointer-left-info {
+	@include pointer-left($theme_info);
+}
+.pointer-top-warning {
+	@include pointer-top($theme_warning);
+}
+.pointer-right-warning {
+	@include pointer-right($theme_warning);
+}
+.pointer-bottom-warning {
+	@include pointer-bottom($theme_warning);
+}
+.pointer-left-warning {
+	@include pointer-left($theme_warning);
+}
+.pointer-top-danger {
+	@include pointer-top($theme_danger);
+}
+.pointer-right-danger {
+	@include pointer-right($theme_danger);
+}
+.pointer-bottom-danger {
+	@include pointer-bottom($theme_danger);
+}
+.pointer-left-danger {
+	@include pointer-left($theme_danger);
+}
+.pointer-top-transparent {
+	@include pointer-top($theme_transparent);
+}
+.pointer-right-transparent {
+	@include pointer-right($theme_transparent);
+}
+.pointer-bottom-transparent {
+	@include pointer-bottom($theme_transparent);
+}
+.pointer-left-transparent {
+	@include pointer-left($theme_transparent);
+}
+*[class*="pointer-"] {
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
 .dock-top {
 	left: 0;
 	top: 0;
@@ -967,17 +1425,42 @@ blockquote {
 .scroll-y-always {
 	overflow-y: scroll;
 }
-.align-left {
+.text-left {
 	text-align: left;
 }
-.align-center {
+.text-center {
 	text-align: center;
 }
-.align-right {
+.text-right {
 	text-align: right;
 }
-.align-justify {
+.text-justify {
 	text-align: justify;
+}
+.align-top {
+	vertical-align: top;
+}
+.align-middle {
+	vertical-align: middle;
+}
+.align-bottom {
+	vertical-align: bottom;
+}
+.align-text-top {
+	vertical-align: text-top;
+}
+.align-text-bottom {
+	vertical-align: text-bottom;
+}
+.align-sub {
+	vertical-align: sub;
+}
+.align-super {
+	vertical-align: super;
+}
+.align-center {
+    display: table;
+    margin: 0 auto;	
 }
 .move-left {
 	float: left;
@@ -1243,223 +1726,18 @@ blockquote {
 	height: 320px;
 	min-height: 320px;
 }
+.height-control {
+	height: 34px;
+	min-height: 34px;
+}
+.height-control-sm {
+	height: 26px;
+	min-height: 26px;
+}
 .height-full {
 	height: 100%;
 	min-height: 100%;
 	box-sizing: border-box;
-}
-.pointer-top-sm {
-	border-width: 0 5px 7px 5px;
-}
-.pointer-top-md {
-	border-width: 0 7px 10px 7px;
-}
-.pointer-top-lg {
-	border-width: 0 9px 13px 9px;
-}
-.pointer-right-sm {
-	border-width: 5px 0 5px 7px;
-}
-.pointer-right-md {
-	border-width: 7px 0 7px 10px;
-}
-.pointer-right-lg {
-	border-width: 9px 0 9px 13px;
-}
-.pointer-bottom-sm {
-	border-width: 7px 5px 0 5px;
-}
-.pointer-bottom-md {
-	border-width: 10px 7px 0 7px;
-}
-.pointer-bottom-lg {
-	border-width: 13px 9px 0 9px;
-}
-.pointer-left-sm {
-	border-width: 5px 7px 5px 0;
-}
-.pointer-left-md {
-	border-width: 7px 10px 7px 0;
-}
-.pointer-left-lg {
-	border-width: 9px 13px 9px 0;
-}
-.pointer-top-default {
-	@include pointer-top($theme_default);
-}
-.pointer-right-default {
-	@include pointer-right($theme_default);
-}
-.pointer-bottom-default {
-	@include pointer-bottom($theme_default);
-}
-.pointer-left-default {
-	@include pointer-left($theme_default);
-}
-.pointer-top-primary {
-	@include pointer-top($theme_primary);
-}
-.pointer-right-primary {
-	@include pointer-right($theme_primary);
-}
-.pointer-bottom-primary {
-	@include pointer-bottom($theme_primary);
-}
-.pointer-left-primary {
-	@include pointer-left($theme_primary);
-}
-.pointer-top-secondary {
-	@include pointer-top($theme_secondary);
-}
-.pointer-right-secondary {
-	@include pointer-right($theme_secondary);
-}
-.pointer-bottom-secondary {
-	@include pointer-bottom($theme_secondary);
-}
-.pointer-left-secondary {
-	@include pointer-left($theme_secondary);
-}
-.pointer-top-dark {
-	@include pointer-top($theme_dark);
-}
-.pointer-right-dark {
-	@include pointer-right($theme_dark);
-}
-.pointer-bottom-dark {
-	@include pointer-bottom($theme_dark);
-}
-.pointer-left-dark {
-	@include pointer-left($theme_dark);
-}
-.pointer-top-accent-1 {
-	@include pointer-top($theme_accent_1);
-}
-.pointer-right-accent-1 {
-	@include pointer-right($theme_accent_1);
-}
-.pointer-bottom-accent-1 {
-	@include pointer-bottom($theme_accent_1);
-}
-.pointer-left-accent-1 {
-	@include pointer-left($theme_accent_1);
-}
-.pointer-top-accent-2 {
-	@include pointer-top($theme_accent_2);
-}
-.pointer-right-accent-2 {
-	@include pointer-right($theme_accent_2);
-}
-.pointer-bottom-accent-2 {
-	@include pointer-bottom($theme_accent_2);
-}
-.pointer-left-accent-2 {
-	@include pointer-left($theme_accent_2);
-}
-.pointer-top-accent-3 {
-	@include pointer-top($theme_accent_3);
-}
-.pointer-right-accent-3 {
-	@include pointer-right($theme_accent_3);
-}
-.pointer-bottom-accent-3 {
-	@include pointer-bottom($theme_accent_3);
-}
-.pointer-left-accent-3 {
-	@include pointer-left($theme_accent_3);
-}
-.pointer-top-accent-4 {
-	@include pointer-top($theme_accent_4);
-}
-.pointer-right-accent-4 {
-	@include pointer-right($theme_accent_4);
-}
-.pointer-bottom-accent-4 {
-	@include pointer-bottom($theme_accent_4);
-}
-.pointer-left-accent-4 {
-	@include pointer-left($theme_accent_4);
-}
-.pointer-top-accent-5 {
-	@include pointer-top($theme_accent_5);
-}
-.pointer-right-accent-5 {
-	@include pointer-right($theme_accent_5);
-}
-.pointer-bottom-accent-5 {
-	@include pointer-bottom($theme_accent_5);
-}
-.pointer-left-accent-5 {
-	@include pointer-left($theme_accent_5);
-}
-.pointer-top-success {
-	@include pointer-top($theme_success);
-}
-.pointer-right-success {
-	@include pointer-right($theme_success);
-}
-.pointer-bottom-success {
-	@include pointer-bottom($theme_success);
-}
-.pointer-left-success {
-	@include pointer-left($theme_success);
-}
-.pointer-top-info {
-	@include pointer-top($theme_info);
-}
-.pointer-right-info {
-	@include pointer-right($theme_info);
-}
-.pointer-bottom-info {
-	@include pointer-bottom($theme_info);
-}
-.pointer-left-info {
-	@include pointer-left($theme_info);
-}
-.pointer-top-warning {
-	@include pointer-top($theme_warning);
-}
-.pointer-right-warning {
-	@include pointer-right($theme_warning);
-}
-.pointer-bottom-warning {
-	@include pointer-bottom($theme_warning);
-}
-.pointer-left-warning {
-	@include pointer-left($theme_warning);
-}
-.pointer-top-danger {
-	@include pointer-top($theme_danger);
-}
-.pointer-right-danger {
-	@include pointer-right($theme_danger);
-}
-.pointer-bottom-danger {
-	@include pointer-bottom($theme_danger);
-}
-.pointer-left-danger {
-	@include pointer-left($theme_danger);
-}
-.pointer-top-transparent {
-	@include pointer-top($theme_transparent);
-}
-.pointer-right-transparent {
-	@include pointer-right($theme_transparent);
-}
-.pointer-bottom-transparent {
-	@include pointer-bottom($theme_transparent);
-}
-.pointer-left-transparent {
-	@include pointer-left($theme_transparent);
-}
-*[class^="pointer-"] {
-	width: 0;
-	height: 0;
-	border-style: solid;
-}
-.default {
-	color: $theme_default_foreground;
-	background-color: $theme_default;
 }
 .primary {
 	color: $theme_primary_foreground;
@@ -1468,6 +1746,26 @@ blockquote {
 .secondary {
 	color: $theme_secondary_foreground;
 	background-color: $theme_secondary;
+}
+.highlight {
+	color: $theme_highlight_foreground;
+	background-color: $theme_highlight;
+}
+.muted {
+	color: $theme_muted_foreground;
+	background-color: $theme_muted;
+}
+.disabled {
+	color: $theme_disabled_foreground;
+	background-color: $theme_disabled;
+}
+.default {
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+}
+.light {
+	color: $theme_light_foreground;
+	background-color: $theme_light;
 }
 .dark {
 	color: $theme_dark_foreground;
@@ -1509,18 +1807,45 @@ blockquote {
 	color: $theme_danger_foreground;
 	background-color: $theme_danger;
 }
-.highlight {
-	color: $theme_highlight_foreground;
-	background-color: $theme_highlight;
+.transparent {
+	color: $theme_transparent_foreground;
+	background-color: $theme_transparent;
 }
-.muted {
-	color: $theme_muted_foreground;
-	background-color: $theme_muted;
+.translucent-1 {
+	color: rgba(204, 204, 204, 0.1);
+	background-color: rgba(204, 204, 204, 0.1);
 }
-.color-default,
-.color-odd-default > div:nth-child(odd),
-.color-even-default > div:nth-child(even) {
-	color: $theme_default;
+.translucent-2 {
+	color: rgba(204, 204, 204, 0.2);
+	background-color: rgba(204, 204, 204, 0.2);
+}
+.translucent-3 {
+	color: rgba(204, 204, 204, 0.3);
+	background-color: rgba(204, 204, 204, 0.3);
+}
+.translucent-4 {
+	color: rgba(204, 204, 204, 0.4);
+	background-color: rgba(204, 204, 204, 0.4);
+}
+.translucent-5 {
+	color: rgba(204, 204, 204, 0.5);
+	background-color: rgba(204, 204, 204, 0.5);
+}
+.translucent-6 {
+	color: rgba(204, 204, 204, 0.6);
+	background-color: rgba(204, 204, 204, 0.6);
+}
+.translucent-7 {
+	color: rgba(204, 204, 204, 0.7);
+	background-color: rgba(204, 204, 204, 0.7);
+}
+.translucent-8 {
+	color: rgba(204, 204, 204, 0.8);
+	background-color: rgba(204, 204, 204, 0.8);
+}
+.translucent-9 {
+	color: rgba(204, 204, 204, 0.9);
+	background-color: rgba(204, 204, 204, 0.9);
 }
 .color-primary,
 .color-odd-primary > div:nth-child(odd),
@@ -1531,6 +1856,31 @@ blockquote {
 .color-odd-secondary > div:nth-child(odd),
 .color-even-secondary > div:nth-child(even) {
 	color: $theme_secondary;
+}
+.color-highlight,
+.color-odd-highlight > div:nth-child(odd),
+.color-even-highlight > div:nth-child(even) {
+	color: $theme_highlight;
+}
+.color-muted,
+.color-odd-muted > div:nth-child(odd),
+.color-even-muted > div:nth-child(even) {
+	color: $theme_muted;
+}
+.color-disabled,
+.color-odd-disabled > div:nth-child(odd),
+.color-even-disabled > div:nth-child(even) {
+	color: $theme_disabled;
+}
+.color-default,
+.color-odd-default > div:nth-child(odd),
+.color-even-default > div:nth-child(even) {
+	color: $theme_default;
+}
+.color-light,
+.color-odd-light > div:nth-child(odd),
+.color-even-light > div:nth-child(even) {
+	color: $theme_light;
 }
 .color-dark,
 .color-odd-dark > div:nth-child(odd),
@@ -1587,21 +1937,6 @@ blockquote {
 .color-even-transparent > div:nth-child(even) {
 	color: $theme_transparent;
 }
-.color-highlight,
-.color-odd-highlight > div:nth-child(odd),
-.color-even-highlight > div:nth-child(even) {
-	color: $theme_highlight;
-}
-.color-muted,
-.color-odd-muted > div:nth-child(odd),
-.color-even-muted > div:nth-child(even) {
-	color: $theme_muted;
-}
-.color-hover-default {
-	&:hover {
-		color: $theme_default;
-	}
-}
 .color-hover-primary {
 	&:hover {
 		color: $theme_primary;
@@ -1610,6 +1945,31 @@ blockquote {
 .color-hover-secondary {
 	&:hover {
 		color: $theme_secondary;
+	}
+}
+.color-hover-highlight {
+	&:hover {
+		color: $theme_highlight;
+	}	
+}
+.color-hover-muted {
+	&:hover {
+		color: $theme_muted;
+	}	
+}
+.color-hover-disabled {
+	&:hover {
+		color: $theme_disabled;
+	}	
+}
+.color-hover-default {
+	&:hover {
+		color: $theme_default;
+	}
+}
+.color-hover-light {
+	&:hover {
+		color: $theme_light;
 	}
 }
 .color-hover-dark {
@@ -1667,16 +2027,6 @@ blockquote {
 		color: $theme_transparent;
 	}	
 }
-.color-hover-highlight {
-	&:hover {
-		color: $theme_highlight;
-	}	
-}
-.color-hover-muted {
-	&:hover {
-		color: $theme_muted;
-	}	
-}
 .color-translucent-1 {
 	color: rgba(204, 204, 204, 0.1);
 }
@@ -1704,11 +2054,6 @@ blockquote {
 .color-translucent-9 {
 	color: rgba(204, 204, 204, 0.9);
 }
-.background-default,
-.background-odd-default > div:nth-child(odd),
-.background-even-default > div:nth-child(even) {
-	background-color: $theme_default;
-}
 .background-primary,
 .background-odd-primary > div:nth-child(odd),
 .background-even-primary > div:nth-child(even) {
@@ -1718,6 +2063,31 @@ blockquote {
 .background-odd-secondary > div:nth-child(odd),
 .background-even-secondary > div:nth-child(even) {
 	background-color: $theme_secondary;
+}
+.background-highlight,
+.background-odd-highlight > div:nth-child(odd),
+.background-even-highlight > div:nth-child(even) {
+	background-color: $theme_highlight;
+}
+.background-muted,
+.background-odd-muted > div:nth-child(odd),
+.background-even-muted > div:nth-child(even) {
+	background-color: $theme_muted;
+}
+.background-disabled,
+.background-odd-disabled > div:nth-child(odd),
+.background-even-disabled > div:nth-child(even) {
+	background-color: $theme_disabled;
+}
+.background-default,
+.background-odd-default > div:nth-child(odd),
+.background-even-default > div:nth-child(even) {
+	background-color: $theme_default;
+}
+.background-light,
+.background-odd-light > div:nth-child(odd),
+.background-even-light > div:nth-child(even) {
+	background-color: $theme_light;
 }
 .background-dark,
 .background-odd-dark > div:nth-child(odd),
@@ -1774,21 +2144,6 @@ blockquote {
 .background-even-transparent > div:nth-child(even) {
 	background-color: $theme_transparent;
 }
-.background-highlight,
-.background-odd-highlight > div:nth-child(odd),
-.background-even-highlight > div:nth-child(even) {
-	background-color: $theme_highlight;
-}
-.background-muted,
-.background-odd-muted > div:nth-child(odd),
-.background-even-muted > div:nth-child(even) {
-	background-color: $theme_muted;
-}
-.background-hover-default {
-	&:hover {
-		background-color: $theme_default;
-	}
-}
 .background-hover-primary {
 	&:hover {
 		background-color: $theme_primary;
@@ -1797,6 +2152,31 @@ blockquote {
 .background-hover-secondary {
 	&:hover {
 		background-color: $theme_secondary;
+	}
+}
+.background-hover-highlight {
+	&:hover {
+		background-color: $theme_highlight;
+	}	
+}
+.background-hover-muted {
+	&:hover {
+		background-color: $theme_muted;
+	}	
+}
+.background-hover-disabled {
+	&:hover {
+		background-color: $theme_disabled;
+	}	
+}
+.background-hover-default {
+	&:hover {
+		background-color: $theme_default;
+	}
+}
+.background-hover-light {
+	&:hover {
+		background-color: $theme_light;
 	}
 }
 .background-hover-dark {
@@ -1854,16 +2234,6 @@ blockquote {
 		background-color: $theme_transparent;
 	}	
 }
-.background-hover-highlight {
-	&:hover {
-		background-color: $theme_highlight;
-	}	
-}
-.background-hover-muted {
-	&:hover {
-		background-color: $theme_muted;
-	}	
-}
 .background-translucent-1 {
 	background: rgba(204, 204, 204, 0.1);
 }
@@ -1891,14 +2261,26 @@ blockquote {
 .background-translucent-9 {
 	background: rgba(204, 204, 204, 0.9);
 }
-.border-default {
-	border-color: $theme_default;
-}
 .border-primary {
 	border-color: $theme_primary;
 }
 .border-secondary {
 	border-color: $theme_secondary;
+}
+.border-highlight {
+	border-color: $theme_highlight;
+}
+.border-muted {
+	border-color: $theme_muted;
+}
+.border-disabled {
+	border-color: $theme_disabled;
+}
+.border-default {
+	border-color: $theme_default;
+}
+.border-light {
+	border-color: $theme_light;
 }
 .border-dark {
 	border-color: $theme_dark;
@@ -1933,17 +2315,6 @@ blockquote {
 .border-transparent {
 	border-color: $theme_transparent;
 }
-.border-highlight {
-	border-color: $theme_highlight;
-}
-.border-muted {
-	border-color: $theme_muted;
-}
-.border-hover-default {
-	&:hover {
-		border-color: $theme_default;
-	}
-}
 .border-hover-primary {
 	&:hover {
 		border-color: $theme_primary;
@@ -1952,6 +2323,31 @@ blockquote {
 .border-hover-secondary {
 	&:hover {
 		border-color: $theme_secondary;
+	}
+}
+.border-hover-highlight {
+	&:hover {
+		border-color: $theme_highlight;
+	}	
+}
+.border-hover-muted {
+	&:hover {
+		border-color: $theme_muted;
+	}	
+}
+.border-hover-disabled {
+	&:hover {
+		border-color: $theme_disabled;
+	}	
+}
+.border-hover-default {
+	&:hover {
+		border-color: $theme_default;
+	}
+}
+.border-hover-light {
+	&:hover {
+		border-color: $theme_light;
 	}
 }
 .border-hover-dark {
@@ -2009,15 +2405,32 @@ blockquote {
 		border-color: $theme_transparent;
 	}	
 }
-.border-hover-highlight {
-	&:hover {
-		border-color: $theme_highlight;
-	}	
+.border-translucent-1 {
+	border-color: rgba(204, 204, 204, 0.1);
 }
-.border-hover-muted {
-	&:hover {
-		border-color: $theme_muted;
-	}	
+.border-translucent-2 {
+	border-color: rgba(204, 204, 204, 0.2);
+}
+.border-translucent-3 {
+	border-color: rgba(204, 204, 204, 0.3);
+}
+.border-translucent-4 {
+	border-color: rgba(204, 204, 204, 0.4);
+}
+.border-translucent-5 {
+	border-color: rgba(204, 204, 204, 0.5);
+}
+.border-translucent-6 {
+	border-color: rgba(204, 204, 204, 0.6);
+}
+.border-translucent-7 {
+	border-color: rgba(204, 204, 204, 0.7);
+}
+.border-translucent-8 {
+	border-color: rgba(204, 204, 204, 0.8);
+}
+.border-translucent-9 {
+	border-color: rgba(204, 204, 204, 0.9);
 }
 .border-sm {
 	border-width: 1px;
