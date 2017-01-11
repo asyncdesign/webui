@@ -27,7 +27,7 @@
 			<div class="content-row">
 				<div class="content-col-20">
 					<div class="container hide-md">
-						<div class="content-row menu-bar background-accent-2 dock-top">
+						<div class="content-row menu-bar background-accent-2 dock-top width-full">
 							<div class="content-col">
 								<div class="content-col width-8 hide-xl"></div>
 								<div class="content-col width-sm"></div>
@@ -65,22 +65,6 @@
 								</div>
 								<div class="content-col">
 									<div class="dropdown">
-										<button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonReference">Reference<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
-										<div class="dropdown-content menu-close transparent width-xl">
-											<div class="col-spacing-left-lg">
-												<div class="pointer-top-sm pointer-top-accent-5"></div>
-											</div>
-											<div>
-												<button onclick="location.href='/webui/cloning_repository.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Cloning the repository (Coming soon)</span></button>
-												<button onclick="location.href='/webui/performing_builds.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Performing builds (Coming soon)</span></button>
-												<button onclick="location.href='/webui/css_reference.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">CSS reference (Coming soon)</span></button>
-												<button onclick="location.href='/webui/javascript_reference.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm"><span class="col-spacing-left-xs">JavaScript reference (Coming soon)</span></button>
-											</div>
-										</div>
-									</div>			
-								</div>					
-								<div class="content-col">
-									<div class="dropdown">
 										<button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
 										<div class="dropdown-content menu-close transparent width-lg">
 											<div class="col-spacing-left-lg">
@@ -90,6 +74,36 @@
 												<button onclick="location.href='/webui/cards_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Cards</span></button>
 												<button onclick="location.href='/webui/forms_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Forms</span></button>
 												<button onclick="location.href='/webui/controls_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm"><span class="col-spacing-left-xs">Form controls</span></button>										
+											</div>
+										</div>
+									</div>			
+								</div>
+								<div class="content-col">
+									<div class="dropdown">
+										<button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonThemes">Webui themes<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
+										<div class="dropdown-content menu-close transparent width-10">
+											<div class="col-spacing-left-lg">
+												<div class="pointer-top-sm pointer-top-accent-5"></div>
+											</div>
+											<div class="dark">
+												<div class="row-spacing-xs"></div>
+												<div class="panel">
+                        							Sales dashboard (In development)
+												</div>
+												<div class="tooltip">
+													<div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
+														Right click to view this image.
+													</div>
+
+													<img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
+												</div>
+												<div class="row-spacing-lg"></div>
+												<div class="row border-sm border-muted"></div>
+												<div class="row-spacing-sm"></div>
+												<div class="panel">
+													No custom CSS or javascript, just the standard Webui and Highcharts!
+												</div>
+												<div class="row-spacing-sm"></div>
 											</div>
 										</div>
 									</div>			
@@ -110,7 +124,7 @@
 													</p>
 													
 													<p><i>Be creative. Start something amazing today!</i></p>
-													<p><span class="color-accent-2">Current version:</span> 4.5.0.</p>
+													<p><span class="color-accent-2">Current version:</span> 4.6.0.</p>
 												</div>					
 											</div>
 											<div class="content-row">
@@ -177,16 +191,35 @@
                           <button onclick="location.href='/webui/toggle_container.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span><span class="col-spacing-sm"></span><span class="badge-sm background-success color-dark">New</span>
                           </button>                          
-                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonExamplesMobile">Examples</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
                           <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
                           <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
                           <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>										
+                        </div>
+                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            <div class="accent-5">
+                              <div class="row-spacing-xs"></div>
+                              <div class="panel">
+                                  Sales dashboard (In development)
+                              </div>
+                              <div class="tooltip">
+                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
+                                    Long press to view this image.
+                                </div>
+
+                                <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
+                              </div>
+                              <div class="row-spacing-lg"></div>
+                              <div class="row border-sm border-muted"></div>
+                              <div class="row-spacing-sm"></div>
+                              <div class="panel">
+                                  No custom CSS or javascript, just the standard Webui and Highcharts!
+                              </div>
+                              <div class="row-spacing-sm"></div>
+                            </div>
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -203,7 +236,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.5.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.0.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -273,7 +306,7 @@
 							<div class="row-spacing-lg hide-lg"></div>
 							<div class="row-spacing-lg show-lg"></div>
 							<div class="text-bold">
-								Current version 4.5.0
+								Current version 4.6.0
 							</div>
 						</span>
 					</div>
@@ -683,7 +716,7 @@
 
 
         $("#commandDownload").click( function() { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v4.5.0.zip";
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v4.6.0.zip";
         });
         
         $("#commandDocumentation").click( function() {

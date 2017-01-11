@@ -10,15 +10,16 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
 
 
-The purpose of webui is to offer an alternative to larger frameworks, providing a small, flexible, efficient and easy to use system to create websites quickly. The philosophy is to follow a <span class="color-accent-2">"Simplicity is the ultimate sophistication"</span> approach, providing simple building blocks to contruct much larger CSS components without the pain. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
-
-Webui allows you to create your web app without getting distracted by complexity.
+Webui is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular
+approach or style, and come with too many limitations. Webui has been build from the ground up with flexibility as the primary goal - even the components are made that way. Webui is a system that allows 
+you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that 
+doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
 
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
 
 ### **Getting Started**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.5.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.6.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:

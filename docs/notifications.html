@@ -107,16 +107,35 @@
                           <button onclick="location.href='/webui/toggle_container.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span><span class="col-spacing-sm"></span><span class="badge-sm background-success color-dark">New</span>
                           </button>                          
-                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonExamplesMobile">Examples</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
                           <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
                           <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
                           <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>										
+                        </div>
+                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            <div class="accent-5">
+                              <div class="row-spacing-xs"></div>
+                              <div class="panel">
+                                  Sales dashboard (In development)
+                              </div>
+                              <div class="tooltip">
+                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
+                                    Long press to view this image.
+                                </div>
+
+                                <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
+                              </div>
+                              <div class="row-spacing-lg"></div>
+                              <div class="row border-sm border-muted"></div>
+                              <div class="row-spacing-sm"></div>
+                              <div class="panel">
+                                  No custom CSS or javascript, just the standard Webui and Highcharts!
+                              </div>
+                              <div class="row-spacing-sm"></div>
+                            </div>
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -133,7 +152,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.5.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.0.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -206,19 +225,18 @@
 													<span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span><span class="col-spacing-md"></span><span class="badge-sm background-success color-dark">New</span>
 												</button>                        
                       </div>
-                      <button id="sideNavButtonReference" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-file width-sm"></i>Reference</button>
-                      <div class="dropdown-content-expand accent-5 width-full" id="dropdownReference">
-                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
-                      </div>
                       <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
                       <div class="dropdown-content-expand accent-5 width-full">
                         <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
                         <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>						
                         <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
                       </div>
+                      
+                      <button id="sideNavButtonThemes" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Webui themes</button>
+                      <div class="dropdown-content-expand accent-5 width-full">
+                        <button class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Sales dashboard (In development)</span></button>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -258,16 +276,12 @@
 			functions.
 		</p>
 
-		<blockquote>
-			<p><span class="color-accent-5">ui.showSuccessNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showInfoNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showWarningNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showDangerNotification(message, dynamic, showIcon)</span></p>
-
-			<p><span class="color-accent-5">ui.showNotification(message, type, dynamic, showIcon)</span></p>
+		<blockquote class="color-accent-2">
+			ui.showSuccessNotification (message, dynamic, showIcon)<br />
+			ui.showInfoNotification (message, dynamic, showIcon)<br />
+			ui.showWarningNotification (message, dynamic, showIcon)<br />
+			ui.showDangerNotification (message, dynamic, showIcon)<br />
+			ui.showNotification (message, type, dynamic, showIcon)
 		</blockquote>
 
 		<div class="row-spacing-sm"></div>
@@ -277,7 +291,7 @@
 			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
 			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
 			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above id for a generic call, where you can specify the
+			omit that argument in the function call. The last function signature above is for a generic call, where you can specify the
 			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
 			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
 			the class name using the type argument.

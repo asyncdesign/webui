@@ -107,16 +107,35 @@
                           <button onclick="location.href='/webui/toggle_container.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span><span class="col-spacing-sm"></span><span class="badge-sm background-success color-dark">New</span>
                           </button>                          
-                          <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                          <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                          <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                          <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonExamplesMobile">Examples</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
                           <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
                           <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
                           <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>										
+                        </div>
+                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
+                        <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            <div class="accent-5">
+                              <div class="row-spacing-xs"></div>
+                              <div class="panel">
+                                  Sales dashboard (In development)
+                              </div>
+                              <div class="tooltip">
+                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
+                                    Long press to view this image.
+                                </div>
+
+                                <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
+                              </div>
+                              <div class="row-spacing-lg"></div>
+                              <div class="row border-sm border-muted"></div>
+                              <div class="row-spacing-sm"></div>
+                              <div class="panel">
+                                  No custom CSS or javascript, just the standard Webui and Highcharts!
+                              </div>
+                              <div class="row-spacing-sm"></div>
+                            </div>
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -133,7 +152,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.5.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.0.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -206,19 +225,18 @@
 													<span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span><span class="col-spacing-md"></span><span class="badge-sm background-success color-dark">New</span>
 												</button>                        
                       </div>
-                      <button id="sideNavButtonReference" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-file width-sm"></i>Reference</button>
-                      <div class="dropdown-content-expand accent-5 width-full" id="dropdownReference">
-                        <button onclick="location.href='/webui/cloning_repository.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cloning the repository</span></button>
-                        <button onclick="location.href='/webui/performing_builds.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Performing builds</span></button>
-                        <button onclick="location.href='/webui/css_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">CSS reference</span></button>
-                        <button onclick="location.href='/webui/javascript_reference.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">JavaScript reference</span></button>				
-                      </div>
                       <button id="sideNavButtonExamples" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Examples</button>
                       <div class="dropdown-content-expand accent-5 width-full">
                         <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
                         <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>						
                         <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>                   
                       </div>
+                      
+                      <button id="sideNavButtonThemes" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-newspaper-o width-sm"></i>Webui themes</button>
+                      <div class="dropdown-content-expand accent-5 width-full">
+                        <button class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Sales dashboard (In development)</span></button>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -254,8 +272,10 @@
 
 <div class="text">
 
-	All container types expand to the size of the content placed within them - this is really the main reason you would want to use them. It allows 
-	styles to be applied, whether it's just a simple background, padding, or some custom behaviour. Containers do not have any automatic built-in resizing 
+	All container types expand to the size of the content placed within them and have a relative CSS position applied by default. Having relative positioning enables
+	all of the Webui positioning classes to work. See the <a href="/webui/alignment_and_spacing.html" 
+	class="color-accent-2 color-hover-accent-4">Alignment and spacing</a> section to find out more. Whether you just want to apply styles, a simple background, 
+	padding, or some custom behaviour, containers are often very useful. Containers do not have any automatic built-in resizing 
 	behaviour controlling margins or padding, but Webui allows you to implement and adjust this type of behaviour using classes specifically for columns. 
 	See the <a href="/webui/rows_and_columns.html" class="color-accent-2 color-hover-accent-4">Rows and columns</a>	section to learn
 	more about how to use them.
@@ -278,14 +298,15 @@
 	</blockquote>
 
 	There is no particular requirement to use containers in any specific place, but they each have slighly different behaviours which can be useful. 
-	In fact, you could easily structure your whole site using only rows and columns. Here are some reasons why you may wish to use containers:
+	You could easily structure your whole site using only rows and columns, but then it would be more difficult to use the specialised positioning classes. 
+	Here are some other reasons why you may wish to use containers:
 
 	<blockquote>
 		<span class="color-accent-2 text-bold">container</span> - You may want to apply styles to show some separation of content, or apply behaviour. For example showing or hiding content.
 		<br />
 		<span class="color-accent-2 text-bold">body</span> - Good for wrapping areas of content, where it is important that any overflow is not hidden. For example you might want to use it as a container for a menu, since dropdowns could be any size - the container class is equally suitable for this purpose.
 		<br />
-		<span class="color-accent-2 text-bold">box</span> - Good for laying out areas of content, where you don't want any content to go outside the bounds of the container. For example you might want to use it to lay out sections within a dialog or Facebook style media block.
+		<span class="color-accent-2 text-bold">box</span> - Good for laying out areas of content, where you don't want any content to go outside the bounds of the container. For example you might want to use it to lay out sections within a modal or Facebook style media block.
 		<br />
 		<span class="color-accent-2 text-bold">panel</span> - Great for an alternative to box with a bit more padding.
 		<br />

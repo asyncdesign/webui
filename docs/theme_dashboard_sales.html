@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Webui mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
+
+  <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui.css">
+  <link rel="stylesheet" href="/webui/assets/highcharts/css/highcharts.css">
+  <link rel="stylesheet" href="/webui/assets/css/site.css">
+  <link rel="canonical" href="http://localhost:4000/webui/theme_dashboard_sales.html">
+  <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
+  
+  
+</head>
+
+    <body class="off-canvas-body background-dark">
+
+        <div class="content-row menu-bar background-dark">
+            <div class="content-col-20">
+                <div class="content-col move-right col-spacing-right-lg">							
+                    <div class="dropdown">
+                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonEmail"><i class="fa fa-user-o fa-lg"></i></button>
+                        <div class="dropdown-content dropdown-right menu-close transparent width-xl">
+                            <div class="col-spacing-left-lg">
+                                <div class="pointer-top-sm pointer-top-dark"></div>
+                            </div>
+                            <div>
+                                <button onclick="location.href='/webui/getting_started.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Getting Started</span></button>
+                                <button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm">
+                                    <span class="row-inline width-lg col-spacing-left-xs">Tabs</span><span class="col-spacing-lg"></span><span class="badge-sm background-success color-dark">New</span>
+                                </button>
+                            </div>
+                        </div>								
+                    </div>						
+                </div>
+                <div class="content-col move-right col-spacing-right-sm">							
+                    <div class="dropdown">
+                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonEmail"><i class="fa fa-envelope-o fa-lg"></i><span class="badge-xs success text-xs col-spacing-right-sm place-top-right top-sm right-sm">4</span></button>
+                        <div class="dropdown-content dropdown-right menu-close transparent width-xl">
+                            <div class="col-spacing-left-lg">
+                                <div class="pointer-top-sm pointer-top-dark"></div>
+                            </div>
+                            <div>
+                                <button onclick="location.href='/webui/getting_started.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Getting Started</span></button>
+                                <button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm">
+                                    <span class="row-inline width-lg col-spacing-left-xs">Tabs</span><span class="col-spacing-lg"></span><span class="badge-sm background-success color-dark">New</span>
+                                </button>
+                            </div>
+                        </div>								
+                    </div>						
+                </div>
+                <div class="content-col move-right col-spacing-right-sm">							
+                    <div class="dropdown">
+                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonEmail"><i class="fa fa-bell-o fa-lg"></i><span class="badge-xs info text-xs col-spacing-right-sm place-top-right top-sm right-sm">2</span></button>
+                        <div class="dropdown-content dropdown-right menu-close transparent width-xl">
+                            <div class="col-spacing-left-lg">
+                                <div class="pointer-top-sm pointer-top-dark"></div>
+                            </div>
+                            <div>
+                                <button onclick="location.href='/webui/getting_started.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Getting Started</span></button>
+                                <button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm">
+                                    <span class="row-inline width-lg col-spacing-left-xs">Tabs</span><span class="col-spacing-lg"></span><span class="badge-sm background-success color-dark">New</span>
+                                </button>
+                            </div>
+                        </div>								
+                    </div>						
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--
+        <div class="dark show-md">
+            <span id="top"></span>
+            <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-dark width-7"><i class="fa fa-bars fa-lg"></i></button>
+            <div class="dropdown-content-expand accent-4 width-full">
+            <div class="content-row">
+                <div class="content-col width-full">
+                
+                    <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonHomeMobile">Home</button>
+                    
+                    <div class="dropdown-content-expand menu-close accent-5 width-full">
+                    </div>
+                    
+                    <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonDocumentationMobile">Documentation</button>
+                    
+                    <div class="dropdown-content-expand menu-close accent-5 width-full">										
+                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Getting Started</span></button>
+                        <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
+                        <span class="row-inline width-lg col-spacing-left-lg">Tabs</span><span class="col-spacing-sm"></span><span class="badge-sm background-success color-dark">New</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>								
+            </div>
+        </div>
+        -->
+
+
+        <div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1">
+
+            <div class="content-col dock-top-left left-md">
+                <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-7 text-lg"><i class="fa fa-bars"></i></button>
+            </div>
+
+            <div class="content-col dock-top-left">
+
+                <div class="toggle-item dark border-sm border-accent-5 off-canvas-left" id="menuLeft">
+                                
+                        <div class="row-spacing-xl">
+                            <div class="content-col dock-top-left left-md">
+                                <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-7 text-lg"><i class="fa fa-close"></i></button>
+                            </div>		
+                        </div>
+                        
+                        <div class="area width-lg">
+                            <div class="content-row">
+                                <div class="content-col-17">
+                                    <button id="sideNavButton1" class="view-button view-button-accent-2 view-button-left border-transparent align-left">				
+                                        <span class="col-spacing-right-sm"><i class="fa fa-area-chart width-5"></i></span>
+                                        <span>Area Charts</span>
+                                    </button>
+                                </div>
+                                <div class="content-col-3 align-right form-col-align-md">
+                                    <span class="badge-sm text-sm success">4</span>
+                                </div>
+                            </div>
+                            <div class="row-spacing-md"></div>
+                            <div class="content-row">
+                                <div class="content-col-17">
+                                    <button id="sideNavButton2" class="view-button view-button-accent-2 view-button-left border-transparent align-left">
+                                        <span class="col-spacing-right-sm"><i class="fa fa-bar-chart width-5"></i></span>
+                                        <span class="col-spacing-right-sm">Bar Charts</span>
+                                    </button>
+                                </div>
+                                <div class="content-col-3">
+                                </div>
+                            </div>
+                            <div class="row-spacing-md"></div>
+                            <div class="content-row">
+                                <div class="content-col-17">
+                                    <button id="sideNavButton3" class="view-button view-button-accent-2 view-button-left border-transparent align-left width-full">
+                                        <span class="col-spacing-right-sm"><i class="fa fa-line-chart width-5"></i></span>
+                                        <span>Line Charts</span>	
+                                    </button>
+                                </div>
+                                <div class="content-col-3 align-right form-col-align-md">
+                                    <span class="badge-sm text-sm accent-4">2</span>
+                                </div>
+                            </div>
+                            <div class="row-spacing-md"></div>
+                            <div class="content-row">
+                                <div class="content-col-17">
+                                    <button id="sideNavButton4" class="view-button view-button-accent-2 view-button-left border-transparent align-left">
+                                        <span class="col-spacing-right-sm"><i class="fa fa-pie-chart width-5"></i></span>
+                                        <span class="col-spacing-right-sm">Pie Charts</span>
+                                    </button>
+                                </div>
+                                <div class="content-col-3">
+                                </div>
+                            </div>
+                        </div>			
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="area background-dark">
+
+            <!--<div class="menu-bar show-md"></div>-->
+
+            <div class="content-row">
+                <div class="content-col-10 respond-xl">
+                    <div class="form-col-4 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted text-xs">
+                                    New leads
+                                </div>
+                                <div class="content-col-6 color-success text-bold text-xs">
+                                    <span class="move-right">today</span>
+                                </div>
+                            </div>
+                            <div class="row-spacing-xl"></div>
+                            <div class="row-spacing-md"></div>
+                            <div class="content-row">
+                                <div class="content-col-20 color-accent-2 text-xl text-center">
+                                    <span class="text-xl">77</span>
+                                </div>
+                            </div>
+                            <div class="content-row place-bottom-left width-full">
+                                <div class="content-col-20 background-dark text-xs">
+                                    <div class="panel">
+                                        <i class="fa fa-caret-up color-success move-right"></i>
+                                        <span class="color-success move-right col-spacing-right-sm">12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col-4 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted text-xs">
+                                    New leads
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold text-xs">
+                                    <span class="move-right">YTD</span>
+                                </div>
+                            </div>
+                            <div class="row-spacing-xl"></div>
+                            <div class="row-spacing-md"></div>
+                            <div class="content-row">
+                                <div class="content-col-20 color-accent-2 text-xl text-center">
+                                    <span class="text-xl">2,739</span>
+                                </div>
+                            </div>
+                            <div class="content-row place-bottom-left width-full">
+                                <div class="content-col-20 background-dark text-xs">
+                                    <div class="panel">
+                                        <i class="fa fa-caret-down color-danger move-right"></i>
+                                        <span class="color-danger move-right col-spacing-right-sm">17%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-col-12 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted text-xs">
+                                    Lead status (All)
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold text-xs">
+                                    <span class="move-right"></span>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="container height-9" id="leadStatusPanel"></div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="content-col-10 respond-xl">
+                    <div class="form-col-4 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+                        
+                    </div>
+                    <div class="form-col-4 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+                        
+                    </div>
+                    <div class="form-col-12 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content-row">
+                <div class="content-col-10 respond-xl">
+                    <div class="form-col-12 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+
+                    </div>
+                    <div class="form-col-8 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="content-col-10 respond-xl">
+                    <div class="form-col-20 respond-sm">
+                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <script src="/webui/assets/js/jquery-3.1.1.js"></script>
+    
+        <script src="/webui/assets/js/webui.js"></script>
+        <script src="/webui/assets/js/webui-utils.js"></script>
+        <script src="/webui/assets/js/webui-validation.js"></script>
+
+        <script src="/webui/assets/highcharts/js/highcharts.js"></script>
+        <script src="/webui/assets/highcharts/js/highcharts-more.js"></script>
+        <script src="/webui/assets/highcharts/js/modules/solid-gauge.js"></script>
+        <!--<script src="/webui/assets/highcharts/js/modules/exporting.js"></script>-->
+
+        <script src="/webui/assets/js/site.js"></script>
+
+        <script>
+
+            $( document ).ready(function() { 
+
+                ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");       
+            
+                $( window ).resize(function() {
+                    ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");
+                });                      
+
+            });
+
+        </script>
+
+    </body>
+
+</html>

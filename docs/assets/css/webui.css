@@ -1,7 +1,7 @@
 /*!
 * Name: webui - css
-* Version: 4.5.0
-* Author: Levi Keogh, 2016-12-23
+* Version: 4.6.0
+* Author: Levi Keogh, 2017-01-10
 */
 .content-row {
   white-space: normal;
@@ -1312,6 +1312,11 @@ audio:not([controls]) {
 .text-capital {
   text-transform: capitalize; }
 
+.text-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto; }
+
 *[class*="text-"] {
   text-decoration: none;
   white-space: normal; }
@@ -1441,7 +1446,8 @@ audio:not([controls]) {
   padding: 30px; }
 
 .container, .body, .box, .panel, .area {
-  display: block; }
+  display: block;
+  position: relative; }
 
 .box, .panel, .area {
   overflow: hidden; }
@@ -2534,33 +2540,48 @@ audio:not([controls]) {
   height: 0;
   border-style: solid; }
 
-.dock-top {
-  left: 0;
-  top: 0;
-  width: 100%; }
-
 .dock-top-left {
   left: 0;
   top: 0; }
+
+.dock-top-center {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0); }
 
 .dock-top-right {
   right: 0;
   top: 0; }
 
-.dock-bottom {
+.dock-middle-left {
   left: 0;
-  bottom: 0;
-  width: 100%; }
+  top: 50%;
+  transform: translate(0, -50%); }
+
+.dock-middle-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.dock-middle-right {
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%); }
 
 .dock-bottom-left {
   left: 0;
   bottom: 0; }
 
+.dock-bottom-center {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0); }
+
 .dock-bottom-right {
   right: 0;
   bottom: 0; }
 
-.dock-top, .dock-top-left, .dock-top-right, .dock-bottom, .dock-bottom-left, .dock-bottom-right {
+*[class*="dock-"] {
   position: fixed;
   z-index: 110; }
 
@@ -2628,24 +2649,48 @@ audio:not([controls]) {
   clear: right; }
 
 .place-top-left {
-  position: absolute;
   top: 0;
   left: 0; }
+
+.place-top-center {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0); }
 
 .place-top-right {
-  position: absolute;
   top: 0;
   right: 0; }
 
+.place-middle-left {
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%); }
+
+.place-middle-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.place-middle-right {
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%); }
+
 .place-bottom-left {
-  position: absolute;
   bottom: 0;
   left: 0; }
 
+.place-bottom-center {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0); }
+
 .place-bottom-right {
-  position: absolute;
   bottom: 0;
   right: 0; }
+
+*[class*="place-"] {
+  position: absolute; }
 
 .top-xs {
   top: 5px; }
@@ -2767,6 +2812,26 @@ audio:not([controls]) {
   width: 320px;
   min-width: 320px; }
 
+.width-control-xs {
+  width: 23px;
+  min-width: 23px; }
+
+.width-control-sm {
+  width: 26px;
+  min-width: 26px; }
+
+.width-control-md {
+  width: 34px;
+  min-width: 34px; }
+
+.width-control-lg {
+  width: 36px;
+  min-width: 36px; }
+
+.width-control-xl {
+  width: 44px;
+  min-width: 44px; }
+
 .width-full {
   width: 100%;
   min-width: 100%;
@@ -2877,18 +2942,75 @@ audio:not([controls]) {
   height: 320px;
   min-height: 320px; }
 
-.height-control {
-  height: 34px;
-  min-height: 34px; }
+.height-control-xs {
+  height: 23px;
+  min-height: 23px; }
 
 .height-control-sm {
   height: 26px;
   min-height: 26px; }
 
+.height-control-md {
+  height: 34px;
+  min-height: 34px; }
+
+.height-control-lg {
+  height: 36px;
+  min-height: 36px; }
+
+.height-control-xl {
+  height: 44px;
+  min-height: 44px; }
+
 .height-full {
   height: 100%;
   min-height: 100%;
   box-sizing: border-box; }
+
+.height-adjacent-1 {
+  height: calc(100% - 1px); }
+
+.height-adjacent-2 {
+  height: calc(100% - 2px); }
+
+.height-adjacent-3 {
+  height: calc(100% - 4px); }
+
+.height-adjacent-4 {
+  height: calc(100% - 8px); }
+
+.height-adjacent-5 {
+  height: calc(100% - 16px); }
+
+.height-adjacent-6 {
+  height: calc(100% - 32px); }
+
+.height-adjacent-7 {
+  height: calc(100% - 64px); }
+
+.height-adjacent-8 {
+  height: calc(100% - 128px); }
+
+.height-adjacent-9 {
+  height: calc(100% - 256px); }
+
+.height-adjacent-10 {
+  height: calc(100% - 512px); }
+
+.height-adjacent-xs {
+  height: calc(100% - 20px); }
+
+.height-adjacent-sm {
+  height: calc(100% - 40px); }
+
+.height-adjacent-md {
+  height: calc(100% - 80px); }
+
+.height-adjacent-lg {
+  height: calc(100% - 160px); }
+
+.height-adjacent-xl {
+  height: calc(100% - 320px); }
 
 .primary {
   color: #000000;
