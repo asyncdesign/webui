@@ -2824,6 +2824,14 @@ audio:not([controls]) {
 		opacity: 1; 
 	}		
 }
+.toggle-parent .toggle-child, 
+.toggle-parent-dynamic .toggle-child {
+	display: none;
+}
+.toggle-parent:focus .toggle-child,
+.toggle-parent-dynamic:hover .toggle-child {
+	display: block;
+}
 .hidden {
 	display: none;
 }

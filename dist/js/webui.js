@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.6.0
-* Author: Levi Keogh, 2017-01-10
+* Version: 4.6.1
+* Author: Levi Keogh, 2017-01-16
 */
 "use strict";
 
@@ -184,6 +184,55 @@
             }
         } catch (ex) {}
     };
+    var runToggleAction = function(toggleContainer, selector) {
+        if (toggleContainer) {
+            var toggleBody = $(".off-canvas-body");
+            var toggleItem = toggleContainer.find(selector);
+            if (toggleBody && toggleItem) {
+                var fadeInDuration = parseInt(toggleContainer.data("fade-in-duration"));
+                var fadeOutDuration = parseInt(toggleContainer.data("fade-out-duration"));
+                if (toggleItem.css("display") === "block") {
+                    toggleItem.trigger("ui.toggleItem.hide.before");
+                    toggleItem.hide(fadeOutDuration);
+                    toggleBody.css("overflow-x", "");
+                    toggleBody.css("margin-left", "");
+                    toggleItem.trigger("ui.toggleItem.hide.after");
+                } else {
+                    toggleItem.trigger("ui.toggleItem.show.before");
+                    if (toggleItem.hasClass("off-canvas-left")) {
+                        var toggleItemWidth = parseInt(toggleItem.css("width"));
+                        toggleBody.css("overflow-x", "hidden");
+                        toggleBody.css("margin-left", toggleItemWidth + "px");
+                        toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                    } else if (toggleItem.hasClass("off-canvas-right")) {
+                        var toggleItemWidth = parseInt(toggleItem.css("width"));
+                        toggleBody.css("margin-left", "-" + toggleItemWidth + "px");
+                        toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                        toggleItem.css("mergin-right", toggleItemWidth + "px");
+                        toggleItem.css("transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
+                    }
+                    toggleItem.show(fadeInDuration);
+                    if (toggleContainer.hasClass("toggle-inclusive") === false) {
+                        toggleItem.siblings(".toggle-item").hide(fadeOutDuration);
+                    }
+                    toggleItem.trigger("ui.toggleItem.show.after");
+                }
+            }
+        } else {
+            var toggleItem = $(selector);
+            if (toggleItem) {
+                if (toggleItem.css("display") === "block") {
+                    toggleItem.trigger("ui.toggleItem.hide.before");
+                    toggleItem.hide();
+                    toggleItem.trigger("ui.toggleItem.hide.after");
+                } else {
+                    toggleItem.trigger("ui.toggleItem.show.before");
+                    toggleItem.show();
+                    toggleItem.trigger("ui.toggleItem.show.after");
+                }
+            }
+        }
+    };
     var windowEventHandler = function() {
         resetTooltips();
     };
@@ -250,53 +299,18 @@
         }
         if (selector) {
             var toggleContainer = $(this).closest(".toggle-container");
-            if (toggleContainer) {
-                var toggleBody = $(".off-canvas-body");
-                var toggleItem = toggleContainer.find(selector);
-                if (toggleBody && toggleItem) {
-                    var fadeInDuration = parseInt(toggleContainer.data("fade-in-duration"));
-                    var fadeOutDuration = parseInt(toggleContainer.data("fade-out-duration"));
-                    if (toggleItem.css("display") === "block") {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
-                        toggleItem.hide(fadeOutDuration);
-                        toggleBody.css("overflow-x", "");
-                        toggleBody.css("margin-left", "");
-                        toggleItem.trigger("ui.toggleItem.hide.after");
-                    } else {
-                        toggleItem.trigger("ui.toggleItem.show.before");
-                        if (toggleItem.hasClass("off-canvas-left")) {
-                            var toggleItemWidth = parseInt(toggleItem.css("width"));
-                            toggleBody.css("overflow-x", "hidden");
-                            toggleBody.css("margin-left", toggleItemWidth + "px");
-                            toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
-                        } else if (toggleItem.hasClass("off-canvas-right")) {
-                            var toggleItemWidth = parseInt(toggleItem.css("width"));
-                            toggleBody.css("margin-left", "-" + toggleItemWidth + "px");
-                            toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
-                            toggleItem.css("mergin-right", toggleItemWidth + "px");
-                            toggleItem.css("transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
-                        }
-                        toggleItem.show(fadeInDuration);
-                        if (toggleContainer.hasClass("toggle-inclusive") === false) {
-                            toggleItem.siblings(".toggle-item").hide(fadeOutDuration);
-                        }
-                        toggleItem.trigger("ui.toggleItem.show.after");
-                    }
-                }
-            } else {
-                var toggleItem = $(selector);
-                if (toggleItem) {
-                    if (toggleItem.css("display") === "block") {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
-                        toggleItem.hide();
-                        toggleItem.trigger("ui.toggleItem.hide.after");
-                    } else {
-                        toggleItem.trigger("ui.toggleItem.show.before");
-                        toggleItem.show();
-                        toggleItem.trigger("ui.toggleItem.show.after");
-                    }
-                }
-            }
+            runToggleAction(toggleContainer, selector);
+        }
+    });
+    $(".toggle-activator-dynamic").hover(function(e) {
+        e.preventDefault();
+        var selector = $(this).data("target");
+        if (!selector) {
+            selector = $(this).attr("href");
+        }
+        if (selector) {
+            var toggleContainer = $(this).closest(".toggle-container");
+            runToggleAction(toggleContainer, selector);
         }
     });
     ui.setControlState = function(selector, currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
@@ -1385,5 +1399,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.6.0";
+    ui.version = "webui-4.6.1";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

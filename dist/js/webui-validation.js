@@ -1,7 +1,7 @@
 /*!
 * Name: webui-validation - validation functions
-* Version: 4.6.0
-* Author: Levi Keogh, 2017-01-10
+* Version: 4.6.1
+* Author: Levi Keogh, 2017-01-16
 */
 "use strict";
 
@@ -441,5 +441,5 @@
     ui.TRUE_VALUE = /^(true)$/;
     ui.FALSE_VALUE = /^(false)$/;
     ui.ANY_VALUE = /^(?!\s*$).+/;
-    ui.version = "webui-validation-4.6.0";
+    ui.version = "webui-4.6.1";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

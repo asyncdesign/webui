@@ -152,7 +152,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.6.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.1.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -400,7 +400,7 @@
       see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content
       sit nicely in the middle. In this example the input form itself is within the center column. Then an area type
       container wraps all of the form columns to give a good margin all around the input form. The next bit is important.
-      On line 06, immediately inside the area container, a row is defined to enclose all of the input form apart from
+      On line 6, immediately inside the area container, a row is defined to enclose all of the input form apart from
       the save button at the bottom. You can see the save button has it's own row below that, purely because the row
       above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on
       a larger screen size. So, on line 7 and line 59 you can see 2 equal columns by using the class <span class="color-accent-2 text-bold">form-col-10</span>,
@@ -410,7 +410,7 @@
       might say, why not just shove all 3 elements in one column? Here's why you shouldn't do it. All column widths are
       based on percentages by default, and when the browser size changes some of elements will adjust their position
       (probably onto the next line) if the column gets too narrow. An extract from the above code is shown below, and
-      is a solution to ensure that the label and it's mandatory indicator both stay in there proper place regardless
+      is a solution to ensure that the label and its mandatory indicator both stay in there proper place regardless
       of responsive behaviour of the form in general. Wrapping the 2 columns in a single fixed width column using
       <span class="color-accent-2 text-bold">width-*</span> classes does that.</p>
 
@@ -468,7 +468,7 @@
 
     <p>Finally, we just need to ensure that our form fields are sized appropriately for both large and small screens. Rather than forcing you to have form 
     controls that always expand to the full width of a percentage based column, Webui allows you to choose by providing a selection of width classes. 
-    For expamle, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with
+    For example, having a postcode, number or date field that grows and shrinks when the size of the browser window changes is not particularly great. To deal with
     these types of controls all we do is use <span class="color-accent-2 text-bold">content-col</span>, <span class="color-accent-2 text-bold">form-col</span>,
     or <span class="color-accent-2 text-bold">table-col</span> without the division number, then add a <span class="color-accent-2 text-bold">width-*</span> 
     class to the control itself. If you want the control to always expand to the size of the column use <span class="color-accent-2 text-bold">width-full</span> 

@@ -1,7 +1,7 @@
 /*!
 * Name: webui - css
-* Version: 4.6.0
-* Author: Levi Keogh, 2017-01-10
+* Version: 4.6.1
+* Author: Levi Keogh, 2017-01-16
 */
 .content-row {
   white-space: normal;
@@ -3843,6 +3843,14 @@ audio:not([controls]) {
     opacity: 0.5; }
   to {
     opacity: 1; } }
+.toggle-parent .toggle-child,
+.toggle-parent-dynamic .toggle-child {
+  display: none; }
+
+.toggle-parent:focus .toggle-child,
+.toggle-parent-dynamic:hover .toggle-child {
+  display: block; }
+
 .hidden {
   display: none; }
 

@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Webui mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
+
+  <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui.css">
+  <link rel="stylesheet" href="/webui/assets/owl/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/webui/assets/owl/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/webui/assets/css/site.css">
+  <link rel="canonical" href="http://localhost:4000/webui/theme_ecommerce_fashion.html">
+  <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
+  
+  
+</head>
+
+<body class="off-canvas-body background-light">
+
+    <div class="content-row menu-bar dark" id="headerTop">
+
+        <div class="content-col-20 hide-lg">
+            <div class="content-col width-lg"></div>
+            <div class="content-col width-adjacent-xl">
+
+                <div class="dropdown width-lg">
+                    <button class="menu-activator-dynamic view-button view-button-link width-lg text-left border-transparent color-light">LANGUAGE (EN)</button>
+                    <div class="dropdown-content menu-close transparent width-xl">
+                        <div>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">THAI (TH)</span></button>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">ENGLISH (EN)</span></button>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">SPANISH (SPN)</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown width-lg">
+                    <button class="menu-activator-dynamic view-button view-button-link width-lg text-left border-transparent color-light">CURRENCY (USD)</button>
+                    <div class="dropdown-content menu-close transparent width-lg">
+                        <div>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">THB</span></button>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">USD</span></button>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">EURO</span></button>
+                            <button class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">POUND</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown width-lg move-right">
+                    <button class="menu-activator-dynamic view-button view-button-link width-lg border-transparent color-light color-hover-accent-3 text-right">CREATE ACCOUNT</button>
+                </div>
+                <div class="dropdown width-md move-right">
+                    <button class="menu-activator-dynamic view-button view-button-link width-md border-transparent color-light color-hover-accent-3 text-right">LOG IN</button>
+                </div>
+
+            </div>
+            <div class="content-col width-lg"></div>
+        </div>
+
+
+        <div class="content-col-20 show-lg">
+            <span id="top"></span>
+
+            <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-dark width-7"><i class="fa fa-bars fa-lg"></i></button>
+            <div class="dropdown-content-expand primary width-full">
+                <div class="content-row">
+                    <div class="content-col primary width-full">
+                        <div class="row-spacing-md"></div>
+
+                        <a href="javascript:void 0" class="menu-activator menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">LANGUAGE (EN)</a>
+                        <div class="dropdown-content-expand width-full">
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">THAI (TH)</span></button>
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">ENGLISH (EN)</span></button>
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">SPANISH (SPN)</span></button>
+                        </div>
+
+
+                        <a href="javascript:void 0" class="menu-activator menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">CURRENCY (USD)</a>
+                        <div class="dropdown-content-expand width-full">
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">THB</span></button>
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">USD</span></button>
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">EURO</span></button>
+                            <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-sm">POUND</span></button>
+                        </div>
+
+                        <a href="javascript:void 0" class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">LOG IN</a>
+                        <a href="javascript:void 0" class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">CREATE ACCOUNT</a>
+
+                        <div class="row-spacing-md"></div>
+
+
+                        <a href="javascript:void 0" class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">PAGES</a>
+                        <a href="javascript:void 0" class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">PROMOTIONS</a>
+
+                        <a href="javascript:void 0" class="menu-activator menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">PRODUCTS</a>
+                        <div class="dropdown-content-expand width-full">
+                            <button class="menu-activator menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left"><span class="col-spacing-left-sm">CLOTHES</span></button>
+                            <div class="dropdown-content-expand width-full">
+                                <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-md">PONCHOS</span></button>
+                                <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-md">SCARFS</span></button>
+                                <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-md">BAGS</span></button>
+                                <button class="menu-button menu-button-sm menu-button-light color-accent-4 color-hover-accent-3 text-left"><span class="col-spacing-left-md">PURSES</span></button>
+                            </div>
+
+                            <button class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left"><span class="col-spacing-left-sm">ACCESSORIES</span></button>
+                            <button class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left"><span class="col-spacing-left-sm">MIXED</span></button>
+                        </div>
+
+                        <a href="javascript:void 0" class="menu-close menu-button-sm menu-button-link-sm menu-button-light color-hover-accent-3 text-left">CLOTHES</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="content-row menu-bar primary" id="menuTop">
+        <div class="content-col-20">
+            <div class="content-col width-lg hide-sm"></div>
+            <div class="content-col width-adjacent-xl width-respond-sm">
+
+                <div class="content-col-5 text-xl">
+                    <div class="row-spacing-md"></div>
+                    <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link border-transparent color-accent-3 text-lg text-left">Yhing's Designs</a>
+                    <div class="row-spacing-md"></div>
+                </div>
+                <div class="content-col-13">
+                    <div class="row-spacing-md"></div>
+                    <div class="content-col-20 hide-lg">
+                        <div class="content-col">
+                            <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link color-accent-4 width-8 border-transparent color-hover-accent-3">PAGES</a>
+                        </div>
+                        <div class="content-col">
+                            <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link color-accent-4 width-lg border-transparent color-hover-accent-3">PROMOTIONS</a>
+                        </div>
+                        <div class="content-col">
+                            <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link color-accent-4 width-lg border-transparent color-hover-accent-3">PRODUCTS</a>
+                            <div class="dropdown-sheet menu-close">
+                                <div class="row-spacing-md"></div>
+                                <div class="form-col-3 background-transparent"></div>
+                                <div class="form-col-14 background-primary">
+                                    <div class="panel">
+                                        <div class="form-col-eq-3">
+                                            <div class="area">
+                                                <span class="text-lg color-accent-4">CLOTHES</span>
+                                                <div class="row border-sm border-secondary"></div>
+                                                <div class="row-spacing-md"></div>
+                                                <ul class="list list-spacing-md" role="menu">
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PONCHOS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">SCARFS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">BAGS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PURSES</a>
+                                                        <span
+                                                            class="badge-sm success rounded-sm move-right">New</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-col-eq-3">
+                                            <div class="area">
+                                                <span class="text-lg color-accent-4">ACCESSORIES</span>
+                                                <div class="content-row border-sm border-secondary"></div>
+                                                <div class="row-spacing-md"></div>
+                                                <ul class="list list-spacing-md" role="menu">
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PONCHOS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">SCARFS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">BAGS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PURSES</a>
+                                                        <span
+                                                            class="badge-sm success rounded-sm move-right">New</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-col-eq-3">
+                                            <div class="area">
+                                                <span class="text-lg color-accent-4">MIXED</span>
+                                                <div class="row border-sm border-secondary"></div>
+                                                <div class="row-spacing-md"></div>
+                                                <ul class="list list-spacing-md" role="menu">
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PONCHOS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">SCARFS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">BAGS</a></li>
+                                                    <li role="menuitem"><a href="#" class="text-md color-accent-4 color-hover-accent-3">PURSES</a>
+                                                        <span
+                                                            class="badge-sm success rounded-sm move-right">New</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-col-3 background-transparent"></div>
+                            </div>
+                        </div>
+                        <div class="content-col">
+                            <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link color-accent-4 width-7 border-transparent color-hover-accent-3">CLOTHES</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-col-2">
+                    <div class="row-spacing-md"></div>
+                    <div class="dropdown width-lg move-right">
+
+
+                        <a href="javascript:void 0" class="menu-activator-dynamic view-button view-button-link width-lg border-transparent color-accent-3 text-right">
+                            <i class="fa fa-shopping-cart fa-3x"></i>
+                            <span class="badge-sm success text text-xs place-top-right top-xs right-sm">3</span>
+                        </a>
+
+
+
+                        <div class="dropdown-content dropdown-right menu-close transparent width-9">
+                            <div class="panel background-primary color-accent-4 width-full">
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-20">
+                                        <div class="media-block">
+                                            <div class="media-left">
+                                                <img class="border-md border-transparent width-md" src="/webui/assets/images/thumb3.png" alt="Media" />
+                                            </div>
+                                            <div class="media-nowrap">
+                                                <div class="content-col width-md text-left">
+                                                    PONCHO<br /><br />2 x $70.00
+                                                </div>
+                                                <div class="content-col color-muted width-xs text-right">
+                                                    <i class="fa fa-close fa-lg"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="content-row border-sm border-secondary"></div>
+                                <div class="content-row">
+                                    <div class="content-col-20">
+                                        <div class="media-block">
+                                            <div class="media-left">
+                                                <img class="border-md border-transparent width-md" src="/webui/assets/images/thumb4.png" alt="Media" />
+                                            </div>
+                                            <div class="media-nowrap">
+                                                <div class="content-col width-md text-left">
+                                                    PONCHO<br /><br />1 x $70.00
+                                                </div>
+                                                <div class="content-col color-muted width-xs text-right">
+                                                    <i class="fa fa-close fa-lg"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="content-row border-sm border-secondary"></div>
+                                <div class="content-row">
+                                    <div class="content-col-20">
+                                        <div class="media-block">
+                                            <div class="media-left">
+                                                <img class="border-md border-transparent width-md" src="/webui/assets/images/thumb5.png" alt="Media" />
+                                            </div>
+                                            <div class="media-nowrap">
+                                                <div class="content-col width-md text-left">
+                                                    PONCHO<br /><br />5 x $70.00
+                                                </div>
+                                                <div class="content-col color-muted width-xs text-right">
+                                                    <i class="fa fa-close fa-lg"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="content-row border-sm border-secondary"></div>
+                                <div class="content-row">
+                                    <div class="content-col-10">
+                                        <div class="panel">
+                                            SUBTOTAL
+                                        </div>
+                                    </div>
+                                    <div class="content-col-10">
+                                        <div class="panel text-right">
+                                            $560.00
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content-row">
+                                    <div class="content-col-10">
+                                        <div class="panel">
+                                            <button class="menu-button-sm menu-button-accent-3">View Cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="content-col-10">
+                                        <div class="panel">
+                                            <button class="menu-button-sm menu-button-success">Checkout</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-spacing-md"></div>
+                </div>
+
+            </div>
+            <div class="content-col width-lg hide-sm"></div>
+
+        </div>
+    </div>
+
+
+    <div class="content-row light">
+        <div class="content-col-20">
+
+            <div class="owl-carousel owl-theme text-xl" id="carousel1">
+                <div>
+                    <img src="/webui/assets/images/slide_1.png" />
+                    <div class="place-middle-center text-center color-primary">
+                        <div class="text-xl text-bold hide-sm">
+                            NEW COLLECTION
+                            <br /> JUST ARRIVED
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 text-xs width-lg">Shop Now</button>
+                        </div>
+                        <div class="text-xs text-bold show-sm">
+                            NEW COLLECTION
+                            <br /> JUST ARRIVED
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 width-lg">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="/webui/assets/images/slide_2.png" />
+                    <div class="place-middle-center text-center color-primary">
+                        <div class="text-xl text-bold hide-sm">
+                            NATURAL ORGANIC FABRICS
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 text-xs width-lg">Shop Now</button>
+                        </div>
+                        <div class="text-xs text-bold show-sm">
+                            NATURAL ORGANIC FABRICS
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 width-lg">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="/webui/assets/images/slide_3.png" />
+                     <div class="place-middle-center text-center color-primary">
+                        <div class="text-xl text-bold hide-sm">
+                            NATURAL ORGANIC FABRICS
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 text-xs width-lg">Shop Now</button>
+                        </div>
+                        <div class="text-xs text-bold show-sm">
+                            NATURAL ORGANIC FABRICS
+                            <br /><br />
+                            <button class="menu-button-sm menu-button-transparent border-primary color-primary color-hover-dark background-hover-primary color-hover-accent-4 width-lg">Shop Now</button>
+                        </div>
+                    </div>                   
+                </div>
+                <div><img src="/webui/assets/images/slide_4.png" /></div>
+                <div><img src="/webui/assets/images/slide_5.png" /></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row-spacing-xl"></div>
+    <div class="row-spacing-md"></div>
+
+    <div class="content-row light">
+        <div class="content-col-20">
+            <div class="content-col-3"></div>
+            <div class="content-col-14 text-center">
+                <div class="content-col-20 color-accent-4 text-xl">
+                    <div class="panel">
+                        FEATURED PRODUCTS
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-3"></div>
+        </div>
+    </div>
+
+    <div class="row-spacing-md"></div>
+
+
+    <div class="content-row light">
+        <div class="content-col-2"></div>
+        <div class="content-col-16">
+            <div class="panel">
+                <div class="owl-carousel owl-theme text-xl" id="carousel2">
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb1.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            PINK
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <div class="tooltip">
+                                                <div class="tooltip-dynamic tooltip-left tooltip-sm text-sm tooltip-dark rounded-md">
+                                                    Add to wishlist
+                                                </div>
+                                                <i class="fa fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb3.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            BLUE
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb4.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            PINK
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb5.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            GREEN
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-col-2"></div>
+    </div>
+
+
+    <div class="row-spacing-xl"></div>
+    <div class="row-spacing-md"></div>
+
+    <div class="content-row light">
+        <div class="content-col-20">
+            <div class="content-col-3"></div>
+            <div class="content-col-14 text-center">
+                <div class="content-col-20 color-accent-4 text-xl">
+                    <div class="panel">
+                        NEW PRODUCTS
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-3"></div>
+        </div>
+    </div>
+
+    <div class="row-spacing-md"></div>
+
+    <div class="content-row light">
+        <div class="content-col-2"></div>
+        <div class="content-col-16">
+            <div class="panel">
+                <div class="owl-carousel owl-theme text-xl" id="carousel3">
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb1.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            PINK
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb3.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            BLUE
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb4.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            PINK
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col-20 text-center">
+                                    <div class="container toggle-parent-dynamic">
+                                        <img src="/webui/assets/images/thumb5.png" />
+                                        <button class="toggle-child menu-button border-transparent color-primary background-hover-accent-3 translucent-4 place-middle-center text-sm"><i class="fa fa-shopping-cart"></i><span class="col-spacing-sm">|</span>ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="form-col-20 background-primary text-sm color-accent-4">
+                                    <div class="form-row">
+                                        <div class="form-col-13">
+                                            GREEN
+                                        </div>
+                                        <div class="form-col-7 text-right">
+                                            $60.00
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            SMALL
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-20 text-sm">
+                                            PONCHOS
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col-13 color-accent-3">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="form-col-7 color-accent-3 text-right">
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-col-2"></div>
+    </div>
+
+    <!--
+    <div class="row-spacing-xl"></div>
+    
+    
+    <div class="content-row light">
+            <div class="content-col-20">
+                    <div class="content-col-6"></div>
+                    <div class="content-col-8 text-center">
+                        <div class="content-col-3">
+                            <div class="row-spacing-xs"></div>
+                            <div class="content-row border-sm border-muted"></div>
+                        </div>
+                        <div class="content-col-14">
+                            <div class="color-accent-4">
+                                LATEST MESSAGES
+                            </div>
+                        </div>
+                        <div class="content-col-3">
+                            <div class="row-spacing-xs"></div>
+                            <div class="content-row border-sm border-muted"></div>
+                        </div>
+
+                    </div>
+                    <div class="content-col-6"></div>
+            </div>
+    </div>
+    
+    <div class="row-spacing-xl"></div>
+    
+    <div class="content-row light">
+        <div class="content-col-3"></div>
+        <div class="content-col-14">
+            <div class="owl-carousel owl-theme" id="carousel4">
+                <div>
+                    <div class="container border-md border-secondary">
+                            <div class="content-row">
+                                <div class="content-col text-left width-md respond-sm">
+                                    <div class="row-spacing-sm"></div>
+                                    <a href="javascript:void 0" class="view-button view-button-sm border-transparent color-info color-hover-muted"><i class="fa fa-user fa-3x"></i></a>
+                                </div>
+                                <div class="content-col width-adjacent-md respond-sm">
+                                    <div class="container">
+                                        <div class="row-spacing-sm"></div>
+                                        <div class="content-row">
+                                            <div class="content-col-12 text-left">
+                                                <span class="text-lg color-dark col-spacing-left-sm">YhingDesigns</span>
+                                                <br />
+                                                <a href="javascript:void 0" class="view-button view-button-sm width-sm border-transparent color-accent-4 color-hover-info">@yhingdesigns</a>
+                                            </div>
+                                            <div class="content-col-8 text-right col-spacing-right-sm">
+                                                <button class="view-button view-button-sm width-sm border-transparent color-info color-hover-muted"><i class="fa fa-twitter fa-2x color-info"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>												
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    <div class="panel">
+                                        <div class="row-spacing-lg"></div>
+                                        <div class="container height-xs scroll-y">
+                                            Bought 2 ponchos last yesterday, and the quality feels great.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col width-md">
+                                    <div class="panel">
+                                        <div class="content-row">
+                                                <div class="content-col width-full">
+                                                    <div class="container height-control-md">
+                                                        <span class="color-muted place-middle-left">2 Jan 17</span>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-col width-adjacent-md">
+                                    <div class="panel">
+                                        <div class="content-row">
+                                                <div class="content-col move-right">
+                                                    <button class="view-button view-button-sm border-transparent color-muted color-hover-info"><i class="fa fa-reply"></i></button>
+                                                </div>
+                                                <div class="content-col move-right">
+                                                    <button class="view-button view-button-sm border-transparent color-muted color-hover-info"><i class="fa fa-retweet"></i></button>
+                                                </div>
+                                                <div class="content-col move-right">
+                                                    <button class="view-button view-button-sm border-transparent color-muted color-hover-info"><i class="fa fa-star"></i></button>
+                                                </div>
+
+                                        </div>
+                                    </div>												
+                                </div>
+                            </div>
+                            
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="content-col-3"></div>
+    </div>
+    -->
+
+
+    <div class="row-spacing-xl"></div>
+    <div class="row-spacing-md"></div>
+
+
+    <div class="content-row light">
+        <div class="content-col-2"></div>
+        <div class="content-col-16">
+
+            <div class="content-col-eq-3 respond-md">
+                <div class="panel">
+                    <div class="container border-md border-secondary">
+                        <div class="content-row">
+                            <div class="panel accent-2 text-center">
+                                WORLDWIDE DELIVERY
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="row-spacing-sm"></div>
+                            <div class="form-col-20 background-primary color-accent-4">
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-left height-lg">
+                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+                                            vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                            semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-center">
+                                            <button class="button button-accent-3">Read more</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-eq-3 respond-md">
+                <div class="panel">
+                    <div class="container border-md border-secondary">
+                        <div class="content-row">
+                            <div class="panel accent-2 text-center">
+                                SUPPORT
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="row-spacing-sm"></div>
+                            <div class="form-col-20 background-primary color-accent-4">
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-left height-lg">
+                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+                                            vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                            semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-center">
+                                            <button class="button button-accent-3">Read more</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-eq-3 respond-md">
+                <div class="panel">
+                    <div class="container border-md border-secondary">
+                        <div class="content-row">
+                            <div class="panel accent-2 text-center">
+                                RETURNS
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="row-spacing-sm"></div>
+                            <div class="form-col-20 background-primary color-accent-4">
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-left height-lg">
+                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+                                            vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                            semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col-20">
+                                        <div class="box text-md text-center">
+                                            <button class="button button-accent-3">Read more</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="content-col-2"></div>
+    </div>
+
+
+
+    <div class="row-spacing-xl"></div>
+    <div class="row-spacing-md"></div>
+
+
+    <div class="content-row">
+        <div class="panel accent-3">
+            <div class="content-col-2 respond-md"></div>
+            <div class="content-col-16 respond-md">
+                <div class="content-col text-xl respond-md">
+                    <div class="panel">
+                        <div class="row-spacing-xs"></div>
+                        SUBSCRIBE TO OUR NEWSLETTER
+                    </div>
+                </div>
+                <div class="content-col-7 respond-md">
+                    <div class="panel">
+                        <div class="control-append width-full">
+                            <input type="text" class="input border-primary width-adjacent-md" placeholder="Your email address" />
+                            <button class="menu-button menu-button-transparent border-primary background-hover-dark width-7 height-control-md"><i class="fa fa-envelope-o color-primary"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-2 respond-md"></div>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="panel dark text text-lg color-muted">
+            <div class="content-col-2 respond-md"></div>
+            <div class="content-col-16 respond-md">
+                <div class="content-col-7 respond-md">
+                    <div class="panel">
+                        <div class="content-row">
+                            <div class="content-col-20 text-lg">
+                                Yhing's Designs
+                            </div>
+                        </div>
+                        <div class="row-spacing-md"></div>
+                        <div class="container text-sm">
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    Address
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    Phone
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    Fax
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    Email
+                                </div>
+                            </div>
+                            <div class="row-spacing-xl"></div>
+                            <div class="content-row">
+                                <div class="content-col-20">
+                                    <a href="javascript:void 0"><i class="fa fa-facebook fa-lg color-accent-4 content-col-align-sm col-spacing-right-md"></i></a>
+                                    <a href="javascript:void 0"><i class="fa fa-twitter fa-lg color-accent-4 content-col-align-sm col-spacing-right-md"></i></a>
+                                    <a href="javascript:void 0"><i class="fa fa-google-plus fa-lg color-accent-4 content-col-align-sm col-spacing-right-md"></i></a>
+                                    <a href="javascript:void 0"><i class="fa fa-youtube fa-lg color-accent-4 content-col-align-sm"></i></a>
+                                    <div class="row-spacing-md"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content-col-13 respond-md">
+                    <div class="panel">
+                        <div class="container text-sm">
+                            <div class="content-row">
+                                <div class="content-col-10 respond-xs">
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br /> Line 4<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                </div>
+                                <div class="content-col-10 respond-xs">
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br />
+
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br /> Line 4<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-row">
+                                <div class="content-col-10 respond-xs">
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br /> Line 4<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                </div>
+                                <div class="content-col-10 respond-xs">
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br />
+
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                    <div class="content-col-10 respond-lg">
+                                        HEADING
+                                        <div class="container text-sm">
+                                            Line 1<br /> Line 2<br /> Line 3<br /> Line 4<br />
+                                        </div>
+                                        <div class="row-spacing-sm"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-2 respond-md"></div>
+        </div>
+    </div>
+
+
+    <div class="content-row">
+        <div class="panel dark text text-lg color-muted">
+            <div class="content-col-2 respond-md"></div>
+            <div class="content-col-16 respond-md">
+                <div class="content-col-20 respond-md">
+                    <div class="panel hide-md">
+                        <div class="content-row">
+                            <div class="content-col-13 text-sm">
+                                Copyright
+                            </div>
+                            <div class="content-col-7">
+                                <i class="fa fa-cc-paypal fa-lg move-right"></i>
+                                <i class="fa fa-cc-visa fa-lg col-spacing-right-md move-right"></i>
+                                <i class="fa fa-cc-mastercard fa-lg col-spacing-right-md move-right"></i>
+                                <i class="fa fa-cc-amex fa-lg col-spacing-right-md move-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel show-md">
+                        <div class="content-row">
+                            <div class="container align-center text-sm">
+                                Copyright
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="container align-center">
+                                <i class="fa fa-cc-amex fa-lg col-spacing-right-md"></i>
+                                <i class="fa fa-cc-mastercard fa-lg col-spacing-right-md"></i>
+                                <i class="fa fa-cc-visa fa-lg col-spacing-right-md"></i>
+                                <i class="fa fa-cc-paypal fa-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-col-2 respond-md"></div>
+            <div class="row-spacing-md"></div>
+        </div>
+
+    </div>
+
+    <!--
+    <div class="toggle-container show-lg" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1">
+
+        <div class="content-col dock-top-left">
+            <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-control-xl height-control-xl text-lg"><i class="fa fa-bars"></i></button>
+        </div>
+
+        <div class="content-col dock-top-left">
+
+            <div class="toggle-item light off-canvas-left" id="menuLeft">
+
+
+                <div class="content-col dock-top-left">
+                    <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-control-xl height-control-xl text-lg"><i class="fa fa-close"></i></button>
+                </div>
+
+                <div class="row-spacing-lg"></div>
+
+                <div class="area show-md">
+
+                    <a href="javascript:void 0" class="menu-activator view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">LANGUAGE (EN)</a>
+                    <div class="dropdown-content-expand width-full">
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">THAI (TH)</span></button>
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">ENGLISH (EN)</span></button>
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">SPANISH (SPN)</span></button>
+                    </div>
+
+
+                    <a href="javascript:void 0" class="menu-activator view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">CURRENCY (USD)</a>
+                    <div class="dropdown-content-expand width-full">
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">THB</span></button>
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">USD</span></button>
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">EURO</span></button>
+                        <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-sm">POUND</span></button>
+                    </div>
+
+                    <a href="javascript:void 0" class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">LOG IN</a>
+                    <a href="javascript:void 0" class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">CREATE ACCOUNT</a>
+
+                    <div class="row-spacing-md"></div>
+                </div>
+
+
+                <div class="area">
+
+                    <a href="javascript:void 0" class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">PAGES</a>
+                    <a href="javascript:void 0" class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">PROMOTIONS</a>
+
+                    <a href="javascript:void 0" class="menu-activator view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">PRODUCTS</a>
+                    <div class="dropdown-content-expand width-full">
+                        <button class="menu-activator view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3"><span class="col-spacing-left-sm">CLOTHES</span></button>
+                        <div class="dropdown-content-expand width-full">
+                            <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-md">PONCHOS</span></button>
+                            <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-md">SCARFS</span></button>
+                            <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-md">BAGS</span></button>
+                            <button class="view-button view-button-accent-4 view-button-left border-transparent color-hover-accent-3 text-left"><span class="col-spacing-left-md">PURSES</span></button>
+                        </div>
+
+                        <button class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3"><span class="col-spacing-left-sm">ACCESSORIES</span></button>
+                        <button class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3"><span class="col-spacing-left-sm">MIXED</span></button>
+                    </div>
+
+                    <a href="javascript:void 0" class="view-button view-button-link width-lg text-left border-transparent color-accent-2 color-hover-accent-3">CLOTHES</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    -->
+
+    <script src="/webui/assets/js/jquery-3.1.1.js"></script>
+
+    <script src="/webui/assets/js/webui.js"></script>
+    <script src="/webui/assets/js/webui-utils.js"></script>
+    <script src="/webui/assets/js/webui-validation.js"></script>
+
+    <script src="/webui/assets/owl/owl.carousel.js"></script>
+
+    <script src="/webui/assets/js/site.js"></script>
+
+    
+
+    <script>
+
+        $( document ).ready(function() { 
+
+            ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");       
+        
+            $( window ).resize(function() {
+                ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");
+                if (ui.isWindowInBreakPointRange(["lg", ""])) {
+                    $("body").css("overflow-x", "");
+                    $("body").css("margin-left", "");
+                }
+                
+                if (ui.isWindowInBreakPointRange(["", "md"])) {
+                    $("#menuTop").removeClass("dock-top width-full");
+                    $("#headerTop").css("display", "block");
+                }
+            }); 
+                            
+            $(window).scroll(function() {
+                if (ui.isWindowInBreakPointRange(["md", ""])) {
+                    if ($(this).scrollTop() > 1) {							
+                        $("#headerTop").css("display", "none");
+                        $("#menuTop").addClass("dock-top width-full");
+                    }
+                    else {
+                        $("#menuTop").removeClass("dock-top width-full");
+                        $("#headerTop").css("display", "block");
+                    }
+                }
+            });	
+
+            /*
+            $("#commandAddToCart1").css("display", "block");
+            $("#thumb1").mouseover(function() {
+                    $("#commandAddToCart1").css("display", "none");
+            });
+            */
+
+            var owl1 = $('#carousel1');
+            owl1.owlCarousel({
+                items:1,
+                loop:true,
+                margin:0,
+                autoplay:true,
+                autoplayTimeout:5000,
+                autoplayHoverPause:true
+            });
+            $('.play').on('click',function(){
+                    owl1.trigger('play.owl.autoplay',[1000])
+            })
+            $('.stop').on('click',function(){
+                    owl1.trigger('stop.owl.autoplay')
+            })
+            
+            var owl2 = $('#carousel2')
+            owl2.owlCarousel({
+                center: true,
+                items:1,
+                loop:true,
+                margin:10,
+                responsive:{
+                    700:{
+                        items:1
+                    },
+                    1000:{
+                        items:3
+                    },
+                    1400:{
+                        items:5
+                    }
+                        
+                }
+            });
+            
+            var owl3 = $('#carousel3')
+            owl3.owlCarousel({
+                center: true,
+                items:1,
+                loop:true,
+                margin:10,
+                responsive:{
+                    700:{
+                        items:1
+                    },
+                    1000:{
+                        items:3
+                    },
+                    1400:{
+                        items:5
+                    }
+                        
+                }
+            });
+
+            /*
+            var owl4 = $('#carousel4');
+            owl4.owlCarousel({
+                items:1,
+                loop:true,
+                margin:0,
+                autoplay:true,
+                autoplayTimeout:10000,
+                autoplayHoverPause:true
+            });
+            $('.play').on('click',function(){
+                    owl1.trigger('play.owl.autoplay',[1000])
+            })
+            $('.stop').on('click',function(){
+                    owl1.trigger('stop.owl.autoplay')
+            })
+            */
+                            
+        });
+
+    </script>
+
+</body>
+
+</html>
