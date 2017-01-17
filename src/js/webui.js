@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 4.6.1
-* Author: Levi Keogh, 2017-01-16
+* Version: 4.6.2
+* Author: Levi Keogh, 2017-01-17
 */
 
 "use strict";
@@ -186,7 +186,7 @@
 			if (tooltipAutoPos) {
 				var tooltips = $(".tooltip");
 				tooltips.each(function () {
-					var tooltip = $(this).children("*[class^='tooltip-']:first");
+					var tooltip = $(this).children("*[class*='tooltip-']:first");
 					tooltip.css("margin-left", "");
 					tooltip.css("margin-top", "");
 					tooltip.css("left", "");
@@ -1367,7 +1367,7 @@
 
 	ui.showTooltip = function (selector, message, resetOnly) {
 
-		var tooltip = $(selector).children("*[class^='tooltip-']:first");
+		var tooltip = $(selector).children("*[class*='tooltip-']:first");
 
 		if (tooltip && tooltip.length) {
 
@@ -1476,7 +1476,7 @@
 
 	ui.hideTooltip = function (selector) {
 
-		var tooltip = $(selector).children("*[class^='tooltip-']:first");
+		var tooltip = $(selector).children("*[class*='tooltip-']:first");
 
 		if (tooltip && tooltip.length) {
 			tooltip.hide();
@@ -1713,6 +1713,6 @@
 	ui.SHADOW_BOTTOM = 3;
 
 
-	ui.version = "webui-4.6.1";
+	ui.version = "webui-4.6.2";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));

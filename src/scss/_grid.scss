@@ -17,8 +17,9 @@
 	float: left;
 	vertical-align: middle;
 	padding: 0;
+	box-sizing: border-box;
 	background-color: inherit;
-	min-height: 1px;
+	min-height: 1px;	
 }
 .content-col-1 {
 	width: 5%;
@@ -201,7 +202,8 @@
 	float: left;
 	vertical-align: middle;
 	padding: 5px;
-	background-color: inherit;
+	box-sizing: border-box;
+	background-color: inherit;	
 }
 .form-col-1 {
 	width: 5%;
@@ -370,13 +372,21 @@
 	clear: both;
 }
 .table-row > *[class*="table-col-"] {
-  border-top: 1px solid $theme_default_border;
+  	border-top: 1px solid $theme_default_border;
 }
 .table-row:last-of-type > *[class*="table-col-"] {
-  border-bottom: 1px solid $theme_default_border;
+  	border-bottom: 1px solid $theme_default_border;
 }
 .table-group > *[class*="table-col-"] {
-  border-bottom: 1px solid $theme_default_border;
+  	border-bottom: 1px solid $theme_default_border;
+}
+.table-col {
+	float: left;
+	vertical-align: middle;
+	padding: 5px;
+	overflow: hidden;
+	box-sizing: border-box;
+	background-color: inherit;	
 }
 .table-col-1 {
 	width: 5%;
