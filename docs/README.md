@@ -19,7 +19,15 @@ doesn't throw any surprises. Add responsive behaviour exactly where you want it,
 
 ### **Getting Started**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.6.2.zip)
+* npm install asyncdesign-webui@4.6.3
+
+or
+
+* bower install asyncdesign-webui#v4.6.3
+
+or
+
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v4.6.3.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -39,6 +47,8 @@ doesn't throw any surprises. Add responsive behaviour exactly where you want it,
 
 That's it. You are ready to start developing with Webui.
 
+Be sure to look at the static **DEMO.html** page at the root of the download, which has many examples and demonstrates a good selection of components.
+
 ### **Creating page layouts**
 
 Webui uses a 20 column grid system to create layouts. In general, each row will contain from 1 to 20 columns, and each column can contain any other content. Most likely you will be using a shared layout to display common parts of your website. Here is a quick example of a shared layout structure with a container and some rows and columns:
@@ -46,7 +56,7 @@ Webui uses a 20 column grid system to create layouts. In general, each row will 
 ````html
 <div class="container">
   <div class="form-row">
-    <div class="form-col-20 align-center respond-md">
+    <div class="form-col-20 text-center respond-md">
       <div class="panel secondary">
         Heading
       </div>
@@ -54,12 +64,12 @@ Webui uses a 20 column grid system to create layouts. In general, each row will 
   </div>
   <div class="form-row">
     <div class="form-col-4 respond-md">
-      <div class="panel secondary height-10">
+      <div class="panel secondary height-xl">
         Navigation
       </div>
     </div>
     <div class="form-col-16 respond-md">
-      <div class="panel secondary height-10">
+      <div class="panel secondary height-xl">
         Main content
       </div>
     </div>
@@ -76,36 +86,28 @@ When the screen width is reduced to the medium breakpoint size it would appear a
 
 <img src="assets/images/basic_layout_breakpoint.png" />
 
-You may prefer a bootstrap style center layout, and you can easily do that with the code below.
+You may prefer a bootstrap style center layout, and you can easily do that with the code below by using the responsive-gutter-* classes.
 
 ````html
-<div class="container">
-  <div class="content-row menu-bar-sm accent-5 align-center">
-    <div class="content-row">   
-      <div class="form-col-20 form-col-align-sm">
-        Menu bar
-      </div>
-    </div>
-  </div>
-  <div class="content-row"> 
-    <div class="content-col-3 respond-md">      
-    </div>
-    <div class="content-col-14 height-10 secondary respond-md">
-      <div class="area">
-        Page content
-      </div>
-    </div>
-    <div class="content-col-3 respond-md">      
-    </div>
-  </div>
+<div class="container responsive-gutter-lg">
+  <div class="content-row menu-bar-sm dark">
+    <div class="form-col-20 form-col-align-lg text-center">
+      Menu bar
+    </div>
+  </div>
+  <div class="content-row">	
+    <div class="content-col-20 height-xl secondary respond-md">
+      <div class="area">
+        Page content
+      </div>
+    </div>
+  </div>
 </div>
 ````
-This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just inside the second column of the second row.
+The gutters will adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter. Responsive gutters can be used with any container type or on any row type, but should not be used directly on columns, so there is no problem with placing containers inside columns and applying responsive gutters to the containers.
+
+This is how it would look in the browser.
 
 <img src="assets/images/centered_layout.png" />
-
-Then, at a medium screen size it would look like this
-
-<img src="assets/images/centered_layout_breakpoint.png" />
 
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**

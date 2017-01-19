@@ -152,7 +152,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.6.2.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.3.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -273,11 +273,24 @@
 		<div class="row-spacing-sm"></div>
 
 		<ul class="list-bullet list-spacing-md">
-			<li><a href="https://github.com/asyncdesign/webui/archive/v4.6.2.zip" class="color-accent-2 color-hover-accent-4">Download the latest release here.</a></li>
+			<li>npm install asyncdesign-webui@4.6.3</li>
+		</ul>
+
+		<p>or</p>
+
+		<ul class="list-bullet list-spacing-md">
+			<li>bower install asyncdesign-webui#v4.6.3</li>
+		</ul>
+
+		<p>or</p>
+
+		<ul class="list-bullet list-spacing-md">
+			<li><a href="https://github.com/asyncdesign/webui/archive/v4.6.3.zip" class="color-accent-2 color-hover-accent-4">Download the latest release here.</a></li>
 			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
 			<li>You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).</li>
 			<li>In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:</li>
 		</ul>
+
 
 		<div class="row-spacing-md"></div>
 </div>
@@ -336,12 +349,12 @@
   &lt;/div&gt;
   &lt;div class="form-row"&gt;
     &lt;div class="form-col-4 respond-md"&gt;
-      &lt;div class="panel secondary height-10"&gt;
+      &lt;div class="panel secondary height-xl"&gt;
         Navigation
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-col-16 respond-md"&gt;
-      &lt;div class="panel secondary height-10"&gt;
+      &lt;div class="panel secondary height-xl"&gt;
         Main content
       &lt;/div&gt;
     &lt;/div&gt;
@@ -357,7 +370,7 @@
 		<div class="row-spacing-md"></div>
 
 		The respond-md class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. You
-		won't normally need the height-10 class as it's just added here to give some height in the browser for the screenshot,
+		won't normally need the height-xl class as it's just added here to give some height in the browser for the screenshot,
 		but it is a class that is available in Webui. Then, within each column there is a panel container using the secondary foreground
 		and background theme colors.
 
@@ -393,23 +406,17 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="container"&gt;
-  &lt;div class="content-row menu-bar-sm accent-5 text-center"&gt;
-    &lt;div class="content-row"&gt;   
-      &lt;div class="form-col-20 form-col-align-sm"&gt;
-        Menu bar
-      &lt;/div&gt;
+<pre>&lt;div class="container responsive-gutter-lg"&gt;
+  &lt;div class="content-row menu-bar-sm dark"&gt;
+    &lt;div class="form-col-20 form-col-align-lg text-center"&gt;
+      Menu bar
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="content-row"&gt; 
-    &lt;div class="content-col-3 respond-md"&gt;      
-    &lt;/div&gt;
-    &lt;div class="content-col-14 height-10 secondary respond-md"&gt;
+    &lt;div class="content-col-20 height-xl secondary respond-md"&gt;
       &lt;div class="area"&gt;
         Page content
       &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="content-col-3 respond-md"&gt;      
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -422,9 +429,12 @@
 
 	<div class="row-spacing-md"></div>
 
-	<p>This is how it would look in the browser. Again, the height-10 class is used here for demonstration purposes. If you wanted
-		the menu bar to match the width of the content area, you can just take the 7 lines for the menu bar row and drop them just
-		inside the second column of the second row.</p>
+	<p>The gutters will adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter.
+		Responsive gutters can be used with any container type or on any row type, but should not be used directly on columns, so there is no problem with placing
+		containers inside columns and applying responsive gutters to the containers.
+	</p>
+
+	<p>This is how it would look in the browser.</p>
 
 	<div class="row-spacing-sm"></div>
 
@@ -434,21 +444,10 @@
 		</div>
 	</div>
 
-	<div class="row-spacing-sm"></div>
-
-	<p>Then, at a medium screen size it would look like this</p>
-
-	<div class="row-spacing-sm"></div>
-	<div class="content-row">
-		<div class="content-col-20">
-			<img src="/webui/assets/images/centered_layout_breakpoint.png" class="image" alt="Media" />
-		</div>
-	</div>
-
 	<div class="row-spacing-lg"></div>
 
 	<blockquote>
-			For more information on various types of containers, and row and column types see the <a href="/webui/containers.html"
+			For more information on various types of containers or responsive gutters, and row and column types see the <a href="/webui/containers.html"
 			class="color-accent-2 color-hover-accent-4">Containers</a> and <a href="/webui/rows_and_columns.html" 
 			class="color-accent-2 color-hover-accent-4">Row and columns</a>	sections.
 	</blockquote>

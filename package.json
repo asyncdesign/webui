@@ -1,7 +1,7 @@
 {
-  "name": "webui",
+  "name": "asyncdesign-webui",
   "description": "A mobile-first CSS framework that supports responsive mobile first and fixed desktop layouts.",
-  "version": "4.6.2",
+  "version": "4.6.3",
   "author": "Levi Keogh",
   "license": "MIT",
   "keywords": [
@@ -15,10 +15,12 @@
     "framework",
     "web"
   ],
-  "main": "DEMO.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://asyncdesign.github.io/webui",
+  "sass": "src/scss/webui.scss",
+  "main": "src/js/webui.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/asyncdesign/webui.git"
@@ -33,9 +35,17 @@
     "grunt-sass": "^2.0.0"
   },
   "dependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^2.0.0"
-  }
+    "jquery": ">=1.9.1"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "images",
+    "src",
+    "vendor",
+    "gruntfile.js",
+    "DEMO.html",
+    "site.css"
+  ]
+
 }
