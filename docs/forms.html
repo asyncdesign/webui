@@ -116,18 +116,15 @@
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            
                             <div class="accent-5">
                               <div class="row-spacing-xs"></div>
                               <div class="panel">
                                   Sales dashboard (In development)
                               </div>
-                              <div class="tooltip">
-                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
-                                    Long press to view this image.
-                                </div>
-
+                              <a href="/webui/theme_dashboard_sales.html">
                                 <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
-                              </div>
+                              </a>
                               <div class="row-spacing-lg"></div>
                               <div class="row border-sm border-muted"></div>
                               <div class="row-spacing-sm"></div>
@@ -136,6 +133,7 @@
                               </div>
                               <div class="row-spacing-sm"></div>
                             </div>
+                            
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -396,10 +394,15 @@
 
 
     <p>So, let's go through all the important parts in the code. The first part to consider when designing a new form is
-      the overall structure, and we can make use of various types of containers and columns to do that. Here you will
-      see 3 outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content
-      sit nicely in the middle. In this example the input form itself is within the center column. Then an area type
-      container wraps all of the form columns to give a good margin all around the input form. The next bit is important.
+      the overall structure, and we can make use of various types of containers and columns to do that. Here you will see 3 
+      outer columns defined, 1 wide column in the center and 2 narrow columns at either side - this makes the content
+      sit nicely in the middle. Instead of defining narrow columns either side of the form you could use responsive gutters, 
+      which are also available in Webui and would make the form margin grow or shrink more incrementally at each media 
+      breakpoint. But doing it with columns is smoother and less noticable. In this example the input form itself is within 
+      the center column. Then an area type container wraps all of the form columns to give a good margin all around the input form.</p>
+
+    <p> 
+      The next bit is important.
       On line 6, immediately inside the area container, a row is defined to enclose all of the input form apart from
       the save button at the bottom. You can see the save button has it's own row below that, purely because the row
       above is further divided into 2 layout columns, since this is essentially a 2 column form layout when viewed on

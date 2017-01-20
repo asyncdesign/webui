@@ -116,18 +116,15 @@
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            
                             <div class="accent-5">
                               <div class="row-spacing-xs"></div>
                               <div class="panel">
                                   Sales dashboard (In development)
                               </div>
-                              <div class="tooltip">
-                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
-                                    Long press to view this image.
-                                </div>
-
+                              <a href="/webui/theme_dashboard_sales.html">
                                 <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
-                              </div>
+                              </a>
                               <div class="row-spacing-lg"></div>
                               <div class="row border-sm border-muted"></div>
                               <div class="row-spacing-sm"></div>
@@ -136,6 +133,7 @@
                               </div>
                               <div class="row-spacing-sm"></div>
                             </div>
+                            
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -280,12 +278,13 @@
 	See the <a href="/webui/rows_and_columns.html" class="color-accent-2 color-hover-accent-4">Rows and columns</a>	section to learn
 	more about how to use them.
 	
-	<div class="row-spacing-md"></div>
+	<div class="row-spacing-lg"></div>
 
 	<p class="color-accent-5 text-bold">Container classes</p>
 
 	These are the container classes available in Webui:
-	<blockquote>	
+
+	<p>
 		<span class="color-accent-2 text-bold">container</span> - The most basic container with no padding and allows content to overflow.
 		<br />
 		<span class="color-accent-2 text-bold">body</span> - Similar to container, but has a 10 pixel padding.
@@ -295,13 +294,13 @@
 		<span class="color-accent-2 text-bold">panel</span> - Similar to box, has a 10 pixel padding, and overflow is hidden.
 		<br />
 		<span class="color-accent-2 text-bold">area</span> - Similar to panel, has a 30 pixel padding, and overflow is hidden.
-	</blockquote>
+	</p>
 
 	There is no particular requirement to use containers in any specific place, but they each have slightly different behaviours which can be useful. 
 	You could easily structure your whole site using only rows and columns, but then it would be more difficult to use the specialised positioning classes. 
 	Here are some other reasons why you may wish to use containers:
 
-	<blockquote>
+	<p>
 		<span class="color-accent-2 text-bold">container</span> - You may want to apply styles to show some separation of content, or apply behaviour. For example showing or hiding content.
 		<br />
 		<span class="color-accent-2 text-bold">body</span> - Good for wrapping areas of content, where it is important that any overflow is not hidden. For example you might want to use it as a container for a menu, since dropdowns could be any size - the container class is equally suitable for this purpose.
@@ -311,30 +310,50 @@
 		<span class="color-accent-2 text-bold">panel</span> - Great for an alternative to box with a bit more padding.
 		<br />
 		<span class="color-accent-2 text-bold">area</span> - Great for wrapping user input forms, where more padding may be required.
-	</blockquote>
+	</p>
 	None of the containers above have a width or height defined, and this means they can be used just about anywhere you like, but there are some 
 	things you might want to avoid. For example, it wouldn't make much sense placing a container directly inside a row, since rows are really just 
 	containers for columns to start on a new line. But there's nothing stopping you from placing them inside columns or even nesting containers.
 
-	<div class="row-spacing-md"></div>
+	<div class="row-spacing-lg"></div>
 
 	<p class="color-accent-5 text-bold">Responsive Gutters</p>
 
 	Webui includes responsive gutters which can be applied to any container type or any row type - they can also be applied to most block level elements and on
-	img tags also. This make them super useful when you need the margin around elements to automatically increase or reduce depending on the width of the browser
+	img tags also. This make them super useful when you need a margin around elements to automatically increase or reduce depending on the width of the browser
 	window, for example.
 
 	<div class="row-spacing-xs"></div>
 
 	Responsive gutter classes are defined as follows:
-	<blockquote>
-		<span class="color-accent-2 text-bold">responsive-gutter-xs, responsive-gutter-sm, responsive-gutter-md, responsive-gutter-lg, responsive-gutter-xl</span> - 
-		These classes add a responsive margin to the left and right of the element.
-		<br />
-		<span class="color-accent-2 text-bold">responsive-gutter-left-xs, responsive-gutter-right-xs, responsive-gutter-left-sm, responsive-gutter-right-sm, 
-			responsive-gutter-left-md, responsive-gutter-right-md, responsive-gutter-left-lg, responsive-gutter-right-lg, responsive-gutter-left-xl, responsive-gutter-right-xl</span> - 
-			These classes apply the responsive margin to the left only or right only.
-	</blockquote>
+	<p>
+		Classes that add a responsive margin to the left and right of the element
+		<ul class="list color-accent-2 text-bold">
+			<li>responsive-gutter-xs</li>
+			<li>responsive-gutter-sm</li>
+			<li>responsive-gutter-md</li>
+			<li>responsive-gutter-lg</li>
+			<li>responsive-gutter-xl</li>
+		</ul>
+		
+
+	</p>
+	<p>
+
+		Classes that add a responsive margin to the left only or right only
+		<ul class="list color-accent-2 text-bold">
+			<li>responsive-gutter-left-xs</li>
+			<li>responsive-gutter-right-xs</li>
+			<li>responsive-gutter-left-sm</li>
+			<li>responsive-gutter-right-sm</li>
+			<li>responsive-gutter-left-md</li>
+			<li>responsive-gutter-right-md</li>
+			<li>responsive-gutter-left-lg</li>
+			<li>responsive-gutter-right-lg</li>
+			<li>responsive-gutter-left-xl</li>
+			<li>responsive-gutter-right-xl</li>
+		</ul>
+	</p>
 	
 
     <div class="content-row">

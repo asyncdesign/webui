@@ -116,18 +116,15 @@
                         </div>
                         <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">Webui themes</button>					
                         <div class="dropdown-content-expand menu-close accent-5 width-full">
+                            
                             <div class="accent-5">
                               <div class="row-spacing-xs"></div>
                               <div class="panel">
                                   Sales dashboard (In development)
                               </div>
-                              <div class="tooltip">
-                                <div class="tooltip-dynamic tooltip-animate tooltip-bottom tooltip-lg tooltip-light rounded-md">
-                                    Long press to view this image.
-                                </div>
-
+                              <a href="/webui/theme_dashboard_sales.html">
                                 <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
-                              </div>
+                              </a>
                               <div class="row-spacing-lg"></div>
                               <div class="row border-sm border-muted"></div>
                               <div class="row-spacing-sm"></div>
@@ -136,6 +133,7 @@
                               </div>
                               <div class="row-spacing-sm"></div>
                             </div>
+                            
                         </div>
 
                         <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
@@ -272,20 +270,20 @@
 
 		<div class="row-spacing-sm"></div>
 
-		<ul class="list-bullet list-spacing-md">
-			<li>npm install asyncdesign-webui@4.6.3</li>
-		</ul>
+
+		<span class="color-dark">npm install asyncdesign-webui@4.6.3</span>
+
+
+		<p>or</p>
+
+
+		<span class="color-dark">bower install asyncdesign-webui#v4.6.3</span>
+
 
 		<p>or</p>
 
 		<ul class="list-bullet list-spacing-md">
-			<li>bower install asyncdesign-webui#v4.6.3</li>
-		</ul>
-
-		<p>or</p>
-
-		<ul class="list-bullet list-spacing-md">
-			<li><a href="https://github.com/asyncdesign/webui/archive/v4.6.3.zip" class="color-accent-2 color-hover-accent-4">Download the latest release here.</a></li>
+			<li><a href="https://github.com/asyncdesign/webui/archive/v4.6.3.zip" class="color-accent-2 color-hover-accent-4"><b>Download the latest release here.</b></a></li>
 			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
 			<li>You will need to include a version of jQuery. Webui has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).</li>
 			<li>In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:</li>
@@ -429,7 +427,7 @@
 
 	<div class="row-spacing-md"></div>
 
-	<p>The gutters will adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter.
+	<p>The width of the gutters will automatically adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter.
 		Responsive gutters can be used with any container type or on any row type, but should not be used directly on columns, so there is no problem with placing
 		containers inside columns and applying responsive gutters to the containers.
 	</p>

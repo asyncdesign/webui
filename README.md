@@ -104,7 +104,7 @@ You may prefer a bootstrap style center layout, and you can easily do that with 
   </div>
 </div>
 ````
-The gutters will adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter. Responsive gutters can be used with any container type or on any row type, but should not be used directly on columns, so there is no problem with placing containers inside columns and applying responsive gutters to the containers.
+The width of the gutters will automatically adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest breakpoint there will be no gutter. Responsive gutters can be used with any container type or on any row type, but should not be used directly on columns, so there is no problem with placing containers inside columns and applying responsive gutters to the containers.
 
 This is how it would look in the browser.
 
