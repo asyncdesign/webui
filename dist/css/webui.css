@@ -1,7 +1,7 @@
 /*!
 * Name: webui - css
-* Version: 4.6.3
-* Author: Levi Keogh, 2017-01-19
+* Version: 4.6.4
+* Author: Levi Keogh, 2017-01-23
 */
 .content-row {
   white-space: normal;
@@ -1563,6 +1563,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 14px !important;
   color: #000000;
   background-color: #ffffff;
@@ -1589,6 +1590,7 @@ select {
 
 textarea {
   resize: vertical;
+  overflow: auto;
 }
 
 a:not(.button-link):not(.button-link-sm):not(.view-button-link):not(.view-button-link-sm):not(.menu-button-link):not(.menu-button-link-sm).accessibility:focus {
@@ -1599,6 +1601,12 @@ input[type=checkbox],
 input[type=radio] {
   vertical-align: -2px !important;
   margin-top: -1px !important;
+}
+
+button,
+input[type=button],
+input[type=submit] {
+  -webkit-appearance: button;
 }
 
 h1 {
@@ -1613,15 +1621,37 @@ h3 {
   font-size: 1.3em;
 }
 
+h4 {
+  font-size: 1.1em;
+}
+
+details,
+summary,
+main {
+  display: block;
+}
+
 blockquote {
   border-left: 7px solid #D3D3D3;
   margin: 15px 0 15px 0;
   padding: 10px 0 10px 20px;
 }
 
+template {
+  display: none;
+}
+
+small {
+  font-size: 80%;
+}
+
 audio:not([controls]) {
   display: none;
   height: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
 }
 
 :focus {

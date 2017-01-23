@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.6.3
-* Author: Levi Keogh, 2017-01-19
+* Version: 4.6.4
+* Author: Levi Keogh, 2017-01-23
 */
 "use strict";
 
@@ -191,6 +191,13 @@
             if (toggleBody && toggleItem) {
                 var fadeInDuration = parseInt(toggleContainer.data("fade-in-duration"));
                 var fadeOutDuration = parseInt(toggleContainer.data("fade-out-duration"));
+                if (toggleItem.hasClass("off-canvas-left")) {
+                    toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                    toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                } else if (toggleItem.hasClass("off-canvas-right")) {
+                    toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                    toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
+                }
                 if (toggleItem.css("display") === "block") {
                     toggleItem.trigger("ui.toggleItem.hide.before");
                     toggleItem.hide(fadeOutDuration);
@@ -203,12 +210,11 @@
                         var toggleItemWidth = parseInt(toggleItem.css("width"));
                         toggleBody.css("overflow-x", "hidden");
                         toggleBody.css("margin-left", toggleItemWidth + "px");
-                        toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                     } else if (toggleItem.hasClass("off-canvas-right")) {
                         var toggleItemWidth = parseInt(toggleItem.css("width"));
                         toggleBody.css("margin-left", "-" + toggleItemWidth + "px");
-                        toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                         toggleItem.css("mergin-right", toggleItemWidth + "px");
+                        toggleItem.css("-webkit-transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
                         toggleItem.css("transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
                     }
                     toggleItem.show(fadeInDuration);
@@ -1399,5 +1405,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.6.3";
+    ui.version = "webui-4.6.4";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

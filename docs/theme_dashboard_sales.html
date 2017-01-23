@@ -22,10 +22,10 @@
     <body class="off-canvas-body background-dark">
 
         <div class="content-row menu-bar background-dark">
-            <div class="content-col-20">
+            <div class="content-col-20 hide-sm">
                 <div class="content-col move-right col-spacing-right-lg">							
                     <div class="dropdown">
-                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonEmail"><i class="fa fa-user-o fa-lg"></i></button>
+                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonProfile"><i class="fa fa-user-o fa-lg"></i></button>
                         <div class="dropdown-content dropdown-right menu-close transparent width-xl">
                             <div class="col-spacing-left-lg">
                                 <div class="pointer-top-sm pointer-top-dark"></div>
@@ -48,78 +48,69 @@
                             </div>
                         </div>								
                     </div>						
-                </div>
-                <div class="content-col move-right col-spacing-right-sm">							
-                    <div class="dropdown">
-                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-accent-2 width-6" id="menuButtonEmail"><i class="fa fa-bell-o fa-lg"></i><span class="badge-xs info text-xs place-top-left top-sm left-sm">3</span></button>
-                        <div class="dropdown-content dropdown-right top-lg menu-close transparent width-9" id="menuNotificationsDropdown">
-                            <div class="col-spacing-left-lg">
-                                <div class="pointer-top-sm pointer-top-dark"></div>
-                            </div>
-                            <div>
-                                <div class="panel background-primary color-accent-4 width-full">
-                                    <div class="row-spacing-xs"></div>
-                                    <div class="content-row">
+                </div>             
+
+                <div class="content-col move-right col-spacing-right-sm">
+
+                    <div class="dropdown">              
+
+                        <button type="button" class="menu-activator menu-button menu-button-transparent border-transparent color-muted color-hover-accent-2 width-6" id="menuButtonNotifications"><i class="fa fa-bell-o fa-lg"></i><span class="badge-xs info text-xs place-top-left top-sm left-sm">3</span></button>
+                        <div class="dropdown-content dropdown-right top-lg menu-close transparent width-10" id="menuNotificationsDropdown">
+                                
+                            <div class="container background-primary color-accent-4 width-full">
+                                <div class="panel color-light background-accent-2">
+                                    <div class="form-row">
                                         <div class="content-col-20">
-                                            <div class="media-block">
-                                                <div class="media-left">
-                                                    <div class="form-col form-col-align-xl width-control-sm">
-                                                        <i class="fa fa-check-square-o fa-lg color-success"></i>                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="media-nowrap color-accent-5">
-                                                    <div class="form-col width-lg text-left col-spacing-right-sm">
-                                                        Sales target of £14,500 reached today by the A team.
-                                                    </div>
-                                                    <div class="form-col width-control-sm text-right">
-                                                        <i class="fa fa-close fa-lg color-hover-danger"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            You have 3 notifications
                                         </div>
-
                                     </div>
-
-                                    <div class="content-row">
-                                        <div class="content-col-20">
-                                            <div class="media-block">
-                                                <div class="media-left">
-                                                    <div class="form-col form-col-align-xl width-control-sm">
-                                                        <i class="fa fa-file-text-o fa-lg color-warning"></i>
-                                                    </div>
+                                </div>
+                                <div class="row-spacing-sm"></div>
+                                <div class="panel">
+                                    <div class="form-row">                               
+                                        <a href="javascript:void 0">
+                                            <div class="container height-control-lg">
+                                                <div class="content-col-2">
+                                                    <i class="fa fa-check-square-o color-success"></i>                                                     
                                                 </div>
-                                                <div class="media-nowrap color-accent-5">
-                                                    <div class="form-col width-lg text-left col-spacing-right-sm">
-                                                        Payment to supplier due tomorrow.
-                                                    </div>
-                                                    <div class="form-col width-control-sm text-right">
-                                                        <i class="fa fa-close fa-lg color-hover-danger"></i>
-                                                    </div>
+                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                    Sales target of £14,500 reached today by the A team.
+                                                </div>
+                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                    3 minutes ago
                                                 </div>
                                             </div>
-                                        </div>
-
+                                        </a>
                                     </div>
-
-                                    <div class="content-row">
-                                        <div class="content-col-20">
-                                            <div class="media-block">
-                                                <div class="media-left">
-                                                    <div class="form-col form-col-align-xl width-control-sm">
-                                                        <i class="fa fa-info fa-lg color-accent-2"></i>                                                       
-                                                    </div>
+                                    <div class="form-row">
+                                        <a href="javascript:void 0">
+                                            <div class="container height-control-lg">
+                                                <div class="content-col-2">
+                                                    <i class="fa fa-credit-card color-warning"></i>                                                      
                                                 </div>
-                                                <div class="media-nowrap color-accent-5">
-                                                    <div class="form-col width-lg text-left col-spacing-right-sm">
-                                                        400 units shipped today at 13:15.
-                                                    </div>
-                                                    <div class="form-col width-control-sm text-right">
-                                                        <i class="fa fa-close fa-lg color-hover-danger"></i>
-                                                    </div>
+                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                    Payment to supplier due tomorrow.
+                                                </div>
+                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                    1 hour ago
                                                 </div>
                                             </div>
-                                         </div>
-
+                                        </a>
+                                    </div>
+                                    <div class="form-row">
+                                        <a href="javascript:void 0">
+                                            <div class="container height-control-lg">
+                                                <div class="content-col-2">
+                                                    <i class="fa fa-truck color-accent-2"></i>                                                        
+                                                </div>
+                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                    400 units shipped today at 13:15.
+                                                </div>
+                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                    Yesterday
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="row-spacing-sm"></div>
@@ -127,56 +118,29 @@
                                     <div class="row-spacing-sm"></div>
 
                                     <div class="content-row">
-                                        <div class="content-col-10">
-                                            <div class="panel">
-                                                <button class="button-sm button-accent-2">Dismiss All</button>
+                                        <div class="content-col-20">
+                                            <div class="container">
+                                                <div class="content-col col-spacing-left-sm move-right">
+                                                    <button class="button-accent-2">View All</button>
+                                                </div>
+                                                <div class="content-col move-right">
+                                                    <button class="button-accent-4">Dismiss All</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="content-col-10">
-                                            <div class="panel">
-                                                
-                                            </div>
-
                                         </div>
                                     </div>
-                                </div> 
 
-                            </div>
-                        </div>								
-                    </div>						
+                                </div>
+
+                            </div> 
+                          
+                        </div>	
+                    </div>
+
                 </div>
 
             </div>
         </div>
-
-
-        <!--
-        <div class="dark show-md">
-            <span id="top"></span>
-            <button id="menuButtonHamburgerMobile" class="menu-activator menu-button menu-button-dark width-7"><i class="fa fa-bars fa-lg"></i></button>
-            <div class="dropdown-content-expand accent-4 width-full">
-            <div class="content-row">
-                <div class="content-col width-full">
-                
-                    <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonHomeMobile">Home</button>
-                    
-                    <div class="dropdown-content-expand menu-close accent-5 width-full">
-                    </div>
-                    
-                    <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonDocumentationMobile">Documentation</button>
-                    
-                    <div class="dropdown-content-expand menu-close accent-5 width-full">										
-                        <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                        <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
-                        <span class="row-inline width-lg col-spacing-left-lg">Tabs</span><span class="col-spacing-sm"></span><span class="badge-sm background-success color-dark">New</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>								
-            </div>
-        </div>
-        -->
 
 
         <div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1">
@@ -195,52 +159,90 @@
                             </div>		
                         </div>
                         
-                        <div class="area width-lg">
-                            <div class="content-row">
-                                <div class="content-col-17">
-                                    <button id="sideNavButton1" class="view-button view-button-accent-2 view-button-left border-transparent align-left">				
-                                        <span class="col-spacing-right-sm"><i class="fa fa-area-chart width-5"></i></span>
-                                        <span>Area Charts</span>
-                                    </button>
+                        <div class="panel width-9">
+
+                            <div class="col-spacing-left-md">
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton1" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">				
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bell-o width-5"></i></span>
+                                            <span>Notifications</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                        <span class="badge-sm text-sm info">3</span>
+                                    </div>
                                 </div>
-                                <div class="content-col-3 align-right form-col-align-md">
-                                    <span class="badge-sm text-sm success">4</span>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton2" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-envelope-o width-5"></i></span>
+                                            <span class="col-spacing-right-sm">Messages</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                        <span class="badge-sm text-sm success">4</span>
+                                    </div>
+                                </div>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton3" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-user-o width-5"></i></span>
+                                            <span>Profile</span>	
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                        
+                                    </div>
+                                </div>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton4" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm">Sales</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                    </div>
+                                </div>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton5" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm">Orders</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                    </div>
+                                </div>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton6" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm">Shipping</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                    </div>
+                                </div>
+                                <div class="row-spacing-md"></div>
+                                <div class="content-row">
+                                    <div class="content-col-17">
+                                        <button id="sideNavButton7" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm">Accounts</span>
+                                        </button>
+                                    </div>
+                                    <div class="content-col-3 text-right form-col-align-md">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row-spacing-md"></div>
-                            <div class="content-row">
-                                <div class="content-col-17">
-                                    <button id="sideNavButton2" class="view-button view-button-accent-2 view-button-left border-transparent align-left">
-                                        <span class="col-spacing-right-sm"><i class="fa fa-bar-chart width-5"></i></span>
-                                        <span class="col-spacing-right-sm">Bar Charts</span>
-                                    </button>
-                                </div>
-                                <div class="content-col-3">
-                                </div>
-                            </div>
-                            <div class="row-spacing-md"></div>
-                            <div class="content-row">
-                                <div class="content-col-17">
-                                    <button id="sideNavButton3" class="view-button view-button-accent-2 view-button-left border-transparent align-left width-full">
-                                        <span class="col-spacing-right-sm"><i class="fa fa-line-chart width-5"></i></span>
-                                        <span>Line Charts</span>	
-                                    </button>
-                                </div>
-                                <div class="content-col-3 align-right form-col-align-md">
-                                    <span class="badge-sm text-sm accent-4">2</span>
-                                </div>
-                            </div>
-                            <div class="row-spacing-md"></div>
-                            <div class="content-row">
-                                <div class="content-col-17">
-                                    <button id="sideNavButton4" class="view-button view-button-accent-2 view-button-left border-transparent align-left">
-                                        <span class="col-spacing-right-sm"><i class="fa fa-pie-chart width-5"></i></span>
-                                        <span class="col-spacing-right-sm">Pie Charts</span>
-                                    </button>
-                                </div>
-                                <div class="content-col-3">
-                                </div>
-                            </div>
+
                         </div>			
                     
                 </div>
@@ -251,13 +253,11 @@
 
         <div class="area background-dark">
 
-            <!--<div class="menu-bar show-md"></div>-->
-
             <div class="content-row">
                 <div class="content-col-10 respond-xl">
                     <div class="content-col-8 respond-md">
                         <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
                                 <div class="content-row">
                                     <div class="content-col-14 color-muted text-xs">
                                         New leads
@@ -284,7 +284,7 @@
                             </div>
                         </div>
                         <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
                                 <div class="content-row">
                                     <div class="content-col-14 color-muted text-xs">
                                         New leads
@@ -314,7 +314,7 @@
                     </div>
                     <div class="content-col-12 respond-md">
                         <div class="form-col-20 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
                                 <div class="content-row">
                                     <div class="content-col-14 color-muted text-xs">
                                         Lead status (All)
@@ -336,13 +336,13 @@
                 <div class="content-col-10 respond-xl">
                     <div class="content-col-8 respond-md">
                         <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                             </div>
                             
                         </div>
                         <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                             </div>
                             
@@ -350,7 +350,7 @@
                     </div>
                     <div class="content-col-12 respond-md">
                         <div class="form-col-20 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                             </div>
                             
@@ -363,13 +363,13 @@
             <div class="content-row">
                 <div class="content-col-10 respond-xl">
                     <div class="form-col-12 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                         </div>
 
                     </div>
                     <div class="form-col-8 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                         </div>
 
@@ -377,7 +377,7 @@
                 </div>
                 <div class="content-col-10 respond-xl">
                     <div class="form-col-20 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 rounded-sm text-xl height-9">
+                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
                         </div>
 
@@ -407,22 +407,10 @@
             $( document ).ready(function() { 
 
                 ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");
-
-                if (ui.isWindowInBreakPointRange(["", "xs"])) {
-                    ui.setControlState("#menuNotificationsDropdown", "", "place-top-center top-lg");
-                }
        
             
                 $( window ).resize(function() {
                     ui.setMediaHeight("#menuLeft", window.innerHeight + "px", "min");
-
-                    if (ui.isWindowInBreakPointRange(["", "xs"])) {
-                        ui.setControlState("#menuNotificationsDropdown", "", "place-top-center top-lg");
-                    }
-                    else {
-                        ui.setControlState("#menuNotificationsDropdown", "place-top-center top-lg", "");
-                    }
-
                 });                      
 
             });
