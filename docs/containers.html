@@ -160,7 +160,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.6.4.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.5.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -282,12 +282,24 @@
 <div class="text">
 
 	All container types expand to the size of the content placed within them and have a relative CSS position applied by default. Having relative positioning defines
-	a context for the Webui positioning classes. The Webui grid system does not require the use of containers. All container types are purely to provide a styling context. 
-	See the <a href="/webui/alignment_and_spacing.html" class="color-accent-2 color-hover-accent-4">Alignment and spacing</a> section to find out more. 
+	a context for a number of Webui alignment and positioning classes. See the <a href="/webui/alignment_and_spacing.html" class="color-accent-2 color-hover-accent-4">
+	Alignment and spacing</a> section to find out more about alignment, spacing, and positioning. 
 	Whether you just want to apply styles, a simple background, padding, or some custom behaviour, containers are often very useful. Containers do not have any automatic built-in resizing 
-	behaviour controlling margins or padding, but Webui allows you to implement and adjust this type of behaviour using classes specifically for columns. 
-	See the <a href="/webui/rows_and_columns.html" class="color-accent-2 color-hover-accent-4">Rows and columns</a>	section to learn
-	more about how to use them.
+	behaviour controlling margins or padding, but Webui allows you to implement and adjust gutters using responsive gutter classes described below. There are also many options for 
+	controlling row and column padding via the grid system. See the <a href="/webui/rows_and_columns.html" class="color-accent-2 color-hover-accent-4">
+	Rows and columns</a> section to learn more about how to use the Webui grid.
+
+	<div class="row-spacing-md"></div>
+
+    <div class="content-row">
+      <div class="content-col-9 respond-sm">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>Containers are not required by the Webui grid system, but are purely to provide a styling context.</p>
+        </blockquote>
+      </div>
+    </div>
+
 	
 	<div class="row-spacing-lg"></div>
 
@@ -509,7 +521,7 @@
           switch(parts[parts.length -1]) {
             case "getting_started.html": codeHighlighter.highlight(["snippet1", "snippet2", "snippet3"]); break;
             case "theme_colors.html": codeHighlighter.highlight(["snippet10"]); break;
-            case "rows_and_columns.html": codeHighlighter.highlight(["snippet20", "snippet21", "snippet22", "snippet23"]); break;
+            case "rows_and_columns.html": codeHighlighter.highlight(["snippet20", "snippet21", "snippet22", "snippet23", "snippet24"]); break;
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;

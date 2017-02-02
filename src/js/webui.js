@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 4.6.4
-* Author: Levi Keogh, 2017-01-23
+* Version: 4.6.5
+* Author: Levi Keogh, 2017-02-02
 */
 
 "use strict";
@@ -60,29 +60,6 @@
 	var isDatalist = function (selector) {
 		return $(selector).is("datalist");
 	};
-
-
-	var configureAccessibility = function() {
-		
-		var checkboxes = $(".checkbox-sm label");
-		var radiobuttons = $(".radio-sm label");
-		
-		checkboxes.attr({"tabindex": "0", "role": "checkbox"});
-		radiobuttons.attr({"tabindex": "0", "role": "radio"});
-		
-		checkboxes.keydown(function(e) {
-			if (e.which == 13 || e.which == 32) {
-				$(this).click();
-			}
-		});
-		radiobuttons.keydown(function(e) {
-			if (e.which == 13 || e.which == 32) {
-				$(this).click();
-			}
-		});
-	};
-
-	configureAccessibility();
 
 	var selectorValueMatches = function (selector, value) {
 		var element = $(selector);
@@ -264,23 +241,39 @@
 		}
 	};
 
-	var windowEventHandler = function () {
-		resetTooltips();
-	};
+	var checkboxes = $(".checkbox-sm label");
+	if (checkboxes && checkboxes.length) {
+		checkboxes.attr({"tabindex": "0", "role": "checkbox"});
+		checkboxes.keydown(function(e) {
+			if (e.which == 13 || e.which == 32) {
+				$(this).click();
+			}
+		});
+	}
+
+	var radiobuttons = $(".radio-sm label");
+	if (radiobuttons && radiobuttons.length) {
+		radiobuttons.attr({"tabindex": "0", "role": "radio"});
+		radiobuttons.keydown(function(e) {
+			if (e.which == 13 || e.which == 32) {
+				$(this).click();
+			}
+		});
+	}
 
 	if (typeof window !== void 0 && typeof window.addEventListener !== void 0) {
 
 		$(window).resize(function () {
-			windowEventHandler();
+			resetTooltips();
 		});
 
 		setTimeout(function () {
 			$(window).scroll(function () {
-				windowEventHandler();
+				resetTooltips();
 			});
 		}, 100);
 	}
-
+	
 
 	/* PUBLIC */
 
@@ -1719,6 +1712,6 @@
 	ui.SHADOW_BOTTOM = 3;
 
 
-	ui.version = "webui-4.6.4";
+	ui.version = "webui-4.6.5";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));

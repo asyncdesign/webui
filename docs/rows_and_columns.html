@@ -160,7 +160,7 @@
                                         </p>
                                         
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 4.6.4.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 4.6.5.</p>
                                     </div>					
                                 </div>
                                 <div class="content-row">
@@ -291,7 +291,7 @@
         will give a default separation of components.
         <br />
       <span class="color-accent-2 text-bold">table</span> - Table rows and columns also have a 5 pixel padding, and in addition
-        includes a outline border on all rows and columns.
+        include some flexbox capabilities and a outline border on all rows and columns.
     </p>
 
     Here is a breakdown of each type of grid system:
@@ -463,11 +463,11 @@
 
     <div class="row-spacing-md"></div>
 
-    <p>Table rows and columns are a bit different to the other two types. Besides having borders by default, they are designed
-      primarily for displaying content in a tabular format. As with content and form type grids, table grids are responsive
-      when media flags are applied. But they differ in 2 key areas: Firstly, when nesting table columns you must add a table-row for each 
-      nested level. Secondly, if you want to add spacing between any rows using say row-spacing-md, then you will also need
-      to wrap each group of separated rows with a div and add the class table-group to it.</p>
+    <p>Table rows and columns are a bit different to the other two types. Besides having borders by default, they are designed primarily for displaying content in a tabular format 
+      and implement some flexbox behaviours, so each column will be of equal height based on the tallest column. As with content and form type grids, table grids are responsive
+      when media flags are applied. But they differ in 2 key areas: Firstly, when nesting table columns you must add a table-row for each nested level. Secondly, if you want to 
+      add spacing between any rows using say row-spacing-* classes, then you will also need to wrap each group of separated rows with a div and add the class 
+      <span class="color-accent-2 text-bold">table-group</span> to it.</p>
 
     <p>Here is the output of the above:</p>
 
@@ -481,7 +481,7 @@
 
     <p class="color-accent-5 text-bold">Nesting columns</p>
 
-    <p>Take a look at the example below. This shows how to nest columns using either the content type columns or the form type columns.
+    <p>Take a look at the example below. This shows how to nest columns using either the content type columns or the form type columns.</p>
 
     <div class="content-row">
       <div class="content-col-6 respond-sm">
@@ -549,9 +549,9 @@
 
     <div class="row-spacing-md"></div>
 
-    <p class="color-accent-5 text-bold">Equal columns</p>
+    <p class="color-accent-5 text-bold">Equal width columns</p>
 
-    Webui supports any number of equal columns within the maximum of 20 for all grid types. The classes used take the format
+    Webui supports any number of equal width columns within the maximum of 20 for all grid types. The classes used take the format
     [column type]-col-eq-[number of equal columns], for example form-col-eq-9. However, you won't find classes for the number
     of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and flexibility here as
     you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and
@@ -565,14 +565,68 @@
       The column types have also been mixed - each equal column group uses a content-col and columns within each group use
       a form-col, making the separation between groups the same as the separation between each column within a group.</p>
 
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Equal height columns</p>
+
+    Table type columns have column height equalisation built in by default, so you don't have to add anything to get equal height columns. However, you might want to
+    have equal height columns for content and form type columns also. You can easily do that by simply using a table row and adding the class 
+    <span class="color-accent-2 text-bold">height-eq</span> to each content type column or form type column. You can, of course, also add the 
+    <span class="color-accent-2 text-bold">height-full</span> class to any content inside columns to make the content fill the column.
+
+    <p>Here is an example</p>
+
+</div>
+
+
+<div id="snippet24" class="body background-secondary text-sm">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="table-row"&gt;
+    &lt;div class="form-col-5 height-eq respond-sm"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 height-eq respond-sm"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+        &lt;br /&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+        &lt;br /&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 height-eq respond-sm"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 height-eq respond-sm"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
     <div class="row-spacing-md"></div>
 
     <p class="color-accent-5 text-bold">Fixed width and variable columns</p>
 
     You can combine fixed width and normal percentage based columns by using a combination of 
-    <span class="color-accent-2 text-bold">width-*, width-adjacent-*, and width-respond-*</span> classes on <span class="color-accent-2 text-bold">content-*</span> columns only.
-	  An enhancement to this functionality is planned for Webui v5.0.0, to extend this to <span class="color-accent-2 text-bold">form-*</span> and 
-	  <span class="color-accent-2 text-bold">table-*</span> column types also.
+    <span class="color-accent-2 text-bold">width-*, width-adjacent-*, and width-respond-*</span> classes on <span class="color-accent-2 text-bold">content-*</span>, 
+    <span class="color-accent-2 text-bold">form-*</span>, and <span class="color-accent-2 text-bold">table-*</span> column types.
 
     <div class="row-spacing-md"></div>
 
@@ -707,7 +761,7 @@
           switch(parts[parts.length -1]) {
             case "getting_started.html": codeHighlighter.highlight(["snippet1", "snippet2", "snippet3"]); break;
             case "theme_colors.html": codeHighlighter.highlight(["snippet10"]); break;
-            case "rows_and_columns.html": codeHighlighter.highlight(["snippet20", "snippet21", "snippet22", "snippet23"]); break;
+            case "rows_and_columns.html": codeHighlighter.highlight(["snippet20", "snippet21", "snippet22", "snippet23", "snippet24"]); break;
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
