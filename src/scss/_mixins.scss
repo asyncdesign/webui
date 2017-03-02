@@ -1,4 +1,82 @@
 
+@mixin flex-order() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i} { order: $i; }
+	}
+	.flex-order-first { order: -1; }
+}
+@mixin flex-order-bp-1-over() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-1-over { order: $i; }
+	}
+	.flex-order-first-bp-1-over { order: -1; }
+}
+@mixin flex-order-bp-2-over() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-2-over { order: $i; }
+	}
+	.flex-order-first-bp-2-over { order: -1; }
+}
+@mixin flex-order-bp-3-over() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-3-over { order: $i; }
+	}
+	.flex-order-first-bp-3-over { order: -1; }
+}
+@mixin flex-order-bp-4-over() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-4-over { order: $i; }
+	}
+	.flex-order-first-bp-4-over { order: -1; }
+}
+@mixin flex-order-bp-5-over() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-5-over { order: $i; }
+	}
+	.flex-order-first-bp-5-over { order: -1; }
+}
+@mixin flex-order-bp-5-under() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-5-under { order: $i; }
+	}
+	.flex-order-first-bp-5-under { order: -1; }
+}
+@mixin flex-order-bp-4-under() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-4-under { order: $i; }
+	}
+	.flex-order-first-bp-4-under { order: -1; }
+}
+@mixin flex-order-bp-3-under() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-3-under { order: $i; }
+	}
+	.flex-order-first-bp-3-under { order: -1; }
+}
+@mixin flex-order-bp-2-under() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-2-under { order: $i; }
+	}
+	.flex-order-first-bp-2-under { order: -1; }
+}
+@mixin flex-order-bp-1-under() {
+	@for $i from 1 to 11 {
+		.flex-order-#{$i}-bp-1-under { order: $i; }
+	}
+	.flex-order-first-bp-1-under { order: -1; }
+}
+@mixin pointer-top($color) {
+	border-color: transparent transparent $color transparent;
+}
+@mixin pointer-right($color) {
+	border-color: transparent transparent transparent $color;
+}
+@mixin pointer-bottom($color) {
+	border-color: $color transparent transparent transparent;
+}
+@mixin pointer-left($color) {
+	border-color: transparent $color transparent transparent;
+}
 @mixin layer-1() {
 	z-index: 110;
 }
@@ -16,17 +94,4 @@
 }
 @mixin layer-6() {
 	z-index: 160;
-}
-
-@mixin pointer-top($color) {
-	border-color: transparent transparent $color transparent;
-}
-@mixin pointer-right($color) {
-	border-color: transparent transparent transparent $color;
-}
-@mixin pointer-bottom($color) {
-	border-color: $color transparent transparent transparent;
-}
-@mixin pointer-left($color) {
-	border-color: transparent $color transparent transparent;
 }

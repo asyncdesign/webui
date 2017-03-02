@@ -6,26 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Webui mobile-first CSS</title>
+  <title>WebUI mobile-first CSS</title>
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
-  <link rel="stylesheet" href="/webui/assets/highcharts/css/highcharts.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/theme_dashboard_sales.html">
-  <link rel="alternate" type="application/rss+xml" title="Webui mobile-first CSS" href="/webui/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   
   
 </head>
 
-    <body class="off-canvas-body background-dark">
+    <body class="off-canvas-body background-dark text-sm">
 
-        <div class="content-row menu-bar background-dark">
-            <div class="content-col-20 hide-sm">
-                <div class="content-col move-right col-spacing-right-lg">							
+        <div class="content-row menu-bar-lg background-dark">
+            <div class="content-col-20 show-bp-3-over">
+                <div class="content-col move-right col-spacing-right-md">							
                     <div class="dropdown">
-                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonProfile"><i class="fa fa-user-o fa-lg"></i></button>
+                        <button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-muted color-hover-secondary width-sm-md" id="menuButtonProfile"><i class="fa fa-user-o fa-lg"></i></button>
                         <div class="dropdown-content dropdown-right menu-close transparent width-xl">
                             <div class="col-spacing-left-lg">
                                 <div class="pointer-top-sm pointer-top-dark"></div>
@@ -38,7 +37,7 @@
                 </div>
                 <div class="content-col move-right col-spacing-right-sm">							
                     <div class="dropdown">
-                        <button type="button" class="menu-activator-dynamic menu-button menu-button-transparent border-transparent color-muted color-hover-secondary width-6" id="menuButtonEmail"><i class="fa fa-envelope-o fa-lg"></i><span class="badge-xs success text-xs place-top-left top-sm left-sm">4</span></button>
+                        <button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-muted color-hover-success width-sm-md" id="menuButtonEmail"><i class="fa fa-envelope-o fa-lg"></i><span class="badge-square-xs success text-xs place-top-left top-xs left-sm">4</span></button>
                         <div class="dropdown-content dropdown-right menu-close transparent width-xl">
                             <div class="col-spacing-left-lg">
                                 <div class="pointer-top-sm pointer-top-dark"></div>
@@ -54,11 +53,11 @@
 
                     <div class="dropdown">              
 
-                        <button type="button" class="menu-activator menu-button menu-button-transparent border-transparent color-muted color-hover-accent-2 width-6" id="menuButtonNotifications"><i class="fa fa-bell-o fa-lg"></i><span class="badge-xs info text-xs place-top-left top-sm left-sm">3</span></button>
-                        <div class="dropdown-content dropdown-right top-lg menu-close transparent width-10" id="menuNotificationsDropdown">
+                        <button type="button" class="menu-activator menu-button-lg menu-button-transparent border-transparent color-muted color-hover-accent-2 width-sm-md" id="menuButtonNotifications"><i class="fa fa-bell-o fa-lg"></i><span class="badge-square-xs info text-xs place-top-left top-xs left-sm">3</span></button>
+                        <div class="dropdown-content dropdown-right top-lg menu-close transparent width-xl-xxl" id="menuNotificationsDropdown">
                                 
-                            <div class="container background-primary color-accent-4 width-full">
-                                <div class="panel color-light background-accent-2">
+                            <div class="panel background-accent-5 border-sm border-accent-4 width-full">
+                                <div class="panel color-light background-accent-4">
                                     <div class="form-row">
                                         <div class="content-col-20">
                                             You have 3 notifications
@@ -73,10 +72,10 @@
                                                 <div class="content-col-2">
                                                     <i class="fa fa-check-square-o color-success"></i>                                                     
                                                 </div>
-                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                <div class="content-col-14 text-sm color-light color-hover-muted">      
                                                     Sales target of £14,500 reached today by the A team.
                                                 </div>
-                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                <div class="content-col-4 text-sm text-right color-muted">
                                                     3 minutes ago
                                                 </div>
                                             </div>
@@ -88,10 +87,10 @@
                                                 <div class="content-col-2">
                                                     <i class="fa fa-credit-card color-warning"></i>                                                      
                                                 </div>
-                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                <div class="content-col-14 text-sm color-light color-hover-muted">      
                                                     Payment to supplier due tomorrow.
                                                 </div>
-                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                <div class="content-col-4 text-sm text-right color-muted">
                                                     1 hour ago
                                                 </div>
                                             </div>
@@ -103,28 +102,26 @@
                                                 <div class="content-col-2">
                                                     <i class="fa fa-truck color-accent-2"></i>                                                        
                                                 </div>
-                                                <div class="content-col-15 text text-sm color-hover-accent-4">      
+                                                <div class="content-col-14 text-sm color-light color-hover-muted">      
                                                     400 units shipped today at 13:15.
                                                 </div>
-                                                <div class="content-col-3 text text-sm text-right color-accent-4">
+                                                <div class="content-col-4 text-sm text-right color-muted">
                                                     Yesterday
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
 
-                                    <div class="row-spacing-sm"></div>
-                                    <div class="content-row border-sm border-secondary"></div>
-                                    <div class="row-spacing-sm"></div>
-
+                                    <div class="row-spacing-md"></div>
+ 
                                     <div class="content-row">
                                         <div class="content-col-20">
                                             <div class="container">
                                                 <div class="content-col col-spacing-left-sm move-right">
-                                                    <button class="button-accent-2">View All</button>
+                                                    <button class="button-xs button-accent-2">View All</button>
                                                 </div>
                                                 <div class="content-col move-right">
-                                                    <button class="button-accent-4">Dismiss All</button>
+                                                    <button class="button-xs button-accent-4">Dismiss All</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,8 +142,8 @@
 
         <div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1">
 
-            <div class="content-col dock-top-left left-sm">
-                <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-7 text-lg"><i class="fa fa-bars"></i></button>
+            <div class="content-col dock-top-left left-md">
+                <button data-target="#menuLeft" class="toggle-activator menu-button-lg menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-control-xl text-xl"><i class="fa fa-bars"></i></button>
             </div>
 
             <div class="content-col dock-top-left">
@@ -154,42 +151,42 @@
                 <div class="toggle-item dark border-sm border-accent-5 off-canvas-left" id="menuLeft">
                                 
                         <div class="row-spacing-xl">
-                            <div class="content-col dock-top-left left-sm">
-                                <button data-target="#menuLeft" class="toggle-activator menu-button menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-7 text-lg"><i class="fa fa-close"></i></button>
+                            <div class="content-col dock-top-left left-md">
+                                <button data-target="#menuLeft" class="toggle-activator menu-button-lg menu-button-transparent background-hover-transparent border-transparent color-hover-accent-2 width-control-xl text-xl"><i class="fa fa-close"></i></button>
                             </div>		
                         </div>
                         
-                        <div class="panel width-9">
+                        <div class="panel pad-lg width-lg-xl">
 
-                            <div class="col-spacing-left-xs">
+                            <div class="col-spacing-left-md">
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton1" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">				
-                                            <span class="col-spacing-right-sm"><i class="fa fa-bell-o width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bell-o width-xs"></i></span>
                                             <span>Notifications</span>
                                         </button>
                                     </div>
-                                    <div class="content-col-3 text-right form-col-align-md">
-                                        <span class="badge-sm text-sm info">3</span>
+                                    <div class="content-col-3 text-right">
+                                        <span class="badge-square-sm text-sm info">3</span>
                                     </div>
                                 </div>
                                 <div class="row-spacing-md"></div>
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton2" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-envelope-o width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-envelope-o width-xs"></i></span>
                                             <span class="col-spacing-right-sm">Messages</span>
                                         </button>
                                     </div>
-                                    <div class="content-col-3 text-right form-col-align-md">
-                                        <span class="badge-sm text-sm success">4</span>
+                                    <div class="content-col-3 text-right">
+                                        <span class="badge-square-sm text-sm success">4</span>
                                     </div>
                                 </div>
                                 <div class="row-spacing-md"></div>
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton3" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-user-o width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-user-o width-xs"></i></span>
                                             <span>Profile</span>	
                                         </button>
                                     </div>
@@ -201,7 +198,7 @@
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton4" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-xs"></i></span>
                                             <span class="col-spacing-right-sm">Sales</span>
                                         </button>
                                     </div>
@@ -212,7 +209,7 @@
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton5" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-xs"></i></span>
                                             <span class="col-spacing-right-sm">Orders</span>
                                         </button>
                                     </div>
@@ -223,7 +220,7 @@
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton6" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-xs"></i></span>
                                             <span class="col-spacing-right-sm">Shipping</span>
                                         </button>
                                     </div>
@@ -234,7 +231,7 @@
                                 <div class="content-row">
                                     <div class="content-col-17">
                                         <button id="sideNavButton7" class="menu-button menu-button-transparent border-transparent color-muted color-hover-light text-left">
-                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-5"></i></span>
+                                            <span class="col-spacing-right-sm"><i class="fa fa-bars width-xs"></i></span>
                                             <span class="col-spacing-right-sm">Accounts</span>
                                         </button>
                                     </div>
@@ -253,133 +250,351 @@
 
         <div class="area background-dark">
 
-            <div class="content-row">
-                <div class="content-col-10 respond-xl">
-                    <div class="content-col-8 respond-md">
-                        <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
-                                <div class="content-row">
-                                    <div class="content-col-14 color-muted text-xs">
-                                        New leads
-                                    </div>
-                                    <div class="content-col-6 color-success text-bold text-xs">
-                                        <span class="move-right">today</span>
-                                    </div>
-                                </div>
-                                <div class="row-spacing-xl"></div>
-                                <div class="row-spacing-md"></div>
-                                <div class="content-row">
-                                    <div class="content-col-20 color-accent-2 text-xl text-center">
-                                        <span class="text-xl">77</span>
-                                    </div>
-                                </div>
-                                <div class="content-row place-bottom-left width-full">
-                                    <div class="content-col-20 background-dark text-xs">
-                                        <div class="panel">
-                                            <i class="fa fa-caret-up color-success move-right"></i>
-                                            <span class="color-success move-right col-spacing-right-sm">12%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
-                                <div class="content-row">
-                                    <div class="content-col-14 color-muted text-xs">
-                                        New leads
-                                    </div>
-                                    <div class="content-col-6 color-accent-2 text-bold text-xs">
-                                        <span class="move-right">YTD</span>
-                                    </div>
-                                </div>
-                                <div class="row-spacing-xl"></div>
-                                <div class="row-spacing-md"></div>
-                                <div class="content-row">
-                                    <div class="content-col-20 color-accent-2 text-xl text-center">
-                                        <span class="text-xl">2,739</span>
-                                    </div>
-                                </div>
-                                <div class="content-row place-bottom-left width-full">
-                                    <div class="content-col-20 background-dark text-xs">
-                                        <div class="panel">
-                                            <i class="fa fa-caret-down color-danger move-right"></i>
-                                            <span class="color-danger move-right col-spacing-right-sm">17%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="content-col-12 respond-md">
-                        <div class="form-col-20 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
-                                <div class="content-row">
-                                    <div class="content-col-14 color-muted text-xs">
-                                        Lead status (All)
-                                    </div>
-                                    <div class="content-col-6 color-accent-2 text-bold text-xs">
-                                        <span class="move-right"></span>
-                                    </div>
-                                </div>
-                                <div class="content-row">
-                                    <div class="container height-9" id="leadStatusPanel"></div>
-                                </div>
+            <div class="flex-row">
+                <div class="flex-size-3 flex-grow flex-order-3-bp-3-under">
 
+                    <div class="flex-col height-xl">
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-14 color-muted">
+                                            New leads
+                                        </div>
+                                        <div class="content-col-6 color-accent-2 text-bold">
+                                            <span class="move-right">Today</span>
+                                        </div>
+                                    </div>
+                                    <div class="place-middle-center text-xl">
+                                        <h1 class="color-accent-2">12</h1>
+                                    </div>
+                                    <div class="panel place-bottom-left background-dark width-full">
+                                        <i class="fa fa-caret-down color-danger move-right"></i>
+                                        <span class="color-danger move-right col-spacing-right-sm">17%</span>
+                                    </div>
+                                </div>
                             </div>
-                            
                         </div>
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-14 color-muted">
+                                            New leads
+                                        </div>
+                                        <div class="content-col-6 color-accent-2 text-bold">
+                                            <span class="move-right">YTD</span>
+                                        </div>
+                                    </div>
+                                    <div class="place-middle-center text-xl">
+                                        <h1 class="color-accent-2">2,739</h1>
+                                    </div>
+                                    <div class="panel place-bottom-left background-dark width-full">
+                                        <i class="fa fa-caret-up color-success move-right"></i>
+                                        <span class="color-success move-right col-spacing-right-sm">43%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    
                 </div>
-                <div class="content-col-10 respond-xl">
-                    <div class="content-col-8 respond-md">
-                        <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
+                <div class="flex-size-7 flex-grow flex-order-1-bp-3-under flex-respond-bp-3-under">
+
+                    <div class="flex-col height-xl pad-xs">
+
+                        <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted">
+                                    Lead status (All)
+                                    <div class="row-spacing-sm"></div>
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold">
+                                    <span class="move-right"></span>
+                                </div>
                             </div>
-                            
+                            <div class="width-three-quarters width-full-bp-1-under height-three-quarters">
+                                <canvas id="leadStatusCanvas" class="place-middle-center"></canvas>
+                            </div>
+                        </div> 
+                        
+                    </div>         
+                </div>
+
+                <div class="flex-size-7 flex-grow flex-order-5-bp-3-under flex-respond-bp-5-under">
+
+                    <div class="flex-col height-xl pad-xs">			
+
+                        <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted">
+                                    Email volume
+                                    <div class="row-spacing-sm"></div>
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold">
+                                    <span class="move-right"></span>
+                                </div>
+                            </div>
+                            <div class="width-three-quarters width-full-bp-1-under height-three-quarters">
+                                <canvas id="emailVolumeCanvas" class="place-middle-center"></canvas>
+                            </div>
+                        </div> 
+
+                    </div>
+                </div>
+
+                <div class="flex-size-3 flex-grow flex-order-7-bp-3-under flex-respond-bp-3-under">
+
+                    <div class="flex-col height-xl">
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-14 color-muted">
+                                            Calls
+                                        </div>
+                                        <div class="content-col-6 color-accent-2 text-bold">
+                                            <span class="move-right">Today</span>
+                                        </div>
+                                    </div>
+                                    <div class="place-middle-center">
+                                        <h1 class="color-accent-2">65</h1>
+                                    </div>
+                                    <div class="panel place-bottom-left background-dark width-full">
+                                        <i class="fa fa-caret-down color-warning move-right"></i>
+                                        <span class="color-warning move-right col-spacing-right-sm">7%</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-col-10 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-14 color-muted">
+                                            Calls
+                                        </div>
+                                        <div class="content-col-6 color-accent-2 text-bold">
+                                            <span class="move-right">Week</span>
+                                        </div>
+                                    </div>
+                                    <div class="place-middle-center">
+                                        <h1 class="color-accent-2">338</h1>
+                                    </div>
+                                    <div class="panel place-bottom-left background-dark width-full">
+                                        <i class="fa fa-caret-down color-muted move-right"></i>
+                                        <span class="color-muted move-right col-spacing-right-sm">0%</span>
+                                    </div>
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                    <div class="content-col-12 respond-md">
-                        <div class="form-col-20 respond-xs">
-                            <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
-                            </div>
-                            
-                        </div>
-                    </div>
                 </div>
 
             </div>
 
-            <div class="content-row">
-                <div class="content-col-10 respond-xl">
-                    <div class="form-col-12 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
+            <div class="flex-row">
+                <div class="flex-size-7 flex-grow flex-order-1-bp-3-under">
 
-                        </div>
+                    <div class="flex-col height-xl-xxl pad-xs">
 
-                    </div>
-                    <div class="form-col-8 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
+                        <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted">
+                                    Lead status (All)
+                                    <div class="row-spacing-sm"></div>
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold">
+                                    <span class="move-right"></span>
+                                </div>
+                            </div>
+                            <div class="width-three-quarters width-full-bp-1-under height-three-quarters">
+                                <canvas id="statusCountCanvas" class="place-middle-center"></canvas>
+                            </div>
 
-                        </div>
-
-                    </div>
+                        </div> 
+                        
+                    </div>       
                 </div>
-                <div class="content-col-10 respond-xl">
-                    <div class="form-col-20 respond-sm">
-                        <div class="panel background-accent-5 border-sm border-accent-4 text-xl height-9">
 
+                <div class="flex-size-3 flex-grow flex-order-3-bp-3-under flex-respond-bp-3-under">
+
+                    <div class="flex-col text height-xl-xxl">
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            Company
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-light">
+                                            6710
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            <div class="height-xxs background-accent-4 width-full">
+                                                <div class="height-xxs background-accent-2 width-three-quarters"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            Enterprise
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-light">
+                                            4312
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                             <div class="height-xxs background-accent-4 width-full">
+                                                <div class="height-xxs background-accent-2 width-two-thirds"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            Corporate
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-light">
+                                            4158
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            <div class="height-xxs background-accent-4 width-full">
+                                                <div class="height-xxs background-accent-2 width-two-thirds"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            White-label
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-light">
+                                            3894
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            <div class="height-xxs background-accent-4 width-full">
+                                                <div class="height-xxs background-accent-2 width-one-half"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-auto">
+                            <div class="form-col-20">
+                                <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            Professional
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-light">
+                                            702
+                                        </div>
+                                    </div>
+                                    <div class="content-row">
+                                        <div class="content-col-20 color-muted">
+                                            <div class="height-xxs background-accent-4 width-full">
+                                                <div class="height-xxs background-accent-2 width-one-quarter"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>               
+
+                <div class="flex-size-3 flex-grow flex-order-7-bp-3-under flex-respond-bp-5-under">
+
+                    <div class="flex-col height-xl-xxl pad-xs">			
+
+                        <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted">
+                                    Empty
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold">
+                                    <span class="move-right">Panel</span>
+                                </div>
+                            </div>
+                            <div class="place-middle-center">
+                                <h3 class="color-accent-2">No data</h3>
+                            </div>
+                            <div class="panel place-bottom-left background-dark width-full">
+                                <i class="fa fa-caret-down color-warning move-right"></i>
+                                <span class="color-warning move-right col-spacing-right-sm">7%</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="flex-size-7 flex-grow flex-order-5-bp-3-under flex-respond-bp-3-under">
+
+                    <div class="flex-col height-xl-xxl pad-xs">			
+
+                        <div class="panel background-accent-5 border-sm border-accent-4 height-full">
+                            <div class="content-row">
+                                <div class="content-col-14 color-muted">
+                                    Leads to customer
+                                    <div class="row-spacing-sm"></div>
+                                </div>
+                                <div class="content-col-6 color-accent-2 text-bold">
+                                    <span class="move-right"></span>
+                                </div>
+                            </div>
+                            <div class="width-three-quarters width-full-bp-1-under height-three-quarters">
+                                <canvas id="leadsCustomerCanvas" class="place-middle-center"></canvas>
+                            </div>
+
+                        </div> 
 
                     </div>
                 </div>
@@ -395,10 +610,7 @@
         <script src="/webui/assets/js/webui-utils.js"></script>
         <script src="/webui/assets/js/webui-validation.js"></script>
 
-        <script src="/webui/assets/highcharts/js/highcharts.js"></script>
-        <script src="/webui/assets/highcharts/js/highcharts-more.js"></script>
-        <script src="/webui/assets/highcharts/js/modules/solid-gauge.js"></script>
-        <!--<script src="/webui/assets/highcharts/js/modules/exporting.js"></script>-->
+        <script src="/webui/assets/chart/Chart.js"></script>
 
         <script src="/webui/assets/js/theme_dashboard_sales.js"></script>
 

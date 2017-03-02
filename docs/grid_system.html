@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/typography.html">
+  <link rel="canonical" href="http://localhost:4000/webui/grid_system.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -280,106 +280,374 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <p id="typography" class="text-lg color-accent-2 text-bold">
-	Typography
+                        <p id="rowsAndColumns" class="text-lg color-accent-2 text-bold">
+  Grid system
 </p>
 
-<div class="row-spacing-xs"></div>
+<div class="row-spacing-sm"></div>
 
 <div class="text">
 
-	<p class="color-accent-5 text-bold">Headings</p>
+    The grid system is divided into 20 columns, and there are 3 main grid types as follows:
 
-	<p>The tags <span class="color-accent-2 text-bold">h1</span>, <span class="color-accent-2 text-bold">h2</span>, <span class="color-accent-2 text-bold">h3</span>, and 
-	<span class="color-accent-2 text-bold">h4</span> are styled by default and will appear as follows when not multiplied by 
-	<span class="color-accent-2 text-bold">text-*</span> classes:</p>
+    <p>
+      <span class="color-accent-2 text-bold">content</span> - Content type rows and columns have no padding, so they are ideal
+        for precise positioning or if you want components to be close to each other.
+      <br />
+      <span class="color-accent-2 text-bold">form</span> - Form type rows and columns have a 0.313rem padding all around, so
+        will give a default separation of components.
+        <br />
+      <span class="color-accent-2 text-bold">table</span> - Table rows and columns also have a 0.313rem padding, and in addition
+        include some flexbox capabilities and an outline border on all rows and columns.
+    </p>
 
-	<h1>Heading 1</h1>
-	<h2>Heading 2</h2>
-	<h3>Heading 3</h3>
-	<h4>Heading 4</h4>
+    <div class="row-spacing-sm"></div>
 
-	<div class="row-spacing-md"></div>
+    <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+      <p class="color-accent-3">Naming convention</p>
+      <p>Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to any utility class using the format <b>-bp-[breakpoint number]-[direction]</b>. 
+      The direction is either <span class="color-accent-2 text-bold">under</span> or <span class="color-accent-2 text-bold">over</span></p>. For example 
+      <span class="color-accent-2 text-bold">-bp-1-under</span> or <span class="color-accent-2 text-bold">-bp-3-over</span>.
+    </blockquote>
 
-	<p class="color-accent-5 text-bold">Font sizes</p>
+    <div class="row-spacing-md"></div>
 
-	WebUI does not define any base font size and just uses the browser default. The following classes can be used to set different 
-	sizes relative to the browser font size or parent element font size:
+    Here is a breakdown of each type of grid available:
 
-	<p>
-		<span class="color-accent-2 text-bold">text</span> - Sets the line height to 1.5em
-		<br />
-		<span class="color-accent-2 text-bold">text-xs</span> - Sets the font size to 0.75 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-sm</span> - Sets the font size to 0.875 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-lg</span> - Sets the font size to 1.125 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-xl</span> - Sets the font size to 1.25 times the browser font size or the parent element font size.
-	</p>
+    <div class="row-spacing-md"></div>
 
-	In order to increase or decrease the font size for the body, container, or even a single column, you just need to add one
-	of the above classes to it. Then, any classes you use within that element will size relative to the parent font size. However,
-	if you use the class <span class="color-accent-2 text-bold">text-md</span> there will be no inherited change because
-	<span class="color-accent-2 text-bold">text-md</span> is actually 1em, which means multiply by 1.
-	<p>
-		For example, if you use <span class="color-accent-2 text-bold">text-lg</span> on a container and specify 
-		<span class="color-accent-2 text-bold">text-lg</span> on any columns within that container, then the text size would actually 
-		be equivalent to 20.25px for those columns, based on a browser font size of 16px.
-	</p>
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font styles</p>
-
-	<p>There are a handful of font style classes, such as text-bold, text-italic, text-upper, text-lower, etc.
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font alignment</p>
-
-	<p>Here's an example of subscript using 2 classes <span class="color-accent-2 text-bold">text-sub</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>H<span class="text-sub text-xs">2</span>O</p>
-
-	<p>This is an example of superscript using 2 classes <span class="color-accent-2 text-bold">text-super</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>17<span class="text-super text-xs">th</span> Jan 2017</p>
-
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Adding colour</p>
-
-	You can apply any theme colours to text content for either foreground or background, and easily add effects using 
-	<span class="color-accent-2 text-bold">color-hover-*</span> or <span class="color-accent-2 text-bold">background-hover-*</span> 
-	classes. But if you wanted to simply highlight a section of text you could just specify the theme color name as the class. For example, 
-	<span class="color-accent-2 text-bold">info</span> or <span class="color-accent-2 text-bold">highlight</span>.
-
-	<p>For more information on using theme colours please see the <a href="/webui/theme_colors.html" class="color-accent-2 color-hover-accent-4">
-	Theme colours</a> section.</p>
-
-	<div class="row-spacing-md"></div>
-	
-	<p class="color-accent-5 text-bold">Paragraph formatting</p>
-
-	<p>The class <span class="color-accent-2 text-bold">text</span> can be used on any element that may contain text content - this will cause the
-	line-height to be set at 1.5em, which will give good spacing between each line.</p>
-
-	Blockqotes are formatted with a 0.438 rem left border using the default theme color, but you can easily style them using WebUI classes.
-
-	<div class="content-row">
-		<div class="content-col-10 respond-bp-2-under">
-			<blockquote class="border-accent-3 background-secondary col-spacing-right-md">
-				<p class="color-accent-3">Blockquote heading</p>
-				<p>Blockquotes look great with a little colour and formatting using WebUI classes.</p>
-				<p class="text-sm text-italic color-accent-4"> &#8212; Blockquote footer</p>
-			</blockquote>
-		</div>
-	</div>
-
-	<div class="row-spacing-md"></div>
+    <p class="color-accent-5 text-bold">Content type rows and columns</p>
 
 </div>
 
+
+<div id="snippet20" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+      
+<pre>&lt;div class="area"&gt;
+  &lt;div class="content-row"&gt;
+    &lt;div class="content-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+    
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p>This is quite a basic scenario, and here you can see that the row is made up of 4 equal columns, each taking up one quarter of the full 20 column width</p>
+
+    <p>Here is the output of the above:</p>
+
+    <img src="/webui/assets/images/screenshot1.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <p>You may have noticed the "respond-bp-2-under" media flags. These are simply saying that these columns are responsive, so when the screen
+      gets to a small size (based on the amount defeined in _settings.scss), then move this column to the next line and expand to the
+      full width of the container.</p>
+
+    <p>At the small breakpoint or less it would look like this:</p>
+
+    <img src="/webui/assets/images/screenshot2.png" class=" image border-sm border-accent-4" alt="Media" />
+
+
+    <div class="row-spacing-lg"></div>
+
+    <p class="color-accent-5 text-bold">Form type rows and columns</p>
+
+    <div class="row-spacing-md"></div>
+
+</div>
+
+<div id="snippet21" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="form-row"&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p>In this case we now have some separation between each column. However, if you want more separation just add one of the
+      col-spacing-* classes to the column. If you prefer, you could wrap the content of each column with a body or panel
+      container.
+    </p>
+
+    <p>Here is the output of the above:</p>
+
+    <img src="/webui/assets/images/screenshot3.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <p>At small breakpoint or less it would look like this when the respond-bp-2-under media flag is applied:</p>
+
+    <img src="/webui/assets/images/screenshot4.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <div class="row-spacing-md"></div>
+
+    <p>One important aspect to note about the column and form grid types is that you don't need to repeat the use of rows when nesting columns, 
+      and this is also the method of setting varying numbers of columns per row at different screen sizes.</p>
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Table type rows and columns</p>
+
+    <div class="row-spacing-md"></div>
+
+</div>
+
+<div id="snippet22" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="table-row"&gt;
+    &lt;div class="table-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="table-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="table-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="table-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p>Table rows and columns are a bit different to the other two types. Besides having borders by default, they are designed primarily for displaying content in a tabular format 
+      and implement some flexbox behaviours, so each column will be of equal height based on the tallest column. As with content and form type grids, table grids are responsive
+      when media flags are applied. But they differ in 2 key areas: Firstly, when nesting table columns you must add a table-row for each nested level. Secondly, if you want to 
+      add spacing between any rows using say row-spacing-* classes, then you will also need to wrap each group of separated rows with a div and add the class 
+      <span class="color-accent-2 text-bold">table-group</span> to it.</p>
+
+    <p>Here is the output of the above:</p>
+
+    <img src="/webui/assets/images/screenshot5.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <p>At the small breakpoint or less it would look like this when the respond-bp-2-under media flag is applied:</p>
+
+    <img src="/webui/assets/images/screenshot6.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <div class="row-spacing-lg"></div>
+
+    <p class="color-accent-5 text-bold">Nesting columns</p>
+
+    <p>Take a look at the example below. This shows how to nest columns using either the content type columns or the form type columns.</p>
+
+    <div class="content-row">
+      <div class="content-col-10 respond-bp-2-under">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>If you are using <span class="color-accent-2 text-bold">table-col</span> or <span class="color-accent-2 text-bold">table-col-*</span>
+          classes, then you need to add a <span class="color-accent-2 text-bold">table-row</span> for each nested level.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row-spacing-md"></div>
+
+</div>
+
+<div id="snippet23" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="content-row"&gt;
+    &lt;div class="content-col-20 respond-bp-4-under"&gt;
+      &lt;div class="content-col-10 respond-bp-3-under"&gt;
+        &lt;div class="content-col-10 respond-bp-2-under"&gt;
+          &lt;div class="panel background-secondary text-center"&gt;
+            &lt;img src="webui_blue_32x32.png" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="content-col-10 respond-bp-2-under"&gt;
+          &lt;div class="panel background-secondary text-center"&gt;
+            &lt;img src="webui_blue_32x32.png" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="content-col-10 respond-bp-3-under"&gt;
+        &lt;div class="content-col-10 respond-bp-2-under"&gt;
+          &lt;div class="panel background-secondary text-center"&gt;
+            &lt;img src="webui_blue_32x32.png" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="content-col-10 respond-bp-2-under"&gt;
+          &lt;div class="panel background-secondary text-center"&gt;
+            &lt;img src="webui_blue_32x32.png" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;  
+  &lt;/div&gt;    
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen
+    size down to small, and 4 rows of 1 column at the small size or less. You may be thinking that the markup is a bit verbose,
+    and there are different approaches offered by different frameworks. In fact, there are pros and cons to each method.
+    One method might be to have helper classes for each screen size and column count that can all be applied to the same
+    column definition, but if you had 5 screen size steps it could get a bit strange. So in WebUI, we opted for the nesting
+    approach - it does seem a bit more extensible.
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Equal width columns</p>
+
+    WebUI supports any number of equal width columns within the maximum of 20 for all grid types. The classes used take the format
+    [column type]-col-eq-[number of equal columns], for example form-col-eq-9. However, you won't find classes for the number
+    of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and flexibility here as
+    you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and
+    split columns is any number of ways, and all responsive too.
+
+    <p>Just for a bit of fun here's a brick wall...</p>
+
+    <img src="/webui/assets/images/screenshot7.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <p>Here we have 6 equal columns each containing 3 unequal columns, which have been stacked after hitting a medium breakpoint.
+      The column types have also been mixed - each equal column group uses a content-col and columns within each group use
+      a form-col, making the separation between groups the same as the separation between each column within a group.</p>
+
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Equal height columns</p>
+
+    Table type columns have column height equalisation built in by default, so you don't have to add anything to get equal height columns. However, you might want to
+    have equal height columns for content and form type columns also. You can easily do that by simply using a table row instead of content-row or form-row. You can, 
+    of course, also add the <span class="color-accent-2 text-bold">height-full</span> class to any content inside columns to make the content fill the column.
+
+    <p>Here is an example</p>
+
+</div>
+
+
+<div id="snippet24" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="table-row"&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+        &lt;br /&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+        &lt;br /&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-5 respond-bp-2-under"&gt;
+      &lt;div class="panel background-secondary text-center height-full"&gt;
+        &lt;img src="webui_blue_64x64.png" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Fixed width and variable columns</p>
+
+    You can combine fixed width and normal percentage based columns by using a combination of 
+    <span class="color-accent-2 text-bold">width-*, width-adjacent-*, and width-respond-*</span> classes on <span class="color-accent-2 text-bold">content-*</span>, 
+    <span class="color-accent-2 text-bold">form-*</span>, and <span class="color-accent-2 text-bold">table-*</span> column types.
+
+    <div class="row-spacing-md"></div>
+
+</div>
                       </div>
                     </div>
                   </div>

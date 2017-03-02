@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/typography.html">
+  <link rel="canonical" href="http://localhost:4000/webui/media_breakpoints.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -280,105 +280,65 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <p id="typography" class="text-lg color-accent-2 text-bold">
-	Typography
+                        <p id="mediaBreakpoints" class="text-lg color-accent-2 text-bold">
+  Media breakpoints
 </p>
 
-<div class="row-spacing-xs"></div>
+<div class="row-spacing-sm"></div>
 
 <div class="text">
 
-	<p class="color-accent-5 text-bold">Headings</p>
+    Media breakpoint sizes are defined in the _settings.scss file, so can easily be changed according to your requirements. Please be aware
+    that you will need to specify breakpoint sizes to at least 2 decimal places if you are using em or rem units, and also ensure that there
+    is a minimum 0.01 unit difference between converging breakpoints.
 
-	<p>The tags <span class="color-accent-2 text-bold">h1</span>, <span class="color-accent-2 text-bold">h2</span>, <span class="color-accent-2 text-bold">h3</span>, and 
-	<span class="color-accent-2 text-bold">h4</span> are styled by default and will appear as follows when not multiplied by 
-	<span class="color-accent-2 text-bold">text-*</span> classes:</p>
+    <p>Here are the default sizes</p>
 
-	<h1>Heading 1</h1>
-	<h2>Heading 2</h2>
-	<h3>Heading 3</h3>
-	<h4>Heading 4</h4>
+    <p class="text-sm text-bold color-accent-5">
+      $settings_bp_1_under: 29.99rem;<br />
+      $settings_bp_1_over: 30rem;<br />
+      $settings_bp_2_under: 39.99rem;<br />
+      $settings_bp_2_over: 40rem;<br />
+      $settings_bp_3_under: 49.99rem;<br />
+      $settings_bp_3_over: 50rem;<br />
+      $settings_bp_4_under: 59.99rem;<br />
+      $settings_bp_4_over: 60rem;<br />
+      $settings_bp_5_under: 79.99rem;<br />
+      $settings_bp_5_over: 80rem;
+    <p>
 
-	<div class="row-spacing-md"></div>
+    <p>
+      These are the variables used by the WebUI media queries.
+    </p>
 
-	<p class="color-accent-5 text-bold">Font sizes</p>
+    <p>
+      Almost all WebUI CSS utility classes have corresponding breakpoint specific classes using the same naming convention as the variables above. 
+      The format is <b>-bp-[breakpoint number]-[direction]</b>. The direction is either <span class="color-accent-2 text-bold">under</span> or 
+      <span class="color-accent-2 text-bold">over</span>. For example <span class="color-accent-2 text-bold">-bp-1-under</span> or 
+      <span class="color-accent-2 text-bold">-bp-3-over</span>.
+    </p>
 
-	WebUI does not define any base font size and just uses the browser default. The following classes can be used to set different 
-	sizes relative to the browser font size or parent element font size:
+    <div class="row-spacing-md"></div>
 
-	<p>
-		<span class="color-accent-2 text-bold">text</span> - Sets the line height to 1.5em
-		<br />
-		<span class="color-accent-2 text-bold">text-xs</span> - Sets the font size to 0.75 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-sm</span> - Sets the font size to 0.875 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-lg</span> - Sets the font size to 1.125 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-xl</span> - Sets the font size to 1.25 times the browser font size or the parent element font size.
-	</p>
+    <p class="color-accent-5 text-bold">Using media breakpoint utilities</p>
 
-	In order to increase or decrease the font size for the body, container, or even a single column, you just need to add one
-	of the above classes to it. Then, any classes you use within that element will size relative to the parent font size. However,
-	if you use the class <span class="color-accent-2 text-bold">text-md</span> there will be no inherited change because
-	<span class="color-accent-2 text-bold">text-md</span> is actually 1em, which means multiply by 1.
-	<p>
-		For example, if you use <span class="color-accent-2 text-bold">text-lg</span> on a container and specify 
-		<span class="color-accent-2 text-bold">text-lg</span> on any columns within that container, then the text size would actually 
-		be equivalent to 20.25px for those columns, based on a browser font size of 16px.
-	</p>
+    <p>Because WebUI implements breakpoints for minimum media sizes as well as maximum media sizes, utility classes can be combined to produce
+      responsive behaviour within a range. For example, if you only wanted to show an element between breakpoint 2 and 4, you could use
+      <span class="color-accent-2 text-bold">show-bp-2-over</span> and <span class="color-accent-2 text-bold">hide-bp-4-over</span> classes together.
+      A very important thing to note is that to implement behaviour within a range, or in multiple step-up / step-down fashion, the utility classes
+      must always point in the same direction.
+    </p>
 
-	<div class="row-spacing-md"></div>
+    <p>Another example could be combining <span class="color-accent-2 text-bold">text-md-bp-2-under</span> and 
+      <span class="color-accent-2 text-bold">text-xl-bp-4-under</span> to increase the text size between breakpoints 2 and 4 only.
+      <span class="color-accent-2 text-bold">text-md</span> is 1em, so the size will be unchnaged under breakpoint 2.
+    </p>
 
-	<p class="color-accent-5 text-bold">Font styles</p>
-
-	<p>There are a handful of font style classes, such as text-bold, text-italic, text-upper, text-lower, etc.
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font alignment</p>
-
-	<p>Here's an example of subscript using 2 classes <span class="color-accent-2 text-bold">text-sub</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>H<span class="text-sub text-xs">2</span>O</p>
-
-	<p>This is an example of superscript using 2 classes <span class="color-accent-2 text-bold">text-super</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>17<span class="text-super text-xs">th</span> Jan 2017</p>
-
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Adding colour</p>
-
-	You can apply any theme colours to text content for either foreground or background, and easily add effects using 
-	<span class="color-accent-2 text-bold">color-hover-*</span> or <span class="color-accent-2 text-bold">background-hover-*</span> 
-	classes. But if you wanted to simply highlight a section of text you could just specify the theme color name as the class. For example, 
-	<span class="color-accent-2 text-bold">info</span> or <span class="color-accent-2 text-bold">highlight</span>.
-
-	<p>For more information on using theme colours please see the <a href="/webui/theme_colors.html" class="color-accent-2 color-hover-accent-4">
-	Theme colours</a> section.</p>
-
-	<div class="row-spacing-md"></div>
-	
-	<p class="color-accent-5 text-bold">Paragraph formatting</p>
-
-	<p>The class <span class="color-accent-2 text-bold">text</span> can be used on any element that may contain text content - this will cause the
-	line-height to be set at 1.5em, which will give good spacing between each line.</p>
-
-	Blockqotes are formatted with a 0.438 rem left border using the default theme color, but you can easily style them using WebUI classes.
-
-	<div class="content-row">
-		<div class="content-col-10 respond-bp-2-under">
-			<blockquote class="border-accent-3 background-secondary col-spacing-right-md">
-				<p class="color-accent-3">Blockquote heading</p>
-				<p>Blockquotes look great with a little colour and formatting using WebUI classes.</p>
-				<p class="text-sm text-italic color-accent-4"> &#8212; Blockquote footer</p>
-			</blockquote>
-		</div>
-	</div>
-
-	<div class="row-spacing-md"></div>
+    <div class="row-spacing-md"></div>
 
 </div>
+
+<div class="row-spacing-md"></div>
 
                       </div>
                     </div>

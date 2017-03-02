@@ -9,7 +9,7 @@
 	background-color: $theme_default;
 	border: none;
 	text-align: left;
-	padding: 10px 15px;
+	padding: 0.625rem 0.938rem;
 	position: absolute;
 	box-sizing: border-box;
 	white-space: normal;
@@ -20,27 +20,27 @@
 .tooltip-static:after {
 	content: "";
 	position: absolute;
-	border-width: 5px;
+	border-width: 0.313rem;
 	border-style: solid;	
 }
 .tooltip-left:after {
 	@include pointer-right($theme_default);	
 }
 .tooltip-left.tooltip-sm:after {
-	top: calc(50% - 5px);
-	left: 125px;	
+	top: calc(50% - 0.313rem);
+	left: 7.813rem;	
 }
 .tooltip-left.tooltip-md:after {
-	top: calc(50% - 5px);
-	left: 175px;	
+	top: calc(50% - 0.313rem);
+	left: 10.938rem;	
 }
 .tooltip-left.tooltip-lg:after {
-	top: calc(50% - 5px);
-	left: 225px;	
+	top: calc(50% - 0.313rem);
+	left: 14.063rem;	
 }
 .tooltip-top:after {
 	top: 100%;
-	left: calc(50% - 5px);
+	left: calc(50% - 0.313rem);
 	@include pointer-bottom($theme_default);	
 }
 .tooltip-right:after {
@@ -49,12 +49,12 @@
 .tooltip-right.tooltip-sm:after,
 .tooltip-right.tooltip-md:after,
 .tooltip-right.tooltip-lg:after {
-	top: calc(50% - 5px);
-	left: -10px;
+	top: calc(50% - 0.313rem);
+	left: -0.625rem;
 }
 .tooltip-bottom:after {
 	bottom: 100%;
-	left: calc(50% - 5px);
+	left: calc(50% - 0.313rem);
 	@include pointer-top($theme_default);
 }
 .tooltip .tooltip-light {

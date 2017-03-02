@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 4.6.5
-* Author: Levi Keogh, 2017-02-02
+* Version: 5.0.0
+* Author: Levi Keogh, 2017-02-07
 */
 "use strict";
 
@@ -15,6 +15,7 @@
     var notificationFadeOutDuration = 300;
     var menuDropdownFadeInDuration = 500;
     var menuDropdownFadeOutDuration = 500;
+    var menuDropdownTransitionType = "vertical";
     var tooltipAutoPos = false;
     var tooltipAutoPosMargin = 0;
     var tooltipAutoSize = true;
@@ -672,6 +673,10 @@
             }
         }
     };
+    ui.pxToRem = function(pxValue) {
+        var element = document.getElementsByTagName("html")[0];
+        return parseInt(pxValue) / parseInt(window.getComputedStyle(element)["fontSize"]);
+    };
     ui.getScrollbarWidth = function() {
         var ruler = document.createElement("div");
         ruler.className = "scrollbar-measure";
@@ -865,6 +870,7 @@
     ui.initMenus = function(options) {
         menuDropdownFadeInDuration = options.dropdownFadeInDuration !== void 0 ? options.dropdownFadeInDuration : menuDropdownFadeInDuration;
         menuDropdownFadeOutDuration = options.dropdownFadeOutDuration !== void 0 ? options.dropdownFadeOutDuration : menuDropdownFadeOutDuration;
+        menuDropdownTransitionType = options.dropdownTransitionType !== void 0 ? options.dropdownTransitionType : menuDropdownTransitionType;
     };
     ui.toggleMenuItem = function(selector) {
         var menuItem = $(selector);
@@ -879,11 +885,65 @@
             if (dropdown.length) {
                 if (dropdown.css("display") === "block") {
                     menuItem.trigger("ui.dropdown.hide.before");
-                    dropdown.hide(menuDropdownFadeOutDuration);
+                    switch (menuDropdownTransitionType) {
+                      case "vertical":
+                        dropdown.animate({
+                            height: "hide",
+                            opacity: "hide"
+                        }, menuDropdownFadeOutDuration);
+                        dropdown.animate({
+                            height: "hide",
+                            opacity: "hide"
+                        }, menuDropdownFadeOutDuration);
+                        break;
+
+                      case "horizontal":
+                        dropdown.animate({
+                            width: "hide",
+                            opacity: "hide"
+                        }, menuDropdownFadeOutDuration);
+                        dropdown.animate({
+                            width: "hide",
+                            opacity: "hide"
+                        }, menuDropdownFadeOutDuration);
+                        break;
+
+                      default:
+                        dropdown.hide(menuDropdownFadeOutDuration);
+                        dropdown.hide(menuDropdownFadeOutDuration);
+                        break;
+                    }
                     menuItem.trigger("ui.dropdown.hide.after");
                 } else {
                     menuItem.trigger("ui.dropdown.show.before");
-                    dropdown.show(menuDropdownFadeInDuration);
+                    switch (menuDropdownTransitionType) {
+                      case "vertical":
+                        dropdown.animate({
+                            height: "show",
+                            opacity: "show"
+                        }, menuDropdownFadeInDuration);
+                        dropdown.animate({
+                            height: "show",
+                            opacity: "show"
+                        }, menuDropdownFadeInDuration);
+                        break;
+
+                      case "horizontal":
+                        dropdown.animate({
+                            width: "show",
+                            opacity: "show"
+                        }, menuDropdownFadeInDuration);
+                        dropdown.animate({
+                            width: "show",
+                            opacity: "show"
+                        }, menuDropdownFadeInDuration);
+                        break;
+
+                      default:
+                        dropdown.show(menuDropdownFadeInDuration);
+                        dropdown.show(menuDropdownFadeInDuration);
+                        break;
+                    }
                     if (dropdown.hasClass("menu-inclusive") === false) {
                         dropdown.prevAll(".dropdown-sheet").hide(menuDropdownFadeOutDuration);
                         dropdown.nextAll(".dropdown-sheet").hide(menuDropdownFadeOutDuration);
@@ -915,8 +975,34 @@
         var menuItem = $(this);
         if (menuItem) {
             menuItem.trigger("ui.dropdown.show.before");
-            menuItem.siblings(".dropdown-sheet").show(menuDropdownFadeInDuration);
-            menuItem.siblings(".dropdown-content").show(menuDropdownFadeInDuration);
+            switch (menuDropdownTransitionType) {
+              case "vertical":
+                menuItem.siblings(".dropdown-sheet").animate({
+                    height: "show",
+                    opacity: "show"
+                }, menuDropdownFadeInDuration);
+                menuItem.siblings(".dropdown-content").animate({
+                    height: "show",
+                    opacity: "show"
+                }, menuDropdownFadeInDuration);
+                break;
+
+              case "horizontal":
+                menuItem.siblings(".dropdown-sheet").animate({
+                    width: "show",
+                    opacity: "show"
+                }, menuDropdownFadeInDuration);
+                menuItem.siblings(".dropdown-content").animate({
+                    width: "show",
+                    opacity: "show"
+                }, menuDropdownFadeInDuration);
+                break;
+
+              default:
+                menuItem.siblings(".dropdown-sheet").show(menuDropdownFadeInDuration);
+                menuItem.siblings(".dropdown-content").show(menuDropdownFadeInDuration);
+                break;
+            }
             menuItem.trigger("ui.dropdown.show.after");
         }
     }, function() {
@@ -948,7 +1034,34 @@
         var dropdown = $(this);
         if (dropdown) {
             dropdown.trigger("ui.dropdown.hide.before");
-            dropdown.hide(menuDropdownFadeOutDuration);
+            switch (menuDropdownTransitionType) {
+              case "vertical":
+                dropdown.animate({
+                    height: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                dropdown.animate({
+                    height: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                break;
+
+              case "horizontal":
+                dropdown.animate({
+                    width: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                dropdown.animate({
+                    width: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                break;
+
+              default:
+                dropdown.hide(menuDropdownFadeOutDuration);
+                dropdown.hide(menuDropdownFadeOutDuration);
+                break;
+            }
             dropdown.trigger("ui.dropdown.hide.after");
         }
     });
@@ -972,7 +1085,34 @@
         var dropdown = $(this);
         if (dropdown) {
             dropdown.trigger("ui.dropdown.hide.before");
-            dropdown.hide(menuDropdownFadeOutDuration);
+            switch (menuDropdownTransitionType) {
+              case "vertical":
+                dropdown.animate({
+                    height: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                dropdown.animate({
+                    height: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                break;
+
+              case "horizontal":
+                dropdown.animate({
+                    width: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                dropdown.animate({
+                    width: "hide",
+                    opacity: "hide"
+                }, menuDropdownFadeOutDuration);
+                break;
+
+              default:
+                dropdown.hide(menuDropdownFadeOutDuration);
+                dropdown.hide(menuDropdownFadeOutDuration);
+                break;
+            }
             dropdown.trigger("ui.dropdown.hide.after");
         }
     });
@@ -1293,7 +1433,8 @@
         var modal = $(selector);
         if (modal) {
             modal.trigger("ui.modal.hide.before");
-            $("body").removeAttr("style");
+            $("body").css("padding-right", "");
+            $("body").css("overflow", "");
             modal.hide();
             modal.trigger("ui.modal.hide.after");
         }
@@ -1403,5 +1544,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-4.6.5";
+    ui.version = "webui-5.0.0";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

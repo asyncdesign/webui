@@ -25,21 +25,21 @@ $(function () {
 		loop:true,
 		margin:20,
 		responsive:{
-			320:{
+			479:{
 				items:1
 			},
-			479:{
+			640:{
 				items:2
 			},
-			640:{
+			991:{
 				items:3
 			},
-			991:{
+			1199:{
 				items:4
 			},
-			1199:{
+			1600:{
 				items:5
-			}                      
+			}                        
 		}
 	});
 	
@@ -50,19 +50,19 @@ $(function () {
 		loop:true,
 		margin:20,
 		responsive:{
-			320:{
+			479:{
 				items:1
 			},
-			479:{
+			640:{
 				items:2
 			},
-			640:{
+			991:{
 				items:3
 			},
-			991:{
+			1199:{
 				items:4
 			},
-			1199:{
+			1600:{
 				items:5
 			}                        
 		}

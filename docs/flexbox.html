@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/typography.html">
+  <link rel="canonical" href="http://localhost:4000/webui/flexbox.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -280,105 +280,293 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <p id="typography" class="text-lg color-accent-2 text-bold">
-	Typography
+                        <p id="flexbox" class="text-lg color-accent-2 text-bold">
+  Flexbox
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-	<p class="color-accent-5 text-bold">Headings</p>
+    <p class="color-accent-5 text-bold">Overview</p>
 
-	<p>The tags <span class="color-accent-2 text-bold">h1</span>, <span class="color-accent-2 text-bold">h2</span>, <span class="color-accent-2 text-bold">h3</span>, and 
-	<span class="color-accent-2 text-bold">h4</span> are styled by default and will appear as follows when not multiplied by 
-	<span class="color-accent-2 text-bold">text-*</span> classes:</p>
+    <p>Flexbox was designed to improve the arrangement and layout of content whatever the size or quantity, but was never intended to be a replacement for grid systems,
+      and can be introduced to existing markup as an enhancement. Flexbox is by no means an all or nothing solution, and was specifically given the capability to override
+      existing CSS behaviours in many cases.</p>
+      
+    <p>So how does it work? Flexbox is designed around the idea of a flex container (the parent element) and flex items (the child elements). The browser will calculate when 
+      a flex item should be repositioned, resized, or wrapped (if flex-wrap is enabled). This is based on the flex container size, available space within it, and the size 
+      of flex items.<p>
 
-	<h1>Heading 1</h1>
-	<h2>Heading 2</h2>
-	<h3>Heading 3</h3>
-	<h4>Heading 4</h4>
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font sizes</p>
-
-	WebUI does not define any base font size and just uses the browser default. The following classes can be used to set different 
-	sizes relative to the browser font size or parent element font size:
-
-	<p>
-		<span class="color-accent-2 text-bold">text</span> - Sets the line height to 1.5em
-		<br />
-		<span class="color-accent-2 text-bold">text-xs</span> - Sets the font size to 0.75 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-sm</span> - Sets the font size to 0.875 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-lg</span> - Sets the font size to 1.125 times the browser font size or the parent element font size.
-		<br />
-		<span class="color-accent-2 text-bold">text-xl</span> - Sets the font size to 1.25 times the browser font size or the parent element font size.
-	</p>
-
-	In order to increase or decrease the font size for the body, container, or even a single column, you just need to add one
-	of the above classes to it. Then, any classes you use within that element will size relative to the parent font size. However,
-	if you use the class <span class="color-accent-2 text-bold">text-md</span> there will be no inherited change because
-	<span class="color-accent-2 text-bold">text-md</span> is actually 1em, which means multiply by 1.
-	<p>
-		For example, if you use <span class="color-accent-2 text-bold">text-lg</span> on a container and specify 
-		<span class="color-accent-2 text-bold">text-lg</span> on any columns within that container, then the text size would actually 
-		be equivalent to 20.25px for those columns, based on a browser font size of 16px.
-	</p>
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font styles</p>
-
-	<p>There are a handful of font style classes, such as text-bold, text-italic, text-upper, text-lower, etc.
-
-	<div class="row-spacing-md"></div>
-
-	<p class="color-accent-5 text-bold">Font alignment</p>
-
-	<p>Here's an example of subscript using 2 classes <span class="color-accent-2 text-bold">text-sub</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>H<span class="text-sub text-xs">2</span>O</p>
-
-	<p>This is an example of superscript using 2 classes <span class="color-accent-2 text-bold">text-super</span> and <span class="color-accent-2 text-bold">text-xs</span></p>
-	<p>17<span class="text-super text-xs">th</span> Jan 2017</p>
+    <p>It is possible to layout an entire site using primarily flexbox, due to some of it's unique capabilities, but you should continue to use traditional
+      techniques where it makes sense. Flexbox is all about content driven design, where contained html elements can stretch, grow, shrink, or wrap, depending on available space. 
+      You might then ask, so how does this play in terms of a responsive web design? Given a flex container and a set of flex items within the container, you can 
+      construct a fully responsive layout without the need for media queries or breakpoints - however, media queries may be needed for more complex layouts or device related 
+      requirements, for example. Flexbox excels when it comes to alignment and spacing, which can dramatically reduce the dependence on margin and padding adjustments. It
+      is a great solution for arranging html elements within components.
+    </p>
+    <p>WebUI supports the full range of flexbox features, providing a comprehensive set of utility classes, including media breakpoint specific equivalents.</p>
 
 
-	<div class="row-spacing-md"></div>
+    <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+      <p class="color-accent-3">Naming convention</p>
+      <p>All flexbox related classes are prefixed by <b>flex-</b>. This avoids any confusion between flexbox and non-flexbox classes.</p>
+    </blockquote>
 
-	<p class="color-accent-5 text-bold">Adding colour</p>
 
-	You can apply any theme colours to text content for either foreground or background, and easily add effects using 
-	<span class="color-accent-2 text-bold">color-hover-*</span> or <span class="color-accent-2 text-bold">background-hover-*</span> 
-	classes. But if you wanted to simply highlight a section of text you could just specify the theme color name as the class. For example, 
-	<span class="color-accent-2 text-bold">info</span> or <span class="color-accent-2 text-bold">highlight</span>.
+    <div class="row-spacing-md"></div>
 
-	<p>For more information on using theme colours please see the <a href="/webui/theme_colors.html" class="color-accent-2 color-hover-accent-4">
-	Theme colours</a> section.</p>
+    <p class="color-accent-5 text-bold">Basic structure</p>
 
-	<div class="row-spacing-md"></div>
-	
-	<p class="color-accent-5 text-bold">Paragraph formatting</p>
-
-	<p>The class <span class="color-accent-2 text-bold">text</span> can be used on any element that may contain text content - this will cause the
-	line-height to be set at 1.5em, which will give good spacing between each line.</p>
-
-	Blockqotes are formatted with a 0.438 rem left border using the default theme color, but you can easily style them using WebUI classes.
-
-	<div class="content-row">
-		<div class="content-col-10 respond-bp-2-under">
-			<blockquote class="border-accent-3 background-secondary col-spacing-right-md">
-				<p class="color-accent-3">Blockquote heading</p>
-				<p>Blockquotes look great with a little colour and formatting using WebUI classes.</p>
-				<p class="text-sm text-italic color-accent-4"> &#8212; Blockquote footer</p>
-			</blockquote>
-		</div>
-	</div>
-
-	<div class="row-spacing-md"></div>
+    <p>The code snippet below shows how to make a very simple flexbox structure using some of the basic flexbox utility classes. The flex container is nothing more than a div being
+      set to <span class="color-accent-2 text-bold">display: flex</span> and using the defaults for flex-grow, flex-shrink, and flex-basis - in most cases this is sufficient for 
+      the container. Within that are two div tags, which automatically become flex items because they are immediate children of the flex container. The flex items have also been set 
+      to flex-grow so that they will each expand equally to use all available space in the flex container.</p>
 
 </div>
+
+
+<div id="snippet100" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex"&gt;
+  &lt;div class="flex-grow border-sm border-accent-2 background-secondary pad-sm"&gt;
+    Flex item 1
+  &lt;/div&gt;
+  &lt;div class="flex-grow border-sm border-accent-2 background-secondary pad-sm"&gt;
+    Flex item 2
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
+    <p>Another way to do the same thing is by using higher level classes such as flex-row and flex-column.</p>
+
+</div>
+
+<div id="snippet101" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="flex-col border-sm border-accent-2 background-secondary pad-sm"&gt;
+    Flex item 1
+  &lt;/div&gt;
+  &lt;div class="flex-col border-sm border-accent-2 background-secondary pad-sm"&gt;
+    Flex item 2
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+   
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Flex item sizing</p>
+
+    <p>Much like the grid system, flex items can be given a size ranging from 1 to 20. Although they perform a similar function, the difference is that flex item sizes can
+      be either vertical or horizontal, depending on the flex direction of the flex container. You can change the flex direction by using either 
+      <span class="color-accent-2 text-bold">flex-direction-row</span> or <span class="color-accent-2 text-bold">flex-direction-column</span> on the container.
+    </p>
+
+    <div class="row-spacing-md"></div>
+
+    <p>The code below shows how to use flex item sizes.</p>
+</div>
+
+<div id="snippet102" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row border-sm border-muted pad-sm"&gt;
+  &lt;div class="flex-size-6"&gt;     
+    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
+      Lorem ipsum dolor sit amet        
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="flex-size-14"&gt;
+    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
+      Lorem ipsum dolor sit amet
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Media breakpoint utilities</p>
+
+    <p>Almost all WebUI utility classes will have corresponding breakpoint specific versions.
+    </p>
+
+    <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+      <p class="color-accent-3">Naming convention</p>
+      <p>Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to any utility class using the format <b>-bp-[breakpoint number]-[direction]</b>. 
+      The direction is either <span class="color-accent-2 text-bold">under</span> or <span class="color-accent-2 text-bold">over</span></p>. For example 
+      <span class="color-accent-2 text-bold">-bp-1-under</span> or <span class="color-accent-2 text-bold">-bp-3-over</span>.
+    </blockquote>
+
+    <div class="row-spacing-md"></div>
+
+</div>
+
+<div id="snippet103" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row border-sm border-muted pad-sm"&gt;
+  &lt;div class="flex-size-6 flex-size-14-bp-4-under flex-size-10-bp-2-under"&gt;     
+    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
+      Lorem ipsum dolor sit amet        
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="flex-size-14 flex-size-6-bp-4-under flex-size-10-bp-2-under"&gt;
+    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
+      Lorem ipsum dolor sit amet
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <p>In the example above, each flex item has one default size applied and two further breakpoint sizes - this will cause each flex item to change size at each of those 
+      breakpoints. They will start off at 6 and 14 making a total of 20 for the largest screen size, then swap sizes at breakpoint 4, and change to 2 equal sizes at
+      breakpoint 2.</p>
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">More complex objects</p>
+
+    <p>This snippet shows the use of WebUI flexbox to layout a typical responsive navbar</p>
+</div>
+
+<div id="snippet104" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel background-dark"&gt;
+  &lt;div class="flex-row flex-items-center flex-justify-space-between flex-direction-column-bp-1-under"&gt;
+    &lt;div class="flex-initial flex-justify-center-bp-1-under"&gt;
+      &lt;a href="javascript:void 0" class="color-accent-2 text-xl"&gt;COMPANY LOGO&lt;/a&gt;
+    &lt;/div&gt;              
+    &lt;div class="flex-auto flex-wrap flex-justify-center flex-justify-space-around flex-direction-column-bp-1-under"&gt;
+      &lt;a href="#0" class="text-sm color-light color-hover-success col-spacing-sm"&gt;PAGES&lt;/a&gt;
+      &lt;a href="#0" class="text-sm color-light color-hover-success col-spacing-sm"&gt;PROMOTIONS&lt;/a&gt;
+      &lt;a href="#0" class="text-sm color-light color-hover-success col-spacing-sm"&gt;PRODUCTS&lt;/a&gt;
+    &lt;/div&gt;          
+    &lt;div class="flex-initial flex-justify-end-bp-1-over"&gt;
+      &lt;input type="text" class="input-md width-full" placeholder="Search" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="text">
+
+    <div class="row-spacing-md"></div>
+
+    <p>On the second line in code example above, a <span class="color-accent-2 text-bold">flex-row</span> is defined (this is the flex container), then
+    the <span class="color-accent-2 text-bold">flex-items-center</span> makes all flex items (the flex children), center vertically - this only applies
+    to the immediate children of the container and in this case it's the 3 div tags. Next, <span class="color-accent-2 text-bold">flex-justify-space-between</span> 
+    adds equal spacing between the flex items. The last class applied to the container is <span class="color-accent-2 text-bold">flex-direction-column-bp-1-under</span>, 
+    and you will notice that it has the suffix of <span class="color-accent-2 text-bold">-bp-1-under</span> - this suffix only allows the class to apply 
+    at the smallest media breakpoint and under, so what we are doing here is effectively turning the row into a column by changing the flex direction at 
+    that breakpoint.<p>
+
+    <p>There are 3 flex items defined, the first and last have the class <span class="color-accent-2 text-bold">flex-initial</span> applied, and the 
+    second flex item has the class <span class="color-accent-2 text-bold">flex-auto</span>. <span class="color-accent-2 text-bold">flex-initial</span> is 
+    the default for flexbox flex items, but not for WebUI flex items - what this means is that it cannot grow, but is allowed to shrink if required and will be 
+    just large enough to accomodate its content. <span class="color-accent-2 text-bold">flex-auto</span> on the other hand, is similar except that it is allowed 
+    to grow if required to fill any remaining space - this is the default for WebUI flex-items.</p>
+
+    <p>Because all of the flex items within the container also have flexbox classes added, it means that their immediate children have now become flex 
+    items also - in this case its the actual links and text elements.
+      
+
+    <div class="row-spacing-md"></div>
+
+    <p class="color-accent-5 text-bold">Layouts</p>
+</div>
+
+
+<div id="snippet105" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="container responsive-gutter-md"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="flex-col pad-xs"&gt;
+      &lt;div class="panel secondary text-center"&gt;
+        Heading
+      &lt;/div&gt;
+    &lt;/div&gt;  
+  &lt;/div&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="flex-size-15 flex-respond-bp-2-under"&gt;
+      &lt;div class="flex-col pad-xs"&gt;
+        &lt;div class="panel secondary height-full"&gt;
+           Main
+           &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et 
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="flex-size-5 flex-respond-bp-2-under flex-order-first-bp-2-under"&gt;
+      &lt;div class="flex-col pad-xs"&gt;
+        &lt;div class="panel secondary height-full"&gt;
+           Navigation
+           &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et 
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+	</div>
+</div>
+
+<div class="text">
+
+    <p>As with the traditional grid system, there are also utility classes to make flex items wrap and expand to the full width of the container at specific breakpoints. 
+      Also, flex items can be ordered visually, which is very useful for arranging components for mobile devices after being stacked. You can see both of these utilities 
+      used in the example above.
+    </p>
+
+		<p>To get more practical information about using WebUI flexbox features see the <a href="/webui/theme_dashboard_sales.html" class="color-accent-2 color-hover-accent-4">
+    WebUI dashboard theme</a>	and the <a href="/webui/theme_ecommerce_fashion.html" class="color-accent-2 color-hover-accent-4">WebUI ecommerce theme</a>, both of 
+    which make use of flexbox.</p>
+
+    <p>The static <b>DEMO.html</b> page, which comes with the download zip file, also includes various other flexbox examples.</p>
+</div>
+
+<div class="row-spacing-lg"></div>
 
                       </div>
                     </div>
