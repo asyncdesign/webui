@@ -1,18 +1,23 @@
 /*!
 * Name: webui - UI functions
-* Version: 5.0.0
-* Author: Levi Keogh, 2017-02-07
+* Version: 5.1.0
+* Author: Levi Keogh, 2017-04-05
 */
 "use strict";
 
 (function(webui, ui, $, undefined) {
     /* PRIVATE */
-    var notificationDynamic = false;
-    var notificationPosition = "top-right";
-    var notificationShowIcon = true;
-    var notificationDuration = 5e3;
-    var notificationFadeInDuration = 300;
-    var notificationFadeOutDuration = 300;
+    var alertPosition = "top-right";
+    var alertDuration = 5e3;
+    var alertFadeInDuration = 300;
+    var alertFadeOutDuration = 300;
+    var alertWidth = "18.750rem";
+    var alertShowHeader = true;
+    var alertInline = true;
+    var alertStyle = "outline-square";
+    var alertDynamic = false;
+    var alertShowIcon = true;
+    var alertShowClose = true;
     var menuDropdownFadeInDuration = 500;
     var menuDropdownFadeOutDuration = 500;
     var menuDropdownTransitionType = "vertical";
@@ -217,7 +222,7 @@
             }
         }
     };
-    var checkboxes = $(".checkbox-sm label");
+    var checkboxes = $(".checkbox label");
     if (checkboxes && checkboxes.length) {
         checkboxes.attr({
             tabindex: "0",
@@ -229,7 +234,7 @@
             }
         });
     }
-    var radiobuttons = $(".radio-sm label");
+    var radiobuttons = $(".radio label");
     if (radiobuttons && radiobuttons.length) {
         radiobuttons.attr({
             tabindex: "0",
@@ -252,6 +257,18 @@
         }, 100);
     }
     /* PUBLIC */
+    ui.show = function(selector) {
+        var element = $(selector);
+        if (element.hasClass("hidden")) {
+            element.removeClass("hidden");
+        }
+    };
+    ui.hide = function(selector) {
+        var element = $(selector);
+        if (!element.hasClass("hidden")) {
+            element.addClass("hidden");
+        }
+    };
     ui.toggleControl = function(selector, toggleState) {
         if (arguments.length > 0) {
             var element = $(selector);
@@ -1116,148 +1133,203 @@
             dropdown.trigger("ui.dropdown.hide.after");
         }
     });
-    ui.initNotifications = function(options) {
-        notificationDynamic = options.dynamic !== void 0 ? options.dynamic : notificationDynamic;
-        notificationPosition = options.position !== void 0 ? options.position : notificationPosition;
-        notificationShowIcon = options.showIcon !== void 0 ? options.showIcon : notificationShowIcon;
-        notificationDuration = options.duration !== void 0 ? options.duration : notificationDuration;
-        notificationFadeInDuration = options.fadeInDuration !== void 0 ? options.fadeInDuration : notificationFadeInDuration;
-        notificationFadeOutDuration = options.fadeOutDuration !== void 0 ? options.fadeOutDuration : notificationFadeOutDuration;
+    ui.initAlerts = function(options) {
+        alertPosition = options.position !== void 0 ? options.position : alertPosition;
+        alertDuration = options.duration !== void 0 ? options.duration : alertDuration;
+        alertFadeInDuration = options.fadeInDuration !== void 0 ? options.fadeInDuration : alertFadeInDuration;
+        alertFadeOutDuration = options.fadeOutDuration !== void 0 ? options.fadeOutDuration : alertFadeOutDuration;
+        alertWidth = options.width != void 0 ? options.width : alertWidth;
+        alertShowHeader = options.showHeader != void 0 ? options.showHeader : alertShowHeader;
+        alertInline = options.inline != void 0 ? options.inline : alertInline;
+        alertStyle = options.style != void 0 ? options.style : alertStyle;
+        alertDynamic = options.dynamic !== void 0 ? options.dynamic : alertDynamic;
+        alertShowIcon = options.showIcon !== void 0 ? options.showIcon : alertShowIcon;
+        alertShowClose = options.showClose !== void 0 ? options.showClose : alertShowClose;
     };
-    ui.showNotification = function(message, type, dynamic, showIcon) {
+    ui.showAlert = function(message, type, dynamic, showIcon, showClose) {
         if (arguments.length > 1) {
-            var notificationContainer = !$(".notification-container").length ? $("<div></div>").addClass("notification-container").addClass("notification-" + notificationPosition).appendTo("body") : $(".notification-container");
-            var notificationItemOuter = $("<div></div>");
-            var notificationItemInner = $("<div></div>").hide().addClass("panel notification-item notification-type-" + type).appendTo(notificationContainer).animate({
+            var alertContainer = !$(".alert-container").length ? $("<div></div>").addClass("alert-container").addClass("alert-" + alertPosition).appendTo("body") : $(".alert-container");
+            alertContainer.css("width", alertWidth);
+            var alertItemOuter = $("<div></div>");
+            var alertItemInner = $("<div role='alert'></div>").hide().addClass("alert alert-" + type).css("padding-left", "0.625rem").css("padding-right", "0.625rem").appendTo(alertContainer).animate({
                 opacity: "show"
-            }, notificationFadeInDuration).wrap(notificationItemOuter);
-            var notificationItemHeader = $("<div></div>").addClass("content-row").appendTo(notificationItemInner);
-            var notificationItemHeaderColumn = $("<div></div>").addClass("content-col-20").appendTo(notificationItemHeader);
-            var notificationItemClose = $("<div></div>").addClass("notification-icon-cancel move-right").appendTo(notificationItemHeaderColumn).html("").click(function() {
-                ui.hideNotification(notificationItemInner, false);
-            });
-            var notificationItemBody = $("<div></div>").addClass("content-row").appendTo(notificationItemInner);
-            var notificationItemBodyIconColumn = null;
-            var notificationItemBodySpacerColumn = null;
-            var notificationItemBodyMessageColumn = null;
-            if (showIcon != null) {
-                if (showIcon) {
-                    notificationItemBodyIconColumn = $("<div></div>").addClass("content-col-4").appendTo(notificationItemBody).addClass("notification-icon-" + type);
-                    notificationItemBodySpacerColumn = $("<div>&nbsp;</div>").addClass("content-col-1").appendTo(notificationItemBody);
-                    notificationItemBodyMessageColumn = $("<div></div>").addClass("content-col-15").appendTo(notificationItemBody).html(message);
-                } else {
-                    notificationItemBodySpacerColumn = $("<div>&nbsp;</div>").addClass("content-col-2").appendTo(notificationItemBody);
-                    notificationItemBodyMessageColumn = $("<div></div>").addClass("content-col-18").appendTo(notificationItemBody).html(message);
-                }
-            } else {
-                if (notificationShowIcon) {
-                    notificationItemBodyIconColumn = $("<div></div>").addClass("content-col-4").appendTo(notificationItemBody).addClass("notification-icon-" + type);
-                    notificationItemBodySpacerColumn = $("<div>&nbsp;</div>").addClass("content-col-1").appendTo(notificationItemBody);
-                    notificationItemBodyMessageColumn = $("<div></div>").addClass("content-col-15").appendTo(notificationItemBody).html(message);
-                } else {
-                    notificationItemBodySpacerColumn = $("<div>&nbsp;</div>").addClass("content-col-2").appendTo(notificationItemBody);
-                    notificationItemBodyMessageColumn = $("<div></div>").addClass("content-col-18").appendTo(notificationItemBody).html(message);
+            }, alertFadeInDuration).wrap(alertItemOuter);
+            if (alertStyle === "outline-square" || alertStyle === "outline-rounded") {
+                switch (type) {
+                  case "success":
+                    alertItemInner.addClass("alert-success-outline");
+                    break;
+
+                  case "info":
+                    alertItemInner.addClass("alert-info-outline");
+                    break;
+
+                  case "warning":
+                    alertItemInner.addClass("alert-warning-outline");
+                    break;
+
+                  case "danger":
+                    alertItemInner.addClass("alert-danger-outline");
+                    break;
+
+                  default:
+                    break;
                 }
             }
-            var notificationItemSpacer = $("<div></div>").addClass("row-spacing-xs").appendTo(notificationItemInner);
+            if (alertStyle.toLowerCase().indexOf("rounded") >= 0) {
+                alertItemInner.addClass("rounded-md");
+            }
+            if (alertShowHeader && !alertInline) {
+                if (showIcon || showClose) {
+                    var alertItemHeader = $("<div></div>").addClass("panel").appendTo(alertItemInner);
+                    var alertItemHeaderLeft = $("<div></div>").addClass("move-left").appendTo(alertItemHeader);
+                    var alertItemHeaderRight = $("<div></div>").addClass("move-right").appendTo(alertItemHeader);
+                    if (showIcon) {
+                        var alertItemIcon = $("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
+                    }
+                    if (showClose) {
+                        var alertItemCancel = $("<div role='button'></div>").addClass("alert-cancel").appendTo(alertItemHeaderRight).click(function() {
+                            ui.hideAlert(alertItemInner, false);
+                        });
+                    }
+                }
+            }
+            var alertItemBody = $("<div></div>").addClass("panel").appendTo(alertItemInner);
+            if (alertShowHeader && alertInline) {
+                if (showIcon && showClose) {
+                    var alertItemIcon = $("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+                    var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
+                    var alertItemCancel = $("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody).click(function() {
+                        ui.hideAlert(alertItemInner, false);
+                    });
+                } else if (showIcon) {
+                    var alertItemIcon = $("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+                    var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+                } else if (showClose) {
+                    var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
+                    var alertItemCancel = $("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody).click(function() {
+                        ui.hideAlert(alertItemInner, false);
+                    });
+                } else {
+                    var alertItemBodyMessage = $("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
+                }
+            } else {
+                var alertItemBodyMessage = $("<div></div>").appendTo(alertItemBody).html(message);
+            }
             if (dynamic != null) {
                 if (dynamic) {
                     setTimeout(function() {
-                        ui.hideNotification(notificationItemInner, true);
-                    }, notificationDuration);
+                        ui.hideAlert(alertItemInner, true);
+                    }, alertDuration);
                 }
             } else {
-                if (notificationDynamic) {
+                if (alertDynamic) {
                     setTimeout(function() {
-                        ui.hideNotification(notificationItemInner, true);
-                    }, notificationDuration);
+                        ui.hideAlert(alertItemInner, true);
+                    }, alertDuration);
                 }
             }
         }
     };
-    ui.hideNotification = function(notification, dynamic) {
-        if (notification) {
-            notification.animate({
+    ui.hideAlert = function(alert, dynamic) {
+        if (alert) {
+            alert.animate({
                 opacity: "hide"
-            }, dynamic ? notificationDuration : notificationFadeOutDuration, function() {
-                notification.parent().animate({
+            }, dynamic ? alertDuration : alertFadeOutDuration, function() {
+                alert.parent().animate({
                     height: "0px"
-                }, notificationFadeOutDuration, function() {
-                    notification.parent().remove();
+                }, alertFadeOutDuration, function() {
+                    alert.parent().remove();
                 });
             });
         }
     };
-    ui.showSuccessNotification = function(message, dynamic, showIcon) {
+    ui.showSuccessAlert = function(message, dynamic, showIcon, showClose) {
         var msgType = "success";
         switch (arguments.length) {
           case 1:
-            ui.showNotification(message, msgType, null, null);
+            ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose);
             break;
 
           case 2:
-            ui.showNotification(message, msgType, dynamic, null);
+            ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose);
             break;
 
           case 3:
-            ui.showNotification(message, msgType, dynamic, showIcon);
+            ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose);
+            break;
+
+          case 4:
+            ui.showAlert(message, msgType, dynamic, showIcon, showClose);
             break;
 
           default:
             break;
         }
     };
-    ui.showInfoNotification = function(message, dynamic, showIcon) {
+    ui.showInfoAlert = function(message, dynamic, showIcon, showClose) {
         var msgType = "info";
         switch (arguments.length) {
           case 1:
-            ui.showNotification(message, msgType, null, null);
+            ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose);
             break;
 
           case 2:
-            ui.showNotification(message, msgType, dynamic, null);
+            ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose);
             break;
 
           case 3:
-            ui.showNotification(message, msgType, dynamic, showIcon);
+            ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose);
+            break;
+
+          case 4:
+            ui.showAlert(message, msgType, dynamic, showIcon, showClose);
             break;
 
           default:
             break;
         }
     };
-    ui.showWarningNotification = function(message, dynamic, showIcon) {
+    ui.showWarningAlert = function(message, dynamic, showIcon, showClose) {
         var msgType = "warning";
         switch (arguments.length) {
           case 1:
-            ui.showNotification(message, msgType, null, null);
+            ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose);
             break;
 
           case 2:
-            ui.showNotification(message, msgType, dynamic, null);
+            ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose);
             break;
 
           case 3:
-            ui.showNotification(message, msgType, dynamic, showIcon);
+            ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose);
+            break;
+
+          case 4:
+            ui.showAlert(message, msgType, dynamic, showIcon, showClose);
             break;
 
           default:
             break;
         }
     };
-    ui.showDangerNotification = function(message, dynamic, showIcon) {
+    ui.showDangerAlert = function(message, dynamic, showIcon, showClose) {
         var msgType = "danger";
         switch (arguments.length) {
           case 1:
-            ui.showNotification(message, msgType, null, null);
+            ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose);
             break;
 
           case 2:
-            ui.showNotification(message, msgType, dynamic, null);
+            ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose);
             break;
 
           case 3:
-            ui.showNotification(message, msgType, dynamic, showIcon);
+            ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose);
+            break;
+
+          case 4:
+            ui.showAlert(message, msgType, dynamic, showIcon, showClose);
             break;
 
           default:
@@ -1272,14 +1344,14 @@
     ui.showTooltip = function(selector, message, resetOnly) {
         var tooltip = $(selector).children("*[class*='tooltip-']:first");
         if (tooltip && tooltip.length) {
-            var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 0;
+            var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
             if (tooltip.hasClass("tooltip-left")) {
-                if (tooltipAutoSize) {
+                if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
                     if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
                         tooltipWidth = 125;
                     }
                 }
-                if (tooltipAutoPos) {
+                if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") == "block") {
                         if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
                             flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_LEFT);
@@ -1296,12 +1368,12 @@
                     }
                 }
             } else if (tooltip.hasClass("tooltip-top")) {
-                if (tooltipAutoSize) {
+                if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
                     if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
                         tooltipWidth = 125;
                     }
                 }
-                if (tooltipAutoPos) {
+                if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") == "block") {
                         if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
                             flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_TOP);
@@ -1312,12 +1384,12 @@
                     }
                 }
             } else if (tooltip.hasClass("tooltip-right")) {
-                if (tooltipAutoSize) {
+                if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
                     if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
                         tooltipWidth = 125;
                     }
                 }
-                if (tooltipAutoPos) {
+                if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") == "block") {
                         if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
                             flipTooltip(tooltip, ui.LEFT, ui.SHADOW_RIGHT);
@@ -1334,12 +1406,12 @@
                     }
                 }
             } else if (tooltip.hasClass("tooltip-bottom")) {
-                if (tooltipAutoSize) {
+                if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
                     if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
                         tooltipWidth = 125;
                     }
                 }
-                if (tooltipAutoPos) {
+                if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") == "block") {
                         if (ui.getElementViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
                             flipTooltip(tooltip, ui.TOP, ui.SHADOW_BOTTOM);
@@ -1380,10 +1452,16 @@
         }
     };
     $(".tooltip").hover(function() {
-        var tooltip = $(this).children(".tooltip-dynamic:first");
-        if (tooltip && tooltip.length) {
-            ui.showTooltip(this);
-            resetTooltips();
+        var disabledTarget = $(this).children(".control-disabled");
+        if (!disabledTarget.length) {
+            var disabledParent = $(this).parents(".control-group-disabled");
+            if (!disabledParent.length) {
+                var tooltip = $(this).children(".tooltip-dynamic:first");
+                if (tooltip && tooltip.length) {
+                    ui.showTooltip(this);
+                    resetTooltips();
+                }
+            }
         }
     }, function() {
         var tooltip = $(this).children(".tooltip-dynamic:first");
@@ -1392,10 +1470,16 @@
         }
     });
     $(".tooltip").focusin(function() {
-        var tooltip = $(this).children(".tooltip-focus:first");
-        if (tooltip && tooltip.length) {
-            ui.showTooltip(this);
-            resetTooltips();
+        var disabledTarget = $(this).children(".control-disabled");
+        if (!disabledTarget.length) {
+            var disabledParent = $(this).parents(".control-group-disabled");
+            if (!disabledParent.length) {
+                var tooltip = $(this).children(".tooltip-focus:first");
+                if (tooltip && tooltip.length) {
+                    ui.showTooltip(this);
+                    resetTooltips();
+                }
+            }
         }
     });
     $(".tooltip").focusout(function() {
@@ -1426,6 +1510,7 @@
             var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
             $("body").css("padding-right", scrollShift);
             $("body").css("overflow", "hidden");
+            modal.find("input, textarea, select").not("input[type=hidden],input[type=button],input[type=submit],input[type=reset],input[type=image],button").filter(":enabled:visible:first").focus();
             modal.trigger("ui.modal.show.after");
         }
     };
@@ -1544,5 +1629,5 @@
     ui.SHADOW_TOP = 1;
     ui.SHADOW_RIGHT = 2;
     ui.SHADOW_BOTTOM = 3;
-    ui.version = "webui-5.0.0";
+    ui.version = "webui-5.1.0";
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

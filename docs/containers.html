@@ -99,7 +99,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -162,7 +162,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -229,7 +229,7 @@
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
 													<span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
 												</button>
@@ -423,8 +423,8 @@
     </div>
     -->
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -455,15 +455,6 @@
 
         // Initialisation
 
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: false,
-          position: "top-right",
-          duration: 3000,
-          fadeInDuration: 600,
-          fadeOutDuration: 300
-        });
-
         ui.initMenus({
           dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
@@ -488,13 +479,13 @@
         $("#menuShrink").click( function() { 
           
           if ($("#leftPanel").hasClass("width-xl")) {
-            $("#leftPanel").addClass("hidden");
+            ui.hide("#leftPanel");
             $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
             $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
-            $("#leftPanel").removeClass("hidden");
+            ui.show("#leftPanel");
             $("#leftPanel").addClass("width-xl");
             $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
@@ -526,11 +517,12 @@
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
-            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61", "snippet62"]); break;
             case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
             case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
             case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
+            case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             default: break;
           }
         }

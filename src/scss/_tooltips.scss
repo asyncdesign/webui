@@ -14,6 +14,9 @@
 	box-sizing: border-box;
 	white-space: normal;
 	@include layer-2();
+	&.tooltip-nopadding {
+		padding: 0;
+	}
 }
 .tooltip-dynamic:after,
 .tooltip-focus:after,
@@ -250,5 +253,5 @@
 	border-right-color: $theme_transparent_border;
 }
 .tooltip-animate {
-  animation: animate-fadein 0.5s ease-in-out;
+  	animation: animate-fadein 0.5s ease-in-out;
 }

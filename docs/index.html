@@ -51,7 +51,7 @@
 												<button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Menus</span></button>
 												<button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Tooltips</span></button>
 												<button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Modal dialogs</span></button>
-												<button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Notifications</span></button>
+												<button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left">
 													<span class="row-inline width-lg col-spacing-left-xs">Tabs</span>
 												</button>
@@ -133,7 +133,7 @@
 													</p>
 													
 													<p><i>Be creative. Start something amazing today!</i></p>
-													<p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+													<p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
 												</div>
 											</div>
 											<div class="content-row">
@@ -192,7 +192,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -255,7 +255,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -324,7 +324,7 @@
 							</div>
 							<div class="row-spacing-lg"></div>
 							<div class="text-bold">
-								Current version 5.0.0
+								Current version 5.1.0
 							</div>
 						</span>
 					</div>
@@ -489,12 +489,12 @@
 								<div class="content-col-20 background-primary rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/notifications.html" class="color-accent-4 text-xl">
+											<a href="/webui/alerts.html" class="color-accent-4 text-xl">
 												<div class="area">
-													<img src="/webui/assets/images/notifications_small.png" alt="Media" />
+													<img src="/webui/assets/images/alerts_small.png" alt="Media" />
 												</div>
 												<div class="panel">
-													Notifications
+													Alerts
 												</div>
 											</a>
 										</div>
@@ -503,7 +503,7 @@
 									<div class="content-row">
 										<div class="form-col-20 color-accent-4">
 											<div class="body text-center height-lg">
-												Use notifications with features including animated stacking, positioning and transition effects.
+												Use alerts with features including animated stacking, positioning and transition effects.
 											</div>
 										</div>
 									</div>
@@ -767,8 +767,8 @@
     </div>
     
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -782,7 +782,7 @@
 
 
         $("#commandDownload").click( function() { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v5.0.0.zip";
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v5.1.0.zip";
         });
         
         $("#commandDocumentation").click( function() {
@@ -802,18 +802,6 @@
         });
 
         
-
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: true,
-          position: "bottom-center",
-          duration: 6000,
-          fadeInDuration: 1000,
-          fadeOutDuration: 500
-        });
-
-        //ui.showInfoNotification("Includes full flexbox support.", true, false);
-
       });
 
     </script>

@@ -99,7 +99,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -162,7 +162,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -229,7 +229,7 @@
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
 													<span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
 												</button>
@@ -503,7 +503,7 @@
 
     <p class="color-accent-5 text-bold">Grouping controls</p>
 
-    <p>Form controls may be joined together by just adding the <span class="color-accent-2 text-bold">control-append</span> class on the parent element of the 
+    <p>Form controls may be joined together by just adding the <span class="color-accent-2 text-bold">control-group-append</span> class on the parent element of the 
     controls you want to join together. The controls will then stay fixed together, regardless of column adjustment or browser resizing.</p>
 
     <blockquote>
@@ -513,7 +513,186 @@
 
     <div class="row-spacing-md"></div>
 
+    <p class="color-accent-5 text-bold">Grouping styles and validation</p>
+
+    <p>You can also apply validation styles to any individual control or a group of form controls by using one of the following classes.
+      The <span class="color-accent-2 text-bold">control-group-*</span> classes must be added to the parent element of the controls that require
+      styling.
+    </p>
+
+    <p>
+      <span class="color-accent-2 text-bold">control-success</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-info</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-warning</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-danger</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-disabled</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-group-success</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-group-info</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-group-warning</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-group-danger</span>
+      <br />
+      <span class="color-accent-2 text-bold">control-group-disabled</span>
+    </p>
+
+    <p>In addition to changing the colour of the controls, a validation icon will be added to the right if the control is a normal input text field.
+      You can also force any individual HTML element to have a validation icon by adding the class <span class="color-accent-2 text-bold">instrumentation</span>
+      to it, where the element type would not normally be given one, such as a button or div.
+    </p>
+
+    <p>Here is an example of using control-group-* styles.</p>
+
+
 </div>
+
+<div id="snippet62" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="form-col-10 respond-bp-5-under"&gt;
+  &lt;div class="form-row" id="FirstNameGroup"&gt;
+    &lt;div class="form-col-5 respond-bp-3-under"&gt;
+      &lt;div class="control-label-sm width-md-lg"&gt;
+        &lt;div class="content-col"&gt;
+          First name
+        &lt;/div&gt;
+        &lt;div class="content-col text text-xl col-spacing-sm"&gt;
+          *
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-10 respond-bp-3-under"&gt;
+      &lt;input id="FirstName" type="text" class="input-sm width-full rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row control-group-warning"&gt;
+    &lt;div class="form-col-5 respond-bp-3-under"&gt;
+      &lt;div class="control-label-sm width-md-lg"&gt;
+        &lt;div class="content-col"&gt;
+          Last name
+        &lt;/div&gt;
+        &lt;div class="content-col text text-xl col-spacing-sm"&gt;
+          *
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col-10 respond-bp-3-under"&gt;
+      &lt;input id="LastName" type="text" class="input-sm width-full rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row control-group-danger"&gt;
+    &lt;div class="form-col-5 control-label-sm respond-bp-3-under"&gt;
+      Company
+    &lt;/div&gt;
+    &lt;div class="form-col-10 respond-bp-3-under"&gt;
+      &lt;input id="Company" type="text" class="input-sm width-full rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row control-group-disabled"&gt;
+    &lt;div class="form-col-5 control-label-sm respond-bp-3-under"&gt;
+      Address
+    &lt;/div&gt;
+    &lt;div class="form-col-10 respond-bp-3-under"&gt;
+      &lt;textarea id="Address" rows="3" class="control width-full rounded-sm"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row control-group-info"&gt;
+    &lt;div class="form-col-5 control-label-sm respond-bp-3-under"&gt;
+      Preferred delivery time
+    &lt;/div&gt;
+    &lt;div class="form-col-10 respond-bp-3-under"&gt;
+      &lt;input id="deliveryTime" type="text" class="input-sm width-lg rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row-spacing-lg"&gt;&lt;/div&gt;
+    &lt;div class="form-row control-group-disabled"&gt;
+      &lt;div class="form-col-5 respond-bp-3-under"&gt;
+        &lt;label&gt;Shipping type&lt;/label&gt;
+        &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="form-col-10"&gt;
+        &lt;div class="flex-row flex-justify-space-between"&gt;
+          &lt;div class="row-spacing-lg flex-respond-bp-3-under"&gt;
+            &lt;div class="radio"&gt;
+              &lt;input type="radio" value="1" name="shipping" id="radio1" /&gt;
+              &lt;label for="radio1"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;label class="col-spacing-left-sm"&gt;Next day&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="row-spacing-lg flex-respond-bp-3-under"&gt;
+            &lt;div class="radio"&gt;
+              &lt;input type="radio" value="2" name="shipping" id="radio2" /&gt;
+              &lt;label for="radio2"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;label class="col-spacing-left-sm"&gt;2 days&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="row-spacing-lg flex-respond-bp-3-under"&gt;
+            &lt;div class="radio"&gt;
+              &lt;input type="radio" value="3" name="shipping" id="radio3" /&gt;
+              &lt;label for="radio3"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;label class="col-spacing-left-sm"&gt;5 days&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
+    <p>This is how the above code looks in the browser.</p>
+
+    <img src="/webui/assets/images/screenshot63.png" class="image border-sm border-accent-4" alt="Media" />
+
+    <div class="row-spacing-md"></div>
+
+    <p>Of course now we need to actually do some validation, so here is an example of validating the FirstName field using some of the WebUI functions.
+      You will need to include <span class="color-accent-2 text-bold">webui-validation.js</span> to use the validation functions.
+    </p>
+
+</div>
+
+
+<div id="snippet62" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>$( document ).ready(function() {
+
+  $("#commandValidate").click( function() { 
+    if (!ui.isConformingString("#FirstName", ui.BASIC_STRING, false)) {
+      ui.setControlState("#FirstNameGroup", "", "control-group-danger", true, "Please enter your name without special characters.", false);
+    }
+    else {
+      ui.setControlState("#FirstNameGroup", "", "control-group-success");
+    }
+  });
+
+});
+</pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="text">
+
+    <div class="row-spacing-lg"></div>
+
+</div>
+
                       </div>
                     </div>
                   </div>
@@ -541,8 +720,8 @@
     </div>
     -->
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -573,15 +752,6 @@
 
         // Initialisation
 
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: false,
-          position: "top-right",
-          duration: 3000,
-          fadeInDuration: 600,
-          fadeOutDuration: 300
-        });
-
         ui.initMenus({
           dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
@@ -606,13 +776,13 @@
         $("#menuShrink").click( function() { 
           
           if ($("#leftPanel").hasClass("width-xl")) {
-            $("#leftPanel").addClass("hidden");
+            ui.hide("#leftPanel");
             $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
             $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
-            $("#leftPanel").removeClass("hidden");
+            ui.show("#leftPanel");
             $("#leftPanel").addClass("width-xl");
             $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
@@ -644,11 +814,12 @@
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
-            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61", "snippet62"]); break;
             case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
             case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
             case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
+            case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             default: break;
           }
         }

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/notifications.html">
+  <link rel="canonical" href="http://localhost:4000/webui/alerts.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   
   
@@ -99,7 +99,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -162,7 +162,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -229,7 +229,7 @@
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
 													<span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
 												</button>
@@ -280,61 +280,44 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Notifications<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+                        <p id="alerts" class="text-lg color-accent-2 text-bold">
+	Alerts<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
 
-		<p>The simplest way to get up and running with notifications is to first configure some settings, then just call one of the following
-			functions.
-		</p>
+	<p class="color-accent-5 text-bold">Global alert initialisation</p>
 
-		<p class="color-dark text-bold text-lg">
-			<code>
-			ui.showSuccessNotification (message, dynamic, showIcon)<br />
-			ui.showInfoNotification (message, dynamic, showIcon)<br />
-			ui.showWarningNotification (message, dynamic, showIcon)<br />
-			ui.showDangerNotification (message, dynamic, showIcon)<br />
-			ui.showNotification (message, type, dynamic, showIcon)
-			</code>
-		</p>
+	<p>The simplest way to get up and running with alerts is to first configure some settings. The script example below will initialise 
+		all alerts. You can initialise alerts with as few or as many settings as you wish, and you can use alerts without any initialisation
+		if you are happy with the default settings provided by the framework.
+	</p>
 
-		<div class="row-spacing-sm"></div>
-
-		<p>The <span class="color-accent-2 text-bold">dynamic</span> argument can be true or false. If true you don't have to hide the notification
-			yourself, as it will fade out depending on the configuration settings. If you specify false, then it will stay visible until you close it.
-			You can also set the <span class="color-accent-2 text-bold">showIcon</span> to true or false to say whether you want
-			to include the default icon for the type of notification. These 2 arguments will override the global settings, allowing you to 
-			setup a default behaviour and optionally show notifications which differ from that. If you don't want to override a setting, just
-			omit that argument in the function call. The last function signature above is for a generic call, where you can specify the
-			<span class="color-accent-2 text-bold">type</span>, which is actually part of a CSS class name. So if you wanted to define your own color,
-			you can create a class that begins with <span class="color-accent-2 text-bold">.notification-type-</span>, then pass the last part of
-			the class name using the type argument.
-
-		<p>The script below will initialise all notifications. The last line is how you might show a notification, perhaps as a result of some 
-			system status or other condition.</p>
+	<p>The script example below will initialise all alerts.</p>
 
 </div>
 
-<div id="snippet70" class="body background-secondary">
+<div id="snippet110" class="body background-secondary">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
 <pre>$( document ).ready(function() {
 
-  ui.initNotifications({
-    showIcon: true,
-    dynamic: false,
+  ui.initAlerts({
     position: "top-right",
     duration: 6000,
     fadeInDuration: 600,
-    fadeOutDuration: 300
+    fadeOutDuration: 300,
+    width: "60rem",
+    showHeader: true,
+    inline: false,
+    style: "outline-rounded",
+    dynamic: false,
+    showIcon: false,
+    showClose: true
   });
-  
-  ui.showSuccessNotification("Sample notification text", true, true);
 	
 });
 </pre>				
@@ -343,12 +326,105 @@
 </div>
 
 <div class="text">
+	<div class="row-spacing-lg"></div>
 
-		<div class="row-spacing-md"></div>
+	<p class="color-accent-5 text-bold">Showing alerts using javascript</p>
+
+	<p>Alerts may be shown by calling one of the WebUI functions provided. The only required argument for preset style alerts is the message, and the last 3 arguments
+		are optional. However, ui.showAlert has an additional required argument for the alert type. The dynamic, showIcon, and showClose arguments allow you to 
+		override the global settings on a per call basis.
+	</p>
+
+	<div class="row-spacing-sm"></div>
+
+	<p>Here are the function signatures.</p>
+
+	<p class="color-accent-1 text-lg">
+		<code>
+		ui.showSuccessAlert (message, dynamic, showIcon, showClose)<br />
+		ui.showInfoAlert (message, dynamic, showIcon, showClose)<br />
+		ui.showWarningAlert (message, dynamic, showIcon, showClose)<br />
+		ui.showDangerAlert (message, dynamic, showIcon, showClose)<br /><br />
+		ui.showAlert (message, type, dynamic, showIcon, showClose)
+		</code>
+	</p>
+
+	<div class="row-spacing-lg"></div>
+
+	<p class="color-accent-5 text-bold">Showing alerts using markup</p>
+
+	<p>You can also build alerts in markup if you prefer to have more control over the styling, and just add the <span class="color-accent-2 text-bold">hidden</span> class
+		to the alert, then call <span class="color-accent-2 text-bold">ui.toggleControl('#alert-id')</span> to show it. You can use the jquery show() function instead
+		if you wish. Bear in mind that by using the following approach, you don't get the animated stacking and positioning behaviour available when using
+		the built in functions. 
+	</p>
+
+	<p>The following code example shows the html to create a variety of alerts.</p>
+
+</div>
+
+<div id="snippet111" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="alert alert-success-outline alert-animate rounded-md col-spacing-xs width-one-half" role="alert" id="alert1"&gt;
+  &lt;div class="panel"&gt;
+    &lt;div class="container width-adjacent-sm pad-xs"&gt;
+      &lt;span class='text-bold'&gt;Alert&lt;/span&gt; - Configure behaviour, structure, and style.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-info-outline alert-animate col-spacing-xs width-one-half" role="alert" id="alert2"&gt;
+  &lt;div class="panel"&gt;
+    &lt;div class="container width-adjacent-sm pad-xs move-left"&gt;
+      &lt;span class='text-bold'&gt;Alert&lt;/span&gt; - Configure behaviour, structure, and style.
+    &lt;/div&gt;
+    &lt;div role="button" class="width-sm move-right alert-cancel" onclick="ui.toggleControl('#alert2')"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-warning-outline alert-animate col-spacing-xs width-one-half" role="alert" id="alert2"&gt;
+  &lt;div class="panel"&gt;
+    &lt;div class="width-sm move-left alert-warning-icon"&gt;&lt;/div&gt;
+      &lt;div class="container width-adjacent-md pad-xs move-left"&gt;
+        &lt;span class='text-bold'&gt;Alert&lt;/span&gt; - Configure behaviour, structure, and style.
+      &lt;/div&gt;
+      &lt;div role="button" class="width-sm move-right alert-cancel" onclick="ui.toggleControl('#alert2')"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-danger-outline col-spacing-xs width-one-half" role="alert" id="alert4"&gt;
+  &lt;div class="panel"&gt;
+    &lt;div class="move-left"&gt;
+      &lt;div class="alert-danger-icon"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="move-right"&gt;
+      &lt;div class="alert-cancel" role="button" onclick="ui.toggleControl('#alert4')"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="panel"&gt;
+    &lt;span class='text-bold'&gt;Alert&lt;/span&gt; - Configure behaviour, structure, and style.           
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>				
+		</div>
+	</div>
+</div>
+
+
+<div class="text">
+
+	<div class="row-spacing-lg"></div>
+
+    <p>Here is a screenshot showing how the above code looks in the browser.</p>
+
+    
+    <img src="/webui/assets/images/screenshot111.png" class="image border-sm border-accent-4" alt="Media" />
 
 
 
-		<div class="row-spacing-md"></div>
+	<div class="row-spacing-lg"></div>
 
 </div>
 
@@ -380,8 +456,8 @@
     </div>
     -->
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -412,15 +488,6 @@
 
         // Initialisation
 
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: false,
-          position: "top-right",
-          duration: 3000,
-          fadeInDuration: 600,
-          fadeOutDuration: 300
-        });
-
         ui.initMenus({
           dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
@@ -445,13 +512,13 @@
         $("#menuShrink").click( function() { 
           
           if ($("#leftPanel").hasClass("width-xl")) {
-            $("#leftPanel").addClass("hidden");
+            ui.hide("#leftPanel");
             $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
             $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
-            $("#leftPanel").removeClass("hidden");
+            ui.show("#leftPanel");
             $("#leftPanel").addClass("width-xl");
             $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
@@ -483,11 +550,12 @@
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
-            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61", "snippet62"]); break;
             case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
             case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
             case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
+            case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             default: break;
           }
         }

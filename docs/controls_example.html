@@ -99,7 +99,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -162,7 +162,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -229,7 +229,7 @@
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
 													<span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
 												</button>
@@ -413,7 +413,7 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md">
-					<div class="control-append place-middle-center">
+					<div class="control-group-append place-middle-center">
 						<button class="button-lg menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
 						<button class="button-lg menu-button-success">1</button>
 						<button class="button-lg menu-button-success">2</button>
@@ -424,7 +424,7 @@
 			</div>
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md">
-					<div class="control-append place-middle-center">
+					<div class="control-group-append place-middle-center">
 						<button class="button-sm menu-button-accent-3 rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
 						<button class="button-sm menu-button-accent-3"><i class="fa fa-angle-left"></i></button>
 						<button class="button-sm menu-button-accent-3">1</button>
@@ -439,7 +439,7 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md">
-					<div class="control-append place-middle-center">
+					<div class="control-group-append place-middle-center">
 						<button class="menu-button-disabled rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
 						<button class="menu-button-disabled"><i class="fa fa-angle-left"></i></button>
 						<button class="menu-button-disabled">1</button>
@@ -464,17 +464,21 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<input type="text" class="input-lg border-accent-1 rounded-left-sm width-two-thirds" />
-						<button class="button-lg button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<input type="text" class="input-lg border-accent-1 rounded-left-sm width-two-thirds" />
+							<button class="button-lg button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<input type="text" class="input-sm border-warning rounded-left-sm width-two-thirds" />
-						<button class="button-sm button-warning rounded-right-sm"><i class="fa fa-search"></i></button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<input type="text" class="input-sm border-warning rounded-left-sm width-two-thirds" />
+							<button class="button-sm button-warning rounded-right-sm"><i class="fa fa-search"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -482,9 +486,11 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<input type="text" class="border-sm border-accent-4 rounded-left-sm width-two-thirds" />
-						<button class="button-accent-4 rounded-right-sm"><i class="fa fa-search"></i></button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<input type="text" class="input-xs border-accent-4 rounded-left-sm width-two-thirds" />
+							<button class="button-xs button-accent-4 rounded-right-sm"><i class="fa fa-search"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -502,19 +508,23 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<button class="button-lg muted border-muted rounded-left-sm">£</button>
-						<input type="text" class="input-lg border-muted width-one-half" />
-						<button class="button-lg muted border-muted rounded-right-sm">.00</button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<button class="button-lg muted border-muted rounded-left-sm">£</button>
+							<input type="text" class="input-lg border-muted width-one-half" />
+							<button class="button-lg muted border-muted rounded-right-sm">.00</button>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<button class="button-sm info border-info rounded-left-sm">£</button>
-						<input type="text" class="input-sm border-info width-two-thirds" />
-						<button class="button-sm info border-info rounded-right-sm">.00</button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<button class="button-sm info border-info rounded-left-sm">£</button>
+							<input type="text" class="input-sm border-info width-two-thirds" />
+							<button class="button-sm info border-info rounded-right-sm">.00</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -522,10 +532,12 @@
 		<div class="content-col-10 respond-bp-5-under">
 			<div class="form-col-10 respond-bp-2-under">
 				<div class="panel secondary height-sm-md text-center">
-					<div class="control-append place-middle-center width-full">
-						<button class="accent-5 border-sm border-accent-5 rounded-left-sm">£</button>
-						<input type="text" class="secondary border-sm border-accent-5 width-two-thirds" />
-						<button class="accent-5 border-sm border-accent-5 rounded-right-sm">.00</button>
+					<div class="place-middle-center width-full">
+						<div class="flex flex-justify-center">
+							<button class="button-xs accent-5 border-accent-5 rounded-left-sm">£</button>
+							<input type="text" class="input-xs secondary border-accent-5 width-two-thirds" />
+							<button class="button-xs accent-5 border-accent-5 rounded-right-sm">.00</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -550,7 +562,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md">
 						<div class="place-middle-center">
-							<div class="checkbox border-accent-3 rounded-sm">
+							<div class="checkbox border-accent-3 accessibility">
 								<input type="checkbox" value="" id="checkbox1" />
 								<label for="checkbox1"></label>
 							</div>
@@ -560,7 +572,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox border-info rounded-sm">
+							<div class="checkbox border-info accessibility">
 								<input type="checkbox" value="" id="checkbox2" />
 								<label for="checkbox2"></label>
 							</div>
@@ -570,7 +582,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox border-accent-4 rounded-sm">
+							<div class="checkbox border-accent-4 accessibility">
 								<input type="checkbox" value="" id="checkbox3" />
 								<label for="checkbox3"></label>
 							</div>
@@ -580,7 +592,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox border-warning rounded-sm">
+							<div class="checkbox border-warning accessibility">
 								<input type="checkbox" value="" id="checkbox4" />
 								<label for="checkbox4"></label>
 							</div>
@@ -592,7 +604,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox accent-2 rounded-sm">
+							<div class="checkbox border-md border-accent-2 rounded-sm">
 								<input type="checkbox" value="" id="checkbox5" />
 								<label for="checkbox5"></label>
 							</div>
@@ -602,7 +614,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox dark rounded-sm">
+							<div class="checkbox border-md border-dark rounded-sm">
 								<input type="checkbox" value="" id="checkbox6" />
 								<label for="checkbox6"></label>
 							</div>
@@ -612,7 +624,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox accent-4 rounded-sm">
+							<div class="checkbox border-md border-accent-4 rounded-sm">
 								<input type="checkbox" value="" id="checkbox7" />
 								<label for="checkbox7"></label>
 							</div>
@@ -622,7 +634,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="checkbox muted rounded-sm">
+							<div class="checkbox border-md border-muted rounded-sm">
 								<input type="checkbox" value="" id="checkbox8" />
 								<label for="checkbox8"></label>
 							</div>
@@ -643,7 +655,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio border-accent-4">
+							<div class="radio border-accent-4 accessibility">
 								<input type="radio" value="" name="radiogroup1" id="radio1" />
 								<label for="radio1"></label>
 							</div>
@@ -653,7 +665,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio border-accent-1">
+							<div class="radio border-accent-1 accessibility">
 								<input type="radio" value="" name="radiogroup1" id="radio2" />
 								<label for="radio2"></label>
 							</div>
@@ -663,7 +675,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio border-success">
+							<div class="radio border-success accessibility">
 								<input type="radio" value="" name="radiogroup1" id="radio3" />
 								<label for="radio3"></label>
 							</div>
@@ -673,7 +685,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio border-disabled">
+							<div class="radio border-muted accessibility">
 								<input type="radio" value="" name="radiogroup1" id="radio4" />
 								<label for="radio4"></label>
 							</div>
@@ -685,7 +697,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio default">
+							<div class="radio border-md border-default">
 								<input type="radio" value="" name="radiogroup2" id="radio5" />
 								<label for="radio5"></label>
 							</div>
@@ -695,7 +707,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio dark">
+							<div class="radio border-md border-dark">
 								<input type="radio" value="" name="radiogroup2" id="radio6" />
 								<label for="radio6"></label>
 							</div>
@@ -705,7 +717,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio success">
+							<div class="radio border-md border-success">
 								<input type="radio" value="" name="radiogroup2" id="radio7" />
 								<label for="radio7"></label>
 							</div>
@@ -715,7 +727,7 @@
 				<div class="form-col-5 respond-bp-1-under">
 					<div class="panel secondary height-sm-md text-center">
 						<div class="place-middle-center">
-							<div class="radio accent-3">
+							<div class="radio border-md border-accent-3">
 								<input type="radio" value="" name="radiogroup2" id="radio8" />
 								<label for="radio8"></label>
 							</div>
@@ -756,8 +768,8 @@
     </div>
     -->
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -788,15 +800,6 @@
 
         // Initialisation
 
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: false,
-          position: "top-right",
-          duration: 3000,
-          fadeInDuration: 600,
-          fadeOutDuration: 300
-        });
-
         ui.initMenus({
           dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
@@ -821,13 +824,13 @@
         $("#menuShrink").click( function() { 
           
           if ($("#leftPanel").hasClass("width-xl")) {
-            $("#leftPanel").addClass("hidden");
+            ui.hide("#leftPanel");
             $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
             $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
-            $("#leftPanel").removeClass("hidden");
+            ui.show("#leftPanel");
             $("#leftPanel").addClass("width-xl");
             $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
@@ -859,11 +862,12 @@
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
-            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61", "snippet62"]); break;
             case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
             case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
             case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
+            case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             default: break;
           }
         }

@@ -608,7 +608,7 @@
 				</div>
 				<div class="form-row responsive-gutter-sm">
 					<div class="form-col-10 respond-bp-5-under">
-						<div class="form-row">
+						<div class="form-row control-group-success">
 							<div class="form-col-5 respond-bp-3-under">
 								<div class="content-col width-md-lg control-label-sm">
 									<div class="content-col">
@@ -621,14 +621,15 @@
 							</div>
 							<div class="form-col-10 respond-bp-3-under">
 								<div class="tooltip width-full" id="tooltipFirstName">
-									<div class="tooltip-focus tooltip-animate tooltip-right tooltip-sm tooltip-danger rounded-md">
+									<div class="tooltip-focus tooltip-animate tooltip-right tooltip-sm tooltip-dark rounded-md">
 										First name is required.
 									</div>
-									<input id="FirstName" type="text" required class="input-sm width-full rounded-sm accessibility" />
+									<input id="FirstName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+									<label class="text-sm text-italic">Sample control text</label>
 								</div>
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-row control-group-warning">
 							<div class="form-col-5 respond-bp-3-under">
 								<div class="content-col control-label-sm width-md-lg">
 									<div class="content-col">
@@ -640,18 +641,18 @@
 								</div>
 							</div>
 							<div class="form-col-10 respond-bp-3-under">
-								<input id="LastName" type="text" class="input-sm width-full rounded-sm accessibility" />
+								<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-row control-group-danger">
 							<div class="form-col-5 control-label-sm respond-bp-3-under">
 								Company
 							</div>
 							<div class="form-col-10 respond-bp-3-under">
-								<input id="Company" type="text" class="input-sm width-full rounded-sm accessibility" />
+								<input id="Company" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-row control-group-disabled">
 							<div class="form-col-5 control-label-sm respond-bp-3-under">
 								Address
 							</div>
@@ -659,7 +660,7 @@
 								<textarea id="Address" rows="3" class="control width-full rounded-sm accessibility"></textarea>
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-row control-group-info">
 							<div class="form-col-5 control-label-sm respond-bp-3-under">
 								Town / City
 							</div>
@@ -691,7 +692,7 @@
 								<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-row control-group-danger">
 							<div class="form-col-5 control-label-sm respond-bp-3-under">
 								Gender
 							</div>
@@ -720,59 +721,59 @@
 							</div>
 						</div>
 						<div class="row-spacing-lg"></div>
-						<div class="form-row">
+						<div class="form-row control-group-success">
 							<div class="form-col-5 respond-bp-3-under">
-								Vaccinations
+								<label>Vaccinations</label>
 							</div>
 							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
 								<div class="content-row">
-									<div class="content-col width-xs">
+									<div class="content-col width-xs-sm">
 										<div class="checkbox rounded-sm accessibility">
 											<input type="checkbox" value="" id="checkboxHepatitis" />
 											<label for="checkboxHepatitis"></label>
 										</div>
 									</div>
 									<div class="content-col">
-										<span>Hep</span>
+										<label>Hep</label>
 									</div>
 									<div class="row-spacing-xs"></div>
 								</div>
 							</div>
 							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
 								<div class="content-row">
-									<div class="content-col width-xs">
+									<div class="content-col width-xs-sm">
 										<div class="checkbox rounded-sm accessibility">
 											<input type="checkbox" value="" id="checkboxTetanus" />
 											<label for="checkboxTetanus"></label>
 										</div>
 									</div>
 									<div class="content-col">
-										<span>Tet</span>
+										<label>Tet</label>
 									</div>
 									<div class="row-spacing-xs"></div>
 								</div>
 							</div>
 							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
 								<div class="content-row">
-									<div class="content-col width-xs">
+									<div class="content-col width-xs-sm">
 										<div class="checkbox rounded-sm accessibility">
 											<input type="checkbox" value="" id="checkboxTyphoid" />
 											<label for="checkboxTyphoid"></label>
 										</div>
 									</div>
 									<div class="content-col">
-										<span>Typ</span>
+										<label>Typ</label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="row-spacing-lg"></div>
-						<div class="form-row">
+						<div class="form-row control-group-danger">
 							<div class="form-col-5 control-label-sm respond-bp-3-under">
 								Alcohol
 							</div>
 							<div class="form-col respond-bp-3-under">
-								<input id="Alcohol" type="number" class="input-sm width-md rounded-sm accessibility" /> (units per week)
+								<input id="Alcohol" type="number" class="input-sm width-md rounded-sm accessibility" /> <label>(units per week)</label>
 							</div>
 						</div>
 						<div class="form-row">
@@ -793,9 +794,9 @@
 							</div>
 						</div>
 						<div class="row-spacing-lg"></div>
-						<div class="form-row">
+						<div class="form-row control-group-disabled">
 							<div class="form-col-5 respond-bp-3-under">
-								Sleep (Hours)
+								<label>Sleep (Hours)</label>
 							</div>
 							<div class="form-col width-md respond-bp-3-under">
 								<div class="content-row">
@@ -806,7 +807,7 @@
 										</div>
 									</div>
 									<div class="content-col">
-										<span>4</span>
+										<label>4</label>
 									</div>
 									<div class="row-spacing-xs"></div>
 								</div>
@@ -820,7 +821,7 @@
 										</div>
 									</div>
 									<div class="content-col">
-										<span>6</span>
+										<label>6</label>
 									</div>
 									<div class="row-spacing-xs"></div>
 								</div>
@@ -834,7 +835,7 @@
 										</div>
 									</div>
 									<div class="content-col">
-										<span>8</span>
+										<label>8</label>
 									</div>
 								</div>
 							</div>
@@ -914,8 +915,15 @@
 							</div>
 							<div class="form-col-10 respond-bp-3-under">
 								<div class="tooltip width-full" id="tooltipEnterValues">
-									<div class="tooltip-focus tooltip-top tooltip-animate tooltip-md tooltip-accent-5 rounded-md">
-										Enter some values and select the validate button.
+									<div class="tooltip-focus tooltip-top tooltip-animate tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
+										<div class="primary border-sm border-accent-4 rounded-md">
+											<div class="panel custom-background text-bold rounded-top-md">
+												<div class="col-spacing-left-md">Heading</div>
+											</div>
+											<div class="area text-sm rounded-bottom-md">
+												Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset qui, ridens impedit persecuti sit eu, vidit diceret nam eu.												
+											</div>
+										</div>
 									</div>
 									<input id="textURL" type="text" class="input-sm rounded-sm width-full accessibility" />
 								</div>
@@ -959,16 +967,14 @@
 						<div class="row-spacing-lg"></div>
 						<div class="form-row">
 							<div class="form-col  color-accent-4 text-lg form-col-align-sm respond-bp-3-under">
-								Notifications and popups
+								Alerts and popups
 							</div>
 						</div>
 
 						<div class="form-row">
 							<div class="form-col">
 								<div class="tooltip" id="tooltipAboutModals">
-									<div class="tooltip-static tooltip-left tooltip-lg tooltip-animate tooltip-accent-2 rounded-md">
-
-									</div>
+									<div class="tooltip-static tooltip-left tooltip-lg tooltip-animate tooltip-accent-2 rounded-md"></div>
 									<button id="commandShowPopup1" type="button" class="button-sm button-accent-1 rounded-sm accessibility">Show popup</button>
 								</div>
 							</div>
@@ -976,7 +982,7 @@
 						<div class="row-spacing-lg"></div>
 						<div class="form-row">
 							<div class="form-col">
-								<button type="button" id="commandShowNotification" class="button-sm button-accent-1 rounded-sm accessibility">Show notification</button>
+								<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm accessibility">Show Alert</button>
 							</div>
 						</div>
 
@@ -1033,8 +1039,79 @@
 
 				</div>
 				<div class="form-col-2 respond-bp-5-under"></div>
-				<div class="form-col-9 respond-bp-5-under">
+				<div class="form-col-9 respond-bp-5-under"></div>
+			</div>
 
+			<div class="row-spacing-lg"></div>
+
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="panel text-lg">
+			Alerts (Build custom alerts in markup, or display alerts dynamically using WebUI functions without any markup.)
+		</div>
+
+		<div class="row-spacing-xs"></div>
+
+		<div class="container background-secondary rounded-sm">
+			
+			<div class="content-row responsive-gutter-md">
+				<div class="form-col-20">
+
+					<div class="row-spacing-lg"></div>
+
+					<div class="alert alert-success-outline alert-animate rounded-md col-spacing-sm" role="alert" id="alert1">
+						<div class="panel">
+							<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.			
+						</div>
+					</div>
+
+					<div class="alert alert-info-outline alert-animate rounded-md col-spacing-sm" role="alert" id="alert2">
+						<div class="panel">
+							<div class="move-left">
+								<div class="alert-info-icon"></div>
+							</div>
+							<div class="move-right">
+								<div class="alert-cancel" role="button" onclick="ui.toggleControl($('#alert2'))"></div>
+							</div>
+						</div>
+						<div class="panel">
+							<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.			
+						</div>
+					</div>
+
+					<div class="alert alert-warning-outline rounded-md col-spacing-sm" role="alert" id="alert3">
+						<div class="panel">
+							<div class="move-left">
+								<div class="alert-warning-icon"></div>
+							</div>
+							<div class="move-right">
+								<div class="alert-cancel" role="button" onclick="ui.toggleControl($('#alert3'))"></div>
+							</div>
+						</div>
+						<div class="panel">
+							<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.			
+						</div>
+					</div>
+
+					<div class="row-spacing-md"></div>
+
+					<p>Using flexbox</p>
+
+					<div class="alert alert-danger-outline rounded-md" role="alert" id="alert4">
+						<div class="flex flex-nowrap panel">
+							<div class="flex-initial flex-justify-center width-sm">
+								<div class="alert-danger-icon"></div>
+							</div>
+							<div class="flex-auto pad-xs">
+								<div><span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.</div>		
+							</div>
+							<div class="flex-initial flex-justify-center width-sm">
+								<div class="alert-cancel" role="button" onclick="ui.toggleControl($('#alert4'))"></div>
+							</div>
+						</div>
+					</div>
 
 				</div>
 			</div>
@@ -1042,7 +1119,6 @@
 			<div class="row-spacing-lg"></div>
 
 		</div>
-
 
 		<div class="row-spacing-lg"></div>
 
@@ -1281,19 +1357,19 @@
 						
 						<div class="content-row">
 							<div class="tab-item content-col-20" id="tab1">
-								<div class="panel primary border-sm border-accent-2 height-md-lg">
+								<div class="area primary border-sm border-accent-2 height-md-lg">
 									Tab 1 content
 									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 								</div>
 							</div>
 							<div class="tab-item content-col-20" id="tab2">
-								<div class="panel primary border-sm border-accent-2 height-md-lg">
+								<div class="area primary border-sm border-accent-2 height-md-lg">
 									Tab 2 content
 									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
 								</div>
 							</div>
 							<div class="tab-item content-col-20" id="tab3">
-								<div class="panel primary border-sm border-accent-2 height-md-lg">
+								<div class="area primary border-sm border-accent-2 height-md-lg">
 									Tab 3 content
 									<p>Pellentesque habitant morbi tristique senectus.</p>
 								</div>
@@ -2681,13 +2757,18 @@
 		var selectCounter = 0;
 		
 		
-		ui.initNotifications({
-			showIcon: true,
-			dynamic: false,
+		ui.initAlerts({
 			position: "top-right",
 			duration: 6000,
 			fadeInDuration: 600,
-			fadeOutDuration: 300
+			fadeOutDuration: 300,
+			width: "60em",
+			showHeader: true,
+			//inline: false,
+			style: "outline-rounded",
+			dynamic: false,
+			showIcon: false,
+			showClose: true
 		});
 		
 		ui.initMenus({
@@ -2716,8 +2797,8 @@
 		});
 
 	
-		$("#commandShowNotification").click( function() { 
-			 ui.showDangerNotification("Very long messages are handled neatly. You can configure notifications to appear in 1 of 6 page locations, specify dynamic if you want them to close after a set time, and adjust the fade in and fade out durations.<br /><br />We have more settings planned for later releases of WebUI.", true, true);
+		$("#commandShowAlert").click( function() { 
+			 ui.showInfoAlert("<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.", true);
 		});
 
 		ui.showTooltip("#tooltipEnterValues");
@@ -2768,8 +2849,6 @@
 
 		});
 
-
-
 		$( "#modal1" ).on("ui.modal.show.before", function(e) {
   			console.log("ui.modal.show.before");
 			
@@ -2785,7 +2864,6 @@
   			console.log("ui.modal.hide.after");
 
 		});
-		
 
 
 		$( "#panel4" ).on("ui.toggleItem.show.before", function(e) {
@@ -2826,19 +2904,19 @@
 		
 		$("#commandValidate").click( function() { 
 			 if (!ui.isConformingString("#textURL", ui.URL, false)) {
-				ui.setControlState("#textURL", "input-sm", "input-sm input-highlight", true, "Please enter a valid URL", false);
+				ui.setControlState("#textURL", "input-sm", "input-sm control-highlight", true, "Please enter a valid URL", false);
 			 }
 			 else {
-				ui.setControlState("#textURL", "input-sm input-highlight", "input-sm");
+				ui.setControlState("#textURL", "input-sm control-highlight", "input-sm");
 			 }
 			 
 			 if (!ui.isValidDateTime("#textStartDate", "DD/MM/YYYY", true)) {
-				ui.setControlState("#textStartDate", "input-sm", "input-sm input-highlight", true, "DD/MM/YYYY", true);
+				ui.setControlState("#textStartDate", "input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
 				return;
 			 }
 			 
 			 if (!ui.isValidDateTime("#textEndDate", "DD/MM/YYYY", true)) {
-				ui.setControlState("#textEndDate", "input-sm", "input-sm input-highlight", true, "DD/MM/YYYY", true);
+				ui.setControlState("#textEndDate", "input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
 				return;
 			 }
 			 
@@ -2846,8 +2924,8 @@
 			 var endDate = ui.convertToDate($("#textEndDate").val(), "DD/MM/YYYY");
 			 		
 			 if (startDate > endDate) {
-				ui.setControlState("#textStartDate", "input-sm", "input-sm input-highlight", true);
-				ui.setControlState("#textEndDate", "input-sm", "input-sm input-highlight", true);
+				ui.setControlState("#textStartDate", "input-sm", "input-sm control-highlight", true);
+				ui.setControlState("#textEndDate", "input-sm", "input-sm control-highlight", true);
 			 }
 			 
 		});
@@ -2925,11 +3003,11 @@
 		});
 				
 		$("#commandDisableTextboxConditionally").click( function() { 
-			 ui.disableControlsConditionally("#textbox1", ["0"], ["#textbox2"], "input input-disabled", "input color-info", "Disabled", "Enabled");
+			 ui.disableControlsConditionally("#textbox1", ["0"], ["#textbox2"], "input control-disabled", "input color-info", "Disabled", "Enabled");
 		});
 		
 		$("#commandEnableTextboxConditionally").click( function() { 
-			 ui.enableControlsConditionally("#textbox1", ["0"], ["#textbox3"], "input", "input input-disabled", "Enabled", "Disbaled");
+			 ui.enableControlsConditionally("#textbox1", ["0"], ["#textbox3"], "input", "input control-disabled", "Enabled", "Disbaled");
 		});
 		
 		$("#commandReset").click( function() { 
@@ -2960,19 +3038,19 @@
 		});
 		
 		$("#commandInitialiseSelect0WithClasses").click( function() { 
-			 ui.initialiseSelect("#selectInitialise", 0, "input", "input input-disabled");
+			 ui.initialiseSelect("#selectInitialise", 0, "input", "input control-disabled");
 		});
 		
 		$("#commandInitialiseSelect1WithClasses").click( function() { 
-			 ui.initialiseSelect("#selectInitialise", 1, "input", "input input-disabled");
+			 ui.initialiseSelect("#selectInitialise", 1, "input", "input control-disabled");
 		});
 		
 		$("#commandInitialiseSelect0WithClassesWithValues").click( function() { 
-			 ui.initialiseSelect("#selectInitialise", 0, "input", "input input-disabled", "Available items", "Unavailable");
+			 ui.initialiseSelect("#selectInitialise", 0, "input", "input control-disabled", "Available items", "Unavailable");
 		});
 		
 		$("#commandInitialiseSelect1WithClassesWithValues").click( function() { 
-			 ui.initialiseSelect("#selectInitialise", 1, "input", "input input-disabled", "Available items", "Unavailable");
+			 ui.initialiseSelect("#selectInitialise", 1, "input", "input control-disabled", "Available items", "Unavailable");
 		});
 		
 		$("#commandSetSelectedIndex").click( function() { 
@@ -2981,14 +3059,14 @@
 		
 		$("#buttonLogin").click( function() { 
 			 if (!ui.isConformingString("#textUsername", ui.BASIC_STRING, false)) {
-				ui.setControlState("#textUsername", "input-sm", "input-sm input-highlight", true, "Please enter username", true);
+				ui.setControlState("#textUsername", "input-sm", "input-sm control-highlight", true, "Please enter username", true);
 			 }
 
 			 if (!ui.isConformingString("#textPassword", ui.BASIC_STRING, false)) {
-				ui.setControlState("#textPassword", "input-sm", "input-sm input-highlight", true, "Please enter password", true);
+				ui.setControlState("#textPassword", "input-sm", "input-sm control-highlight", true, "Please enter password", true);
 			 }
 			 else if (!ui.isConformingString("#textPassword", ui.PASSWORD_STRENGTH, false)) {
-				ui.setControlState("#textPassword", "input-sm", "input-sm input-highlight", true, "Please enter stronger password", true);
+				ui.setControlState("#textPassword", "input-sm", "input-sm control-highlight", true, "Please enter stronger password", true);
 			 }
 		});
 		

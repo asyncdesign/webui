@@ -99,7 +99,7 @@
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/notifications.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
                           <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
                             <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
                           </button>
@@ -162,7 +162,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.1.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -229,7 +229,7 @@
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                        <button onclick="location.href='/webui/notifications.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Notifications</span></button>
+                        <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
 												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
 													<span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
 												</button>
@@ -406,15 +406,30 @@
 		at the top or bottom of the target element. If, on the other hand the web page was viewed on a desktop screen, tooltips
 		would be much more likely to stay at their original size.
 
+
+		<div class="row-spacing-lg"></div>
+
+		<p class="color-accent-5 text-bold">Overriding global settings</p>
+
+		<p>Some tooltip global settings can be overriden using opt-out CSS classes on individual tooltips. Use the following. </p>
+
+		<p>
+			<span class="color-accent-2 text-bold">tooltip-nopadding</span> (Removes the default padding from the tooltip content area)
+			<br />
+			<span class="color-accent-2 text-bold">tooltip-noautopos</span> (Stops the tooltip from automatically positioning regardless of settings)
+			<br />
+			<span class="color-accent-2 text-bold">tooltip-noautosize</span> (Stops the tooltip from automatically resizing regardless of settings)
+		</p>
+
+
 		<div class="row-spacing-lg"></div>
 
 		<p class="color-accent-5 text-bold">Customisation</p>
 
 		<p>As with all components in WebUI, tooltips may be customised in a number of ways. However, they are a bit limited when larger
 			amounts of content are required due to pre-defined widths and padding. This is not going to be a problem as WebUI is flexible
-			enough to allow hybrid components, where we mix the functionality from various components.</p>
-		<p>Considering the limitations of tooltips, let's look at some way of displaying content that partially behaves like a tooltip
-			and a drop down menu combined. Take a look at the following screenshot.</p>
+			enough to allow significant customisation.</p>
+		<p>Take a look at the following screenshot.</p>
 
 		<img src="/webui/assets/images/screenshot33.png" class="image border-sm border-accent-4" alt="Media" />
 
@@ -430,26 +445,24 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>&lt;input id="Location" type="text" class="input-sm rounded-sm menu-activator-dynamic" /&gt;
-&lt;div class="dropdown-content menu-close width-lg-xl"&gt;
-  &lt;div class="col-spacing-left-md"&gt;
-    &lt;div class="pointer-top-sm pointer-top-accent-4"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-4"&gt;
-    &lt;div class="content-row"&gt;
-      &lt;div class="content-col-12 col-spacing-right-sm"&gt;Braemar is a village in Aberdeenshire, Scotland. The village is located close to the upper course of the River Dee.&lt;/div&gt;
-      &lt;div class="content-col-8"&gt;
-        &lt;a href="javascript:void 0"&gt;
-          &lt;img src="images/scotland2.png" alt="Media" class="border-sm border-primary" /&gt;
-        &lt;/a&gt;
-        &lt;a href="javascript:void 0"&gt;
-          &lt;img src="images/scotland2.png" alt="Media" class="border-sm border-primary" /&gt;
-        &lt;/a&gt;
-        &lt;a href="javascript:void 0"&gt;
-          &lt;img src="images/scotland2.png" alt="Media" class="border-sm border-primary" /&gt;
-        &lt;/a&gt;
+<pre>&lt;div class="tooltip" id="tooltipEnterValues"&gt;
+  &lt;div class="tooltip-focus tooltip-right tooltip-animate tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize tooltip-noautopos rounded-md"&gt;
+    &lt;div class="primary border-sm border-accent-4 rounded-md text-sm"&gt;
+      &lt;div class="panel custom-background text-bold rounded-top-md"&gt;
+        &lt;div class="col-spacing-left-md"&gt;Heading&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="area text-sm rounded-bottom-md"&gt;
+        Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, 
+        cu alienum adipiscing per. Cum tamquam albucius ex, his ad 
+        prima nostrum menandri. An usu facilisis neglegentur, ius 
+        amet perfecto definiebas an. Eu legere sanctus interesset 
+        qui, ridens impedit persecuti sit eu, vidit diceret nam eu.
       &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group-append"&gt;
+    &lt;button class="button-sm rounded-left-sm"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;input type="text" class="input-sm rounded-right-sm width-lg" /&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
@@ -461,11 +474,16 @@
 
 		<div class="row-spacing-md"></div>
 
-		Because the class <span class="color-accent-2 text-bold">menu-activator-dynamic</span> has been applied to the textbox
-		on line 1, it means that the dropdown will show on hovering over the textbox. Also, as we have the <span class="color-accent-2 text-bold">menu-close</span> 
-		class on the dropdown content and each image is wrapped in an anchor tag, the dropdown will hide when an image is clicked.
-		Of course, we get all of the other behaviour associated with dropdowns such as fade-in and fade-out effects, and inclusive
-		and exclusive behaviours as part of the package.
+    <div class="content-row">
+      <div class="content-col-9 respond-bp-2-under">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>In order to set the tooltip pointer colour, you need to include the tooltip theme colour - 
+						in the above example <span class="color-accent-2 text-bold">tooltip-dark</span> is used.
+					</p>
+        </blockquote>
+      </div>
+    </div>
 
 		<div class="row-spacing-md"></div>
 
@@ -497,8 +515,8 @@
     </div>
     -->
     <div class="container color-muted show-bp-3-under">
-      <div class="content-col-20">
-        <button onclick="location.href='#top'" class="menu-button-sm button-accent-2 width-sm-md background-translucent-4 dock-bottom-right" id="buttonPageTop">TOP</button>
+      <div class="content-col-20 text-lg">
+        <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right bottom-sm"></i>
       </div>
     </div>
 
@@ -529,15 +547,6 @@
 
         // Initialisation
 
-        ui.initNotifications({
-          showIcon: true,
-          dynamic: false,
-          position: "top-right",
-          duration: 3000,
-          fadeInDuration: 600,
-          fadeOutDuration: 300
-        });
-
         ui.initMenus({
           dropdownFadeInDuration: 700,
           dropdownFadeOutDuration: 700
@@ -562,13 +571,13 @@
         $("#menuShrink").click( function() { 
           
           if ($("#leftPanel").hasClass("width-xl")) {
-            $("#leftPanel").addClass("hidden");
+            ui.hide("#leftPanel");
             $("#leftPanel").removeClass("width-xl");
             $("#rightPanel").addClass("width-full");
             $("#rightPanel").removeClass("width-adjacent-xl");	
           }
           else {
-            $("#leftPanel").removeClass("hidden");
+            ui.show("#leftPanel");
             $("#leftPanel").addClass("width-xl");
             $("#rightPanel").addClass("width-adjacent-xl");
             $("#rightPanel").removeClass("width-full");			
@@ -600,11 +609,12 @@
             case "tooltips.html": codeHighlighter.highlight(["snippet30", "snippet33"]); break;
             case "modals.html": codeHighlighter.highlight(["snippet40"]); break;
             case "menus.html": codeHighlighter.highlight(["snippet50", "snippet51", "snippet52"]); break;
-            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61"]); break;
+            case "forms.html": codeHighlighter.highlight(["snippet60", "snippet61", "snippet62"]); break;
             case "tabs.html": codeHighlighter.highlight(["snippet70", "snippet72"]); break;
             case "upload.html": codeHighlighter.highlight(["snippet80"]); break;
             case "toggle_container.html": codeHighlighter.highlight(["snippet90", "snippet91", "snippet92"]); break;
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
+            case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             default: break;
           }
         }
