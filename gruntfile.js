@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
 	
 	grunt.initConfig ({
@@ -11,16 +12,28 @@ module.exports = function(grunt) {
 					preserveComments: "all"
 				},
 				files: {
-					"dist/js/webui.js" : "src/js/webui.js",
-					"dist/js/webui-utils.js" : "src/js/webui-utils.js",
-					"dist/js/webui-validation.js" : "src/js/webui-validation.js"
+					"dist/js/webui.js" : ["src/js/main.js", 
+											"src/js/_menus.js", 
+											"src/js/_alerts.js", 
+											"src/js/_tooltips.js", 
+											"src/js/_modals.js", 
+											"src/js/_upload.js", 
+											"src/js/_tabs.js"],
+					"dist/js/webui-utils.js" : "src/js/utils.js",
+					"dist/js/webui-validation.js" : "src/js/validation.js"
 				}
 			},
 			dist: {
 				files: {
-					"dist/js/webui.min.js" : "src/js/webui.js",
-					"dist/js/webui-utils.min.js" : "src/js/webui-utils.js",
-					"dist/js/webui-validation.min.js" : "src/js/webui-validation.js"
+					"dist/js/webui.min.js" : ["src/js/main.js", 
+												"src/js/_menus.js", 
+												"src/js/_alerts.js", 
+												"src/js/_tooltips.js", 
+												"src/js/_modals.js", 
+												"src/js/_upload.js", 
+												"src/js/_tabs.js"],
+					"dist/js/webui-utils.min.js" : "src/js/utils.js",
+					"dist/js/webui-validation.min.js" : "src/js/validation.js"
 				}
 			}
 		},

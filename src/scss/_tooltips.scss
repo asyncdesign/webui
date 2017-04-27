@@ -29,17 +29,11 @@
 .tooltip-left:after {
 	@include pointer-right($theme_default);	
 }
-.tooltip-left.tooltip-sm:after {
-	top: calc(50% - 0.313rem);
-	left: 7.813rem;	
-}
-.tooltip-left.tooltip-md:after {
-	top: calc(50% - 0.313rem);
-	left: 10.938rem;	
-}
+.tooltip-left.tooltip-sm:after,
+.tooltip-left.tooltip-md:after,
 .tooltip-left.tooltip-lg:after {
 	top: calc(50% - 0.313rem);
-	left: 14.063rem;	
+	right: -0.625rem;	
 }
 .tooltip-top:after {
 	top: 100%;

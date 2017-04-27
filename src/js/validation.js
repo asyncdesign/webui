@@ -1,12 +1,14 @@
 ﻿/*!
 * Name: webui-validation - validation functions
-* Version: 5.1.0
-* Author: Levi Keogh, 2017-04-05
+* Version: 5.2.0
+* Author: Levi Keogh, 2017-04-26
 */
 
 "use strict";
 
 (function (webui, ui, $, undefined) {
+
+	ui.version = "webui-5.2.0";
 
 	/* PRIVATE */
 
@@ -534,7 +536,5 @@
 	ui.FALSE_VALUE = /^(false)$/;
 	ui.ANY_VALUE = /^(?!\s*$).+/;
 
-
-	ui.version = "webui-5.1.0";
 
 } (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));
