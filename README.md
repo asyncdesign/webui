@@ -31,7 +31,7 @@ bower install asyncdesign-webui
 
 or
 
-[Download the latest release](https://github.com/asyncdesign/webui/archive/v5.2.0.zip)
+[Download the latest release](https://github.com/asyncdesign/webui/archive/v5.3.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * You will need to include a version of jQuery. WebUI has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:

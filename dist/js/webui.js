@@ -1,12 +1,12 @@
 /*!
 * Name: webui - UI functions
-* Version: 5.2.0
-* Author: Levi Keogh, 2017-04-26
+* Version: 5.3.0
+* Author: Levi Keogh, 2017-05-24
 */
 "use strict";
 
 (function(webui, ui, $, undefined) {
-    ui.version = "webui-5.2.0";
+    ui.version = "webui-5.3.0";
     /* PRIVATE */
     var isDiv = function(selector) {
         return $(selector).is("div");
@@ -55,10 +55,8 @@
                 var fadeInDuration = parseInt(toggleContainer.data("fade-in-duration"));
                 var fadeOutDuration = parseInt(toggleContainer.data("fade-out-duration"));
                 if (toggleItem.hasClass("off-canvas-left")) {
-                    toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                     toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                 } else if (toggleItem.hasClass("off-canvas-right")) {
-                    toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                     toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
                 }
                 if (toggleItem.css("display") === "block") {
@@ -76,8 +74,6 @@
                     } else if (toggleItem.hasClass("off-canvas-right")) {
                         var toggleItemWidth = parseInt(toggleItem.css("width"));
                         toggleBody.css("margin-left", "-" + toggleItemWidth + "px");
-                        toggleItem.css("mergin-right", toggleItemWidth + "px");
-                        toggleItem.css("-webkit-transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
                         toggleItem.css("transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
                     }
                     toggleItem.show(fadeInDuration);
@@ -1235,12 +1231,21 @@
     var tooltipAutoPos = false;
     var tooltipAutoPosMargin = 0;
     var tooltipAutoSize = true;
+    var LEFT = 0;
+    var TOP = 1;
+    var RIGHT = 2;
+    var BOTTOM = 3;
+    var SHADOW_LEFT = 0;
+    var SHADOW_TOP = 1;
+    var SHADOW_RIGHT = 2;
+    var SHADOW_BOTTOM = 3;
     var getTooltipViewportStatus = function(element, requiredMargin) {
         if (arguments.length > 0) {
             var win = $(window);
-            var el = element.get(0);
             var margin = 0;
             var pointerSize = 5;
+            var targetHeight = element.siblings(":first").outerHeight();
+            var targetWidth = element.siblings(":first").outerWidth();
             if (arguments.length > 1 && requiredMargin != null && !isNaN(requiredMargin)) {
                 margin = requiredMargin;
             }
@@ -1250,13 +1255,22 @@
                 right: win.innerWidth(),
                 bottom: win.innerHeight()
             };
-            var clientRect = el.getBoundingClientRect();
+            var clientRect = element.get(0).getBoundingClientRect();
+            var elementWidth = clientRect.right - clientRect.left;
+            var elementHeight = clientRect.bottom - clientRect.top;
             var bounds = {
-                top: clientRect.top - (clientRect.bottom - clientRect.top) - pointerSize - margin,
-                left: clientRect.left - (clientRect.right - clientRect.left) - pointerSize - margin,
-                bottom: clientRect.bottom + element.siblings(":first").outerHeight() + pointerSize + 20 + margin,
-                right: clientRect.right + element.siblings(":first").outerWidth() + pointerSize + 20 + margin
+                top: clientRect.top - elementHeight - targetHeight / 2 + pointerSize - margin,
+                left: clientRect.left + targetWidth + pointerSize - margin,
+                bottom: clientRect.bottom + targetHeight + targetHeight / 2 - pointerSize + margin,
+                right: clientRect.right + targetWidth + pointerSize + margin
             };
+            if (element.hasClass("tooltip-left") || element.hasClass("tooltip-right")) {
+                if (element.hasClass("tooltip-left")) {
+                    bounds.left = clientRect.left - elementWidth - pointerSize - margin;
+                }
+                bounds.top = clientRect.top - elementHeight / 2 + targetHeight / 2 - margin;
+                bounds.bottom = clientRect.bottom - elementHeight / 2 + targetHeight / 2 + margin;
+            }
             return {
                 result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
                 topExceeded: bounds.top < viewport.top,
@@ -1271,28 +1285,28 @@
         try {
             if (arguments.length > 1) {
                 switch (orientation) {
-                  case ui.TOP:
+                  case TOP:
                     tooltip.removeClass("tooltip-left");
                     tooltip.removeClass("tooltip-right");
                     tooltip.removeClass("tooltip-bottom");
                     tooltip.addClass("tooltip-top");
                     break;
 
-                  case ui.LEFT:
+                  case LEFT:
                     tooltip.removeClass("tooltip-top");
                     tooltip.removeClass("tooltip-right");
                     tooltip.removeClass("tooltip-bottom");
                     tooltip.addClass("tooltip-left");
                     break;
 
-                  case ui.BOTTOM:
+                  case BOTTOM:
                     tooltip.removeClass("tooltip-top");
                     tooltip.removeClass("tooltip-left");
                     tooltip.removeClass("tooltip-right");
                     tooltip.addClass("tooltip-bottom");
                     break;
 
-                  case ui.RIGHT:
+                  case RIGHT:
                     tooltip.removeClass("tooltip-top");
                     tooltip.removeClass("tooltip-left");
                     tooltip.removeClass("tooltip-bottom");
@@ -1305,19 +1319,19 @@
             }
             if (arguments.length > 2) {
                 switch (shadowClass) {
-                  case ui.SHADOW_TOP:
+                  case SHADOW_TOP:
                     tooltip.addClass("shadow-top");
                     break;
 
-                  case ui.SHADOW_LEFT:
+                  case SHADOW_LEFT:
                     tooltip.addClass("shadow-left");
                     break;
 
-                  case ui.SHADOW_BOTTOM:
+                  case SHADOW_BOTTOM:
                     tooltip.addClass("shadow-bottom");
                     break;
 
-                  case ui.SHADOW_RIGHT:
+                  case SHADOW_RIGHT:
                     tooltip.addClass("shadow-right");
                     break;
 
@@ -1357,13 +1371,13 @@
                 tooltip.css("left", "");
                 tooltip.css("top", "");
                 if (tooltip.hasClass("shadow-left")) {
-                    flipTooltip(tooltip, ui.LEFT);
+                    flipTooltip(tooltip, LEFT);
                 } else if (tooltip.hasClass("shadow-top")) {
-                    flipTooltip(tooltip, ui.TOP);
+                    flipTooltip(tooltip, TOP);
                 } else if (tooltip.hasClass("shadow-right")) {
-                    flipTooltip(tooltip, ui.RIGHT);
+                    flipTooltip(tooltip, RIGHT);
                 } else if (tooltip.hasClass("shadow-bottom")) {
-                    flipTooltip(tooltip, ui.BOTTOM);
+                    flipTooltip(tooltip, BOTTOM);
                 }
                 ui.showTooltip(this, null, true);
             });
@@ -1398,16 +1412,16 @@
                 if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-                            flipTooltip(tooltip, ui.RIGHT, ui.SHADOW_LEFT);
+                            flipTooltip(tooltip, RIGHT, SHADOW_LEFT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
+                            flipTooltip(tooltip, TOP, SHADOW_LEFT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_LEFT);
+                            flipTooltip(tooltip, BOTTOM, SHADOW_LEFT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_LEFT);
+                            flipTooltip(tooltip, TOP, SHADOW_LEFT);
                         }
                     }
                 }
@@ -1420,10 +1434,10 @@
                 if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_TOP);
+                            flipTooltip(tooltip, BOTTOM, SHADOW_TOP);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_TOP);
+                            flipTooltip(tooltip, TOP, SHADOW_TOP);
                         }
                     }
                 }
@@ -1436,16 +1450,16 @@
                 if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-                            flipTooltip(tooltip, ui.LEFT, ui.SHADOW_RIGHT);
+                            flipTooltip(tooltip, LEFT, SHADOW_RIGHT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
+                            flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_RIGHT);
+                            flipTooltip(tooltip, TOP, SHADOW_RIGHT);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_RIGHT);
+                            flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
                         }
                     }
                 }
@@ -1458,10 +1472,10 @@
                 if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, ui.TOP, ui.SHADOW_BOTTOM);
+                            flipTooltip(tooltip, TOP, SHADOW_BOTTOM);
                         }
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, ui.BOTTOM, ui.SHADOW_BOTTOM);
+                            flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
                         }
                     }
                 }
@@ -1532,15 +1546,6 @@
             ui.hideTooltip(this);
         }
     });
-    /* ENUMERATIONS */
-    ui.LEFT = 0;
-    ui.TOP = 1;
-    ui.RIGHT = 2;
-    ui.BOTTOM = 3;
-    ui.SHADOW_LEFT = 0;
-    ui.SHADOW_TOP = 1;
-    ui.SHADOW_RIGHT = 2;
-    ui.SHADOW_BOTTOM = 3;
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
 
 (function(webui, ui, $, undefined) {
@@ -1656,6 +1661,18 @@
 
 (function(webui, ui, $, undefined) {
     /* PRIVATE */
+    var selectTab = function(element) {
+        var tabId = element.attr("href");
+        if (!tabId) {
+            tabId = element.data("target");
+        }
+        var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").prop("id");
+        var curTabId = tabId.replace("#", "");
+        element.trigger("ui.tabs.change.before", [ prevTabId, curTabId ]);
+        element.parents(".tabs").find(tabId).show().addClass("selected");
+        element.parents(".tabs").find(tabId).siblings(".tab-item").hide().removeClass("selected");
+        element.trigger("ui.tabs.change.after", [ prevTabId, curTabId ]);
+    };
     /* PUBLIC */
     $.fn.tabControl = function(options) {
         var settings = $.extend({
@@ -1676,16 +1693,380 @@
         e.preventDefault();
         var element = $(this);
         if (element) {
-            var tabId = element.attr("href");
-            if (!tabId) {
-                tabId = element.data("target");
-            }
-            var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").prop("id");
-            var curTabId = tabId.replace("#", "");
-            element.trigger("ui.tabs.change.before", [ prevTabId, curTabId ]);
-            element.parents(".tabs").find(tabId).show().addClass("selected");
-            element.parents(".tabs").find(tabId).siblings(".tab-item").hide().removeClass("selected");
-            element.trigger("ui.tabs.change.after", [ prevTabId, curTabId ]);
+            selectTab(element);
         }
     });
+    $(".tab-activator").focus(function(e) {
+        e.preventDefault();
+        var element = $(this);
+        if (element) {
+            selectTab(element);
+        }
+    });
+})(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
+
+(function(webui, ui, $, undefined) {
+    /* PRIVATE */
+    var getGuid = function() {
+        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
+            return v.toString(16);
+        });
+    };
+    var rhombusClipShapes = $(".rhombus-clip-shape");
+    rhombusClipShapes.each(function() {
+        var rhombusClipShape = $(this);
+        var svgChildren = rhombusClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            rhombusClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.5, 0.5 1, 0 0.5' /></clipPath></defs></svg>").appendTo(rhombusClipShape);
+        }
+    });
+    var rhomboidClipShapes = $(".rhomboid-clip-shape");
+    rhomboidClipShapes.each(function() {
+        var rhomboidClipShape = $(this);
+        var svgChildren = rhomboidClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            rhomboidClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 1 0, 0.7 1' /></clipPath></defs></svg>").appendTo(rhomboidClipShape);
+        }
+    });
+    var kiteClipShapes = $(".kite-clip-shape");
+    kiteClipShapes.each(function() {
+        var kiteClipShape = $(this);
+        var svgChildren = kiteClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            kiteClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.3, 0.5 1, 0 0.3' /></clipPath></defs></svg>").appendTo(kiteClipShape);
+        }
+    });
+    var trapezoidIsoscelesClipShapes = $(".trapezoid-isosceles-clip-shape");
+    trapezoidIsoscelesClipShapes.each(function() {
+        var trapezoidIsoscelesClipShape = $(this);
+        var svgChildren = trapezoidIsoscelesClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            trapezoidIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 0.7 0, 1 1' /></clipPath></defs></svg>").appendTo(trapezoidIsoscelesClipShape);
+        }
+    });
+    var triangleIsoscelesClipShapes = $(".triangle-isosceles-clip-shape");
+    triangleIsoscelesClipShapes.each(function() {
+        var triangleIsoscelesClipShape = $(this);
+        var svgChildren = triangleIsoscelesClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            triangleIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.5 0, 0.5 0, 1 1' /></clipPath></defs></svg>").appendTo(triangleIsoscelesClipShape);
+        }
+    });
+    var pentagonClipShapes = $(".pentagon-clip-shape");
+    pentagonClipShapes.each(function() {
+        var pentagonClipShape = $(this);
+        var svgChildren = pentagonClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            pentagonClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.4, 0.8 1, 0.2 1, 0 0.4' /></clipPath></defs></svg>").appendTo(pentagonClipShape);
+        }
+    });
+    var starClipShapes = $(".star-clip-shape");
+    starClipShapes.each(function() {
+        var starClipShape = $(this);
+        var svgChildren = starClipShape.children("svg");
+        if (!svgChildren.length) {
+            var id = getGuid();
+            starClipShape.attr("style", "clip-path: url('#" + id + "')");
+            $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 0.63 0.38, 1 0.38, 0.69 0.59, 0.82 1, 0.5 0.75, 0.18 1, 0.31 0.59, 0 0.38, 0.37 0.38' /></clipPath></defs></svg>").appendTo(starClipShape);
+        }
+    });
+    var getTransformShapeParameters = function(shape) {
+        var sizeUnits = shape.data("size") !== undefined ? shape.data("size").split(/(\d+)/).filter(Boolean) : [ "10", "rem" ];
+        var shapeRotation = shape.data("rotation") !== undefined ? shape.data("rotation") : 0;
+        var shapeClassName = shape.data("class") !== undefined ? shape.data("class") : "background-default";
+        return {
+            size: parseFloat(sizeUnits[0]),
+            units: sizeUnits[1],
+            rotation: shapeRotation,
+            class: shapeClassName
+        };
+    };
+    var isoscelesShapes = $(".isosceles-shape");
+    isoscelesShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 1.285714285714286 + params.units);
+        shapeContainer.css("height", params.size / 1.285714285714286 + params.units);
+        shapeContainer.css("transform", "rotate(45deg) translateX(" + params.size / 5.294087 + params.units + ") translateY(" + params.size / 5.294087 + params.units + ")");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size + params.units);
+        shapeInner.css("height", params.size + params.units);
+        shapeInner.css("transform", "rotate(-45deg) translateY(" + params.size / -1.415 + params.units + ")");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("overflow", "hidden");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateY(" + params.size / 3.857142857142857 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var rhombusShapes = $(".rhombus-shape");
+    rhombusShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 1.44 + params.units);
+        shapeContainer.css("height", params.size / 1.44 + params.units);
+        shapeContainer.css("transform", "rotate(45deg)");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "rotate(-45deg) translateY(" + params.size / -4.56 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var parallelogramShapes = $(".parallelogram-shape");
+    parallelogramShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size + params.units);
+        shapeContainer.css("height", params.size / 1.538461538461538 + params.units);
+        shapeContainer.css("transform", "rotate(-70deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size + params.units);
+        shapeInner.css("height", params.size / 1.538461538461538 + params.units);
+        shapeInner.css("transform", "rotate(70deg)");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("overflow", "hidden");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateY(" + params.size / -4.56 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var diamondShapes = $(".diamond-shape");
+    diamondShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 1.384615384615385 + params.units);
+        shapeContainer.css("height", params.size / 1.384615384615385 + params.units);
+        shapeContainer.css("transform", "rotate(45deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size / 1.125 + params.units);
+        shapeInner.css("height", params.size / 1.125 + params.units);
+        shapeInner.css("transform", "rotate(-45deg)");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateX(" + params.size / -18 + params.units + ") translateY(" + params.size / -12 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var hexagonShapes = $(".hexagon-shape");
+    hexagonShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 1.168831168831169 + params.units);
+        shapeContainer.css("height", params.size * 1.038888888888889 + params.units);
+        shapeContainer.css("transform", "rotate(120deg)");
+        var shapeInnerFirst = $("<div></div>");
+        shapeInnerFirst.css("overflow", "hidden");
+        shapeInnerFirst.css("width", params.size / 1.168831168831169 + params.units);
+        shapeInnerFirst.css("height", params.size * 1.038888888888889 + params.units);
+        shapeInnerFirst.css("transform", "rotate(-60deg)");
+        var shapeInnerSecond = $("<div></div>");
+        shapeInnerSecond.css("overflow", "hidden");
+        shapeInnerSecond.css("width", params.size / 1.168831168831169 + params.units);
+        shapeInnerSecond.css("height", params.size * 1.038888888888889 + params.units);
+        shapeInnerSecond.css("transform", "rotate(-60deg)");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateX(" + params.size / -14 + params.units + ") translateY(" + params.size / 50 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInnerSecond);
+        shapeInnerSecond.appendTo(shapeInnerFirst);
+        shapeInnerFirst.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var octagonShapes = $(".octagon-shape");
+    octagonShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size + params.units);
+        shapeContainer.css("height", params.size + params.units);
+        shapeContainer.css("transform", "rotate(45deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size + params.units);
+        shapeInner.css("height", params.size + params.units);
+        shapeInner.css("transform", "rotate(-45deg)");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var diamondFlatShapes = $(".diamond-flat-shape");
+    diamondFlatShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 1.45 + params.units);
+        shapeContainer.css("height", params.size / 1.45 + params.units);
+        shapeContainer.css("transform", "rotate(45deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size * .9999999999999997 + params.units);
+        shapeInner.css("height", params.size * .84375 + params.units);
+        shapeInner.css("transform", "rotate(-45deg) translateX(" + params.size / -19 + params.units + ")");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateY(" + params.size / -6.5 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var scaleneLeftShapes = $(".scalene-left-shape");
+    scaleneLeftShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 2.5 + params.units);
+        shapeContainer.css("height", params.size / 1.090909090909091 + params.units);
+        shapeContainer.css("transform", "rotate(-70deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size + params.units);
+        shapeInner.css("height", params.size / 3 + params.units);
+        shapeInner.css("transform", "rotate(70deg) translateX(" + params.size / 5.4 + params.units + ") translateY(" + params.size / 5.4 + params.units + ")");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateY(" + params.size / -4 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var scaleneRightShapes = $(".scalene-right-shape");
+    scaleneRightShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size / 2.5 + params.units);
+        shapeContainer.css("height", params.size / 1.090909090909091 + params.units);
+        shapeContainer.css("transform", "rotate(70deg)");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size + params.units);
+        shapeInner.css("height", params.size / 3 + params.units);
+        shapeInner.css("transform", "rotate(-70deg) translateX(" + params.size / -2.575 + params.units + ") translateY(" + params.size / -2.63 + params.units + ")");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size + params.units);
+        shapeContent.css("height", params.size + params.units);
+        shapeContent.css("transform", "translateY(" + params.size / -4 + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    var scaleneRightShapes = $(".custom-shape");
+    scaleneRightShapes.each(function() {
+        var shape = $(this);
+        var params = getTransformShapeParameters(shape);
+        var modifiers = shape.data("modifiers") !== undefined ? shape.data("modifiers").split(/((^[-+]?([0-9]+)(\.[0-9]+)?)$)/)[0].split(",") : [ "0.9", "0.8", "-110", "-.05", "0", "0.9", "0.8", "110", ".1", ".12", "1", "1", "0", "-0.1", "-0.1" ];
+        console.log(modifiers);
+        var containerWidthScale = modifiers.length > 0 ? parseFloat(modifiers[0]) : 0;
+        var containerHeightScale = modifiers.length > 1 ? parseFloat(modifiers[1]) : 0;
+        var containerRotate = modifiers.length > 2 ? parseFloat(modifiers[2]) : 0;
+        var containerXTranlateScale = modifiers.length > 3 ? parseFloat(modifiers[3]) : 0;
+        var containerYTranlateScale = modifiers.length > 4 ? parseFloat(modifiers[4]) : 0;
+        var innerWidthScale = modifiers.length > 5 ? parseFloat(modifiers[5]) : 0;
+        var innerHeightScale = modifiers.length > 6 ? parseFloat(modifiers[6]) : 0;
+        var innerRotate = modifiers.length > 7 ? parseFloat(modifiers[7]) : 0;
+        var innerXTranlateScale = modifiers.length > 8 ? parseFloat(modifiers[8]) : 0;
+        var innerYTranlateScale = modifiers.length > 9 ? parseFloat(modifiers[9]) : 0;
+        var contentWidthScale = modifiers.length > 10 ? parseFloat(modifiers[10]) : 0;
+        var contentHeightScale = modifiers.length > 11 ? parseFloat(modifiers[11]) : 0;
+        var contentRotate = modifiers.length > 12 ? parseFloat(modifiers[12]) : 0;
+        var contentXTranlateScale = modifiers.length > 13 ? parseFloat(modifiers[13]) : 0;
+        var contentYTranlateScale = modifiers.length > 14 ? parseFloat(modifiers[14]) : 0;
+        shape.css("box-sizing", "border-box");
+        shape.css("transform", "rotate(" + params.rotation + "deg)");
+        var shapeContainer = $("<div></div>");
+        shapeContainer.css("overflow", "hidden");
+        shapeContainer.css("width", params.size * containerWidthScale + params.units);
+        shapeContainer.css("height", params.size * containerHeightScale + params.units);
+        shapeContainer.css("transform", "rotate(" + containerRotate + "deg) translateX(" + params.size * containerXTranlateScale + params.units + ") translateY(" + params.size * containerYTranlateScale + params.units + ")");
+        var shapeInner = $("<div></div>");
+        shapeInner.css("overflow", "hidden");
+        shapeInner.css("width", params.size * innerWidthScale + params.units);
+        shapeInner.css("height", params.size * innerHeightScale + params.units);
+        shapeInner.css("transform", "rotate(" + innerRotate + "deg) translateX(" + params.size * innerXTranlateScale + params.units + ") translateY(" + params.size * innerYTranlateScale + params.units + ")");
+        var shapeContent = $("<div></div>");
+        shapeContent.css("width", params.size * contentWidthScale + params.units);
+        shapeContent.css("height", params.size * contentHeightScale + params.units);
+        shapeContent.css("transform", "rotate(" + contentRotate + "deg) translateX(" + params.size * contentXTranlateScale + params.units + ") translateY(" + params.size * contentYTranlateScale + params.units + ")");
+        shapeContent.addClass(params.class);
+        shapeContent.appendTo(shapeInner);
+        shapeInner.appendTo(shapeContainer);
+        shapeContainer.appendTo(shape);
+    });
+    /* PUBLIC */
+    ui.renderPolygonShape = function(selectorId, polygonPoints) {
+        var shape = $(selectorId);
+        var id = getGuid();
+        shape.attr("style", "clip-path: url('#" + id + "')");
+        $("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='" + polygonPoints + "' /></clipPath></defs></svg>").appendTo(shape);
+    };
 })(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);

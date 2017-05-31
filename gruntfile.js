@@ -18,7 +18,8 @@ module.exports = function(grunt) {
 											"src/js/_tooltips.js", 
 											"src/js/_modals.js", 
 											"src/js/_upload.js", 
-											"src/js/_tabs.js"],
+											"src/js/_tabs.js",
+											"src/js/_shapes.js"],
 					"dist/js/webui-utils.js" : "src/js/utils.js",
 					"dist/js/webui-validation.js" : "src/js/validation.js"
 				}
@@ -31,7 +32,8 @@ module.exports = function(grunt) {
 												"src/js/_tooltips.js", 
 												"src/js/_modals.js", 
 												"src/js/_upload.js", 
-												"src/js/_tabs.js"],
+												"src/js/_tabs.js",
+												"src/js/_shapes.js"],
 					"dist/js/webui-utils.min.js" : "src/js/utils.js",
 					"dist/js/webui-validation.min.js" : "src/js/validation.js"
 				}

@@ -3,6 +3,26 @@
 
 	/* PRIVATE */
 
+	var selectTab = function (element) {
+
+		var tabId = element.attr("href");
+
+		if (!tabId) {		
+			tabId = element.data("target");
+		}
+
+		var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").prop("id");
+		var curTabId = tabId.replace("#", "");
+		
+
+		element.trigger("ui.tabs.change.before", [prevTabId, curTabId]);
+
+		element.parents(".tabs").find(tabId).show().addClass("selected");
+		element.parents(".tabs").find(tabId).siblings(".tab-item").hide().removeClass("selected");
+	
+		element.trigger("ui.tabs.change.after", [prevTabId, curTabId]);
+	};
+
 
     /* PUBLIC */
 
@@ -31,25 +51,18 @@
 		var element = $(this);
 		
 		if (element) {
+			selectTab(element);
+		}			
 
-			var tabId = element.attr("href");
+	});
 
-			if (!tabId) {		
-				tabId = element.data("target");
-			}
+	$(".tab-activator").focus( function(e) {
+		e.preventDefault();
 
-			var prevTabId = element.parents(".tabs").find(tabId)
-				.siblings(".tab-item.selected").prop("id");
-			var curTabId = tabId.replace("#", "");
-			
-
-			element.trigger("ui.tabs.change.before", [prevTabId, curTabId]);
-
-			element.parents(".tabs").find(tabId).show().addClass("selected");
-			element.parents(".tabs").find(tabId)
-				.siblings(".tab-item").hide().removeClass("selected");
+		var element = $(this);
 		
-			element.trigger("ui.tabs.change.after", [prevTabId, curTabId]);	
+		if (element) {
+			selectTab(element);
 		}			
 
 	});

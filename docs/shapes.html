@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/controls_example.html">
+  <link rel="canonical" href="http://localhost:4000/webui/shapes.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
   
@@ -283,464 +283,306 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <div class="row-spacing-sm"></div>
+                        <p id="shapes" class="text-lg color-accent-2 text-bold">
+	Shapes<span class="text-xs color-accent-3 col-spacing-left-md"> [Requires: webui.js]</span>
+</p>
 
-<div class="container text-sm">
+<div class="row-spacing-xs"></div>
 
-	<div class="panel color-accent-5 text-bold">Buttons</div>
+<div class="text">
 
-	<div class="form-row">
+		<p>WebUI supports both transform shapes and shapes making use of clip-path. Transform shapes that work by transforming multiple div elements are
+            widely supported by modern browsers. But although clip-path shapes are more powerful, they are not supported by Internet Explorer or Microsoft Edge.
+            Both types of shapes are provided with a set of default ready-made shapes and also a single custom shape facility.
+        </p>
 
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-lg button-info place-middle-center">Info</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-sm button-accent-3 place-middle-center">Accent 3</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-xs button-accent-4 place-middle-center">Accent 4</button>
-				</div>
-			</div>
+		<div class="row-spacing-lg"></div>
+
+		<p class="color-accent-5 text-bold">Transform shapes</p>
+
+		<img src="/webui/assets/images/screenshot120.png" class="image border-sm border-accent-4" alt="Media" />
+
+		<div class="row-spacing-sm"></div>
+
+		<p>
+			The screenshot above shows the pre-defined transform shapes available and also a custom shape example. Creating a transform shape requires just a single div 
+			element and a few data dash attributes. Below is an example of a flat diamond shape. 
+		</p>
+
+</div>
+
+<div id="snippet120" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="diamond-flat-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image-2"&gt;&lt;/div&gt;
+</pre>
 		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-lg button-success rounded-md place-middle-center">Success</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-sm button-accent-1 rounded-md place-middle-center">Accent 1</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-xs button-accent-4 rounded-md place-middle-center">Accent 4</button>
-				</div>
-			</div>
-		</div>
-
 	</div>
+</div>
 
-	<div class="form-row">
+<div class="text">
 
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-lg button-warning rounded-top-md place-middle-center">Warning</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-sm button-accent-1 rounded-top-md place-middle-center">Accent 1</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-xs button-light rounded-top-md place-middle-center">Light</button>
-				</div>
-			</div>
+		<div class="row-spacing-md"></div>
+
+		<p>The pre-defined shape classes are:
+			</p>
+		<p>
+			<ul class="list color-accent-2 text-bold">
+				<li>isosceles-shape</li>
+				<li>rhombus-shape</li>
+				<li>parallelogram-shape</li>
+				<li>diamond-shape</li>
+				<li>hexagon-shape</li>
+				<li>octagon-shape</li>
+				<li>diamond-flat-shape</li>
+				<li>scalene-left-shape</li>
+				<li>scalene-right-shape</li>
+			</ul>
+		</p>
+
+		<p>The data dash parameters are as follows:</p>
+
+		<p>
+			<span class="color-accent-2 text-bold">data-size</span> As with css styles, the size and unit type must be specified together - you can use any
+			type of unit supported by CSS 3.
+			<br />
+			<span class="color-accent-2 text-bold">data-rotation</span> This parameter is used to specify the degree of rotation required for the whole shape.
+			When using rotation you may wish to use an appropriately rotated image, so that it remains upright within the shape.
+			<br />
+			<span class="color-accent-2 text-bold">data-class</span> Use data-class to specify any CSS class you may have, such as an image or color. This
+			will apply the class to the background of the shape. When using a background image it is important to use a suitable size and ensure that it is
+			a true square - this will prevent the image from being stretched or shrunk. The image can be any size within reason, but you
+			will want to ensure it does not get unnecessarily stretched or distorted. The easiest way is to make the image match the size specified for the
+			shape itself. Of course, you can use an image element nested inside the shape div if you prefer that approach.
+		</p>
+
+		<div class="row-spacing-lg"></div>
+
+		<p class="color-accent-5 text-bold">Custom transform shapes using transform modifier data</p>
+
+		<p>By specifying the class <span class="color-accent-2 text-bold">custom-shape</span> instead of one of the pre-defined shapes, and using an
+		additional parameter <span class="color-accent-2 text-bold">data-modifiers</span>, you can create your own custom shapes by experimenting with
+		individual values. However, if you are familiar enough with how CSS transforms behave, then you will have a head start.</p>
+
+		<p>
+			Here is an example that creates a trapezium shape. 
+		</p>
+
+
+</div>
+
+<div id="snippet121" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="custom-shape" data-size="5rem" data-rotation="0" 
+  data-modifiers="0.9,0.8,-110,-.05,0,0.8,0.9,110,.1,.12,1,1,0,-0.1,-0.1" data-class="custom-image-2"&gt;&lt;/div&gt;
+</pre>
 		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-lg button-danger rounded-bottom-md place-middle-center">Danger</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-sm button-dark rounded-bottom-md place-middle-center">Dark</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="button-xs button-default rounded-bottom-md place-middle-center">Default</button>
-				</div>
-			</div>
-		</div>
-
 	</div>
+</div>
+
+<div class="text">
+
+		<p class="color-accent-5 text-bold">Explanation of each transform modifier value</p>
+
+		<p>
+			Modifier values represent 3 groups of 5 values. The first group controls the shape container div or the outer most div (Not the div you specify in 
+			your markup, but it's immediate child'). The second group controls the inner div or the child of the container. Finally, the third group controls
+			the content div or the inner most div.
+		</p>
+
+		<p>
+			<span class="color-accent-2 text-bold">Modifier value 1:</span> The multiplying factor of the container width relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 2:</span> The multiplying factor of the container height relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 3:</span> The degree of rotation (CSS rotate property) of the container div.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 4:</span> The multiplying factor of the container X-axis movement (CSS translateX property) relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 5:</span> The multiplying factor of the container Y-axis movement (CSS translateY property) relative to the shape size value.
+		</p>
+
+		<p>
+			<span class="color-accent-2 text-bold">Modifier value 6:</span> The multiplying factor of the inner div width relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 7:</span> The multiplying factor of the inner div height relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 8:</span> The degree of rotation (CSS rotate property) of the inner div.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 9:</span> The multiplying factor of the inner div X-axis movement (CSS translateX property) relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 10:</span> The multiplying factor of the inner div Y-axis movement (CSS translateY property) relative to the shape size value.
+		</p>
+
+		<p>
+			<span class="color-accent-2 text-bold">Modifier value 11:</span> The multiplying factor of the content div width relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 12:</span> The multiplying factor of the content div height relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 13:</span> The degree of rotation (CSS rotate property) of the content div.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 14:</span> The multiplying factor of the content div X-axis movement (CSS translateX property) relative to the shape size value.
+			<br />
+			<span class="color-accent-2 text-bold">Modifier value 15:</span> The multiplying factor of the content div Y-axis movement (CSS translateY property) relative to the shape size value.
+		</p>
 
 
-	<div class="form-row">
+		<div class="row-spacing-lg"></div>
 
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="view-button-sm view-button-accent-1 view-button-top width-md place-middle-center">Accent 1</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="view-button-sm view-button-accent-3 view-button-left width-md place-middle-center">Accent 3</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="view-button-sm view-button-accent-4 view-button-bottom width-md place-middle-center">Accent 4</button>
-				</div>
-			</div>
+		<p class="color-accent-5 text-bold">CSS clip-path shapes (Not supported in Internet Explorer or Microsoft Edge)</p>
+
+
+		<img src="/webui/assets/images/screenshot121.png" class="image border-sm border-accent-4" alt="Media" />
+
+		<div class="row-spacing-sm"></div>
+
+		<p>
+			The screenshot above shows the pre-defined clip-path shapes available and also a custom shape example. Creating a clip-path shape requires just a single div 
+			element, a specific shape class, and any WebUI classes that you might normally use to style elements, such as width, height, alignment, and background. 
+			Below is an example of a clip-path kite shape. 
+		</p>
+
+</div>
+
+<div id="snippet121" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-md height-md align-center custom-image-2 kite-clip-shape"&gt;&lt;/div&gt;
+</pre>
 		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-					<button class="view-button-sm view-button-dark view-button-right width-md place-middle-center">Dark</button>
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-
-				</div>
-			</div>
-			<div class="form-col-eq-3 respond-bp-1-under">
-				<div class="panel secondary height-sm-md">
-
-				</div>
-			</div>
-		</div>
-
 	</div>
+</div>
+
+<div class="text">
+
+		<div class="row-spacing-md"></div>
+
+		<p>The pre-defined clip-path shape classes are:
+			</p>
+		<p>
+			<ul class="list color-accent-2 text-bold">
+				<li>rhombus-clip-shape</li>
+				<li>rhomboid-clip-shape</li>
+				<li>kite-clip-shape</li>
+				<li>trapezoid-isosceles-clip-shape</li>
+				<li>triangle-isosceles-clip-shape</li>
+				<li>pentagon-clip-shape</li>
+				<li>star-clip-shape</li>
+			</ul>
+		</p>
+
+		<div class="row-spacing-lg"></div>
+
+		<p class="color-accent-5 text-bold">Custom clip-path shapes using polygon points data</p>
+
+		<p>Custom clip-path shapes are specified differently to transform shapes and require an additional javascript call.</p>
+
+		<p>
+			Here is an example that creates a custom scalene triangle with polygon point pairs.
+		</p>
+
+		<div class="row-spacing-md"></div>
+
+</div>
+
+<div id="snippet122" class="body background-secondary">
+	<div class="content-row">
+		<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-md height-md align-center custom-image-2" id="customClipShape"&gt;&lt;/div&gt;
+</pre>
+
+<pre>
+&lt;script&gt;
+  $( document ).ready(function() {
+
+    ui.renderPolygonShape("#customClipShape", "0.2 0.7, 0.5 0, 0.5 0, 1 1");
+	
+  });
+&lt;/script&gt;
+</pre>				
+		</div>
+	</div>
+</div>
+
+<div class="text">
 
 	<div class="row-spacing-lg"></div>
 
-	<div class="panel color-accent-5 text-bold">Grouped Controls</div>
+	<p class="color-accent-5 text-bold">Razor-blade style</p>
 
-	<div class="form-row">
+	<p>
+		Razor-blade styles are a great way to show off sections on your website by giving an angular shape to elements such as a div. The classes
+		available for this are:		
+	</p>
 
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md">
-					<div class="control-group-append place-middle-center">
-						<button class="button-lg menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-						<button class="button-lg menu-button-success">1</button>
-						<button class="button-lg menu-button-success">2</button>
-						<button class="button-lg menu-button-success">3</button>
-						<button class="button-lg menu-button-success rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md">
-					<div class="control-group-append place-middle-center">
-						<button class="button-sm menu-button-accent-3 rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-						<button class="button-sm menu-button-accent-3"><i class="fa fa-angle-left"></i></button>
-						<button class="button-sm menu-button-accent-3">1</button>
-						<button class="button-sm menu-button-accent-3">2</button>
-						<button class="button-sm menu-button-accent-3">3</button>
-						<button class="button-sm menu-button-accent-3"><i class="fa fa-angle-right"></i></button>
-						<button class="button-sm menu-button-accent-3 rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md">
-					<div class="control-group-append place-middle-center">
-						<button class="menu-button-disabled rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-						<button class="menu-button-disabled"><i class="fa fa-angle-left"></i></button>
-						<button class="menu-button-disabled">1</button>
-						<button class="menu-button-disabled">2</button>
-						<button class="menu-button-disabled">3</button>
-						<button class="menu-button-disabled"><i class="fa fa-angle-right"></i></button>
-						<button class="menu-button-disabled rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
+	<p>
+		<ul class="list color-accent-2 text-bold">
+			<li>razor-blade-top-left</li>
+			<li>razor-blade-top-right</li>
+			<li>razor-blade-bottom-left</li>
+			<li>razor-blade-bottom-right</li>
+		</ul>
+	</p>
 
-				</div>
-			</div>
-		</div>
+	<p>You also need to add one of the following classes to specify the amount of angle needed:</p>
 
-	</div>
-
-	<div class="form-row">
-
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<input type="text" class="input-lg border-accent-1 rounded-left-sm width-two-thirds" />
-							<button class="button-lg button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<input type="text" class="input-sm border-warning rounded-left-sm width-two-thirds" />
-							<button class="button-sm button-warning rounded-right-sm"><i class="fa fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<input type="text" class="input-xs border-accent-4 rounded-left-sm width-two-thirds" />
-							<button class="button-xs button-accent-4 rounded-right-sm"><i class="fa fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md">
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="form-row">
-
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<button class="button-lg muted border-muted rounded-left-sm">£</button>
-							<input type="text" class="input-lg border-muted width-one-half" />
-							<button class="button-lg muted border-muted rounded-right-sm">.00</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<button class="button-sm info border-info rounded-left-sm">£</button>
-							<input type="text" class="input-sm border-info width-two-thirds" />
-							<button class="button-sm info border-info rounded-right-sm">.00</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="content-col-10 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md text-center">
-					<div class="place-middle-center width-full">
-						<div class="flex flex-justify-center">
-							<button class="button-xs accent-5 border-accent-5 rounded-left-sm">£</button>
-							<input type="text" class="input-xs secondary border-accent-5 width-two-thirds" />
-							<button class="button-xs accent-5 border-accent-5 rounded-right-sm">.00</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-2-under">
-				<div class="panel secondary height-sm-md">
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-
+	<p>
+		<ul class="list color-accent-2 text-bold">
+			<li>razor-blade-sm</li>
+			<li>razor-blade-md</li>
+			<li>razor-blade-lg</li>
+		</ul>
+	</p>
 
 	<div class="row-spacing-lg"></div>
 
-	<div class="panel color-accent-5 text-bold">Checkboxes and Radios</div>
+	<p class="color-accent-5 text-bold">Arrow extend style</p>
 
-	<div class="form-row">
+	<p>
+		The arrow extend classes allow you to easily extend most elements with an arrow extension. The border of the element is also extended into an arrow shape. 
+		The classes available for this are:		
+	</p>
 
-		<div class="content-col-20 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-3-under">
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md">
-						<div class="place-middle-center">
-							<div class="checkbox border-accent-3 accessibility">
-								<input type="checkbox" value="" id="checkbox1" />
-								<label for="checkbox1"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-info accessibility">
-								<input type="checkbox" value="" id="checkbox2" />
-								<label for="checkbox2"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-accent-4 accessibility">
-								<input type="checkbox" value="" id="checkbox3" />
-								<label for="checkbox3"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-warning accessibility">
-								<input type="checkbox" value="" id="checkbox4" />
-								<label for="checkbox4"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-3-under">
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-md border-accent-2 rounded-sm">
-								<input type="checkbox" value="" id="checkbox5" />
-								<label for="checkbox5"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-md border-dark rounded-sm">
-								<input type="checkbox" value="" id="checkbox6" />
-								<label for="checkbox6"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-md border-accent-4 rounded-sm">
-								<input type="checkbox" value="" id="checkbox7" />
-								<label for="checkbox7"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="checkbox border-md border-muted rounded-sm">
-								<input type="checkbox" value="" id="checkbox8" />
-								<label for="checkbox8"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	<p>
+		<ul class="list color-accent-2 text-bold">
+			<li>arrow-extend-left</li>
+			<li>arrow-extend-top</li>
+			<li>arrow-extend-right</li>
+			<li>arrow-extend-bottom</li>
+		</ul>
+	</p>
 
-		</div>
-	</div>
+	<p>You also need to add one of the following classes to specify the size of the arrow:</p>
 
+	<p>
+		<ul class="list color-accent-2 text-bold">
+			<li>arrow-extend-sm</li>
+			<li>arrow-extend-md</li>
+			<li>arrow-extend-lg</li>
+		</ul>
+	</p>
 
+	<img src="/webui/assets/images/screenshot122.png" class="image border-sm border-accent-4" alt="Media" />
 
-	<div class="form-row">
+	<div class="row-spacing-md"></div>
 
-		<div class="content-col-20 respond-bp-5-under">
-			<div class="form-col-10 respond-bp-3-under">
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-accent-4 accessibility">
-								<input type="radio" value="" name="radiogroup1" id="radio1" />
-								<label for="radio1"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-accent-1 accessibility">
-								<input type="radio" value="" name="radiogroup1" id="radio2" />
-								<label for="radio2"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-success accessibility">
-								<input type="radio" value="" name="radiogroup1" id="radio3" />
-								<label for="radio3"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-muted accessibility">
-								<input type="radio" value="" name="radiogroup1" id="radio4" />
-								<label for="radio4"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-col-10 respond-bp-3-under">
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-md border-default">
-								<input type="radio" value="" name="radiogroup2" id="radio5" />
-								<label for="radio5"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-md border-dark">
-								<input type="radio" value="" name="radiogroup2" id="radio6" />
-								<label for="radio6"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-md border-success">
-								<input type="radio" value="" name="radiogroup2" id="radio7" />
-								<label for="radio7"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form-col-5 respond-bp-1-under">
-					<div class="panel secondary height-sm-md text-center">
-						<div class="place-middle-center">
-							<div class="radio border-md border-accent-3">
-								<input type="radio" value="" name="radiogroup2" id="radio8" />
-								<label for="radio8"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="content-row">
+      <div class="content-col-9 respond-bp-2-under">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>As always, make sure you take a look at the DEMO.html static page that comes with the download or install, to see
+			examples of using shapes.
+					</p>
+        </blockquote>
+      </div>
+    </div>
 
+	<div class="row-spacing-lg"></div>
 
 </div>
 

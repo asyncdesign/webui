@@ -1,14 +1,14 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 5.2.0
-* Author: Levi Keogh, 2017-04-26
+* Version: 5.3.0
+* Author: Levi Keogh, 2017-05-24
 */
 
 "use strict";
 
 (function (webui, ui, $, undefined) {
 
-	ui.version = "webui-5.2.0";
+	ui.version = "webui-5.3.0";
 
 	/* PRIVATE */	
 
@@ -76,10 +76,8 @@
 				var fadeInDuration = parseInt(toggleContainer.data("fade-in-duration"));
 				var fadeOutDuration = parseInt(toggleContainer.data("fade-out-duration"));
 				if (toggleItem.hasClass("off-canvas-left")) {
-					toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
 					toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
 				} else if (toggleItem.hasClass("off-canvas-right")) {
-					toggleBody.css("-webkit-transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
 					toggleBody.css("transition", "margin-left " + fadeInDuration / 1e3 + "s linear");
 				}
 				if (toggleItem.css("display") === "block") {
@@ -97,8 +95,6 @@
 					} else if (toggleItem.hasClass("off-canvas-right")) {
 						var toggleItemWidth = parseInt(toggleItem.css("width"));
 						toggleBody.css("margin-left", "-" + toggleItemWidth + "px");
-						toggleItem.css("mergin-right", toggleItemWidth + "px");
-						toggleItem.css("-webkit-transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
 						toggleItem.css("transition", "margin-right " + fadeInDuration / 1e3 + "s linear");
 					}
 					toggleItem.show(fadeInDuration);
