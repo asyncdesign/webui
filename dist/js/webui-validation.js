@@ -1,12 +1,12 @@
 /*!
 * Name: webui-validation - validation functions
-* Version: 5.3.0
-* Author: Levi Keogh, 2017-05-24
+* Version: 5.4.0
+* Author: Levi Keogh, 2017-06-05
 */
 "use strict";
 
 (function(webui, ui, $, undefined) {
-    ui.version = "webui-5.3.0";
+    ui.version = "webui-5.4.0";
     /* PRIVATE */
     var selectorRegExpMatches = function(selector, regExp) {
         var element = $(selector);

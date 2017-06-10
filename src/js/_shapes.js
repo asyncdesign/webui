@@ -131,7 +131,19 @@
 
 
     var getTransformShapeParameters = function(shape) {
-        var sizeUnits = shape.data("size") !== undefined ? shape.data("size").split(/(\d+)/).filter(Boolean) : ["10", "rem"];
+
+        var units = shape.data("size") !== undefined && isNaN(shape.data("size")) ? shape.data("size").split(/(\d+)/).filter(Boolean) : ["10", "rem"];
+        var sizeUnits = [];
+
+        var number = "";
+        for (var i = 0; i < units.length; i++) {     
+            if (i < units.length - 1) {
+                number += units[i];
+            }     
+        }
+        sizeUnits.push(number);
+        sizeUnits.push(units[units.length - 1]);
+   
         var shapeRotation = shape.data("rotation") !== undefined ? shape.data("rotation") : 0;
         var shapeClassName = shape.data("class") !== undefined ? shape.data("class") : "background-default";
 
@@ -453,8 +465,6 @@
         var params = getTransformShapeParameters(shape);
         var modifiers = shape.data("modifiers") !== undefined ? shape.data("modifiers").split(/((^[-+]?([0-9]+)(\.[0-9]+)?)$)/)[0].split(",") : 
                     ["0.9", "0.8", "-110", "-.05", "0", "0.9", "0.8", "110", ".1", ".12", "1", "1", "0", "-0.1", "-0.1"];
-
-        console.log(modifiers);
 
         var containerWidthScale = modifiers.length > 0 ? parseFloat(modifiers[0]) : 0;
         var containerHeightScale = modifiers.length > 1 ? parseFloat(modifiers[1]) : 0;

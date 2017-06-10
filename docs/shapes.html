@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.3.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -354,7 +354,7 @@
 			will apply the class to the background of the shape. When using a background image it is important to use a suitable size and ensure that it is
 			a true square - this will prevent the image from being stretched or shrunk. The image can be any size within reason, but you
 			will want to ensure it does not get unnecessarily stretched or distorted. The easiest way is to make the image match the size specified for the
-			shape itself. Of course, you can use an image element nested inside the shape div if you prefer that approach.
+			shape itself. Transform shapes only allow a background image to be set, rather than an img element nested inside the shape.
 		</p>
 
 		<div class="row-spacing-lg"></div>
@@ -442,7 +442,8 @@
 		<p>
 			The screenshot above shows the pre-defined clip-path shapes available and also a custom shape example. Creating a clip-path shape requires just a single div 
 			element, a specific shape class, and any WebUI classes that you might normally use to style elements, such as width, height, alignment, and background. 
-			Below is an example of a clip-path kite shape. 
+			Below is an example of a clip-path kite shape. Clip-path shapes allow you to use an image element nested inside the shape div if you prefer that approach, or
+			you can apply the clip-path shape classes directly to the img element.
 		</p>
 
 </div>

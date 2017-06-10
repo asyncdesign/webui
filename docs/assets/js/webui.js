@@ -1,12 +1,12 @@
 /*!
 * Name: webui - UI functions
-* Version: 5.3.0
-* Author: Levi Keogh, 2017-05-24
+* Version: 5.4.0
+* Author: Levi Keogh, 2017-06-05
 */
 "use strict";
 
 (function(webui, ui, $, undefined) {
-    ui.version = "webui-5.3.0";
+    ui.version = "webui-5.4.0";
     /* PRIVATE */
     var isDiv = function(selector) {
         return $(selector).is("div");
@@ -1365,7 +1365,7 @@
         try {
             var tooltips = $(".tooltip");
             tooltips.each(function() {
-                var tooltip = $(this).children("*[class*='tooltip-']:first");
+                var tooltip = $(this).children("[class*='tooltip-']:first");
                 tooltip.css("margin-left", "");
                 tooltip.css("margin-top", "");
                 tooltip.css("left", "");
@@ -1400,7 +1400,7 @@
         tooltipAutoSize = options.autoResizing !== void 0 ? options.autoResizing : tooltipAutoSize;
     };
     ui.showTooltip = function(selector, message, resetOnly) {
-        var tooltip = $(selector).children("*[class*='tooltip-']:first");
+        var tooltip = $(selector).children("[class*='tooltip-']:first");
         if (tooltip && tooltip.length) {
             var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
             if (tooltip.hasClass("tooltip-left")) {
@@ -1504,8 +1504,9 @@
         }
     };
     ui.hideTooltip = function(selector) {
-        var tooltip = $(selector).children("*[class*='tooltip-']:first");
+        var tooltip = $(selector).children("[class*='tooltip-']:first");
         if (tooltip && tooltip.length) {
+            tooltip.css("display", "none");
             tooltip.hide();
         }
     };
@@ -1523,7 +1524,7 @@
         }
     }, function() {
         var tooltip = $(this).children(".tooltip-dynamic:first");
-        if (tooltip && tooltip.length) {
+        if (tooltip && tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
             ui.hideTooltip(this);
         }
     });
@@ -1542,7 +1543,7 @@
     });
     $(".tooltip").focusout(function() {
         var tooltip = $(this).children(".tooltip-focus:first");
-        if (tooltip && tooltip.length) {
+        if (tooltip && tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
             ui.hideTooltip(this);
         }
     });
@@ -1784,7 +1785,16 @@
         }
     });
     var getTransformShapeParameters = function(shape) {
-        var sizeUnits = shape.data("size") !== undefined ? shape.data("size").split(/(\d+)/).filter(Boolean) : [ "10", "rem" ];
+        var units = shape.data("size") !== undefined && isNaN(shape.data("size")) ? shape.data("size").split(/(\d+)/).filter(Boolean) : [ "10", "rem" ];
+        var sizeUnits = [];
+        var number = "";
+        for (var i = 0; i < units.length; i++) {
+            if (i < units.length - 1) {
+                number += units[i];
+            }
+        }
+        sizeUnits.push(number);
+        sizeUnits.push(units[units.length - 1]);
         var shapeRotation = shape.data("rotation") !== undefined ? shape.data("rotation") : 0;
         var shapeClassName = shape.data("class") !== undefined ? shape.data("class") : "background-default";
         return {
@@ -2025,7 +2035,6 @@
         var shape = $(this);
         var params = getTransformShapeParameters(shape);
         var modifiers = shape.data("modifiers") !== undefined ? shape.data("modifiers").split(/((^[-+]?([0-9]+)(\.[0-9]+)?)$)/)[0].split(",") : [ "0.9", "0.8", "-110", "-.05", "0", "0.9", "0.8", "110", ".1", ".12", "1", "1", "0", "-0.1", "-0.1" ];
-        console.log(modifiers);
         var containerWidthScale = modifiers.length > 0 ? parseFloat(modifiers[0]) : 0;
         var containerHeightScale = modifiers.length > 1 ? parseFloat(modifiers[1]) : 0;
         var containerRotate = modifiers.length > 2 ? parseFloat(modifiers[2]) : 0;

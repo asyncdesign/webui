@@ -29,7 +29,7 @@ textarea {
 	resize: vertical;
 	overflow: auto;
 }
-a:not(.button-link):not(.button-link-sm):not(.view-button-link):not(.view-button-link-sm):not(.menu-button-link):not(.menu-button-link-sm).accessibility:focus {
+a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]).accessibility:focus {
 	outline: 0.188rem solid $theme_accessibility;
 }
 input[type=checkbox], 
@@ -363,6 +363,7 @@ svg:not(:root) {
 .button-link-xl {
 	line-height: 2.75rem;	
 }
+.button-link,
 .button-link-xs,
 .button-link-sm,
 .button-link-md,
@@ -370,6 +371,7 @@ svg:not(:root) {
 .button-link-xl {
 	display: block;
 	text-align: center;
+	cursor: pointer;
 }
 .button-fluid {
 	text-decoration: none;
@@ -622,6 +624,7 @@ svg:not(:root) {
 .view-button-link-lg {
 	line-height: 2.75rem;	
 }
+.view-button-link,
 .view-button-link-sm,
 .view-button-link-lg {
 	display: block;
@@ -1127,12 +1130,15 @@ svg:not(:root) {
 .control-group-success .control:not(.control-disabled), 
 .control-group-success *[class*="input"]:not(.control-disabled) {
 	border-color: $theme_success;
-	&[type='text'], &.instrumentation {
+	&[type="text"], &[type=button], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%232DB200' d='M11.19 3.79c0 0.167-0.067 0.335-0.188 0.455l-5.759 5.759c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-3.335-3.335c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l0.911-0.911c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l1.969 1.975 4.393-4.4c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l0.911 0.911c0.121 0.121 0.188 0.288 0.188 0.455z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
-		background-position: center right 0.5rem;
+		background-position: center right 0.625rem;
 		background-size: 1em 1em;
 		padding-right: 2.5rem;
+	}
+	&.instrumentation {
+		background-position: right 0.625rem top 0.5rem;
 	}
 }
 .control-success:not(.control-disabled).accessibility:focus,
@@ -1161,12 +1167,15 @@ svg:not(:root) {
 .control-group-info .control:not(.control-disabled), 
 .control-group-info *[class*="input"]:not(.control-disabled) {
 	border-color: $theme_info;
-	&[type='text'], &.instrumentation {
+	&[type="text"], &[type=button], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%230072FF' d='M6.857 9.214v-1.071c0-0.121-0.094-0.214-0.214-0.214h-0.643v-3.429c0-0.121-0.094-0.214-0.214-0.214h-2.143c-0.121 0-0.214 0.094-0.214 0.214v1.071c0 0.121 0.094 0.214 0.214 0.214h0.643v2.143h-0.643c-0.121 0-0.214 0.094-0.214 0.214v1.071c0 0.121 0.094 0.214 0.214 0.214h3c0.121 0 0.214-0.094 0.214-0.214zM6 3.214v-1.071c0-0.121-0.094-0.214-0.214-0.214h-1.286c-0.121 0-0.214 0.094-0.214 0.214v1.071c0 0.121 0.094 0.214 0.214 0.214h1.286c0.121 0 0.214-0.094 0.214-0.214zM10.286 6c0 2.839-2.304 5.143-5.143 5.143s-5.143-2.304-5.143-5.143 2.304-5.143 5.143-5.143 5.143 2.304 5.143 5.143z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
-		background-position: center right 0.5rem;
+		background-position: center right 0.625rem;
 		background-size: 1em 1em;
 		padding-right: 2.5rem;
+	}
+	&.instrumentation {
+		background-position: right 0.625rem top 0.5rem;
 	}
 }
 .control-info:not(.control-disabled).accessibility:focus,
@@ -1195,12 +1204,15 @@ svg:not(:root) {
 .control-group-warning .control:not(.control-disabled), 
 .control-group-warning *[class*="input"]:not(.control-disabled) {
 	border-color: $theme_warning;
-	&[type='text'], &.instrumentation {
+	&[type="text"], &[type=button], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF9300' d='M6.857 9.208v-1.272c0-0.121-0.094-0.221-0.214-0.221h-1.286c-0.121 0-0.214 0.1-0.214 0.221v1.272c0 0.121 0.094 0.221 0.214 0.221h1.286c0.121 0 0.214-0.1 0.214-0.221zM6.844 6.703l0.121-3.074c0-0.040-0.020-0.094-0.067-0.127-0.040-0.033-0.1-0.074-0.161-0.074h-1.473c-0.060 0-0.121 0.040-0.161 0.074-0.047 0.033-0.067 0.1-0.067 0.141l0.114 3.060c0 0.087 0.1 0.154 0.228 0.154h1.239c0.121 0 0.221-0.067 0.228-0.154zM6.75 0.449l5.143 9.429c0.147 0.261 0.141 0.583-0.013 0.844s-0.435 0.422-0.737 0.422h-10.286c-0.301 0-0.583-0.161-0.737-0.422s-0.161-0.583-0.013-0.844l5.143-9.429c0.147-0.275 0.435-0.449 0.75-0.449s0.603 0.174 0.75 0.449z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
-		background-position: center right 0.5rem;
+		background-position: center right 0.625rem;
 		background-size: 1em 1em;
 		padding-right: 2.5rem;
+	}
+	&.instrumentation {
+		background-position: right 0.625rem top 0.5rem;
 	}
 }
 .control-warning:not(.control-disabled).accessibility:focus,
@@ -1228,12 +1240,15 @@ svg:not(:root) {
 .control-group-danger .control:not(.control-disabled), 
 .control-group-danger *[class*="input"]:not(.control-disabled) {
 	border-color: $theme_danger;
-	&[type='text'], &.instrumentation {
+	&[type="text"], &[type=button], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF0000' d='M8.692 8.853c0 0.167-0.067 0.335-0.188 0.455l-0.911 0.911c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-1.969-1.969-1.969 1.969c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-0.911-0.911c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l1.969-1.969-1.969-1.969c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l0.911-0.911c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l1.969 1.969 1.969-1.969c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l0.911 0.911c0.121 0.121 0.188 0.288 0.188 0.455s-0.067 0.335-0.188 0.455l-1.969 1.969 1.969 1.969c0.121 0.121 0.188 0.288 0.188 0.455z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
-		background-position: center right 0.5rem;
+		background-position: center right 0.625rem;
 		background-size: 1em 1em;
 		padding-right: 2.5rem;
+	}
+	&.instrumentation {
+		background-position: right 0.625rem top 0.5rem;
 	}
 }
 .control-danger:not(.control-disabled).accessibility:focus,
@@ -1815,6 +1830,9 @@ svg:not(:root) {
 .text-xl {
 	font-size: 1.25em;
 }
+.text-mega {
+	font-size: 2.5em;
+}
 .text-italic {
 	font-style: italic;
 }
@@ -1830,6 +1848,9 @@ svg:not(:root) {
 .text-capital {
     text-transform: capitalize;
 }
+.text-underline {
+	text-decoration: underline;
+}
 .text-line-through {
 	text-decoration: line-through;
 }
@@ -1837,7 +1858,7 @@ svg:not(:root) {
   	overflow-wrap: break-word;
   	word-wrap: break-word;
 }
-*[class*="text-"]:not(.text-line-through) {
+*[class*="text-"]:not(.text-underline):not(.text-line-through) {
 	text-decoration: none;	
 }
 *[class*="text-"] {

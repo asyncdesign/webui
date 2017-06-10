@@ -155,7 +155,7 @@
 		try {
 			var tooltips = $(".tooltip");
 			tooltips.each(function () {
-				var tooltip = $(this).children("*[class*='tooltip-']:first");
+				var tooltip = $(this).children("[class*='tooltip-']:first");
 				tooltip.css("margin-left", "");
 				tooltip.css("margin-top", "");
 				tooltip.css("left", "");
@@ -200,7 +200,7 @@
 
 	ui.showTooltip = function (selector, message, resetOnly) {
 
-		var tooltip = $(selector).children("*[class*='tooltip-']:first");
+		var tooltip = $(selector).children("[class*='tooltip-']:first");
 
 		if (tooltip && tooltip.length) {
 
@@ -309,10 +309,11 @@
 
 	ui.hideTooltip = function (selector) {
 
-		var tooltip = $(selector).children("*[class*='tooltip-']:first");
+		var tooltip = $(selector).children("[class*='tooltip-']:first");
 
 		if (tooltip && tooltip.length) {
-			tooltip.hide();
+			tooltip.css("display", "none");
+			tooltip.hide();	
 		}
 	};
 
@@ -332,7 +333,7 @@
 	}, function () {
 		var tooltip = $(this).children(".tooltip-dynamic:first");
 
-		if (tooltip && tooltip.length) {
+		if (tooltip && tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
 			ui.hideTooltip(this);
 		}
 	});
@@ -354,7 +355,7 @@
 	$(".tooltip").focusout(function () {
 		var tooltip = $(this).children(".tooltip-focus:first");
 
-		if (tooltip && tooltip.length) {
+		if (tooltip && tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
 			ui.hideTooltip(this);
 		}
 	});
