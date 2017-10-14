@@ -242,6 +242,57 @@
 	border-right: inherit;
 	border-bottom: inherit;
 	border-left: 0 inherit inherit;
+	box-sizing: border-box;
+}
+.bulge-extend-sm:after {
+	width: 0.5rem;
+	height: 0.5rem;
+	margin-left: -0.25rem;
+	margin-top: -0.25rem;
+}
+.bulge-extend-md:after {
+	width: 1rem;
+	height: 1rem;
+	margin-left: -0.5rem;
+	margin-top: -0.5rem;
+}
+.bulge-extend-lg:after {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-left: -0.75rem;
+	margin-top: -0.75rem;
+}
+.bulge-extend-top:after {
+	top: 0;
+	left: 50%;
+	transform: rotate(225deg);
+}
+.bulge-extend-right:after {
+	top: 50%;
+	left: 100%;
+	transform: rotate(-45deg);
+}
+.bulge-extend-bottom:after {
+	top: 100%;
+	left: 50%;
+	transform: rotate(45deg);
+}
+.bulge-extend-left:after {
+	top: 50%;
+	left: 0;
+	transform: rotate(-225deg);
+}
+*[class*="bulge-extend-"]:after {
+	position: absolute;
+	content: "";
+	background: inherit;
+	border-top: 0 inherit inherit;
+	border-right: inherit;
+	border-bottom: inherit;
+	border-left: 0 inherit inherit;
+	border-top-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	box-sizing: border-box;
 }
 .razor-blade-top-left.razor-blade-sm:after,
 .razor-blade-bottom-right.razor-blade-sm:after {	

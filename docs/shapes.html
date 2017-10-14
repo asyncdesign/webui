@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -296,8 +296,18 @@
             Both types of shapes are provided with a set of default ready-made shapes and also a single custom shape facility.
         </p>
 
-		<div class="row-spacing-lg"></div>
-
+		<div class="content-row">
+			<div class="content-col-9 respond-bp-2-under">
+				<blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+					<p class="color-accent-3"><b>NOTE:</b></p>
+					<p>The new snap positioning tool is an ideal way to position shapes relative to any other element used as an anchor point.
+						See the <span class="color-accent-2 text-bold">DEMO-Grids-Positioning.html</span> demo page with the install or download package.</p>     
+				</blockquote>
+			</div>
+		</div>
+	
+		<div class="row-spacing-md"></div>
+		  
 		<p class="color-accent-5 text-bold">Transform shapes</p>
 
 		<img src="/webui/assets/images/screenshot120.png" class="image border-sm border-accent-4" alt="Media" />
@@ -499,9 +509,9 @@
 
 <pre>
 &lt;script&gt;
-  $( document ).ready(function() {
+  webui.ready(function() {
 
-    ui.renderPolygonShape("#customClipShape", "0.2 0.7, 0.5 0, 0.5 0, 1 1");
+    ui("#customClipShape").renderPolygonShape("0.2 0.7, 0.5 0, 0.5 0, 1 1");
 	
   });
 &lt;/script&gt;
@@ -640,7 +650,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

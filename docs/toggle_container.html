@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -313,7 +313,7 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
+<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
 
   &lt;div class="content-col dock-top-left"&gt;
     &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
@@ -353,7 +353,14 @@
       <div class="content-col-9 respond-bp-2-under">
         <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
           <p class="color-accent-3"><b>NOTE:</b></p>
-          <p>For off-canvas menus you do need to add <span class="color-accent-2 text-bold">class="off-canvas-body"</span> to the body tag in your html.</p>
+          <p>For off-canvas menus you do need to add <span class="color-accent-2 text-bold">class="off-canvas-body"</span> and the 
+            <span class="color-accent-2 text-bold">data-transition-duration</span> data attribute to a container element for
+          your main body content. For example:</p>
+<pre>&lt;div data-transition-duration="1000"&gt;
+&lt;/div&gt;
+</pre>
+          <p>The transition duration value should match the duration specified for the toggle container off-canvas panel, since
+            the off-canvas panel and the main page content should move in sync.</p>     
         </blockquote>
       </div>
     </div>
@@ -377,7 +384,7 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
+<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
         
   &lt;div class="content-col dock-top-right"&gt;
     &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
@@ -427,7 +434,7 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="toggle-container" data-fade-in-duration="600" data-fade-out-duration="600" id="toggle1"&gt;
+<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
             
   &lt;div class="content-col-20"&gt;
     
@@ -479,21 +486,21 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  $( "#panel1" ).on("ui.toggleItem.show.before", function(e) {
+  ui( "#panel1" ).on("ui.toggleItem.show.before", function(e) {
     // Take some action
   });
 
-  $( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
+  ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
     // Take some action
   });
 
-  $( "#panel1" ).on("ui.toggleItem.hide.before", function(e) {
+  ui( "#panel1" ).on("ui.toggleItem.hide.before", function(e) {
     // Take some action
   });
 
-  $( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
+  ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
     // Take some action
   });
 
@@ -560,7 +567,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

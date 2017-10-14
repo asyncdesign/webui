@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>title</title>
+
+	<link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dist/css/webui.css">
+
+	<link rel="stylesheet" href="site.css">
+
+</head>
+
+<body class="text-sm color-accent-5">
+
+
+	<div class="responsive-gutter-xs">
+
+		<div class="row-spacing-lg"></div>
+
+		<div id="MainTitle" class="panel">
+			<div class="content-row">
+				<div class="content-col-15 text-xl text-bold color-accent-1 respond-bp-3-under">
+					<div class="row-spacing-lg"></div>
+					WebUI. CSS Framework
+				</div>
+				<div class="content-col-5 respond-bp-3-under">
+					<div class="row-spacing-sm"></div>
+					<div class="content-row move-right respond-bp-3-under">
+						<div class="content-col-5">
+							<img src="images/webui_blue_64x64.png" alt="Media" />
+						</div>
+					</div>
+					<div class="content-row move-right respond-bp-3-under">
+						<div class="content-row">
+							<div class="content-col-20 text-sm text-italic">
+								Built with SASS
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="panel text-lg">
+			Forms (These controls have fixed widths and with slight rounding applied. Controls can be either fixed or full width for
+			mobile devices. Visual accessibility cues can be applied to focusable controls by adding the accessibility class.)
+		</div>
+
+		<div class="row-spacing-xs"></div>
+
+		<div class="container background-secondary rounded-sm">
+
+			<form>
+				<div class="form-row responsive-gutter-sm">
+					<div class="form-col">
+						<div class="form-col-20 color-accent-4 text-sm">
+							<br /> Form layouts are exceptionally easy using content areas and responsive or non-responsive columns.
+							<div class="row-spacing-lg"></div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row responsive-gutter-sm">
+					<div class="form-col-10 respond-bp-5-under">
+						<div class="form-row control-group-success">
+							<div class="form-col-5 respond-bp-3-under">
+								<div class="content-col width-md-lg control-label-sm">
+									<div class="content-col">
+										First name
+									</div>
+									<div class="content-col text-xl color-danger col-spacing-sm">
+										*
+									</div>
+								</div>
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<div class="tooltip width-full" id="tooltipFirstName">
+									<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
+										First name is required.
+									</div>
+									<input id="FirstName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+								</div>
+								<label class="text-sm text-italic">Sample control text</label>
+							</div>
+						</div>
+						<div class="form-row control-group-warning">
+							<div class="form-col-5 respond-bp-3-under">
+								<div class="content-col control-label-sm width-md-lg">
+									<div class="content-col">
+										Last name
+									</div>
+									<div class="content-col text-xl color-danger col-spacing-sm">
+										*
+									</div>
+								</div>
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row control-group-danger">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Company
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="Company" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Address
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<div class="tooltip width-full" id="tooltipAddress">
+									<div class="tooltip-focus tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautohide tooltip-noautosize rounded-md">
+
+										<div class="container background-light color-accent-1 border-md border-dark rounded-md col-spacing-sm">
+											<div class="panel">
+												<div class="move-right">
+													<i class="fa fa-close fa-lg color-accent-1 button-link" onclick="ui('#tooltipAddress').hideTooltip()"></i>
+												</div>
+											</div>
+											<div class="panel">
+												<div class="content-row">
+													<div class="content-col-20 control-label-sm respond-bp-3-under">
+														Address
+													</div>
+												</div>
+												<div class="content-row">
+													<div class="content-col-20 respond-bp-3-under">
+														<textarea id="Address" rows="3" class="control width-full rounded-sm accessibility"></textarea>
+													</div>
+												</div>
+												<div class="content-row">
+													<div class="content-col-20 control-label-sm respond-bp-3-under">
+														Postcode
+													</div>
+												</div>
+												<div class="content-row">
+													<div class="content-col-10 respond-bp-3-under">
+														<input id="Postcode" type="text" class="input-sm width-md rounded-sm accessibility" />
+													</div>
+													<div class="content-col-10 respond-bp-3-under">
+														<button class="button-sm button-transparent color-accent-1 color-hover-accent-2 border-md border-accent-1 border-hover-accent-2 rounded-sm move-right">Save</button>
+													</div>
+												</div>
+												<div class="row-spacing-sm"></div>
+											</div>
+										</div>
+
+									</div>
+									<button id="SearchPatient" type="button" class="button-sm button-accent-1 width-full rounded-sm">Address Details</button>
+								</div>
+							</div>
+						</div>
+						<div class="form-row control-group-info">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Town / City
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="TownCity" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm label-required respond-bp-3-under">
+								Postcode
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="Postcode" type="text" class="input-sm width-md rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Telephone
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="Telephone" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Date of birth
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row control-group-danger">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Gender
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<select id="Gender" class="input-sm width-md-lg rounded-sm accessibility">
+									<option value="1">Male</option>
+									<option value="3">Female</option>
+									<option value="4">Other</option>
+								</select>
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col-5 respond-bp-3-under">
+								<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm accessibility">Find Patient</button>
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col color-accent-4 text-lg form-col-align-xl respond-bp-3-under">
+								Questionnaire
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row control-group-success">
+							<div class="form-col-5 respond-bp-3-under">
+								<label>Vaccinations</label>
+							</div>
+							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="checkbox rounded-sm accessibility">
+											<input type="checkbox" value="" id="checkboxHepatitis" />
+											<label for="checkboxHepatitis"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>Hep</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="checkbox rounded-sm accessibility">
+											<input type="checkbox" value="" id="checkboxTetanus" />
+											<label for="checkboxTetanus"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>Tet</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="form-col width-md form-col-align-sm respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="checkbox rounded-sm accessibility">
+											<input type="checkbox" value="" id="checkboxTyphoid" />
+											<label for="checkboxTyphoid"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>Typ</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row control-group-danger">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Alcohol
+							</div>
+							<div class="form-col respond-bp-3-under">
+								<input id="Alcohol" type="number" class="input-sm width-md rounded-sm accessibility" /> <label>(units per week)</label>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Smoking
+							</div>
+							<div class="form-col respond-bp-3-under">
+								<input id="Smoking" type="number" class="input-sm width-md rounded-sm accessibility" /> (cigarettes per day)
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Time exercising
+							</div>
+							<div class="form-col respond-bp-3-under">
+								<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm accessibility" /> (per week)
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row control-group-disabled">
+							<div class="form-col-5 respond-bp-3-under">
+								<label>Sleep (Hours)</label>
+							</div>
+							<div class="form-col width-md respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="radio accessibility">
+											<input type="radio" value="1" name="sleep" id="radio4" disabled />
+											<label for="radio4"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>4</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="form-col width-md respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="radio accessibility">
+											<input type="radio" value="2" name="sleep" id="radio6" disabled />
+											<label for="radio6"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>6</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="form-col width-md respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col width-xs-sm">
+										<div class="radio accessibility">
+											<input type="radio" value="3" name="sleep" id="radio8" disabled />
+											<label for="radio8"></label>
+										</div>
+									</div>
+									<div class="content-col">
+										<label>8</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row-spacing-xl"></div>
+					</div>
+
+					<div class="form-col-10 respond-bp-5-under">
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								GP name
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="GpName" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								GP code
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="GpCode" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Surgery
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="Surgery" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Address
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<textarea id="GpAddress" rows="3" class="control width-full rounded-sm accessibility"></textarea>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Town / City
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Postcode
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm accessibility" />
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col-5 respond-bp-3-under">
+								<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm accessibility">Find GP</button>
+							</div>
+							<div class="form-col respond-bp-3-under">
+
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col color-accent-4 text-lg form-col-align-xl respond-bp-3-under">
+								Validation
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								URL
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<div class="tooltip width-full" id="tooltipEnterValues">
+									<div class="tooltip-focus tooltip-top tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
+										<div class="primary border-sm border-accent-4 rounded-md">
+											<div class="panel custom-background text-bold rounded-top-md">
+												<div class="col-spacing-left-md">Heading</div>
+											</div>
+											<div class="area text-sm rounded-bottom-md">
+												Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
+												nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
+												qui, ridens impedit persecuti sit eu, vidit diceret nam eu.
+											</div>
+										</div>
+									</div>
+									<input id="textURL" type="text" class="input-sm rounded-sm width-full accessibility" />
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-col-5 control-label-sm respond-bp-3-under">
+								Dates
+							</div>
+							<div class="form-col-10 respond-bp-3-under">
+								<div class="content-row">
+									<div class="content-col-3 width-md control-label-sm">
+										Start Date
+									</div>
+									<div class="content-col">
+										<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+									</div>
+								</div>
+								<div class="row-spacing-sm"></div>
+								<div class="content-row">
+									<div class="content-col-3 width-md control-label-sm">
+										End Date
+									</div>
+									<div class="content-col">
+										<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-col-5 form-col-align-sm respond-bp-2-under">
+								<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm accessibility">Validate</button>
+							</div>
+							<div class="form-col form-col-align-sm respond-bp-2-under">
+
+							</div>
+
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col  color-accent-4 text-lg form-col-align-sm respond-bp-3-under">
+								Alerts and popups
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-col">
+								<div class="tooltip" id="tooltipAboutModals">
+									<div class="tooltip-static tooltip-left tooltip-lg tooltip-accent-2 rounded-md"></div>
+									<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm accessibility">Show Modal Window</button>
+								</div>
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="form-row">
+							<div class="form-col">
+								<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm accessibility">Show Alert</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="row-spacing-md"></div>
+				<div class="form-row responsive-gutter-sm">
+					<div class="form-col-20">
+						<div class="form-col">
+							<button id="Save" type="button" class="button-sm button-disabled rounded-sm">Save</button>
+						</div>
+					</div>
+				</div>
+				<div class="row-spacing-md"></div>
+			</form>
+
+		</div>
+
+		<div id="modal1" class="modal">
+
+			<div class="modal-md modal-top-center background-accent-2">
+
+				<div class="content-row">
+					<div class="content-col-20 height-control-xl col-adjust-md color-primary background-accent-1 col-spacing-lg text-lg">
+						<div class="content-col-17 background-transparent">
+							Modal window example
+						</div>
+						<div class="content-col-3 background-transparent text-right">
+							<a href="javascript:void(0)"><i onclick="ui('#modal1').hideModal()" class="fa fa-close color-primary color-hover-accent-3"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-spacing-lg"></div>
+
+
+				<div class="form-row">
+					<div class="form-col-20">
+						<div class="body">
+							<div class="content-col-20 col-spacing-left-md">
+								<div class="control-append">
+									<div class="tooltip content-col-15">
+										<div class="tooltip-dynamic tooltip-bottom tooltip-lg tooltip-dark rounded-md">
+											Use color-translucent-* and background-translucent-* to blend colors. This textbox is blended with the modal background.
+										</div>
+										<input type="text" class="input-sm color-dark background-translucent-4 border-sm border-muted width-full" />
+									</div>
+									<button type="button" class="button-sm button-default color-primary background-translucent-4 border-sm border-muted"><i class="fa fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-spacing-lg hide-sm"></div>
+				<div class="row-spacing-sm"></div>
+
+				<div class="form-row">
+					<div class="form-col-20">
+						<div class="body">
+							<div class="content-col-20 col-spacing-md">
+								<div class="panel color-primary border-sm border-muted height-8 scroll-y">
+									<div class="content-row">
+										<div class="content-col-20">
+											Create responsive modals, and optionally add animation.
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+												quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+												ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+												erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+												eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+												Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+												erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-col-20 col-spacing-left-md">
+						<div class="panel">
+							<div class="panel">
+								<div class="content-col background-info">
+									<button type="button" class="button-sm button-accent-1">Save</button>
+								</div>
+								<div class="content-col col-spacing-xs"></div>
+								<div class="content-col background-accent-5">
+									<button type="button" onclick="ui.hideModal('#modal1')" class="button-sm button-accent-4">Cancel</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row-spacing-xl"></div>
+
+	</div>
+
+
+	<script type="text/javascript" src="dist/js/webui.js"></script>
+	<script type="text/javascript" src="dist/js/webui-utils.min.js"></script>
+	<script type="text/javascript" src="dist/js/webui-validation.min.js"></script>
+
+	<script>
+
+		webui.ready(function() {
+				
+			ui.initAlerts({
+				position: "top-center",
+				duration: 6000,
+				transitionDuration: 2000,
+				width: "60rem",
+				showHeader: true,
+				inline: true,
+				style: "outline-rounded",
+				autoHide: false,
+				showIcon: true,
+				showClose: true
+			});
+						
+			ui.initTooltips({
+				autoPositioning: true,
+				autoResizing: true,
+				autoPositioningMargin: 0,
+				transitionDuration: 1000
+			});
+
+			ui("#modal1").modalControl({
+				closeFromBackdrop: true,
+				transitionDuration: 1000
+			});
+
+
+			// Alerts
+			ui("#commandShowAlert").click( function() { 
+				ui.showInfoAlert("<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.", true);
+			});
+
+
+			//Tooltips
+			ui("#tooltipEnterValues").showTooltip();
+			ui("#tooltipAboutModals").showTooltip("Try various sized modals that scale to screen size...");	
+			
+
+			// Modals
+			ui("#commandShowModal1").click( function() {
+				ui("#modal1").showModal();
+			});
+
+			
+			// Validation
+			ui("#commandValidate").click( function() {
+
+				if (!ui("#textURL").hasConformingString(ui.URL, false)) {
+					ui("#textURL").setState("input-sm", "input-sm control-highlight", true, "Please enter a valid URL", false);
+				}
+				else {
+					ui("#textURL").setState("input-sm control-highlight", "input-sm");
+				}
+				
+				if (!ui("#textStartDate").hasValidDateTime("DD/MM/YYYY", true)) {
+					ui("#textStartDate").setState("input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
+					return;
+				}
+				
+				if (!ui("#textEndDate").hasValidDateTime("DD/MM/YYYY", true)) {
+					ui("#textEndDate").setState("input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
+					return;
+				}
+				
+				var startDate = ui.convertToDate(ui("#textStartDate").val(), "DD/MM/YYYY");
+				var endDate = ui.convertToDate(ui("#textEndDate").val(), "DD/MM/YYYY");
+					
+				if (startDate > endDate) {
+					ui("#textStartDate").setState("input-sm", "input-sm control-highlight", true);
+					ui("#textEndDate").setState("input-sm", "input-sm control-highlight", true);
+				}
+					
+			});
+
+		});
+			
+	</script>
+
+</body>
+
+</html>

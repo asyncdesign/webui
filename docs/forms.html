@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -672,14 +672,14 @@
   <div class="content-row">
     <div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  $("#commandValidate").click( function() { 
-    if (!ui.isConformingString("#FirstName", ui.BASIC_STRING, false)) {
-      ui.setControlState("#FirstNameGroup", "", "control-group-danger", true, "Please enter your name without special characters.", false);
+  ui("#commandValidate").click( function() { 
+    if (!ui("#FirstName").hasConformingString(ui.BASIC_STRING, false)) {
+      ui("#FirstNameGroup").setState("", "control-group-danger", true, "Please enter your name without special characters.", false);
     }
     else {
-      ui.setControlState("#FirstNameGroup", "", "control-group-success");
+      ui("#FirstNameGroup").setState("", "control-group-success");
     }
   });
 
@@ -749,7 +749,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

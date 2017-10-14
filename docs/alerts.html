@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -306,22 +306,21 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
   ui.initAlerts({
-    position: "top-right",
+    position: "top-center",
     duration: 6000,
-    fadeInDuration: 600,
-    fadeOutDuration: 300,
+    transitionDuration: 2000,
     width: "60rem",
     showHeader: true,
-    inline: false,
+    inline: true,
     style: "outline-rounded",
-    dynamic: false,
-    showIcon: false,
+    autoHide: false,
+    showIcon: true,
     showClose: true
   });
-	
+    
 });
 </pre>				
 		</div>
@@ -485,7 +484,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

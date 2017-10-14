@@ -232,7 +232,6 @@ svg:not(:root) {
 	height: 1.125rem;
 	position: relative;
 	border: 0.078rem solid $theme_default_border;
-	background-color: $theme_primary;
 	box-sizing: border-box;
 	label {
 		width: 100%;
@@ -240,40 +239,20 @@ svg:not(:root) {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: transparent;
-		&:after {
-			content: '';
-			width: 0.5rem;
-			height: 0.25rem;
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin-top: 16%;
-			margin-left: 15%;
-			border: 0.188rem solid $theme_primary_foreground;
-			border-top: none;
-			border-right: none;
-			background: transparent;
-			opacity: 0;
-			transform: rotate(-45deg);
-		}
+		background-color: $theme_primary;
 	}
-  	input[type=checkbox] {
+	input[type=checkbox] {
+		width: 0;
+		height: 0;
 		visibility: hidden;
-		&:checked + label:after {
-			opacity: 1;
-		}
-		&:not(:checked) + label:after {
-			opacity: 1;
-			content: '';
-			width: 0.188rem;
-			height: 0.188rem;
-			position: absolute;
-			top: 0;
-			left: 0;
-			border: none;
-			background-color: $theme_primary;
-			transform: rotate(0deg);
+	}
+	&:not(.control-disabled) input[type=checkbox] {
+	
+		&:checked + label {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1 1 10 10'%3E%3Cpath fill='%23000' d='M11.19 3.79c0 0.167-0.067 0.335-0.188 0.455l-5.759 5.759c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-3.335-3.335c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l0.911-0.911c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l1.969 1.975 4.393-4.4c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l0.911 0.911c0.121 0.121 0.188 0.288 0.188 0.455z'/%3E%3C/svg%3E");	
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 0.75rem 0.75rem;				
 		}
   	} 
 }
@@ -295,23 +274,19 @@ svg:not(:root) {
 		left: 0;
 		background-color: $theme_primary;
 		border-radius: 50%;
-		&:after {
-			content: '';
-			width: 59%;
-			height: 59%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 20%;
-			background-color: $theme_primary_foreground;
-			border-radius: 50%;
-			opacity: 0;
-		}
-  	}
+	}
 	input[type=radio] {
+		width: 0;
+		height: 0;
 		visibility: hidden;
-		&:checked + label:after {
-			opacity: 1;
+	}
+	&:not(.control-disabled) input[type=radio] {
+		
+		&:checked + label {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23000'/%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 0.75rem 0.75rem;
 		}   
 	} 
 }
@@ -346,7 +321,8 @@ svg:not(:root) {
 	box-sizing: border-box;
 	color: $theme_default_foreground;
 	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;	
+	border: 0.078rem solid $theme_default_border;
+	cursor: default;
 }
 .button-link-xs {
 	line-height: 1.5rem;	
@@ -580,16 +556,15 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_transparent_border;
 	&:hover {
 		color: $theme_transparent_hover;
-		background-color: $theme_transparent;
+		border-color: $theme_transparent_hover;
 	}
 	&:active {
 		color: $theme_transparent_active;
-		background-color: $theme_transparent;
+		border-color: $theme_transparent_active;
 	}
 }
 .button-transparent.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_transparent_border;
-	background-color: $theme_transparent;
 	color: $theme_transparent_border;
 }
 .button-disabled {
@@ -610,13 +585,13 @@ svg:not(:root) {
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
-	cursor: pointer;
 	width: 100%;
 	box-sizing: border-box;
 	color: $theme_default;
 	background-color: $theme_transparent;
 	border: none;
 	border-bottom: 0.25rem solid $theme_default;
+	cursor: default;
 }
 .view-button-link-sm {
 	line-height: 2.375rem;	
@@ -629,6 +604,7 @@ svg:not(:root) {
 .view-button-link-lg {
 	display: block;
 	text-align: center;
+	cursor: pointer;
 }
 .view-button-default {
 	color: $theme_default;
@@ -832,12 +808,12 @@ svg:not(:root) {
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
-	cursor: pointer;
 	width: 100%;
 	box-sizing: border-box;
 	color: $theme_default_foreground;
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
+	cursor: default;
 }
 .menu-button-link-sm {
 	line-height: 2.375rem;
@@ -849,6 +825,7 @@ svg:not(:root) {
 .menu-button-link-lg {
 	display: block;
 	text-align: center;
+	cursor: pointer;
 }
 .menu-button-default {
 	color: $theme_default_foreground;
@@ -856,6 +833,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_default_border;
 	&:focus {
 		background-color: $theme_default_active;
+		border-color: $theme_default_active;
 	}
 }
 .menu-button-default.accessibility:focus {
@@ -869,6 +847,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_light_border;
 	&:focus {
 		background-color: $theme_light_active;
+		border-color: $theme_light_active;
 	}
 }
 .menu-button-light.accessibility:focus {
@@ -882,6 +861,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_dark_border;
 	&:focus {
 		background-color: $theme_dark_active;
+		border-color: $theme_dark_active;
 	}
 }
 .menu-button-dark.accessibility:focus {
@@ -895,6 +875,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_1_border;
 	&:focus {
 		background-color: $theme_accent_1_active;
+		border-color: $theme_accent_1_active;
 	}
 }
 .menu-button-accent-1.accessibility:focus {
@@ -908,6 +889,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_2_border;
 	&:focus {
 		background-color: $theme_accent_2_active;
+		border-color: $theme_accent_2_active;
 	}
 }
 .menu-button-accent-2.accessibility:focus {
@@ -921,6 +903,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_3_border;
 	&:focus {
 		background-color: $theme_accent_3_active;
+		border-color: $theme_accent_3_active;
 	}
 }
 .menu-button-accent-3.accessibility:focus {
@@ -934,6 +917,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_4_border;
 	&:focus {
 		background-color: $theme_accent_4_active;
+		border-color: $theme_accent_4_active;
 	}
 }
 .menu-button-accent-4.accessibility:focus {
@@ -947,6 +931,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_5_border;
 	&:focus {
 		background-color: $theme_accent_5_active;
+		border-color: $theme_accent_5_active;
 	}
 }
 .menu-button-accent-5.accessibility:focus {
@@ -960,6 +945,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_success_border;
 	&:focus {
 		background-color: $theme_success_active;
+		border-color: $theme_success_active;
 	}
 }
 .menu-button-success.accessibility:focus {
@@ -973,6 +959,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_info_border;
 	&:focus {
 		background-color: $theme_info_active;
+		border-color: $theme_info_active;
 	}
 }
 .menu-button-info.accessibility:focus {
@@ -986,6 +973,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_warning_border;
 	&:focus {
 		background-color: $theme_warning_active;
+		border-color: $theme_warning_active;
 	}
 }
 .menu-button-warning.accessibility:focus {
@@ -999,6 +987,7 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_danger_border;
 	&:focus {
 		background-color: $theme_danger_active;
+		border-color: $theme_danger_active;
 	}
 }
 .menu-button-danger.accessibility:focus {
@@ -1006,36 +995,10 @@ svg:not(:root) {
 	background-color: $theme_primary;
 	color: $theme_danger_border;
 }
-.menu-button-transparent {
-	color: $theme_transparent_foreground;
-	background-color: $theme_transparent;
-	border: 0.078rem solid $theme_transparent_border;
-	&:focus {
-		color: $theme_transparent_active;
-		background-color: $theme_transparent;
-	}
-}
-.menu-button-transparent.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_transparent_border;
-	background-color: $theme_transparent;
-	color: $theme_transparent_border;
-}
 .menu-button-disabled {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
 	border: 0.078rem solid $theme_disabled_border;
-}
-.off-canvas-left {
-	top: 0;
-	left: 0;
-}
-.off-canvas-right {
-	top: 0;
-	right: 0;
-}
-.off-canvas-left, .off-canvas-right {
-	position: absolute;
-	display: none;
 }
 .media-block {
 	padding: 0.313rem;
@@ -1266,41 +1229,32 @@ svg:not(:root) {
 .control-group-disabled label,
 .control-group-disabled *[class*="text"],
 .control-group-disabled *[class*="control-label"] {
-	color: $theme_disabled_foreground;
+	color: $theme_disabled_foreground !important;
 }
 .control-disabled,
 .control-group-disabled .control, 
 .control-group-disabled *[class*="input"] {
-	color: $theme_disabled_foreground;
-	background-color: $theme_disabled;
-	border: 0.078rem solid $theme_disabled_border;
+	color: $theme_disabled_foreground !important;
+	background-color: $theme_disabled !important;
+	border-color: $theme_disabled_border !important;
 }
 .control-disabled.accessibility:focus,
 .control-group-disabled .control.accessibility:focus,
 .control-group-disabled *[class*="input"].accessibility:focus {
-	box-shadow: none;
-	border-color: $theme_default_border;
+	box-shadow: none !important;
 }
 *[class*="checkbox"].control-disabled label,
 *[class*="radio"].control-disabled label,
 .control-group-disabled *[class*="checkbox"] label, 
 .control-group-disabled *[class*="radio"] label {
-	background-color: $theme_disabled;
-	margin: 0;
-	width: 100%;
-	height: 100%;
-}
-*[class*="checkbox"].control-disabled label:after,
-*[class*="radio"].control-disabled label:after,
-.control-group-disabled *[class*="checkbox"] label:after,
-.control-group-disabled *[class*="radio"] label:after {
-	display: none;
+	background-color: $theme_disabled !important;
+	border-color: $theme_disabled_border !important;
 }
 *[class*="checkbox"].control-disabled.accessibility label:focus,
 *[class*="radio"].control-disabled.accessibility label:focus,
 .control-group-disabled *[class*="checkbox"].accessibility label:focus,
 .control-group-disabled *[class*="radio"].accessibility label:focus {
-	box-shadow: none;	
+	box-shadow: none !important;	
 }
 .control-group-append {
 	letter-spacing: normal;
@@ -1740,6 +1694,9 @@ svg:not(:root) {
 	position: fixed;
 	@include layer-1();
 }
+.top-initial {
+	top: 0;
+}
 .top-xs {
 	top: 0.313rem;
 }
@@ -1754,6 +1711,9 @@ svg:not(:root) {
 }
 .top-xl {
 	top: 5rem;
+}
+.left-initial {
+	left: 0;
 }
 .left-xs {
 	left: 0.313rem;
@@ -1770,6 +1730,9 @@ svg:not(:root) {
 .left-xl {
 	left: 5rem;
 }
+.bottom-initial {
+	bottom: 0;
+}
 .bottom-xs {
 	bottom: 0.313rem;
 }
@@ -1784,6 +1747,9 @@ svg:not(:root) {
 }
 .bottom-xl {
 	bottom: 5rem;
+}
+.right-initial {
+	right: 0;
 }
 .right-xs {
 	right: 0.313rem;
@@ -1812,6 +1778,24 @@ svg:not(:root) {
 .scroll-y-always {
 	overflow-y: scroll;
 }
+.cursor-default {
+	cursor: default;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
+.cursor-copy {
+	cursor: copy;
+}
+.cursor-move {
+	cursor: move;
+}
+.cursor-help {
+	cursor: help;
+}
+.cursor-disbaled {
+	cursor: not-allowed;
+}  
 .text {
 	line-height: 1.5em;
 }
@@ -1869,6 +1853,9 @@ svg:not(:root) {
   max-width: 100%;
   height: auto;
 }
+.control-label {
+	line-height: 1rem;
+}
 .control-label-xs {
 	line-height: 1.5rem;
 }
@@ -1910,16 +1897,16 @@ svg:not(:root) {
 	border-style: solid;
 	border-color: $theme_default_border;
 }
-.rounded-sm {
+.rounded-sm, .checkbox.rounded-sm label {
 	border-radius: 0.188rem;
 }
-.rounded-md {
+.rounded-md, .checkbox.rounded-md label {
 	border-radius: 0.375rem;
 }
-.rounded-lg {
+.rounded-lg, .checkbox.rounded-lg label {
 	border-radius: 0.563rem;
 }
-.rounded-full {
+.rounded-full, .checkbox.rounded-full label {
 	border-radius: 50%;
 }
 .rounded-left-sm {
@@ -2426,17 +2413,6 @@ svg:not(:root) {
 	.hide-bp-1-under {
 		display: none;
 	}
-}
-@keyframes animate-fadein {
-	from {
-		opacity: 0; 
-	}
-	50% {
-		opacity: 0.5;
-	}
-	to {
-		opacity: 1; 
-	}		
 }
 .hidden {
 	display: none;

@@ -1,25 +1,14 @@
-/*!
-* Name: webui-validation - validation functions
-* Version: 5.4.0
-* Author: Levi Keogh, 2017-06-05
-*/
-"use strict";
-
-(function(webui, ui, $, undefined) {
-    ui.version = "webui-5.4.0";
+(function(win) {
     /* PRIVATE */
-    var selectorRegExpMatches = function(selector, regExp) {
-        var element = $(selector);
-        return element.is("input:text") && regExp.test(element.val()) || element.is("textarea") && regExp.test(element.text()) || element.is("select") && regExp.test($("option:selected", element).text()) || element.is("input:checkbox") && regExp.test(element.is(":checked"));
-    };
-    var containsSpaceOrDot = function(selector) {
-        var element = $(selector);
-        return /^\s$/.test(element.val()) || element.val().indexOf(".") > -1;
-    };
-    var containsSpace = function(selector) {
-        return /^\s$/.test($(selector).val());
-    };
-    var toDateObject = function(year, month, day, hour, minute, second) {
+    var fn = webui.fn, selectorRegExpMatches = function(selector, regExp) {
+        var el = webui(selector);
+        return el.is("input[type='text']") && regExp.test(el.val()) || el.is("textarea") && regExp.test(el.text()) || el.is("select") && regExp.test(el.find("option:checked").text()) || el.is("input[type='checkbox']") && regExp.test(el.is(":checked"));
+    }, containsSpaceOrDot = function(selector) {
+        var el = webui(selector);
+        return /^\s$/.test(el.val()) || el.val().indexOf(".") > -1;
+    }, containsSpace = function(selector) {
+        return /^\s$/.test(webui(selector).val());
+    }, toDateObject = function(year, month, day, hour, minute, second) {
         try {
             var date = new Date(year, month, day, hour, minute, second);
             if (date.getDate() == day && date.getMonth() == month && date.getFullYear() == year && date.getHours() == hour && date.getMinutes() == minute && date.getSeconds() == second) {
@@ -31,219 +20,228 @@
         }
     };
     /* PUBLIC */
-    ui.isCheckedValue = function(selector, dependsOnSelector, dependsOnRegExp) {
-        try {
-            var element = $(selector);
-            if (arguments.length === 1) {
-                return element.is(":checked");
-            } else if (arguments.length === 3) {
+    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!el.is(":checked")) {
+                    ok = false;
+                }
+            }
+            return ok;
+        } else if (args.length === 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
                 if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
-                    return element.is(":checked");
+                    if (!el.is(":checked")) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isConformingString = function(selector, selectorRegExp, allowEmpty, dependsOnSelector, dependsOnRegExp) {
-        try {
-            var element = $(selector);
-            if (arguments.length === 3) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
-                    if (!selectorRegExp.test(element.val())) {
-                        return false;
-                    }
+    fn.hasConformingString = function(regExp, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1 || el.val().length > 0 && !regExp.test(el.val())) {
+                    ok = false;
                 }
-                return true;
-            } else if (arguments.length === 5) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
+            }
+            return ok;
+        } else if (args.length === 4) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else {
                     if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
-                        if (!selectorRegExp.test(element.val())) {
-                            return false;
+                        if (el.val().length > 0 && !regExp.test(el.val())) {
+                            ok = false;
                         }
-                        return true;
-                    }
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        } catch (ex) {
-            return false;
-        }
-    };
-    ui.isNumericInRange = function(selector, lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
-        try {
-            var element = $(selector);
-            if (arguments.length === 4) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
-                    if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
-                        return false;
                     } else {
-                        if (containsSpace(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
-                            return false;
-                        }
+                        ok = false;
                     }
                 }
-                return true;
-            } else if (arguments.length === 6) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
-                    if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
-                        if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
-                            return false;
-                        } else {
-                            if (containsSpace(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
-                                return false;
-                            }
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-                return true;
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isIntegerInRange = function(selector, lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
-        try {
-            var element = $(selector);
-            if (arguments.length === 4) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
-                    if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
-                        return false;
+    fn.hasNumericInRange = function(lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 3) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else if (el.val().length > 0) {
+                    if (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpace(el) || el.val() < lowerLimit || el.val() > upperLimit) {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        } else if (args.length === 5) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else {
+                    if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+                        if (el.val().length > 0 && (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpace(el) || el.val() < lowerLimit || el.val() > upperLimit)) {
+                            ok = false;
+                        }
                     } else {
-                        if (containsSpaceOrDot(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
-                            return false;
-                        }
+                        ok = false;
                     }
                 }
-                return true;
-            } else if (arguments.length === 6) {
-                if (!allowEmpty && element.val().length < 1) {
-                    return false;
-                } else if (element.val().length > 0) {
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasIntegerInRange = function(lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 3) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else if (el.val().length > 0) {
+                    if (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpaceOrDot(el) || el.val() < lowerLimit || el.val() > upperLimit) {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        } else if (args.length === 5) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else {
                     if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
-                        if (isNaN(element.val()) || isNaN(lowerLimit) || isNaN(upperLimit)) {
-                            return false;
-                        } else {
-                            if (containsSpaceOrDot(selector) || element.val() < lowerLimit || element.val() > upperLimit) {
-                                return false;
-                            }
+                        if (el.val().length > 0 && (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpaceOrDot(el) || el.val() < lowerLimit || el.val() > upperLimit)) {
+                            ok = false;
                         }
-                        return true;
+                    } else {
+                        ok = false;
                     }
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        } catch (ex) {
-            return false;
-        }
-    };
-    ui.isValidDateTime = function(selector, format, allowEmpty) {
-        try {
-            if (arguments.length > 1) {
-                var strDate = $(selector).val();
-                if (allowEmpty && strDate.length < 1) {
-                    return true;
-                }
-                if (ui.convertToDate(strDate, format) != null) {
-                    return true;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isPastDateTime = function(selector, format, allowEmpty) {
-        try {
-            if (arguments.length > 1) {
-                var strDate = $(selector).val();
-                if (allowEmpty && strDate.length < 1) {
-                    return true;
-                }
-                var sysDate = new Date();
-                if (ui.isValidDateTime(selector, format, allowEmpty)) {
-                    return ui.getTimeOffsetFromNow(strDate, format) < 0;
+    fn.hasValidDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1 || strDate.length > 0 && ui.convertToDate(strDate, format) === null) {
+                    ok = false;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isPresentDateTime = function(selector, format, allowEmpty) {
-        try {
-            if (arguments.length > 1) {
-                var strDate = $(selector).val();
-                if (allowEmpty && strDate.length < 1) {
-                    return true;
-                }
-                var sysDate = new Date();
-                if (ui.isValidDateTime(selector, format, allowEmpty)) {
-                    return ui.getTimeOffsetFromNow(strDate, format) === 0;
+    fn.hasPastDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) >= 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isFutureDateTime = function(selector, format, allowEmpty) {
-        try {
-            if (arguments.length > 1) {
-                var strDate = $(selector).val();
-                if (allowEmpty && strDate.length < 1) {
-                    return true;
-                }
-                var sysDate = new Date();
-                if (ui.isValidDateTime(selector, format, allowEmpty)) {
-                    return ui.getTimeOffsetFromNow(strDate, format) > 0;
+    fn.hasPresentDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) !== 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.isDateTimeInRange = function(selector, minDateTimeString, maxDateTimeString, format, allowEmpty) {
-        try {
-            if (arguments.length > 3) {
-                var strDate = $(selector).val();
-                if (allowEmpty && strDate.length < 1) {
-                    return true;
+    fn.hasFutureDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) <= 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
                 }
-                if (ui.isValidDateTime(selector, format, allowEmpty)) {
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasDateTimeInRange = function(minDateTimeString, maxDateTimeString, format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
                     var date = ui.convertToDate(strDate, format);
                     var minDate = ui.convertToDate(minDateTimeString, format);
                     var maxDate = ui.convertToDate(maxDateTimeString, format);
                     if (minDate != null && maxDate != null) {
-                        return date.valueOf() >= minDate.valueOf() && date.valueOf() <= maxDate.valueOf();
+                        if (date.valueOf() < minDate.valueOf() || date.valueOf() > maxDate.valueOf()) {
+                            ok = false;
+                        }
+                    } else {
+                        ok = false;
                     }
+                } else {
+                    ok = false;
                 }
             }
-            return false;
-        } catch (ex) {
-            return false;
+            return ok;
         }
+        return false;
     };
-    ui.convertToDate = function(dateTimeString, format) {
+    webui.convertToDate = function(dateTimeString, format) {
         try {
             if (arguments.length > 1) {
                 var parts;
@@ -396,7 +394,7 @@
             return null;
         }
     };
-    ui.getTimeOffsetFromNow = function(dateTimeString, format) {
+    webui.getTimeOffsetFromNow = function(dateTimeString, format) {
         try {
             if (arguments.length > 1) {
                 var sysDate = new Date();
@@ -427,19 +425,19 @@
         }
     };
     /* REGULAR EXPRESSIONS */
-    ui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
-    ui.ITEM_CODE = /^([A-Z0-9]{1,50})$/;
-    ui.INTEGER = /^[-+]?\d+$/;
-    ui.POSITIVE_INTEGER = /^\d+$/;
-    ui.NUMERIC = /^[-+]?\d+(\.\d+)?$/;
-    ui.PASSWORD_STRENGTH = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/;
-    ui.EMAIL_ADDRESS = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/;
-    ui.UK_TELEPHONE = /^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/;
-    ui.US_TELEPHONE = /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/;
-    ui.UK_POSTCODE = /^((([A-PR-UWYZ][0-9])|([A-PR-UWYZ][0-9][0-9])|([A-PR-UWYZ][A-HK-Y][0-9])|([A-PR-UWYZ][A-HK-Y][0-9][0-9])|([A-PR-UWYZ][0-9][A-HJKSTUW])|([A-PR-UWYZ][A-HK-Y][0-9][ABEHMNPRVWXY]))\s?([0-9][ABD-HJLNP-UW-Z]{2})|(GIR)\s?(0AA))$/i;
-    ui.US_ZIPCODE = /^\d{5}(-\d{4})?$/;
-    ui.URL = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)*(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
-    ui.TRUE_VALUE = /^(true)$/;
-    ui.FALSE_VALUE = /^(false)$/;
-    ui.ANY_VALUE = /^(?!\s*$).+/;
-})(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
+    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
+    webui.ITEM_CODE = /^([A-Z0-9]{1,50})$/;
+    webui.INTEGER = /^[-+]?\d+$/;
+    webui.POSITIVE_INTEGER = /^\d+$/;
+    webui.NUMERIC = /^[-+]?\d+(\.\d+)?$/;
+    webui.PASSWORD_STRENGTH = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/;
+    webui.EMAIL_ADDRESS = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/;
+    webui.UK_TELEPHONE = /^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/;
+    webui.US_TELEPHONE = /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/;
+    webui.UK_POSTCODE = /^((([A-PR-UWYZ][0-9])|([A-PR-UWYZ][0-9][0-9])|([A-PR-UWYZ][A-HK-Y][0-9])|([A-PR-UWYZ][A-HK-Y][0-9][0-9])|([A-PR-UWYZ][0-9][A-HJKSTUW])|([A-PR-UWYZ][A-HK-Y][0-9][ABEHMNPRVWXY]))\s?([0-9][ABD-HJLNP-UW-Z]{2})|(GIR)\s?(0AA))$/i;
+    webui.US_ZIPCODE = /^\d{5}(-\d{4})?$/;
+    webui.URL = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)*(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+    webui.TRUE_VALUE = /^(true)$/;
+    webui.FALSE_VALUE = /^(false)$/;
+    webui.ANY_VALUE = /^(?!\s*$).+/;
+})(window);

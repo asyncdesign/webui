@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>title</title>
+
+	<link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dist/css/webui.css">
+
+	<link rel="stylesheet" href="site.css">
+
+</head>
+
+<body class="text-sm color-accent-5">
+
+
+	<div class="off-canvas-body" data-transition-duration="1500">
+
+		<div class="responsive-gutter-xs">
+
+			<div class="row-spacing-lg"></div>
+
+			<div id="MainTitle" class="panel">
+				<div class="content-row">
+					<div class="content-col-15 text-xl text-bold color-accent-1 respond-bp-3-under">
+						<div class="row-spacing-lg"></div>
+						WebUI. CSS Framework
+					</div>
+					<div class="content-col-5 respond-bp-3-under">
+						<div class="row-spacing-sm"></div>
+						<div class="content-row move-right respond-bp-3-under">
+							<div class="content-col-5">
+								<img src="images/webui_blue_64x64.png" alt="Media" />
+							</div>
+						</div>
+						<div class="content-row move-right respond-bp-3-under">
+							<div class="content-row">
+								<div class="content-col-20 text-sm text-italic">
+									Built with SASS
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="panel text-lg">
+				Components (Construct complex CSS components easily. You have the ability to pick and choose how your components look and
+				behave.)
+			</div>
+
+			<div class="row-spacing-xs"></div>
+
+			<div class="content-row show-bp-5-over">
+				<div class="content-col-20 accent-5">
+					<div class="content-row">
+						<div class="content-col-1">
+							<div class="content-row">
+								<div class="content-col-20 text-xl col-adjust-lg-xl">
+									<i class="fa fa-photo col-spacing-left-md"></i>
+								</div>
+							</div>
+						</div>
+						<div class="content-col-2">
+							<div class="dropdown">
+								<button id="menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-accent-5 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+								<div class="dropdown-content menu-close width-xl accent-5">
+									<div class="content-row">
+										<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Typography</button>
+									</div>
+									<div class="content-row">
+										<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Colours</button>
+									</div>
+									<div class="content-row">
+										<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Forms</button>
+									</div>
+									<div class="row-spacing-sm"></div>
+									<div class="content-row border-sm border-accent-4"></div>
+									<div class="row-spacing-sm"></div>
+									<div class="content-row">
+										<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Boxes and columns</button>
+									</div>
+									<div class="content-row">
+										<button type="button" class="menu-button-sm menu-button-accent-5 color-muted text-italic text-left" disabled>Disabled</button>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+						</div>
+						<div class="content-col-2">
+							<button id="menu2" type="button" class="menu-activator-dynamic menu-button-sm menu-button-accent-5 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+							<div class="dropdown-sheet menu-close">
+								<div class="form-col-1 background-transparent"></div>
+								<div class="form-col-18 background-primary">
+									<div class="panel">
+										<div class="form-col-eq-3">
+											<div class="area border-sm border-muted">
+												<span class="text-lg color-accent-2">Heading 1</span>
+												<div class="row-spacing-md"></div>
+												<ul class="list list-spacing-md" role="menu">
+													<li role="menuitem"><a href="#">Item 1</a></li>
+													<li role="menuitem"><a href="#">Item 2</a></li>
+													<li role="menuitem"><a href="#">Item 3</a></li>
+													<li role="menuitem"><a href="#">Item 4</a></li>
+													<li role="menuitem"><a href="#">Item 5</a></li>
+													<li role="menuitem"><a href="#">Item 6</a></li>
+													<li role="menuitem"><a href="#">Item 7</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="form-col-eq-3">
+											<div class="area border-sm border-muted">
+												<span class="text-lg color-accent-2">Heading 2</span>
+												<div class="row-spacing-md"></div>
+												<ul class="list list-spacing-md" role="menu">
+													<li role="menuitem"><a href="#">Item 1</a></li>
+													<li role="menuitem"><a href="#">Item 2</a></li>
+													<li role="menuitem"><a href="#">Item 3</a></li>
+													<li role="menuitem"><a href="#">Item 4</a></li>
+													<li role="menuitem"><a href="#">Item 5</a></li>
+													<li role="menuitem"><a href="#">Item 6</a></li>
+													<li role="menuitem"><a href="#">Item 7</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="form-col-eq-3">
+											<div class="area border-sm border-muted">
+												<span class="text-lg color-accent-2">Heading 3</span>
+												<div class="row-spacing-md"></div>
+												<ul class="list list-spacing-md" role="menu">
+													<li role="menuitem"><a href="#">Item 1</a></li>
+													<li role="menuitem"><a href="#">Item 2</a></li>
+													<li role="menuitem"><a href="#">Item 3</a></li>
+													<li role="menuitem"><a href="#">Item 4</a></li>
+													<li role="menuitem"><a href="#">Item 5</a></li>
+													<li role="menuitem"><a href="#">Item 6</a></li>
+													<li role="menuitem"><a href="#">Item 7</a></li>
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="form-col-1 background-transparent"></div>
+							</div>
+						</div>
+						<div class="content-col-2">
+							<button id="menu3" type="button" class="menu-button-sm menu-button-accent-5 text-left">Menu 3</button>
+						</div>
+						<div class="content-col-2">
+							<button id="menu4" type="button" class="menu-button-sm menu-button-accent-5 text-left">Menu 4</button>
+						</div>
+						<div class="form-col-11 col-spacing-md">
+							<input type="text" class="input-sm rounded-sm width-xl move-right respond-bp-3-under accessibility" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-row show-bp-5-under">
+				<div class="content-col-20">
+					<div class="content-col-10 accent-5 menu-bar-sm">
+						<div class="content-row">
+							<div class="content-col-20 col-adjust-xl-xxl col-spacing-left-sm">
+								<input type="text" class="input-sm rounded-sm width-full respond-bp-3-under accessibility" />
+							</div>
+						</div>
+					</div>
+					<div class="content-col-10 accent-5 text-right">
+						<div class="dropdown width-full move-right">
+							<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-accent-5 width-control-xl"><i class="fa fa-bars"></i></button>
+							<div class="dropdown-content-expand menu-inclusive accent-5 width-full raised">
+								<div class="content-row">
+									<div class="content-col width-full">
+										<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+										<div class="dropdown-content-expand menu-close accent-5 width-full">
+											<div class="content-row">
+												<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Getting Started</button>
+											</div>
+											<div class="content-row">
+												<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Creating Components</button>
+											</div>
+											<div class="content-row">
+												<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Binding</button>
+											</div>
+											<div class="content-row">
+												<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Templating</button>
+											</div>
+											<div class="content-row">
+												<button type="button" class="menu-button-sm menu-button-accent-5 background-hover-accent-4 text-left">Routing</button>
+											</div>
+											<div class="row-spacing-xs"></div>
+										</div>
+										<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+										<div class="dropdown-content-expand menu-close width-full background-primary">
+											<div class="panel text-left border-secondary">
+												<div class="form-row">
+													<div class="panel">
+														<span class="text-lg color-accent-1">Heading 1</span>
+														<ul class="list" role="menu">
+															<li role="menuitem"><a href="#">Item 1</a></li>
+															<li role="menuitem"><a href="#">Item 2</a></li>
+															<li role="menuitem"><a href="#">Item 3</a></li>
+															<li role="menuitem"><a href="#">Item 4</a></li>
+															<li role="menuitem"><a href="#">Item 5</a></li>
+															<li role="menuitem"><a href="#">Item 6</a></li>
+															<li role="menuitem"><a href="#">Item 7</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="panel">
+														<hr />
+														<span class="text-lg color-accent-1">Heading 2</span>
+														<ul class="list" role="menu">
+															<li role="menuitem"><a href="#">Item 1</a></li>
+															<li role="menuitem"><a href="#">Item 2</a></li>
+															<li role="menuitem"><a href="#">Item 3</a></li>
+															<li role="menuitem"><a href="#">Item 4</a></li>
+															<li role="menuitem"><a href="#">Item 5</a></li>
+															<li role="menuitem"><a href="#">Item 6</a></li>
+															<li role="menuitem"><a href="#">Item 7</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="panel">
+														<hr />
+														<span class="text-lg color-accent-1">Heading 3</span>
+														<ul class="list" role="menu">
+															<li role="menuitem"><a href="#">Item 1</a></li>
+															<li role="menuitem"><a href="#">Item 2</a></li>
+															<li role="menuitem"><a href="#">Item 3</a></li>
+															<li role="menuitem"><a href="#">Item 4</a></li>
+															<li role="menuitem"><a href="#">Item 5</a></li>
+															<li role="menuitem"><a href="#">Item 6</a></li>
+															<li role="menuitem"><a href="#">Item 7</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 3</button>
+										<div class="dropdown-content-expand menu-close width-full text-left">
+											<div class="panel text-left border-secondary height-md">
+												<span class="place-middle-center">
+													Another menu
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-row">
+				<div class="form-col-9 respond-bp-5-under">
+
+					<div class="row-spacing-xl"></div>
+					<div class="text-sm color-accent-4">Tabs using tabs component</div>
+					<div class="row-spacing-xs"></div>
+
+					<div id="tabs1" class="tabs">
+
+						<div class="content-row">
+							<div class="content-col">
+								<button type="button" data-target="#tab1" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 1</button>
+							</div>
+							<div class="content-col">
+								<button type="button" data-target="#tab2" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 2</button>
+							</div>
+							<div class="content-col">
+								<button type="button" data-target="#tab3" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 3</button>
+							</div>
+						</div>
+
+						<div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab1">
+							<div class="panel height-xl">
+
+								<div id="tabs1a" class="tabs">
+
+									<div class="content-row">
+										<div class="content-col">
+											<button type="button" data-target="#tab1a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 1a</button>
+										</div>
+										<div class="content-col">
+											<button type="button" data-target="#tab2a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 2a</button>
+										</div>
+										<div class="content-col">
+											<button type="button" data-target="#tab3a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 3a</button>
+										</div>
+									</div>
+
+									<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab1a">
+										<div class="panel height-lg-xl">
+
+											<div id="tabs1b" class="tabs">
+
+												<div class="content-row">
+													<div class="content-col">
+														<button type="button" data-target="#tab1b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 1b</button>
+													</div>
+													<div class="content-col">
+														<button type="button" data-target="#tab2b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 2b</button>
+													</div>
+													<div class="content-col">
+														<button type="button" data-target="#tab3b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md">Tab 3b</button>
+													</div>
+												</div>
+
+												<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab1b">
+													<div class="panel height-lg">
+														Tab 1b content
+														<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+													</div>
+												</div>
+												<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab2b">
+													<div class="panel height-lg">
+														Tab 2b content
+														<p>Pellentesque habitant morbi tristique senectus.</p>
+													</div>
+												</div>
+												<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab3b">
+													<div class="panel height-lg">
+														Tab 3b content
+														<p>Pellentesque habitant morbi tristique senectus.</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab2a">
+										<div class="panel height-lg-xl">
+											Tab 2a content
+											<p>Pellentesque habitant morbi tristique senectus.</p>
+										</div>
+									</div>
+									<div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab3a">
+										<div class="panel height-lg-xl">
+											Tab 3a content
+											<p>Pellentesque habitant morbi tristique senectus.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab2">
+							<div class="area height-xl">
+								Tab 2 content
+								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+							</div>
+						</div>
+						<div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab3">
+							<div class="area height-xl">
+								Tab 3 content
+								<p>Pellentesque habitant morbi tristique senectus.</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="form-col-2 respond-bp-5-under"></div>
+				<div class="form-col-9 respond-bp-5-under">
+
+					<div class="row-spacing-xl"></div>
+					<div class="text-sm color-accent-4">Accordion using toggle container</div>
+					<div class="row-spacing-xs"></div>
+
+					<div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1">
+
+						<div class="content-col-20">
+
+							<button data-target="#panel1" class="toggle-activator menu-button-sm menu-button-accent-2">Heading 1 (Tap to open)</button>
+							<div id="panel1" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-2 width-full">
+									Panel 1 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel2" class="toggle-activator menu-button-sm menu-button-accent-2">Heading 2 (Tap to open)</button>
+							<div id="panel2" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-2 width-full">
+									Panel 2 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel3" class="toggle-activator menu-button-sm menu-button-accent-2">Heading 3 (Tap to open)</button>
+							<div id="panel3" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-2 width-full">
+									Panel 3 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row-spacing-xl"></div>
+					<div class="row-spacing-lg"></div>
+					<div class="text-sm color-accent-4">Accordion using toggle container with child accordion</div>
+					<div class="row-spacing-xs"></div>
+
+					<div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1">
+
+						<div class="content-col-20">
+
+							<button data-target="#panel1" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 1 (Tap to open)</button>
+							<div id="panel1" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-3 width-full">
+
+									<button data-target="#panel1a" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 1a (Tap to open)</button>
+									<div id="panel1a" class="toggle-item width-full hidden">
+										<div class="panel primary border-sm border-accent-3 width-full">
+											Panel 1a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="row-spacing-xs"></div>
+
+									<button data-target="#panel2a" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 2a (Tap to open)</button>
+									<div id="panel2a" class="toggle-item width-full hidden">
+										<div class="panel primary border-sm border-accent-3 width-full">
+											Panel 2a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="row-spacing-xs"></div>
+
+									<button data-target="#panel3a" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 3a (Tap to open)</button>
+									<div id="panel3a" class="toggle-item width-full hidden">
+										<div class="panel primary border-sm border-accent-3 width-full">
+											Panel 3a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel2" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 2 (Tap to open)</button>
+							<div id="panel2" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-3 width-full">
+									Panel 2 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel3" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 3 (Tap to open)</button>
+							<div id="panel3" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-3 width-full">
+									Panel 3 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel4" class="toggle-activator button-xs menu-button-accent-3 color-dark width-full">Heading 4 (Tap to open)</button>
+							<div id="panel4" class="toggle-item width-full hidden">
+								<div class="panel primary border-sm border-accent-3 width-full">
+									Panel 4 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="row-spacing-xl"></div>
+			<div class="row-spacing-md"></div>
+			<div class="text-sm color-accent-4">Customisable file upload components with support for multiple files</div>
+			<div class="row-spacing-xs"></div>
+
+			<div class="container">
+
+				<div class="content-row">
+					<div class="content-col-9 respond-bp-5-under">
+
+						<div class="row-spacing-lg"></div>
+						<div class="content-row">
+							<div class="content-col-20 respond-bp-3-under">
+								<input id="fileUpload1" type="file" class="upload upload-icon-left upload-icon-dark accessibility" />
+								<label for="fileUpload1" class="input-sm color-accent-3 border-accent-3">
+									Click or tap to upload file
+								</label>
+							</div>
+							<div class="content-col respond-bp-3-under">
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="content-row">
+							<div class="content-col-20 respond-bp-3-under">
+								<input id="fileUpload2" type="file" multiple class="upload upload-icon-right upload-icon-dark accessibility" />
+								<label for="fileUpload2" class="input color-success border-success height-lg">
+									Click or tap to upload file (s)
+								</label>
+							</div>
+							<div class="content-col respond-bp-3-under">
+							</div>
+						</div>
+
+					</div>
+					<div class="content-col-2 respond-bp-5-under"></div>
+					<div class="content-col-9 respond-bp-5-under"></div>
+				</div>
+
+			</div>
+
+			<div class="row-spacing-xl"></div>
+			<div class="row-spacing-md"></div>
+			<div class="text-sm color-accent-4">Alerts (Build custom alerts in markup, or display alerts dynamically using WebUI functions without any markup.)</div>
+			<div class="row-spacing-xs"></div>
+
+			<div class="container">
+
+				<div class="content-row">
+					<div class="content-col-20">
+
+						<div class="row-spacing-lg"></div>
+
+						<div class="alert alert-success-outline rounded-md col-spacing-sm" role="alert" id="alert1">
+							<div class="panel">
+								<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.
+							</div>
+						</div>
+
+						<div class="alert alert-info-outline rounded-md col-spacing-sm" role="alert" id="alert2">
+							<div class="panel">
+								<div class="move-left">
+									<div class="alert-info-icon"></div>
+								</div>
+								<div class="move-right">
+									<div class="alert-cancel" role="button" onclick="ui('#alert2').toggle()"></div>
+								</div>
+							</div>
+							<div class="panel">
+								<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.
+							</div>
+						</div>
+
+						<div class="alert alert-warning-outline rounded-md col-spacing-sm" role="alert" id="alert3">
+							<div class="panel">
+								<div class="move-left">
+									<div class="alert-warning-icon"></div>
+								</div>
+								<div class="move-right">
+									<div class="alert-cancel" role="button" onclick="ui('#alert3').toggle()"></div>
+								</div>
+							</div>
+							<div class="panel">
+								<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.
+							</div>
+						</div>
+
+						<div class="row-spacing-md"></div>
+
+						<p>Using flexbox</p>
+
+						<div class="alert alert-danger-outline rounded-md" role="alert" id="alert4">
+							<div class="flex flex-nowrap panel">
+								<div class="flex-initial flex-justify-center width-sm">
+									<div class="alert-danger-icon"></div>
+								</div>
+								<div class="flex-auto pad-xs">
+									<div>
+										<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.</div>
+								</div>
+								<div class="flex-initial flex-justify-center width-sm">
+									<div class="alert-cancel" role="button" onclick="ui('#alert4').toggle()"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row-spacing-lg"></div>
+
+			</div>
+
+		</div>
+
+		<div class="row-spacing-xl"></div>
+
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500">
+		<div class="content-col dock-top-left">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item off-canvas-left dock-top-left light boundary-right-muted width-lg-xl height-viewport" id="panel1">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-right right-xs"><i class="fa fa-close"></i></button>
+			<h2 class="place-middle-center">Menu</h2>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500">
+		<div class="content-col dock-top-right">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item off-canvas-right dock-top-right light boundary-left-muted width-lg-xl height-viewport" id="panel1">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-left left-xs"><i class="fa fa-close"></i></button>
+			<h2 class="place-middle-center">Menu</h2>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="horizontal" data-transition-type="collapse">
+		<div class="content-col dock-bottom-left">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item hidden dock-top-left light boundary-right-muted width-lg-xl height-viewport" id="panel1">
+			<div class="width-lg-xl">
+				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-right right-xs"><i class="fa fa-close"></i></button>
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="horizontal" data-transition-type="collapse">
+		<div class="content-col dock-bottom-right">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item hidden dock-top-right light boundary-left-muted width-lg-xl height-viewport" id="panel1">
+			<div class="width-lg-xl">
+				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-left left-xs"><i class="fa fa-close"></i></button>
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="vertical" data-transition-type="collapse">
+		<div class="content-col dock-top-center">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item hidden dock-top-center light boundary-bottom-muted width-full height-lg-xl" id="panel1">
+			<div class="height-lg-xl">
+				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-center"><i class="fa fa-close"></i></button>
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="vertical" data-transition-type="collapse">
+		<div class="content-col dock-bottom-center">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
+		</div>
+		<div class="toggle-item hidden dock-bottom-center light boundary-top-muted width-full height-lg-xl" id="panel1">
+			<div class="height-lg-xl">
+				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-center"><i class="fa fa-close"></i></button>
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="dist/js/webui.js"></script>
+	<script type="text/javascript" src="dist/js/webui-utils.min.js"></script>
+	<script type="text/javascript" src="dist/js/webui-validation.min.js"></script>
+
+	<script>
+
+		webui.ready(function() {
+				
+			ui.initMenus({
+				transitionDuration: 800,
+				transitionType: "collapse"
+			});
+			
+
+			ui("#fileUpload2").uploadControl({
+				scrollY: false
+			});
+
+			ui("#tabs1").tabControl({ 
+				activeTabId: "#tab1b", 
+				activeTabFocused: true,
+				transitionDuration: 2000,
+				transitionType: "fade"
+			});
+
+				
+		});
+			
+	</script>
+
+</body>
+
+</html>

@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -292,7 +292,7 @@
 <div class="text">
 
 		<p>WebUI attempts to make tabs easy to customise, not limited to links or ordered and unordered lists. With this tab control you can
-			use any link or button type, or even any html element for the navigation. Below is an example of using links styled as menu buttons.
+			use any link or button type, or even any html element for the navigation. Below is an example of nesting tabs using menu buttons.
 		</p>
 
 		<img src="/webui/assets/images/screenshot70.png" class="image border-sm border-accent-4" alt="Media" />
@@ -306,33 +306,95 @@
 <div id="snippet70" class="body background-secondary">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
-
-<pre>&lt;div id="tabs1" class="tabs width-xl"&gt;
-
-  &lt;div class="content-row"&gt;         
-    &lt;div class="content-col col-spacing-right-xs"&gt;
-      &lt;a href="#tab1" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 1&lt;/a&gt;
+<pre>&lt;div id="tabs1" class="tabs"&gt;
+  &lt;div class="content-row"&gt;
+    &lt;div class="content-col"&gt;
+      &lt;button type="button" data-target="#tab1" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 1&lt;/button&gt;
     &lt;/div&gt;
-    &lt;div class="content-col col-spacing-right-xs"&gt;
-      &lt;a href="#tab2" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 2&lt;/a&gt;
+    &lt;div class="content-col"&gt;
+      &lt;button type="button" data-target="#tab2" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 2&lt;/button&gt;
     &lt;/div&gt;
-    &lt;div class="content-col col-spacing-right-xs"&gt;
-      &lt;a href="#tab3" class="tab-activator menu-button-sm menu-button-link-sm menu-button-accent-1 rounded-top-md width-md"&gt;Tab 3&lt;/a&gt;
-    &lt;/div&gt;          
+    &lt;div class="content-col"&gt;
+      &lt;button type="button" data-target="#tab3" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 3&lt;/button&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-                
-  &lt;div class="content-row border-sm border-accent-2"&gt;
-    &lt;div class="tab-item panel primary height-md" id="tab1"&gt;
-      Tab 1 content
+
+  &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab1"&gt;
+    &lt;div class="panel height-xl"&gt;
+      &lt;div id="tabs1a" class="tabs"&gt;
+        &lt;div class="content-row"&gt;
+          &lt;div class="content-col"&gt;
+            &lt;button type="button" data-target="#tab1a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 1a&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class="content-col"&gt;
+            &lt;button type="button" data-target="#tab2a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 2a&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class="content-col"&gt;
+             &lt;button type="button" data-target="#tab3a" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 3a&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab1a"&gt;
+          &lt;div class="panel height-lg-xl"&gt;
+            &lt;div id="tabs1b" class="tabs"&gt;
+              &lt;div class="content-row"&gt;
+                &lt;div class="content-col"&gt;
+                  &lt;button type="button" data-target="#tab1b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 1b&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="content-col"&gt;
+                  &lt;button type="button" data-target="#tab2b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 2b&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="content-col"&gt;
+                  &lt;button type="button" data-target="#tab3b" class="tab-activator button-xs menu-button-accent-4 rounded-top-sm width-md"&gt;Tab 3b&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab1b"&gt;
+                &lt;div class="panel height-lg"&gt;
+                  Tab 1b content
+                  &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab2b"&gt;
+                &lt;div class="panel height-lg"&gt;
+                  Tab 2b content
+                  &lt;p&gt;Pellentesque habitant morbi tristique senectus.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg" id="tab3b"&gt;
+                &lt;div class="panel height-lg"&gt;
+                  Tab 3b content
+                  &lt;p&gt;Pellentesque habitant morbi tristique senectus.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab2a"&gt;
+          &lt;div class="panel height-lg-xl"&gt;
+            Tab 2a content
+            &lt;p&gt;Pellentesque habitant morbi tristique senectus.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-lg-xl" id="tab3a"&gt;
+          &lt;div class="panel height-lg-xl"&gt;
+            Tab 3a content
+            &lt;p&gt;Pellentesque habitant morbi tristique senectus.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="tab-item panel primary height-md hidden" id="tab2"&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab2"&gt;
+    &lt;div class="area height-xl"&gt;
       Tab 2 content
-    &lt;/div&gt;
-    &lt;div class="tab-item panel primary height-md hidden" id="tab3"&gt;
-      Tab 3 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-                
+  &lt;div class="tab-item content-col-20 primary border-sm border-accent-4 height-xl" id="tab3"&gt;
+    &lt;div class="area height-xl"&gt;
+      Tab 3 content
+      &lt;p&gt;Pellentesque habitant morbi tristique senectus.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 		</div>
@@ -343,8 +405,8 @@
 
 		<div class="row-spacing-md"></div>
 
-		<p>No addition code is needed for fully working tabs and the above code is all that is required. However, if you want to select a default tab you
-			can just do the following.
+		<p>No additional code is needed for fully working tabs and the above is all that is required. However, if you want to select an initial tab on load you
+			can include the activeTabId and activeTabFocused properties, as shown below.
 		</p>
 
 </div>
@@ -353,13 +415,15 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  $("#tabs1").tabControl({ 
+  ui("#tabs1").tabControl({ 
     activeTabId: "#tab2", 
-    activeTabFocused: true 
+    activeTabFocused: true,
+    transitionDuration: 2000,
+    transitionType: "fade"
   });
-	
+    
 });
 </pre>				
 		</div>
@@ -367,8 +431,7 @@
 </div>
 
 <div class="text">
-		<p>If you don't want to use links, but prefer to use regular buttons, you can easily do that too. The following is an example of using
-			view buttons - these are actually buttons that have the WebUI view button style.
+		<p>The following is an example of using view buttons - these are actually buttons that have the WebUI view button style.
 		</p>
 
 		<img src="/webui/assets/images/screenshot71.png" class="image border-sm border-accent-4" alt="Media" />
@@ -387,16 +450,16 @@
             
   &lt;div class="content-row"&gt;         
     &lt;div class="content-col"&gt;
-      &lt;input type="button" value="Tab 1" data-target="#tab1" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+      &lt;input type="button" value="Tab 1" data-target="#tab1" class="tab-activator view-button view-button-accent-2 width-md" /&gt;
     &lt;/div&gt;
     &lt;div class="content-col"&gt;
-      &lt;input type="button" value="Tab 2" data-target="#tab2" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+      &lt;input type="button" value="Tab 2" data-target="#tab2" class="tab-activator view-button view-button-accent-2 width-md" /&gt;
     &lt;/div&gt;
     &lt;div class="content-col"&gt;
-      &lt;input type="button" value="Tab 3" data-target="#tab3" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+      &lt;input type="button" value="Tab 3" data-target="#tab3" class="tab-activator view-button view-button-accent-2 width-md" /&gt;
     &lt;/div&gt;
     &lt;div class="content-col"&gt;
-      &lt;input type="button" value="Tab 4" data-target="#tab4" class="tab-activator view-button view-button-accent-2 width-md accessibility" /&gt;
+      &lt;input type="button" value="Tab 4" data-target="#tab4" class="tab-activator view-button view-button-accent-2 width-md" /&gt;
     &lt;/div&gt;          
   &lt;/div&gt;
                 
@@ -428,7 +491,7 @@
 <div class="text">
 
 
-		<p>There are many possible customisations that can be done such as side or bottom tabs, dropdowns, badges, etc.</p>
+		<p>As well as making the selected tab stand out, there are many possible customisations that can be done such as side or bottom tabs, dropdowns, badges, etc.</p>
 
     <div class="row-spacing-md"></div>
 
@@ -444,13 +507,13 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  $( "#tabs1" ).on("ui.tabs.change.before", function(e, prevTabId, tabId) {
+  ui( "#tabs1" ).on("ui.tabs.change.before", function(e, prevTabId, tabId) {
     // Take some action
   });
 
-  $( "#tabs1" ).on("ui.tabs.change.after", function(e, prevTabId, tabId) {
+  ui( "#tabs1" ).on("ui.tabs.change.after", function(e, prevTabId, tabId) {
     // Take some action
   });
 	
@@ -523,7 +586,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

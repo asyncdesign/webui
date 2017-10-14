@@ -1,71 +1,115 @@
 
-(function (webui, ui, $, undefined) {
-
+(function (win) {
+		
 	/* PRIVATE */
 
-	var selectTab = function (element) {
+	var transitionDuration,
+		transitionType,
 
+	selectTab = function (element) {
 		var tabId = element.attr("href");
-
-		if (!tabId) {		
+		if (!tabId) {
 			tabId = element.data("target");
 		}
-
-		var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").prop("id");
+		var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").attr("id");
 		var curTabId = tabId.replace("#", "");
+
+		element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
+
+		var activeTab = element.parents(".tabs").find(tabId);
 		
+		if (transitionType === "fade") {
+			activeTab.show().children().fadeIn(transitionDuration, 0.5);
+		}
+		else if (transitionType === "collapse") {
+			activeTab.expandVertical(transitionDuration);
+		}
+		else {
+			activeTab.show();
+		}
+		activeTab.addClass("selected");
 
-		element.trigger("ui.tabs.change.before", [prevTabId, curTabId]);
-
-		element.parents(".tabs").find(tabId).show().addClass("selected");
-		element.parents(".tabs").find(tabId).siblings(".tab-item").hide().removeClass("selected");
-	
-		element.trigger("ui.tabs.change.after", [prevTabId, curTabId]);
+		if (transitionType === "fade") {
+			activeTab.siblings(".tab-item").removeClass("selected").hide().children().fadeOut(1);
+			activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(1);
+			activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(1);			
+			activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration, 0.5);
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(1);
+		}
+		else if (transitionType === "collapse") {
+			activeTab.siblings(".tab-item").collapseVertical(1).removeClass("selected");
+			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(1).removeClass("selected");
+			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(1).removeClass("selected");			
+			activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration);			
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(1).removeClass("selected");
+		}
+		else {
+			activeTab.siblings(".tab-item").hide().removeClass("selected");			
+			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
+			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");			
+			activeTab.find(".tabs").find(".tab-item").first().show();						
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");			
+		}
+		
+		element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
 	};
 
 
-    /* PUBLIC */
+	/* PUBLIC */
 
-    $.fn.tabControl = function (options) {
-		var settings = $.extend({
-            activeTabId: null,
-			activeTabFocused: false
-        }, options );
+	Object.defineProperty(webui.prototype, "tabControl", {
+		value: function (options) {
 
-		if (settings.activeTabId) {
-			this.find(settings.activeTabId).show().addClass("selected");
-			this.find(settings.activeTabId).siblings(".tab-item").hide().removeClass("selected");
+			var settings = ui.extend({
+				activeTabId: null,
+				activeTabFocused: false,
+				transitionDuration: 300,
+				transitionType: "fade"
+			}, options);
+
+			transitionDuration = settings.transitionDuration;
+			transitionType = settings.transitionType;
+
+			if (settings.activeTabId) {
+				var activeTab = this.find(settings.activeTabId);
+
+				activeTab.addClass("selected");
+			}
+			if (settings.activeTabFocused) {
+				var href = this.find("[href='" + settings.activeTabId + "']");
+				if (href.length) {
+					href[0].focus();
+				}
+				var dataTarget = this.find("[data-target='" + settings.activeTabId + "']");
+				if (dataTarget.length) {
+					dataTarget[0].focus();
+				}
+			}
+			else {
+				var tab = this.find(".tab-activator").first();
+				if (tab.length) {
+					tab[0].focus();
+				}
+			}
+			return this;
 		}
-
-		if (settings.activeTabFocused) {
-			this.find("[href='" + settings.activeTabId + "']").focus();
-			this.find("[data-target='" + settings.activeTabId + "']").focus();
-		}
-
-        return this;
-    };
-
-	$(".tab-activator").click( function(e) {
-		e.preventDefault();
-
-		var element = $(this);
-		
-		if (element) {
-			selectTab(element);
-		}			
-
 	});
 
-	$(".tab-activator").focus( function(e) {
+	webui(".tab-activator").click(function(e) {
 		e.preventDefault();
-
-		var element = $(this);
-		
+		var element = webui(this);
 		if (element) {
 			selectTab(element);
-		}			
-
+		}
 	});
 
+	webui(".tab-activator").focus(function(e) {
+		e.preventDefault();
+		var element = webui(this);
+		if (element) {
+			selectTab(element);
+		}
+	});
 
-} (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));
+}(window));
+		

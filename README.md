@@ -31,9 +31,9 @@ bower install asyncdesign-webui
 
 or
 
-[Download the latest release](https://github.com/asyncdesign/webui/archive/v5.4.0.zip)
+[Download the latest release](https://github.com/asyncdesign/webui/archive/v6.0.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
-* You will need to include a version of jQuery. WebUI has been tested with jQuery 1.7.2 and later. (jQuery 3.0.0 or later recommended).
+* WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
 
 ````html
@@ -43,7 +43,6 @@ or
 </head>
 <body>
 
-  <script src="js/jquery-3.0.0.min.js"></script>
   <script src="js/webui.min.js"></script>
 </body>
 </html>
@@ -51,7 +50,7 @@ or
 
 That's it. You are ready to start developing with WebUI.
 
-Be sure to look at the static **DEMO.html** page at the root of the download, which has many examples and demonstrates a good selection of components.
+Be sure to look at the static **DEMO** pages at the root of the download, containing many examples that demonstrate a good selection of components.
 
 ### **Creating page layouts with flexbox**
 

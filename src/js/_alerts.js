@@ -1,200 +1,220 @@
 
-(function (webui, ui, $, undefined) {
-
+(function (win) {
+	
 	/* PRIVATE */
 
-	var alertPosition = "top-right";
-	var alertDuration = 5000;
-	var alertFadeInDuration = 300;
-	var alertFadeOutDuration = 300;
-	var alertWidth = "18.750rem";
-	var alertShowHeader = true;
-	var alertInline = true;
-	var alertStyle = "outline-square";
-	var alertDynamic = false;
-	var alertShowIcon = true;
-	var alertShowClose = true;
+	var fn = webui.fn,
 
+		position = "top-right",
+		duration = 300,
+		transitionDuration = 300,
+		width = "18.750rem",
+		showHeader = true,
+		inline = true,
+		style = "outline-square",
+		autoHide = false,
+		showIcon = true,
+		showClose = true;
 
-    /* PUBLIC */
+	/* PUBLIC */
 
-	ui.initAlerts = function (options) {	
-		alertPosition = options.position !== void 0 ? options.position : alertPosition;
-		alertDuration = options.duration !== void 0 ? options.duration : alertDuration;
-		alertFadeInDuration = options.fadeInDuration !== void 0 ? options.fadeInDuration : alertFadeInDuration;
-		alertFadeOutDuration = options.fadeOutDuration !== void 0 ? options.fadeOutDuration : alertFadeOutDuration;
-		alertWidth = options.width != void 0 ? options.width : alertWidth;
-		alertShowHeader = options.showHeader != void 0 ? options.showHeader : alertShowHeader;
-		alertInline = options.inline != void 0 ? options.inline : alertInline;
-		alertStyle = options.style != void 0 ? options.style : alertStyle;
-		alertDynamic = options.dynamic !== void 0 ? options.dynamic : alertDynamic;
-		alertShowIcon = options.showIcon !== void 0 ? options.showIcon : alertShowIcon;
-		alertShowClose = options.showClose !== void 0 ? options.showClose : alertShowClose;	
+	webui.initAlerts = function(options) {
+		position = options.position !== void 0 ? options.position : position;
+		duration = options.duration !== void 0 ? options.duration : duration;
+		transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
+		width = options.width != void 0 ? options.width : width;
+		showHeader = options.showHeader != void 0 ? options.showHeader : showHeader;
+		inline = options.inline != void 0 ? options.inline : inline;
+		style = options.style != void 0 ? options.style : style;
+		autoHide = options.autoHide !== void 0 ? options.autoHide : autoHide;
+		showIcon = options.showIcon !== void 0 ? options.showIcon : showIcon;
+		showClose = options.showClose !== void 0 ? options.showClose : showClose;
 	};
-
-	ui.showAlert = function (message, type, dynamic, showIcon, showClose) {
-
+	webui.showAlert = function(message, type, auto, icon, close) {
 		if (arguments.length > 1) {
-			var alertContainer = (!$(".alert-container").length) ?
-				$("<div></div>").addClass("alert-container").addClass("alert-" + alertPosition).appendTo("body") :
-				$(".alert-container");
 
-			alertContainer.css("width", alertWidth);
+			var alertContainer = !webui(".alert-container").length ? 
+									webui("<div></div>").addClass("alert-container").addClass("alert-" + position).appendTo("body") : 
+									webui(".alert-container").addClass("alert-" + position);
 
-			var alertItemOuter = $("<div></div>");
+			
+			alertContainer.css("width", width);
+			var alertItemOuter = webui("<div></div>");
+			var alertItemInner = webui("<div role='alert'></div>").addClass("alert alert-" + type)
+									.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
+									.appendTo(alertItemOuter);
 
-			var alertItemInner = $("<div role='alert'></div>").hide()
-				.addClass("alert alert-" + type)
-				.css("padding-left", "0.625rem")
-				.css("padding-right", "0.625rem")
-				.appendTo(alertContainer)
-				.animate({ opacity: "show" }, alertFadeInDuration)
-				.wrap(alertItemOuter);
 
-			if (alertStyle === "outline-square" || alertStyle === "outline-rounded") {
+			alertItemInner.trigger("ui.alert.show.before");
+
+			if (transitionDuration) {
+				alertItemInner.fadeIn(transitionDuration).trigger("ui.alert.show.after");
+			}
+			else {
+				alertItemInner.show().trigger("ui.alert.show.after");
+			}
+			alertItemOuter.appendTo(alertContainer);
+	
+
+			if (style === "outline-square" || style === "outline-rounded") {
 				switch (type) {
-					case "success":
-						alertItemInner.addClass("alert-success-outline"); 
-						break;
-					case "info":
-						alertItemInner.addClass("alert-info-outline");
-						break;
-					case "warning":
-						alertItemInner.addClass("alert-warning-outline");
-						break;
-					case "danger":
-						alertItemInner.addClass("alert-danger-outline");
-						break;
-					default:
-						break;
+				case "success":
+					alertItemInner.addClass("alert-success-outline");
+					break;
+
+				case "info":
+					alertItemInner.addClass("alert-info-outline");
+					break;
+
+				case "warning":
+					alertItemInner.addClass("alert-warning-outline");
+					break;
+
+				case "danger":
+					alertItemInner.addClass("alert-danger-outline");
+					break;
+
+				default:
+					break;
 				}
 			}
-
-			if (alertStyle.toLowerCase().indexOf("rounded") >= 0) {
+			if (style.toLowerCase().indexOf("rounded") >= 0) {
 				alertItemInner.addClass("rounded-md");
 			}
-
-			if (alertShowHeader && !alertInline) {
-				if (showIcon || showClose) {
-					var alertItemHeader = $("<div></div>").addClass("panel").appendTo(alertItemInner);
-					var alertItemHeaderLeft = $("<div></div>").addClass("move-left").appendTo(alertItemHeader);
-					var alertItemHeaderRight = $("<div></div>").addClass("move-right").appendTo(alertItemHeader);
-
-					if (showIcon) {
-						var alertItemIcon = $("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft)
+			if (showHeader && !inline) {
+				if (icon || close) {
+					var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
+					var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
+					var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
+					if (icon) {
+						var alertItemIcon = webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 					}
-					if (showClose) {
-						var alertItemCancel = $("<div role='button'></div>").addClass("alert-cancel").appendTo(alertItemHeaderRight)
-							.click(function () {
-								ui.hideAlert(alertItemInner, false);
-							});
+					if (close) {
+						var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel").appendTo(alertItemHeaderRight)
+						.click(function() {
+							ui.hideAlert(alertItemInner, false);
+						});
 					}
 				}
 			}
-
-			var alertItemBody = $("<div></div>").addClass("panel").appendTo(alertItemInner);
-
-			if (alertShowHeader && alertInline) {
-
-				if (showIcon && showClose) {
-					var alertItemIcon = $("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody)
-					var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-					var alertItemCancel = $("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
-						.click(function () {
-							ui.hideAlert(alertItemInner, false);
-						});
+			var alertItemBody = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
+			if (showHeader && inline) {
+				if (icon && close) {
+					var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
+					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
+					.click(function() {
+						ui.hideAlert(alertItemInner, false);
+					});
+				} else if (icon) {
+					var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+				} else if (close) {
+					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
+					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
+					.click(function() {
+						ui.hideAlert(alertItemInner, false);
+					});
+				} else {
+					var alertItemBodyMessage = webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
 				}
-				else if (showIcon) {
-					var alertItemIcon = $("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody)
-					var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);					
-				}
-				else if (showClose) {
-					var alertItemBodyMessage = $("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-					var alertItemCancel = $("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
-						.click(function () {
-							ui.hideAlert(alertItemInner, false);
-						});
-				}
-				else {
-					var alertItemBodyMessage = $("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
-				}
-
+			} else {
+				var alertItemBodyMessage = webui("<div></div>").appendTo(alertItemBody).html(message);
 			}
-			else {
-				var alertItemBodyMessage = $("<div></div>").appendTo(alertItemBody).html(message);
-			}
-
-			if (dynamic != null) {
-				if (dynamic) {
-					setTimeout(function () {
+			if (auto != null) {
+				if (auto) {
+					setTimeout(function() {
 						ui.hideAlert(alertItemInner, true);
-					}, alertDuration);
+					}, duration);
 				}
-			}
-			else {
-				if (alertDynamic) {
-					setTimeout(function () {
+			} else {
+				if (autoHide) {
+					setTimeout(function() {
 						ui.hideAlert(alertItemInner, true);
-					}, alertDuration);
+					}, duration);
 				}
 			}
 		}
 	};
-
-	ui.hideAlert = function (alert, dynamic) {
-
+	webui.hideAlert = function(alert, auto) {
 		if (alert) {
-			alert.animate({ opacity: "hide" }, dynamic ? alertDuration : alertFadeOutDuration, function () {
-				alert.parent().animate({ height: "0px" }, alertFadeOutDuration, function () {
+
+			alert.trigger("ui.alert.hide.before");
+			
+			if (transitionDuration) {
+
+				alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
+				
+				setTimeout(function() {
 					alert.parent().remove();
-				});
-			});
+				}, transitionDuration);
+				
+			}
+			else {
+				alert.hide().parent().remove().trigger("ui.alert.hide.after");
+			}
 		}
 	};
-
-	ui.showSuccessAlert = function (message, dynamic, showIcon, showClose) {
+	ui.showSuccessAlert = function(message, auto, icon, close) {
 		var msgType = "success";
 		switch (arguments.length) {
-			case 1: ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose); break;
-			case 2: ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose); break;
-			case 3: ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose); break;
-			case 4: ui.showAlert(message, msgType, dynamic, showIcon, showClose); break;
-			default: break;
+		case 1:
+			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+		case 2:
+			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+		case 3:
+			ui.showAlert(message, msgType, auto, icon, showClose); break;
+		case 4:
+			ui.showAlert(message, msgType, auto, icon, close); break;
+		default:
+			break;
 		}
 	};
-
-	ui.showInfoAlert = function (message, dynamic, showIcon, showClose) {
+	ui.showInfoAlert = function(message, auto, icon, close) {
 		var msgType = "info";
 		switch (arguments.length) {
-			case 1: ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose); break;
-			case 2: ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose); break;
-			case 3: ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose); break;
-			case 4: ui.showAlert(message, msgType, dynamic, showIcon, showClose); break;
-			default: break;
+		case 1:
+			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+		case 2:
+			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+		case 3:
+			ui.showAlert(message, msgType, auto, icon, showClose); break;
+		case 4:
+			ui.showAlert(message, msgType, auto, icon, close); break;
+		default:
+			break;
 		}
 	};
-
-	ui.showWarningAlert = function (message, dynamic, showIcon, showClose) {
+	ui.showWarningAlert = function(message, auto, icon, close) {
 		var msgType = "warning";
 		switch (arguments.length) {
-			case 1: ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose); break;
-			case 2: ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose); break;
-			case 3: ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose); break;
-			case 4: ui.showAlert(message, msgType, dynamic, showIcon, showClose); break;
-			default: break;
+		case 1:
+			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+		case 2:
+			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+		case 3:
+			ui.showAlert(message, msgType, auto, icon, showClose); break;
+		case 4:
+			ui.showAlert(message, msgType, auto, icon, close); break;
+		default:
+			break;
 		}
 	};
-
-	ui.showDangerAlert = function (message, dynamic, showIcon, showClose) {
+	ui.showDangerAlert = function(message, auto, icon, close) {
 		var msgType = "danger";
 		switch (arguments.length) {
-			case 1: ui.showAlert(message, msgType, alertDynamic, alertShowIcon, alertShowClose); break;
-			case 2: ui.showAlert(message, msgType, dynamic, alertShowIcon, alertShowClose); break;
-			case 3: ui.showAlert(message, msgType, dynamic, showIcon, alertShowClose); break;
-			case 4: ui.showAlert(message, msgType, dynamic, showIcon, showClose); break;
-			default: break;
+		case 1:
+			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+		case 2:
+			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+		case 3:
+			ui.showAlert(message, msgType, auto, icon, showClose); break;
+		case 4:
+			ui.showAlert(message, msgType, auto, icon, close); break;
+		default:
+			break;
 		}
 	};
 
-
-} (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));
+}(window));
+		

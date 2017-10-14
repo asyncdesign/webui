@@ -1,248 +1,241 @@
 
-(function (webui, ui, $, undefined) {
 
+(function (win) {
+	
 	/* PRIVATE */
 
-	var menuDropdownFadeInDuration = 500;
-	var menuDropdownFadeOutDuration = 500;
-	var menuDropdownTransitionType = "vertical";
+	var fn = webui.fn,
+		transitionDuration = 500,
+		transitionType = "fade";
 
+	/* PUBLIC */
 
-    /* PUBLIC */
-
-	ui.initMenus = function (options) {
-		menuDropdownFadeInDuration = options.dropdownFadeInDuration !== void 0 ? options.dropdownFadeInDuration : menuDropdownFadeInDuration;
-		menuDropdownFadeOutDuration = options.dropdownFadeOutDuration !== void 0 ? options.dropdownFadeOutDuration : menuDropdownFadeOutDuration;
-		menuDropdownTransitionType = options.dropdownTransitionType !== void 0 ? options.dropdownTransitionType : menuDropdownTransitionType;
+	webui.initMenus = function (options) {
+		transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
+		transitionType = options.transitionType !== void 0 ? options.transitionType : transitionType;
 	};
 
-	ui.toggleMenuItem = function (selector) {
 
-		var menuItem = $(selector);
+	fn.toggleDropdown = function () {
+		var menuItem;
 
-		var dropdown = menuItem.nextAll(".dropdown-sheet:first");
-		if (dropdown.length === 0) {
-			dropdown = menuItem.nextAll(".dropdown-content:first");
+		for (var i = 0; i < this.length; i++) {
+			menuItem = webui(this[i]);
+
+			var dropdown = menuItem.nextSibling(".dropdown-sheet");
 			if (dropdown.length === 0) {
-				dropdown = menuItem.nextAll(".dropdown-content-expand:first");
-			}
-		}
-
-		if (dropdown) {
-
-			if (dropdown.length) {
-
-				if (dropdown.css("display") === "block") {
-
-					menuItem.trigger("ui.dropdown.hide.before");
-
-					switch (menuDropdownTransitionType) {
-						case "vertical":
-							dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-							dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-							break;
-						case "horizontal":
-							dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-							dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-							break;
-						default:
-							dropdown.hide(menuDropdownFadeOutDuration);
-							dropdown.hide(menuDropdownFadeOutDuration); 
-							break;
-					}
-
-					menuItem.trigger("ui.dropdown.hide.after");
-				}
-				else {
-
-					menuItem.trigger("ui.dropdown.show.before");
-
-
-					switch (menuDropdownTransitionType) {
-						case "vertical":
-							dropdown.animate({ height: "show", opacity: "show" }, menuDropdownFadeInDuration);
-							dropdown.animate({ height: "show", opacity: "show" }, menuDropdownFadeInDuration); 
-							break;
-						case "horizontal":
-							dropdown.animate({ width: "show", opacity: "show" }, menuDropdownFadeInDuration);
-							dropdown.animate({ width: "show", opacity: "show" }, menuDropdownFadeInDuration); 
-							break;
-						default:
-							dropdown.show(menuDropdownFadeInDuration);
-							dropdown.show(menuDropdownFadeInDuration); 
-							break;
-					}
-					
-
-					if (dropdown.hasClass("menu-inclusive") === false) {
-						dropdown.prevAll(".dropdown-sheet").hide(menuDropdownFadeOutDuration);
-						dropdown.nextAll(".dropdown-sheet").hide(menuDropdownFadeOutDuration);
-						dropdown.prevAll(".dropdown-content").hide(menuDropdownFadeOutDuration);
-						dropdown.nextAll(".dropdown-content").hide(menuDropdownFadeOutDuration);
-						dropdown.prevAll(".dropdown-content-expand").hide(menuDropdownFadeOutDuration);
-						dropdown.nextAll(".dropdown-content-expand").hide(menuDropdownFadeOutDuration);
-					}
-
-					$(".menu-activator:not(:focus)").siblings(".dropdown-sheet:not(.menu-inclusive)").hide(menuDropdownFadeOutDuration);
-					$(".menu-activator:not(:focus)").siblings(".dropdown-content:not(.menu-inclusive)").hide(menuDropdownFadeOutDuration);
-
-					menuItem.trigger("ui.dropdown.show.after");
+				dropdown = menuItem.nextSibling(".dropdown-content");
+				if (dropdown.length === 0) {
+					dropdown = menuItem.nextSibling(".dropdown-content-expand");
 				}
 			}
+			if (dropdown) {
+				if (dropdown.length) {
+					if (dropdown.css("display") === "block") {
 
-			dropdown.filter(".menu-close").find(".menu-button:not(.menu-activator)").click(function () {
-				menuItem.parents().children(".menu-activator:last").next().hide(menuDropdownFadeOutDuration);
-			});
-			dropdown.filter(".menu-close").find(".menu-button-sm:not(.menu-activator)").click(function () {
-				menuItem.parents().children(".menu-activator:last").next().hide(menuDropdownFadeOutDuration);
-			});
-			dropdown.filter(".menu-close").find("a:not(.menu-activator)").click(function () {
-				menuItem.parents().children(".menu-activator:last").next().hide(menuDropdownFadeOutDuration);
-			});
+						menuItem.trigger("ui.dropdown.hide.before");
+						if (transitionType === "fade") {
+							dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
+						}
+						else if (transitionType === "collapse") {
+							dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+						}
+						else {
+							dropdown.hide().trigger("ui.dropdown.hide.after");
+						}
+					}
+					else {
+						menuItem.trigger("ui.dropdown.show.before");
+						if (transitionType === "fade") {
+							dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
+						}
+						else if (transitionType === "collapse") {
+							dropdown.expandVertical(transitionDuration).trigger("ui.dropdown.show.after");
+						}
+						else {
+							dropdown.show().trigger("ui.dropdown.show.after");
+						}
+
+						if (dropdown.hasClass("menu-inclusive") === false) {
+
+							dropdown.prevSiblings(".dropdown-sheet").hide();
+							dropdown.nextSiblings(".dropdown-sheet").hide();
+							dropdown.prevSiblings(".dropdown-content").hide();
+							dropdown.nextSiblings(".dropdown-content").hide();
+							dropdown.prevSiblings(".dropdown-content-expand").hide();
+							dropdown.nextSiblings(".dropdown-content-expand").hide();
+						}
+
+						webui(".menu-activator:not(:focus)").siblings(".dropdown-sheet:not(.menu-inclusive)").hide();
+						webui(".menu-activator:not(:focus)").siblings(".dropdown-content:not(.menu-inclusive)").hide();
+					}
+				}
+				dropdown.filter(".menu-close").find(".menu-button:not(.menu-activator)").click(function () {
+					menuItem.parents().children(".menu-activator").last().nextSibling().hide();
+				});
+				dropdown.filter(".menu-close").find(".menu-button-sm:not(.menu-activator)").click(function () {
+					menuItem.parents().children(".menu-activator").last().nextSibling().hide();
+				});
+				dropdown.filter(".menu-close").find("a:not(.menu-activator)").click(function () {
+					menuItem.parents().children(".menu-activator").last().nextSibling().hide();
+				});
+			}
 		}
-
 	};
 
-	$(".menu-activator").click(function (e) {
-		ui.toggleMenuItem($(this));
+	/* EVENTS */
+
+	webui(".menu-activator").click(function (e) {
+		var menuItem = webui(this);
+		menuItem.toggleDropdown();
 	});
 
-	$(".menu-activator-dynamic").hover(
-		function () {
-			var menuItem = $(this);
-
-			if (menuItem) {
-				menuItem.trigger("ui.dropdown.show.before");
-
-				switch (menuDropdownTransitionType) {
-					case "vertical":
-						menuItem.siblings(".dropdown-sheet").animate({ height: "show", opacity: "show" }, menuDropdownFadeInDuration);
-						menuItem.siblings(".dropdown-content").animate({ height: "show", opacity: "show" }, menuDropdownFadeInDuration); 
-						break;
-					case "horizontal":
-						menuItem.siblings(".dropdown-sheet").animate({ width: "show", opacity: "show" }, menuDropdownFadeInDuration);
-						menuItem.siblings(".dropdown-content").animate({ width: "show", opacity: "show" }, menuDropdownFadeInDuration); 
-						break;
-					default:
-						menuItem.siblings(".dropdown-sheet").show(menuDropdownFadeInDuration);
-						menuItem.siblings(".dropdown-content").show(menuDropdownFadeInDuration); 
-						break;
-				}
-
-				menuItem.trigger("ui.dropdown.show.after");
+	webui(".menu-activator-dynamic").hoverIn(function (e) {
+		var menuItem = webui(this);
+			
+		if (menuItem.siblings(".dropdown-content").css("display") === "none") {
+			menuItem.trigger("ui.dropdown.show.before");
+			if (transitionType === "fade") {
+				menuItem.siblings(".dropdown-content").fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 			}
-		},
-		function () {
-			var menuItem = $(this);
-
-			if (menuItem) {
-				menuItem.trigger("ui.dropdown.hide.before");
-
-				menuItem.siblings(".dropdown-sheet").css("display", "none");
-				menuItem.siblings(".dropdown-content").css("display", "none");
-
-				menuItem.trigger("ui.dropdown.hide.after");
+			else if (transitionType === "collapse") {
+				menuItem.siblings(".dropdown-content").expandVertical(transitionDuration).trigger("ui.dropdown.show.after");
+			}
+			else {
+				menuItem.siblings(".dropdown-content").show().trigger("ui.dropdown.show.after");
 			}
 		}
-	);
 
-	$(".menu-activator-dynamic ~ .dropdown-sheet").hover(
-
-		function () {
-			var dropdown = $(this);
-
-			if (dropdown) {
-				dropdown.css("display", "block");
-
-				if (dropdown.hasClass("menu-close")) {
-
-					dropdown.find(".menu-button:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-					dropdown.find(".menu-button-sm:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-					dropdown.find("a:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-				}
+		if (menuItem.siblings(".dropdown-sheet").css("display") === "none") {
+			menuItem.trigger("ui.dropdown.show.before");
+			if (transitionType === "fade") {
+				menuItem.siblings(".dropdown-sheet").fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 			}
-		},
-		function () {
-			var dropdown = $(this);
-
-			if (dropdown) {
-				dropdown.trigger("ui.dropdown.hide.before");
-
-				switch (menuDropdownTransitionType) {
-					case "vertical":
-						dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-						dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-						break;
-					case "horizontal":
-						dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-						dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-						break;
-					default:
-						dropdown.hide(menuDropdownFadeOutDuration);
-						dropdown.hide(menuDropdownFadeOutDuration); 
-						break;
-				}
-
-				dropdown.trigger("ui.dropdown.hide.after");
+			else if (transitionType === "collapse") {
+				menuItem.siblings(".dropdown-sheet").expandVertical(transitionDuration).trigger("ui.dropdown.show.after");
+			}
+			else {
+				menuItem.siblings(".dropdown-sheet").show().trigger("ui.dropdown.show.after");
 			}
 		}
-	);
+	});
 
-	$(".menu-activator-dynamic ~ .dropdown-content").hover(
 
-		function () {
-			var dropdown = $(this);
+	webui(".menu-activator-dynamic").hoverOut(function (e) {
+		var menuItem = webui(this);
 
-			if (dropdown) {
+		var allowHide = true;
+		var el = webui.elementHoverAt(e.clientX, e.clientY);
 
-				dropdown.css("display", "block");
+		if (webui(el).parents(".dropdown-content").length || webui(el).parents(".dropdown-sheet").length) {
+			allowHide = false;
+		}
+		
+		if (allowHide) {
+			menuItem.trigger("ui.dropdown.hide.before");
 
-				if (dropdown.hasClass("menu-close")) {
-
-					dropdown.find(".menu-button:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-					dropdown.find(".menu-button-sm:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-					dropdown.find("a:not(.menu-activator-dynamic)").click(function () {
-						dropdown.parents().children(".menu-activator-dynamic:last").next().hide(menuDropdownFadeOutDuration);
-					});
-				}
+			if (transitionType === "fade") {
+				menuItem.siblings(".dropdown-content").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
+				menuItem.siblings(".dropdown-sheet").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
 			}
-		},
-		function () {
-			var dropdown = $(this);
-
-			if (dropdown) {
-				dropdown.trigger("ui.dropdown.hide.before");
-
-				switch (menuDropdownTransitionType) {
-					case "vertical":
-						dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-						dropdown.animate({ height: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-						break;
-					case "horizontal":
-						dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration);
-						dropdown.animate({ width: "hide", opacity: "hide" }, menuDropdownFadeOutDuration); 
-						break;
-					default:
-						dropdown.hide(menuDropdownFadeOutDuration);
-						dropdown.hide(menuDropdownFadeOutDuration); 
-						break;
-				}
-
-				dropdown.trigger("ui.dropdown.hide.after");
+			else if (transitionType === "collapse") {
+				menuItem.siblings(".dropdown-content").collapseVertical(transitionDuration, true).trigger("ui.dropdown.show.after");
+				menuItem.siblings(".dropdown-sheet").collapseVertical(transitionDuration, true).trigger("ui.dropdown.show.after");
+			}
+			else {
+				menuItem.siblings(".dropdown-content").hide().trigger("ui.dropdown.show.after");
+				menuItem.siblings(".dropdown-sheet").hide().trigger("ui.dropdown.show.after");					
 			}
 		}
-	);
+	});
+
+	webui(".menu-activator-dynamic").siblings(".dropdown-sheet").hoverIn(function () {
+		var dropdown = webui(this);
+
+		if (dropdown.hasClass("menu-close")) {
+
+			dropdown.find(".menu-button:not(.menu-activator-dynamic)").click(function () {
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+			dropdown.find(".menu-button-sm:not(.menu-activator-dynamic)").click(function () {
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+			dropdown.find("a:not(.menu-activator-dynamic)").click(function (e) {
+				e.preventDefault();
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+		}
+	});
+
+	webui(".menu-activator-dynamic").siblings(".dropdown-sheet").hoverOut(function (e) {
+		var dropdown = webui(this);
+
+		var allowHide = true;
+		var el = webui.elementHoverAt(e.clientX, e.clientY);
+
+		if (webui(el).is(".menu-activator-dynamic")) {
+			allowHide = false;
+		}
+
+		if (allowHide) {
+			dropdown.trigger("ui.dropdown.hide.before");
+
+			if (transitionType === "fade") {
+				dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
+			}
+			else if (transitionType === "collapse") {
+				dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+			}
+			else {
+				dropdown.hide().trigger("ui.dropdown.hide.after");
+			}
+		}
+	});
 
 
+	webui(".menu-activator-dynamic").siblings(".dropdown-content").hoverIn(function () {
+		var dropdown = webui(this);
 
-} (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));
+		if (dropdown.hasClass("menu-close")) {
+
+			dropdown.find(".menu-button:not(.menu-activator-dynamic)").click(function () {
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+			dropdown.find(".menu-button-sm:not(.menu-activator-dynamic)").click(function () {
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+			dropdown.find("a:not(.menu-activator-dynamic)").click(function () {
+				dropdown.parents().children(".menu-activator-dynamic").last().nextSibling().hide();
+			});
+		}
+	});
+
+	webui(".menu-activator-dynamic").siblings(".dropdown-content").hoverOut(function (e) {
+
+		var dropdown = webui(this);
+
+		var allowHide = true;
+		var el = webui.elementHoverAt(e.clientX, e.clientY);
+
+		if (webui(el).is(".menu-activator-dynamic")) {
+			allowHide = false;
+		}
+
+		if (allowHide) {
+			dropdown.trigger("ui.dropdown.hide.before");
+
+			if (transitionType === "fade") {
+				dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
+			}
+			else if (transitionType === "collapse") {
+				dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+			}
+			else {
+				dropdown.hide().trigger("ui.dropdown.hide.after");
+			}
+		}
+	});
+
+
+}(window));
+	

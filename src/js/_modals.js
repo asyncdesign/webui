@@ -1,68 +1,90 @@
 
-(function (webui, ui, $, undefined) {
-
+(function (win) {
+	
 	/* PRIVATE */
 
+	var root = webui.root, 
+		fn = webui.fn,
+		transitionDuration;
 
-    /* PUBLIC */
+	/* PUBLIC */
 
-    $.fn.modalControl = function (options) {
-		var settings = $.extend({
-            closeFromBackdrop: false
-        }, options );
+	Object.defineProperty(webui.prototype, "modalControl", {
+		value: function (options) {
+			var el = this;
 
-		if (settings.closeFromBackdrop) {
-			this.closest(".modal").click(function (e) {
-				if (e.target !== this) {
-					return;
-				}
-				ui.hideModal(this);
-			});
-		}
+			var settings = ui.extend({
+				closeFromBackdrop: false,
+				transitionDuration: 300
+			}, options);
 
-        return this;
-    };
+			transitionDuration = settings.transitionDuration;
+			
+			if (settings.closeFromBackdrop) {
+				el.closest(".modal").click(function (e) {
+					if (e.target !== this) {
+						return;
+					}
+					el.hideModal();
+				});
+			}
+			return this;
+		},
+		enumerable: false
+	});
 
-	ui.showModal = function (selector) {
+	fn.showModal = function () {
 
-		var modal = $(selector);
+		var modal = this;
 
 		if (modal) {
 
 			modal.trigger("ui.modal.show.before");
-
-			modal.show();
 			
-			var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";		
+			if (transitionDuration) {
+				modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
+			}
+			else {
+				modal.show().trigger("ui.modal.show.after");
+			}
+							
+			var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+			
+			if (parseFloat(webui(root).css("height")) > win.innerHeight) {
+				webui("body").css("padding-right", scrollShift);
+				webui("body").css("overflow", "hidden");
+			}
+			
+			var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
 
-			$("body").css("padding-right", scrollShift);
-			$("body").css("overflow", "hidden");
-
-			modal.find("input, textarea, select")
-					.not("input[type=hidden],input[type=button],input[type=submit],input[type=reset],input[type=image],button")
-					.filter(":enabled:visible:first")
-					.focus();
+			if (focusEl.length && !focusEl.hasClass("disabled")) {
+				focusEl[0].focus();
+			}
 
 			modal.trigger("ui.modal.show.after");			
 		}
+		return this;
 	};
 
-	ui.hideModal = function (selector) {
+	fn.hideModal = function () {
 
-		var modal = $(selector);
+		var modal = this;
 
 		if (modal) {
 
+			webui("body").css("padding-right", "");
+			webui("body").css("overflow", "");
+
 			modal.trigger("ui.modal.hide.before");
-
-			$("body").css("padding-right", "");
-			$("body").css("overflow", "");
-
-			modal.hide();
-
-			modal.trigger("ui.modal.hide.after");
+			
+			if (transitionDuration) {
+				modal.fadeOut(transitionDuration).trigger("ui.modal.hide.after");					
+			}
+			else {
+				modal.hide().parent().remove().trigger("ui.modal.hide.after");
+			}
 		}
 	};
 
-
-} (window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery));
+}(window));
+		

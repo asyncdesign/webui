@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -506,9 +506,9 @@
     <p class="color-accent-5 text-bold">Configuration options</p>
 
 
-    There are two configuration options available for menus which control animation transitions when dropdowns are shown
-    and hidden. If you want to disable the fade-in and fade-out animations just set both <span class="color-accent-2 text-bold">dropdownFadeInDuration</span> 
-    and <span class="color-accent-2 text-bold">dropdownFadeOutDuration</span> to 0. The following code shows how to configure these options.
+    There are two configuration options available for menus which control transitions when dropdowns are shown
+    and hidden. The transitionType can be set to either "fade" or "collapse". If don't  need the transitions just set remove the ui.initMenus function or
+    set <span class="color-accent-2 text-bold">transitionDuration</span> to 0. The following code shows how to configure these options.
 
 
     <div class="row-spacing-md"></div>
@@ -519,12 +519,12 @@
   <div class="content-row">
     <div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
     
-  ui.initMenus({
-    dropdownFadeInDuration: 700,
-    dropdownFadeOutDuration: 700
-  });
+	ui.initMenus({
+		transitionDuration: 1000,
+		transitionType: "collapse"
+	});
         
 });
 </pre>
@@ -548,21 +548,21 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  $( "#menu1" ).on("ui.dropdown.show.before", function(e) {
+  ui( "#menu1" ).on("ui.dropdown.show.before", function(e) {
     // Take some action
   });
 
-  $( "#menu1" ).on("ui.dropdown.show.after", function(e) {
+  ui( "#menu1" ).on("ui.dropdown.show.after", function(e) {
     // Take some action
   });
 
-  $( "#menu1" ).on("ui.dropdown.hide.before", function(e) {
+  ui( "#menu1" ).on("ui.dropdown.hide.before", function(e) {
     // Take some action
   });
 
-  $( "#menu1" ).on("ui.dropdown.hide.after", function(e) {
+  ui( "#menu1" ).on("ui.dropdown.hide.after", function(e) {
     // Take some action
   });
 
@@ -628,7 +628,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 

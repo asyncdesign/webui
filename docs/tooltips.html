@@ -164,7 +164,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 5.4.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 6.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -380,15 +380,16 @@
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
-<pre>$( document ).ready(function() {
+<pre>webui.ready(function() {
 
-  ui.initTooltips({
-    autoPositioning: true,
-    autoResizing: true,
-    autoPositioningMargin: 0
-  });
-  
-  ui.showTooltip($("#tooltip1"));
+	ui.initTooltips({
+		autoPositioning: true,
+		autoResizing: true,
+		autoPositioningMargin: 0,
+		transitionDuration: 1000
+	});
+		
+  ui("#tooltip1").showTooltip();
 	
 });
 </pre>				
@@ -544,7 +545,6 @@
           $("#mainContentContainer").css("height", "");
         }
         
-
 
         // Initialisation
 
