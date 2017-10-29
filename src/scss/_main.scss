@@ -67,9 +67,6 @@ blockquote {
 template {
 	display: none;
 }
-small {
-	font-size: 80%;
-}
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -83,6 +80,10 @@ svg:not(:root) {
 ::-moz-focus-inner {
 	border: 0;
 	outline: 0;
+}
+.nobreak {
+	page-break-inside: avoid;
+	break-inside: avoid;
 }
 .list-inline > * {
 	float: left;
@@ -242,8 +243,11 @@ svg:not(:root) {
 		background-color: $theme_primary;
 	}
 	input[type=checkbox] {
+		position: absolute;
+		opacity: 0;
 		width: 0;
 		height: 0;
+		z-index: -1;
 		visibility: hidden;
 	}
 	&:not(.control-disabled) input[type=checkbox] {
@@ -276,8 +280,11 @@ svg:not(:root) {
 		border-radius: 50%;
 	}
 	input[type=radio] {
+		position: absolute;
+		opacity: 0;
 		width: 0;
 		height: 0;
+		z-index: -1;
 		visibility: hidden;
 	}
 	&:not(.control-disabled) input[type=radio] {
@@ -314,11 +321,11 @@ svg:not(:root) {
 .button-md,
 .button-lg,
 .button-xl {
+	box-sizing: border-box;	
 	padding: 0 0.75rem;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
-	box-sizing: border-box;
 	color: $theme_default_foreground;
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
@@ -346,10 +353,12 @@ svg:not(:root) {
 .button-link-lg,
 .button-link-xl {
 	display: block;
+	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
 .button-fluid {
+	box-sizing: border-box;
 	text-decoration: none;
 	white-space: normal;
 	outline: none;
@@ -581,12 +590,12 @@ svg:not(:root) {
 .view-button,
 .view-button-sm,
 .view-button-lg {
+	box-sizing: border-box;
 	padding: 0 1rem;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
-	width: 100%;
-	box-sizing: border-box;
+	width: 100%;	
 	color: $theme_default;
 	background-color: $theme_transparent;
 	border: none;
@@ -603,6 +612,7 @@ svg:not(:root) {
 .view-button-link-sm,
 .view-button-link-lg {
 	display: block;
+	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
@@ -804,12 +814,12 @@ svg:not(:root) {
 }
 .menu-button-sm,
 .menu-button-lg {
+	box-sizing: border-box;
 	padding: 0 1rem;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
-	width: 100%;
-	box-sizing: border-box;
+	width: 100%;	
 	color: $theme_default_foreground;
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
@@ -824,6 +834,7 @@ svg:not(:root) {
 .menu-button-link-sm,
 .menu-button-link-lg {
 	display: block;
+	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
@@ -1255,6 +1266,24 @@ svg:not(:root) {
 .control-group-disabled *[class*="checkbox"].accessibility label:focus,
 .control-group-disabled *[class*="radio"].accessibility label:focus {
 	box-shadow: none !important;	
+}
+.control-block {	
+	letter-spacing: normal;
+	white-space: nowrap;
+	width: inherit;
+	* :not([class*="text"]) {
+		display: block;
+	}	
+}
+.control-group {	
+	letter-spacing: normal;
+	white-space: nowrap;
+	width: inherit;
+	display: table;	
+	> :not([class*="text"]) {
+		display: table-cell;
+		vertical-align: middle;
+	}	
 }
 .control-group-append {
 	letter-spacing: normal;
@@ -1838,14 +1867,25 @@ svg:not(:root) {
 .text-line-through {
 	text-decoration: line-through;
 }
+.text-vertical-left {
+	transform: rotate(-90deg);
+	transform-origin: left center 0;	
+}
+.text-vertical-right {
+	transform: rotate(90deg);
+	transform-origin: left center 0;	
+}
 .text-wrap {
   	overflow-wrap: break-word;
   	word-wrap: break-word;
 }
+.text-nowrap {
+	white-space: nowrap;
+}
 *[class*="text-"]:not(.text-underline):not(.text-line-through) {
 	text-decoration: none;	
 }
-*[class*="text-"] {
+*[class*="text-"]:not(.text-nowrap) {
 	white-space: normal;
 }
 .image {

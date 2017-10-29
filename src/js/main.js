@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.0.0
-* Author: Levi Keogh, 2017-08-01
+* Version: 6.1.0
+* Author: Levi Keogh, 2017-10-23
 */
 
 "use strict";
@@ -1710,6 +1710,8 @@
 			document.addEventListener("DOMContentLoaded", callback);
 		}		
 	};
+
+	webui.version = "v6.1.0";
 
 	/* RUN */
 
