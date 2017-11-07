@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.1.0
-* Author: Levi Keogh, 2017-10-23
+* Version: 6.2.0
+* Author: Levi Keogh, 2017-11-06
 */
 
 "use strict";
@@ -1509,6 +1509,18 @@
 		return scrollbarWidth;
 	};
 
+	webui.rgbToHex = function (r, g, b) {
+		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+	}
+
+	webui.rgbStringToHex = function (rgb) {
+		var rgbValues = rgb.replace(/[^\d,]/g, '').split(',');
+		if (rgbValues && rgbValues.length === 3) {
+			return "#" + ((1 << 24) + (parseInt(rgbValues[0]) << 16) + (parseInt(rgbValues[1]) << 8) + parseInt(rgbValues[2])).toString(16).slice(1);
+		}
+		return null;
+	}
+
 	webui.getAccessibilityContrastColor = function (hexColor) {
 		if (hexColor.indexOf("#") === 0) {
 			hexColor = hexColor.slice(1);
@@ -1711,7 +1723,7 @@
 		}		
 	};
 
-	webui.version = "v6.1.0";
+	webui.version = "v6.2.0";
 
 	/* RUN */
 
@@ -1744,6 +1756,19 @@
 	});
 
 	webui(".toggle-activator").click(function (e) {
+		e.preventDefault();
+		var selector = webui(this).data("target");
+		if (!selector.length) {
+			selector = webui(this).attr("href");
+		}
+
+		if (selector.length) {
+			var toggleContainer = webui(this).closest(".toggle-container");
+			runToggleAction(selector, toggleContainer);
+		}
+	});
+
+	webui(".toggle-activator-focus").focus(function (e) {
 		e.preventDefault();
 		var selector = webui(this).data("target");
 		if (!selector.length) {

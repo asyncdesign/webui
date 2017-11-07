@@ -20,18 +20,18 @@
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
-            uiElement.css("display", "block").addClass("transitioning");
+            uiElement.css("display", "block");
             uiMovement = uiDistance / duration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("top"));
             uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
+          
 
-            
             var nextFrame = function (element, movement, position, finalPosition, dir) {
 
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
 
                 if ((dir === "down" && pos > finalPosition) || (dir === "up" && pos < finalPosition)) {
-                    element.css("top", finalPosition + "px").removeClass("transitioning");
+                    element.css("top", finalPosition + "px");
                     return;
                 }
                 else {
@@ -60,7 +60,7 @@
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
-            uiElement.css("display", "block").addClass("transitioning");
+            uiElement.css("display", "block");
             uiMovement = uiDistance / duration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("left"));
             uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
@@ -71,7 +71,7 @@
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
 
                 if ((dir === "right" && pos > finalPosition) || (dir === "left" && pos < finalPosition)) {
-                    element.css("left", finalPosition + "px").removeClass("transitioning");
+                    element.css("left", finalPosition + "px");
                     return;
                 }
                 else {
@@ -101,19 +101,20 @@
             uiElement = webui(els[i]);
 
             uiOverflow = uiElement.css("overflow");
-            uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0").addClass("transitioning");			
+            uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0");
             uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
-            uiElementHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
+            uiElementHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
             uiMovement = uiElementHeight / duration * frameAdjustment;
             uiElement.css("height", "0");
             uiCurrentHeight = 0;
+            
 
             var nextFrame = function (element, elementHeight, currentHeight, movement, overflow, borderSize) {
 
                 var height = currentHeight + borderSize + movement;
 
                 if (height >= elementHeight) {
-                    element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow).removeClass("transitioning");
+                    element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
                     return;
                 }
                 else {
@@ -143,9 +144,9 @@
             uiElement = webui(els[i]);
 
             uiOverflow = uiElement.css("overflow");
-            uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0").addClass("transitioning");			
+            uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0");			
             uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
-            uiElementWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
+            uiElementWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
             uiMovement = uiElementWidth / duration * frameAdjustment;
             uiElement.css("width", "0");
             uiCurrentWidth = 0;
@@ -155,7 +156,7 @@
                 var width = currentWidth + borderSize + movement;
 
                 if (width >= elementWidth) {
-                    element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow).removeClass("transitioning");
+                    element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
                     return;
                 }
                 else {
@@ -185,9 +186,9 @@
             uiElement = webui(els[i]);
 
             uiOverflow = uiElement.css("overflow");
-            uiElement.css("overflow", "hidden").css("min-height", "0").addClass("transitioning");		
+            uiElement.css("overflow", "hidden").css("min-height", "0");		
             uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
-            uiCurrentHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
+            uiCurrentHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
             uiMovement = uiCurrentHeight / duration * frameAdjustment;
 
             if (args.length === 2) {
@@ -203,10 +204,10 @@
 
                 if (height <= 0.01) {
                     if (args.length > 1 && restoreHeight) {
-                        element.css("height", origHeight + "px").css("overflow", overflow).css("display", "none").removeClass("transitioning");
+                        element.css("height", origHeight + "px").css("overflow", overflow).css("display", "none");
                     }
                     else {
-                        element.css("height", "0").css("overflow", overflow).css("display", "none").removeClass("transitioning");
+                        element.css("height", "0").css("overflow", overflow).css("display", "none");
                     }
                     return;
                 }
@@ -236,9 +237,9 @@
             uiElement = webui(els[i]);
 
             uiOverflow = uiElement.css("overflow");
-            uiElement.css("overflow", "hidden").css("min-width", "0").addClass("transitioning");		
+            uiElement.css("overflow", "hidden").css("min-width", "0");		
             uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
-            uiCurrentWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
+            uiCurrentWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
             uiMovement = uiCurrentWidth / duration * frameAdjustment;
 
             if (args.length === 2) {
@@ -254,10 +255,10 @@
 
                 if (width <= 0.01) {
                     if (args.length > 1 && restoreWidth) {
-                        element.css("width", origWidth + "px").css("overflow", overflow).css("display", "none").removeClass("transitioning");
+                        element.css("width", origWidth + "px").css("overflow", overflow).css("display", "none");
                     }
                     else {
-                        element.css("width", "0").css("overflow", overflow).css("display", "none").removeClass("transitioning");
+                        element.css("width", "0").css("overflow", overflow).css("display", "none");
                     }
                     return;
                 }
@@ -285,8 +286,8 @@
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
-			uiElement.css("opacity", "0").css("display", "block").addClass("transitioning");
-			uiChange = 0.5 / duration * frameAdjustment;
+			uiElement.css("opacity", "0").css("display", "block");
+			uiChange = 0.3 / duration * frameAdjustment;
 			uiCurrentOpacity = initialOpacity && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
 			
             var nextFrame = function (element, currentOpacity, change) {
@@ -294,7 +295,7 @@
                 var opacity = currentOpacity + change;
 
                 if (opacity >= 0.99) {
-                    element.css("opacity", "1").removeClass("transitioning");
+                    element.css("opacity", "1");
                     return;
                 }
                 else if (opacity < 0.99) {
@@ -321,8 +322,8 @@
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
-			uiElement.css("opacity", "1").addClass("transitioning");			
-			uiChange = 0.5 / duration * frameAdjustment;
+			uiElement.css("opacity", "1");			
+			uiChange = 0.3 / duration * frameAdjustment;
 			uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 1;
 
             var nextFrame = function (element, currentOpacity, change) {
@@ -330,7 +331,7 @@
 				var opacity = currentOpacity - change;
 
                 if (opacity <= 0.01) {
-					element.css("opacity", "0").css("display", "none").removeClass("transitioning");		
+					element.css("opacity", "0").css("display", "none");		
                     return;
                 }
                 else if (opacity > 0.01) {

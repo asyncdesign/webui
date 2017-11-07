@@ -419,11 +419,11 @@
 			});
 			
 			ui("#commandClearSelected").click( function() { 
-				ui("#list2").clearOptions("#list2", true);
+				ui("#list2").removeOptions(true);
 			});
 					
 			ui("#commandSetInvalid").click( function() { 
-				ui("#list1").setState("control", "control control-highlight", true);
+				ui("#list1").setState("control", "control boundary-danger", true);
 			});
 			
 			ui("#commandDisableListConditionally").click( function() { 

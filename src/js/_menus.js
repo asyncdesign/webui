@@ -90,6 +90,11 @@
 		menuItem.toggleDropdown();
 	});
 
+	webui(".menu-activator-focus").focus(function (e) {
+		var menuItem = webui(this);
+		menuItem.toggleDropdown();
+	});
+
 	webui(".menu-activator-dynamic").hoverIn(function (e) {
 		var menuItem = webui(this);
 			
