@@ -1,7 +1,7 @@
 /*!
 * Name: webui - css
-* Version: 6.2.0
-* Author: Levi Keogh, 2017-11-06
+* Version: 6.2.1
+* Author: Levi Keogh, 2017-11-11
 */
 .flow-col-1 {
   columns: 1;
@@ -8536,6 +8536,18 @@ svg:not(:root) {
   }
 }
 
+.off-canvas-left {
+  transform: translate(-100%, 0);
+}
+
+.off-canvas-right {
+  transform: translate(100%, 0);
+}
+
+.off-canvas-body {
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
@@ -8615,6 +8627,11 @@ svg:not(:root) {
 .translucent-9 {
   color: rgba(255, 255, 255, 0.9);
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+.translucent {
+  color: white;
+  background-color: white;
 }
 
 .default {
@@ -8923,6 +8940,10 @@ svg:not(:root) {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.color-translucent {
+  color: white;
+}
+
 .color-default,
 .color-odd-default > div:nth-child(odd),
 .color-even-default > div:nth-child(even) {
@@ -9211,6 +9232,10 @@ svg:not(:root) {
   background: rgba(255, 255, 255, 0.9);
 }
 
+.background-translucent {
+  background: white;
+}
+
 .background-default,
 .background-odd-default > div:nth-child(odd),
 .background-even-default > div:nth-child(even) {
@@ -9497,6 +9522,10 @@ svg:not(:root) {
 
 .border-translucent-9 {
   border-color: rgba(255, 255, 255, 0.9);
+}
+
+.border-translucent {
+  border-color: white;
 }
 
 .border-default {

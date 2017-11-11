@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.2.0
-* Author: Levi Keogh, 2017-11-06
+* Version: 6.2.1
+* Author: Levi Keogh, 2017-11-11
 */
 
 "use strict";
@@ -145,13 +145,13 @@
 							toggleItem.removeClass("off-canvas-closed");
 							
 
-							if (offCanvasLeft) {						
-								ui(".off-canvas-left").css("transform", "translate(0, 0)");
-								ui(".off-canvas-body").css("transform", "translate(" + toggleItemWidth + "px, 0)");
+							if (offCanvasLeft) {
+								toggleItem.css("transform", "translate(0, 0)");
+								toggleBody.css("transform", "translate(" + toggleItemWidth + "px, 0)");
 							}
 							else {
-								ui(".off-canvas-right").css("transform", "translate(0, 0)");
-								ui(".off-canvas-body").css("transform", "translate(-" + toggleItemWidth + "px, 0)");
+								toggleItem.css("transform", "translate(0, 0)");
+								toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 							}
 
 							toggleItem.trigger("ui.toggleItem.hide.after");
@@ -162,12 +162,12 @@
 
 
 							if (offCanvasLeft) {
-								ui(".off-canvas-left").css("transform", "translate(-" + toggleItemWidth + "px, 0)");
-								ui(".off-canvas-body").css("transform", "translate(0, 0)");
+								toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
+								toggleBody.css("transform", "translate(0, 0)");								
 							}
 							else {
-								ui(".off-canvas-right").css("transform", "translate(" + toggleItemWidth + "px, 0)");
-								ui(".off-canvas-body").css("transform", "translate(0, 0)");
+								toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
+								toggleBody.css("transform", "translate(0, 0)");
 							}
 
 							toggleItem.addClass("off-canvas-closed");
@@ -1723,19 +1723,16 @@
 		}		
 	};
 
-	webui.version = "v6.2.0";
+	webui.version = "v6.2.1";
 
 	/* RUN */
 
 	webui.ready (function() {
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
-
-		webui(".off-canvas-left").css("transform", "translate(-" + parseFloat(webui(".off-canvas-left").css("width")) + "px, 0)");
-		webui(".off-canvas-right").css("transform", "translate(" + parseFloat(webui(".off-canvas-right").css("width")) + "px, 0)");
-
-		webui(".off-canvas-body").css("width", "100%");
+		
 		webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
+		webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
 	});
 
 

@@ -83,14 +83,14 @@
 				<div class="form-col-5 respond-bp-5-under">
 
 					<div class="height-xl">
-						Badges positioned relative to element center using snap positioning.
+						Badges positioned relative to one of 9 element origins using snap positioning.
 						<div class="row-spacing-md"></div>
 
 						<div class="content-row">
 							<div class="content-col respond-bp-3-under">
 								<input type="text" id="textboxSnapPosition" class="input-xs width-lg" />
-								<span class="badge-round-lg dark text-sm raised-lg" id="badgeSnapPosition1">1</span>
-								<span class="badge-round-xs accent-1 text-xs" id="badgeSnapPosition2">2</span>
+								<span class="badge-round-lg dark text-sm raised-lg hidden" id="badgeSnapPosition1">1</span>
+								<span class="badge-round-xs accent-1 text-xs hidden" id="badgeSnapPosition2">2</span>
 							</div>
 						</div>
 						<div class="row-spacing-xl"></div>
@@ -184,7 +184,7 @@
 		webui.ready(function() {
 				
 			// Target element must have width and height defined.
-			ui("#badgeSnapPosition1, #badgeSnapPosition2").snapPosition("#textboxSnapPosition", [0, -1], "rem");
+			ui("#badgeSnapPosition1, #badgeSnapPosition2").snapPosition("#textboxSnapPosition", [0, 0], "rem", "top-center");
 			ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");
 
 
