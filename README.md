@@ -21,13 +21,13 @@ doesn't throw any surprises. Add responsive behaviour exactly where you want it,
 
 **Install the latest release using NPM**
 
-npm install asyncdesign-webui
+`npm install asyncdesign-webui`
 
 or
 
 **Install the latest release using Bower**
 
-bower install asyncdesign-webui
+`bower install asyncdesign-webui`
 
 or
 
