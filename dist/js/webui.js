@@ -1,7 +1,7 @@
 /*!
 * Name: webui - UI functions
-* Version: 6.2.1
-* Author: Levi Keogh, 2017-11-11
+* Version: 6.4.0
+* MIT License
 */
 "use strict";
 
@@ -1406,7 +1406,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v6.2.1";
+    webui.version = "v6.4.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");

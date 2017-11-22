@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.3.0
-* Author: Levi Keogh, 2017-11-20
+* Version: 6.4.0
+* MIT License
 */
 
 "use strict";
@@ -1723,7 +1723,7 @@
 		}		
 	};
 
-	webui.version = "v6.3.0";
+	webui.version = "v6.4.0";
 
 	/* RUN */
 
