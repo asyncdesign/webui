@@ -1,7 +1,7 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.2.1
-* Author: Levi Keogh, 2017-11-11
+* Version: 6.3.0
+* Author: Levi Keogh, 2017-11-20
 */
 
 "use strict";
@@ -1723,7 +1723,7 @@
 		}		
 	};
 
-	webui.version = "v6.2.1";
+	webui.version = "v6.3.0";
 
 	/* RUN */
 

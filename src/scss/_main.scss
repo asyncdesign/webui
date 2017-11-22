@@ -5,8 +5,8 @@ html {
 }
 body {
 	margin: 0;
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
+	color: $theme_light_foreground;
+	background-color: $theme_light;
 }
 body,
 button,
@@ -223,8 +223,8 @@ svg:not(:root) {
 .input-md,
 .input-lg,
 .input-xl {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
+	color: $theme_light_foreground;
+	background-color: $theme_light;
 	border: 0.078rem solid $theme_default_border;
 	padding: 0 0.625rem;	
 }
@@ -240,7 +240,7 @@ svg:not(:root) {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: $theme_primary;
+		background-color: $theme_light;
 	}
 	input[type=checkbox] {
 		position: absolute;
@@ -276,7 +276,7 @@ svg:not(:root) {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: $theme_primary;
+		background-color: $theme_light;
 		border-radius: 50%;
 	}
 	input[type=radio] {
@@ -380,7 +380,7 @@ svg:not(:root) {
 }
 .button-default.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_default_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_default_border;
 }
 .button-light {
@@ -428,7 +428,7 @@ svg:not(:root) {
 }
 .button-accent-1.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_1_border;
 }
 .button-accent-2 {
@@ -444,7 +444,7 @@ svg:not(:root) {
 }
 .button-accent-2.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_2_border;
 }
 .button-accent-3 {
@@ -460,7 +460,7 @@ svg:not(:root) {
 }
 .button-accent-3.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_3_border;
 }
 .button-accent-4 {
@@ -476,7 +476,7 @@ svg:not(:root) {
 }
 .button-accent-4.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_4_border;
 }
 .button-accent-5 {
@@ -492,7 +492,7 @@ svg:not(:root) {
 }
 .button-accent-5.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_5_border;
 }
 .button-success {
@@ -508,7 +508,7 @@ svg:not(:root) {
 }
 .button-success.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_success_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_success_border;
 }
 .button-info {
@@ -524,7 +524,7 @@ svg:not(:root) {
 }
 .button-info.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_info_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_info_border;
 }
 .button-warning {
@@ -540,7 +540,7 @@ svg:not(:root) {
 }
 .button-warning.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_warning_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_warning_border;
 }
 .button-danger {
@@ -556,7 +556,7 @@ svg:not(:root) {
 }
 .button-danger.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_danger_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_danger_border;
 }
 .button-transparent {
@@ -843,13 +843,15 @@ svg:not(:root) {
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
 	&:focus {
-		background-color: $theme_default_active;
+		background-color: $theme_default_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_default_active;
 	}
 }
 .menu-button-default.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_default_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_default_border;
 }
 .menu-button-light {
@@ -857,7 +859,9 @@ svg:not(:root) {
 	background-color: $theme_light;
 	border: 0.078rem solid $theme_light_border;
 	&:focus {
-		background-color: $theme_light_active;
+		background-color: $theme_light_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_light_active;
 	}
 }
@@ -871,13 +875,15 @@ svg:not(:root) {
 	background-color: $theme_dark;
 	border: 0.078rem solid $theme_dark_border;
 	&:focus {
-		background-color: $theme_dark_active;
+		background-color: $theme_dark_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_dark_active;
 	}
 }
 .menu-button-dark.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_dark_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_dark_border;
 }
 .menu-button-accent-1 {
@@ -886,12 +892,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_1_border;
 	&:focus {
 		background-color: $theme_accent_1_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_accent_1_active;
 	}
 }
 .menu-button-accent-1.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_1_border;
 }
 .menu-button-accent-2 {
@@ -900,12 +908,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_2_border;
 	&:focus {
 		background-color: $theme_accent_2_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_accent_2_active;
 	}
 }
 .menu-button-accent-2.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_2_border;
 }
 .menu-button-accent-3 {
@@ -914,12 +924,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_3_border;
 	&:focus {
 		background-color: $theme_accent_3_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_accent_3_active;
 	}
 }
 .menu-button-accent-3.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_3_border;
 }
 .menu-button-accent-4 {
@@ -928,12 +940,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_4_border;
 	&:focus {
 		background-color: $theme_accent_4_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_accent_4_active;
 	}
 }
 .menu-button-accent-4.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_4_border;
 }
 .menu-button-accent-5 {
@@ -942,12 +956,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_accent_5_border;
 	&:focus {
 		background-color: $theme_accent_5_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_accent_5_active;
 	}
 }
 .menu-button-accent-5.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_accent_5_border;
 }
 .menu-button-success {
@@ -956,12 +972,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_success_border;
 	&:focus {
 		background-color: $theme_success_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_success_active;
 	}
 }
 .menu-button-success.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_success_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_success_border;
 }
 .menu-button-info {
@@ -970,12 +988,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_info_border;
 	&:focus {
 		background-color: $theme_info_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_info_active;
 	}
 }
 .menu-button-info.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_info_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_info_border;
 }
 .menu-button-warning {
@@ -984,12 +1004,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_warning_border;
 	&:focus {
 		background-color: $theme_warning_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_warning_active;
 	}
 }
 .menu-button-warning.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_warning_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_warning_border;
 }
 .menu-button-danger {
@@ -998,12 +1020,14 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_danger_border;
 	&:focus {
 		background-color: $theme_danger_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
 		border-color: $theme_danger_active;
 	}
 }
 .menu-button-danger.accessibility:focus {
 	box-shadow: 0 0 0 0.063rem $theme_danger_border;
-	background-color: $theme_primary;
+	background-color: $theme_light;
 	color: $theme_danger_border;
 }
 .menu-button-disabled {
@@ -1071,8 +1095,8 @@ svg:not(:root) {
 	padding: 0.125rem 0.297rem;
 }
 .control {
-	color: $theme_primary_foreground;
-	background-color: $theme_primary;
+	color: $theme_light_foreground;
+	background-color: $theme_light;
 	border: 0.078rem solid $theme_default_border;
 	padding: 0.313rem 0.625rem;
 }
@@ -1924,6 +1948,9 @@ svg:not(:root) {
 	outline-style: solid;
 	outline-color: $theme_default_border;
 }
+.border-xs {
+	border-width: 0.063rem;
+}
 .border-sm {
 	border-width: 0.078rem;
 }
@@ -1933,7 +1960,10 @@ svg:not(:root) {
 .border-lg {
 	border-width: 0.188rem;
 }
-.border-sm, .border-md, .border-lg {
+.border-xl {
+	border-width: 0.25rem;
+}
+.border-xs, .border-sm, .border-md, .border-lg, .border-xl {
 	border-style: solid;
 	border-color: $theme_default_border;
 }

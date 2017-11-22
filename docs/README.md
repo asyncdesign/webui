@@ -21,17 +21,17 @@ doesn't throw any surprises. Add responsive behaviour exactly where you want it,
 
 **Install the latest release using NPM**
 
-npm install asyncdesign-webui
+`npm install asyncdesign-webui`
 
 or
 
 **Install the latest release using Bower**
 
-bower install asyncdesign-webui
+`bower install asyncdesign-webui`
 
 or
 
-[Download the latest release](https://github.com/asyncdesign/webui/archive/v6.2.1.zip)
+[Download the latest release](https://github.com/asyncdesign/webui/archive/v6.3.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
