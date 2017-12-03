@@ -2122,7 +2122,7 @@
                     if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
                         tooltip.trigger("ui.tooltip.show.before");
                         if (transitionDuration) {
-                            tooltip.fadeIn(transitionDuration, .3).trigger("ui.tooltip.show.after");
+                            tooltip.fadeIn(transitionDuration).trigger("ui.tooltip.show.after");
                         } else {
                             tooltip.show().trigger("ui.tooltip.show.after");
                         }
@@ -2896,7 +2896,7 @@
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition) {
                     element.css("top", finalPosition + "px");
-                    return;
+                    return els;
                 } else {
                     element.css("top", pos + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2923,7 +2923,7 @@
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition) {
                     element.css("left", finalPosition + "px");
-                    return;
+                    return els;
                 } else {
                     element.css("left", pos + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2953,7 +2953,7 @@
                 var height = currentHeight + borderSize + movement;
                 if (height >= elementHeight) {
                     element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
-                    return;
+                    return els;
                 } else {
                     element.css("height", height + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2983,7 +2983,7 @@
                 var width = currentWidth + borderSize + movement;
                 if (width >= elementWidth) {
                     element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
-                    return;
+                    return els;
                 } else {
                     element.css("width", width + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3020,7 +3020,7 @@
                     } else {
                         element.css("height", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return;
+                    return els;
                 } else if (height > .01) {
                     element.css("height", height + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3057,7 +3057,7 @@
                     } else {
                         element.css("width", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return;
+                    return els;
                 } else if (width > .01) {
                     element.css("width", width + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3082,8 +3082,8 @@
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity + change;
                 if (opacity >= .99) {
-                    element.css("opacity", "1");
-                    return;
+                    element.css("opacity", "1").css("display", "block");
+                    return els;
                 } else if (opacity < .99) {
                     element.css("opacity", opacity);
                     id = win.requestAnimationFrame(function() {
@@ -3102,6 +3102,9 @@
         }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
+            if (uiElement.css("display") !== "block") {
+                continue;
+            }
             uiElement.css("opacity", "1");
             uiChange = .3 / duration * frameAdjustment;
             uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 1;
@@ -3109,7 +3112,7 @@
                 var opacity = currentOpacity - change;
                 if (opacity <= .01) {
                     element.css("opacity", "0").css("display", "none");
-                    return;
+                    return els;
                 } else if (opacity > .01) {
                     element.css("opacity", opacity);
                     id = win.requestAnimationFrame(function() {

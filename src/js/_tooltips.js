@@ -284,7 +284,7 @@
 					if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
 						tooltip.trigger("ui.tooltip.show.before");
 						if (transitionDuration) {
-							tooltip.fadeIn(transitionDuration, 0.3).trigger("ui.tooltip.show.after");
+							tooltip.fadeIn(transitionDuration).trigger("ui.tooltip.show.after");
 						}
 						else {
 							tooltip.show().trigger("ui.tooltip.show.after");
