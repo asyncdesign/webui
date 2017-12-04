@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.4.1
+* Version: 6.4.2
 * MIT License
 */
 
@@ -1723,7 +1723,7 @@
 		}		
 	};
 
-	webui.version = "v6.4.1";
+	webui.version = "v6.4.2";
 
 	/* RUN */
 
