@@ -32,7 +32,7 @@
 
                 if ((dir === "down" && pos > finalPosition) || (dir === "up" && pos < finalPosition)) {
                     element.css("top", finalPosition + "px");
-                    return els;
+                    return;
                 }
                 else {
                     element.css("top", pos + "px");
@@ -72,7 +72,7 @@
 
                 if ((dir === "right" && pos > finalPosition) || (dir === "left" && pos < finalPosition)) {
                     element.css("left", finalPosition + "px");
-                    return els;
+                    return;
                 }
                 else {
                     element.css("left", pos + "px");
@@ -115,7 +115,7 @@
 
                 if (height >= elementHeight) {
                     element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
-                    return els;
+                    return;
                 }
                 else {
                     element.css("height", height + "px");
@@ -157,7 +157,7 @@
 
                 if (width >= elementWidth) {
                     element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
-                    return els;
+                    return;
                 }
                 else {
                     element.css("width", width + "px");
@@ -209,7 +209,7 @@
                     else {
                         element.css("height", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return els;
+                    return;
                 }
                 else if (height > 0.01) {
                     element.css("height", height + "px");
@@ -260,7 +260,7 @@
                     else {
                         element.css("width", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return els;
+                    return;
                 }
                 else if (width > 0.01) {
                     element.css("width", width + "px");
@@ -296,10 +296,10 @@
 
                 if (opacity >= 0.99) {
                     element.css("opacity", "1").css("display", "block");
-                    return els;
+                    return;
                 }
                 else if (opacity < 0.99) {
-                    element.css("opacity", opacity);
+                    element.css("opacity", opacity).css("display", "block");
 
                     id = win.requestAnimationFrame(function () {
                         nextFrame(element, opacity, change);
@@ -337,7 +337,7 @@
 
                 if (opacity <= 0.01) {
 					element.css("opacity", "0").css("display", "none");		
-                    return els;
+                    return;
                 }
                 else if (opacity > 0.01) {
                     element.css("opacity", opacity);

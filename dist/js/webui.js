@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 6.4.2
+* Version: 6.4.3
 * MIT License
 */
 "use strict";
@@ -1406,7 +1406,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v6.4.2";
+    webui.version = "v6.4.3";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -2896,7 +2896,7 @@
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition) {
                     element.css("top", finalPosition + "px");
-                    return els;
+                    return;
                 } else {
                     element.css("top", pos + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2923,7 +2923,7 @@
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition) {
                     element.css("left", finalPosition + "px");
-                    return els;
+                    return;
                 } else {
                     element.css("left", pos + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2953,7 +2953,7 @@
                 var height = currentHeight + borderSize + movement;
                 if (height >= elementHeight) {
                     element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
-                    return els;
+                    return;
                 } else {
                     element.css("height", height + "px");
                     id = win.requestAnimationFrame(function() {
@@ -2983,7 +2983,7 @@
                 var width = currentWidth + borderSize + movement;
                 if (width >= elementWidth) {
                     element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
-                    return els;
+                    return;
                 } else {
                     element.css("width", width + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3020,7 +3020,7 @@
                     } else {
                         element.css("height", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return els;
+                    return;
                 } else if (height > .01) {
                     element.css("height", height + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3057,7 +3057,7 @@
                     } else {
                         element.css("width", "0").css("overflow", overflow).css("display", "none");
                     }
-                    return els;
+                    return;
                 } else if (width > .01) {
                     element.css("width", width + "px");
                     id = win.requestAnimationFrame(function() {
@@ -3083,9 +3083,9 @@
                 var opacity = currentOpacity + change;
                 if (opacity >= .99) {
                     element.css("opacity", "1").css("display", "block");
-                    return els;
+                    return;
                 } else if (opacity < .99) {
-                    element.css("opacity", opacity);
+                    element.css("opacity", opacity).css("display", "block");
                     id = win.requestAnimationFrame(function() {
                         nextFrame(element, opacity, change);
                     });
@@ -3112,7 +3112,7 @@
                 var opacity = currentOpacity - change;
                 if (opacity <= .01) {
                     element.css("opacity", "0").css("display", "none");
-                    return els;
+                    return;
                 } else if (opacity > .01) {
                     element.css("opacity", opacity);
                     id = win.requestAnimationFrame(function() {
