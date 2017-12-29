@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.4.3
+* Version: 6.5.0
 * MIT License
 */
 
@@ -185,10 +185,10 @@
 							}
 							else if (transitionDuration && transitionType === "collapse") {
 								if (transitionOrientation === "horizontal") {
-									toggleItem.collapseHorizontal(transitionDuration, true);
+									toggleItem.collapseHorizontal(transitionDuration);
 								}
 								else {
-									toggleItem.collapseVertical(transitionDuration, true);
+									toggleItem.collapseVertical(transitionDuration);
 								}
 							}
 							else {
@@ -204,10 +204,10 @@
 							}
 							else if (transitionDuration && transitionType === "collapse") {
 								if (transitionOrientation === "horizontal") {
-									toggleItem.expandHorizontal(transitionDuration);
+									toggleItem.expandHorizontal(transitionDuration, "auto");
 								}
 								else {
-									toggleItem.expandVertical(transitionDuration);
+									toggleItem.expandVertical(transitionDuration, "auto");
 								}
 							}
 							else {
@@ -221,10 +221,10 @@
 								}
 								else if (transitionDuration && transitionType === "collapse") {
 									if (transitionOrientation === "horizontal") {
-										toggleItem.siblings(".toggle-item").collapseHorizontal(transitionDuration, true);
+										toggleItem.siblings(".toggle-item").collapseHorizontal(transitionDuration);
 									}
 									else {
-										toggleItem.siblings(".toggle-item").collapseVertical(transitionDuration, true);
+										toggleItem.siblings(".toggle-item").collapseVertical(transitionDuration);
 									}
 								}
 								else {
@@ -1723,7 +1723,7 @@
 		}		
 	};
 
-	webui.version = "v6.4.3";
+	webui.version = "v6.5.0";
 
 	/* RUN */
 

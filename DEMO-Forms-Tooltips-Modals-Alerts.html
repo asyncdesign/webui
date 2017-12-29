@@ -478,17 +478,18 @@
 							<div class="form-col">
 								<div class="tooltip" id="tooltipAboutModals">
 									<div class="tooltip-static tooltip-left tooltip-lg tooltip-dark rounded-md"></div>
-									<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal Window</button>
+									<button id="commandShowModal" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal Window</button>
 								</div>
 							</div>
 						</div>
+	
 						<div class="row-spacing-lg"></div>
 						<div class="form-row">
 							<div class="form-col">
 								<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Alert</button>
 							</div>
 						</div>
-
+	
 					</div>
 				</div>
 				<div class="row-spacing-md"></div>
@@ -514,7 +515,7 @@
 							Modal window example
 						</div>
 						<div class="content-col-3 background-transparent text-right">
-							<a href="javascript:void(0)"><i onclick="ui('#modal1').hideModal()" class="fa fa-close color-primary color-hover-accent-3"></i></a>
+							<a href="javascript:void(0)"><i class="fa fa-close color-primary color-hover-accent-3 modal-close"></i></a>
 						</div>
 					</div>
 				</div>
@@ -636,7 +637,7 @@
 			
 
 			// Modals
-			ui("#commandShowModal1").click( function() {
+			ui("#commandShowModal").click( function() {
 				ui("#modal1").showModal();
 			});
 

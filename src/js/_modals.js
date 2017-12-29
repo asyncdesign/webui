@@ -86,5 +86,16 @@
 		}
 	};
 
+
+	/* EVENTS */
+
+	webui(".modal-close").click(function (e) {
+		e.preventDefault();
+
+		var modal = webui(this).closest(".modal");
+		modal.trigger("ui.modal.hide.before").hideModal().trigger("ui.modal.hide.after");
+	});
+
+
 }(window));
 		

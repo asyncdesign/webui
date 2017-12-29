@@ -90,7 +90,7 @@
 						var alertItemIcon = webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 					}
 					if (close) {
-						var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel").appendTo(alertItemHeaderRight)
+						var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
 						.click(function() {
 							ui.hideAlert(alertItemInner, false);
 						});
@@ -102,7 +102,7 @@
 				if (icon && close) {
 					var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
 					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
+					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
 						ui.hideAlert(alertItemInner, false);
 					});
@@ -111,7 +111,7 @@
 					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
 				} else if (close) {
 					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody)
+					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
 						ui.hideAlert(alertItemInner, false);
 					});
@@ -141,7 +141,7 @@
 
 			alert.trigger("ui.alert.hide.before");
 			
-			if (transitionDuration) {
+			if (auto && transitionDuration) {
 
 				alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
 				
@@ -215,6 +215,16 @@
 			break;
 		}
 	};
+
+	/* EVENTS */
+
+	webui(".alert-close").click(function (e) {
+		e.preventDefault();
+
+		var alert = webui(this).closest(".alert");
+		alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
+	});
+
 
 }(window));
 		

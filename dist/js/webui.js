@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 6.4.3
+* Version: 6.5.0
 * MIT License
 */
 "use strict";
@@ -121,9 +121,9 @@
                             toggleItem.fadeOut(transitionDuration);
                         } else if (transitionDuration && transitionType === "collapse") {
                             if (transitionOrientation === "horizontal") {
-                                toggleItem.collapseHorizontal(transitionDuration, true);
+                                toggleItem.collapseHorizontal(transitionDuration);
                             } else {
-                                toggleItem.collapseVertical(transitionDuration, true);
+                                toggleItem.collapseVertical(transitionDuration);
                             }
                         } else {
                             toggleItem.hide();
@@ -135,9 +135,9 @@
                             toggleItem.fadeIn(transitionDuration);
                         } else if (transitionDuration && transitionType === "collapse") {
                             if (transitionOrientation === "horizontal") {
-                                toggleItem.expandHorizontal(transitionDuration);
+                                toggleItem.expandHorizontal(transitionDuration, "auto");
                             } else {
-                                toggleItem.expandVertical(transitionDuration);
+                                toggleItem.expandVertical(transitionDuration, "auto");
                             }
                         } else {
                             toggleItem.show();
@@ -147,9 +147,9 @@
                                 toggleItem.siblings(".toggle-item").fadeOut(transitionDuration);
                             } else if (transitionDuration && transitionType === "collapse") {
                                 if (transitionOrientation === "horizontal") {
-                                    toggleItem.siblings(".toggle-item").collapseHorizontal(transitionDuration, true);
+                                    toggleItem.siblings(".toggle-item").collapseHorizontal(transitionDuration);
                                 } else {
-                                    toggleItem.siblings(".toggle-item").collapseVertical(transitionDuration, true);
+                                    toggleItem.siblings(".toggle-item").collapseVertical(transitionDuration);
                                 }
                             } else {
                                 toggleItem.siblings(".toggle-item").hide();
@@ -1406,7 +1406,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v6.4.3";
+    webui.version = "v6.5.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -1501,7 +1501,7 @@
                         if (transitionType === "fade") {
                             dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
                         } else if (transitionType === "collapse") {
-                            dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+                            dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
                         } else {
                             dropdown.hide().trigger("ui.dropdown.hide.after");
                         }
@@ -1519,17 +1519,22 @@
                             dropdown.nextSiblings(".dropdown-sheet").hide();
                             dropdown.prevSiblings(".dropdown-content").hide();
                             dropdown.nextSiblings(".dropdown-content").hide();
-                            dropdown.prevSiblings(".dropdown-content-expand").hide();
-                            dropdown.nextSiblings(".dropdown-content-expand").hide();
+                            if (transitionType === "fade") {
+                                dropdown.prevSiblings(".dropdown-content-expand").fadeOut(transitionDuration);
+                                dropdown.nextSiblings(".dropdown-content-expand").fadeOut(transitionDuration);
+                            } else if (transitionType === "collapse") {
+                                dropdown.prevSiblings(".dropdown-content-expand").collapseVertical(transitionDuration);
+                                dropdown.nextSiblings(".dropdown-content-expand").collapseVertical(transitionDuration);
+                            } else {
+                                dropdown.prevSiblings(".dropdown-content-expand").hide();
+                                dropdown.nextSiblings(".dropdown-content-expand").hide();
+                            }
                         }
                         webui(".menu-activator:not(:focus)").siblings(".dropdown-sheet:not(.menu-inclusive)").hide();
                         webui(".menu-activator:not(:focus)").siblings(".dropdown-content:not(.menu-inclusive)").hide();
                     }
                 }
-                dropdown.filter(".menu-close").find(".menu-button:not(.menu-activator)").click(function() {
-                    menuItem.parents().children(".menu-activator").last().nextSibling().hide();
-                });
-                dropdown.filter(".menu-close").find(".menu-button-sm:not(.menu-activator)").click(function() {
+                dropdown.filter(".menu-close").find("[class*='menu-button']:not(.menu-activator)").click(function() {
                     menuItem.parents().children(".menu-activator").last().nextSibling().hide();
                 });
                 dropdown.filter(".menu-close").find("a:not(.menu-activator)").click(function() {
@@ -1583,8 +1588,8 @@
                 menuItem.siblings(".dropdown-content").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
                 menuItem.siblings(".dropdown-sheet").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
             } else if (transitionType === "collapse") {
-                menuItem.siblings(".dropdown-content").collapseVertical(transitionDuration, true).trigger("ui.dropdown.show.after");
-                menuItem.siblings(".dropdown-sheet").collapseVertical(transitionDuration, true).trigger("ui.dropdown.show.after");
+                menuItem.siblings(".dropdown-content").collapseVertical(transitionDuration).trigger("ui.dropdown.show.after");
+                menuItem.siblings(".dropdown-sheet").collapseVertical(transitionDuration).trigger("ui.dropdown.show.after");
             } else {
                 menuItem.siblings(".dropdown-content").hide().trigger("ui.dropdown.show.after");
                 menuItem.siblings(".dropdown-sheet").hide().trigger("ui.dropdown.show.after");
@@ -1618,7 +1623,7 @@
             if (transitionType === "fade") {
                 dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
             } else if (transitionType === "collapse") {
-                dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+                dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
             } else {
                 dropdown.hide().trigger("ui.dropdown.hide.after");
             }
@@ -1650,7 +1655,7 @@
             if (transitionType === "fade") {
                 dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
             } else if (transitionType === "collapse") {
-                dropdown.collapseVertical(transitionDuration, true).trigger("ui.dropdown.hide.after");
+                dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
             } else {
                 dropdown.hide().trigger("ui.dropdown.hide.after");
             }
@@ -1721,7 +1726,7 @@
                         var alertItemIcon = webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
                     }
                     if (close) {
-                        var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel").appendTo(alertItemHeaderRight).click(function() {
+                        var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight).click(function() {
                             ui.hideAlert(alertItemInner, false);
                         });
                     }
@@ -1732,7 +1737,7 @@
                 if (icon && close) {
                     var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
                     var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody).click(function() {
+                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
                         ui.hideAlert(alertItemInner, false);
                     });
                 } else if (icon) {
@@ -1740,7 +1745,7 @@
                     var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
                 } else if (close) {
                     var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel").appendTo(alertItemBody).click(function() {
+                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
                         ui.hideAlert(alertItemInner, false);
                     });
                 } else {
@@ -1767,7 +1772,7 @@
     webui.hideAlert = function(alert, auto) {
         if (alert) {
             alert.trigger("ui.alert.hide.before");
-            if (transitionDuration) {
+            if (auto && transitionDuration) {
                 alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
                 setTimeout(function() {
                     alert.parent().remove();
@@ -1869,6 +1874,12 @@
             break;
         }
     };
+    /* EVENTS */
+    webui(".alert-close").click(function(e) {
+        e.preventDefault();
+        var alert = webui(this).closest(".alert");
+        alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
+    });
 })(window);
 
 (function(win) {
@@ -2250,6 +2261,12 @@
             }
         }
     };
+    /* EVENTS */
+    webui(".modal-close").click(function(e) {
+        e.preventDefault();
+        var modal = webui(this).closest(".modal");
+        modal.trigger("ui.modal.hide.before").hideModal().trigger("ui.modal.hide.after");
+    });
 })(window);
 
 (function(win) {
@@ -2882,7 +2899,7 @@
     var fn = webui.fn;
     /* PUBLIC */
     fn.slideVertical = function(direction, distance, duration) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, element, movement, position, finalPosition, id, dir, pos, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
         if (duration === 0) {
             return els;
         }
@@ -2909,7 +2926,7 @@
         return els;
     };
     fn.slideHorizontal = function(direction, distance, duration) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, element, movement, position, finalPosition, id, dir, pos, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
         if (duration === 0) {
             return els;
         }
@@ -2936,7 +2953,7 @@
         return els;
     };
     fn.expandVertical = function(duration, targetHeight) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiElementHeight, uiMovement, uiCurrentHeight, element, elementHeight, currentHeight, movement, overflow, borderSize, id, frameAdjustment = 70 / (duration / 1e3), reqHeight = targetHeight ? targetHeight : 0;
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         if (duration === 0) {
             return els;
         }
@@ -2944,29 +2961,42 @@
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
             uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0");
-            uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
-            uiElementHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
-            uiMovement = uiElementHeight / duration * frameAdjustment;
-            uiElement.css("height", "0");
-            uiCurrentHeight = 0;
-            var nextFrame = function(element, elementHeight, currentHeight, movement, overflow, borderSize) {
-                var height = currentHeight + borderSize + movement;
-                if (height >= elementHeight) {
-                    element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
+            uiOriginalHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
+            if (targetHeightUnit === "rem") {
+                uiOriginalHeight = ui.pxToRem(uiOriginalHeight);
+            }
+            if (targetHeightValue > 0) {
+                uiTargetHeight = targetHeightValue;
+                uiCurrentHeight = uiOriginalHeight;
+            } else {
+                uiTargetHeight = uiOriginalHeight;
+                uiElement.css("height", "0");
+                uiCurrentHeight = 0;
+            }
+            uiMovement = uiTargetHeight / duration * frameAdjustment;
+            var nextFrame = function(el, elTargetHeight, heightUnit, currentHeight, movement, overflow, borderSize) {
+                var height = currentHeight + movement;
+                if (height >= elTargetHeight) {
+                    if (requiredUnit === "auto") {
+                        el.css("height", "auto").css("overflow", overflow);
+                    } else {
+                        el.css("height", elTargetHeight > 0 ? elTargetHeight + borderSize + heightUnit : "auto").css("overflow", overflow);
+                    }
                     return;
                 } else {
-                    element.css("height", height + "px");
+                    el.css("height", height + heightUnit);
                     id = win.requestAnimationFrame(function() {
-                        nextFrame(element, elementHeight, height, movement, overflow, borderSize);
+                        nextFrame(el, elTargetHeight, heightUnit, height, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiElementHeight, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
     fn.expandHorizontal = function(duration, targetWidth) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiElementWidth, uiMovement, uiCurrentWidth, element, elementWidth, currentWidth, movement, overflow, borderSize, id, frameAdjustment = 70 / (duration / 1e3), reqWidth = targetWidth ? targetWidth : 0;
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         if (duration === 0) {
             return els;
         }
@@ -2974,29 +3004,42 @@
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
             uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0");
-            uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
-            uiElementWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
-            uiMovement = uiElementWidth / duration * frameAdjustment;
-            uiElement.css("width", "0");
-            uiCurrentWidth = 0;
-            var nextFrame = function(element, elementWidth, currentWidth, movement, overflow, borderSize) {
-                var width = currentWidth + borderSize + movement;
-                if (width >= elementWidth) {
-                    element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
+            uiOriginalWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
+            if (targetWidthUnit === "rem") {
+                uiOriginalWidth = ui.pxToRem(uiOriginalWidth);
+            }
+            if (targetWidthValue > 0) {
+                uiTargetWidth = targetWidthValue;
+                uiCurrentWidth = uiOriginalWidth;
+            } else {
+                uiTargetWidth = uiOriginalWidth;
+                uiElement.css("width", "0");
+                uiCurrentWidth = 0;
+            }
+            uiMovement = uiTargetWidth / duration * frameAdjustment;
+            var nextFrame = function(el, elTargetWidth, widthUnit, currentWidth, movement, overflow, borderSize) {
+                var width = currentWidth + movement;
+                if (width >= elTargetWidth) {
+                    if (requiredUnit === "auto") {
+                        el.css("width", "auto").css("overflow", overflow);
+                    } else {
+                        el.css("width", elTargetWidth > 0 ? elTargetWidth + borderSize + widthUnit : "auto").css("overflow", overflow);
+                    }
                     return;
                 } else {
-                    element.css("width", width + "px");
+                    el.css("width", width + widthUnit);
                     id = win.requestAnimationFrame(function() {
-                        nextFrame(element, elementWidth, width, movement, overflow, borderSize);
+                        nextFrame(el, elTargetWidth, widthUnit, width, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiElementWidth, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
-    fn.collapseVertical = function(duration, restoreHeight, originalHeight) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiOriginalHeight, element, currentHeight, movement, overflow, borderSize, id, frameAdjustment = 70 / (duration / 1e3);
+    fn.collapseVertical = function(duration, targetHeight) {
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         if (duration === 0) {
             return els;
         }
@@ -3004,36 +3047,38 @@
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
             uiElement.css("overflow", "hidden").css("min-height", "0");
-            uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
             uiCurrentHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
-            uiMovement = uiCurrentHeight / duration * frameAdjustment;
-            if (args.length === 2) {
-                uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
-            } else if (args.length === 3) {
-                uiOriginalHeight = originalHeight ? originalHeight : els[i].scrollHeight + uiBorderSize;
+            if (targetHeightUnit === "rem") {
+                uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
             }
-            var nextFrame = function(element, currentHeight, movement, overflow, origHeight, borderSize) {
-                var height = currentHeight - borderSize - movement;
-                if (height <= .01) {
-                    if (args.length > 1 && restoreHeight) {
-                        element.css("height", origHeight + "px").css("overflow", overflow).css("display", "none");
+            uiMovement = uiCurrentHeight / duration * frameAdjustment;
+            uiTargetHeight = targetHeightValue;
+            if (args.length === 1) {
+                uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
+            }
+            var nextFrame = function(el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
+                var height = currentHeight - movement;
+                if (height <= elTargetHeight) {
+                    if (args.length === 2) {
+                        el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     } else {
-                        element.css("height", "0").css("overflow", overflow).css("display", "none");
+                        el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
                     }
                     return;
-                } else if (height > .01) {
-                    element.css("height", height + "px");
+                } else if (height > elTargetHeight) {
+                    el.css("height", height + heightUnit);
                     id = win.requestAnimationFrame(function() {
-                        nextFrame(element, height, movement, overflow, origHeight, borderSize);
+                        nextFrame(el, elTargetHeight, heightUnit, originalHeight, height, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentHeight, uiMovement, uiOverflow, uiOriginalHeight, uiBorderSize);
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiOriginalHeight, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
-    fn.collapseHorizontal = function(duration, restoreWidth, originalWidth) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiOriginalWidth, element, currentWidth, movement, overflow, borderSize, id, frameAdjustment = 70 / (duration / 1e3);
+    fn.collapseHorizontal = function(duration, targetWidth) {
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : .01, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         if (duration === 0) {
             return els;
         }
@@ -3041,36 +3086,38 @@
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
             uiElement.css("overflow", "hidden").css("min-width", "0");
-            uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
             uiCurrentWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
-            uiMovement = uiCurrentWidth / duration * frameAdjustment;
-            if (args.length === 2) {
-                uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
-            } else if (args.length === 3) {
-                uiOriginalWidth = originalWidth ? originalWidth : els[i].scrollWidth + uiBorderSize;
+            if (targetWidthUnit === "rem") {
+                uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
             }
-            var nextFrame = function(element, currentWidth, movement, overflow, origWidth, borderSize) {
-                var width = currentWidth - borderSize - movement;
-                if (width <= .01) {
-                    if (args.length > 1 && restoreWidth) {
-                        element.css("width", origWidth + "px").css("overflow", overflow).css("display", "none");
+            uiMovement = uiCurrentWidth / duration * frameAdjustment;
+            uiTargetWidth = targetWidthValue;
+            if (args.length === 1) {
+                uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
+            }
+            var nextFrame = function(el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
+                var width = currentWidth - movement;
+                if (width <= elTargetWidth) {
+                    if (args.length === 2) {
+                        el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     } else {
-                        element.css("width", "0").css("overflow", overflow).css("display", "none");
+                        el.css("width", originalWidth - borderSize + widthUnit).css("overflow", overflow).css("display", "none");
                     }
                     return;
-                } else if (width > .01) {
-                    element.css("width", width + "px");
+                } else if (width > elTargetWidth) {
+                    el.css("width", width + widthUnit);
                     id = win.requestAnimationFrame(function() {
-                        nextFrame(element, width, movement, overflow, origWidth, borderSize);
+                        nextFrame(el, elTargetWidth, widthUnit, originalWidth, width, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentWidth, uiMovement, uiOverflow, uiOriginalWidth, uiBorderSize);
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiOriginalWidth, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
     fn.fadeIn = function(duration, initialOpacity) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, element, opacity, id, frameAdjustment = 70 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
         if (duration === 0) {
             return els;
         }
@@ -3096,7 +3143,7 @@
         return els;
     };
     fn.fadeOut = function(duration, finalOpacity) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, element, opacity, id, frameAdjustment = 70 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
         if (duration === 0) {
             return els;
         }

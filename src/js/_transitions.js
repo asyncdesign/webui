@@ -9,7 +9,7 @@
 
     fn.slideVertical = function (direction, distance, duration) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, element, movement, position, finalPosition, id, dir, pos,
+        uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
         frameAdjustment = 70 / (duration / 1000),
         uiDirection = direction ? direction : "down",
         uiDistance = distance ? distance : 0;
@@ -49,7 +49,7 @@
 
     fn.slideHorizontal = function (direction, distance, duration) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, element, movement, position, finalPosition, id, dir, pos,
+        uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
         frameAdjustment = 70 / (duration / 1000),
         uiDirection = direction ? direction : "right",
         uiDistance = distance ? distance : 0;
@@ -88,10 +88,12 @@
     };
 
     fn.expandVertical = function (duration, targetHeight) {
-        var args = arguments, els = this,
-            uiElement, uiOverflow, uiBorderSize, uiElementHeight, uiMovement, uiCurrentHeight, element, elementHeight, currentHeight, movement, overflow, borderSize, id,
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id,
             frameAdjustment = 70 / (duration / 1000),
-            reqHeight = targetHeight ? targetHeight : 0;
+            requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0,
+            requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
+            targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0,
+            targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
         if (duration === 0) {
             return els;
@@ -102,39 +104,58 @@
 
             uiOverflow = uiElement.css("overflow");
             uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0");
-            uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
-            uiElementHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
-            uiMovement = uiElementHeight / duration * frameAdjustment;
-            uiElement.css("height", "0");
-            uiCurrentHeight = 0;
-            
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
+            uiOriginalHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
 
-            var nextFrame = function (element, elementHeight, currentHeight, movement, overflow, borderSize) {
+            if (targetHeightUnit === "rem") {
+                uiOriginalHeight = ui.pxToRem(uiOriginalHeight);
+            }
 
-                var height = currentHeight + borderSize + movement;
+            if (targetHeightValue > 0) {
+                uiTargetHeight = targetHeightValue;
+                uiCurrentHeight = uiOriginalHeight;
+            }
+            else {
+                uiTargetHeight = uiOriginalHeight;
+                uiElement.css("height", "0");
+                uiCurrentHeight = 0;
+            }
 
-                if (height >= elementHeight) {
-                    element.css("height", reqHeight ? reqHeight + "px" : "auto").css("overflow", overflow);
+            uiMovement = uiTargetHeight / duration * frameAdjustment;            
+
+            var nextFrame = function (el, elTargetHeight, heightUnit, currentHeight, movement, overflow, borderSize) {
+
+                var height = currentHeight + movement;
+
+                if (height >= elTargetHeight) {
+                    if (requiredUnit === "auto") {
+                        el.css("height", "auto").css("overflow", overflow);
+                    }
+                    else {
+                        el.css("height", elTargetHeight > 0 ? elTargetHeight + borderSize + heightUnit : "auto").css("overflow", overflow);
+                    }
                     return;
                 }
                 else {
-                    element.css("height", height + "px");
+                    el.css("height", height + heightUnit);
 
                     id = win.requestAnimationFrame(function () {
-                        nextFrame(element, elementHeight, height, movement, overflow, borderSize);
+                        nextFrame(el, elTargetHeight, heightUnit, height, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiElementHeight, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);			
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);			
         }
         return els;
     };
 
     fn.expandHorizontal = function (duration, targetWidth) {
-        var args = arguments, els = this,
-        uiElement, uiOverflow, uiBorderSize, uiElementWidth, uiMovement, uiCurrentWidth, element, elementWidth, currentWidth, movement, overflow, borderSize, id,
-        frameAdjustment = 70 / (duration / 1000),
-        reqWidth = targetWidth ? targetWidth : 0;
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id,
+            frameAdjustment = 70 / (duration / 1000),
+            requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/ig,"")) : 0,
+            requiredUnit =  args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/ig,"") : "auto",
+            targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0,
+            targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
         if (duration === 0) {
             return els;
@@ -145,38 +166,60 @@
 
             uiOverflow = uiElement.css("overflow");
             uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0");			
-            uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
-            uiElementWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
-            uiMovement = uiElementWidth / duration * frameAdjustment;
-            uiElement.css("width", "0");
-            uiCurrentWidth = 0;
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
+            uiOriginalWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
 
-            var nextFrame = function (element, elementWidth, currentWidth, movement, overflow, borderSize) {
+            if (targetWidthUnit === "rem") {
+                uiOriginalWidth = ui.pxToRem(uiOriginalWidth);
+            }
 
-                var width = currentWidth + borderSize + movement;
+            if (targetWidthValue > 0) {
+                uiTargetWidth = targetWidthValue;
+                uiCurrentWidth = uiOriginalWidth;
+            }
+            else {
+                uiTargetWidth = uiOriginalWidth;
+                uiElement.css("width", "0");
+                uiCurrentWidth = 0;
+            }
 
-                if (width >= elementWidth) {
-                    element.css("width", reqWidth ? reqWidth + "px" : "auto").css("overflow", overflow);
+            uiMovement = uiTargetWidth / duration * frameAdjustment;
+
+            var nextFrame = function (el, elTargetWidth, widthUnit, currentWidth, movement, overflow, borderSize) {
+
+                var width = currentWidth + movement;
+
+                if (width >= elTargetWidth) {
+                    if (requiredUnit === "auto") {
+                        el.css("width", "auto").css("overflow", overflow);
+                    }
+                    else {
+                        el.css("width", elTargetWidth > 0 ? elTargetWidth + borderSize + widthUnit : "auto").css("overflow", overflow);
+                    }
                     return;
                 }
                 else {
-                    element.css("width", width + "px");
+                    el.css("width", width + widthUnit);
 
                     id = win.requestAnimationFrame(function () {
-                        nextFrame(element, elementWidth, width, movement, overflow, borderSize);
+                        nextFrame(el, elTargetWidth, widthUnit, width, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiElementWidth, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);			
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);			
         }
         return els;
     };
 
 
-    fn.collapseVertical = function (duration, restoreHeight, originalHeight) {
+    fn.collapseVertical = function (duration, targetHeight) {
         var args = arguments, els = this,
-            uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiOriginalHeight, element, currentHeight, movement, overflow, borderSize, id,
-            frameAdjustment = 70 / (duration / 1000);
+            uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id,
+            frameAdjustment = 70 / (duration / 1000),
+            requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0.01,
+            requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
+            targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0.01,
+            targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
         if (duration === 0) {
             return els;
@@ -187,47 +230,54 @@
 
             uiOverflow = uiElement.css("overflow");
             uiElement.css("overflow", "hidden").css("min-height", "0");		
-            uiBorderSize = parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width"));
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
             uiCurrentHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
-            uiMovement = uiCurrentHeight / duration * frameAdjustment;
 
-            if (args.length === 2) {
+            if (targetHeightUnit === "rem") {
+                uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
+            }
+
+            uiMovement = uiCurrentHeight / duration * frameAdjustment;
+            uiTargetHeight = targetHeightValue;
+
+            if (args.length === 1) {
                 uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
             }
-            else if (args.length === 3) {
-                uiOriginalHeight = originalHeight ? originalHeight : els[i].scrollHeight + uiBorderSize;
-            }
 
-            var nextFrame = function (element, currentHeight, movement, overflow, origHeight, borderSize) {
+            var nextFrame = function (el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
 
-                var height = currentHeight - borderSize - movement;
+                var height = currentHeight - movement;
 
-                if (height <= 0.01) {
-                    if (args.length > 1 && restoreHeight) {
-                        element.css("height", origHeight + "px").css("overflow", overflow).css("display", "none");
+                if (height <= elTargetHeight) {
+                    if (args.length === 2) {
+                        el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     }
                     else {
-                        element.css("height", "0").css("overflow", overflow).css("display", "none");
+                        el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
                     }
                     return;
                 }
-                else if (height > 0.01) {
-                    element.css("height", height + "px");
+                else if (height > elTargetHeight) {
+                    el.css("height", height + heightUnit);
 
                     id = win.requestAnimationFrame(function () {
-                        nextFrame(element, height, movement, overflow, origHeight, borderSize);
+                        nextFrame(el, elTargetHeight, heightUnit, originalHeight, height, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentHeight, uiMovement, uiOverflow, uiOriginalHeight, uiBorderSize);
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiOriginalHeight, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
 
-    fn.collapseHorizontal = function (duration, restoreWidth, originalWidth) {
+    fn.collapseHorizontal = function (duration, targetWidth) {
         var args = arguments, els = this,
-        uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiOriginalWidth, element, currentWidth, movement, overflow, borderSize, id,
-        frameAdjustment = 70 / (duration / 1000);
+            uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id,
+            frameAdjustment = 70 / (duration / 1000),
+            requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/ig,"")) : 0.01,
+            requiredUnit =  args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/ig,"") : "auto",
+            targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0.01,
+            targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
         if (duration === 0) {
             return els;
@@ -238,46 +288,49 @@
 
             uiOverflow = uiElement.css("overflow");
             uiElement.css("overflow", "hidden").css("min-width", "0");		
-            uiBorderSize = parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width"));
+            uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
             uiCurrentWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
-            uiMovement = uiCurrentWidth / duration * frameAdjustment;
 
-            if (args.length === 2) {
+            if (targetWidthUnit === "rem") {
+                uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
+            }
+
+            uiMovement = uiCurrentWidth / duration * frameAdjustment;
+            uiTargetWidth = targetWidthValue;
+
+            if (args.length === 1) {
                 uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
             }
-            else if (args.length === 3) {
-                uiOriginalWidth = originalWidth ? originalWidth : els[i].scrollWidth + uiBorderSize;
-            }
 
-            var nextFrame = function (element, currentWidth, movement, overflow, origWidth, borderSize) {
+            var nextFrame = function (el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
 
-                var width = currentWidth - borderSize - movement;
+                var width = currentWidth - movement;
 
-                if (width <= 0.01) {
-                    if (args.length > 1 && restoreWidth) {
-                        element.css("width", origWidth + "px").css("overflow", overflow).css("display", "none");
+                if (width <= elTargetWidth) {
+                    if (args.length === 2) {
+                        el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     }
                     else {
-                        element.css("width", "0").css("overflow", overflow).css("display", "none");
+                        el.css("width", originalWidth - borderSize + widthUnit).css("overflow", overflow).css("display", "none");
                     }
                     return;
                 }
-                else if (width > 0.01) {
-                    element.css("width", width + "px");
+                else if (width > elTargetWidth) {
+                    el.css("width", width + widthUnit);
 
                     id = win.requestAnimationFrame(function () {
-                        nextFrame(element, width, movement, overflow, origWidth, borderSize);
+                        nextFrame(el, elTargetWidth, widthUnit, originalWidth, width, movement, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentWidth, uiMovement, uiOverflow, uiOriginalWidth, uiBorderSize);
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiOriginalWidth, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);
         }
         return els;
     };
 
     fn.fadeIn = function (duration, initialOpacity) {
         var args = arguments, els = this,
-			uiElement, uiChange, uiCurrentOpacity, element, opacity, id,
+			uiElement, uiChange, uiCurrentOpacity, id,
 			frameAdjustment = 70 / (duration / 1000);
             
         if (duration === 0) {
@@ -313,7 +366,7 @@
 
     fn.fadeOut = function (duration, finalOpacity) {
         var args = arguments, els = this,
-			uiElement, uiChange, uiCurrentOpacity, element, opacity, id,
+			uiElement, uiChange, uiCurrentOpacity, id,
 			frameAdjustment = 70 / (duration / 1000);
             
         if (duration === 0) {
