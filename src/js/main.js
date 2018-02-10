@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 6.5.0
+* Version: 7.0.0
 * MIT License
 */
 
@@ -710,11 +710,7 @@
 					el = this[i];
 					if (el.nodeType === 1 || el.nodeType === 11 || el.nodeType === 9) {
 						for (var j = 0; j < els.length; j++) {
-							if (i > 0) {
-								el.appendChild(els[j]);
-							} else {
-								el.appendChild(els[j]);
-							}
+							el.appendChild(els[j]);
 						}
 					}
 				}
@@ -724,11 +720,7 @@
 					el = this[i];
 					if (el.nodeType === 1 || el.nodeType === 11 || el.nodeType === 9) {
 						for (var j = 0; j < els.length; j++) {
-							if (i > 0) {
-								el.insertBefore(els[j], el.firstChild);
-							} else {
-								el.appendChild(els[j]);
-							}
+							el.insertBefore(els[j], el.firstChild);
 						}
 					}
 				}
@@ -737,8 +729,14 @@
 		return this;
 	};
 
-	fn.appendTo = function (to, appendToStart) {
-		webui(to).append(this, appendToStart);
+	fn.appendTo = function (to) {
+		webui(to).append(this);
+
+		return this;
+	};
+
+	fn.prependTo = function (to) {
+		webui(to).append(this, true);
 
 		return this;
 	};
@@ -1164,6 +1162,21 @@
 		return this;
 	};
 
+    fn.toggleClass = function(className) {
+		var els = this, el;
+		
+		for (var i = 0; i < els.length; i++) {
+				el = webui(els[i]);
+				if (el.hasClass(className)) {
+					el.removeClass(className);
+				}
+				else {
+					el.addClass(className);
+				}
+		}
+		return this;
+	};
+
 	fn.setState = function (currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
 		var args = arguments;
 
@@ -1509,6 +1522,26 @@
 		return scrollbarWidth;
 	};
 
+	webui.getAvgWidth = function (elements) {
+		var len = elements.length, 
+			sum = 0;
+
+		for(var i = 0; i < len; i++){
+			sum += parseFloat(elements[i].offsetWidth);
+		}	
+		return sum/len;
+	};
+
+	webui.getAvgHeight = function (elements) {
+		var len = elements.length, 
+			sum = 0;
+
+		for(var i = 0; i < len; i++){
+			sum += parseFloat(elements[i].offsetHeight);
+		}	
+		return sum/len;
+	};
+
 	webui.rgbToHex = function (r, g, b) {
 		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 	}
@@ -1723,7 +1756,7 @@
 		}		
 	};
 
-	webui.version = "v6.5.0";
+	webui.version = "v7.0.0";
 
 	/* RUN */
 

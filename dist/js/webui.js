@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 6.5.0
+* Version: 7.0.0
 * MIT License
 */
 "use strict";
@@ -537,11 +537,7 @@
                     el = this[i];
                     if (el.nodeType === 1 || el.nodeType === 11 || el.nodeType === 9) {
                         for (var j = 0; j < els.length; j++) {
-                            if (i > 0) {
-                                el.appendChild(els[j]);
-                            } else {
-                                el.appendChild(els[j]);
-                            }
+                            el.appendChild(els[j]);
                         }
                     }
                 }
@@ -550,11 +546,7 @@
                     el = this[i];
                     if (el.nodeType === 1 || el.nodeType === 11 || el.nodeType === 9) {
                         for (var j = 0; j < els.length; j++) {
-                            if (i > 0) {
-                                el.insertBefore(els[j], el.firstChild);
-                            } else {
-                                el.appendChild(els[j]);
-                            }
+                            el.insertBefore(els[j], el.firstChild);
                         }
                     }
                 }
@@ -562,8 +554,12 @@
         }
         return this;
     };
-    fn.appendTo = function(to, appendToStart) {
-        webui(to).append(this, appendToStart);
+    fn.appendTo = function(to) {
+        webui(to).append(this);
+        return this;
+    };
+    fn.prependTo = function(to) {
+        webui(to).append(this, true);
         return this;
     };
     fn.remove = function() {
@@ -917,6 +913,18 @@
         }
         return this;
     };
+    fn.toggleClass = function(className) {
+        var els = this, el;
+        for (var i = 0; i < els.length; i++) {
+            el = webui(els[i]);
+            if (el.hasClass(className)) {
+                el.removeClass(className);
+            } else {
+                el.addClass(className);
+            }
+        }
+        return this;
+    };
     fn.setState = function(currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
         var args = arguments;
         if (args.length > 1) {
@@ -1187,6 +1195,20 @@
         root.body.removeChild(ruler);
         return scrollbarWidth;
     };
+    webui.getAvgWidth = function(elements) {
+        var len = elements.length, sum = 0;
+        for (var i = 0; i < len; i++) {
+            sum += parseFloat(elements[i].offsetWidth);
+        }
+        return sum / len;
+    };
+    webui.getAvgHeight = function(elements) {
+        var len = elements.length, sum = 0;
+        for (var i = 0; i < len; i++) {
+            sum += parseFloat(elements[i].offsetHeight);
+        }
+        return sum / len;
+    };
     webui.rgbToHex = function(r, g, b) {
         return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     };
@@ -1406,7 +1428,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v6.5.0";
+    webui.version = "v7.0.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -1578,7 +1600,7 @@
     webui(".menu-activator-dynamic").hoverOut(function(e) {
         var menuItem = webui(this);
         var allowHide = true;
-        var el = webui.elementHoverAt(e.clientX, e.clientY);
+        var el = webui.elementHoverAt(e.clientX, e.clientY + 1);
         if (webui(el).parents(".dropdown-content").length || webui(el).parents(".dropdown-sheet").length) {
             allowHide = false;
         }
@@ -2260,6 +2282,7 @@
                 modal.hide().parent().remove().trigger("ui.modal.hide.after");
             }
         }
+        return this;
     };
     /* EVENTS */
     webui(".modal-close").click(function(e) {
@@ -2347,8 +2370,9 @@
         if (!tabId) {
             tabId = element.data("target");
         }
-        var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").attr("id");
+        var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
         var curTabId = tabId.replace("#", "");
+        element.parents(".tabs").find(".tab-item").removeClass("selected");
         element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
         var activeTab = element.parents(".tabs").find(tabId);
         if (transitionType === "fade") {
@@ -2360,22 +2384,22 @@
         }
         activeTab.addClass("selected");
         if (transitionType === "fade") {
-            activeTab.siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
-            activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
-            activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
-            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
+            activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+            activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+            activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
             activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);
         } else if (transitionType === "collapse") {
-            activeTab.siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
-            activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
-            activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
-            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
+            activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
+            activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+            activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
             activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration);
         } else {
-            activeTab.siblings(".tab-item").hide().removeClass("selected");
-            activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
-            activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
-            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
+            activeTab.siblings(".tab-item").hide();
+            activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+            activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();
+            activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
             activeTab.find(".tabs").find(".tab-item").first().show();
         }
         element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
@@ -2898,11 +2922,8 @@
     /* PRIVATE */
     var fn = webui.fn;
     /* PUBLIC */
-    fn.slideVertical = function(direction, distance, duration) {
+    fn.slideVertical = function(direction, distance, duration, callback) {
         var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -2911,8 +2932,11 @@
             uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
-                if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition) {
+                if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition || duration === 0) {
                     element.css("top", finalPosition + "px");
+                    if (args.length === 4 && callback) {
+                        callback(element);
+                    }
                     return;
                 } else {
                     element.css("top", pos + "px");
@@ -2925,11 +2949,8 @@
         }
         return els;
     };
-    fn.slideHorizontal = function(direction, distance, duration) {
+    fn.slideHorizontal = function(direction, distance, duration, callback) {
         var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -2938,8 +2959,11 @@
             uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
-                if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition) {
+                if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition || duration === 0) {
                     element.css("left", finalPosition + "px");
+                    if (args.length === 4 && callback) {
+                        callback(element);
+                    }
                     return;
                 } else {
                     element.css("left", pos + "px");
@@ -2952,11 +2976,8 @@
         }
         return els;
     };
-    fn.expandVertical = function(duration, targetHeight) {
+    fn.expandVertical = function(duration, targetHeight, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -2977,11 +2998,14 @@
             uiMovement = uiTargetHeight / duration * frameAdjustment;
             var nextFrame = function(el, elTargetHeight, heightUnit, currentHeight, movement, overflow, borderSize) {
                 var height = currentHeight + movement;
-                if (height >= elTargetHeight) {
+                if (height >= elTargetHeight || duration === 0) {
                     if (requiredUnit === "auto") {
                         el.css("height", "auto").css("overflow", overflow);
                     } else {
                         el.css("height", elTargetHeight > 0 ? elTargetHeight + borderSize + heightUnit : "auto").css("overflow", overflow);
+                    }
+                    if (args.length === 3 && callback) {
+                        callback(el);
                     }
                     return;
                 } else {
@@ -2995,11 +3019,8 @@
         }
         return els;
     };
-    fn.expandHorizontal = function(duration, targetWidth) {
+    fn.expandHorizontal = function(duration, targetWidth, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3020,11 +3041,14 @@
             uiMovement = uiTargetWidth / duration * frameAdjustment;
             var nextFrame = function(el, elTargetWidth, widthUnit, currentWidth, movement, overflow, borderSize) {
                 var width = currentWidth + movement;
-                if (width >= elTargetWidth) {
+                if (width >= elTargetWidth || duration === 0) {
                     if (requiredUnit === "auto") {
                         el.css("width", "auto").css("overflow", overflow);
                     } else {
                         el.css("width", elTargetWidth > 0 ? elTargetWidth + borderSize + widthUnit : "auto").css("overflow", overflow);
+                    }
+                    if (args.length === 3 && callback) {
+                        callback(el);
                     }
                     return;
                 } else {
@@ -3038,11 +3062,8 @@
         }
         return els;
     };
-    fn.collapseVertical = function(duration, targetHeight) {
+    fn.collapseVertical = function(duration, targetHeight, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3059,11 +3080,14 @@
             }
             var nextFrame = function(el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
                 var height = currentHeight - movement;
-                if (height <= elTargetHeight) {
+                if (height <= elTargetHeight || duration === 0) {
                     if (args.length === 2) {
                         el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     } else {
                         el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
+                    }
+                    if (args.length === 3 && callback) {
+                        callback(el);
                     }
                     return;
                 } else if (height > elTargetHeight) {
@@ -3077,11 +3101,8 @@
         }
         return els;
     };
-    fn.collapseHorizontal = function(duration, targetWidth) {
+    fn.collapseHorizontal = function(duration, targetWidth, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : .01, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3098,11 +3119,14 @@
             }
             var nextFrame = function(el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
                 var width = currentWidth - movement;
-                if (width <= elTargetWidth) {
+                if (width <= elTargetWidth || duration === 0) {
                     if (args.length === 2) {
                         el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     } else {
                         el.css("width", originalWidth - borderSize + widthUnit).css("overflow", overflow).css("display", "none");
+                    }
+                    if (args.length === 3 && callback) {
+                        callback(el);
                     }
                     return;
                 } else if (width > elTargetWidth) {
@@ -3116,11 +3140,8 @@
         }
         return els;
     };
-    fn.fadeIn = function(duration, initialOpacity) {
+    fn.fadeIn = function(duration, initialOpacity, callback) {
         var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("opacity", "0").css("display", "block");
@@ -3128,8 +3149,11 @@
             uiCurrentOpacity = initialOpacity && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity + change;
-                if (opacity >= .99) {
+                if (opacity >= .99 || duration === 0) {
                     element.css("opacity", "1").css("display", "block");
+                    if (args.length === 3 && callback) {
+                        callback(element);
+                    }
                     return;
                 } else if (opacity < .99) {
                     element.css("opacity", opacity).css("display", "block");
@@ -3142,11 +3166,8 @@
         }
         return els;
     };
-    fn.fadeOut = function(duration, finalOpacity) {
+    fn.fadeOut = function(duration, finalOpacity, callback) {
         var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
-        if (duration === 0) {
-            return els;
-        }
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             if (uiElement.css("display") !== "block") {
@@ -3157,8 +3178,11 @@
             uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 1;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity - change;
-                if (opacity <= .01) {
+                if (opacity <= .01 || duration === 0) {
                     element.css("opacity", "0").css("display", "none");
+                    if (args.length === 3 && callback) {
+                        callback(element);
+                    }
                     return;
                 } else if (opacity > .01) {
                     element.css("opacity", opacity);
@@ -3171,4 +3195,248 @@
         }
         return els;
     };
+})(window);
+
+(function(win) {
+    /* PRIVATE */
+    var fn = webui.fn, interval, autoPlay, autoScale, playDirection, stopOnHover, transitionDuration, transitionType, transitionOrientation, carousel, carouselHolder, carouselItems, carouselItemCount, carouselItemFirst, carouselItemLast, carouselWidth = 0, carouselHeight = 0, carouselItemWidth = 0, carouselItemHeight = 0, itemBorderWidth = 0, itemBorderHeight = 0, current = 1, cycle = false, delta = 1, transitionCompleted = true, shift = function(dir) {
+        current += delta;
+        cycle = !!(current === 0 || current > carouselItemCount);
+        if (cycle) {
+            current = current === 0 ? carouselItemCount : 1;
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                carouselHolder.css(dir, "-" + carouselItemHeight * current + "px");
+            } else {
+                carouselHolder.css(dir, "-" + carouselItemWidth * current + "px");
+            }
+        }
+    }, resetCarousel = function(carousel, itemCount) {
+        if (autoScale) {
+            carousel.css("width", "100%");
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItems.css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
+            carouselItemWidth = ui.getAvgWidth(carouselItems);
+            carouselItemHeight = ui.getAvgHeight(carouselItems);
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+                var t = carouselItemHeight * current;
+                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+            } else {
+                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+                var l = carouselItemWidth * current;
+                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+            }
+            carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");
+        } else {
+            carouselItems.css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px").css("box-sizing", "border-box");
+            carouselItemWidth = ui.getAvgWidth(carouselItems);
+            carouselItemHeight = ui.getAvgHeight(carouselItems);
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+                var t = carouselItemHeight * current;
+                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+            } else {
+                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+                var l = carouselItemWidth * current;
+                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+            }
+        }
+    };
+    /* PUBLIC */
+    Object.defineProperty(webui.prototype, "carouselControl", {
+        value: function(options) {
+            var settings = ui.extend({
+                interval: 1e4,
+                autoPlay: true,
+                autoScale: true,
+                playDirection: "next",
+                stopOnHover: true,
+                transitionDuration: 1500,
+                transitionType: "slide",
+                transitionOrientation: "horizontal"
+            }, options);
+            interval = settings.interval;
+            autoPlay = settings.autoPlay;
+            autoScale = settings.autoScale;
+            playDirection = settings.playDirection;
+            stopOnHover = settings.stopOnHover;
+            transitionDuration = settings.transitionDuration;
+            transitionType = settings.transitionType;
+            transitionOrientation = settings.transitionOrientation;
+            carousel = this;
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItemCount = carouselItems.length;
+            if (carouselItemCount) {
+                carousel.css("position", "relative").css("overflow", "hidden").css("box-sizing", "border-box");
+                carouselHolder.css("display", "block").css("position", "absolute").css("margin", "0").css("border", "none").css("padding", "0").css("box-sizing", "border-box");
+                carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
+                itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
+                itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+                resetCarousel(carousel, carouselItemCount);
+                if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
+                    win.onresize = function() {
+                        resetCarousel(carousel, carouselItemCount);
+                    };
+                }
+                webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
+                webui(carouselItems.first()[0].cloneNode(true)).appendTo(carouselHolder);
+                if (autoPlay) {
+                    carousel.play();
+                    if (stopOnHover) {
+                        carousel.hoverIn(function() {
+                            carousel.stop();
+                        });
+                        carousel.hoverOut(function() {
+                            carousel.play();
+                        });
+                    }
+                }
+            }
+            return this;
+        },
+        enumerable: false
+    });
+    fn.prev = function() {
+        var carousel = this;
+        if (transitionCompleted) {
+            transitionCompleted = false;
+            delta = -1;
+            carousel.trigger("ui.carousel.change.before", [ current ]);
+            if (transitionType === "fade") {
+                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                    element.slideHorizontal("right", carouselItemWidth, 0, function(element) {
+                        shift("left");
+                        element.fadeIn(transitionDuration, 0, function(element) {
+                            transitionCompleted = true;
+                            carousel.trigger("ui.carousel.change.after", [ current ]);
+                        });
+                    });
+                });
+            } else if (transitionType === "slide") {
+                if (transitionOrientation === "vertical") {
+                    carouselHolder.slideVertical("down", carouselItemHeight, transitionDuration, function(element) {
+                        shift("top");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                } else {
+                    carouselHolder.slideHorizontal("right", carouselItemWidth, transitionDuration, function(element) {
+                        shift("left");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                }
+            }
+        }
+        return this;
+    };
+    fn.next = function() {
+        var carousel = this;
+        if (transitionCompleted) {
+            transitionCompleted = false;
+            delta = 1;
+            carousel.trigger("ui.carousel.change.before", [ current ]);
+            if (transitionType === "fade") {
+                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                    element.slideHorizontal("left", carouselItemWidth, 0, function(element) {
+                        shift("left");
+                        element.fadeIn(transitionDuration, 0, function(element) {
+                            transitionCompleted = true;
+                            carousel.trigger("ui.carousel.change.after", [ current ]);
+                        });
+                    });
+                });
+            } else if (transitionType === "slide") {
+                if (transitionOrientation === "vertical") {
+                    carouselHolder.slideVertical("up", carouselItemHeight, transitionDuration, function(element) {
+                        shift("top");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                } else {
+                    carouselHolder.slideHorizontal("left", carouselItemWidth, transitionDuration, function(element) {
+                        shift("left");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                }
+            }
+        }
+        return this;
+    };
+    fn.select = function(index) {
+        if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
+            current = parseInt(index) + 1;
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                carouselHolder.css("top", "-" + carouselItemHeight * current + "px");
+            } else {
+                carouselHolder.css("left", "-" + carouselItemWidth * current + "px");
+            }
+            transitionCompleted = true;
+        }
+        return this;
+    };
+    fn.play = function() {
+        var carousel = this;
+        clearInterval(this.run);
+        if (playDirection === "next") {
+            this.run = setInterval(function() {
+                carousel.next();
+            }, interval);
+        } else if (playDirection === "prev") {
+            this.run = setInterval(function() {
+                carousel.prev();
+            }, interval);
+        }
+        return this;
+    };
+    fn.stop = function() {
+        clearInterval(this.run);
+        return this;
+    };
+})(window);
+
+(function(win) {
+    /* PRIVATE */
+    var fn = webui.fn, radialZoom = 1, radialMode = "full", transitionDuration = 1e3;
+    /* PUBLIC */
+    Object.defineProperty(webui.prototype, "radialControl", {
+        value: function(options) {
+            var settings = ui.extend({
+                radialZoom: 1,
+                radialMode: "full",
+                transitionDuration: 300
+            }, options);
+            radialZoom = settings.radialZoom;
+            radialMode = settings.radialMode;
+            transitionDuration = settings.transitionDuration;
+            var radials = webui(this);
+            for (var i = 0; i < radials.length; i++) {
+                var radialContent = webui(radials[i]).find(".radial-content");
+                radialContent.css("transition", "all " + transitionDuration / 1e3 + "s ease-out");
+                var radialWidth = radialContent.parent(".radial")[0].offsetWidth;
+                var radialHeight = radialContent.parent(".radial")[0].offsetHeight;
+                var radialItems = radialContent.find(".radial-item");
+                var radialSlice = radialMode === "top" ? -1.75 : radialMode === "bottom" ? 1.75 : 1;
+                for (var j = 0; j < radialItems.length; j++) {
+                    var radialItem = webui(radialItems[j]);
+                    var radialItemWidth = parseFloat(radialItem.css("width"));
+                    var radialItemHeight = parseFloat(radialItem.css("height"));
+                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / radialZoom)) - radialItemWidth / 2 + radialWidth / 2 - 3 + "px";
+                    var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / radialZoom)) - radialItemHeight / 2 + radialHeight / 2 - 2 + "px";
+                    radialItem.css("left", radialLeft);
+                    radialItem.css("top", radialTop);
+                }
+            }
+            this.find(".radial-activator").click(function(e) {
+                e.preventDefault();
+                webui(this).siblings(".radial-content").first().toggleClass("radial-open");
+            });
+        }
+    });
 })(window);

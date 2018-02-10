@@ -84,6 +84,7 @@
 				modal.hide().parent().remove().trigger("ui.modal.hide.after");
 			}
 		}
+		return this;
 	};
 
 

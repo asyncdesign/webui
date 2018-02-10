@@ -241,6 +241,7 @@ svg:not(:root) {
 		top: 0;
 		left: 0;
 		background-color: $theme_light;
+		backface-visibility: hidden;
 	}
 	input[type=checkbox] {
 		position: absolute;
@@ -278,6 +279,7 @@ svg:not(:root) {
 		left: 0;
 		background-color: $theme_light;
 		border-radius: 50%;
+		backface-visibility: hidden;
 	}
 	input[type=radio] {
 		position: absolute;
@@ -290,10 +292,9 @@ svg:not(:root) {
 	&:not(.control-disabled) input[type=radio] {
 		
 		&:checked + label {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23000'/%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2' fill='%23000'/%3E%3C/svg%3E");
 			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: 0.75rem 0.75rem;
+			background-position: center;
 		}   
 	} 
 }
@@ -1607,6 +1608,21 @@ svg:not(:root) {
 .pad-xl {
 	padding: 1.563rem;
 }
+.gap-xs > *:not(:first-child) {
+	margin-left: 0.313rem;
+}
+.gap-sm > *:not(:first-child) {
+	margin-left: 0.625rem;
+}
+.gap-md > *:not(:first-child) {
+	margin-left: 0.938rem;
+}
+.gap-lg > *:not(:first-child) {
+	margin-left: 1.25rem;
+}
+.gap-xl > *:not(:first-child) {
+	margin-left: 1.563rem;
+}
 .text-left {
 	text-align: left;
 }
@@ -1891,13 +1907,28 @@ svg:not(:root) {
 .text-line-through {
 	text-decoration: line-through;
 }
-.text-vertical-left {
-	transform: rotate(-90deg);
-	transform-origin: left center 0;	
+.text-horizontal-tb {
+	writing-mode: horizontal-tb;
 }
-.text-vertical-right {
+.text-sideways-lr {
+	writing-mode: sideways-lr;
+}
+.text-sideways-rl {
+	writing-mode: sideways-rl;
+}
+.text-vertical-lr {
+	writing-mode: vertical-lr;
+}
+.text-vertical-rl {
+	writing-mode: vertical-rl;
+}
+.text-vertical-up {
+	transform: rotate(-90deg);
+	transform-origin: center center 0;
+}
+.text-vertical-down {
 	transform: rotate(90deg);
-	transform-origin: left center 0;	
+	transform-origin: center center 0;
 }
 .text-wrap {
   	overflow-wrap: break-word;
@@ -1913,9 +1944,9 @@ svg:not(:root) {
 	white-space: normal;
 }
 .image {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 .control-label {
 	line-height: 1rem;

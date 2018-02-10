@@ -11,8 +11,10 @@
 		if (!tabId) {
 			tabId = element.data("target");
 		}
-		var prevTabId = element.parents(".tabs").find(tabId).siblings(".tab-item.selected").attr("id");
+		var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
 		var curTabId = tabId.replace("#", "");
+
+		element.parents(".tabs").find(".tab-item").removeClass("selected");
 
 		element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
 
@@ -27,29 +29,31 @@
 		else {
 			activeTab.show();
 		}
+
+		
 		activeTab.addClass("selected");
 
 		if (transitionType === "fade") {
-			activeTab.siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
-			activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
-			activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").removeClass("selected").hide().children().fadeOut(transitionDuration);
+			activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+			activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+			activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
 			
 			activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
 		}
 		else if (transitionType === "collapse") {
-			activeTab.siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
-			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
-			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration).removeClass("selected");
+			activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
+			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
 
 			activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration);						
 		}
 		else {
-			activeTab.siblings(".tab-item").hide().removeClass("selected");			
-			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
-			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().removeClass("selected");
+			activeTab.siblings(".tab-item").hide();			
+			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
+			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
 			
 			activeTab.find(".tabs").find(".tab-item").first().show();									
 		}

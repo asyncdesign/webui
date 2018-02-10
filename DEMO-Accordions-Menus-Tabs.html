@@ -700,6 +700,10 @@
 				transitionType: "fade"
 			});
 
+			ui("#tabs1").on("ui.tabs.change.after", function(e) {
+				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
+			});
+
 
 			// Show manual alerts
 			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(1000);

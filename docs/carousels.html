@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/toggle_container.html">
+  <link rel="canonical" href="http://localhost:4000/webui/carousels.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
   
@@ -287,191 +287,120 @@
                   <div class="content-row">
                     <div class="content-col-20">
                       <div class="area color-accent-4 text-lg scroll-y" id="mainContentContainer">
-                        <p id="cloneRepository" class="text-lg color-accent-2 text-bold">
-	Toggle Container<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
+                        <p id="tooltips" class="text-lg color-accent-2 text-bold">
+	Carousels<span class="text-xs color-accent-3 col-spacing-left-md">[Requires: webui.js]</span>
 </p>
 
 <div class="row-spacing-xs"></div>
 
 <div class="text">
+    The WebUI carousel currently supports vertical and horizontal slide transitions as well as a fade transition. In addition there are 2 main modes
+    that can be set, these are configured by setting <span class="color-accent-2 text-bold">autoScale</span> to true or false (the default is true).
+    When autoScale is true the aspect ratio of any slide content such as images is maintained.
 
-		<p>The toggle container is a generic component used to manage the showing and hiding of elements, but it is a bit more than that.
-			It combines functionality found in menus and tabs, but adds various behaviours such as inclusive and exclusive behaviour, off-canvas shifting, 
-			and transitions. The result is a component that allows you to invent new ways to present web content. The hope is that new and better
-			capabilities will be added to this component over time, and that it becomes much more than the sum of its parts.
-		</p>
+    <p>Here are the settings available via the carousel component constructor:</p>
 
-		<p>Right now, it is a trivial task to setup off-canvas menus, fly-out menus, and accordions, etc. It is important to know the patterns
-			to use for each type of component you want. Here are some patterns to implement various common components.
-		</p>
+    <div><span class="color-accent-2 text-bold">autoPlay</span> - This can be set to true or false. If set to true the carousel will start playing on page load.</div>
+    <div><span class="color-accent-2 text-bold">autoScale</span> - This can be set to true or false. If auto scale is true, then the content aspect ration is maintained.</div>
+    <div><span class="color-accent-2 text-bold">interval</span> - A value in milliseconds specifying the delay between slides.</div>
+    <div><span class="color-accent-2 text-bold">playDirection</span> - This can be set to "next" to play forwards, or "prev" to play backwards through the slides.</div>
+    <div><span class="color-accent-2 text-bold">stopOnHover</span> - This can be set to true or false. Specifying true will cause the carousel to stop when the mouse is over the carousel.</div>
+    <div><span class="color-accent-2 text-bold">transitionDuration</span> - A value in milliseconds specifying the duration of each transition when a slide change occurs.</div>
+    <div><span class="color-accent-2 text-bold">transitionOrientation</span> - This can be set to "vertical" or "horizontal".</div>
+    <div><span class="color-accent-2 text-bold">transitionType</span> - This can be set to "slide" or "fade". The default is "slide".</div>
 
-		<div class="row-spacing-md"></div>
+    <div class="row-spacing-md"></div>
 
-		<p class="color-accent-5 text-bold">Off-canvas menus</p>
+    <p class="color-accent-5 text-bold">Setting up a carousel</p>
 
-		<p>A basic template to create a left side off-canvas menu is as follows:</p>
-
+    <p>The carousel requires a small amount of markup and a short javascript initialization.</p>
+    <p>The following shows a typical structure with some styling and a previous and next control:</p>
 </div>
 
-<div id="snippet90" class="body background-secondary">
-	<div class="content-row">
-		<div class="content-col-20 scroll-y">
+    <div id="snippet130" class="body background-secondary">
+      <div class="content-row">
+        <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
-
-  &lt;div class="content-col dock-top-left"&gt;
-    &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
-  &lt;/div&gt;
-
-  &lt;div class="content-col dock-top-left"&gt;
-
-    &lt;div class="toggle-item light border-sm border-secondary off-canvas-left" id="panel1"&gt;
-                        
-      &lt;div class="content-col place-top-left"&gt;
-        &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
-      &lt;/div&gt;        
-            
-      &lt;div class="area width-lg"&gt;
-                
-        &lt;!-- Menu content goes here --&gt;
-                
-      &lt;/div&gt;            
-            
+<pre>&lt;div class="carousel width-full height-lg" id="carousel1"&gt;
+    &lt;div class="carousel-item-holder"&gt;        
+      &lt;div class="carousel-item border-md border-secondary"&gt;
+        &lt;img src="images/landscape_blue.jpg" /&gt;
+      &lt;/div&gt;
+      &lt;div class="carousel-item border-md border-secondary"&gt;
+        &lt;img src="images/landscape_gold.jpg" /&gt;
+      &lt;/div&gt;
+      &lt;div class="carousel-item border-md border-secondary"&gt;
+        &lt;img src="images/landscape_green.jpg" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="text-bold"&gt;
+      &lt;a href="" id="prev" class="text-xl pad-md background-transparent color-light fa fa-step-backward place-middle-left"&gt;&lt;/a&gt;
+      &lt;a href="" id="next" class="text-xl pad-md background-transparent color-light fa fa-step-forward place-middle-right"&gt;&lt;/a&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
 </pre>
-		</div>
-	</div>
-</div>
+        </div>
+      </div>
+    </div>
 
 <div class="text">
 
-		<div class="row-spacing-md"></div>
+    <div class="row-spacing-md"></div>
 
-		<p>You don't need to worry about button styles and colors - that's up to you. But the structure must be as above. You can also create a right
-			side off-canvas by simply changing the left classes to right - the toggle container will take care of the rest.
-		</p>
+    In the example above, the first line is the parent container with an id to target when initialising. There is also a width and height class specified,
+    but they are only required when the <span class="color-accent-2 text-bold">autoScale</span> property is set to false. When using the carousel with autoScale
+    switched on, the width and height will be ignored - this is because the carousel size will be based on the slide content dimentions, but will resize
+    depending on the width of the carousel containing element, such as a form column or other container.  
+    
+    <p>Any content can be placed on top of the carousel, such as text. Overlaying content can also be added dynamically by making use of the slide change
+      events described below. The current slide index can be found in <span class="color-accent-2 text-bold">event.detail</span> passed in the callback. 
+      This means that you can use WebUI transition classes to fade in text over a specific slide for example.</p>
+
+    <div class="row-spacing-md"></div>
 
     <div class="content-row">
-      <div class="content-col-9 respond-bp-2-under">
+      <div class="content-col-6 respond-bp-2-under">
         <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
           <p class="color-accent-3"><b>NOTE:</b></p>
-          <p>For off-canvas menus you do need to add <span class="color-accent-2 text-bold">class="off-canvas-body"</span> and the 
-            <span class="color-accent-2 text-bold">data-transition-duration</span> data attribute to a container element for
-          your main body content. For example:</p>
-<pre>&lt;div data-transition-duration="1000"&gt;
-&lt;/div&gt;
-</pre>
-          <p>The transition duration value should match the duration specified for the toggle container off-canvas panel, since
-            the off-canvas panel and the main page content should move in sync.</p>     
+          <p>All slides must be of equal dimensions for the carousel to function correctly. Also, when using transition effects on elements that are
+            based on a specific slide index, it is important to ensure the duration of the effects is shorter than the interval between slides.
+          </p>
         </blockquote>
       </div>
     </div>
 
-    <div class="row-spacing-md"></div>
+    <div class="row-spacing-lg"></div>
 
-
-</div>
-
-<div class="text">
-
-		<div class="row-spacing-md"></div>
-
-		<p class="color-accent-5 text-bold">Fly-out menus</p>
-
-		<p>A basic template to create a right side fly-out menu is as follows:</p>
-
-</div>
-
-<div id="snippet91" class="body background-secondary">
-	<div class="content-row">
-		<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
-        
-  &lt;div class="content-col dock-top-right"&gt;
-    &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;
-  &lt;/div&gt;
-
-  &lt;div class="content-col dock-top-right"&gt;
-
-    &lt;div class="toggle-item dark hidden place-top-right" id="panel1"&gt;
-        
-      &lt;div class="content-col place-top-right"&gt;
-        &lt;button data-target="#panel1" class="toggle-activator menu-button-sm width-sm"&gt;&lt;i class="fa fa-chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;
-      &lt;/div&gt;        
-        
-      &lt;div class="area text-xl"&gt;
-        &lt;!-- menu content goes here --&gt;
-      &lt;/div&gt;
-                            
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-		</div>
-	</div>
-</div>
-
-<div class="text">
-
-		<div class="row-spacing-md"></div>
-
-		<p>One important difference with the fly-out menu is that the toggle-item is explicitly hidden using the hidden class - this is because the toggle container
-			handles fly-out menus in a more generic way, so is not concerned with the initial visibility. It is possible that this could change in the future. 
-		</p>
-
-</div>
-
-<div class="text">
-
-		<div class="row-spacing-md"></div>
-
-		<p class="color-accent-5 text-bold">Accordions</p>
-
-		<p>A basic template to create an accordion menu is as follows:</p>
-
-</div>
-
-<div id="snippet92" class="body background-secondary">
-	<div class="content-row">
-		<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1"&gt;
-            
-  &lt;div class="content-col-20"&gt;
+    <p class="color-accent-5 text-bold">Configuration</p>
     
-    &lt;button data-target="#panel1" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 1&lt;/button&gt;
-    &lt;div id="panel1" class="toggle-item width-full hidden"&gt;
-      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
-        &lt;!-- Content for panel 1 --&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-        
-    &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
-        
-    &lt;button data-target="#panel2" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 2&lt;/button&gt;
-    &lt;div id="panel2" class="toggle-item width-full hidden"&gt;
-      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
-        &lt;!-- Content for panel 2 --&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-        
-    &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
-        
-    &lt;button data-target="#panel3" class="toggle-activator menu-button menu-button-accent-2"&gt;Heading 3&lt;/button&gt;
-    &lt;div id="panel3" class="toggle-item width-full hidden"&gt;
-      &lt;div class="panel primary border-sm border-accent-2 height-lg width-full"&gt;
-        &lt;!-- Content for panel 3 --&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+    <p>Configuring the carousel settings is a simple matter of calling the constructor with values as shown in the following example:</p>
 
-  &lt;/div&gt;        
-&lt;/div&gt;
+    <div class="row-spacing-sm"></div>
+
+</div>
+
+<div id="snippet131" class="body background-secondary">
+  <div class="content-row">
+    <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+    
+  var carousel = ui("#carousel1")
+  .carouselControl({ 
+    interval: 10000,
+    autoPlay: true,
+    autoScale: true,
+    playDirection: "next",
+    stopOnHover: true,
+    transitionDuration: 1500, 
+    transitionType: "slide", 
+    transitionOrientation: "vertical" 
+  });
+
+});
 </pre>
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
 
 <div class="text">
@@ -480,32 +409,36 @@
 
     <p class="color-accent-5 text-bold">Events</p>
 
-    <p>There are 4 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.toggle.show.before</span>, 
-    <span class="color-accent-2 text-bold">ui.toggle.show.after</span>, <span class="color-accent-2 text-bold">ui.toggle.hide.before</span>, and
-    <span class="color-accent-2 text-bold">ui.toggle.hide.after</span>. The following script shows how to setup the event callbacks.</p>
+    <p>There are 2 event callbacks that can be used, <span class="color-accent-2 text-bold">ui.carousel.change.before</span> and 
+      <span class="color-accent-2 text-bold">ui.carousel.change.after</span>. The following script shows how to use the event callbacks.</p>
 
+    <div class="row-spacing-md"></div>
+
+    <div class="content-row">
+      <div class="content-col-6 respond-bp-2-under">
+        <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+          <p class="color-accent-3"><b>NOTE:</b></p>
+          <p>In order to get the new slide just moved to, you will need the <span class="color-accent-2 text-bold">ui.carousel.change.after</span> event.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row-spacing-lg"></div>
+  
 </div>
 
-<div id="snippet93" class="body background-secondary">
+<div id="snippet132" class="body background-secondary">
 	<div class="content-row">
 		<div class="content-col-20 scroll-y">
 
 <pre>webui.ready(function() {
 
-  ui( "#panel1" ).on("ui.toggleItem.show.before", function(e) {
-    // Take some action
+  carousel.on("ui.carousel.change.before", function(e) {
+    console.log("ui.carousel.change.before: current slide index = " + e.detail);
   });
 
-  ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
-    // Take some action
-  });
-
-  ui( "#panel1" ).on("ui.toggleItem.hide.before", function(e) {
-    // Take some action
-  });
-
-  ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
-    // Take some action
+  carousel.on("ui.carousel.change.after", function(e) {
+    console.log("ui.carousel.change.after: current slide index = " + e.detail);
   });
 
 });
@@ -516,8 +449,17 @@
 
 <div class="row-spacing-md"></div>
 
+<div class="content-row">
+  <div class="content-col-9 respond-bp-2-under">
+    <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
+      <p class="color-accent-3"><b>NOTE:</b></p>
+      <p>For a demo of the carousel component see the <span class="color-accent-2 text-bold">DEMO-Designs.html</span> demo page with the install or download package.</p>     
+    </blockquote>
+  </div>
+</div>
 
 
+<div class="row-spacing-md"></div>
                       </div>
                     </div>
                   </div>

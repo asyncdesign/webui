@@ -138,7 +138,7 @@
 		var menuItem = webui(this);
 
 		var allowHide = true;
-		var el = webui.elementHoverAt(e.clientX, e.clientY);
+		var el = webui.elementHoverAt(e.clientX, e.clientY + 1);
 
 		if (webui(el).parents(".dropdown-content").length || webui(el).parents(".dropdown-sheet").length) {
 			allowHide = false;

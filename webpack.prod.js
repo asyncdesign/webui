@@ -24,7 +24,9 @@ module.exports = {
         "./src/js/_tabs.js",
         "./src/js/_shapes.js",
         "./src/js/_positioning.js",
-        "./src/js/_transitions.js"
+        "./src/js/_transitions.js",
+        "./src/js/_carousel.js",
+        "./src/js/_radial.js"
       ]
     }),
     new ConcatPlugin({

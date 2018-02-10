@@ -99,6 +99,8 @@
                           <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
                           <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
                           <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
+                          <button onclick="location.href='/webui/carousels.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Carousels</span></button>                          
+                          <button onclick="location.href='/webui/radials.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Radials</span></button>                          
                           <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                           <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
                           <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
@@ -164,7 +166,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 6.5.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 7.0.0.</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -230,6 +232,8 @@
                       <button id="sideNavButtonComponents" class="menu-activator menu-button-sm menu-button-dark color-muted color-hover-accent-3 text-bold text-left"><i class="fa fa-angle-down text-bold move-right"></i><i class="fa fa-file width-sm"></i>Components</button>
                       <div class="dropdown-content-expand accent-5 width-full" id="dropdownComponents">
                         <button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
+                        <button onclick="location.href='/webui/carousels.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Carousels</span></button>                        
+                        <button onclick="location.href='/webui/radials.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Radials</span></button>                                                
                         <button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
                         <button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
                         <button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
@@ -319,7 +323,7 @@
           Popups
         &lt;/div&gt;
         &lt;div class="form-col-3 col-spacing-right-sm text-right"&gt;
-          &lt;a href="javascript:void(0)"&gt;&lt;i onclick="ui.hideModal($('#modal1'))" class="fa fa-close color-accent-2 color-hover-accent-3"&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;a href="javascript:void(0)"&gt;&lt;i class="fa fa-close color-accent-2 color-hover-accent-3 modal-close"&gt;&lt;/i&gt;&lt;/a&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -337,7 +341,7 @@
     &lt;/div&gt;
     &lt;div class="col-spacing-right-md place-bottom-right"&gt;
       &lt;button type="button" class="button-sm button-info width-md"&gt;Save&lt;/button&gt;
-      &lt;button type="button" onclick="ui.hideModal($('#modal1'))" class="button-sm button-accent-4 width-md"&gt;Cancel&lt;/button&gt;
+      &lt;button type="button" class="button-sm button-accent-4 width-md modal-close"&gt;Cancel&lt;/button&gt;
       &lt;div class="row-spacing-sm"&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -362,7 +366,7 @@
     <div class="row-spacing-md"></div>
 
     <p>So to open the modal it's just a case of adding an id to the outer wrapper and calling <span class="color-accent-2 text-bold">ui.showModal</span>
-    and passing in the id or the object. You will also see that <span class="color-accent-2 text-bold">ui.hideModal</span> 
+    and passing in the id or the object. You will also see that the class <span class="color-accent-2 text-bold">modal-close</span> 
     is used for closing the modal.</p>
 
     <div class="content-row">
@@ -370,7 +374,9 @@
         <blockquote class="border-accent-3 background-secondary col-spacing-right-md">
           <p class="color-accent-3"><b>NOTE:</b></p>
           <p>It is important that the functions <span class="color-accent-2 text-bold">ui.showModal</span> and <span class="color-accent-2 text-bold">ui.hideModal</span>
-          are used to open and close modal dialogs as some background tasks need to be completed, such as disabling and re-enabling scrolling for the underlying page.</p>
+          are used if you want to open and close modal dialogs programatically as some background tasks need to be completed, such as disabling and re-enabling scrolling for 
+          the underlying page. However, within the modal you only need to add the class <span class="color-accent-2 text-bold">close-modal</span> on controls that will
+          close the modal.</p>
         </blockquote>
       </div>
     </div>
@@ -605,6 +611,8 @@
             case "flexbox.html": codeHighlighter.highlight(["snippet100", "snippet101", "snippet102", "snippet103", "snippet104", "snippet105"]); break;
             case "alerts.html": codeHighlighter.highlight(["snippet111"]); break;
             case "shapes.html": codeHighlighter.highlight(["snippet120", "snippet121"]); break;
+            case "carousels.html": codeHighlighter.highlight(["snippet130"]); break;
+            case "radials.html": codeHighlighter.highlight(["snippet140"]); break;
             default: break;
           }
         }
