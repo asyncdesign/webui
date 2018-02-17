@@ -66,9 +66,9 @@
 				<div class="row-spacing-sm"></div>
 		
 				<div class="flex-row flex-items-center">
-					<div class="flex-size-7 flex-respond-bp-3-under">
+					<div class="flex-size-10 flex-respond-bp-4-under">
 		
-						<div class="radial width-xl height-xl border-sm border-accent-4-light" id="radial1">		
+						<div class="radial width-full height-xl border-sm border-accent-4-light" id="radial1">		
 							<div class="radial-content">
 								<a href="#" class="radial-item link-button link-button-lg fa fa-home fa-lg"></a>
 								<a href="#" class="radial-item link-button link-button-lg fa fa-facebook fa-lg"></a>
@@ -87,7 +87,7 @@
 						</div>
 		
 					</div>
-					<div class="flex-size-5 flex-respond-bp-3-under">
+					<div class="flex-size-5 flex-respond-bp-4-under">
 		
 						<div class="radial width-lg height-md-lg border-sm border-accent-4-light" id="radial2">		
 							<div class="radial-content">
@@ -246,17 +246,21 @@
 
 		webui.ready(function() {
 
-			ui("#radial1").radialControl({
-				radialZoom: 0.75,
-				radialMode: "bottom",
-				transitionDuration: 500
-			});
 
-			ui("#radial2").radialControl({
-				radialZoom: 1.25,
-				radialMode: "top",
+			ui("#radial1").radialControl({
+				zoom: 0.75,
+				mode: "bottom",
+				responsive: true,
 				transitionDuration: 500
 			});
+		
+			ui("#radial2").radialControl({
+				zoom: 1.25,
+				mode: "top",
+				responsive: false,
+				transitionDuration: 500
+			});
+			
 
 			/*
 			ui(".expand").focus(function(e) {

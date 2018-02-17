@@ -129,7 +129,7 @@
                                   Dashboard theme (In development)
                               </div>
                               <a href="/webui/theme_dashboard_sales.html">
-                                <img src="/webui/assets/images/theme_dashboard_sales.png" class="image" alt="theme_dashboard_sales" />
+                                <img src="/webui/assets/images/theme_dashboard_sales.jpg" class="image" alt="theme_dashboard_sales" />
                               </a>
                               <div class="panel">
                                   No custom CSS or javascript, just the standard WebUI and Chart.js so you can add your mark!
@@ -141,7 +141,7 @@
                                   Ecommerce theme (In development)
                               </div>
                               <a href="/webui/theme_ecommerce_fashion.html">
-                                <img src="/webui/assets/images/theme_ecommerce_fashion.png" class="image" alt="theme_ecommerce_fashion" />
+                                <img src="/webui/assets/images/theme_ecommerce_fashion.jpg" class="image" alt="theme_ecommerce_fashion" />
                               </a>
                               <div class="panel">
                                   No custom CSS or javascript, just the standard WebUI and Owl carousel so you can add your mark!
@@ -166,7 +166,7 @@
                                         </p>
                                       
                                         <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 7.0.0.</p>
+                                        <p><span class="color-accent-2">Current version:</span> 7.0.1</p>
                                     </div>
                                 </div>
                                 <div class="content-row">
@@ -299,12 +299,14 @@
 
     <p>Here are the settings available via the radial component constructor:</p>
 
-    <div><span class="color-accent-2 text-bold">radialMode</span> - This can be set to "full" (default), "top", or "bottom". Setting the mode to "full" will
+    <div><span class="color-accent-2 text-bold">mode</span> - This can be set to "full" (default), "top", or "bottom". Setting the mode to "full" will
       create a full circle radial item spread. If set to "top", the spread will only arch around the top half of the radial area. If set to "bottom", then
     the arch will cover the bottom half only.</div>
-    <div><span class="color-accent-2 text-bold">radialZoom</span> - The zoom number and will change the spread area in relation to the size of the radial
+    <div><span class="color-accent-2 text-bold">zoom</span> - The zoom number and will change the spread area in relation to the size of the radial
       container element.</div>
-    <div><span class="color-accent-2 text-bold">transitionDuration</span> - A value in milliseconds specifying the fade in animation duration.</div>
+    <div><span class="color-accent-2 text-bold">responsive</span> - Either true or false, allowing you to switch off the responsive behavior if required.
+      The default is "true".</div>  
+    <div><span class="color-accent-2 text-bold">transitionDuration</span> - A value in milliseconds specifying the fade in and expand/shrink animation duration.</div>
 
     <div class="row-spacing-md"></div>
 
@@ -317,20 +319,20 @@
       <div class="content-row">
         <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="radial width-xl height-xl" id="radial1"&gt;        
-    &lt;div class="radial-content"&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-home fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-facebook fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-twitter fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-linkedin fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-github fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-rss fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-pinterest fa-lg"&gt;&lt;/a&gt;
-      &lt;a href="#" class="radial-item link-button link-button-lg fa fa-asterisk fa-lg"&gt;&lt;/a&gt;
-    &lt;/div&gt;
-                              
-    &lt;a href="#" class="link-button place-middle-center fa fa-bars fa-lg radial-activator"&gt;&lt;/a&gt;
+<pre>&lt;div class="radial width-full height-xl" id="radial1"&gt;        
+  &lt;div class="radial-content"&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-home fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-facebook fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-twitter fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-linkedin fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-github fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-rss fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-pinterest fa-lg"&gt;&lt;/a&gt;
+    &lt;a href="#" class="radial-item link-button link-button-lg fa fa-asterisk fa-lg"&gt;&lt;/a&gt;
   &lt;/div&gt;
+                              
+  &lt;a href="#" class="link-button place-middle-center fa fa-bars fa-lg radial-activator"&gt;&lt;/a&gt;
+&lt;/div&gt;
 </pre>
         </div>
       </div>
@@ -351,7 +353,7 @@
           <p class="color-accent-3"><b>NOTE:</b></p>
           <p>A width and height must be specified for the radial control to function correctly. You can always set the width and height to full by using
             the WebUI classes "width-full" and "height-full" if you want the radial to adopt the size of it's immediate parent element, such as a form
-            column, etc.
+            column, etc. However, if you set the "responsive" option to false, you will most likely want a fixed width and height.
           </p>
         </blockquote>
       </div>
@@ -378,8 +380,9 @@
 <pre>webui.ready(function() {
     
     ui("#radial1").radialControl({
-      radialZoom: 0.75,
-      radialMode: "bottom",
+      zoom: 0.75,
+      mode: "bottom",
+      responsive: true,
       transitionDuration: 500
     });
 

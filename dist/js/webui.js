@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 7.0.0
+* Version: 7.0.1
 * MIT License
 */
 "use strict";
@@ -741,6 +741,53 @@
         this.addClass("hidden");
         return this;
     };
+    fn.resize = function(eventCallback, params) {
+        var el;
+        for (var i = 0; i < this.length; i++) {
+            el = this[i];
+            var zIndex = parseInt(getComputedStyle(el));
+            if (isNaN(zIndex)) {
+                zIndex = 0;
+            }
+            zIndex--;
+            var expand = document.createElement("div");
+            webui(expand).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+            var expandChild = document.createElement("div");
+            webui(expandChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "10000000px").css("height", "10000000px");
+            expand.appendChild(expandChild);
+            var shrink = document.createElement("div");
+            webui(shrink).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+            var shrinkChild = document.createElement("div");
+            webui(shrinkChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "200%").css("height", "200%");
+            shrink.appendChild(shrinkChild);
+            el.appendChild(expand);
+            el.appendChild(shrink);
+            function setScroll() {
+                expand.scrollLeft = 1e7;
+                expand.scrollTop = 1e7;
+                shrink.scrollLeft = 1e7;
+                shrink.scrollTop = 1e7;
+            }
+            setScroll();
+            var size = el.getBoundingClientRect();
+            var currentWidth = size.width;
+            var currentHeight = size.height;
+            var onScroll = function() {
+                var size = el.getBoundingClientRect();
+                var newWidth = size.width;
+                var newHeight = size.height;
+                if (newWidth != currentWidth || newHeight != currentHeight) {
+                    currentWidth = newWidth;
+                    currentHeight = newHeight;
+                    eventCallback(el, params);
+                }
+                setScroll();
+            };
+            expand.addEventListener("scroll", onScroll);
+            shrink.addEventListener("scroll", onScroll);
+        }
+        return this;
+    };
     fn.hoverIn = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
             this[i].onmouseenter = eventCallback;
@@ -1028,7 +1075,7 @@
         if (arguments.length === 2) {
             for (var i = 0; i < this.length; i++) {
                 if (isSelect(this[i])) {
-                    this[i].append(new Option(optionText, optionValue));
+                    webui(this[i]).append(new Option(optionText, optionValue));
                 }
             }
         }
@@ -1049,7 +1096,10 @@
     fn.setSelectedOption = function(optionIndex) {
         if (arguments.length === 1) {
             for (var i = 0; i < this.length; i++) {
-                webui(this[i]).find("option")[optionIndex].selected = true;
+                var option = webui(this[i]).find("option")[optionIndex];
+                if (option) {
+                    option.selected = true;
+                }
             }
         }
         return this;
@@ -1057,7 +1107,10 @@
     fn.setOptionText = function(optionIndex, optionText) {
         if (arguments.length === 2) {
             for (var i = 0; i < this.length; i++) {
-                webui(this[i]).find("option").eq(optionIndex).html(optionText);
+                var option = webui(this[i]).find("option").eq(optionIndex);
+                if (option) {
+                    option.html(optionText);
+                }
             }
         }
         return this;
@@ -1428,7 +1481,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v7.0.0";
+    webui.version = "v7.0.1";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -3267,7 +3320,12 @@
             transitionDuration = settings.transitionDuration;
             transitionType = settings.transitionType;
             transitionOrientation = settings.transitionOrientation;
-            carousel = this;
+            if (this.length > 1 || webui(".carousel").length > 1) {
+                console.error("Multiple carousels are not supported in WebUI.");
+                carousel = this.first();
+            } else {
+                carousel = this;
+            }
             carouselHolder = carousel.find(".carousel-item-holder");
             carouselItems = carouselHolder.find(".carousel-item");
             carouselItemCount = carouselItems.length;
@@ -3302,7 +3360,6 @@
         enumerable: false
     });
     fn.prev = function() {
-        var carousel = this;
         if (transitionCompleted) {
             transitionCompleted = false;
             delta = -1;
@@ -3336,7 +3393,6 @@
         return this;
     };
     fn.next = function() {
-        var carousel = this;
         if (transitionCompleted) {
             transitionCompleted = false;
             delta = 1;
@@ -3382,7 +3438,6 @@
         return this;
     };
     fn.play = function() {
-        var carousel = this;
         clearInterval(this.run);
         if (playDirection === "next") {
             this.run = setInterval(function() {
@@ -3403,34 +3458,57 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, radialZoom = 1, radialMode = "full", transitionDuration = 1e3;
+    var fn = webui.fn, zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
+        var radialWidth = el.offsetWidth;
+        var radialHeight = el.offsetHeight;
+        var radialContent = webui(el).find(".radial-content").css("transition", "all " + params.duration / 1e3 + "s ease-out");
+        var radialItems = radialContent.find(".radial-item");
+        var radialSlice = params.mode === "top" ? -1.75 : params.mode === "bottom" ? 1.75 : 1;
+        for (var j = 0; j < radialItems.length; j++) {
+            var radialItem = webui(radialItems[j]);
+            var radialItemWidth = parseFloat(radialItem.css("width"));
+            var radialItemHeight = parseFloat(radialItem.css("height"));
+            var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemWidth / 2 + radialWidth / 2 - 3 + "px";
+            var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemHeight / 2 + radialHeight / 2 - 2 + "px";
+            radialItem.css("left", radialLeft);
+            radialItem.css("top", radialTop);
+        }
+    };
     /* PUBLIC */
     Object.defineProperty(webui.prototype, "radialControl", {
         value: function(options) {
             var settings = ui.extend({
-                radialZoom: 1,
-                radialMode: "full",
+                zoom: 1,
+                mode: "full",
+                responsive: true,
                 transitionDuration: 300
             }, options);
-            radialZoom = settings.radialZoom;
-            radialMode = settings.radialMode;
+            zoom = settings.zoom;
+            mode = settings.mode;
+            responsive = settings.responsive;
             transitionDuration = settings.transitionDuration;
             var radials = webui(this);
             for (var i = 0; i < radials.length; i++) {
-                var radialContent = webui(radials[i]).find(".radial-content");
-                radialContent.css("transition", "all " + transitionDuration / 1e3 + "s ease-out");
-                var radialWidth = radialContent.parent(".radial")[0].offsetWidth;
-                var radialHeight = radialContent.parent(".radial")[0].offsetHeight;
+                var radialWidth = radials[i].offsetWidth;
+                var radialHeight = radials[i].offsetHeight;
+                var radialContent = webui(radials[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1e3 + "s ease-out");
                 var radialItems = radialContent.find(".radial-item");
-                var radialSlice = radialMode === "top" ? -1.75 : radialMode === "bottom" ? 1.75 : 1;
+                var radialSlice = mode === "top" ? -1.75 : mode === "bottom" ? 1.75 : 1;
                 for (var j = 0; j < radialItems.length; j++) {
                     var radialItem = webui(radialItems[j]);
                     var radialItemWidth = parseFloat(radialItem.css("width"));
                     var radialItemHeight = parseFloat(radialItem.css("height"));
-                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / radialZoom)) - radialItemWidth / 2 + radialWidth / 2 - 3 + "px";
-                    var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / radialZoom)) - radialItemHeight / 2 + radialHeight / 2 - 2 + "px";
+                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemWidth / 2 + radialWidth / 2 - 3 + "px";
+                    var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemHeight / 2 + radialHeight / 2 - 2 + "px";
                     radialItem.css("left", radialLeft);
                     radialItem.css("top", radialTop);
+                }
+                if (responsive) {
+                    webui(radials[i]).resize(resetRadial, {
+                        zoom: zoom,
+                        mode: mode,
+                        transitionDuration: transitionDuration
+                    });
                 }
             }
             this.find(".radial-activator").click(function(e) {

@@ -124,7 +124,14 @@
 			transitionType = settings.transitionType;
 			transitionOrientation = settings.transitionOrientation;
 
-			carousel = this;
+			if (this.length > 1 || webui(".carousel").length > 1) {
+				console.error("Multiple carousels are not supported in WebUI.");
+				carousel = this.first();
+			}
+			else {
+				carousel = this;
+			}
+
 			carouselHolder = carousel.find(".carousel-item-holder");
 			carouselItems = carouselHolder.find(".carousel-item");
 			carouselItemCount = carouselItems.length;
@@ -176,8 +183,6 @@
 
 	fn.prev = function () {
 
-		var carousel = this;
-
 		if (transitionCompleted) {
 
 			transitionCompleted = false;
@@ -219,8 +224,6 @@
 	};
 
 	fn.next = function () {
-
-		var carousel = this;
 
 		if (transitionCompleted) {
 
@@ -281,8 +284,6 @@
 
 
 	fn.play = function () {
-
-		var carousel = this;
 
 		clearInterval(this.run);
 		

@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 7.0.0
+* Version: 7.0.1
 * MIT License
 */
 
@@ -958,6 +958,73 @@
 		return this;
 	};
 
+	fn.resize = function (eventCallback, params) {
+		var el;
+
+		for (var i = 0; i < this.length; i++) {
+			el = this[i];
+
+			var zIndex = parseInt(getComputedStyle(el));
+
+			if (isNaN(zIndex)) { 
+				zIndex = 0; 
+			};
+			zIndex--;
+		
+			var expand = document.createElement("div");
+			webui(expand).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+		
+			var expandChild = document.createElement("div");
+			webui(expandChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "10000000px").css("height", "10000000px");
+			expand.appendChild(expandChild);
+		
+			var shrink = document.createElement("div");
+			webui(shrink).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+		
+			var shrinkChild = document.createElement("div");
+			webui(shrinkChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "200%").css("height", "200%");
+			shrink.appendChild(shrinkChild);
+		
+			el.appendChild(expand);
+			el.appendChild(shrink);
+		
+			function setScroll()
+			{
+				expand.scrollLeft = 10000000;
+				expand.scrollTop = 10000000;		
+				shrink.scrollLeft = 10000000;
+				shrink.scrollTop = 10000000;
+			};
+			setScroll();
+		
+			var size = el.getBoundingClientRect();
+		
+			var currentWidth = size.width;
+			var currentHeight = size.height;
+		
+			var onScroll = function()
+			{
+				var size = el.getBoundingClientRect();
+		
+				var newWidth = size.width;
+				var newHeight = size.height;
+		
+				if (newWidth != currentWidth || newHeight != currentHeight)
+				{
+					currentWidth = newWidth;
+					currentHeight = newHeight;
+		
+					eventCallback(el, params);
+				}
+				setScroll();
+			};
+		
+			expand.addEventListener("scroll", onScroll);
+			shrink.addEventListener("scroll", onScroll);
+		}
+		return this;
+	};
+
 	fn.hoverIn = function (eventCallback) {
 		for (var i = 0; i < this.length; i++) {
 			this[i].onmouseenter = eventCallback;
@@ -1302,7 +1369,7 @@
 		if (arguments.length === 2) {
 			for (var i = 0; i < this.length; i++) {
 				if (isSelect(this[i])) {
-					this[i].append(new Option(optionText, optionValue));
+					webui(this[i]).append(new Option(optionText, optionValue));
 				}
 			}
 		}
@@ -1328,7 +1395,8 @@
 	fn.setSelectedOption = function (optionIndex) {
 		if (arguments.length === 1) {
 			for (var i = 0; i < this.length; i++) {
-				webui(this[i]).find("option")[optionIndex].selected = true;
+				var option = webui(this[i]).find("option")[optionIndex];
+				if (option) { option.selected = true; }
 			}
 		}
 		return this;
@@ -1337,7 +1405,8 @@
 	fn.setOptionText = function (optionIndex, optionText) {
 		if (arguments.length === 2) {
 			for (var i = 0; i < this.length; i++) {
-				webui(this[i]).find("option").eq(optionIndex).html(optionText);
+				var option = webui(this[i]).find("option").eq(optionIndex);
+				if (option) { option.html(optionText); }
 			}
 		}
 		return this;
@@ -1756,7 +1825,7 @@
 		}		
 	};
 
-	webui.version = "v7.0.0";
+	webui.version = "v7.0.1";
 
 	/* RUN */
 
