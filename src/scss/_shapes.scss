@@ -294,6 +294,107 @@
 	border-bottom-right-radius: 50%;
 	box-sizing: border-box;
 }
+.breadcrumb {
+	position: relative;	
+}
+.breadcrumb,
+.breadcrumb:after {
+	display: block;
+	box-sizing: border-box;
+}
+.breadcrumb:not(.breadcrumb-last):after {
+	position: absolute;
+	content: " ";
+	border: transparent;
+	background-color: inherit;
+	border-bottom-left-radius: 100%;
+	transform: rotate(45deg);	
+	z-index: 1;
+}
+.breadcrumb-xs {
+	height: 1.5rem;
+}
+.breadcrumb-sm {
+	height: 1.75rem;
+}
+.breadcrumb-md {
+	height: 2.125rem;
+}
+.breadcrumb-lg {
+	height: 2.375rem;
+}
+.breadcrumb-xl {
+	height: 2.75rem;
+}
+.breadcrumb-xs:after {
+	top: calc(50% - 0.515rem);
+	right: -0.515rem;
+	width: 1.03rem;
+	height: 1.03rem;
+}
+.breadcrumb-sm:after {
+	top: calc(50% - 0.605rem);
+	right: -0.605rem;
+	width: 1.21rem;
+	height: 1.21rem;
+}
+.breadcrumb-md:after {
+	top: calc(50% - 0.735rem);
+	right: -0.735rem;
+	width: 1.47rem;
+	height: 1.47rem;
+}
+.breadcrumb-lg:after {
+	top: calc(50% - 0.825rem);
+	right: -0.825rem;
+	width: 1.65rem;
+	height: 1.65rem;
+}
+.breadcrumb-xl:after {
+	top: calc(50% - 0.95rem);
+	right: -0.95rem;
+	width: 1.9rem;
+	height: 1.9rem;
+}
+.breadcrumb-rounded:after {
+	border-top-right-radius: 50%;
+}
+.breadcrumb-line-muted:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_muted, inset 0 0.125rem $theme_muted;	
+}
+.breadcrumb-line-light:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_light, inset 0 0.125rem $theme_light;	
+}
+.breadcrumb-line-dark:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_dark, inset 0 0.125rem $theme_dark;	
+}
+.breadcrumb-line-accent-1:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_accent-1, inset 0 0.125rem $theme_accent-1;	
+}
+.breadcrumb-line-accent-2:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_accent-2, inset 0 0.125rem $theme_accent-2;	
+}
+.breadcrumb-line-accent-3:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_accent-3, inset 0 0.125rem $theme_accent-3;	
+}
+.breadcrumb-line-accent-4:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_accent-4, inset 0 0.125rem $theme_accent-4;	
+}
+.breadcrumb-line-accent-5:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_accent-5, inset 0 0.125rem $theme_accent-5;	
+}
+.breadcrumb-line-success:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_success, inset 0 0.125rem $theme_success;	
+}
+.breadcrumb-line-info:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_info, inset 0 0.125rem $theme_info;	
+}
+.breadcrumb-line-warning:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_warning, inset 0 0.125rem $theme_warning;	
+}
+.breadcrumb-line-danger:after {
+	box-shadow: inset -0.125rem 0 0 0 $theme_danger, inset 0 0.125rem $theme_danger;	
+}
 .razor-blade-top-left.razor-blade-sm:after,
 .razor-blade-bottom-right.razor-blade-sm:after {	
 	transform: skewY(1deg);	

@@ -123,56 +123,57 @@ svg:not(:root) {
 .list-inline-spacing-lg li:not(:last-of-type) {
 	padding-right: 0.938rem;
 }
-.breadcrumb a {
+.nav-links a {
 	text-decoration: none;
 }
-.breadcrumb > :not(:last-child):after {
+.nav-links > a:not(:last-child):after {
 	content: "/";
 	padding-left: 0.625rem;
 	padding-right: 0.625rem;
 	color: $theme_muted;
 }
-.breadcrumb-default > :not(:last-child) a {
+.nav-links > a:last-child {
+	cursor: default;
+	color: $theme_muted;
+}
+.nav-links-default > :not(:last-child) a {
 	color: $theme_default;
 }
-.breadcrumb-light > :not(:last-child) a {
+.nav-links-light > :not(:last-child) a {
 	color: $theme_light;
 }
-.breadcrumb-dark > :not(:last-child) a {
+.nav-links-dark > :not(:last-child) a {
 	color: $theme_dark;
 }
-.breadcrumb-accent-1 > :not(:last-child) a {
+.nav-links-accent-1 > :not(:last-child) a {
 	color: $theme_accent-1;
 }
-.breadcrumb-accent-2 > :not(:last-child) a {
+.nav-links-accent-2 > :not(:last-child) a {
 	color: $theme_accent-2;
 }
-.breadcrumb-accent-3 > :not(:last-child) a {
+.nav-links-accent-3 > :not(:last-child) a {
 	color: $theme_accent-3;
 }
-.breadcrumb-accent-4 > :not(:last-child) a {
+.nav-links-accent-4 > :not(:last-child) a {
 	color: $theme_accent-4;
 }
-.breadcrumb-accent-5 > :not(:last-child) a {
+.nav-links-accent-5 > :not(:last-child) a {
 	color: $theme_accent-5;
 }
-.breadcrumb-success > :not(:last-child) a {
+.nav-links-success > :not(:last-child) a {
 	color: $theme_success;
 }
-.breadcrumb-info > :not(:last-child) a {
+.nav-links-info > :not(:last-child) a {
 	color: $theme_info;
 }
-.breadcrumb-warning > :not(:last-child) a {
+.nav-links-warning > :not(:last-child) a {
 	color: $theme_warning;
 }
-.breadcrumb-danger > :not(:last-child) a {
+.nav-links-danger > :not(:last-child) a {
 	color: $theme_danger;
 }
-.breadcrumb-transparent > :not(:last-child) a {
+.nav-links-transparent > :not(:last-child) a {
 	color: $theme_transparent;
-}
-*[class*="breadcrumb-"] > :last-child {
-	color: $theme_muted;
 }
 .container {
 	padding: 0;
@@ -227,79 +228,6 @@ svg:not(:root) {
 	background-color: $theme_light;
 	border: 0.078rem solid $theme_default_border;
 	padding: 0 0.625rem;	
-}
-.checkbox {
-	width: 1.125rem;
-	height: 1.125rem;
-	position: relative;
-	border: 0.078rem solid $theme_default_border;
-	box-sizing: border-box;
-	label {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: $theme_light;
-		backface-visibility: hidden;
-	}
-	input[type=checkbox] {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-		z-index: -1;
-		visibility: hidden;
-	}
-	&:not(.control-disabled) input[type=checkbox] {
-	
-		&:checked + label {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1 1 10 10'%3E%3Cpath fill='%23000' d='M11.19 3.79c0 0.167-0.067 0.335-0.188 0.455l-5.759 5.759c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-3.335-3.335c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l0.911-0.911c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l1.969 1.975 4.393-4.4c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l0.911 0.911c0.121 0.121 0.188 0.288 0.188 0.455z'/%3E%3C/svg%3E");	
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: 0.75rem 0.75rem;				
-		}
-  	} 
-}
-*[class*="checkbox"].accessibility label:focus {
-	box-shadow: 0 0 0 0.125rem $theme_accessibility;
-}
-.radio {
-	width: 1.125rem;
-	height: 1.125rem;
-	position: relative;
-	border: 0.078rem solid $theme_default_border;
-	border-radius: 50%;
-	box-sizing: border-box;
-	label {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: $theme_light;
-		border-radius: 50%;
-		backface-visibility: hidden;
-	}
-	input[type=radio] {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-		z-index: -1;
-		visibility: hidden;
-	}
-	&:not(.control-disabled) input[type=radio] {
-		
-		&:checked + label {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2' fill='%23000'/%3E%3C/svg%3E");
-			background-repeat: no-repeat;
-			background-position: center;
-		}   
-	} 
-}
-*[class*="radio"].accessibility label:focus {
-	box-shadow: 0 0 0 0.125rem $theme_accessibility;
 }
 .button-xs {
 	height: 1.5rem;
@@ -1035,6 +963,192 @@ svg:not(:root) {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
 	border: 0.078rem solid $theme_disabled_border;
+}
+.checkbox {
+	width: 1.125rem;
+	height: 1.125rem;
+	position: relative;
+	border: 0.078rem solid $theme_default_border;
+	box-sizing: border-box;
+	label {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $theme_light;
+		backface-visibility: hidden;
+	}
+	input[type=checkbox] {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		z-index: -1;
+		visibility: hidden;
+	}
+	&:not(.control-disabled) input[type=checkbox] {
+	
+		&:checked + label {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1 1 10 10'%3E%3Cpath fill='%23000' d='M11.19 3.79c0 0.167-0.067 0.335-0.188 0.455l-5.759 5.759c-0.121 0.121-0.288 0.188-0.455 0.188s-0.335-0.067-0.455-0.188l-3.335-3.335c-0.121-0.121-0.188-0.288-0.188-0.455s0.067-0.335 0.188-0.455l0.911-0.911c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l1.969 1.975 4.393-4.4c0.121-0.121 0.288-0.188 0.455-0.188s0.335 0.067 0.455 0.188l0.911 0.911c0.121 0.121 0.188 0.288 0.188 0.455z'/%3E%3C/svg%3E");	
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 0.75rem 0.75rem;				
+		}
+  	} 
+}
+*[class*="checkbox"].accessibility label:focus {
+	box-shadow: 0 0 0 0.125rem $theme_accessibility;
+}
+.radio {
+	width: 1.125rem;
+	height: 1.125rem;
+	position: relative;
+	border: 0.078rem solid $theme_default_border;
+	border-radius: 50%;
+	box-sizing: border-box;
+	label {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $theme_light;
+		border-radius: 50%;
+		backface-visibility: hidden;
+	}
+	input[type=radio] {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		z-index: -1;
+		visibility: hidden;
+	}
+	&:not(.control-disabled) input[type=radio] {
+		
+		&:checked + label {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2' fill='%23000'/%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-position: center center;
+		}   
+	} 
+}
+*[class*="radio"].accessibility label:focus {
+	box-shadow: 0 0 0 0.125rem $theme_accessibility;
+}
+*[class*="toggle-switch-"] input[type=checkbox],
+*[class*="toggle-switch-"] input[type=radio] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	z-index: -1;
+	visibility: hidden;
+}
+*[class*="toggle-switch-"] {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+	border: 0.078rem solid $theme_default_border;
+	cursor: default;
+	label {
+		position: absolute;
+		top: 0.2rem;
+		left: 0.2rem;
+		z-index: 1;
+		border-radius: inherit;			
+	}
+	&:before {
+		content: 'ON';
+		position: absolute;
+		font-size: 0.8em;
+		color: inherit;	
+		left: 0;
+		width: 50%;
+		text-align: center;
+		z-index: 0;			
+	}
+	&:after {
+		content: 'OFF';
+		position: absolute;
+		font-size: 0.8em;
+		color: inherit;		
+		right: 0;
+		width: 50%;
+		text-align: center;
+		z-index: 0;			
+	}
+}
+.toggle-switch-xs {
+	height: 1.5rem;
+	width: 4.5rem;
+	line-height: 1.4rem;
+}
+.toggle-switch-sm {
+	height: 1.75rem; 
+	width: 5rem;
+	line-height: 1.65rem;
+}
+.toggle-switch-md {
+	height: 2.125rem; 
+	width: 5.5rem;
+	line-height: 2.025rem;
+}
+.toggle-switch-lg {
+	height: 2.375rem; 
+	width: 6rem;
+	line-height: 2.275rem;
+}
+.toggle-switch-xl {
+	height: 2.75rem; 
+	width: 6.5rem;
+	line-height: 2.65rem;
+}
+.toggle-switch-xs label {
+	width: 2rem;
+	height: 0.98rem;
+}
+.toggle-switch-sm label {
+	width: 2.2rem;
+	height: 1.23rem; 
+}
+.toggle-switch-md label {
+	width: 2.4rem;
+	height: 1.6rem; 
+}
+.toggle-switch-lg label {
+	width: 2.6rem;
+	height: 1.83rem; 
+}
+.toggle-switch-xl label {
+	width: 2.8rem;
+	height: 2.17rem; 
+}
+.toggle-switch-xs input[type=checkbox]:checked + label,
+.toggle-switch-xs input[type=radio]:checked + label {
+	left: 2.1rem;
+}
+.toggle-switch-sm input[type=checkbox]:checked + label,
+.toggle-switch-sm input[type=radio]:checked + label {
+	left: 2.4rem;
+}
+.toggle-switch-md input[type=checkbox]:checked + label,
+.toggle-switch-md input[type=radio]:checked + label {
+	left: 2.7rem;
+}
+.toggle-switch-lg input[type=checkbox]:checked + label,
+.toggle-switch-lg input[type=radio]:checked + label {
+	left: 3rem;
+}
+.toggle-switch-xl input[type=checkbox]:checked + label,
+.toggle-switch-xl input[type=radio]:checked + label {
+	left: 3.3rem;
 }
 .media-block {
 	padding: 0.313rem;

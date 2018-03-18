@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 7.0.2
+* Version: 7.0.3
 * MIT License
 */
 
@@ -1825,7 +1825,7 @@
 		}		
 	};
 
-	webui.version = "v7.0.2";
+	webui.version = "v7.0.3";
 
 	/* RUN */
 

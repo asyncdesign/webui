@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 7.0.2
+* Version: 7.0.3
 * MIT License
 */
 "use strict";
@@ -1481,7 +1481,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v7.0.2";
+    webui.version = "v7.0.3";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -3514,7 +3514,7 @@
             var radialItem = webui(radialItems[j]);
             var radialItemWidth = parseFloat(radialItem.css("width"));
             var radialItemHeight = parseFloat(radialItem.css("height"));
-            var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemWidth / 2 + radialWidth / 2 - 2 + "px";
+            var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
             var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
             radialItem.css("left", radialLeft);
             radialItem.css("top", radialTop);
@@ -3590,7 +3590,7 @@
                     var radialItem = webui(radialItems[j]);
                     var radialItemWidth = parseFloat(radialItem.css("width"));
                     var radialItemHeight = parseFloat(radialItem.css("height"));
-                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemWidth / 2 + radialWidth / 2 - 2 + "px";
+                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
                     var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
                     radialItem.css("left", radialLeft);
                     radialItem.css("top", radialTop);
