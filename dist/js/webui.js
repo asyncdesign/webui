@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 7.0.3
+* Version: 7.0.4
 * MIT License
 */
 "use strict";
@@ -1481,7 +1481,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v7.0.3";
+    webui.version = "v7.0.4";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -1536,16 +1536,15 @@
         }
     });
     /* COMPATIBILITY */
-    if (typeof module === "object" && module && typeof module.exports === "object") {
-        // Node module pattern
-        module.exports = webui;
-    } else if (typeof define === "function" && define.amd) {
+    module.exports = webui;
+    if (typeof define === "function" && define.amd) {
         // AMD
         define(function() {
             return webui;
         });
         win.webui = win.ui = webui;
     } else if (typeof win === "object" && typeof win.document === "object") {
+        // WINDOW
         win.webui = win.ui = webui;
     }
 })(window);
