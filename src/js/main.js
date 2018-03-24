@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 7.0.4
+* Version: 7.0.5
 * MIT License
 */
 
@@ -1825,7 +1825,7 @@
 		}		
 	};
 
-	webui.version = "v7.0.4";
+	webui.version = "v7.0.5";
 
 	/* RUN */
 
@@ -1893,18 +1893,19 @@
 		}
 	});
 
-
 	/* COMPATIBILITY */
-    module.exports = webui;
 
+	if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+		// NODE
+    	module.exports = webui;
+	}
     if (typeof define === "function" && define.amd) {
         // AMD
         define(function() {
             return webui;
         });
-        win.webui = win.ui = webui;
     } 
-    else if (typeof win === "object" && typeof win.document === "object") {
+    if (typeof win === "object" && typeof win.document === "object") {
         // WINDOW
         win.webui = win.ui = webui;
 	}
