@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 7.0.5
+* Version: 7.0.6
 * MIT License
 */
 
@@ -160,7 +160,6 @@
 										
 							toggleItem.trigger("ui.toggleItem.show.before");
 
-
 							if (offCanvasLeft) {
 								toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 								toggleBody.css("transform", "translate(0, 0)");								
@@ -178,7 +177,7 @@
 					else {
 						if (toggleItem.css("display") === "block") {
 
-							toggleItem.trigger("ui.toggleItem.hide.before");
+							toggleItem.trigger("ui.toggleItem.show.before");
 
 							if (transitionDuration && transitionType === "fade") {
 								toggleItem.fadeOut(transitionDuration);
@@ -194,10 +193,10 @@
 							else {
 								toggleItem.hide();
 							}
-							toggleItem.trigger("ui.toggleItem.hide.after");
+							toggleItem.trigger("ui.toggleItem.show.after");
 						} 
 						else {
-							toggleItem.trigger("ui.toggleItem.show.before");
+							toggleItem.trigger("ui.toggleItem.hide.before");
 
 							if (transitionDuration && transitionType === "fade") {
 								toggleItem.fadeIn(transitionDuration);
@@ -231,9 +230,8 @@
 									toggleItem.siblings(".toggle-item").hide();
 								}
 							}
-							toggleItem.trigger("ui.toggleItem.show.after");
+							toggleItem.trigger("ui.toggleItem.hide.after");
 						}
-
 					}
 				}
 			}
@@ -1825,7 +1823,7 @@
 		}		
 	};
 
-	webui.version = "v7.0.5";
+	webui.version = "v7.0.6";
 
 	/* RUN */
 

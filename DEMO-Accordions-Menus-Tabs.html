@@ -605,71 +605,65 @@
 
 	</div>
 
-	<div class="toggle-container" data-transition-duration="1500">
-		<div class="content-col dock-top-left">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
-		<div class="toggle-item off-canvas-left dock-top-left light boundary-right-muted width-lg-xl height-viewport" id="panel1">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-right"><i class="fa fa-close"></i></button>
+	<div class="toggle-container snap-target-context" data-transition-duration="1500">	
+		<div id="oc1" class="toggle-item off-canvas-left dock-top-left accent-1-dark width-lg-xl height-viewport">		
 			<h2 class="place-middle-center">Menu</h2>
 		</div>
-	</div>
+		<button data-target="#oc1" id="ocButton1" class="toggle-activator button-lg border-transparent 
+			background-transparent color-hover-accent-1-light fa fa-bars fa-2x">
+		</button>
+	</div>		
 
-	<div class="toggle-container" data-transition-duration="1500">
-		<div class="content-col dock-top-right">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
-		<div class="toggle-item off-canvas-right dock-top-right light boundary-left-muted width-lg-xl height-viewport" id="panel1">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-left"><i class="fa fa-close"></i></button>
+	<div class="toggle-container snap-target-context" data-transition-duration="1500">	
+		<div id="oc2" class="toggle-item off-canvas-right dock-top-right accent-1-dark width-lg-xl height-viewport">		
 			<h2 class="place-middle-center">Menu</h2>
 		</div>
-	</div>
+		<button data-target="#oc2" id="ocButton2" class="toggle-activator button-lg border-transparent 
+			background-transparent color-hover-accent-1-light fa fa-bars fa-2x">
+		</button>
+	</div>		
 
 	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="horizontal" data-transition-type="collapse">
-		<div class="content-col dock-bottom-left">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
 		<div class="toggle-item hidden dock-top-left light boundary-right-muted width-lg-xl height-viewport" id="panel1">
 			<div class="width-lg-xl">
-				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-right"><i class="fa fa-close"></i></button>
 				<h2 class="place-middle-center">Menu</h2>
 			</div>
+		</div>
+		<div class="content-col dock-bottom-left">
+			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg fa fa-bars" id="slideButton1"></button>
 		</div>
 	</div>
 
 	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="horizontal" data-transition-type="collapse">
-		<div class="content-col dock-bottom-right">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
-		<div class="toggle-item hidden dock-top-right light boundary-left-muted width-lg-xl height-viewport" id="panel1">
+		<div class="toggle-item hidden dock-top-right light boundary-left-muted width-lg-xl height-viewport" id="panel2">
 			<div class="width-lg-xl">
-				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-left"><i class="fa fa-close"></i></button>
 				<h2 class="place-middle-center">Menu</h2>
 			</div>
+		</div>
+		<div class="content-col dock-bottom-right">
+			<button data-target="#panel2" class="toggle-activator button-sm button-dark width-sm text-lg fa fa-bars" id="slideButton2"></button>
 		</div>
 	</div>
 
 	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="vertical" data-transition-type="collapse">
+		<div class="toggle-item hidden dock-top-center light boundary-bottom-muted width-full height-lg-xl" id="panel3">
+			<div class="height-lg-xl">
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
 		<div class="content-col dock-top-center">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
-		<div class="toggle-item hidden dock-top-center light boundary-bottom-muted width-full height-lg-xl" id="panel1">
-			<div class="height-lg-xl">
-				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-top-center"><i class="fa fa-close"></i></button>
-				<h2 class="place-middle-center">Menu</h2>
-			</div>
+			<button data-target="#panel3" class="toggle-activator button-sm button-dark width-sm text-lg fa fa-bars" id="slideButton3"></button>
 		</div>
 	</div>
 
 	<div class="toggle-container" data-transition-duration="1500" data-transition-orientation="vertical" data-transition-type="collapse">
-		<div class="content-col dock-bottom-center">
-			<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg"><i class="fa fa-bars"></i></button>
-		</div>
-		<div class="toggle-item hidden dock-bottom-center light boundary-top-muted width-full height-lg-xl" id="panel1">
+		<div class="toggle-item hidden dock-bottom-center light boundary-top-muted width-full height-lg-xl" id="panel4">
 			<div class="height-lg-xl">
-				<button data-target="#panel1" class="toggle-activator button-sm button-dark width-sm text-lg place-bottom-center"><i class="fa fa-close"></i></button>
 				<h2 class="place-middle-center">Menu</h2>
 			</div>
+		</div>
+		<div class="content-col dock-bottom-center">
+			<button data-target="#panel4" class="toggle-activator button-sm button-dark width-sm text-lg fa fa-bars" id="slideButton4"></button>
 		</div>
 	</div>
 
@@ -700,13 +694,65 @@
 				transitionType: "fade"
 			});
 
-			ui("#tabs1").on("ui.tabs.change.after", function(e) {
-				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
+			// Positioning for left off-canvas menu button
+			ui("#ocButton1").snapPosition("#oc1", [1, 1], "rem", "top-right");
+
+			// Toggle left off-canvas button icon
+			ui( "#oc1" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#ocButton1").setState("fa-close", "fa-bars");
+			});
+			ui( "#oc1" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#ocButton1").setState("fa-bars", "fa-close");
 			});
 
+			// Positioning for right off-canvas menu button
+			ui("#ocButton2").snapPosition("#oc2", [-1, 1], "rem", "top-left");
+
+			// Toggle right off-canvas button icon
+			ui( "#oc2" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#ocButton2").setState("fa-close", "fa-bars");
+			});
+			ui( "#oc2" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#ocButton2").setState("fa-bars", "fa-close");
+			});
+
+			// Toggle slide-out button icon
+			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton1").setState("fa-close", "fa-bars");
+			});
+			ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton1").setState("fa-bars", "fa-close");
+			});
+
+			ui( "#panel2" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton2").setState("fa-close", "fa-bars");
+			});
+			ui( "#panel2" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton2").setState("fa-bars", "fa-close");
+			});
+
+			ui( "#panel3" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton3").setState("fa-close", "fa-bars");
+			});
+			ui( "#panel3" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton3").setState("fa-bars", "fa-close");
+			});
+
+			ui( "#panel4" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton4").setState("fa-close", "fa-bars");
+			});
+			ui( "#panel4" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton4").setState("fa-bars", "fa-close");
+			});
+			
 
 			// Show manual alerts
 			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(1000);
+
+
+			ui("#tabs1").on("ui.tabs.change.after", function(e) {
+				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
+			});
 
 		});
 			

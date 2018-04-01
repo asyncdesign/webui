@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 7.0.5
+* Version: 7.0.6
 * MIT License
 */
 "use strict";
@@ -116,7 +116,7 @@
                     }
                 } else {
                     if (toggleItem.css("display") === "block") {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
+                        toggleItem.trigger("ui.toggleItem.show.before");
                         if (transitionDuration && transitionType === "fade") {
                             toggleItem.fadeOut(transitionDuration);
                         } else if (transitionDuration && transitionType === "collapse") {
@@ -128,9 +128,9 @@
                         } else {
                             toggleItem.hide();
                         }
-                        toggleItem.trigger("ui.toggleItem.hide.after");
+                        toggleItem.trigger("ui.toggleItem.show.after");
                     } else {
-                        toggleItem.trigger("ui.toggleItem.show.before");
+                        toggleItem.trigger("ui.toggleItem.hide.before");
                         if (transitionDuration && transitionType === "fade") {
                             toggleItem.fadeIn(transitionDuration);
                         } else if (transitionDuration && transitionType === "collapse") {
@@ -155,7 +155,7 @@
                                 toggleItem.siblings(".toggle-item").hide();
                             }
                         }
-                        toggleItem.trigger("ui.toggleItem.show.after");
+                        toggleItem.trigger("ui.toggleItem.hide.after");
                     }
                 }
             }
@@ -1481,7 +1481,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v7.0.5";
+    webui.version = "v7.0.6";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -2909,16 +2909,18 @@
     var fn = webui.fn;
     /* PUBLIC */
     fn.snapPosition = function(targetElement, position, cssUnit, origin) {
-        var args = arguments, target = webui(targetElement), els = this, el, context;
+        var args = arguments, target = webui(targetElement), els = this, el, wrapper;
         if (args.length > 0 && target.length) {
             for (var i = 0; i < els.length; i++) {
                 el = webui(els[i]);
-                if (!target.parent().hasClass("snapTargetContext")) {
-                    context = webui("<div></div>").addClass("snapTargetContext").css("position", "absolute");
-                    context.appendTo(target.parent());
-                    target.appendTo(context);
+                if (!target.parent().hasClass("snap-target-context")) {
+                    wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
+                    wrapper.appendTo(target.parent());
+                    target.appendTo(wrapper);
+                } else {
+                    wrapper = target;
                 }
-                el.css("position", "absolute").appendTo(context);
+                el.css("position", "absolute").appendTo(wrapper);
                 var pos = position && position.length === 2 ? position : [ 0, 0 ];
                 var posX = pos[0];
                 var posY = pos[1];

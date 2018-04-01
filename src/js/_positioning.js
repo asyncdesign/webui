@@ -10,20 +10,23 @@
     fn.snapPosition = function(targetElement, position, cssUnit, origin) {
         var args = arguments,
             target = webui(targetElement),
-            els = this, el, context;
+            els = this, el, wrapper;
 
         if (args.length > 0 && target.length) {
 
             for (var i = 0; i < els.length; i++) {
                 el = webui(els[i]);
 
-                if (!target.parent().hasClass("snapTargetContext")) {
-                    context = webui("<div></div>").addClass("snapTargetContext").css("position", "absolute");
-                    context.appendTo(target.parent());
-                    target.appendTo(context);
+                if (!target.parent().hasClass("snap-target-context")) {
+                    wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
+                    wrapper.appendTo(target.parent());
+                    target.appendTo(wrapper);
+                }
+                else {
+                    wrapper = target;
                 }
 
-                el.css("position", "absolute").appendTo(context);
+                el.css("position", "absolute").appendTo(wrapper);
 
                 var pos = position && position.length === 2 ? position : [0, 0];
 
