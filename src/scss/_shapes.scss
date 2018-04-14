@@ -295,21 +295,9 @@
 	box-sizing: border-box;
 }
 .breadcrumb {
-	position: relative;	
-}
-.breadcrumb,
-.breadcrumb:after {
-	display: block;
+	display: flex;
 	box-sizing: border-box;
-}
-.breadcrumb:not(.breadcrumb-last):after {
-	position: absolute;
-	content: " ";
-	border: transparent;
-	background-color: inherit;
-	border-bottom-left-radius: 100%;
-	transform: rotate(45deg);	
-	z-index: 1;
+	overflow: hidden;	
 }
 .breadcrumb-xs {
 	height: 1.5rem;
@@ -327,37 +315,34 @@
 	height: 2.75rem;
 }
 .breadcrumb-xs:after {
-	top: calc(50% - 0.515rem);
-	right: -0.515rem;
-	width: 1.03rem;
-	height: 1.03rem;
+	top: calc(50% - 0.6rem);
+	right: -0.5rem;
+	width: 1.2rem;
+	height: 1.2rem;
 }
 .breadcrumb-sm:after {
-	top: calc(50% - 0.605rem);
-	right: -0.605rem;
-	width: 1.21rem;
-	height: 1.21rem;
+	top: calc(50% - 0.68rem);
+	right: -0.61rem;
+	width: 1.38rem;
+	height: 1.38rem;
 }
 .breadcrumb-md:after {
-	top: calc(50% - 0.735rem);
-	right: -0.735rem;
-	width: 1.47rem;
-	height: 1.47rem;
-}
-.breadcrumb-lg:after {
 	top: calc(50% - 0.825rem);
-	right: -0.825rem;
+	right: -0.735rem;
 	width: 1.65rem;
 	height: 1.65rem;
 }
-.breadcrumb-xl:after {
-	top: calc(50% - 0.95rem);
-	right: -0.95rem;
-	width: 1.9rem;
-	height: 1.9rem;
+.breadcrumb-lg:after {
+	top: calc(50% - 0.9rem);
+	right: -0.825rem;
+	width: 1.82rem;
+	height: 1.82rem;
 }
-.breadcrumb-rounded:after {
-	border-top-right-radius: 50%;
+.breadcrumb-xl:after {
+	top: calc(50% - 1.05rem);
+	right: -0.95rem;
+	width: 2.1rem;
+	height: 2.1rem;
 }
 .breadcrumb-line-muted:after {
 	box-shadow: inset -0.125rem 0 0 0 $theme_muted, inset 0 0.125rem $theme_muted;	
@@ -394,6 +379,25 @@
 }
 .breadcrumb-line-danger:after {
 	box-shadow: inset -0.125rem 0 0 0 $theme_danger, inset 0 0.125rem $theme_danger;	
+}
+.breadcrumb-rounded:after {
+	border-top-right-radius: 50%;
+}
+*[class*="breadcrumb-"],
+*[class*="breadcrumb-"]:after {
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+	backface-visibility: hidden;
+}
+*[class*="breadcrumb-"]:not(.breadcrumb-last):after {
+	position: absolute;
+	content: " ";
+	border: transparent;
+	background-color: inherit;
+	border-bottom-left-radius: 100%;
+	transform: rotate(45deg);	
+	z-index: 1;
 }
 .razor-blade-top-left.razor-blade-sm:after,
 .razor-blade-bottom-right.razor-blade-sm:after {	

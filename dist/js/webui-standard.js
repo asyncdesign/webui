@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 7.0.6
+* Version: 8.0.0
 * MIT License
 */
 "use strict";
@@ -1481,7 +1481,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v7.0.6";
+    webui.version = "v8.0.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -2527,379 +2527,361 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn;
-    var getGuid = function() {
-        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-            var r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
-            return v.toString(16);
-        });
+    var fn = webui.fn, zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
+        var radialWidth = el.offsetWidth;
+        var radialHeight = el.offsetHeight;
+        var radialContent = webui(el).find(".radial-content").css("transition", "all " + params.duration / 1e3 + "s ease-out");
+        var radialItems = radialContent.find(".radial-item");
+        var sliceFactor = 1;
+        switch (radialItems.length) {
+          case 3:
+            sliceFactor = 1.335;
+            break;
+
+          case 4:
+            sliceFactor = 1.5;
+            break;
+
+          case 5:
+            sliceFactor = 1.6;
+            break;
+
+          case 6:
+            sliceFactor = 1.665;
+            break;
+
+          case 7:
+            sliceFactor = 1.715;
+            break;
+
+          case 8:
+            sliceFactor = 1.75;
+            break;
+
+          case 9:
+            sliceFactor = 1.78;
+            break;
+
+          case 10:
+            sliceFactor = 1.8;
+            break;
+
+          case 11:
+            sliceFactor = 1.82;
+            break;
+
+          default:
+            if (radialItems.length > 11) {
+                sliceFactor = 1.833 + (radialItems.length - 12) * .008;
+            } else {
+                sliceFactor = 1;
+            }
+            break;
+        }
+        var radialSlice = params.mode === "top" ? -sliceFactor : params.mode === "bottom" ? sliceFactor : 1;
+        for (var j = 0; j < radialItems.length; j++) {
+            var radialItem = webui(radialItems[j]);
+            var radialItemWidth = parseFloat(radialItem.css("width"));
+            var radialItemHeight = parseFloat(radialItem.css("height"));
+            var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
+            var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
+            radialItem.css("left", radialLeft);
+            radialItem.css("top", radialTop);
+        }
     };
-    var rhombusClipShapes = webui(".rhombus-clip-shape");
-    for (var i = 0; i < rhombusClipShapes.length; i++) {
-        var rhombusClipShape = webui(rhombusClipShapes[i]);
-        var svgChildren = rhombusClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            rhombusClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.5, 0.5 1, 0 0.5' /></clipPath></defs></svg>").appendTo(rhombusClipShape);
+    /* PUBLIC */
+    Object.defineProperty(webui.prototype, "radialControl", {
+        value: function(options) {
+            var settings = ui.extend({
+                zoom: 1,
+                mode: "full",
+                responsive: true,
+                transitionDuration: 300
+            }, options);
+            zoom = settings.zoom;
+            mode = settings.mode;
+            responsive = settings.responsive;
+            transitionDuration = settings.transitionDuration;
+            var radials = webui(this);
+            for (var i = 0; i < radials.length; i++) {
+                var radialWidth = radials[i].offsetWidth;
+                var radialHeight = radials[i].offsetHeight;
+                var radialContent = webui(radials[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1e3 + "s ease-out");
+                var radialItems = radialContent.find(".radial-item");
+                var sliceFactor = 1;
+                switch (radialItems.length) {
+                  case 3:
+                    sliceFactor = 1.335;
+                    break;
+
+                  case 4:
+                    sliceFactor = 1.5;
+                    break;
+
+                  case 5:
+                    sliceFactor = 1.6;
+                    break;
+
+                  case 6:
+                    sliceFactor = 1.665;
+                    break;
+
+                  case 7:
+                    sliceFactor = 1.715;
+                    break;
+
+                  case 8:
+                    sliceFactor = 1.75;
+                    break;
+
+                  case 9:
+                    sliceFactor = 1.78;
+                    break;
+
+                  case 10:
+                    sliceFactor = 1.8;
+                    break;
+
+                  case 11:
+                    sliceFactor = 1.82;
+                    break;
+
+                  default:
+                    if (radialItems.length > 11) {
+                        sliceFactor = 1.833 + (radialItems.length - 12) * .008;
+                    } else {
+                        sliceFactor = 1;
+                    }
+                    break;
+                }
+                var radialSlice = mode === "top" ? -sliceFactor : mode === "bottom" ? sliceFactor : 1;
+                for (var j = 0; j < radialItems.length; j++) {
+                    var radialItem = webui(radialItems[j]);
+                    var radialItemWidth = parseFloat(radialItem.css("width"));
+                    var radialItemHeight = parseFloat(radialItem.css("height"));
+                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
+                    var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
+                    radialItem.css("left", radialLeft);
+                    radialItem.css("top", radialTop);
+                }
+                if (responsive) {
+                    webui(radials[i]).resize(resetRadial, {
+                        zoom: zoom,
+                        mode: mode,
+                        transitionDuration: transitionDuration
+                    });
+                }
+            }
+            this.find(".radial-activator").click(function(e) {
+                e.preventDefault();
+                webui(this).siblings(".radial-content").first().toggleClass("radial-open");
+            });
         }
-    }
-    var rhomboidClipShapes = webui(".rhomboid-clip-shape");
-    for (var i = 0; i < rhomboidClipShapes.length; i++) {
-        var rhomboidClipShape = webui(rhomboidClipShapes[i]);
-        var svgChildren = rhomboidClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            rhomboidClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 1 0, 0.7 1' /></clipPath></defs></svg>").appendTo(rhomboidClipShape);
-        }
-    }
-    var kiteClipShapes = webui(".kite-clip-shape");
-    for (var i = 0; i < kiteClipShapes.length; i++) {
-        var kiteClipShape = webui(kiteClipShapes[i]);
-        var svgChildren = kiteClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            kiteClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.3, 0.5 1, 0 0.3' /></clipPath></defs></svg>").appendTo(kiteClipShape);
-        }
-    }
-    var trapezoidIsoscelesClipShapes = webui(".trapezoid-isosceles-clip-shape");
-    for (var i = 0; i < trapezoidIsoscelesClipShapes.length; i++) {
-        var trapezoidIsoscelesClipShape = webui(trapezoidIsoscelesClipShapes[i]);
-        var svgChildren = trapezoidIsoscelesClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            trapezoidIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 0.7 0, 1 1' /></clipPath></defs></svg>").appendTo(trapezoidIsoscelesClipShape);
-        }
-    }
-    var triangleIsoscelesClipShapes = webui(".triangle-isosceles-clip-shape");
-    for (var i = 0; i < triangleIsoscelesClipShapes.length; i++) {
-        var triangleIsoscelesClipShape = webui(triangleIsoscelesClipShapes[i]);
-        var svgChildren = triangleIsoscelesClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            triangleIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.5 0, 0.5 0, 1 1' /></clipPath></defs></svg>").appendTo(triangleIsoscelesClipShape);
-        }
-    }
-    var pentagonClipShapes = webui(".pentagon-clip-shape");
-    for (var i = 0; i < pentagonClipShapes.length; i++) {
-        var pentagonClipShape = webui(pentagonClipShapes[i]);
-        var svgChildren = pentagonClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            pentagonClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.4, 0.8 1, 0.2 1, 0 0.4' /></clipPath></defs></svg>").appendTo(pentagonClipShape);
-        }
-    }
-    var starClipShapes = webui(".star-clip-shape");
-    for (var i = 0; i < starClipShapes.length; i++) {
-        var starClipShape = webui(starClipShapes[i]);
-        var svgChildren = starClipShape.children("svg");
-        if (!svgChildren.length) {
-            var id = getGuid();
-            starClipShape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 0.63 0.38, 1 0.38, 0.69 0.59, 0.82 1, 0.5 0.75, 0.18 1, 0.31 0.59, 0 0.38, 0.37 0.38' /></clipPath></defs></svg>").appendTo(starClipShape);
-        }
-    }
-    var getTransformShapeParameters = function(shape) {
-        var units = shape.data("size") !== undefined && isNaN(shape.data("size")) ? shape.data("size").split(/(\d+)/).filter(Boolean) : [ "10", "rem" ];
-        var sizeUnits = [];
-        var number = "";
-        for (var i = 0; i < units.length; i++) {
-            if (i < units.length - 1) {
-                number += units[i];
+    });
+})(window);
+
+(function(win) {
+    /* PRIVATE */
+    var fn = webui.fn, interval, autoPlay, autoScale, playDirection, stopOnHover, transitionDuration, transitionType, transitionOrientation, carousel, carouselHolder, carouselItems, carouselItemCount, carouselItemFirst, carouselItemLast, carouselWidth = 0, carouselHeight = 0, carouselItemWidth = 0, carouselItemHeight = 0, itemBorderWidth = 0, itemBorderHeight = 0, current = 1, cycle = false, delta = 1, transitionCompleted = true, shift = function(dir) {
+        current += delta;
+        cycle = !!(current === 0 || current > carouselItemCount);
+        if (cycle) {
+            current = current === 0 ? carouselItemCount : 1;
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                carouselHolder.css(dir, "-" + carouselItemHeight * current + "px");
+            } else {
+                carouselHolder.css(dir, "-" + carouselItemWidth * current + "px");
             }
         }
-        sizeUnits.push(number);
-        sizeUnits.push(units[units.length - 1]);
-        var shapeRotation = shape.data("rotation") !== undefined ? shape.data("rotation") : 0;
-        var shapeClassName = shape.data("class") !== undefined ? shape.data("class") : "background-default";
-        return {
-            size: parseFloat(sizeUnits[0]),
-            units: sizeUnits[1],
-            rotation: shapeRotation,
-            class: shapeClassName
-        };
-    };
-    var isoscelesShapes = webui(".isosceles-shape");
-    for (var i = 0; i < isoscelesShapes.length; i++) {
-        var shape = webui(isoscelesShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 1.285714285714286 + params.units);
-        shapeContainer.css("height", params.size / 1.285714285714286 + params.units);
-        shapeContainer.css("transform", "rotate(45deg) translateX(" + params.size / 5.294087 + params.units + ") translateY(" + params.size / 5.294087 + params.units + ")");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size + params.units);
-        shapeInner.css("height", params.size + params.units);
-        shapeInner.css("transform", "rotate(-45deg) translateY(" + params.size / -1.415 + params.units + ")");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("overflow", "hidden");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateY(" + params.size / 3.857142857142857 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var rhombusShapes = webui(".rhombus-shape");
-    for (var i = 0; i < rhombusShapes.length; i++) {
-        var shape = webui(rhombusShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 1.44 + params.units);
-        shapeContainer.css("height", params.size / 1.44 + params.units);
-        shapeContainer.css("transform", "rotate(45deg)");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "rotate(-45deg) translateY(" + params.size / -4.56 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var parallelogramShapes = webui(".parallelogram-shape");
-    for (var i = 0; i < parallelogramShapes.length; i++) {
-        var shape = webui(parallelogramShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size + params.units);
-        shapeContainer.css("height", params.size / 1.538461538461538 + params.units);
-        shapeContainer.css("transform", "rotate(-70deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size + params.units);
-        shapeInner.css("height", params.size / 1.538461538461538 + params.units);
-        shapeInner.css("transform", "rotate(70deg)");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("overflow", "hidden");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateY(" + params.size / -4.56 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var diamondShapes = webui(".diamond-shape");
-    for (var i = 0; i < diamondShapes.length; i++) {
-        var shape = webui(diamondShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 1.384615384615385 + params.units);
-        shapeContainer.css("height", params.size / 1.384615384615385 + params.units);
-        shapeContainer.css("transform", "rotate(45deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size / 1.125 + params.units);
-        shapeInner.css("height", params.size / 1.125 + params.units);
-        shapeInner.css("transform", "rotate(-45deg)");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateX(" + params.size / -18 + params.units + ") translateY(" + params.size / -12 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var hexagonShapes = webui(".hexagon-shape");
-    for (var i = 0; i < hexagonShapes.length; i++) {
-        var shape = webui(hexagonShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 1.168831168831169 + params.units);
-        shapeContainer.css("height", params.size * 1.038888888888889 + params.units);
-        shapeContainer.css("transform", "rotate(120deg)");
-        var shapeInnerFirst = webui("<div></div>");
-        shapeInnerFirst.css("overflow", "hidden");
-        shapeInnerFirst.css("width", params.size / 1.168831168831169 + params.units);
-        shapeInnerFirst.css("height", params.size * 1.038888888888889 + params.units);
-        shapeInnerFirst.css("transform", "rotate(-60deg)");
-        var shapeInnerSecond = webui("<div></div>");
-        shapeInnerSecond.css("overflow", "hidden");
-        shapeInnerSecond.css("width", params.size / 1.168831168831169 + params.units);
-        shapeInnerSecond.css("height", params.size * 1.038888888888889 + params.units);
-        shapeInnerSecond.css("transform", "rotate(-60deg)");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateX(" + params.size / -14 + params.units + ") translateY(" + params.size / 50 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInnerSecond);
-        shapeInnerSecond.appendTo(shapeInnerFirst);
-        shapeInnerFirst.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var octagonShapes = webui(".octagon-shape");
-    for (var i = 0; i < octagonShapes.length; i++) {
-        var shape = webui(octagonShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size + params.units);
-        shapeContainer.css("height", params.size + params.units);
-        shapeContainer.css("transform", "rotate(45deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size + params.units);
-        shapeInner.css("height", params.size + params.units);
-        shapeInner.css("transform", "rotate(-45deg)");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var diamondFlatShapes = webui(".diamond-flat-shape");
-    for (var i = 0; i < diamondFlatShapes.length; i++) {
-        var shape = webui(diamondFlatShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 1.45 + params.units);
-        shapeContainer.css("height", params.size / 1.45 + params.units);
-        shapeContainer.css("transform", "rotate(45deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size * .9999999999999997 + params.units);
-        shapeInner.css("height", params.size * .84375 + params.units);
-        shapeInner.css("transform", "rotate(-45deg) translateX(" + params.size / -19 + params.units + ")");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateY(" + params.size / -6.5 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var scaleneLeftShapes = webui(".scalene-left-shape");
-    for (var i = 0; i < scaleneLeftShapes.length; i++) {
-        var shape = webui(scaleneLeftShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 2.5 + params.units);
-        shapeContainer.css("height", params.size / 1.090909090909091 + params.units);
-        shapeContainer.css("transform", "rotate(-70deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size + params.units);
-        shapeInner.css("height", params.size / 3 + params.units);
-        shapeInner.css("transform", "rotate(70deg) translateX(" + params.size / 5.4 + params.units + ") translateY(" + params.size / 5.4 + params.units + ")");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateY(" + params.size / -4 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var scaleneRightShapes = webui(".scalene-right-shape");
-    for (var i = 0; i < scaleneRightShapes.length; i++) {
-        var shape = webui(scaleneRightShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size / 2.5 + params.units);
-        shapeContainer.css("height", params.size / 1.090909090909091 + params.units);
-        shapeContainer.css("transform", "rotate(70deg)");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size + params.units);
-        shapeInner.css("height", params.size / 3 + params.units);
-        shapeInner.css("transform", "rotate(-70deg) translateX(" + params.size / -2.575 + params.units + ") translateY(" + params.size / -2.63 + params.units + ")");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size + params.units);
-        shapeContent.css("height", params.size + params.units);
-        shapeContent.css("transform", "translateY(" + params.size / -4 + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    var customShapes = webui(".custom-shape");
-    for (var i = 0; i < customShapes.length; i++) {
-        var shape = webui(customShapes[i]);
-        var params = getTransformShapeParameters(shape);
-        var modifiers = shape.data("modifiers") !== undefined ? shape.data("modifiers").split(/((^[-+]?([0-9]+)(\.[0-9]+)?)$)/)[0].split(",") : [ "0.9", "0.8", "-110", "-.05", "0", "0.9", "0.8", "110", ".1", ".12", "1", "1", "0", "-0.1", "-0.1" ];
-        var containerWidthScale = modifiers.length > 0 ? parseFloat(modifiers[0]) : 0;
-        var containerHeightScale = modifiers.length > 1 ? parseFloat(modifiers[1]) : 0;
-        var containerRotate = modifiers.length > 2 ? parseFloat(modifiers[2]) : 0;
-        var containerXTranlateScale = modifiers.length > 3 ? parseFloat(modifiers[3]) : 0;
-        var containerYTranlateScale = modifiers.length > 4 ? parseFloat(modifiers[4]) : 0;
-        var innerWidthScale = modifiers.length > 5 ? parseFloat(modifiers[5]) : 0;
-        var innerHeightScale = modifiers.length > 6 ? parseFloat(modifiers[6]) : 0;
-        var innerRotate = modifiers.length > 7 ? parseFloat(modifiers[7]) : 0;
-        var innerXTranlateScale = modifiers.length > 8 ? parseFloat(modifiers[8]) : 0;
-        var innerYTranlateScale = modifiers.length > 9 ? parseFloat(modifiers[9]) : 0;
-        var contentWidthScale = modifiers.length > 10 ? parseFloat(modifiers[10]) : 0;
-        var contentHeightScale = modifiers.length > 11 ? parseFloat(modifiers[11]) : 0;
-        var contentRotate = modifiers.length > 12 ? parseFloat(modifiers[12]) : 0;
-        var contentXTranlateScale = modifiers.length > 13 ? parseFloat(modifiers[13]) : 0;
-        var contentYTranlateScale = modifiers.length > 14 ? parseFloat(modifiers[14]) : 0;
-        shape.css("box-sizing", "border-box");
-        shape.css("transform", "rotate(" + params.rotation + "deg)");
-        var shapeContainer = webui("<div></div>");
-        shapeContainer.css("overflow", "hidden");
-        shapeContainer.css("width", params.size * containerWidthScale + params.units);
-        shapeContainer.css("height", params.size * containerHeightScale + params.units);
-        shapeContainer.css("transform", "rotate(" + containerRotate + "deg) translateX(" + params.size * containerXTranlateScale + params.units + ") translateY(" + params.size * containerYTranlateScale + params.units + ")");
-        var shapeInner = webui("<div></div>");
-        shapeInner.css("overflow", "hidden");
-        shapeInner.css("width", params.size * innerWidthScale + params.units);
-        shapeInner.css("height", params.size * innerHeightScale + params.units);
-        shapeInner.css("transform", "rotate(" + innerRotate + "deg) translateX(" + params.size * innerXTranlateScale + params.units + ") translateY(" + params.size * innerYTranlateScale + params.units + ")");
-        var shapeContent = webui("<div></div>");
-        shapeContent.css("width", params.size * contentWidthScale + params.units);
-        shapeContent.css("height", params.size * contentHeightScale + params.units);
-        shapeContent.css("transform", "rotate(" + contentRotate + "deg) translateX(" + params.size * contentXTranlateScale + params.units + ") translateY(" + params.size * contentYTranlateScale + params.units + ")");
-        shapeContent.addClass(params.class);
-        shapeContent.appendTo(shapeInner);
-        shapeInner.appendTo(shapeContainer);
-        shapeContainer.appendTo(shape);
-    }
-    /* PUBLIC */
-    fn.renderPolygonShape = function(polygonPoints) {
-        var shape, id;
-        for (var i = 0; i < this.length; i++) {
-            shape = webui(this[i]);
-            id = getGuid();
-            shape.attr("style", "clip-path: url('#" + id + "')");
-            webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='" + polygonPoints + "' /></clipPath></defs></svg>").appendTo(shape);
+    }, resetCarousel = function(carousel, itemCount) {
+        if (autoScale) {
+            carousel.css("width", "100%");
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItems.css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
+            carouselItemWidth = ui.getAvgWidth(carouselItems);
+            carouselItemHeight = ui.getAvgHeight(carouselItems);
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+                var t = carouselItemHeight * current;
+                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+            } else {
+                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+                var l = carouselItemWidth * current;
+                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+            }
+            carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");
+        } else {
+            carouselItems.css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px").css("box-sizing", "border-box");
+            carouselItemWidth = ui.getAvgWidth(carouselItems);
+            carouselItemHeight = ui.getAvgHeight(carouselItems);
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+                var t = carouselItemHeight * current;
+                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+            } else {
+                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+                var l = carouselItemWidth * current;
+                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+            }
         }
+    };
+    /* PUBLIC */
+    Object.defineProperty(webui.prototype, "carouselControl", {
+        value: function(options) {
+            var settings = ui.extend({
+                interval: 1e4,
+                autoPlay: true,
+                autoScale: true,
+                playDirection: "next",
+                stopOnHover: true,
+                transitionDuration: 1500,
+                transitionType: "slide",
+                transitionOrientation: "horizontal"
+            }, options);
+            interval = settings.interval;
+            autoPlay = settings.autoPlay;
+            autoScale = settings.autoScale;
+            playDirection = settings.playDirection;
+            stopOnHover = settings.stopOnHover;
+            transitionDuration = settings.transitionDuration;
+            transitionType = settings.transitionType;
+            transitionOrientation = settings.transitionOrientation;
+            if (this.length > 1 || webui(".carousel").length > 1) {
+                console.error("Multiple carousels are not supported in WebUI.");
+                carousel = this.first();
+            } else {
+                carousel = this;
+            }
+            carouselHolder = carousel.find(".carousel-item-holder");
+            carouselItems = carouselHolder.find(".carousel-item");
+            carouselItemCount = carouselItems.length;
+            if (carouselItemCount) {
+                carousel.css("position", "relative").css("overflow", "hidden").css("box-sizing", "border-box");
+                carouselHolder.css("display", "block").css("position", "absolute").css("margin", "0").css("border", "none").css("padding", "0").css("box-sizing", "border-box");
+                carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
+                itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
+                itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+                resetCarousel(carousel, carouselItemCount);
+                if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
+                    win.onresize = function() {
+                        resetCarousel(carousel, carouselItemCount);
+                    };
+                }
+                webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
+                webui(carouselItems.first()[0].cloneNode(true)).appendTo(carouselHolder);
+                if (autoPlay) {
+                    carousel.play();
+                    if (stopOnHover) {
+                        carousel.hoverIn(function() {
+                            carousel.stop();
+                        });
+                        carousel.hoverOut(function() {
+                            carousel.play();
+                        });
+                    }
+                }
+            }
+            return this;
+        },
+        enumerable: false
+    });
+    fn.prev = function() {
+        if (transitionCompleted) {
+            transitionCompleted = false;
+            delta = -1;
+            carousel.trigger("ui.carousel.change.before", [ current ]);
+            if (transitionType === "fade") {
+                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                    element.slideHorizontal("right", carouselItemWidth, 0, function(element) {
+                        shift("left");
+                        element.fadeIn(transitionDuration, 0, function(element) {
+                            transitionCompleted = true;
+                            carousel.trigger("ui.carousel.change.after", [ current ]);
+                        });
+                    });
+                });
+            } else if (transitionType === "slide") {
+                if (transitionOrientation === "vertical") {
+                    carouselHolder.slideVertical("down", carouselItemHeight, transitionDuration, function(element) {
+                        shift("top");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                } else {
+                    carouselHolder.slideHorizontal("right", carouselItemWidth, transitionDuration, function(element) {
+                        shift("left");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                }
+            }
+        }
+        return this;
+    };
+    fn.next = function() {
+        if (transitionCompleted) {
+            transitionCompleted = false;
+            delta = 1;
+            carousel.trigger("ui.carousel.change.before", [ current ]);
+            if (transitionType === "fade") {
+                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                    element.slideHorizontal("left", carouselItemWidth, 0, function(element) {
+                        shift("left");
+                        element.fadeIn(transitionDuration, 0, function(element) {
+                            transitionCompleted = true;
+                            carousel.trigger("ui.carousel.change.after", [ current ]);
+                        });
+                    });
+                });
+            } else if (transitionType === "slide") {
+                if (transitionOrientation === "vertical") {
+                    carouselHolder.slideVertical("up", carouselItemHeight, transitionDuration, function(element) {
+                        shift("top");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                } else {
+                    carouselHolder.slideHorizontal("left", carouselItemWidth, transitionDuration, function(element) {
+                        shift("left");
+                        transitionCompleted = true;
+                        carousel.trigger("ui.carousel.change.after", [ current ]);
+                    });
+                }
+            }
+        }
+        return this;
+    };
+    fn.select = function(index) {
+        if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
+            current = parseInt(index) + 1;
+            if (transitionOrientation === "vertical" && transitionType === "slide") {
+                carouselHolder.css("top", "-" + carouselItemHeight * current + "px");
+            } else {
+                carouselHolder.css("left", "-" + carouselItemWidth * current + "px");
+            }
+            transitionCompleted = true;
+        }
+        return this;
+    };
+    fn.play = function() {
+        clearInterval(this.run);
+        if (playDirection === "next") {
+            this.run = setInterval(function() {
+                carousel.next();
+            }, interval);
+        } else if (playDirection === "prev") {
+            this.run = setInterval(function() {
+                carousel.prev();
+            }, interval);
+        }
+        return this;
+    };
+    fn.stop = function() {
+        clearInterval(this.run);
         return this;
     };
 })(window);
@@ -2911,15 +2893,15 @@
     fn.snapPosition = function(targetElement, position, cssUnit, origin) {
         var args = arguments, target = webui(targetElement), els = this, el, wrapper;
         if (args.length > 0 && target.length) {
+            if (!target.parent().hasClass("snap-target-context")) {
+                wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
+                wrapper.appendTo(target.parent());
+                target.appendTo(wrapper);
+            } else {
+                wrapper = target;
+            }
             for (var i = 0; i < els.length; i++) {
                 el = webui(els[i]);
-                if (!target.parent().hasClass("snap-target-context")) {
-                    wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
-                    wrapper.appendTo(target.parent());
-                    target.appendTo(wrapper);
-                } else {
-                    wrapper = target;
-                }
                 el.css("position", "absolute").appendTo(wrapper);
                 var pos = position && position.length === 2 ? position : [ 0, 0 ];
                 var posX = pos[0];
@@ -3256,361 +3238,444 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, interval, autoPlay, autoScale, playDirection, stopOnHover, transitionDuration, transitionType, transitionOrientation, carousel, carouselHolder, carouselItems, carouselItemCount, carouselItemFirst, carouselItemLast, carouselWidth = 0, carouselHeight = 0, carouselItemWidth = 0, carouselItemHeight = 0, itemBorderWidth = 0, itemBorderHeight = 0, current = 1, cycle = false, delta = 1, transitionCompleted = true, shift = function(dir) {
-        current += delta;
-        cycle = !!(current === 0 || current > carouselItemCount);
-        if (cycle) {
-            current = current === 0 ? carouselItemCount : 1;
-            if (transitionOrientation === "vertical" && transitionType === "slide") {
-                carouselHolder.css(dir, "-" + carouselItemHeight * current + "px");
-            } else {
-                carouselHolder.css(dir, "-" + carouselItemWidth * current + "px");
+    var fn = webui.fn, selectorRegExpMatches = function(selector, regExp) {
+        var el = webui(selector);
+        return el.is("input[type='text']") && regExp.test(el.val()) || el.is("textarea") && regExp.test(el.text()) || el.is("select") && regExp.test(el.find("option:checked").text()) || el.is("input[type='checkbox']") && regExp.test(el.is(":checked"));
+    }, containsSpaceOrDot = function(selector) {
+        var el = webui(selector);
+        return /^\s$/.test(el.val()) || el.val().indexOf(".") > -1;
+    }, containsSpace = function(selector) {
+        return /^\s$/.test(webui(selector).val());
+    }, toDateObject = function(year, month, day, hour, minute, second) {
+        try {
+            var date = new Date(year, month, day, hour, minute, second);
+            if (date.getDate() == day && date.getMonth() == month && date.getFullYear() == year && date.getHours() == hour && date.getMinutes() == minute && date.getSeconds() == second) {
+                return date;
             }
-        }
-    }, resetCarousel = function(carousel, itemCount) {
-        if (autoScale) {
-            carousel.css("width", "100%");
-            carouselHolder = carousel.find(".carousel-item-holder");
-            carouselItems = carouselHolder.find(".carousel-item");
-            carouselItems.css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
-            carouselItemWidth = ui.getAvgWidth(carouselItems);
-            carouselItemHeight = ui.getAvgHeight(carouselItems);
-            if (transitionOrientation === "vertical" && transitionType === "slide") {
-                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-                var t = carouselItemHeight * current;
-                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
-            } else {
-                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-                var l = carouselItemWidth * current;
-                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-            }
-            carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");
-        } else {
-            carouselItems.css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px").css("box-sizing", "border-box");
-            carouselItemWidth = ui.getAvgWidth(carouselItems);
-            carouselItemHeight = ui.getAvgHeight(carouselItems);
-            carouselHolder = carousel.find(".carousel-item-holder");
-            carouselItems = carouselHolder.find(".carousel-item");
-            carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
-            if (transitionOrientation === "vertical" && transitionType === "slide") {
-                var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-                var t = carouselItemHeight * current;
-                carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
-            } else {
-                var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-                var l = carouselItemWidth * current;
-                carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-            }
+            return null;
+        } catch (ex) {
+            return null;
         }
     };
     /* PUBLIC */
-    Object.defineProperty(webui.prototype, "carouselControl", {
-        value: function(options) {
-            var settings = ui.extend({
-                interval: 1e4,
-                autoPlay: true,
-                autoScale: true,
-                playDirection: "next",
-                stopOnHover: true,
-                transitionDuration: 1500,
-                transitionType: "slide",
-                transitionOrientation: "horizontal"
-            }, options);
-            interval = settings.interval;
-            autoPlay = settings.autoPlay;
-            autoScale = settings.autoScale;
-            playDirection = settings.playDirection;
-            stopOnHover = settings.stopOnHover;
-            transitionDuration = settings.transitionDuration;
-            transitionType = settings.transitionType;
-            transitionOrientation = settings.transitionOrientation;
-            if (this.length > 1 || webui(".carousel").length > 1) {
-                console.error("Multiple carousels are not supported in WebUI.");
-                carousel = this.first();
-            } else {
-                carousel = this;
-            }
-            carouselHolder = carousel.find(".carousel-item-holder");
-            carouselItems = carouselHolder.find(".carousel-item");
-            carouselItemCount = carouselItems.length;
-            if (carouselItemCount) {
-                carousel.css("position", "relative").css("overflow", "hidden").css("box-sizing", "border-box");
-                carouselHolder.css("display", "block").css("position", "absolute").css("margin", "0").css("border", "none").css("padding", "0").css("box-sizing", "border-box");
-                carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
-                itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
-                itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
-                resetCarousel(carousel, carouselItemCount);
-                if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
-                    win.onresize = function() {
-                        resetCarousel(carousel, carouselItemCount);
-                    };
+    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!el.is(":checked")) {
+                    ok = false;
                 }
-                webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
-                webui(carouselItems.first()[0].cloneNode(true)).appendTo(carouselHolder);
-                if (autoPlay) {
-                    carousel.play();
-                    if (stopOnHover) {
-                        carousel.hoverIn(function() {
-                            carousel.stop();
-                        });
-                        carousel.hoverOut(function() {
-                            carousel.play();
-                        });
+            }
+            return ok;
+        } else if (args.length === 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+                    if (!el.is(":checked")) {
+                        ok = false;
                     }
-                }
-            }
-            return this;
-        },
-        enumerable: false
-    });
-    fn.prev = function() {
-        if (transitionCompleted) {
-            transitionCompleted = false;
-            delta = -1;
-            carousel.trigger("ui.carousel.change.before", [ current ]);
-            if (transitionType === "fade") {
-                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
-                    element.slideHorizontal("right", carouselItemWidth, 0, function(element) {
-                        shift("left");
-                        element.fadeIn(transitionDuration, 0, function(element) {
-                            transitionCompleted = true;
-                            carousel.trigger("ui.carousel.change.after", [ current ]);
-                        });
-                    });
-                });
-            } else if (transitionType === "slide") {
-                if (transitionOrientation === "vertical") {
-                    carouselHolder.slideVertical("down", carouselItemHeight, transitionDuration, function(element) {
-                        shift("top");
-                        transitionCompleted = true;
-                        carousel.trigger("ui.carousel.change.after", [ current ]);
-                    });
                 } else {
-                    carouselHolder.slideHorizontal("right", carouselItemWidth, transitionDuration, function(element) {
-                        shift("left");
-                        transitionCompleted = true;
-                        carousel.trigger("ui.carousel.change.after", [ current ]);
-                    });
+                    ok = false;
                 }
             }
+            return ok;
         }
-        return this;
+        return false;
     };
-    fn.next = function() {
-        if (transitionCompleted) {
-            transitionCompleted = false;
-            delta = 1;
-            carousel.trigger("ui.carousel.change.before", [ current ]);
-            if (transitionType === "fade") {
-                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
-                    element.slideHorizontal("left", carouselItemWidth, 0, function(element) {
-                        shift("left");
-                        element.fadeIn(transitionDuration, 0, function(element) {
-                            transitionCompleted = true;
-                            carousel.trigger("ui.carousel.change.after", [ current ]);
-                        });
-                    });
-                });
-            } else if (transitionType === "slide") {
-                if (transitionOrientation === "vertical") {
-                    carouselHolder.slideVertical("up", carouselItemHeight, transitionDuration, function(element) {
-                        shift("top");
-                        transitionCompleted = true;
-                        carousel.trigger("ui.carousel.change.after", [ current ]);
-                    });
+    fn.hasConformingString = function(regExp, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1 || el.val().length > 0 && !regExp.test(el.val())) {
+                    ok = false;
+                }
+            }
+            return ok;
+        } else if (args.length === 4) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
                 } else {
-                    carouselHolder.slideHorizontal("left", carouselItemWidth, transitionDuration, function(element) {
-                        shift("left");
-                        transitionCompleted = true;
-                        carousel.trigger("ui.carousel.change.after", [ current ]);
-                    });
-                }
-            }
-        }
-        return this;
-    };
-    fn.select = function(index) {
-        if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
-            current = parseInt(index) + 1;
-            if (transitionOrientation === "vertical" && transitionType === "slide") {
-                carouselHolder.css("top", "-" + carouselItemHeight * current + "px");
-            } else {
-                carouselHolder.css("left", "-" + carouselItemWidth * current + "px");
-            }
-            transitionCompleted = true;
-        }
-        return this;
-    };
-    fn.play = function() {
-        clearInterval(this.run);
-        if (playDirection === "next") {
-            this.run = setInterval(function() {
-                carousel.next();
-            }, interval);
-        } else if (playDirection === "prev") {
-            this.run = setInterval(function() {
-                carousel.prev();
-            }, interval);
-        }
-        return this;
-    };
-    fn.stop = function() {
-        clearInterval(this.run);
-        return this;
-    };
-})(window);
-
-(function(win) {
-    /* PRIVATE */
-    var fn = webui.fn, zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
-        var radialWidth = el.offsetWidth;
-        var radialHeight = el.offsetHeight;
-        var radialContent = webui(el).find(".radial-content").css("transition", "all " + params.duration / 1e3 + "s ease-out");
-        var radialItems = radialContent.find(".radial-item");
-        var sliceFactor = 1;
-        switch (radialItems.length) {
-          case 3:
-            sliceFactor = 1.335;
-            break;
-
-          case 4:
-            sliceFactor = 1.5;
-            break;
-
-          case 5:
-            sliceFactor = 1.6;
-            break;
-
-          case 6:
-            sliceFactor = 1.665;
-            break;
-
-          case 7:
-            sliceFactor = 1.715;
-            break;
-
-          case 8:
-            sliceFactor = 1.75;
-            break;
-
-          case 9:
-            sliceFactor = 1.78;
-            break;
-
-          case 10:
-            sliceFactor = 1.8;
-            break;
-
-          case 11:
-            sliceFactor = 1.82;
-            break;
-
-          default:
-            if (radialItems.length > 11) {
-                sliceFactor = 1.833 + (radialItems.length - 12) * .008;
-            } else {
-                sliceFactor = 1;
-            }
-            break;
-        }
-        var radialSlice = params.mode === "top" ? -sliceFactor : params.mode === "bottom" ? sliceFactor : 1;
-        for (var j = 0; j < radialItems.length; j++) {
-            var radialItem = webui(radialItems[j]);
-            var radialItemWidth = parseFloat(radialItem.css("width"));
-            var radialItemHeight = parseFloat(radialItem.css("height"));
-            var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
-            var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / params.zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
-            radialItem.css("left", radialLeft);
-            radialItem.css("top", radialTop);
-        }
-    };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "radialControl", {
-        value: function(options) {
-            var settings = ui.extend({
-                zoom: 1,
-                mode: "full",
-                responsive: true,
-                transitionDuration: 300
-            }, options);
-            zoom = settings.zoom;
-            mode = settings.mode;
-            responsive = settings.responsive;
-            transitionDuration = settings.transitionDuration;
-            var radials = webui(this);
-            for (var i = 0; i < radials.length; i++) {
-                var radialWidth = radials[i].offsetWidth;
-                var radialHeight = radials[i].offsetHeight;
-                var radialContent = webui(radials[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1e3 + "s ease-out");
-                var radialItems = radialContent.find(".radial-item");
-                var sliceFactor = 1;
-                switch (radialItems.length) {
-                  case 3:
-                    sliceFactor = 1.335;
-                    break;
-
-                  case 4:
-                    sliceFactor = 1.5;
-                    break;
-
-                  case 5:
-                    sliceFactor = 1.6;
-                    break;
-
-                  case 6:
-                    sliceFactor = 1.665;
-                    break;
-
-                  case 7:
-                    sliceFactor = 1.715;
-                    break;
-
-                  case 8:
-                    sliceFactor = 1.75;
-                    break;
-
-                  case 9:
-                    sliceFactor = 1.78;
-                    break;
-
-                  case 10:
-                    sliceFactor = 1.8;
-                    break;
-
-                  case 11:
-                    sliceFactor = 1.82;
-                    break;
-
-                  default:
-                    if (radialItems.length > 11) {
-                        sliceFactor = 1.833 + (radialItems.length - 12) * .008;
+                    if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+                        if (el.val().length > 0 && !regExp.test(el.val())) {
+                            ok = false;
+                        }
                     } else {
-                        sliceFactor = 1;
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasNumericInRange = function(lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 3) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else if (el.val().length > 0) {
+                    if (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpace(el) || el.val() < lowerLimit || el.val() > upperLimit) {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        } else if (args.length === 5) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else {
+                    if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+                        if (el.val().length > 0 && (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpace(el) || el.val() < lowerLimit || el.val() > upperLimit)) {
+                            ok = false;
+                        }
+                    } else {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasIntegerInRange = function(lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp) {
+        var args = arguments, el, ok = true;
+        if (args.length === 3) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else if (el.val().length > 0) {
+                    if (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpaceOrDot(el) || el.val() < lowerLimit || el.val() > upperLimit) {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        } else if (args.length === 5) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                if (!allowEmpty && el.val().length < 1) {
+                    ok = false;
+                } else {
+                    if (selectorRegExpMatches(dependsOnSelector, dependsOnRegExp)) {
+                        if (el.val().length > 0 && (isNaN(el.val()) || isNaN(lowerLimit) || isNaN(upperLimit) || containsSpaceOrDot(el) || el.val() < lowerLimit || el.val() > upperLimit)) {
+                            ok = false;
+                        }
+                    } else {
+                        ok = false;
+                    }
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasValidDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1 || strDate.length > 0 && ui.convertToDate(strDate, format) === null) {
+                    ok = false;
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasPastDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) >= 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasPresentDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) !== 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasFutureDateTime = function(format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    if (ui.getTimeOffsetFromNow(strDate, format) <= 0) {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    fn.hasDateTimeInRange = function(minDateTimeString, maxDateTimeString, format, allowEmpty) {
+        var el, ok = true;
+        if (arguments.length > 2) {
+            for (var i = 0; i < this.length; i++) {
+                el = webui(this[i]);
+                var strDate = el.val();
+                if (!allowEmpty && strDate.length < 1) {
+                    ok = false;
+                } else if (el.hasValidDateTime(format, allowEmpty)) {
+                    var date = ui.convertToDate(strDate, format);
+                    var minDate = ui.convertToDate(minDateTimeString, format);
+                    var maxDate = ui.convertToDate(maxDateTimeString, format);
+                    if (minDate != null && maxDate != null) {
+                        if (date.valueOf() < minDate.valueOf() || date.valueOf() > maxDate.valueOf()) {
+                            ok = false;
+                        }
+                    } else {
+                        ok = false;
+                    }
+                } else {
+                    ok = false;
+                }
+            }
+            return ok;
+        }
+        return false;
+    };
+    webui.convertToDate = function(dateTimeString, format) {
+        try {
+            if (arguments.length > 1) {
+                var parts;
+                var dateTokens;
+                var timeTokens;
+                switch (format) {
+                  case "DD/MM/YYYY":
+                    dateTokens = dateTimeString.split("/");
+                    if (dateTokens.length === 3) {
+                        return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], 0, 0, 0);
+                    }
+                    break;
+
+                  case "DD/MM/YYYY hh:mm":
+                  case "DD/MM/YYYY HH:mm":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("/");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 2) {
+                            return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], timeTokens[0], timeTokens[1], 0);
+                        }
+                    }
+                    break;
+
+                  case "DD/MM/YYYY hh:mm:ss":
+                  case "DD/MM/YYYY HH:mm:ss":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("/");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 3) {
+                            return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], timeTokens[0], timeTokens[1], timeTokens[2]);
+                        }
+                    }
+                    break;
+
+                  case "DD-MM-YYYY":
+                    dateTokens = dateTimeString.split("-");
+                    if (dateTokens.length === 3) {
+                        return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], 0, 0, 0);
+                    }
+                    break;
+
+                  case "DD-MM-YYYY hh:mm":
+                  case "DD-MM-YYYY HH:mm":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("-");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 2) {
+                            return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], timeTokens[0], timeTokens[1], 0);
+                        }
+                    }
+                    break;
+
+                  case "DD-MM-YYYY hh:mm:ss":
+                  case "DD-MM-YYYY HH:mm:ss":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("-");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 3) {
+                            return toDateObject(dateTokens[2], dateTokens[1] - 1, dateTokens[0], timeTokens[0], timeTokens[1], timeTokens[2]);
+                        }
+                    }
+                    break;
+
+                  case "MM/DD/YYYY":
+                    dateTokens = dateTimeString.split("/");
+                    if (dateTokens.length === 3) {
+                        return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], 0, 0, 0);
+                    }
+                    break;
+
+                  case "MM/DD/YYYY hh:mm":
+                  case "MM/DD/YYYY HH:mm":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("/");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 2) {
+                            return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], timeTokens[0], timeTokens[1], 0);
+                        }
+                    }
+                    break;
+
+                  case "MM/DD/YYYY hh:mm:ss":
+                  case "MM/DD/YYYY HH:mm:ss":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("/");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 3) {
+                            return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], timeTokens[0], timeTokens[1], timeTokens[2]);
+                        }
+                    }
+                    break;
+
+                  case "MM-DD-YYYY":
+                    dateTokens = dateTimeString.split("-");
+                    if (dateTokens.length === 3) {
+                        return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], 0, 0, 0);
+                    }
+                    break;
+
+                  case "MM-DD-YYYY hh:mm:ss":
+                  case "MM-DD-YYYY HH:mm:ss":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("-");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 3) {
+                            return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], timeTokens[0], timeTokens[1], timeTokens[2]);
+                        }
+                    }
+                    break;
+
+                  case "MM-DD-YYYY hh:mm":
+                  case "MM-DD-YYYY HH:mm":
+                    parts = dateTimeString.split(" ");
+                    if (parts.length === 2) {
+                        dateTokens = parts[0].split("-");
+                        timeTokens = parts[1].split(":");
+                        if (dateTokens.length === 3 && timeTokens.length === 2) {
+                            return toDateObject(dateTokens[2], dateTokens[0] - 1, dateTokens[1], timeTokens[0], timeTokens[1], 0);
+                        }
+                    }
+                    break;
+
+                  case "hh:mm":
+                  case "HH:mm":
+                    timeTokens = dateTimeString.split(":");
+                    if (timeTokens.length === 2) {
+                        return toDateObject(1900, 0, 1, timeTokens[0], timeTokens[1], 0);
+                    }
+                    break;
+
+                  case "hh:mm:ss":
+                  case "HH:mm:ss":
+                    timeTokens = dateTimeString.split(":");
+                    if (timeTokens.length === 3) {
+                        return toDateObject(1900, 0, 1, timeTokens[0], timeTokens[1], timeTokens[2]);
                     }
                     break;
                 }
-                var radialSlice = mode === "top" ? -sliceFactor : mode === "bottom" ? sliceFactor : 1;
-                for (var j = 0; j < radialItems.length; j++) {
-                    var radialItem = webui(radialItems[j]);
-                    var radialItemWidth = parseFloat(radialItem.css("width"));
-                    var radialItemHeight = parseFloat(radialItem.css("height"));
-                    var radialLeft = radialWidth / 2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemWidth / 2 + radialWidth / 2 + "px";
-                    var radialTop = radialHeight / 2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice) / (1 * (1 / zoom)) - radialItemHeight / 2 + radialHeight / 2 + "px";
-                    radialItem.css("left", radialLeft);
-                    radialItem.css("top", radialTop);
-                }
-                if (responsive) {
-                    webui(radials[i]).resize(resetRadial, {
-                        zoom: zoom,
-                        mode: mode,
-                        transitionDuration: transitionDuration
-                    });
+            }
+            return null;
+        } catch (ex) {
+            return null;
+        }
+    };
+    webui.getTimeOffsetFromNow = function(dateTimeString, format) {
+        try {
+            if (arguments.length > 1) {
+                var sysDate = new Date();
+                var date = ui.convertToDate(dateTimeString, format);
+                if (date != null) {
+                    if (format.toLowerCase() === "hh:mm:ss" || format.toLowerCase() === "hh:mm") {
+                        date.setDate(sysDate.getDate());
+                        date.setMonth(sysDate.getMonth());
+                        date.setFullYear(sysDate.getFullYear());
+                        if (format.toLowerCase() === "hh:mm") {
+                            date.setSeconds(sysDate.getSeconds());
+                        }
+                        sysDate.setMilliseconds(0);
+                    } else if (format.toLowerCase() === "dd/mm/yyyy hh:mm:ss" || format.toLowerCase() === "dd/mm/yyyy hh:mm" || format.toLowerCase() === "dd-mm-yyyy hh:mm:ss" || format.toLowerCase() === "dd-mm-yyyy hh:mm" || format.toLowerCase() === "mm/dd/yyyy hh:mm:ss" || format.toLowerCase() === "mm/dd/yyyy hh:mm" || format.toLowerCase() === "mm-dd-yyyy hh:mm:ss" || format.toLowerCase() === "mm-dd-yyyy hh:mm") {
+                        if (format.toLowerCase() === "dd/mm/yyyy hh:mm" || format.toLowerCase() === "dd-mm-yyyy hh:mm" || format.toLowerCase() === "mm/dd/yyyy hh:mm" || format.toLowerCase() === "mm-dd-yyyy hh:mm") {
+                            date.setSeconds(sysDate.getSeconds());
+                        }
+                        sysDate.setMilliseconds(0);
+                    } else {
+                        sysDate.setHours(0, 0, 0, 0);
+                    }
+                    return date.getTime() - sysDate.getTime();
                 }
             }
-            this.find(".radial-activator").click(function(e) {
-                e.preventDefault();
-                webui(this).siblings(".radial-content").first().toggleClass("radial-open");
-            });
+            return 0;
+        } catch (ex) {
+            return 0;
         }
-    });
+    };
+    /* REGULAR EXPRESSIONS */
+    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
+    webui.ITEM_CODE = /^([A-Z0-9]{1,50})$/;
+    webui.INTEGER = /^[-+]?\d+$/;
+    webui.POSITIVE_INTEGER = /^\d+$/;
+    webui.NUMERIC = /^[-+]?\d+(\.\d+)?$/;
+    webui.PASSWORD_STRENGTH = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/;
+    webui.EMAIL_ADDRESS = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/;
+    webui.UK_TELEPHONE = /^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/;
+    webui.US_TELEPHONE = /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/;
+    webui.UK_POSTCODE = /^((([A-PR-UWYZ][0-9])|([A-PR-UWYZ][0-9][0-9])|([A-PR-UWYZ][A-HK-Y][0-9])|([A-PR-UWYZ][A-HK-Y][0-9][0-9])|([A-PR-UWYZ][0-9][A-HJKSTUW])|([A-PR-UWYZ][A-HK-Y][0-9][ABEHMNPRVWXY]))\s?([0-9][ABD-HJLNP-UW-Z]{2})|(GIR)\s?(0AA))$/i;
+    webui.US_ZIPCODE = /^\d{5}(-\d{4})?$/;
+    webui.URL = /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)*(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+    webui.TRUE_VALUE = /^(true)$/;
+    webui.FALSE_VALUE = /^(false)$/;
+    webui.ANY_VALUE = /^(?!\s*$).+/;
 })(window);

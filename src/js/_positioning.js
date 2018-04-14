@@ -14,17 +14,17 @@
 
         if (args.length > 0 && target.length) {
 
+            if (!target.parent().hasClass("snap-target-context")) {
+                wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
+                wrapper.appendTo(target.parent());
+                target.appendTo(wrapper);
+            }
+            else {
+                wrapper = target;
+            }
+
             for (var i = 0; i < els.length; i++) {
                 el = webui(els[i]);
-
-                if (!target.parent().hasClass("snap-target-context")) {
-                    wrapper = webui("<div></div>").addClass("snap-target-context").css("position", "absolute");
-                    wrapper.appendTo(target.parent());
-                    target.appendTo(wrapper);
-                }
-                else {
-                    wrapper = target;
-                }
 
                 el.css("position", "absolute").appendTo(wrapper);
 
