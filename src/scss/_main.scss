@@ -18,12 +18,8 @@ meter,
 progress {
 	font: inherit;
 	box-sizing: border-box;
-	border-radius: 0;	
-}
-button,
-input,
-select {
-	padding: 0.063rem 0.625rem;
+	border-radius: 0;
+	min-height: 1.25rem;	
 }
 textarea {
 	resize: vertical;
@@ -43,16 +39,16 @@ input[type=submit] {
 	-webkit-appearance: button;
 }
 h1 {
-	font-size: 1.7rem;
+	font-size: 1.7em;
 }
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.5em;
 }
 h3 {
-	font-size: 1.3rem;
+	font-size: 1.3em;
 }
 h4 {
-	font-size: 1.1rem;
+	font-size: 1.1em;
 }
 details,
 summary,
@@ -229,11 +225,11 @@ svg:not(:root) {
 .input-sm,
 .input-md,
 .input-lg,
-.input-xl {
+.input-xl {	
 	color: $theme_light_foreground;
 	background-color: $theme_light;
 	border: 0.078rem solid $theme_default_border;
-	padding: 0 0.625rem;	
+	padding: 0 0.625rem 0 0.625rem;
 }
 .button,
 .button-xs,
@@ -241,8 +237,7 @@ svg:not(:root) {
 .button-md,
 .button-lg,
 .button-xl {
-	box-sizing: border-box;	
-	padding: 0 0.75rem;
+	box-sizing: border-box;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -250,6 +245,12 @@ svg:not(:root) {
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
 	cursor: default;
+	&:not(.button) {
+		padding: 0 0.75rem 0 0.75rem;
+	}
+}
+.button {
+	padding: 0.063rem 0.75rem 0.063rem 0.75rem;
 }
 .button-link,
 .button-link-xs,
@@ -267,7 +268,7 @@ svg:not(:root) {
 	text-decoration: none;
 	white-space: normal;
 	outline: none;
-	padding: 0.25rem 0.75rem;
+	padding: 0.25rem 0.75rem 0.25rem 0.75rem;
 	color: $theme_default_foreground;
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
@@ -490,7 +491,6 @@ svg:not(:root) {
 .view-button-sm,
 .view-button-lg {
 	box-sizing: border-box;
-	padding: 0 1rem;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -500,6 +500,12 @@ svg:not(:root) {
 	border: none;
 	border-bottom: 0.25rem solid $theme_default;
 	cursor: default;
+	&:not(.view-button) {
+		padding: 0 1rem 0 1rem;
+	}
+}
+.view-button {
+	padding: 0.063rem 1rem 0.063rem 1rem;
 }
 .view-button-link,
 .view-button-link-sm,
@@ -699,10 +705,10 @@ svg:not(:root) {
 .view-button-right.accessibility:focus {
   	box-shadow: inset -0.25rem 0 0 0;
 }
+.menu-button,
 .menu-button-sm,
 .menu-button-lg {
 	box-sizing: border-box;
-	padding: 0 1rem;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -711,6 +717,12 @@ svg:not(:root) {
 	background-color: $theme_default;
 	border: 0.078rem solid $theme_default_border;
 	cursor: default;
+	&:not(.menu-button) {
+		padding: 0 1rem 0 1rem;
+	}
+}
+.menu-button {
+	padding: 0.063rem 1rem 0.063rem 1rem;
 }
 .menu-button-link-sm,
 .menu-button-link-lg {
