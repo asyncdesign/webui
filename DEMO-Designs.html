@@ -97,9 +97,9 @@
 									<a href="" id="c1_prev" class="text-xl pad-md background-transparent color-light fa fa-step-backward place-middle-left"></a>
 									<a href="" id="c1_next" class="text-xl pad-md background-transparent color-light fa fa-step-forward place-middle-right"></a>
 								</div>
-								<div class="text-mega text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide1">Fade in text for slide 1</div>
-								<div class="text-mega text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide2">Fade in text for slide 2</div>
-								<div class="text-mega text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide3">Fade in text for slide 3</div>			
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide1">Fade in text for slide 1</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide2">Fade in text for slide 2</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide3">Fade in text for slide 3</div>			
 							</div>
 						
 							<div class="row-spacing-md"></div>
@@ -568,7 +568,6 @@
 			ui("#c1_selectSlide").change( function() { 
 				var index = webui(this).getOptionValues(true)[0];
 				carousel.select(index);
-				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 				if (index == 0) {
 					ui("#c1_textForSlide1").fadeIn(1500);
 				}

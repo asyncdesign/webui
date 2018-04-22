@@ -10,20 +10,27 @@
     fn.slideVertical = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
         uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
-        frameAdjustment = 50 / (duration / 1000),
+        //frameAdjustment = 70 / (duration / 1000),
         uiDirection = direction ? direction : "down",
         uiDistance = distance ? distance : 0;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
-            uiMovement = uiDistance / duration * frameAdjustment;
+            //uiMovement = uiDistance / duration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("top"));
             uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
+
+            //console.log("dist: " + uiDistance);
           
+            var start = performance.now();
+
             var nextFrame = function (element, movement, position, finalPosition, dir) {
 
-                pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
+                
+                //pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
+                pos = dir === "down" ? parseFloat(uiPosition + (uiDistance * movement)) : parseFloat(uiPosition - (uiDistance * movement));
+                //console.log(pos);
 
                 if ((dir === "down" && pos > finalPosition) || (dir === "up" && pos < finalPosition) || duration === 0) {
                     element.css("top", finalPosition + "px");
@@ -35,12 +42,13 @@
                 else {
                     element.css("top", pos + "px");
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(element, movement, pos, finalPosition, dir);
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = ((time - start) / duration);
+                        nextFrame(element, timeFraction, pos, finalPosition, dir);
                     });
                 }
             };
-            nextFrame(uiElement, uiMovement, uiPosition, uiFinalPosition, uiDirection);			
+            nextFrame(uiElement, 0, uiPosition, uiFinalPosition, uiDirection);			
         }
         return els;
     };
@@ -48,21 +56,25 @@
     fn.slideHorizontal = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
         uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
-        frameAdjustment = 50 / (duration / 1000),
+        //frameAdjustment = 70 / (duration / 1000),
         uiDirection = direction ? direction : "right",
         uiDistance = distance ? distance : 0;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
-            uiMovement = uiDistance / duration * frameAdjustment;
+            //uiMovement = uiDistance / duration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("left"));
             uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
             
+            //console.log("dist: " + uiDistance);
+          
+            var start = performance.now();
             
             var nextFrame = function (element, movement, position, finalPosition, dir) {
 
-                pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
+                //pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
+                pos = dir === "right" ? parseFloat(uiPosition + (uiDistance * movement)) : parseFloat(uiPosition - (uiDistance * movement));
 
                 if ((dir === "right" && pos > finalPosition) || (dir === "left" && pos < finalPosition) || duration === 0) {
                     element.css("left", finalPosition + "px");
@@ -74,19 +86,20 @@
                 else {
                     element.css("left", pos + "px");
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(element, movement, pos, finalPosition, dir);
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = ((time - start) / duration);
+                        nextFrame(element, timeFraction, pos, finalPosition, dir);
                     });
                 }
             };
-            nextFrame(uiElement, uiMovement, uiPosition, uiFinalPosition, uiDirection);			
+            nextFrame(uiElement, 0, uiPosition, uiFinalPosition, uiDirection);			
         }
         return els;
     };
 
     fn.expandVertical = function (duration, targetHeight, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id,
-            frameAdjustment = 50 / (duration / 1000),
+            //frameAdjustment = 70 / (duration / 1000),
             requiredHeight = args.length > 1 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0,
             requiredUnit = args.length > 1 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
             targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0,
@@ -106,7 +119,7 @@
             }
 
             if (targetHeightValue > 0) {
-                uiTargetHeight = targetHeightValue;
+                uiTargetHeight = targetHeightValue + uiBorderSize;
                 uiCurrentHeight = uiOriginalHeight;
             }
             else {
@@ -115,13 +128,16 @@
                 uiCurrentHeight = 0;
             }
 
-            uiMovement = uiTargetHeight / duration * frameAdjustment;            
+            //uiMovement = uiTargetHeight / duration * frameAdjustment;            
+
+            var start = performance.now();
 
             var nextFrame = function (el, elTargetHeight, heightUnit, currentHeight, movement, overflow, borderSize) {
 
-                var height = currentHeight + movement;
+                //var height = currentHeight + movement;
+                var height = elTargetHeight * movement;
 
-                if (height >= elTargetHeight || duration === 0) {
+                if (height > elTargetHeight || duration === 0) {
                     if (requiredUnit === "auto") {
                         el.css("height", "auto").css("overflow", overflow);
                     }
@@ -136,19 +152,22 @@
                 else {
                     el.css("height", height + heightUnit);
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(el, elTargetHeight, heightUnit, height, movement, overflow, borderSize);
+                    //console.log(height);
+
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = ((time - start) / duration);
+                        nextFrame(el, elTargetHeight, heightUnit, height, timeFraction, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);			
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiCurrentHeight, 0, uiOverflow, uiBorderSize);			
         }
         return els;
     };
 
     fn.expandHorizontal = function (duration, targetWidth, callback) {
         var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id,
-            frameAdjustment = 50 / (duration / 1000),
+            //frameAdjustment = 70 / (duration / 1000),
             requiredWidth = args.length > 1 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/ig,"")) : 0,
             requiredUnit =  args.length > 1 && targetWidth ? targetWidth.replace(/[^a-z]+/ig,"") : "auto",
             targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0,
@@ -177,13 +196,16 @@
                 uiCurrentWidth = 0;
             }
 
-            uiMovement = uiTargetWidth / duration * frameAdjustment;
+            //uiMovement = uiTargetWidth / duration * frameAdjustment;
+
+            var start = performance.now();
 
             var nextFrame = function (el, elTargetWidth, widthUnit, currentWidth, movement, overflow, borderSize) {
 
-                var width = currentWidth + movement;
+                //var width = currentWidth + movement;
+                var width = elTargetWidth * movement;
 
-                if (width >= elTargetWidth || duration === 0) {
+                if (width > elTargetWidth || duration === 0) {
                     if (requiredUnit === "auto") {
                         el.css("width", "auto").css("overflow", overflow);
                     }
@@ -198,12 +220,15 @@
                 else {
                     el.css("width", width + widthUnit);
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(el, elTargetWidth, widthUnit, width, movement, overflow, borderSize);
+                    //console.log(width);
+
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = ((time - start) / duration);
+                        nextFrame(el, elTargetWidth, widthUnit, width, timeFraction, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);			
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiCurrentWidth, 0, uiOverflow, uiBorderSize);			
         }
         return els;
     };
@@ -212,10 +237,10 @@
     fn.collapseVertical = function (duration, targetHeight, callback) {
         var args = arguments, els = this,
             uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id,
-            frameAdjustment = 50 / (duration / 1000),
-            requiredHeight = args.length > 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0.01,
-            requiredUnit = args.length > 2 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
-            targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0.01,
+            //frameAdjustment = 70 / (duration / 1000),
+            requiredHeight = args.length > 1 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0,
+            requiredUnit = args.length > 1 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
+            targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0,
             targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
 
@@ -231,38 +256,44 @@
                 uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
             }
 
-            uiMovement = uiCurrentHeight / duration * frameAdjustment;
-            uiTargetHeight = targetHeightValue;
+            //uiMovement = uiCurrentHeight / duration * frameAdjustment;
+            uiTargetHeight = targetHeightValue + uiBorderSize;
 
             if (args.length === 1) {
-                uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
+                uiOriginalHeight = uiCurrentHeight;
             }
+
+            var start = performance.now();
 
             var nextFrame = function (el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
 
-                var height = currentHeight - movement;
+                //var height = currentHeight - movement;
+                var height = originalHeight * movement;
 
-                if (height <= elTargetHeight || duration === 0) {
+                if (height < elTargetHeight || duration === 0) {
                     if (args.length > 1) {
-                        el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
+                        el.css("height", elTargetHeight + heightUnit).css("overflow", overflow);
                     }
                     else {
-                        el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
+                        el.css("height", originalHeight + heightUnit).css("overflow", overflow).css("display", "none");
                     }
                     if (args.length === 3 && callback) {
                         callback(el);
                     }
                     return;
                 }
-                else if (height > elTargetHeight) {
+                else {
                     el.css("height", height + heightUnit);
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(el, elTargetHeight, heightUnit, originalHeight, height, movement, overflow, borderSize);
+                    //console.log(height);
+
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = 1 - ((time - start) / duration);
+                        nextFrame(el, elTargetHeight, heightUnit, originalHeight, height, timeFraction, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiOriginalHeight, uiCurrentHeight, uiMovement, uiOverflow, uiBorderSize);
+            nextFrame(uiElement, uiTargetHeight, targetHeightUnit, uiOriginalHeight, uiCurrentHeight, 1, uiOverflow, uiBorderSize);
         }
         return els;
     };
@@ -270,10 +301,10 @@
     fn.collapseHorizontal = function (duration, targetWidth, callback) {
         var args = arguments, els = this,
             uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id,
-            frameAdjustment = 50 / (duration / 1000),
-            requiredWidth = args.length > 1 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/ig,"")) : 0.01,
+            //frameAdjustment = 70 / (duration / 1000),
+            requiredWidth = args.length > 1 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/ig,"")) : 0,
             requiredUnit =  args.length > 1 && targetWidth ? targetWidth.replace(/[^a-z]+/ig,"") : "auto",
-            targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0.01,
+            targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0,
             targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
 
@@ -289,18 +320,21 @@
                 uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
             }
 
-            uiMovement = uiCurrentWidth / duration * frameAdjustment;
-            uiTargetWidth = targetWidthValue;
+            //uiMovement = uiCurrentWidth / duration * frameAdjustment;
+            uiTargetWidth = targetWidthValue + uiBorderSize;
 
             if (args.length === 1) {
-                uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
+                uiOriginalWidth = uiCurrentWidth;
             }
+
+            var start = performance.now();
 
             var nextFrame = function (el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
 
-                var width = currentWidth - movement;
+                //var width = currentWidth - movement;
+                var width = originalWidth * movement;
 
-                if (width <= elTargetWidth || duration === 0) {
+                if (width < elTargetWidth || duration === 0) {
                     if (args.length > 1) {
                         el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     }
@@ -315,12 +349,15 @@
                 else if (width > elTargetWidth) {
                     el.css("width", width + widthUnit);
 
-                    id = win.requestAnimationFrame(function () {
-                        nextFrame(el, elTargetWidth, widthUnit, originalWidth, width, movement, overflow, borderSize);
+                    //console.log(width);
+
+                    id = win.requestAnimationFrame(function (time) {
+                        var timeFraction = 1 - ((time - start) / duration);
+                        nextFrame(el, elTargetWidth, widthUnit, originalWidth, width, timeFraction, overflow, borderSize);
                     });
                 }
             };
-            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiOriginalWidth, uiCurrentWidth, uiMovement, uiOverflow, uiBorderSize);
+            nextFrame(uiElement, uiTargetWidth, targetWidthUnit, uiOriginalWidth, uiCurrentWidth, 1, uiOverflow, uiBorderSize);
         }
         return els;
     };
@@ -328,7 +365,7 @@
     fn.fadeIn = function (duration, initialOpacity, callback) {
         var args = arguments, els = this,
 			uiElement, uiChange, uiCurrentOpacity, id,
-			frameAdjustment = 50 / (duration / 1000);
+			frameAdjustment = 70 / (duration / 1000);
             
 
         for (var i = 0; i < els.length; i++) {
@@ -364,7 +401,7 @@
     fn.fadeOut = function (duration, finalOpacity, callback) {
         var args = arguments, els = this,
 			uiElement, uiChange, uiCurrentOpacity, id,
-			frameAdjustment = 50 / (duration / 1000);
+			frameAdjustment = 70 / (duration / 1000);
             
 
         for (var i = 0; i < els.length; i++) {

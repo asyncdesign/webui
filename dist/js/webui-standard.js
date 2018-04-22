@@ -2856,6 +2856,7 @@
         return this;
     };
     fn.select = function(index) {
+        carousel.trigger("ui.carousel.change.before", [ current ]);
         if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
             current = parseInt(index) + 1;
             if (transitionOrientation === "vertical" && transitionType === "slide") {
@@ -2865,6 +2866,7 @@
             }
             transitionCompleted = true;
         }
+        carousel.trigger("ui.carousel.change.after", [ current ]);
         return this;
     };
     fn.play = function() {
@@ -2962,7 +2964,7 @@
     var fn = webui.fn;
     /* PUBLIC */
     fn.slideVertical = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -2989,7 +2991,7 @@
         return els;
     };
     fn.slideHorizontal = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 70 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -3016,7 +3018,7 @@
         return els;
     };
     fn.expandVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetHeight, uiOriginalHeight, uiMovement, uiCurrentHeight, id, frameAdjustment = 50 / (duration / 1e3), requiredHeight = args.length > 1 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length > 1 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3059,7 +3061,7 @@
         return els;
     };
     fn.expandHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiTargetWidth, uiOriginalWidth, uiMovement, uiCurrentWidth, id, frameAdjustment = 50 / (duration / 1e3), requiredWidth = args.length > 1 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : 0, requiredUnit = args.length > 1 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : 0, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3102,7 +3104,7 @@
         return els;
     };
     fn.collapseVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 70 / (duration / 1e3), requiredHeight = args.length === 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 50 / (duration / 1e3), requiredHeight = args.length > 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length > 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3120,7 +3122,7 @@
             var nextFrame = function(el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
                 var height = currentHeight - movement;
                 if (height <= elTargetHeight || duration === 0) {
-                    if (args.length === 2) {
+                    if (args.length > 1) {
                         el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     } else {
                         el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
@@ -3141,7 +3143,7 @@
         return els;
     };
     fn.collapseHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id, frameAdjustment = 70 / (duration / 1e3), requiredWidth = args.length === 2 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length === 2 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : .01, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiMovement, uiTargetWidth, uiOriginalWidth, id, frameAdjustment = 50 / (duration / 1e3), requiredWidth = args.length > 1 && targetWidth ? parseFloat(targetWidth.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length > 1 && targetWidth ? targetWidth.replace(/[^a-z]+/gi, "") : "auto", targetWidthValue = !isNaN(requiredWidth) ? requiredWidth : .01, targetWidthUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3159,7 +3161,7 @@
             var nextFrame = function(el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
                 var width = currentWidth - movement;
                 if (width <= elTargetWidth || duration === 0) {
-                    if (args.length === 2) {
+                    if (args.length > 1) {
                         el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     } else {
                         el.css("width", originalWidth - borderSize + widthUnit).css("overflow", overflow).css("display", "none");
@@ -3180,7 +3182,7 @@
         return els;
     };
     fn.fadeIn = function(duration, initialOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("opacity", "0").css("display", "block");
@@ -3206,7 +3208,7 @@
         return els;
     };
     fn.fadeOut = function(duration, finalOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 70 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             if (uiElement.css("display") !== "block") {

@@ -266,6 +266,8 @@
 
 	fn.select = function (index) {
 
+		carousel.trigger("ui.carousel.change.before", [current]);
+
 		if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
 
 			current = parseInt(index) + 1;
@@ -279,6 +281,8 @@
 			transitionCompleted = true;
 		}
 
+		carousel.trigger("ui.carousel.change.after", [current]);
+		
 		return this;
 	};
 
