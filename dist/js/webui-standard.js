@@ -2795,7 +2795,7 @@
             delta = -1;
             carousel.trigger("ui.carousel.change.before", [ current ]);
             if (transitionType === "fade") {
-                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                carouselHolder.fadeOut(1e3, .5, function(element) {
                     element.slideHorizontal("right", carouselItemWidth, 0, function(element) {
                         shift("left");
                         element.fadeIn(transitionDuration, 0, function(element) {
@@ -2828,7 +2828,7 @@
             delta = 1;
             carousel.trigger("ui.carousel.change.before", [ current ]);
             if (transitionType === "fade") {
-                carouselHolder.fadeOut(transitionDuration, .5, function(element) {
+                carouselHolder.fadeOut(1e3, .5, function(element) {
                     element.slideHorizontal("left", carouselItemWidth, 0, function(element) {
                         shift("left");
                         element.fadeIn(transitionDuration, 0, function(element) {
@@ -3183,14 +3183,14 @@
     };
     fn.fadeIn = function(duration, initialOpacity, callback) {
         var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
+        uiCurrentOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("opacity", "0").css("display", "block");
-            uiChange = .3 / duration * frameAdjustment;
-            uiCurrentOpacity = initialOpacity && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
+            uiChange = 1 / duration * frameAdjustment;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity + change;
-                if (opacity >= .99 || duration === 0) {
+                if (opacity >= .99 || duration < frameAdjustment) {
                     element.css("opacity", "1").css("display", "block");
                     if (args.length === 3 && callback) {
                         callback(element);
@@ -3209,18 +3209,18 @@
     };
     fn.fadeOut = function(duration, finalOpacity, callback) {
         var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
+        uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             if (uiElement.css("display") !== "block") {
                 continue;
             }
             uiElement.css("opacity", "1");
-            uiChange = .3 / duration * frameAdjustment;
-            uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 1;
+            uiChange = 1 / duration * frameAdjustment;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity - change;
-                if (opacity <= .01 || duration === 0) {
-                    element.css("opacity", "0").css("display", "none");
+                if (opacity <= uiCurrentOpacity + .01 || duration < frameAdjustment) {
+                    uiCurrentOpacity > 0 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");
                     if (args.length === 3 && callback) {
                         callback(element);
                     }
@@ -3232,7 +3232,7 @@
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentOpacity, uiChange);
+            nextFrame(uiElement, 1, uiChange);
         }
         return els;
     };

@@ -193,7 +193,7 @@
 			carousel.trigger("ui.carousel.change.before", [current]);
 
 			if (transitionType === "fade") {
-				carouselHolder.fadeOut(transitionDuration, 0.5, function (element) {
+				carouselHolder.fadeOut(1000, 0.5, function (element) {
 					element.slideHorizontal("right", carouselItemWidth, 0, function (element) {
 						shift("left");
 						element.fadeIn(transitionDuration, 0, function (element) {
@@ -234,7 +234,7 @@
 			carousel.trigger("ui.carousel.change.before", [current]);
 
 			if (transitionType === "fade") {
-				carouselHolder.fadeOut(transitionDuration, 0.5, function (element) {
+				carouselHolder.fadeOut(1000, 0.5, function (element) {
 					element.slideHorizontal("left", carouselItemWidth, 0, function (element) {
 						shift("left");
 						element.fadeIn(transitionDuration, 0, function (element) {							

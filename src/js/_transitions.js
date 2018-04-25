@@ -4,7 +4,7 @@
     /* PRIVATE */
 
     var fn = webui.fn;
-
+    
     /* PUBLIC */
 
     fn.slideVertical = function (direction, distance, duration, callback) {
@@ -328,20 +328,20 @@
     fn.fadeIn = function (duration, initialOpacity, callback) {
         var args = arguments, els = this,
 			uiElement, uiChange, uiCurrentOpacity, id,
-			frameAdjustment = 50 / (duration / 1000);
+            frameAdjustment = 50 / (duration / 1000);
             
+        uiCurrentOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
 			uiElement.css("opacity", "0").css("display", "block");
-			uiChange = 0.3 / duration * frameAdjustment;
-			uiCurrentOpacity = initialOpacity && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
+            uiChange = 1 / duration * frameAdjustment;
 			
             var nextFrame = function (element, currentOpacity, change) {
 
                 var opacity = currentOpacity + change;
 
-                if (opacity >= 0.99 || duration === 0) {
+                if (opacity >= 0.99 || duration < frameAdjustment) {
                     element.css("opacity", "1").css("display", "block");
                     if (args.length === 3 && callback) {
                         callback(element);
@@ -366,6 +366,7 @@
 			uiElement, uiChange, uiCurrentOpacity, id,
 			frameAdjustment = 50 / (duration / 1000);
             
+        uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -375,15 +376,14 @@
             }
 
 			uiElement.css("opacity", "1");			
-			uiChange = 0.3 / duration * frameAdjustment;
-			uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 1;
+            uiChange = 1 / duration * frameAdjustment;
 
             var nextFrame = function (element, currentOpacity, change) {
 
-				var opacity = currentOpacity - change;
+                var opacity = currentOpacity - change;
 
-                if (opacity <= 0.01 || duration === 0) {
-                    element.css("opacity", "0").css("display", "none");	
+                if (opacity <= uiCurrentOpacity + 0.01 || duration < frameAdjustment) {
+                    uiCurrentOpacity > 0 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");	
                     if (args.length === 3 && callback) {
                         callback(element);
                     }	
@@ -397,7 +397,7 @@
                     });
                 }
             };
-            nextFrame(uiElement, uiCurrentOpacity, uiChange);
+            nextFrame(uiElement, 1, uiChange);
         }
         return els;
     };

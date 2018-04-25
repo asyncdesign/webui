@@ -81,7 +81,7 @@
 
 					<div class="content-row">
 						<div class="panel width-full outline-light">
-							<div class="carousel width-full" id="carousel">
+							<div class="carousel" id="carousel"> <!-- Specify both width and height if using autoScale: false -->
 								<div class="carousel-item-holder">		
 									<div class="carousel-item border-md border-secondary">
 										<img src="images/landscape_1.jpg" />
@@ -540,7 +540,7 @@
 								playDirection: "next",
 								stopOnHover: true,
 								transitionDuration: 1500, 
-								transitionType: "slide", 
+								transitionType: "fade", 
 								transitionOrientation: "vertical" 
 							});
 			
@@ -551,7 +551,7 @@
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 			});
 			
-
+			
 			carousel.on("ui.carousel.change.after", function(e) {
 				if (e.detail == 1) {
 					ui("#c1_textForSlide1").fadeIn(1500);
