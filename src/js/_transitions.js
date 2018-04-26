@@ -213,8 +213,8 @@
         var args = arguments, els = this,
             uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id,
             frameAdjustment = 50 / (duration / 1000),
-            requiredHeight = args.length > 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0.01,
-            requiredUnit = args.length > 2 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
+            requiredHeight = args.length > 1 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/ig,"")) : 0.01,
+            requiredUnit = args.length > 1 && targetHeight ? targetHeight.replace(/[^a-z]+/ig,"") : "auto",
             targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : 0.01,
             targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
 
@@ -234,7 +234,7 @@
             uiMovement = uiCurrentHeight / duration * frameAdjustment;
             uiTargetHeight = targetHeightValue;
 
-            if (args.length === 1) {
+            if (args.length === 1 || !targetHeight) {
                 uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
             }
 
@@ -243,7 +243,7 @@
                 var height = currentHeight - movement;
 
                 if (height <= elTargetHeight || duration === 0) {
-                    if (args.length > 1) {
+                    if (args.length > 1 && targetHeight) {
                         el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     }
                     else {
@@ -292,7 +292,7 @@
             uiMovement = uiCurrentWidth / duration * frameAdjustment;
             uiTargetWidth = targetWidthValue;
 
-            if (args.length === 1) {
+            if (args.length === 1 || !targetWidth) {
                 uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
             }
 
@@ -301,7 +301,7 @@
                 var width = currentWidth - movement;
 
                 if (width <= elTargetWidth || duration === 0) {
-                    if (args.length > 1) {
+                    if (args.length > 1 && targetWidth) {
                         el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     }
                     else {
@@ -383,7 +383,7 @@
                 var opacity = currentOpacity - change;
 
                 if (opacity <= uiCurrentOpacity + 0.01 || duration < frameAdjustment) {
-                    uiCurrentOpacity > 0 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");	
+                    uiCurrentOpacity > 0.01 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");	
                     if (args.length === 3 && callback) {
                         callback(element);
                     }	

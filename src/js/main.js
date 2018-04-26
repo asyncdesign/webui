@@ -140,7 +140,7 @@
 
 						if (toggleItem.hasClass("off-canvas-closed")) {
 
-							toggleItem.trigger("ui.toggleItem.hide.before");
+							toggleItem.trigger("ui.toggleItem.show.before");
 
 							toggleItem.removeClass("off-canvas-closed");
 							
@@ -154,11 +154,11 @@
 								toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 							}
 
-							toggleItem.trigger("ui.toggleItem.hide.after");
+							toggleItem.trigger("ui.toggleItem.show.after");
 						} 
 						else {
 										
-							toggleItem.trigger("ui.toggleItem.show.before");
+							toggleItem.trigger("ui.toggleItem.hide.before");
 
 							if (offCanvasLeft) {
 								toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
@@ -171,46 +171,59 @@
 
 							toggleItem.addClass("off-canvas-closed");
 
-							toggleItem.trigger("ui.toggleItem.show.after");
+							toggleItem.trigger("ui.toggleItem.hide.after");
 						}
 					}
 					else {
 						if (toggleItem.css("display") === "block") {
 
-							toggleItem.trigger("ui.toggleItem.show.before");
+							toggleItem.trigger("ui.toggleItem.hide.before");
 
 							if (transitionDuration && transitionType === "fade") {
-								toggleItem.fadeOut(transitionDuration);
+								toggleItem.fadeOut(transitionDuration, 0, function() {
+									toggleItem.trigger("ui.toggleItem.hide.after");
+								});
 							}
 							else if (transitionDuration && transitionType === "collapse") {
 								if (transitionOrientation === "horizontal") {
-									toggleItem.collapseHorizontal(transitionDuration);
+									toggleItem.collapseHorizontal(transitionDuration, 0, function() {
+										toggleItem.trigger("ui.toggleItem.hide.after");
+									});
 								}
 								else {
-									toggleItem.collapseVertical(transitionDuration);
+									toggleItem.collapseVertical(transitionDuration, 0, function() {
+										toggleItem.trigger("ui.toggleItem.hide.after");
+									});
 								}
 							}
 							else {
 								toggleItem.hide();
-							}
-							toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.trigger("ui.toggleItem.hide.after");
+							}		
 						} 
 						else {
-							toggleItem.trigger("ui.toggleItem.hide.before");
+							toggleItem.trigger("ui.toggleItem.show.before");
 
 							if (transitionDuration && transitionType === "fade") {
-								toggleItem.fadeIn(transitionDuration);
+								toggleItem.fadeIn(transitionDuration, 0, function() {
+									toggleItem.trigger("ui.toggleItem.show.after");
+								});
 							}
 							else if (transitionDuration && transitionType === "collapse") {
 								if (transitionOrientation === "horizontal") {
-									toggleItem.expandHorizontal(transitionDuration, "auto");
+									toggleItem.expandHorizontal(transitionDuration, "auto", function() {
+										toggleItem.trigger("ui.toggleItem.show.after");
+									});
 								}
 								else {
-									toggleItem.expandVertical(transitionDuration, "auto");
+									toggleItem.expandVertical(transitionDuration, "auto", function() {
+										toggleItem.trigger("ui.toggleItem.show.after");
+									});
 								}
 							}
 							else {
 								toggleItem.show();
+								toggleItem.trigger("ui.toggleItem.show.after");
 							}
 
 							if (toggleContainer.hasClass("toggle-inclusive") === false) {
@@ -229,8 +242,7 @@
 								else {
 									toggleItem.siblings(".toggle-item").hide();
 								}
-							}
-							toggleItem.trigger("ui.toggleItem.hide.after");
+							}			
 						}
 					}
 				}

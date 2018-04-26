@@ -696,11 +696,11 @@
 			ui("#ocButton1").snapPosition("#oc1", [1, 1], "rem", "top-right");
 
 			// Toggle left off-canvas button icon
-			ui( "#oc1" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#ocButton1").setState("fa-close", "fa-bars");
+			ui( "#oc1" ).on("ui.toggleItem.show.after", function(e) {		
+				ui("#ocButton1").setState("fa-bars", "fa-close");			
 			});
 			ui( "#oc1" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#ocButton1").setState("fa-bars", "fa-close");
+				ui("#ocButton1").setState("fa-close", "fa-bars");	
 			});
 
 			// Positioning for right off-canvas menu button
@@ -708,39 +708,39 @@
 
 			// Toggle right off-canvas button icon
 			ui( "#oc2" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#ocButton2").setState("fa-close", "fa-bars");
+				ui("#ocButton2").setState("fa-bars", "fa-close");
 			});
 			ui( "#oc2" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#ocButton2").setState("fa-bars", "fa-close");
+				ui("#ocButton2").setState("fa-close", "fa-bars");
 			});
 
 			// Toggle slide-out button icon
-			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#slideButton1").setState("fa-close", "fa-bars");
+			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {		
+				ui("#slideButton1").setState("fa-bars", "fa-close");
 			});
 			ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#slideButton1").setState("fa-bars", "fa-close");
+				ui("#slideButton1").setState("fa-close", "fa-bars");		
 			});
 
 			ui( "#panel2" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#slideButton2").setState("fa-close", "fa-bars");
+				ui("#slideButton2").setState("fa-bars", "fa-close");
 			});
 			ui( "#panel2" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#slideButton2").setState("fa-bars", "fa-close");
+				ui("#slideButton2").setState("fa-close", "fa-bars");
 			});
 
 			ui( "#panel3" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#slideButton3").setState("fa-close", "fa-bars");
+				ui("#slideButton3").setState("fa-bars", "fa-close");
 			});
 			ui( "#panel3" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#slideButton3").setState("fa-bars", "fa-close");
+				ui("#slideButton3").setState("fa-close", "fa-bars");
 			});
 
 			ui( "#panel4" ).on("ui.toggleItem.show.after", function(e) {
-				ui("#slideButton4").setState("fa-close", "fa-bars");
+				ui("#slideButton4").setState("fa-bars", "fa-close");
 			});
 			ui( "#panel4" ).on("ui.toggleItem.hide.after", function(e) {
-				ui("#slideButton4").setState("fa-bars", "fa-close");
+				ui("#slideButton4").setState("fa-close", "fa-bars");
 			});
 			
 

@@ -92,7 +92,7 @@
                     ui(".off-canvas-left, .off-canvas-right").css("transition-duration", transitionDuration / 1e3 + "s");
                     toggleBody.css("transition-duration", transitionDuration / 1e3 + "s");
                     if (toggleItem.hasClass("off-canvas-closed")) {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
+                        toggleItem.trigger("ui.toggleItem.show.before");
                         toggleItem.removeClass("off-canvas-closed");
                         if (offCanvasLeft) {
                             toggleItem.css("transform", "translate(0, 0)");
@@ -101,9 +101,9 @@
                             toggleItem.css("transform", "translate(0, 0)");
                             toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
                         }
-                        toggleItem.trigger("ui.toggleItem.hide.after");
+                        toggleItem.trigger("ui.toggleItem.show.after");
                     } else {
-                        toggleItem.trigger("ui.toggleItem.show.before");
+                        toggleItem.trigger("ui.toggleItem.hide.before");
                         if (offCanvasLeft) {
                             toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
                             toggleBody.css("transform", "translate(0, 0)");
@@ -112,35 +112,48 @@
                             toggleBody.css("transform", "translate(0, 0)");
                         }
                         toggleItem.addClass("off-canvas-closed");
-                        toggleItem.trigger("ui.toggleItem.show.after");
+                        toggleItem.trigger("ui.toggleItem.hide.after");
                     }
                 } else {
                     if (toggleItem.css("display") === "block") {
-                        toggleItem.trigger("ui.toggleItem.show.before");
+                        toggleItem.trigger("ui.toggleItem.hide.before");
                         if (transitionDuration && transitionType === "fade") {
-                            toggleItem.fadeOut(transitionDuration);
+                            toggleItem.fadeOut(transitionDuration, 0, function() {
+                                toggleItem.trigger("ui.toggleItem.hide.after");
+                            });
                         } else if (transitionDuration && transitionType === "collapse") {
                             if (transitionOrientation === "horizontal") {
-                                toggleItem.collapseHorizontal(transitionDuration);
+                                toggleItem.collapseHorizontal(transitionDuration, 0, function() {
+                                    toggleItem.trigger("ui.toggleItem.hide.after");
+                                });
                             } else {
-                                toggleItem.collapseVertical(transitionDuration);
+                                toggleItem.collapseVertical(transitionDuration, 0, function() {
+                                    toggleItem.trigger("ui.toggleItem.hide.after");
+                                });
                             }
                         } else {
                             toggleItem.hide();
+                            toggleItem.trigger("ui.toggleItem.hide.after");
                         }
-                        toggleItem.trigger("ui.toggleItem.show.after");
                     } else {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
+                        toggleItem.trigger("ui.toggleItem.show.before");
                         if (transitionDuration && transitionType === "fade") {
-                            toggleItem.fadeIn(transitionDuration);
+                            toggleItem.fadeIn(transitionDuration, 0, function() {
+                                toggleItem.trigger("ui.toggleItem.show.after");
+                            });
                         } else if (transitionDuration && transitionType === "collapse") {
                             if (transitionOrientation === "horizontal") {
-                                toggleItem.expandHorizontal(transitionDuration, "auto");
+                                toggleItem.expandHorizontal(transitionDuration, "auto", function() {
+                                    toggleItem.trigger("ui.toggleItem.show.after");
+                                });
                             } else {
-                                toggleItem.expandVertical(transitionDuration, "auto");
+                                toggleItem.expandVertical(transitionDuration, "auto", function() {
+                                    toggleItem.trigger("ui.toggleItem.show.after");
+                                });
                             }
                         } else {
                             toggleItem.show();
+                            toggleItem.trigger("ui.toggleItem.show.after");
                         }
                         if (toggleContainer.hasClass("toggle-inclusive") === false) {
                             if (transitionDuration && transitionType === "fade") {
@@ -155,7 +168,6 @@
                                 toggleItem.siblings(".toggle-item").hide();
                             }
                         }
-                        toggleItem.trigger("ui.toggleItem.hide.after");
                     }
                 }
             }
@@ -3483,7 +3495,7 @@
         return els;
     };
     fn.collapseVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 50 / (duration / 1e3), requiredHeight = args.length > 2 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length > 2 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiMovement, uiTargetHeight, uiOriginalHeight, id, frameAdjustment = 50 / (duration / 1e3), requiredHeight = args.length > 1 && targetHeight ? parseFloat(targetHeight.replace(/[^0-9]+/gi, "")) : .01, requiredUnit = args.length > 1 && targetHeight ? targetHeight.replace(/[^a-z]+/gi, "") : "auto", targetHeightValue = !isNaN(requiredHeight) ? requiredHeight : .01, targetHeightUnit = requiredUnit !== "auto" ? requiredUnit : "px";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3495,13 +3507,13 @@
             }
             uiMovement = uiCurrentHeight / duration * frameAdjustment;
             uiTargetHeight = targetHeightValue;
-            if (args.length === 1) {
+            if (args.length === 1 || !targetHeight) {
                 uiOriginalHeight = els[i].scrollHeight + uiBorderSize;
             }
             var nextFrame = function(el, elTargetHeight, heightUnit, originalHeight, currentHeight, movement, overflow, borderSize) {
                 var height = currentHeight - movement;
                 if (height <= elTargetHeight || duration === 0) {
-                    if (args.length > 1) {
+                    if (args.length > 1 && targetHeight) {
                         el.css("height", elTargetHeight - borderSize + heightUnit).css("overflow", overflow);
                     } else {
                         el.css("height", originalHeight - borderSize + heightUnit).css("overflow", overflow).css("display", "none");
@@ -3534,13 +3546,13 @@
             }
             uiMovement = uiCurrentWidth / duration * frameAdjustment;
             uiTargetWidth = targetWidthValue;
-            if (args.length === 1) {
+            if (args.length === 1 || !targetWidth) {
                 uiOriginalWidth = els[i].scrollWidth + uiBorderSize;
             }
             var nextFrame = function(el, elTargetWidth, widthUnit, originalWidth, currentWidth, movement, overflow, borderSize) {
                 var width = currentWidth - movement;
                 if (width <= elTargetWidth || duration === 0) {
-                    if (args.length > 1) {
+                    if (args.length > 1 && targetWidth) {
                         el.css("width", elTargetWidth - borderSize + widthUnit).css("overflow", overflow);
                     } else {
                         el.css("width", originalWidth - borderSize + widthUnit).css("overflow", overflow).css("display", "none");
@@ -3599,7 +3611,7 @@
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity - change;
                 if (opacity <= uiCurrentOpacity + .01 || duration < frameAdjustment) {
-                    uiCurrentOpacity > 0 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");
+                    uiCurrentOpacity > .01 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");
                     if (args.length === 3 && callback) {
                         callback(element);
                     }
