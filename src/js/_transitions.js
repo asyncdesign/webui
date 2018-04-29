@@ -5,11 +5,11 @@
 
     var fn = webui.fn,
     
-    getValueFromCssSize = function(size) {
+    getValueFromCssSize = function (size) {
         var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9]+/gi, "")) : !isNaN(size) ? size : 0;
         return parseFloat(sizeValue);
     },
-    getUnitFromCssSize = function(size) {
+    getUnitFromCssSize = function (size) {
         var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z]+/gi, "") : "px";
         sizeUnit = sizeUnit.length > 0 ? sizeUnit : "px";
         return sizeUnit !== "auto" ? sizeUnit : "auto";

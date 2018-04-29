@@ -82,6 +82,7 @@
             var transitionDuration = parseInt(toggleContainer.data("transition-duration"));
             var transitionType = toggleContainer.data("transition-type");
             var transitionOrientation = toggleContainer.data("transition-orientation");
+            var transitionDistance = toggleContainer.data("transition-distance");
             var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
             var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
             var offCanvasRight = toggleItem.hasClass("off-canvas-right");
@@ -143,13 +144,25 @@
                             });
                         } else if (transitionDuration && transitionType === "collapse") {
                             if (transitionOrientation === "horizontal") {
-                                toggleItem.expandHorizontal(transitionDuration, "auto", function() {
-                                    toggleItem.trigger("ui.toggleItem.show.after");
-                                });
+                                if (transitionDistance) {
+                                    toggleItem.expandHorizontal(transitionDuration, transitionDistance, function() {
+                                        toggleItem.trigger("ui.toggleItem.show.after");
+                                    });
+                                } else {
+                                    toggleItem.expandHorizontal(transitionDuration, "auto", function() {
+                                        toggleItem.trigger("ui.toggleItem.show.after");
+                                    });
+                                }
                             } else {
-                                toggleItem.expandVertical(transitionDuration, "auto", function() {
-                                    toggleItem.trigger("ui.toggleItem.show.after");
-                                });
+                                if (transitionDistance) {
+                                    toggleItem.expandVertical(transitionDuration, transitionDistance, function() {
+                                        toggleItem.trigger("ui.toggleItem.show.after");
+                                    });
+                                } else {
+                                    toggleItem.expandVertical(transitionDuration, "auto", function() {
+                                        toggleItem.trigger("ui.toggleItem.show.after");
+                                    });
+                                }
                             }
                         } else {
                             toggleItem.show();
