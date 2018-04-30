@@ -2990,7 +2990,7 @@
         var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9]+/gi, "")) : !isNaN(size) ? size : 0;
         return parseFloat(sizeValue);
     }, getUnitFromCssSize = function(size) {
-        var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z]+/gi, "") : "px";
+        var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z%]+/gi, "") : "px";
         sizeUnit = sizeUnit.length > 0 ? sizeUnit : "px";
         return sizeUnit !== "auto" ? sizeUnit : "auto";
     };
@@ -3062,7 +3062,12 @@
                 targetHeightUnit = "px";
             } else {
                 if (targetHeightValue) {
-                    uiTargetHeight = targetHeightValue;
+                    if (targetHeightUnit === "%") {
+                        uiTargetHeight = parseFloat(uiElement.parent().css("height")) / 100 * targetHeightValue;
+                        targetHeightUnit = "px";
+                    } else {
+                        uiTargetHeight = targetHeightValue;
+                    }
                 } else {
                     uiTargetHeight = targetHeightUnit === "rem" ? ui.pxToRem(uiOriginalHeight) : uiOriginalHeight;
                 }
@@ -3106,7 +3111,12 @@
                 targetWidthUnit = "px";
             } else {
                 if (targetWidthValue) {
-                    uiTargetWidth = targetWidthValue;
+                    if (targetWidthUnit === "%") {
+                        uiTargetWidth = parseFloat(uiElement.parent().css("width")) / 100 * targetWidthValue;
+                        targetWidthUnit = "px";
+                    } else {
+                        uiTargetWidth = targetWidthValue;
+                    }
                 } else {
                     uiTargetWidth = targetWidthUnit === "rem" ? ui.pxToRem(uiOriginalWidth) : uiOriginalWidth;
                 }
@@ -3149,7 +3159,12 @@
                 uiTargetHeight = els[i].scrollHeight + uiBorderSize;
                 targetHeightUnit = "px";
             } else {
-                uiTargetHeight = targetHeightValue;
+                if (targetHeightUnit === "%") {
+                    uiTargetHeight = parseFloat(uiElement.parent().css("height")) / 100 * targetHeightValue;
+                    targetHeightUnit = "px";
+                } else {
+                    uiTargetHeight = targetHeightValue;
+                }
             }
             if (targetHeightUnit === "rem") {
                 uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
@@ -3190,7 +3205,12 @@
                 uiTargetWidth = els[i].scrollWidth + uiBorderSize;
                 targetWidthUnit = "px";
             } else {
-                uiTargetWidth = targetWidthValue;
+                if (targetWidthUnit === "%") {
+                    uiTargetWidth = parseFloat(uiElement.parent().css("width")) / 100 * targetWidthValue;
+                    targetWidthUnit = "px";
+                } else {
+                    uiTargetWidth = targetWidthValue;
+                }
             }
             if (targetWidthUnit === "rem") {
                 uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
