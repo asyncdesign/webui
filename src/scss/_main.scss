@@ -1,4 +1,8 @@
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 html {
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -17,7 +21,6 @@ textarea,
 meter,
 progress {
 	font: inherit;
-	box-sizing: border-box;
 	border-radius: 0;
 	min-height: 1.25rem;	
 }
@@ -122,7 +125,7 @@ svg:not(:root) {
 .nav-links a {
 	text-decoration: none;
 }
-.nav-links > a:not(:last-child):after {
+.nav-links > a:not(:last-child)::after {
 	content: "/";
 	padding-left: 0.625rem;
 	padding-right: 0.625rem;
@@ -189,12 +192,11 @@ svg:not(:root) {
 .container, .body, .box, .panel, .area {
 	display: block;
 	position: relative;
-	box-sizing: border-box;
 }
 .box, .panel, .area {
 	overflow: hidden;
 }
-.container:after, .body:after {
+.container::after, .body::after {
 	content: "";
 	display: block;
 	clear: both;
@@ -237,7 +239,6 @@ svg:not(:root) {
 .button-md,
 .button-lg,
 .button-xl {
-	box-sizing: border-box;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -259,12 +260,10 @@ svg:not(:root) {
 .button-link-lg,
 .button-link-xl {
 	display: block;
-	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
 .button-fluid {
-	box-sizing: border-box;
 	text-decoration: none;
 	white-space: normal;
 	outline: none;
@@ -490,7 +489,6 @@ svg:not(:root) {
 .view-button,
 .view-button-sm,
 .view-button-lg {
-	box-sizing: border-box;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -511,7 +509,6 @@ svg:not(:root) {
 .view-button-link-sm,
 .view-button-link-lg {
 	display: block;
-	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
@@ -708,7 +705,6 @@ svg:not(:root) {
 .menu-button,
 .menu-button-sm,
 .menu-button-lg {
-	box-sizing: border-box;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -727,7 +723,6 @@ svg:not(:root) {
 .menu-button-link-sm,
 .menu-button-link-lg {
 	display: block;
-	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 }
@@ -933,7 +928,6 @@ svg:not(:root) {
 	height: 1.125rem;
 	position: relative;
 	border: 0.078rem solid $theme_default_border;
-	box-sizing: border-box;
 	label {
 		width: 100%;
 		height: 100%;
@@ -970,7 +964,6 @@ svg:not(:root) {
 	position: relative;
 	border: 0.078rem solid $theme_default_border;
 	border-radius: 50%;
-	box-sizing: border-box;
 	label {
 		width: 100%;
 		height: 100%;
@@ -1013,7 +1006,6 @@ svg:not(:root) {
 *[class*="toggle-switch-"] {
 	position: relative;
 	display: block;
-	box-sizing: border-box;
 	text-decoration: none;
 	white-space: nowrap;
 	outline: none;
@@ -1028,7 +1020,7 @@ svg:not(:root) {
 		z-index: 1;
 		border-radius: inherit;			
 	}
-	&:before {
+	&::before {
 		content: 'ON';
 		position: absolute;
 		font-size: 0.8em;
@@ -1038,7 +1030,7 @@ svg:not(:root) {
 		text-align: center;
 		z-index: 0;			
 	}
-	&:after {
+	&::after {
 		content: 'OFF';
 		position: absolute;
 		font-size: 0.8em;
@@ -1154,12 +1146,10 @@ svg:not(:root) {
 	display: block; 
 	position: relative; 
 	overflow: hidden;
-	box-sizing: border-box;
 }
 *[class*="media-container-"]::before {
 	display: block;
-	content: "";
-	box-sizing: border-box;			
+	content: "";			
 }
 .media-content {
 	position: absolute; 
@@ -1169,7 +1159,6 @@ svg:not(:root) {
 	width: 100%;
 	height: 100%;
 	border: none;
-	box-sizing: border-box;
 }
 .badge-square-xs {
 	padding: 0.125rem 0.297rem;
