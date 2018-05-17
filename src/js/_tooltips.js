@@ -165,13 +165,13 @@
 		};
 
 	if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
-		win.onresize = function () {
+		win.addEventListener("resize", function () {
 			resetTooltips();
-		};
+		});
 		win.setTimeout(function () {
-			win.onscroll = function () {
+			win.addEventListener("scroll", function () {
 				resetTooltips();
-			};
+			});
 		}, 100);
 	}
 

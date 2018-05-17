@@ -18,7 +18,16 @@ module.exports = {
           "webui-standard-flexbox": ["./src/js/main.js","./src/scss/webui-standard-flexbox.scss"],
           "webui-basic": ["./src/js/main.js","./src/scss/webui-basic.scss"],
           "webui-basic-grid": ["./src/js/main.js","./src/scss/webui-basic-grid.scss"],
-          "webui-basic-flexbox": ["./src/js/main.js","./src/scss/webui-basic-flexbox.scss"]   
+          "webui-basic-flexbox": ["./src/js/main.js","./src/scss/webui-basic-flexbox.scss"],
+          "webui-styles-all": ["./src/js/main.js","./src/scss/webui-styles-all.scss"],
+          "webui-styles-all-grid": ["./src/js/main.js","./src/scss/webui-styles-all-grid.scss"],
+          "webui-styles-all-flexbox": ["./src/js/main.js","./src/scss/webui-styles-all-flexbox.scss"],
+          "webui-styles-standard": ["./src/js/main.js","./src/scss/webui-styles-standard.scss"],
+          "webui-styles-standard-grid": ["./src/js/main.js","./src/scss/webui-styles-standard-grid.scss"],
+          "webui-styles-standard-flexbox": ["./src/js/main.js","./src/scss/webui-styles-standard-flexbox.scss"],
+          "webui-styles-basic": ["./src/js/main.js","./src/scss/webui-styles-basic.scss"],
+          "webui-styles-basic-grid": ["./src/js/main.js","./src/scss/webui-styles-basic-grid.scss"],
+          "webui-styles-basic-flexbox": ["./src/js/main.js","./src/scss/webui-styles-basic-flexbox.scss"]  
   },
   plugins: [
     new ConcatPlugin({
@@ -34,6 +43,7 @@ module.exports = {
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
         "./src/js/_shapes.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js"
@@ -52,6 +62,7 @@ module.exports = {
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
         "./src/js/_shapes.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js" 
@@ -70,6 +81,7 @@ module.exports = {
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
         "./src/js/_shapes.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js"
@@ -87,6 +99,7 @@ module.exports = {
         "./src/js/_tabs.js",
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js" 
@@ -104,6 +117,7 @@ module.exports = {
         "./src/js/_tabs.js",
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js"
@@ -121,6 +135,7 @@ module.exports = {
         "./src/js/_tabs.js",
         "./src/js/_radial.js",
         "./src/js/_carousel.js",
+        "./src/js/_scrollspy.js",
         "./src/js/_positioning.js",
         "./src/js/_transitions.js",
         "./src/js/_validation.js"

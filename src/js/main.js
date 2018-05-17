@@ -175,6 +175,42 @@
 							toggleItem.trigger("ui.toggleItem.hide.after");
 						}
 					}
+					else if (offCanvas) {
+
+						ui(".off-canvas-left, .off-canvas-right").css("transition-duration", (transitionDuration / 1000) + "s");
+
+						
+						if (toggleItem.hasClass("off-canvas-closed")) {
+
+							toggleItem.trigger("ui.toggleItem.show.before");
+
+							toggleItem.removeClass("off-canvas-closed");
+							
+							if (offCanvasLeft) {
+								toggleItem.css("transform", "translate(0, 0)");
+							}
+							else {
+								toggleItem.css("transform", "translate(0, 0)");
+							}
+
+							toggleItem.trigger("ui.toggleItem.show.after");
+						} 
+						else {
+										
+							toggleItem.trigger("ui.toggleItem.hide.before");
+
+							if (offCanvasLeft) {
+								toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
+							}
+							else {
+								toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
+							}
+
+							toggleItem.addClass("off-canvas-closed");
+
+							toggleItem.trigger("ui.toggleItem.hide.after");
+						}
+					}
 					else {
 						if (toggleItem.css("display") === "block") {
 
@@ -1917,6 +1953,31 @@
 			runToggleAction(selector, toggleContainer);
 		}
 	});
+
+	webui(root).click(function (e) {
+		var toggleContainer = webui(e.target).parents(".toggle-container");
+		if (!toggleContainer.length) {
+			var toggleContainers = webui(this).find(".toggle-container");
+			if (toggleContainers.length) {
+				for (var i = 0; i < toggleContainers.length; i++) {
+					var toggleContainer = webui(toggleContainers[i]);
+					var selector = toggleContainer.data("close-external");
+					if (selector && selector.length) {
+						var toggleItems = toggleContainer.find(selector);
+						if (toggleItems.length) {
+							for (var j = 0; j < toggleItems.length; j++) {
+								var toggleItem = webui(toggleItems[j]);
+								if (!toggleItem.hasClass("off-canvas-closed") && toggleItem.css("display") === "block") {
+									runToggleAction(selector, toggleContainer);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+
 
 	/* COMPATIBILITY */
 
