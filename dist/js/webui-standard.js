@@ -2944,13 +2944,22 @@
                 menuSelector: "li > a",
                 menuActiveClass: "active",
                 scrollTargetClass: "scrollspy",
-                scrollTargetOffset: 0
+                scrollTargetOffset: 0,
+                menuSelectCallback: null
             }, options);
             var menuRoot = this;
             if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
                 win.addEventListener("scroll", function() {
                     resetScrollspy(menuRoot, settings);
                 });
+            }
+            if (settings.menuSelectCallback) {
+                var menuItems = menuRoot.find(settings.menuSelector);
+                for (var i = 0; i < menuItems.length; i++) {
+                    menuItems[i].addEventListener("click", function() {
+                        settings.menuSelectCallback();
+                    });
+                }
             }
             return this;
         }
