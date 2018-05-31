@@ -2319,6 +2319,24 @@ svg:not(:root) {
 .text-mega {
 	font-size: 2.5em;
 }
+.text-scalable-xs {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.56rem, 0.75rem);
+}
+.text-scalable-sm {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.66rem, 0.875rem);
+}
+.text-scalable-md {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.75rem, 1rem);
+}
+.text-scalable-lg {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.84rem, 1.125rem);
+}
+.text-scalable-xl {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.94rem, 1.25rem);
+}
+.text-scalable-mega {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 1.87rem, 2.5rem);
+}
 .text-italic {
 	font-style: italic;
 }
