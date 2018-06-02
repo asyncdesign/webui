@@ -2300,44 +2300,19 @@ svg:not(:root) {
 }  
 .text, .text * {
 	line-height: 1.5em;
-	white-space: normal;
 	text-decoration: none;
 }
-.text-xs {
-	font-size: 0.75em;
+.text-normal, .text-normal * {
+	line-height: 1.5em;
+	text-decoration: none;
+	white-space: normal;
 }
-.text-sm {
-	font-size: 0.875em;
+.text-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
-.text-md {
-	font-size: 1em;
-}
-.text-lg {
-	font-size: 1.125em;
-}
-.text-xl {
-	font-size: 1.25em;
-}
-.text-mega {
-	font-size: 2.5em;
-}
-.text-scalable-xs {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.56rem, 0.75rem);
-}
-.text-scalable-sm {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.66rem, 0.875rem);
-}
-.text-scalable-md {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.75rem, 1rem);
-}
-.text-scalable-lg {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.84rem, 1.125rem);
-}
-.text-scalable-xl {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.94rem, 1.25rem);
-}
-.text-scalable-mega {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 1.87rem, 2.5rem);
+.text-nowrap {
+	white-space: nowrap;
 }
 .text-italic {
 	font-style: italic;
@@ -2383,12 +2358,41 @@ svg:not(:root) {
 	transform: rotate(90deg);
 	transform-origin: center center 0;
 }
-.text-wrap {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+.text-xs {
+	font-size: 0.75em;
 }
-.text-nowrap {
-	white-space: nowrap;
+.text-sm {
+	font-size: 0.875em;
+}
+.text-md {
+	font-size: 1em;
+}
+.text-lg {
+	font-size: 1.125em;
+}
+.text-xl {
+	font-size: 1.25em;
+}
+.text-mega {
+	font-size: 2.5em;
+}
+.text-scalable-xs {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.56rem, 0.75rem);
+}
+.text-scalable-sm {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.66rem, 0.875rem);
+}
+.text-scalable-md {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.75rem, 1rem);
+}
+.text-scalable-lg {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.84rem, 1.125rem);
+}
+.text-scalable-xl {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.94rem, 1.25rem);
+}
+.text-scalable-mega {
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 1.87rem, 2.5rem);
 }
 .image {
 	display: block;
