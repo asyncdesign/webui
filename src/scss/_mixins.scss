@@ -113,13 +113,13 @@
 			#{$property}: $min-value;
 		}
 
-		@media screen and (min-width: $min-screen) {
+		@media all and (min-width: $min-screen) {
 			@each $property in $properties {
 				#{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value); 
 			}
 		}
 
-		@media screen and (min-width: $max-screen) {
+		@media all and (min-width: $max-screen) {
 			@each $property in $properties {
 				#{$property}: $max-value;
 			}
