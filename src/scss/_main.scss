@@ -2298,8 +2298,10 @@ svg:not(:root) {
 .cursor-disbaled {
 	cursor: not-allowed;
 }  
-.text {
+.text, .text * {
 	line-height: 1.5em;
+	white-space: normal;
+	text-decoration: none;
 }
 .text-xs {
 	font-size: 0.75em;
@@ -2344,13 +2346,13 @@ svg:not(:root) {
 	font-weight: bold;
 }
 .text-upper {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .text-lower {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 .text-capital {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 .text-underline {
 	text-decoration: underline;
@@ -2382,17 +2384,11 @@ svg:not(:root) {
 	transform-origin: center center 0;
 }
 .text-wrap {
-  	overflow-wrap: break-word;
-  	word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .text-nowrap {
 	white-space: nowrap;
-}
-*[class*="text-"]:not(.text-underline):not(.text-line-through) {
-	text-decoration: none;	
-}
-*[class*="text-"]:not(.text-nowrap) {
-	white-space: normal;
 }
 .image {
 	display: block;

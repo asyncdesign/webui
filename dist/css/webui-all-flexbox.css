@@ -5461,8 +5461,10 @@ svg:not(:root) {
 .cursor-disbaled {
   cursor: not-allowed; }
 
-.text {
-  line-height: 1.5em; }
+.text, .text * {
+  line-height: 1.5em;
+  white-space: normal;
+  text-decoration: none; }
 
 .text-xs {
   font-size: 0.75em; }
@@ -5586,12 +5588,6 @@ svg:not(:root) {
 
 .text-nowrap {
   white-space: nowrap; }
-
-*[class*="text-"]:not(.text-underline):not(.text-line-through) {
-  text-decoration: none; }
-
-*[class*="text-"]:not(.text-nowrap) {
-  white-space: normal; }
 
 .image {
   display: block;
