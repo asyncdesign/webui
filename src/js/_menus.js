@@ -36,7 +36,7 @@
 
 					if (dropdown.css("display") === "block") {
 
-						menuItem.trigger("ui.dropdown.hide.before");
+						dropdown.trigger("ui.dropdown.hide.before");
 
 						if (transitionType === "fade") {
 							dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
@@ -62,7 +62,9 @@
 						}
 					}
 					else {
-						menuItem.trigger("ui.dropdown.show.before");
+						
+						dropdown.trigger("ui.dropdown.show.before");
+
 						if (transitionType === "fade") {
 							dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 						}

@@ -130,8 +130,8 @@
 
 				if (toggleItem.length) {
 
-					var toggleItemWidth = parseFloat(toggleItem.css("width"));
-					var toggleItemHeight = parseFloat(toggleItem.css("height"));
+					var toggleItemWidth = toggleItem[0].offsetWidth;
+					var toggleItemHeight = toggleItem[0].offsetHeight;
 
 					if (offCanvas && toggleBody.length) {
 

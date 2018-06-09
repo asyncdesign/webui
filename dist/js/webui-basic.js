@@ -87,8 +87,8 @@
             var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
             var offCanvasRight = toggleItem.hasClass("off-canvas-right");
             if (toggleItem.length) {
-                var toggleItemWidth = parseFloat(toggleItem.css("width"));
-                var toggleItemHeight = parseFloat(toggleItem.css("height"));
+                var toggleItemWidth = toggleItem[0].offsetWidth;
+                var toggleItemHeight = toggleItem[0].offsetHeight;
                 if (offCanvas && toggleBody.length) {
                     ui(".off-canvas-left, .off-canvas-right").css("transition-duration", transitionDuration / 1e3 + "s");
                     toggleBody.css("transition-duration", transitionDuration / 1e3 + "s");
