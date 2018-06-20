@@ -6302,28 +6302,38 @@ svg:not(:root) {
 .text-line-through {
   text-decoration: line-through; }
 
+.text-direction-ltr {
+  direction: ltr;
+  unicode-bidi: bidi-override; }
+
+.text-direction-rtl {
+  direction: rtl;
+  unicode-bidi: bidi-override; }
+
 .text-horizontal-tb {
   writing-mode: horizontal-tb; }
 
-.text-sideways-lr {
-  writing-mode: sideways-lr; }
-
-.text-sideways-rl {
-  writing-mode: sideways-rl; }
-
-.text-vertical-lr {
-  writing-mode: vertical-lr; }
-
-.text-vertical-rl {
+.text-vertical-rtl {
   writing-mode: vertical-rl; }
 
-.text-vertical-up {
-  transform: rotate(-90deg);
-  transform-origin: center center 0; }
+.text-vertical-ltr {
+  writing-mode: vertical-lr; }
 
-.text-vertical-down {
-  transform: rotate(90deg);
-  transform-origin: center center 0; }
+.text-vertical-srl {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-align: left; }
+
+.text-vertical-slr {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: left; }
+
+.text-upright {
+  text-combine-upright: all; }
+
+.text-upright-digits {
+  text-combine-upright: digits 4; }
 
 .text-xs {
   font-size: 0.75em; }
