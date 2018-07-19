@@ -5,9 +5,9 @@
 
 	var fn = webui.fn,
 
-		tooltipAutoPos = false,
-		tooltipAutoPosMargin = 0,
+		tooltipAutoPos = true,
 		tooltipAutoSize = true,
+		tooltipAutoPosMargin = 0,
 		transitionDuration = 500,
 		LEFT = 0,
 		TOP = 1,

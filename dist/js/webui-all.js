@@ -1992,7 +1992,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, tooltipAutoPos = false, tooltipAutoPosMargin = 0, tooltipAutoSize = true, transitionDuration = 500, LEFT = 0, TOP = 1, RIGHT = 2, BOTTOM = 3, SHADOW_LEFT = 0, SHADOW_TOP = 1, SHADOW_RIGHT = 2, SHADOW_BOTTOM = 3, getTooltipViewportStatus = function(element, requiredMargin) {
+    var fn = webui.fn, tooltipAutoPos = true, tooltipAutoSize = true, tooltipAutoPosMargin = 0, transitionDuration = 500, LEFT = 0, TOP = 1, RIGHT = 2, BOTTOM = 3, SHADOW_LEFT = 0, SHADOW_TOP = 1, SHADOW_RIGHT = 2, SHADOW_BOTTOM = 3, getTooltipViewportStatus = function(element, requiredMargin) {
         if (arguments.length > 0) {
             var margin = 0;
             var pointerSize = 5;
