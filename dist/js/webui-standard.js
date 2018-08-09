@@ -2464,7 +2464,7 @@
         if (transitionType === "fade") {
             activeTab.show().children().fadeIn(transitionDuration);
         } else if (transitionType === "collapse") {
-            activeTab.expandVertical(transitionDuration);
+            activeTab.expandVertical(transitionDuration, "auto");
         } else {
             activeTab.show();
         }
@@ -2480,7 +2480,7 @@
             activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
             activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
             activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-            activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration);
+            activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");
         } else {
             activeTab.siblings(".tab-item").hide();
             activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
