@@ -20,7 +20,7 @@
 
     fn.slideVertical = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
+        uiElement, uiMovement, uiPosition, uiFinalPosition, pos,
         frameAdjustment = 50 / (duration / 1000),
         uiDirection = direction ? direction : "down",
         uiDistance = distance ? distance : 0;
@@ -46,7 +46,7 @@
                 else {
                     element.css("top", pos + "px");
 
-                    id = win.requestAnimationFrame(function () {
+                    win.requestAnimationFrame(function () {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
                 }
@@ -58,7 +58,7 @@
 
     fn.slideHorizontal = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id,
+        uiElement, uiMovement, uiPosition, uiFinalPosition, pos,
         frameAdjustment = 50 / (duration / 1000),
         uiDirection = direction ? direction : "right",
         uiDistance = distance ? distance : 0;
@@ -85,7 +85,7 @@
                 else {
                     element.css("left", pos + "px");
 
-                    id = win.requestAnimationFrame(function () {
+                    win.requestAnimationFrame(function () {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
                 }
@@ -96,7 +96,7 @@
     };
     
     fn.expandVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, id, 
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, 
         frameAdjustment = 50 / (duration / 1e3), 
         targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px",
         targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
@@ -151,7 +151,7 @@
                 } 
                 else {
                     el.css("height", height + heightUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetHeight, heightUnit, height, movement, overflow);
                     });
                 }
@@ -162,7 +162,7 @@
     };
 
     fn.expandHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, id, 
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, 
         frameAdjustment = 50 / (duration / 1e3), 
         targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px",
         targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
@@ -217,7 +217,7 @@
                 } 
                 else {
                     el.css("width", width + widthUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetWidth, widthUnit, width, movement, overflow);
                     });
                 }
@@ -228,7 +228,7 @@
     };
 
     fn.collapseVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, id, 
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, 
         frameAdjustment = 50 / (duration / 1e3),
         targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px",
         targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
@@ -276,7 +276,7 @@
                     return;
                 } else if (height > targetHeight) {
                     el.css("height", height + heightUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetHeight, heightUnit, height, movement, overflow);
                     });
                 }
@@ -287,7 +287,7 @@
     };
 
     fn.collapseHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, id, 
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, 
         frameAdjustment = 50 / (duration / 1e3),
         targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px",
         targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
@@ -335,7 +335,7 @@
                     return;
                 } else if (width > targetWidth) {
                     el.css("width", width + widthUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetWidth, widthUnit, width, movement, overflow);
                     });
                 }
@@ -347,7 +347,7 @@
 
     fn.fadeIn = function (duration, initialOpacity, callback) {
         var args = arguments, els = this,
-			uiElement, uiChange, uiCurrentOpacity, id,
+			uiElement, uiChange, uiCurrentOpacity,
             frameAdjustment = 50 / (duration / 1000);
             
         uiCurrentOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
@@ -371,7 +371,7 @@
                 else if (opacity < 0.99) {
                     element.css("opacity", opacity).css("display", "block");
 
-                    id = win.requestAnimationFrame(function () {
+                    win.requestAnimationFrame(function () {
                         nextFrame(element, opacity, change);
                     });
                 }
@@ -383,7 +383,7 @@
 
     fn.fadeOut = function (duration, finalOpacity, callback) {
         var args = arguments, els = this,
-			uiElement, uiChange, uiCurrentOpacity, id,
+			uiElement, uiChange, uiCurrentOpacity,
 			frameAdjustment = 50 / (duration / 1000);
             
         uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
@@ -412,7 +412,7 @@
                 else if (opacity > 0.01) {
                     element.css("opacity", opacity);
 
-                    id = win.requestAnimationFrame(function () {
+                    win.requestAnimationFrame(function () {
                         nextFrame(element, opacity, change);
                     });
                 }

@@ -87,10 +87,10 @@
 					var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
 					var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
 					if (icon) {
-						var alertItemIcon = webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
+						webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 					}
 					if (close) {
-						var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
+						webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
 						.click(function() {
 							ui.hideAlert(alertItemInner, false);
 						});
@@ -100,26 +100,26 @@
 			var alertItemBody = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
 			if (showHeader && inline) {
 				if (icon && close) {
-					var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+					webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
+					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
 						ui.hideAlert(alertItemInner, false);
 					});
 				} else if (icon) {
-					var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
 				} else if (close) {
-					var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-					var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
+					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
 					.click(function() {
 						ui.hideAlert(alertItemInner, false);
 					});
 				} else {
-					var alertItemBodyMessage = webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
+					webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
 				}
 			} else {
-				var alertItemBodyMessage = webui("<div></div>").appendTo(alertItemBody).html(message);
+				webui("<div></div>").appendTo(alertItemBody).html(message);
 			}
 			if (auto != null) {
 				if (auto) {

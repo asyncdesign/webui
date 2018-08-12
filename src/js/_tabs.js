@@ -98,11 +98,13 @@
 					}
 					else {
 						var activeTab = this.find(settings.activeTabId);
-						activeTab.addClass("selected");
-						activeTab[0].click();
-						if (settings.activeTabFocused) {
-							activeTab[0].focus();
-						}								
+						if (activeTab.length) {
+							activeTab.addClass("selected");
+							activeTab[0].click();
+							if (settings.activeTabFocused) {
+								activeTab[0].focus();
+							}	
+						}							
 					}
 				}
 			}

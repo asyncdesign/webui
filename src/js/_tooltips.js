@@ -275,8 +275,6 @@
 				}
 				var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
 				if (target.length) {
-					var targetLeft = target[0].offsetLeft;
-					var targetTop = target[0].offsetTop;
 					var targetWidth = target[0].offsetWidth;
 					var targetHeight = target[0].offsetHeight;
 					var tooltipHeight = tooltip[0].offsetHeight;

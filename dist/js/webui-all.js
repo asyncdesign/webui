@@ -85,10 +85,8 @@
             var transitionDistance = toggleContainer.data("transition-distance");
             var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
             var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
-            var offCanvasRight = toggleItem.hasClass("off-canvas-right");
             if (toggleItem.length) {
                 var toggleItemWidth = toggleItem[0].offsetWidth;
-                var toggleItemHeight = toggleItem[0].offsetHeight;
                 if (offCanvas && toggleBody.length) {
                     ui(".off-canvas-left, .off-canvas-right").css("transition-duration", transitionDuration / 1e3 + "s");
                     toggleBody.css("transition-duration", transitionDuration / 1e3 + "s");
@@ -1265,7 +1263,6 @@
                 }
             } else if (args.length === 3 && (breakPointRange && breakPointRange.length === 2)) {
                 if (webui.isWindowInBreakPointRange([ "", breakPointRange[0] ])) {
-                    //this.css("height", "auto");
                     this.css("min-height", "1px");
                 }
             }
@@ -1831,10 +1828,10 @@
                     var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
                     var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
                     if (icon) {
-                        var alertItemIcon = webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
+                        webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
                     }
                     if (close) {
-                        var alertItemCancel = webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight).click(function() {
+                        webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight).click(function() {
                             ui.hideAlert(alertItemInner, false);
                         });
                     }
@@ -1843,24 +1840,24 @@
             var alertItemBody = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
             if (showHeader && inline) {
                 if (icon && close) {
-                    var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-                    var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
+                    webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+                    webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
+                    webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
                         ui.hideAlert(alertItemInner, false);
                     });
                 } else if (icon) {
-                    var alertItemIcon = webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-                    var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+                    webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+                    webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
                 } else if (close) {
-                    var alertItemBodyMessage = webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-                    var alertItemCancel = webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
+                    webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
+                    webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody).click(function() {
                         ui.hideAlert(alertItemInner, false);
                     });
                 } else {
-                    var alertItemBodyMessage = webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
+                    webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
                 }
             } else {
-                var alertItemBodyMessage = webui("<div></div>").appendTo(alertItemBody).html(message);
+                webui("<div></div>").appendTo(alertItemBody).html(message);
             }
             if (auto != null) {
                 if (auto) {
@@ -2232,8 +2229,6 @@
                 }
                 var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
                 if (target.length) {
-                    var targetLeft = target[0].offsetLeft;
-                    var targetTop = target[0].offsetTop;
                     var targetWidth = target[0].offsetWidth;
                     var targetHeight = target[0].offsetHeight;
                     var tooltipHeight = tooltip[0].offsetHeight;
@@ -2519,10 +2514,12 @@
                         }
                     } else {
                         var activeTab = this.find(settings.activeTabId);
-                        activeTab.addClass("selected");
-                        activeTab[0].click();
-                        if (settings.activeTabFocused) {
-                            activeTab[0].focus();
+                        if (activeTab.length) {
+                            activeTab.addClass("selected");
+                            activeTab[0].click();
+                            if (settings.activeTabFocused) {
+                                activeTab[0].focus();
+                            }
                         }
                     }
                 }
@@ -2713,7 +2710,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, interval, autoPlay, autoScale, playDirection, stopOnHover, transitionDuration, transitionType, transitionOrientation, carousel, carouselHolder, carouselItems, carouselItemCount, carouselItemFirst, carouselItemLast, carouselWidth = 0, carouselHeight = 0, carouselItemWidth = 0, carouselItemHeight = 0, itemBorderWidth = 0, itemBorderHeight = 0, current = 1, cycle = false, delta = 1, transitionCompleted = true, shift = function(dir) {
+    var fn = webui.fn, interval, autoPlay, autoScale, playDirection, stopOnHover, transitionDuration, transitionType, transitionOrientation, carousel, carouselHolder, carouselItems, carouselItemCount, carouselItemWidth = 0, carouselItemHeight = 0, itemBorderWidth = 0, itemBorderHeight = 0, current = 1, cycle = false, delta = 1, transitionCompleted = true, shift = function(dir) {
         current += delta;
         cycle = !!(current === 0 || current > carouselItemCount);
         if (cycle) {
@@ -3428,7 +3425,7 @@
     };
     /* PUBLIC */
     fn.slideVertical = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -3445,7 +3442,7 @@
                     return;
                 } else {
                     element.css("top", pos + "px");
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
                 }
@@ -3455,7 +3452,7 @@
         return els;
     };
     fn.slideHorizontal = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, id, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -3472,7 +3469,7 @@
                     return;
                 } else {
                     element.css("left", pos + "px");
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
                 }
@@ -3482,7 +3479,7 @@
         return els;
     };
     fn.expandVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, id, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "", isAuto = targetHeightUnit === "auto";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "", isAuto = targetHeightUnit === "auto";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3521,7 +3518,7 @@
                     return;
                 } else {
                     el.css("height", height + heightUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetHeight, heightUnit, height, movement, overflow);
                     });
                 }
@@ -3531,7 +3528,7 @@
         return els;
     };
     fn.expandHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, id, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "", isAuto = targetWidthUnit === "auto";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "", isAuto = targetWidthUnit === "auto";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3570,7 +3567,7 @@
                     return;
                 } else {
                     el.css("width", width + widthUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetWidth, widthUnit, width, movement, overflow);
                     });
                 }
@@ -3580,7 +3577,7 @@
         return els;
     };
     fn.collapseVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, id, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3616,7 +3613,7 @@
                     return;
                 } else if (height > targetHeight) {
                     el.css("height", height + heightUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetHeight, heightUnit, height, movement, overflow);
                     });
                 }
@@ -3626,7 +3623,7 @@
         return els;
     };
     fn.collapseHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, id, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -3662,7 +3659,7 @@
                     return;
                 } else if (width > targetWidth) {
                     el.css("width", width + widthUnit);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(el, targetWidth, widthUnit, width, movement, overflow);
                     });
                 }
@@ -3672,7 +3669,7 @@
         return els;
     };
     fn.fadeIn = function(duration, initialOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, frameAdjustment = 50 / (duration / 1e3);
         uiCurrentOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -3688,7 +3685,7 @@
                     return;
                 } else if (opacity < .99) {
                     element.css("opacity", opacity).css("display", "block");
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(element, opacity, change);
                     });
                 }
@@ -3698,7 +3695,7 @@
         return els;
     };
     fn.fadeOut = function(duration, finalOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, id, frameAdjustment = 50 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, frameAdjustment = 50 / (duration / 1e3);
         uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -3717,7 +3714,7 @@
                     return;
                 } else if (opacity > .01) {
                     element.css("opacity", opacity);
-                    id = win.requestAnimationFrame(function() {
+                    win.requestAnimationFrame(function() {
                         nextFrame(element, opacity, change);
                     });
                 }

@@ -125,13 +125,11 @@
 
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
 				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
-				var offCanvasRight = toggleItem.hasClass("off-canvas-right");
 
 
 				if (toggleItem.length) {
 
 					var toggleItemWidth = toggleItem[0].offsetWidth;
-					var toggleItemHeight = toggleItem[0].offsetHeight;
 
 					if (offCanvas && toggleBody.length) {
 
@@ -1615,7 +1613,6 @@
 			}
 			else if (args.length === 3 && (breakPointRange && breakPointRange.length === 2)) {
 				if (webui.isWindowInBreakPointRange(["", breakPointRange[0]])) {
-					//this.css("height", "auto");
 					this.css("min-height", "1px");
 				}
 			}

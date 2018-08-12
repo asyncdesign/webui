@@ -17,11 +17,7 @@
 		carouselHolder,
 		carouselItems,
 		carouselItemCount,
-		carouselItemFirst,
-		carouselItemLast,
 		
-		carouselWidth = 0,
-		carouselHeight = 0,			
 		carouselItemWidth = 0,
 		carouselItemHeight = 0,
 
