@@ -18,12 +18,12 @@
 
 <body class="text-sm color-accent-5-dark">
 
-
-	<div class="responsive-gutter-xs">
+	<div class="content-col-2"></div>
+	<div class="content-col-15">
 
 		<div class="row-spacing-lg"></div>
 
-		<div id="MainTitle" class="panel">
+		<div id="MainTitle">
 			<div class="content-row">
 				<div class="content-col-15 text-xl text-bold color-accent-1 respond-bp-3-under">
 					<div class="row-spacing-lg"></div>
@@ -50,16 +50,17 @@
 
 		<div class="row-spacing-lg"></div>
 
-		<div class="panel text-lg">
+		<div class="text-lg">
 			Shapes (Some shapes use the CSS clip-path candidate specification and the SVG element, and will not work in Internet Explorer
-			- the webui.js javascript file is required for these shapes. Pointers, arrows, and razor-blade styles do not use this
+			- WebUI javascript is required for these shapes. Pointers, arrows, and razor-blade styles do not use this
 			technique, are cross browser compatible, and do not require javascript.)
 		</div>
 
-		<div class="row-spacing-md"></div>
+		<div class="height-md"></div>
 
-		<div class="container">
-			<div class="body background-accent-2-light razor-blade-bottom-right razor-blade-md">
+		<div class="background-accent-2-light razor razor-bottom-left-lg razor-angle-sm razor-accent-2-light">
+
+			<div class="area">
 
 				<div class="panel">
 					Shapes using transforms (Cross browser)
@@ -118,7 +119,7 @@
 						<div class="form-row">
 							<div class="form-col-eq-3 respond-bp-1-under">
 								<div class="custom-shape align-center" data-size="5rem" data-rotation="0" data-modifiers="0.9,0.8,-110,-.05,0,0.8,0.9,110,.1,.12,1,1,0,-0.1,-0.1"
-								 data-class="custom-image"></div>
+									data-class="custom-image"></div>
 							</div>
 							<div class="form-col-eq-3 respond-bp-1-under">
 
@@ -136,10 +137,13 @@
 			</div>
 		</div>
 
-		<div class="height-lg-xl"></div>
 
-		<div class="container">
-			<div class="body background-accent-4-light razor-blade-top-left razor-blade-md">
+		<div class="height-md"></div>
+
+
+		<div class="background-accent-4-light razor razor-top-right-lg razor-angle-sm razor-accent-4-light">
+
+			<div class="area">
 
 				<div class="panel">
 					Shapes using clip-path (Not supported by Internet Explorer)
@@ -216,10 +220,13 @@
 			</div>
 		</div>
 
-		<div class="height-md"></div>
 
-		<div class="container">
-			<div class="body razor-blade-bottom-right razor-blade-md">
+		<div class="row-spacing-xl"></div>
+
+
+		<div class="background-accent-1-light razor razor-bottom-left-lg razor-angle-sm razor-accent-1-light">
+
+			<div class="area">
 
 				<div class="panel">
 					Breadcrumb shapes
@@ -227,7 +234,7 @@
 				</div>
 
 				<div class="form-row">
-					<div class="panel responsive-gutter-lg">
+					<div class="panel responsive-gutter-md">
 						<div class="row-spacing-xl"></div>
 
 						<div class="breadcrumb">
@@ -282,11 +289,19 @@
 							<a href="#3" class="breadcrumb-xl breadcrumb-line-muted text-xs accent-1-light hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 3</span></a>
 							<a href="javascript:void 0" class="breadcrumb-xl breadcrumb-last rounded-right-md text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
 						</div>
-				  
+					
 						<div class="row-spacing-xl"></div>
 					</div>			
-				</div>	
-		
+				</div>
+			
+			</div>
+		</div>
+
+
+		<div class="dark razor razor-top-right-lg razor-angle-sm razor-dark">
+
+			<div class="area">
+
 				<div class="panel">
 					Arrow extend and bulge extend
 				</div>
@@ -296,14 +311,14 @@
 						<div class="form-row">
 							<div class="form-col">
 								<div class="container align-center">
-									<div class="flex-items-center flex-justify-center border-sm border-accent-4 background-primary width-xs height-xs rounded-sm arrow-extend-sm arrow-extend-right">
+									<div class="flex-items-center flex-justify-center border-sm border-accent-4 light width-xs height-xs rounded-sm arrow-extend-sm arrow-extend-right">
 										<span>8</span>
 									</div>
 								</div>
 							</div>
 							<div class="form-col">
 								<div class="container align-center">
-									<div class="flex-items-center flex-justify-center border-sm border-accent-4 background-primary width-xs height-xs rounded-sm bulge-extend-sm bulge-extend-top">
+									<div class="flex-items-center flex-justify-center border-sm border-accent-4 accent-2-light width-xs height-xs rounded-sm bulge-extend-sm bulge-extend-top">
 										<span>8</span>
 									</div>
 								</div>
@@ -345,11 +360,14 @@
 				<div class="row-spacing-xl"></div>
 
 			</div>
+
 		</div>
+
 
 		<div class="row-spacing-xl"></div>
 
 	</div>
+	<div class="content-col-3"></div>
 
 
 	<script type="text/javascript" src="dist/js/webui-all.js"></script>
