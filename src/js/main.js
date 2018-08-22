@@ -1776,16 +1776,16 @@
 				case "xs": min = 30; break;
 				case "sm": min = 40; break;
 				case "md": min = 50; break;
-				case "lg": min = 60; break;
-				case "xl": min = 80; break;
+				case "lg": min = 70; break;
+				case "xl": min = 90; break;
 				default: min = 0; break;
 			}
 			switch (breakPointRange[1]) {
 				case "xs": max = 29.99; break;
 				case "sm": max = 39.99; break;
 				case "md": max = 49.99; break;
-				case "lg": max = 59.99; break;
-				case "xl": max = 79.99; break;
+				case "lg": max = 69.99; break;
+				case "xl": max = 89.99; break;
 				default: max = 0; break;
 			}
 		}

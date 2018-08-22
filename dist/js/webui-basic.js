@@ -1411,11 +1411,11 @@
                 break;
 
               case "lg":
-                min = 60;
+                min = 70;
                 break;
 
               case "xl":
-                min = 80;
+                min = 90;
                 break;
 
               default:
@@ -1436,11 +1436,11 @@
                 break;
 
               case "lg":
-                max = 59.99;
+                max = 69.99;
                 break;
 
               case "xl":
-                max = 79.99;
+                max = 89.99;
                 break;
 
               default:
