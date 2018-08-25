@@ -3297,19 +3297,19 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, resetScrollspy = function(menuRoot, settings) {
+    var fn = webui.fn, resetScrollspy = function(container, settings) {
         var scrollTargets = webui(document).find("." + settings.scrollTargetClass);
         for (var i = 0; i < scrollTargets.length; i++) {
             var el = webui(scrollTargets[i]);
             var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
             if (el[0].offsetTop <= scrollPos + settings.scrollTargetOffset) {
                 var id = el.attr("id");
-                var activeItem = menuRoot.find("[data-scrollspy='#" + id + "']");
+                var activeItem = container.find("[data-scrollspy='#" + id + "']");
                 if (!activeItem) {
                     return;
                 }
-                menuRoot.find(settings.menuSelector).removeClass(settings.menuActiveClass);
-                activeItem.addClass(settings.menuActiveClass);
+                container.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
+                activeItem.addClass(settings.activatorActiveClass);
             }
         }
     };
@@ -3317,23 +3317,23 @@
     Object.defineProperty(webui.prototype, "scrollspy", {
         value: function(options) {
             var settings = ui.extend({
-                menuSelector: "li > a",
-                menuActiveClass: "active",
+                activatorSelector: "li > a",
+                activatorActiveClass: "active",
                 scrollTargetClass: "scrollspy",
                 scrollTargetOffset: 0,
-                menuSelectCallback: null
+                activatorCallback: null
             }, options);
-            var menuRoot = this;
+            var container = this;
             if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
                 win.addEventListener("scroll", function() {
-                    resetScrollspy(menuRoot, settings);
+                    resetScrollspy(container, settings);
                 });
             }
-            if (settings.menuSelectCallback) {
-                var menuItems = menuRoot.find(settings.menuSelector);
+            if (settings.activatorCallback) {
+                var menuItems = container.find(settings.activatorSelector);
                 for (var i = 0; i < menuItems.length; i++) {
                     menuItems[i].addEventListener("click", function() {
-                        settings.menuSelectCallback();
+                        settings.activatorCallback();
                     });
                 }
             }
