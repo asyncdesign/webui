@@ -39,38 +39,48 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 </html>
 ````
 
-**NPM**
+#### **NPM**
 This is the recommended way to install WebUI if you are building websites using popular frameworks such as Angular, React, or Vue.
+
 `npm install asyncdesign-webui`
 
-**NuGet**
+
+#### **NuGet**
 If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.
+
 `Install-Package asyncdesign-webui`
 
-**Bower**
+
+#### **Bower**
 Alternatively, you can use Bower to install the WebUI packages.
+
 `bower install asyncdesign-webui`
 
-or
 
 That's it. You are ready to start developing with WebUI.
 
+<br />
+
 Be sure to look at the static **DEMO** pages at the root of the download, containing many examples that demonstrate a good selection of components.
+
+<br />
 
 #### **What's Included**
 
-**NPM**
+
+#### **NPM**
 The NPM package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
-**NuGet**
+#### **NuGet**
 The NuGet package includes only the minified and development distribution files.
 
-**Bower**
+#### **Bower**
 The Bower package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
-**GitHub Download**
+#### **GitHub Download**
 The GitHub download includes all WebUI files for the framework, docs website, demo pages, and build files.
 
+<br />
 
 #### **Components Available**
 
@@ -91,6 +101,7 @@ The GitHub download includes all WebUI files for the framework, docs website, de
 
 #
 
+
 ### **Useage**
 
 #### **CSS and JavaScript Files**
@@ -109,6 +120,7 @@ WebUI comes with a range of pre-built CSS and JavaScript files. The following ta
 | webui-basic-flexbox.min.css    | webui-basic.min.js    | Includes only basic styles and flexbox. Does not include any components.                                                                              |
 | webui-basic-grid.min.css       | webui-basic.min.js    | Includes only basic styles and the traditional grid system. Does not include any components.                                                          |
 |                                |                       |                                                                                                                                                       |
+<br />
 
 #### **Styles Without JavaScript**
 
@@ -124,6 +136,8 @@ webui.ready(function() {
   // Call WebUI functions here...
 });
 ````
+
+<br />
 
 #### **Angular**
 
