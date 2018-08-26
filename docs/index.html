@@ -9,294 +9,566 @@
   <title>WebUI mobile-first CSS</title>
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
-  <link rel="stylesheet" href="/webui/assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/webui/assets/css/webui.css">
+  <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
+
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: normal;
+      src:url("/webui/assets/google/fonts/OpenSans-Regular.ttf");
+    } 
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: bold;
+      src:url("/webui/assets/google/fonts/OpenSans-SemiBold.ttf");
+    } 
+  </style>
   
   
 </head>
 
 
-  <body class="background-accent-2">
+  <body class="background-info text-sm">
 
-    <div class="container text-sm">
-	<div class="content-row">
-		<div class="content-col-20">
-			<div class="content-row">
-				<div class="content-col-20">
-					<div class="container show-bp-3-over">
-						<div class="content-row menu-bar background-accent-2 dock-top width-full">
-							<div class="content-col responsive-gutter-xs">
+    <div class="container show-bp-4-over" id="defaultTopNav">
+      
+<div class="content-row menu toolbar-lg background-info dock-top-left width-full">
+	<div class="content-col responsive-gutter-xs pad-left-md pad-right-md gap-horizontal-lg">
+		<div class="content-col">							
+				<button type="button" class="menu-activator-dynamic menu-button-lg background-transparent border-transparent color-primary color-hover-muted text-left cursor-pointer" id="menuButtonDocumentation">Documentation</button>
+		</div>
+		<div class="content-col">
+			<button type="button" class="menu-activator-dynamic menu-button-lg background-transparent border-transparent color-primary color-hover-muted text-left cursor-pointer" id="menuButtonAbout">About<i class="fa fa-caret-down pad-left-sm"></i></button>
+			<div class="dropdown-sheet transparent color-accent-4-dark">
 				
-								<div class="content-col width-sm"></div>
-								<div class="content-col">							
-									<div class="dropdown">
-										<button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonDocumentation">Documentation<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
-										<div class="dropdown-content menu-close transparent width-xl">
-											<div class="col-spacing-left-lg">
-												<div class="pointer-top-sm pointer-top-dark"></div>
-											</div>
-											<div>
-												<button onclick="location.href='/webui/getting_started.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Getting Started</span></button>
-												<button onclick="location.href='/webui/typography.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Typography</span></button>	
-												<button onclick="location.href='/webui/theme_colors.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Theme colours</span></button>
-												<button onclick="location.href='/webui/shapes.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Shapes</span></button>												
-												<button onclick="location.href='/webui/flexbox.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Flexbox</span></button>												
-												<button onclick="location.href='/webui/containers.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Containers</span></button>
-												<button onclick="location.href='/webui/grid_system.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Grid system</span></button>
-												<button onclick="location.href='/webui/media_breakpoints.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Media breakpoints</span></button>
-												<button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Alignment and spacing</span></button>
-												<button onclick="location.href='/webui/forms.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Forms</span></button>
-												<button onclick="location.href='/webui/menus.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Menus</span></button>
-												<button onclick="location.href='/webui/carousels.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Carousels</span></button>
-												<button onclick="location.href='/webui/radials.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Radials</span></button>											
-												<button onclick="location.href='/webui/tooltips.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Tooltips</span></button>
-												<button onclick="location.href='/webui/modals.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Modal dialogs</span></button>
-												<button onclick="location.href='/webui/alerts.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Alerts</span></button>
-												<button onclick="location.href='/webui/tabs.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left">
-													<span class="row-inline width-lg col-spacing-left-xs">Tabs</span>
-												</button>
-												<button onclick="location.href='/webui/upload.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left">
-													<span class="row-inline width-lg col-spacing-left-xs">Upload Control</span>
-												</button>
-												<button onclick="location.href='/webui/toggle_container.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm">
-													<span class="row-inline width-lg col-spacing-left-xs">Toggle Container</span>
-												</button>
-											</div>
-										</div>									
-									</div>						
-								</div>
-								<div class="content-col">
-									<div class="dropdown">
-										<button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonExamples">Examples<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
-										<div class="dropdown-content menu-close transparent width-lg">
-											<div class="col-spacing-left-lg">
-												<div class="pointer-top-sm pointer-top-accent-5"></div>
-											</div>
-											<div>
-												<button onclick="location.href='/webui/cards_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-top-sm"><span class="col-spacing-left-xs">Cards</span></button>
-												<button onclick="location.href='/webui/forms_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left"><span class="col-spacing-left-xs">Forms</span></button>
-												<button onclick="location.href='/webui/controls_example.html'" class="menu-button-sm menu-button-dark background-hover-accent-5 text-left rounded-bottom-sm"><span class="col-spacing-left-xs">Form controls</span></button>										
-											</div>
-										</div>
-									</div>			
-								</div>
-								<div class="content-col">
-									<div class="dropdown">
-										<button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonThemes">WebUI themes<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
-										<div class="dropdown-content menu-close transparent width-xl">
-											<div class="col-spacing-left-lg">
-												<div class="pointer-top-sm pointer-top-accent-5"></div>
-											</div>
-											<div class="dark">
-												
-												<div class="row-spacing-xs"></div>
-												<div class="panel">
-                        							Sales dashboard theme (In development)
-												</div>
-												<a href="/webui/theme_dashboard_sales.html">
-													<img src="/webui/assets/images/theme_dashboard_sales.jpg" class="image" alt="theme_dashboard_sales" />
-												</a>
-												<div class="panel">
-													No custom CSS or javascript, just the standard WebUI and Chart.js so you can add your mark!
-												</div>
-												<div class="row-spacing-sm"></div>
-												<div class="row border-md border-accent-4"></div>
-												<div class="row-spacing-sm"></div>
-												<div class="panel">
-                        							Ecommerce fashion theme (In development)
-												</div>
-												<a href="/webui/theme_ecommerce_fashion.html">
-													<img src="/webui/assets/images/theme_ecommerce_fashion.jpg" class="image" alt="theme_ecommerce_fashion" />
-												</a>
-												<div class="panel">
-													No custom CSS or javascript, just the standard WebUI and Owl carousel so you can add your mark!
-												</div>
-												<div class="row-spacing-sm"></div>
-												
-											</div>
-										</div>
-									</div>			
-								</div>
-								<div class="content-col">
-									<button type="button" class="menu-activator-dynamic menu-button-lg menu-button-transparent border-transparent color-primary color-hover-muted text-left" id="menuButtonAbout">About<i class="fa fa-caret-down col-spacing-left-sm"></i></button>
-									<div class="dropdown-sheet transparent">
-										
-										<div class="area text background-primary">
-											<div class="content-row">
-												<div class="form-col-20 color-accent-4">
-													<p class="color-dark">About WebUI</p>
-													<p>
-														WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular
-														approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows 
-														you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that 
-														doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
-													</p>
-													
-													<p><i>Be creative. Start something amazing today!</i></p>
-													<p><span class="color-accent-2">Current version:</span> 7.0.6</p>
-												</div>
-											</div>
-											<div class="content-row">
-												<div class="form-col-20">
-													<div class="form-col-20 text-xs text-italic">
-														<a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md"></i></a>
-														<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-accent-5 content-col-align-sm col-spacing-right-md"></i></a>
-														<a href="http://stackoverflow.com/search?tab=newest&q=webui"><i class="fa fa-stack-overflow fa-2x color-warning content-col-align-sm col-spacing-right-md"></i></a>
-														<i class="fa fa-facebook fa-2x color-muted content-col-align-sm col-spacing-right-xs"></i>						
-													</div>
-												</div>
-											</div>
-											<div class="row-spacing-sm"></div>
-											<div class="content-row">
-												<div class="form-col-20 text-sm color-accent-4">
-													MIT License (MIT) Copyright (c) 2010 - 2018 AsyncDesign.
-												</div>
-											</div>	
-										</div>
-
-										<div class="content-row border-sm border-muted"></div>
-									</div>
-								</div>
+				<div class="area text background-primary">
+					<div class="content-row">
+						<div class="form-col-20">
+							<p class="color-dark">About WebUI</p>
+							<p>
+								WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular
+								approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows 
+								you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that 
+								doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
+							</p>
+							
+							<p><i>Be creative. Start something amazing today!</i></p>
+							<p><span class="color-accent-1">Current version:</span> 8.0.0</p>
+						</div>
+					</div>
+					<div class="content-row">
+						<div class="form-col-20">
+							<div class="form-col-20 text-xs text-italic gap-horizontal-lg">
+								<a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info"></i></a>
+								<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-accent-5"></i></a>
+								<a href="http://stackoverflow.com/search?tab=newest&q=webui"><i class="fa fa-stack-overflow fa-2x color-warning"></i></a>
+								<i class="fa fa-facebook fa-2x color-muted"></i>						
 							</div>
 						</div>
 					</div>
+					<div class="row-spacing-sm"></div>
+					<div class="content-row">
+						<div class="form-col-20 text-sm color-accent-4">
+							MIT License (MIT) Copyright (c) 2010 - 2018 AsyncDesign.
+						</div>
+					</div>	
+				</div>
+
+				<div class="content-row border-sm border-muted"></div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
+    </div>
+
+    <div class="dock-top-center width-full height-sm background-transparent show-bp-4-under" id="mobileNav">
+        <div class="toggle-container" data-transition-duration="700" data-close-external="#panel1">
+  
+            <div class="content-col dock-top-left layer-top">
+              <button data-target="#panel1" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars" id="slideButton1"></button>
+            </div>
+                
+            <div class="toggle-item off-canvas-left dock-top-left background-primary area border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="panel1">         
               
-              <div class="container show-bp-3-under">
-                <div class="accent-2 width-full">
-                  <span id="top"></span>
-                  <button id="menuButtonHamburgerMobile" class="menu-activator menu-button-lg menu-button-accent-2 color-dark width-sm-md"><i class="fa fa-bars fa-lg"></i></button>
-                  <div class="dropdown-content-expand accent-4 width-full">
-                    <div class="content-row">
-                      <div class="content-col width-full">
-                      
-                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonHomeMobile">Home</button>
-                        
-                        <div class="dropdown-content-expand menu-close accent-5 width-full">
-                        </div>
-                        
-                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonDocumentationMobile">Documentation</button>
-                        
-                        <div class="dropdown-content-expand menu-close accent-5 width-full">										
-                          <button onclick="location.href='/webui/getting_started.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Getting Started</span></button>
-                          <button onclick="location.href='/webui/typography.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Typography</span></button>	
-                          <button onclick="location.href='/webui/theme_colors.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Theme colours</span></button>
-                          <button onclick="location.href='/webui/shapes.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Shapes</span></button>
-                          <button onclick="location.href='/webui/flexbox.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Flexbox</span></button>
-                          <button onclick="location.href='/webui/containers.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Containers</span></button>
-                          <button onclick="location.href='/webui/grid_system.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Grid system</span></button>
-                          <button onclick="location.href='/webui/media_breakpoints.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Media breakpoints</span></button>
-                          <button onclick="location.href='/webui/alignment_and_spacing.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alignment and spacing</span></button>
-                          <button onclick="location.href='/webui/forms.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/menus.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Menus</span></button>
-                          <button onclick="location.href='/webui/carousels.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Carousels</span></button>                          
-                          <button onclick="location.href='/webui/radials.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Radials</span></button>                          
-                          <button onclick="location.href='/webui/tooltips.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Tooltips</span></button>
-                          <button onclick="location.href='/webui/modals.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Modal dialogs</span></button>
-                          <button onclick="location.href='/webui/alerts.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Alerts</span></button>
-                          <button onclick="location.href='/webui/tabs.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
-                            <span class="row-inline width-lg col-spacing-left-lg">Tabs</span>
-                          </button>
-                          <button onclick="location.href='/webui/upload.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
-                            <span class="row-inline width-lg col-spacing-left-lg">Upload Control</span>
-                          </button>
-                          <button onclick="location.href='/webui/toggle_container.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left">
-                            <span class="row-inline width-lg col-spacing-left-lg">Toggle Container</span>
-                          </button>                          
-                        </div>
-                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonExamplesMobile">Examples</button>					
-                        <div class="dropdown-content-expand menu-close accent-5 width-full">
-                          <button onclick="location.href='/webui/cards_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Cards</span></button>
-                          <button onclick="location.href='/webui/forms_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Forms</span></button>
-                          <button onclick="location.href='/webui/controls_example.html'" class="menu-button menu-button-sm menu-button-accent-5 color-muted color-hover-primary text-left"><span class="col-spacing-left-lg">Form controls</span></button>										
-                        </div>
-                        <button class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonThemesMobile">WebUI themes</button>					
-                        <div class="dropdown-content-expand menu-close accent-5 width-full">
-                            
-                            <div class="accent-5">
-                              <div class="row-spacing-xs"></div>
-                              <div class="panel">
-                                  Dashboard theme (In development)
-                              </div>
-                              <a href="/webui/theme_dashboard_sales.html">
-                                <img src="/webui/assets/images/theme_dashboard_sales.jpg" class="image" alt="theme_dashboard_sales" />
-                              </a>
-                              <div class="panel">
-                                  No custom CSS or javascript, just the standard WebUI and Chart.js so you can add your mark!
-                              </div>
-                              <div class="row-spacing-sm"></div>
-                              <div class="row border-md border-accent-4"></div>
-                              <div class="row-spacing-sm"></div>
-                              <div class="panel">
-                                  Ecommerce theme (In development)
-                              </div>
-                              <a href="/webui/theme_ecommerce_fashion.html">
-                                <img src="/webui/assets/images/theme_ecommerce_fashion.jpg" class="image" alt="theme_ecommerce_fashion" />
-                              </a>
-                              <div class="panel">
-                                  No custom CSS or javascript, just the standard WebUI and Owl carousel so you can add your mark!
-                              </div>
-                              <div class="row-spacing-sm"></div>
+    <div class="menu dropdown area text gap-vertical-sm" id="menu">
 
-                            </div>
-                            
-                        </div>
+      <div>
+        <a href="/webui/index.html" class="color-dark text-bold color-hover-info">Home</a>
+      </div>
+      <div>
+        <a href="/webui/getting_started.html" class="color-dark text-bold color-hover-info">Getting Started</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
+        <div class="pad-left-sm">
+          <a href="#installation" class="color-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#whatsIncluded" class="color-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#useage" class="color-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#gridLayouts" class="color-dark color-hover-info" data-scrollspy="#gridLayouts">Grid Layouts</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#addingContent" class="color-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#addingColor" class="color-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+        </div>
+      </div>
 
-                        <button type="button" class="menu-activator menu-button-sm menu-button-dark text-left" id="menuButtonAboutMobile">About</button>
-                        <div class="dropdown-content-expand">
-                            <div class="panel background-primary color-accent-4">
-                                <div class="content-row">
-                                    <div class="form-col-20 text">
-                                        <p class="text-lg color-dark">About WebUI</p>
-                                        <p>
-                                          WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular
-                                          approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows 
-                                          you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that 
-                                          doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
-                                        </p>
-                                      
-                                        <p><i>Be creative. Start something amazing today!</i></p>
-                                        <p><span class="color-accent-2">Current version:</span> 7.0.6</p>
-                                    </div>
-                                </div>
-                                <div class="content-row">
-                                    <div class="form-col-20">
-                                        <div class="form-col-20 text-xs text-italic form-col-align-md">
-                                            <a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md"></i></a>
-                                            <a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-accent-5 content-col-align-sm col-spacing-right-md"></i></a>
-                                            <a href="http://stackoverflow.com/search?tab=newest&q=webui"><i class="fa fa-stack-overflow fa-2x color-warning content-col-align-sm col-spacing-right-md"></i></a>
-                                            <i class="fa fa-facebook fa-2x color-muted content-col-align-sm col-spacing-right-xs"></i>						
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row-spacing-sm"></div>
-                                <div class="content-row">
-                                  <div class="form-col-20 text-sm color-accent-4">
-                                    MIT License (MIT) Copyright (c) 2010 - 2018 AsyncDesign.
-                                  </div>
-                                </div>
+      <div>
+        <a href="/webui/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gridSystemMenu">
+        <div class="pad-left-sm">
+          <a href="#gridSystemOverview" class="color-dark color-info color-hover-info" data-scrollspy="#gridSystemOverview">Overview</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#contentGrid" class="color-dark color-hover-info" data-scrollspy="#contentGrid">Content Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#formGrid" class="color-dark color-hover-info" data-scrollspy="#formGrid">Form Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tableGrid" class="color-dark color-hover-info" data-scrollspy="#tableGrid">Table Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#nestingColumns" class="color-dark color-hover-info" data-scrollspy="#nestingColumns">Nesting Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalWidthColumns" class="color-dark color-hover-info" data-scrollspy="#equalWidthColumns">Equal Width Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalHeightColumns" class="color-dark color-hover-info" data-scrollspy="#equalHeightColumns">Equal Height Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
+        </div>    
+      </div>
 
-                            </div>
-                            <div class="content-row border-sm border-muted"></div>
-                        </div>
+      <div>
+        <a href="/webui/flexbox.html" class="color-dark text-bold color-hover-info">Flexbox</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
+        <div class="pad-left-sm">
+          <a href="#flexboxOverview" class="color-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxBasicStructure" class="color-dark color-hover-info" data-scrollspy="#flexboxBasicStructure">Basic Structure</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxFlexItemSizing" class="color-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxOrientation" class="color-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>
+      </div>
 
-                      </div>
-                    </div>								
-                  </div>
-                </div>
-              </div>
+      <div>
+        <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="containersMenu">
+        <div class="pad-left-sm">
+          <a href="#containersOverview" class="color-dark color-info color-hover-info" data-scrollspy="#containersOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersContainerClasses">Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersResponsiveGutters" class="color-dark color-hover-info" data-scrollspy="#containersResponsiveGutters">Responsive Gutters</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/alignment.html" class="color-dark text-bold color-hover-info">Alignment</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
+        <div class="pad-left-sm">
+          <a href="#textAlignment" class="color-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#elementAlignment" class="color-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#floatAlignment" class="color-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/padding.html" class="color-dark text-bold color-hover-info">Padding</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
+        <div class="pad-left-sm">
+          <a href="#basicPadding" class="color-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingForGrids" class="color-dark color-hover-info" data-scrollspy="#paddingForGrids">Padding for Grids</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingWithFlexbox" class="color-dark color-hover-info" data-scrollspy="#paddingWithFlexbox">Padding with Flexbox</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/spacing.html" class="color-dark text-bold color-hover-info">Spacing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
+        <div class="pad-left-sm">
+          <a href="#horizontalSpacing" class="color-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#verticalSpacing" class="color-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/positioning.html" class="color-dark text-bold color-hover-info">Positioning</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
+        <div class="pad-left-sm">
+          <a href="#absolutePositioning" class="color-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#fixedPositioning" class="color-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/sizing.html" class="color-dark text-bold color-hover-info">Sizing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
+        <div class="pad-left-sm">
+          <a href="#widthClasses" class="color-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#heightClasses" class="color-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+        </div>  
+      </div>  
+
+      <div>
+        <a href="/webui/colors.html" class="color-dark text-bold color-hover-info">Colors</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
+        <div class="pad-left-sm">
+          <a href="#themeColors" class="color-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#translucency" class="color-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#focusAndHoverEvents" class="color-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/typography.html" class="color-dark text-bold color-hover-info">Typography</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
+        <div class="pad-left-sm">
+          <a href="#textSizes" class="color-dark color-info color-hover-info" data-scrollspy="#textSizes">Text Sizes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#moreTextClasses" class="color-dark color-hover-info" data-scrollspy="#moreTextClasses">More Text Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" class="color-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/buttons.html" class="color-dark text-bold color-hover-info">Buttons</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
+        <div class="pad-left-sm">
+          <a href="#buttonClasses" class="color-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#buttons" class="color-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuButtons" class="color-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/form_controls.html" class="color-dark text-bold color-hover-info">Form Controls</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
+        <div class="pad-left-sm">
+          <a href="#inputClasses" class="color-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#controlClasses" class="color-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#textboxes" class="color-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textareas" class="color-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#dropdownsAndDatalists" class="color-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#checkboxesAndRadioButtons" class="color-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
+        </div>   
+      </div>
+  
+      <div>
+        <a href="/webui/tooltips.html" class="color-dark text-bold color-hover-info">Tooltips</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
+        <div class="pad-left-sm">
+          <a href="#tooltipClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#basicTooltips" class="color-dark color-hover-info" data-scrollspy="#basicTooltips">Basic Tooltips</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsDetailedUseage" class="color-dark color-hover-info" data-scrollspy="#tooltipsDetailedUseage">Detailed Useage</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsCustomisation" class="color-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/alerts.html" class="color-dark text-bold color-hover-info">Alerts</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
+        <div class="pad-left-sm">
+          <a href="#alerts" class="color-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#alertCustomisation" class="color-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/menus.html" class="color-dark text-bold color-hover-info">Menus</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
+        <div class="pad-left-sm">
+          <a href="#menuClasses" class="color-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#menuAttributes" class="color-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
+        </div>     
+        <div class="pad-left-sm">
+          <a href="#menus" class="color-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuDropdowns" class="color-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuCustomisation" class="color-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/modals.html" class="color-dark text-bold color-hover-info">Modals</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
+        <div class="pad-left-sm">
+          <a href="#modalClasses" class="color-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#modals" class="color-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#modalEvents" class="color-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/tabs.html" class="color-dark text-bold color-hover-info">Tabs</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
+        <div class="pad-left-sm">
+          <a href="#tabClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#tabs" class="color-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" class="color-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/toggle_container.html" class="color-dark text-bold color-hover-info">Toggle Container</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
+        <div class="pad-left-sm">
+          <a href="#toggleContainerClasses" class="color-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainer" class="color-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" class="color-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/scrollspy.html" class="color-dark text-bold color-hover-info">Scrollspy</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+        <div class="pad-left-sm">
+          <a href="#scrollspyClasses" class="color-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#scrollspyUseage" class="color-dark color-hover-info" data-scrollspy="#scrollspyUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/radials.html" class="color-dark text-bold color-hover-info">Radials</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+        <div class="pad-left-sm">
+          <a href="#radialClasses" class="color-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#radialSettings" class="color-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#radials" class="color-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+        </div>
+      </div>
+  
+      <div>
+        <a href="/webui/shapes.html" class="color-dark text-bold color-hover-info">Shapes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
+        <div class="pad-left-sm">
+          <a href="#transformShapes" class="color-dark color-info color-hover-info" data-scrollspy="#transformShapes">Transform Shapes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#clipPathShapes" class="color-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#breadcrumbShapes" class="color-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#razorBladeShapes" class="color-dark color-hover-info" data-scrollspy="#razorBladeShapes">Razor-Blade Shapes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#extendShapes" class="color-dark color-hover-info" data-scrollspy="#extendShapes">Extend Shapes</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/carousels.html" class="color-dark text-bold color-hover-info">Carousels</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
+        <div class="pad-left-sm">
+          <a href="#carouselClasses" class="color-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
+        <div class="pad-left-sm">
+          <a href="#uploadClasses" class="color-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadSettings" class="color-dark color-hover-info" data-scrollspy="#uploadSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadControl" class="color-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/utility_classes.html" class="color-dark text-bold color-hover-info">Utility Classes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
+        <div class="pad-left-sm">
+          <a href="#borders" class="color-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#boundaries" class="color-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#outlines" class="color-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#shadows" class="color-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
+        </div>  
+      </div>
+
+    </div>
+
 
             </div>
           </div>
-          <div class="content-row">					
+    </div>
 
-            <div class="container text-lg" id="pageMain">
+    
+    <div class="content-row">					
+      <div class="container" id="pageMain">
 	<div class="container">
 		<div class="row-spacing-xl-bp-3-over"></div>
 		<div class="row-spacing-md-bp-4-over"></div>
@@ -317,7 +589,7 @@
 				</div>
 
 				<div class="content-row">
-					<div class="form-col-20 col-spacing-lg color-primary text-sm-bp-2-under">
+					<div class="form-col-20 color-primary text-lg text-sm-bp-2-under">
 						A fully responsive CSS framework for modern browsers
 					</div>
 				</div>
@@ -325,13 +597,13 @@
 				<div class="row-spacing-sm-bp-4-under"></div>
 				<div class="content-row">
 					<div class="form-col-20">
-						<span class="text-center text-sm">
+						<span class="text-center">
 							<div>
-								<input type="button" value="Download the latest release" class="button-lg button-transparent color-primary color-hover-accent-2 background-hover-primary border-md border-primary rounded-sm" id="commandDownload" />
+								<input type="button" value="Download the latest release" class="button-lg button-transparent color-primary color-hover-info background-hover-primary border-md border-primary rounded-sm" id="commandDownload" />
 							</div>
 							<div class="row-spacing-lg"></div>
 							<div class="text-bold">
-								Current version 7.0.6
+								Current version 8.0.0
 							</div>
 						</span>
 					</div>
@@ -345,12 +617,12 @@
 		<div class="row-spacing-xl-bp-5-over"></div>
 
 		<div class="content-row">
-			<div class="form-col-20 primary text-center">
+			<div class="form-col-20 color-accent-5 background-light text text-center">
 
 				<div class="row-spacing-md"></div>
 
-				<div class="content-row">
-					<div class="form-col-20 text-center color-accent-5 text-xl">
+				<div class="content-row color-accent-5-dark">
+					<div class="form-col-20 text-center text-xl">
 						Mobile and desktop
 					</div>
 				</div>
@@ -363,11 +635,11 @@
 
 						<div class="content-row">
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/grid_system.html" class="color-accent-4 text-xl">
+											<a href="/webui/grid_system.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/grids_small.png" alt="Media" />
 												</div>
@@ -376,10 +648,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+									
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Create accurate layouts with a grid that is simple and easy to use. Great flexibility included.
 											</div>
@@ -388,65 +661,67 @@
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/forms.html" class="color-accent-2 text-xl">
+											<a href="/webui/flexbox.html" class="color-accent-5-dark text-xl">
 												<div class="area">
-													<img src="/webui/assets/images/forms_small.png" alt="Media" />
+													<img src="/webui/assets/images/flexbox_small.png" alt="Media" />
 												</div>
 												<div class="panel">
-													Input Forms
+													Flexbox
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
-												Create professional forms for mobile or desktop. Add responsive behaviour only when you need it.
+												Add flexbox capabilities to any layout with a full range of utility classes.
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
-										<div class="content-col-20 color-accent-3 text-center">
-											<a href="/webui/menus.html" class="color-accent-3 text-xl">
+										<div class="content-col-20 text-center">
+											<a href="/webui/shapes.html" class="color-accent-5-dark text-xl">
 												<div class="area">
-													<img src="/webui/assets/images/menus_small.png" alt="Media" />
+													<img src="/webui/assets/images/shapes_small.png" alt="Media" />
 												</div>
 												<div class="panel">
-													Menus
+													Shapes
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
-												Choose from various mobile or desktop menus, or build custom menus using the pre-defined styles.
+												Use various shapes including transform, clip-path, razor-blade, and custom shapes.
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-
+	
 						</div>
 
 						<div class="content-row">
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/toggle_container.html" class="color-accent-2 text-xl">
+											<a href="/webui/toggle_container.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/toggle_small.png" alt="Media" />
 												</div>
@@ -455,10 +730,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Use the toggle container for off-canvas menus, fly-out menus, accordions, transition effects, and more.
 											</div>
@@ -467,11 +743,11 @@
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/tooltips.html" class="color-accent-3 text-xl">
+											<a href="/webui/tooltips.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/tooltips_small.png" alt="Media" />
 												</div>
@@ -480,10 +756,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Add tooltips that adapt intelligently, with viewport boundary collision detection built in.
 											</div>
@@ -492,11 +769,11 @@
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/alerts.html" class="color-accent-4 text-xl">
+											<a href="/webui/alerts.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/alerts_small.png" alt="Media" />
 												</div>
@@ -505,10 +782,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Use alerts with features including animated stacking, positioning and transition effects.
 											</div>
@@ -522,11 +800,11 @@
 
 						<div class="content-row">
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/upload.html" class="color-accent-3 text-xl">
+											<a href="/webui/upload.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/upload_small.png" alt="Media" />
 												</div>
@@ -535,10 +813,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Customise upload controls with many utility classes, including upload files list customisation.
 											</div>
@@ -547,11 +826,11 @@
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/tabs.html" class="color-accent-4 text-xl">
+											<a href="/webui/tabs.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/tabs_small.png" alt="Media" />
 												</div>
@@ -560,10 +839,11 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Experience amazing flexibility and customisation options with the multi-instance tabs control.
 											</div>
@@ -572,11 +852,11 @@
 								</div>
 							</div>
 
-							<div class="form-col-eq-3 col-spacing-md respond-bp-3-under">
-								<div class="content-col-20 background-primary rounded-sm">
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
 									<div class="content-row">
 										<div class="content-col-20 text-center">
-											<a href="/webui/modals.html" class="color-accent-2 text-xl">
+											<a href="/webui/modals.html" class="color-accent-5-dark text-xl">
 												<div class="area">
 													<img src="/webui/assets/images/modals_small.png" alt="Media" />
 												</div>
@@ -585,12 +865,95 @@
 												</div>
 											</a>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
-									<div class="content-row border-sm border-transparent"></div>
+
 									<div class="content-row">
-										<div class="form-col-20 color-accent-4">
+										<div class="form-col-20">
 											<div class="body text-center height-lg">
 												Create custom modals in various sizes that automatically adapt to screen size.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="content-row">
+
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
+									<div class="content-row">
+										<div class="content-col-20 text-center">
+											<a href="/webui/radials.html" class="color-accent-5-dark text-xl">
+												<div class="area">
+													<img src="/webui/assets/images/radials_small.png" alt="Media" />
+												</div>
+												<div class="panel">
+													Radial Control
+												</div>
+											</a>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="content-row">
+										<div class="form-col-20">
+											<div class="body text-center height-lg">
+												Create stunning radial menus or fly-out segments for pleasing mobile experiences.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
+									<div class="content-row">
+										<div class="content-col-20 text-center">
+											<a href="/webui/menus.html" class="color-accent-5-dark text-xl">
+												<div class="area">
+													<img src="/webui/assets/images/menus_small.png" alt="Media" />
+												</div>
+												<div class="panel">
+													Menus
+												</div>
+											</a>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="content-row">
+										<div class="form-col-20">
+											<div class="body text-center height-lg">
+												Choose from various mobile or desktop menus, or build custom menus using the pre-defined styles.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>	
+
+							<div class="form-col-eq-3 respond-bp-3-under">
+								<div class="panel rounded-sm">
+									<div class="content-row">
+										<div class="content-col-20 text-center">
+											<a href="/webui/carousels.html" class="color-accent-5-dark text-xl">
+												<div class="area">
+													<img src="/webui/assets/images/carousels_small.png" alt="Media" />
+												</div>
+												<div class="panel">
+													Carousel Control
+												</div>
+											</a>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="content-row">
+										<div class="form-col-20">
+											<div class="body text-center height-lg">
+												Make image slides with vertical and horizontal transition options, as well as fade effects.
 											</div>
 										</div>
 									</div>
@@ -602,7 +965,7 @@
 						<div class="row-spacing-md"></div>
 						<div class="content-col-5"></div>
 						<div class="content-col-10">
-							<div class="content-row border-md border-secondary"></div>
+							<div class="content-row border-md border-info"></div>
 						</div>
 						<div class="content-col-5"></div>
 						<div class="row-spacing-xl"></div>
@@ -616,7 +979,15 @@
 				<div class="row-spacing-md"></div>
 
 				<div class="content-row">
-					<div class="form-col-20 text-center color-accent-5 text-xl">
+					<div class="form-col-20 color-info text-center text-lg">
+						<span class="text-mega text-italic">Arriving soon... </span>Updated WebUI themes using WebUI 8.0.0.
+					</div>
+				</div>
+
+				<div class="row-spacing-lg"></div>
+	
+				<div class="content-row">
+					<div class="form-col-20 color-accent-5-dark text-center text-xl">
 						WebUI themes to get you started. All open source and easy to customize.
 					</div>
 				</div>
@@ -625,14 +996,14 @@
 
 				<div class="content-row responsive-gutter-sm">
 
-					<div class="content-col-20 color-accent-4">
+					<div class="content-col-20">
 
 						<div class="content-row">
 							<div class="form-col-10 respond-bp-3-under">
 								<div class="panel">
 									Ecommerce fashion theme<br />(In development)
 								</div>
-								<a href="/webui/theme_ecommerce_fashion.html">
+								<a href="#0">
 									<img src="/webui/assets/images/theme_ecommerce_fashion.jpg" class="image border-sm border-accent-4" alt="theme_ecommerce_fashion" />
 								</a>
 								<div class="row-spacing-md"></div>
@@ -641,7 +1012,7 @@
 								<div class="panel">
 									Sales dashboard theme<br />(In development)
 								</div>
-								<a href="/webui/theme_dashboard_sales.html">
+								<a href="#0">
 									<img src="/webui/assets/images/theme_dashboard_sales.jpg" class="image border-sm border-accent-4" alt="theme_dashboard_sales" />
 								</a>
 								<div class="row-spacing-md"></div>
@@ -659,7 +1030,7 @@
 						<div class="row-spacing-xl"></div>
 						<div class="content-col-5"></div>
 						<div class="content-col-10">
-							<div class="content-row border-md border-secondary"></div>
+							<div class="content-row border-md border-info"></div>
 						</div>
 						<div class="content-col-5"></div>
 						<div class="row-spacing-xl"></div>
@@ -672,7 +1043,7 @@
 
 
 				<div class="content-row">
-					<div class="form-col-20 text-center color-accent-5 text-xl">
+					<div class="form-col-20 color-accent-5-dark text-center text-xl">
 						Flexibility built in
 					</div>
 				</div>
@@ -681,7 +1052,7 @@
 
 				<div class="content-row responsive-gutter-xs">
 
-					<div class="form-col-20 color-accent-4 text-left respond-bp-5-under">
+					<div class="form-col-20 text-left respond-bp-5-under">
 						<div class="panel align-center">
 							<div class="panel text">
 								Whether you just want to knock out a quick demo or a public website, WebUI has what you need. If WebUI doesn't have a component
@@ -699,15 +1070,15 @@
 				<div class="row-spacing-lg"></div>
 
 				<div class="content-row responsive-gutter-xl">
-					<div class="form-col-20 color-accent-4">
+					<div class="form-col-20">
 						<div class="container align-center">
 							<div class="media-block">
 								<div class="media-left">
 									<img class="image border-md border-transparent" src="/webui/assets/images/sass_small.png" alt="Media" />
 								</div>
 								<div class="media-nowrap text-left">
-									<div class="row-spacing-sm"></div>
-									Cusomise WebUI using the SASS preprocessor and Grunt tasks provided with the download.
+									<div class="row-spacing-md"></div>
+									Cusomise WebUI using the SASS preprocessor and Webpack provided with the download.
 								</div>
 							</div>
 						</div>
@@ -715,14 +1086,14 @@
 				</div>
 
 				<div class="content-row responsive-gutter-xl">
-					<div class="form-col-20 color-accent-4">
+					<div class="form-col-20">
 						<div class="container align-center">
 							<div class="media-block">
 								<div class="media-left">
 									<img class="image border-md border-transparent" src="/webui/assets/images/cogs_small.png" alt="Media" />
 								</div>
 								<div class="media-nowrap text-left">
-									<div class="row-spacing-sm"></div>
+									<div class="row-spacing-md"></div>
 									Initialise components globally with the option to override many configuration settings individually.
 								</div>
 							</div>
@@ -741,7 +1112,7 @@
 				<div class="row-spacing-md"></div>
 				<div class="row-spacing-xl-bp-3-over"></div>
 
-				<div class="content-row text-sm">
+				<div class="content-row">
 					<input type="button" value="See getting started guide" class="button-lg button-transparent border-secondary border-md color-hover-dark background-hover-secondary rounded-sm" id="commandDocumentation"/>
 				</div>
 
@@ -749,12 +1120,11 @@
 
 				<div class="content-row">
 					<div class="form-col-20">
-						<span class="text-xs text-italic align-center">
-							<a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info content-col-align-sm col-spacing-right-md"></i></a>
-							<a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-primary content-col-align-sm col-spacing-right-md"></i></a>
-							<a href="http://stackoverflow.com/search?tab=newest&q=webui"><i class="fa fa-stack-overflow fa-2x color-warning content-col-align-sm col-spacing-right-md"></i></a>
-							<i class="fa fa-facebook fa-2x color-accent-4 content-col-align-sm"></i>
-						</span>
+						<div class="text text-xl align-center gap-horizontal-lg">
+							<a href="https://twitter.com/asyncdesign" class="text-lg fa fa-twitter color-info"></a>
+							<a href="https://github.com/asyncdesign/webui" class="text-lg fa fa-github color-primary"></a>
+							<a href="https://discordapp.com" class="text-lg fa fa-cog color-info"></a>
+						</div>
 					</div>
 				</div>
 
@@ -765,43 +1135,42 @@
 	</div>
 
 </div>
-				
-          </div>
-
-        </div>
-      </div>
-
     </div>
-    
-    <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-3-under"></i>
 
     
-    <script src="/webui/assets/js/jquery-3.1.1.js"></script>
-    <script src="/webui/assets/js/webui.js"></script>
+    <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-1 color-hover-muted dock-bottom-right pad-xs show-bp-3-under"></i>
+
+    
+    <script src="/webui/assets/js/webui-all.js"></script>
  
     <script>
 
-      $( document ).ready(function() {
+      webui.ready(function() {
+
+        ui.initMenus({
+          transitionDuration: 700,
+				  transitionType: "collapse"
+        });
 
 
-        $("#commandDownload").click( function() { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v7.0.6.zip";
+        ui("#commandDownload").click( function() { 
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v8.0.0.zip";
         });
         
-        $("#commandDocumentation").click( function() {
+        ui("#commandDocumentation").click( function() {
           document.location.href = "/webui/getting_started.html"
         });
         
         
-        $("#menuButtonHome").click( function() {
+        ui("#menuButtonHome").click( function() {
           document.location.href = "/webui/index.html"
         });			
 
-        $("#menuButtonDocumentation").click( function() {
+        ui("#menuButtonDocumentation").click( function() {
           document.location.href = "/webui/getting_started.html"
         });
    
-        $("#menuButtonExamples").click( function() {         
+        ui("#menuButtonExamples").click( function() {         
         });
 
         

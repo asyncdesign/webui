@@ -1,43 +1,28 @@
 
 ##
 
-<img src="assets/images/webui_blue_96x96.png" alt="WebUI Logo" align="right" hspace="30" /> 
+<img src="images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
 
-## **Webui**
+## **WebUI**
 
 *Web design made easy*
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/contributions-welcome-yellow.svg)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com)](https://www.npmjs.com/package/asyncdesign-webui)
 
 
-WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular
-approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows 
-you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that 
-doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
+WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
 
-**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about WebUI**
 
-### **Getting Started**
+#
 
-**Install the latest release using NPM**
+### **Installation**
 
-`npm install asyncdesign-webui`
+#### **Simple Method**
 
-or
-
-**Install the latest release using NuGet**
-
-`Install-Package asyncdesign-webui`
-
-or
-
-**Install the latest release using Bower**
-
-`bower install asyncdesign-webui`
-
-or
-
-[Download the latest release](https://github.com/asyncdesign/webui/archive/v7.0.6.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.0.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -45,146 +30,131 @@ or
 ````html
 <html>
 <head>
-  <link rel="stylesheet" href="css/webui.min.css"> 
+  <link rel="stylesheet" href="css/webui-standard.min.css"> 
 </head>
 <body>
 
-  <script src="js/webui.min.js"></script>
+  <script src="js/webui-standard.min.js"></script>
 </body>
 </html>
 ````
+
+**NPM**
+This is the recommended way to install WebUI if you are building websites using popular frameworks such as Angular, React, or Vue.
+`npm install asyncdesign-webui`
+
+**NuGet**
+If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.
+`Install-Package asyncdesign-webui`
+
+**Bower**
+Alternatively, you can use Bower to install the WebUI packages.
+`bower install asyncdesign-webui`
+
+or
 
 That's it. You are ready to start developing with WebUI.
 
 Be sure to look at the static **DEMO** pages at the root of the download, containing many examples that demonstrate a good selection of components.
 
-### **Creating page layouts with flexbox**
+#### **What's Included**
 
-WebUI includes a flexbox module as well as a traditional grid system by default, as it is recommended to make use of both to provide maximum flexibility and browser support. 
-However, if you don't need both, you can easily exclude one by removing the include in the webui.scss file located in the **src/scss** folder of the project, then just 
-build the project using the supplied grunt tasks. 
+**NPM**
+The NPM package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
-````html
-<div class="container responsive-gutter-md">
-  <div class="flex-row">
-    <div class="flex-col pad-xs">
-      <div class="panel secondary text-center">
-        Heading
-      </div>
-    </div>  
-  </div>
-  <div class="flex-row">
-    <div class="flex-size-15 flex-respond-bp-2-under">
-      <div class="flex-col pad-xs">
-        <div class="panel secondary height-full">
-           Main
-           <p>Pellentesque habitant morbi tristique senectus et netus et 
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante.</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-size-5 flex-respond-bp-2-under flex-order-first-bp-2-under">
-      <div class="flex-col pad-xs">
-        <div class="panel secondary height-full">
-           Navigation
-           <p>Pellentesque habitant morbi tristique senectus et netus et 
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+**NuGet**
+The NuGet package includes only the minified and development distribution files.
+
+**Bower**
+The Bower package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
+
+**GitHub Download**
+The GitHub download includes all WebUI files for the framework, docs website, demo pages, and build files.
+
+
+#### **Components Available**
+
+* Alerts
+* Carousel
+* Menus
+* Modals
+* Positioning
+* Scrollspy
+* Shapes
+* Radial
+* Tabs
+* Toggle Container
+* Transitions
+* Tooltips
+* Upload
+* Validation					
+
+#
+
+### **Useage**
+
+#### **CSS and JavaScript Files**
+
+WebUI comes with a range of pre-built CSS and JavaScript files. The following table shows the combinations that can be used and what is included in each.
+
+| CSS                            | JS                    | Includes                                                                                                                                              |
+|--------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| webui-all.min.css              | webui-all.min.js      | Includes everything, with advanced styles, flexbox, the traditional grid system, and all components.                                                  |
+| webui-all-flexbox.min.css      | webui-all.min.js      | Includes everything apart from the traditional grid system.                                                                                           |
+| webui-all-grid.min.css         | webui-all.min.js      | Includes everything apart from flexbox styles.                                                                                                        |
+| webui-standard.min.css         | webui-standard.min.js | Includes standard styles, flexbox, the traditional grid system, and most components. Does not include advanced styles or the shapes component.        |
+| webui-standard-flexbox.min.css | webui-standard.min.js | Includes standard styles, flexbox, and most components. Does not include the traditional grid system, advanced styles or the shapes component.        |
+| webui-standard-grid.min.css    | webui-standard.min.js | Includes standard styles, the traditional grid system, and most components. Does not include flexbox styles, advanced styles or the shapes component. |
+| webui-basic.min.css            | webui-basic.min.js    | Includes only basic styles, flexbox, and the traditional grid system. Does not include any components.                                                |
+| webui-basic-flexbox.min.css    | webui-basic.min.js    | Includes only basic styles and flexbox. Does not include any components.                                                                              |
+| webui-basic-grid.min.css       | webui-basic.min.js    | Includes only basic styles and the traditional grid system. Does not include any components.                                                          |
+|                                |                       |                                                                                                                                                       |
+
+#### **Styles Without JavaScript**
+
+WebUI can be used without javascript files if you only need the CSS, so a set of style only files are provided. The filenames for these begin with "webui-styles-" and 
+follow the same pattern as in the above table, but none includes WebUI components which rely on javascript.
+
+#### **JavaScript Page Load Event**
+
+All WebUI JavaScript should be enclosed in the load event callback, as shown in the following example.
+
+````
+webui.ready(function() {
+  // Call WebUI functions here...
+});
 ````
 
-It's very easy to create flexbox layouts with WebUI. Just use a flex-rows, flex-columns and flex items (flex-size-*, flex-auto, flex-initial, etc.) 
-You can also take advantage of the many flexbox responsive utility classes available. 
+#### **Angular**
 
-Here's another flexbox example - this time creating a simple responsive navbar.
+* From the command line, navigate to your **Angular CLI** project folder.
+* Type **npm install asyncdesign-webui** and wait for the install to finish.
+* In **tsconfig.json** add **"allowJs": true** to the **"compilerOptions"** object.
+* In **.angular-cli.json** add **"../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css"** to the styles array.
+* In **.angular-cli.json** add **"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"** to the scripts array.
+* In **typings.d.ts** add **declare var webui: any**
+* In your **app.components.ts** add **import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';** at the top of your file.
+  (You can import webui instead if you prefer)
+		
+#### **React**
 
-````html
-<div class="container pad-xs background-dark">
-  <div class="flex-row flex-items-center flex-justify-space-between flex-direction-column-bp-1-under">
-    <div class="flex-initial flex-justify-center-bp-1-under">
-      <a href="javascript:void 0" class="color-accent-2 text-xl">COMPANY LOGO</a>
-    </div>				
-    <div class="flex-auto flex-wrap flex-justify-center flex-justify-space-around flex-direction-column-bp-1-under">
-      <a href="#0" class="text-sm color-light color-hover-success col-spacing-sm">PAGES</a>
-      <a href="#0" class="text-sm color-light color-hover-success col-spacing-sm">PROMOTIONS</a>
-      <a href="#0" class="text-sm color-light color-hover-success col-spacing-sm">PRODUCTS</a>
-    </div>			
-    <div class="flex-initial flex-justify-end-bp-1-over">
-      <input type="text" class="input-md width-full" placeholder="" />
-    </div>
-  </div>
-</div>
-````
+* From the command line, navigate to your **React** project folder.
+* Type **npm install asyncdesign-webui** and wait for the install to finish.
+* In your **React** component js file such as **App.js** add **import webui from '../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js'**
+* Then add **import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css'**
+* Don't forget to use **className=""** instead of **class=""** on your html elements.
+* If you need to use WebUI javascript functions, this should be done in the **componentDidMount()** lifecycle method.
 
-### **Creating page layouts with the traditional grid system**
+#### **Vue**
 
-WebUI uses a 20 column grid system to create grid layouts. In general, each row will contain from 1 to 20 columns, and each column can contain any other content. 
-Most likely you will be using a shared layout to display common parts of your website. Here is a quick example of a shared layout structure with a container and some rows and columns:
+* From the command line, navigate to your **Vue CLI** project folder.
+* Type **npm install asyncdesign-webui** and wait for the install to finish.
+* In **webpack.base.conf.js** under **resolve: alias:** add **'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-standard.min.js')**
+* In **main.js** add **import webui from 'webui';**
+* In **main.js** add **import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css';**
+* Then finally, add **Vue.use(webui)** directly below your imports.
 
-````html
-<div class="container">
-  <div class="form-row">
-    <div class="form-col-20 text-center respond-bp-3-under">
-      <div class="panel secondary">
-        Heading
-      </div>
-    </div>  
-  </div>
-  <div class="form-row">
-    <div class="form-col-4 respond-bp-3-under">
-      <div class="panel secondary height-xl">
-        Navigation
-      </div>
-    </div>
-    <div class="form-col-16 respond-bp-3-under">
-      <div class="panel secondary height-xl">
-        Main content
-      </div>
-    </div>
-  </div>
-</div>
-````
-The respond-bp-3-under class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. 
-You won't normally need the height-xl class as it's just added here to give some height in the browser for the screenshot, but it is 
-a class that is available in WebUI. Then, within each column there is a panel container using the secondary foreground and background theme colors. 
+#
 
-Here is the result of the above code in the browser.
+**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about WebUI**
 
-<img src="assets/images/basic_layout.png" />
-
-When the screen width is reduced to the medium breakpoint size it would appear as follows. 
-
-<img src="assets/images/basic_layout_breakpoint.png" />
-
-You may prefer a bootstrap style center layout, and you can easily do that with the code below by using the responsive-gutter-* classes.
-
-````html
-<div class="container responsive-gutter-lg">
-  <div class="content-row menu-bar-sm dark">
-    <div class="form-col-20 form-col-align-lg text-center">
-      Menu bar
-    </div>
-  </div>
-  <div class="content-row">	
-    <div class="content-col-20 height-xl secondary respond-bp-3-under">
-      <div class="area">
-        Page content
-      </div>
-    </div>
-  </div>
-</div>
-````
-The width of the gutters will automatically adjust, reducing towards the smallest breakpoint and increasing towards the largest. At the smallest 
-breakpoint there will be no gutter. Responsive gutters can be used with any container type or on any row type, but should not be used directly on 
-columns, so there is no problem with placing containers inside columns and applying responsive gutters to the containers.
-
-This is how it would look in the browser.
-
-<img src="assets/images/centered_layout.png" />
-
-**Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about webui**

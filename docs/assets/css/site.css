@@ -1,25 +1,36 @@
 
-html {
-	background-color: #000000;
-}
-
-body {	
-	width: 100%;
-	margin: 0;
-	/*-webkit-font-smoothing: antialiased;*/
+body {
+	font-family: "Open Sans", Arial, Helvetica;
 }
 
 .string-literal {
 	background-color: transparent;
-	color: #80009E;
+	color: #8800FF;
 }
 .html-tag {
 	background-color: transparent;
-	color: #771F00;		
+	color: #C44E00;		
 }
 .html-attribute {
 	background-color: transparent;
-	color: #0020DB;		
+	color: #000;		
+}
+
+.vertical-alignment {
+	line-height: 2.5em;
+}
+
+.hamburger-image {
+	background-image: url(../images/hamburger.png);
+	background-repeat: no-repeat;
+	background-size: 85%;
+	background-position:  center center;	
+}
+
+.custom-image {
+	background-image: url(../images/fuji.jpg);
+	background-repeat: no-repeat;
+	background-size:  cover;
 }
 
 .custom-image-1 {
@@ -40,4 +51,15 @@ body {
 	background-size:  cover;
 }
 
+#main {
+	max-width: 45rem;
+	margin-bottom: 5rem;
+}
+
+@media screen and (min-width: 69.99rem) and (max-width: 99.99rem) {
+	#main {
+		margin-left: 23rem;
+		margin-right: 2rem;
+	}
+}
 

@@ -1,14 +1,6 @@
-/*!
-* Name: webui-utils - utility functions
-* Version: 5.4.0
-* Author: Levi Keogh, 2017-06-05
-*/
-"use strict";
-
-(function(webui, ui, $, undefined) {
-    ui.version = "webui-5.4.0";
+(function(win) {
     /* PUBLIC */
-    ui.sum = function() {
+    webui.sum = function() {
         try {
             var i;
             var n = arguments.length;
@@ -21,7 +13,7 @@
             return 0;
         }
     };
-    ui.pad = function(number, length, padRight) {
+    webui.pad = function(number, length, padRight) {
         try {
             var str = "" + number;
             while (str.length < length) {
@@ -36,7 +28,7 @@
             return "";
         }
     };
-    ui.truncate = function(text, length) {
+    webui.truncate = function(text, length) {
         try {
             var str = "";
             for (var i = 0; i < length; i++) {
@@ -47,7 +39,7 @@
             return text;
         }
     };
-    ui.limitWords = function(text, wordCount) {
+    webui.limitWords = function(text, wordCount) {
         try {
             var words = text.split(" ");
             words.splice(wordCount, words.length - 1);
@@ -56,7 +48,7 @@
             return text;
         }
     };
-    ui.getQueryString = function(key) {
+    webui.getQueryString = function(key) {
         try {
             var temp = location.search.match(new RegExp(key + "=(.*?)($|\\&)", "i"));
             if (!temp) {
@@ -67,7 +59,7 @@
             return "";
         }
     };
-    ui.navigateInternal = function(id, navigate) {
+    webui.navigateInternal = function(id, navigate) {
         try {
             var url = window.location.href.split("#");
             if (url != null && url.length > 0) {
@@ -82,7 +74,7 @@
             return;
         }
     };
-    ui.getAbsoluteUri = function(relativeUrl, virtualRoot, addReturnUrl) {
+    webui.getAbsoluteUri = function(relativeUrl, virtualRoot, addReturnUrl) {
         try {
             var cleanUrl = relativeUrl.replace(/\.\.\//g, "").replace(/\./g, "");
             cleanUrl = cleanUrl.substring(0, 1) === "/" ? cleanUrl.substring(1, cleanUrl.length) : cleanUrl;
@@ -96,7 +88,7 @@
             return "";
         }
     };
-    ui.getCookie = function(name) {
+    webui.getCookie = function(name) {
         try {
             var start = document.cookie.indexOf(name + "=");
             var len = start + name.length + 1;
@@ -115,7 +107,7 @@
             return null;
         }
     };
-    ui.setCookie = function(name, value, expires, path, domain, secure) {
+    webui.setCookie = function(name, value, expires, path, domain, secure) {
         try {
             var today = new Date();
             today.setTime(today.getTime());
@@ -129,7 +121,7 @@
             return false;
         }
     };
-    ui.deleteCookie = function(name, path, domain) {
+    webui.deleteCookie = function(name, path, domain) {
         try {
             if (ui.getCookie(name)) {
                 document.cookie = name + "=" + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
@@ -152,4 +144,4 @@
             return false;
         }
     };
-})(window.webui = window.webui || {}, window.ui = window.webui || {}, jQuery);
+})(window);
