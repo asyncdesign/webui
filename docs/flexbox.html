@@ -106,7 +106,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -132,6 +135,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -584,7 +599,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -610,6 +628,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -1574,7 +1604,6 @@
 </section>
 
 
-
 <section class="scrollspy text" id="flexboxMediaBreakpointUtilities">
 
   <div class="height-md show-bp-4-over"></div>
@@ -1583,14 +1612,17 @@
   <h3>Media Breakpoint Utilities</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Almost all WebUI utility classes will have corresponding breakpoint specific versions.</p>
+  <p>Almost all flexbox utility classes will have corresponding breakpoint specific versions.</p>
+
+  <div class="row-spacing-md"></div>
 
   <blockquote class="border-info-light background-secondary area">
     <div class="flex-items-center">
       <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
     </div>
     <p class="text-sm">Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to most utility class using the format 
-      <b>-bp-[breakpoint number]-[direction]</b>. The direction is either <span class="color-info text-bold">under</span> or <span class="color-info text-bold">over</span>.</p> 
+        <span class="color-info text-bold">-bp-[breakpoint number]-[direction]</span>. The direction is either <span class="color-info text-bold">under</span> 
+        or <span class="color-info text-bold">over</span>.</p> 
       
     <p class="text-sm">For example <span class="color-info text-bold">-bp-1-under</span> or <span class="color-info text-bold">-bp-3-over</span>.</p>
   </blockquote>
@@ -1640,11 +1672,15 @@
     </div>
   </div>
 
+  <div class="row-spacing-md"></div>
 
   <p>In the example above, each flex item has one default size applied and two further breakpoint sizes - this will cause each flex item to change size at each of those 
     breakpoints. They will start off at 6 and 14 making a total of 20 for the largest screen size, then swap sizes at breakpoint 4, and change to 2 equal sizes at
-    breakpoint 2.</p>    
-
+    breakpoint 2.</p> 
+    
+  <p>See the <a href="/webui/media_breakpoints.html" class="color-info color-hover-accent-4 text-underline text-bold">Media Breakpoints</a> section for more information
+    on using breakpoints.</p>
+  
 </section>
 
 
@@ -1780,7 +1816,7 @@
 
         ui("#fileUpload2").uploadControl({
           showCount: false,
-          scrollY: true
+          scrollY: false
         });
 
         ui("#fileUpload3").uploadControl({
@@ -1887,6 +1923,7 @@
             case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "padding.html": ui("#paddingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;

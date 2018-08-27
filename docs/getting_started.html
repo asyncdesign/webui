@@ -106,7 +106,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -132,6 +135,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -584,7 +599,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -610,6 +628,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -1108,8 +1138,7 @@
 		<li>Toggle Container</li>
 		<li>Transitions</li>
 		<li>Tooltips</li>
-		<li>Upload</li>
-		<li>Validation</li>					
+		<li>Upload</li>				
 	</ul>
 
 </section>
@@ -1218,13 +1247,13 @@
 	<p class="text-bold">Angular</p>
 
 	<ul class="list-bullet list-spacing-md">
-		<li>From the command line, navigate to your <span class="color-danger-dark translucent-5 text-bold">Angular CLI</span> project folder.</li>
+		<li>From the command line, navigate to your <span class="text-bold">Angular CLI</span> project folder.</li>
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
-		<li>In <span class="color-danger-dark text-bold">tsconfig.json</span> add <code class="color-info text-lg">"allowJs": true</code> to the <code class="color-info text-lg text-bold">"compilerOptions"</code> object.</li>
-		<li>In <span class="color-danger-dark text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css"</code> to the styles array.</li>
-		<li>In <span class="color-danger-dark text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"</code> to the scripts array.</li>
-		<li>In <span class="color-danger-dark text-bold">typings.d.ts</span> add <code class="color-info text-lg">declare var webui: any</code></li>
-		<li>In your <span class="color-danger-dark text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';</code> at the top of your file.
+		<li>In <span class="text-bold">tsconfig.json</span> add <code class="color-info text-lg">"allowJs": true</code> to the <code class="color-info text-lg text-bold">"compilerOptions"</code> object.</li>
+		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css"</code> to the styles array.</li>
+		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"</code> to the scripts array.</li>
+		<li>In <span class="text-bold">typings.d.ts</span> add <code class="color-info text-lg">declare var webui: any</code></li>
+		<li>In your <span class="text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';</code> at the top of your file.
 			(You can import webui instead if you prefer)
 		</li>
 	</ul>
@@ -1234,9 +1263,9 @@
 	<p class="text-bold">React</p>
 
 	<ul class="list-bullet list-spacing-md">
-		<li>From the command line, navigate to your <span class="color-info text-bold">React</span> project folder.</li>
+		<li>From the command line, navigate to your <span class="text-bold">React</span> project folder.</li>
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
-		<li>In your <span class="color-info text-bold">React</span> component js file such as <span class="color-info text-bold">App.js</span> add <code class="color-info text-lg">import webui from '../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js'</code></li>
+		<li>In your <span class="text-bold">React</span> component js file such as <span class="text-bold">App.js</span> add <code class="color-info text-lg">import webui from '../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js'</code></li>
 		<li>Then add <code class="color-info text-lg">import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css'</code></li>
 		<li>Don't forget to use <code class="color-info text-lg">className=""</code> instead of  <code class="color-info text-lg">class=""</code> on your html elements.</li>
 		<li>If you need to use WebUI javascript functions, this should be done in the <code class="color-info text-lg">componentDidMount() lifecycle method.</code></li>
@@ -1247,11 +1276,11 @@
 	<p class="text-bold">Vue</p>
 
 	<ul class="list-bullet list-spacing-md">
-		<li>From the command line, navigate to your <span class="color-success text-bold">Vue CLI</span> project folder.</li>
+		<li>From the command line, navigate to your <span class="text-bold">Vue CLI</span> project folder.</li>
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
-		<li>In <span class="color-success text-bold">webpack.base.conf.js</span> under <span class="color-success text-bold">resolve: alias:</span> add <code class="color-info text-lg">'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-standard.min.js')</code></li>
-		<li>In <span class="color-success text-bold">main.js</span> add <code class="color-info text-lg">import webui from 'webui';</code></li>
-		<li>In <span class="color-success text-bold">main.js</span> add <code class="color-info text-lg">import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css';</code></li>
+		<li>In <span class="text-bold">webpack.base.conf.js</span> under <span class="text-bold">resolve: alias:</span> add <code class="color-info text-lg">'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-standard.min.js')</code></li>
+		<li>In <span class="text-bold">main.js</span> add <code class="color-info text-lg">import webui from 'webui';</code></li>
+		<li>In <span class="text-bold">main.js</span> add <code class="color-info text-lg">import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css';</code></li>
 		<li>Then finally, add <code class="color-info text-lg">Vue.use(webui)</code> directly below your imports.</li>
 	</ul>
 
@@ -1411,7 +1440,7 @@
 
 	<div class="row-spacing-md"></div>
 
-	<p>For more information on using flexbox please see the 
+	<p>For more information on using flexbox see the 
 		<a href="/webui/flexbox.html" class="color-info color-hover-accent-4 text-underline text-bold">Flexbox</a> section.</p>
 
 </section>
@@ -1495,7 +1524,7 @@
 	<div class="row-spacing-md"></div>
 
 	<p>The respond-bp-3-under class on the columns will cause the form to re-render for a mobile screen size at the medium breakpoint. You
-	won't normally need the height-xl class as it's just added here to give some height in the browser for the screenshot,
+	won't normally need the height-xl class as it's just added here to give some height in the browser for the example,
 	but it is a class that is available in WebUI. Then, within each column there is a panel container using the secondary foreground
 	and background theme colors.</p>
 
@@ -1736,7 +1765,7 @@
 	<p>Theme colours are a big part of WebUI, making it very easy to add colour to almost any container, column, or control. There
 			is a lot more than just applying a colour - you can add background, foreground, border, and hover effects too. For more
 			information on using theme colours see the <a href="/webui/theme_colors.html" 
-			class="color-info color-hover-accent-4 text-underline text-bold">Theme colours</a>	section.</p>
+			class="color-info color-hover-accent-4 text-underline text-bold">Theme colours</a> section.</p>
 
 </section>
 
@@ -1935,7 +1964,7 @@
 
         ui("#fileUpload2").uploadControl({
           showCount: false,
-          scrollY: true
+          scrollY: false
         });
 
         ui("#fileUpload3").uploadControl({
@@ -2042,6 +2071,7 @@
             case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "padding.html": ui("#paddingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;

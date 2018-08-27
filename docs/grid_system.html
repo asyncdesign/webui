@@ -106,7 +106,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -132,6 +135,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -584,7 +599,10 @@
         </div> 
         <div class="pad-left-sm">
           <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
-        </div>    
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
       </div>
 
       <div>
@@ -610,6 +628,18 @@
           <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
       </div>
+
+      <div>
+        <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
 
       <div>
         <a href="/webui/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
@@ -1072,27 +1102,13 @@
 
 			</div>
 		</div>
-	</div>
+  </div>
+  
+  <div class="row-spacing-md"></div>
 
-  <div class="row-spacing-sm"></div>
-
-  <p class="text-bold">Breakpoint Utility Classes</p>
-  <p>Breakpoint utility classes are not unique to the grid system, but are available to use anywhere. The grid system columns are based on
-    percentage widths, so in that sense are responsive. However, making columns take the full width if their containing element at various
-    breakpoint sizes requires a further step, by adding one of the <span class="color-info text-bold">respond-*</span> classes.
-  </p>
-
-  <div class="row-spacing-sm"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
-    </div>
-    <p class="text-sm">Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to any utility class using the format 
-      <span class="color-info text-bold">-bp-[breakpoint number]-[direction]</span>. The direction is either <span class="color-info text-bold">under</span> or 
-      <span class="color-info text-bold">over</span>.</p>
-    <p class="text-sm">For example <span class="color-info text-bold">respond-bp-3-under</span> or <span class="color-info text-bold">show-bp-3-over</span></p>
-  </blockquote>
+  <p>You may have noticed the "respond-bp-3-under" media flags. These are simply saying that these columns are responsive, so when the screen
+    gets to a small size (based on the amount defined in _settings.scss), then move this column to the next line and expand to the
+    full width of the container. If you adjust the width of your browser you can see it in action.</p>
 
 </section>
 
@@ -1172,12 +1188,6 @@
 
   <p>This is quite a basic scenario, and here you can see that the row is made up of 4 equal columns, each taking up one quarter of the full 20 column width.</p>
 
-  <div class="row-spacing-md"></div>
-
-  <p>You may have noticed the "respond-bp-2-under" media flags. These are simply saying that these columns are responsive, so when the screen
-    gets to a small size (based on the amount defined in _settings.scss), then move this column to the next line and expand to the
-    full width of the container. If you adjust the width of your browser you can see it in action.</p>
-
 </section>
 
 <section class="scrollspy text" id="formGrid">
@@ -1254,14 +1264,15 @@
 
   <div class="row-spacing-md"></div>
 
-  <p>In this case we now have some separation between each column. However, if you want more separation just add one of the
-      <span class="color-info text-bold">pad-*</span> classes to the column. If you prefer, you could wrap the content of each column with a body or panel
-    container.
+  <p>In this case we now have some separation between each column. However, if you want more separation just add one of the <span class="color-info text-bold">grid-padding-*</span>
+    classes to the grid parent element or add <span class="color-info text-bold">pad-*</span> classes to the required columns. If you prefer, you could wrap the content of each 
+    column with a body or panel container. See the <a href="/webui/padding.html" class="color-info color-hover-accent-4 text-underline text-bold">Padding</a> section 
+    for more on various padding options.
   </p>
 
   <div class="row-spacing-md"></div>
 
-  <p>One important aspect to note about the column and form grid types is that you don't need to repeat the use of rows when nesting columns, 
+  <p>One important aspect to note about the content and form grid types is that you don't need to repeat the use of rows when nesting columns, 
     and this is also the method of setting varying numbers of columns per row at different screen sizes.</p>
 
 </section>
@@ -1274,11 +1285,13 @@
   <h3>Table type rows and columns</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The table grid is responsive by default and does not have borders by default. So, to use the table grid in default mode requires the
+  <p>The table grid is responsive and does not have borders by default. So, to use the table grid in default mode requires the
       <span class="color-info text-bold">table-row</span> and <span class="color-info text-bold">table-col</span> classes. Each column will only
       expand to accomodate its content. Elements such as buttons or textboxes with relative widths will expand or shrink to the size of the
       column which is determined by the remaining row space available.
   </p>
+
+  <div class="row-spacing-md"></div>
 
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
@@ -1329,10 +1342,12 @@
   <div class="row-spacing-md"></div>
 
   <p>Table rows and columns are a bit different to the other two grid types. Besides having the ability to show borders, they are designed primarily for displaying content in a 
-    tabular format and implement some flexbox behaviours, so each column will be of equal height based on the tallest column. As with content and form type grids, you can add
-    media breakpoint flags in order to control when columns respond at different screen sizes. But they differ in 2 key areas: Firstly, when nesting table columns you must add a 
-    table-row for each nested level. Secondly, if you want to add spacing between any rows using say row-spacing-* classes, then you will also need to wrap each group of 
-    separated rows with any div tag that has the class <span class="color-info text-bold">table-group</span>.</p>
+    tabular format and implement some flexbox behaviours, so each column will be of equal height based on the tallest column.</p>
+    
+    
+  <p>As with content and form type grids, you can add media breakpoint flags in order to control when columns respond at different screen sizes. But they differ in 2 key areas: 
+    Firstly, when nesting table columns you must add a table-row for each nested level. Secondly, if you want to add spacing between any rows using say row-spacing-* classes, 
+    then you will also need to wrap each group of separated rows with any div tag that has the class <span class="color-info text-bold">table-group</span>.</p>
 
 
   <div class="row-spacing-lg"></div>
@@ -1351,7 +1366,8 @@
     not add up to more than 20 in a single row. You will see that table grids are used extensively throughout the documentation in this website.
   </p>
   
-
+  <div class="row-spacing-md"></div>
+  
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
@@ -1512,12 +1528,14 @@
 
   <div class="row-spacing-md"></div>
 
-  This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen
-  size down to small, and 4 rows of 1 column at the small size or less. You may be thinking that the markup is a bit verbose,
+  <p>This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen
+  size down to small, and 4 rows of 1 column at the small size or less.</p> 
+  
+  <p>You may be thinking that the markup is a bit verbose,
   and there are different approaches offered by different frameworks. In fact, there are pros and cons to each method.
   One method might be to have helper classes for each screen size and column count that can all be applied to the same
   column definition, but if you had 5 screen size steps it could get a bit strange. So in WebUI, we opted for the nesting
-  approach - it does seem a bit more extensible.
+  approach - it does seem a bit more extensible.</p>
 
 
   <div class="row-spacing-lg"></div>
@@ -1541,11 +1559,15 @@
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
 
-  WebUI supports any number of equal width columns within the maximum of 20 for all grid types. The classes used take the format
-  [column type]-col-eq-[number of equal columns], for example form-col-eq-9. However, you won't find classes for the number
-  of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and flexibility here as
-  you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and
-  split columns is any number of ways, and all responsive too.
+  <p>WebUI supports any number of equal width columns within the maximum of 20 for all grid types. The classes used take the format [column type]-col-eq-[number of equal columns], 
+    for example form-col-eq-9. However, you won't find classes for the number of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and 
+    flexibility here as you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and split columns is any number of ways, 
+    and all responsive too.</p>
+
+  <p>Of course, much of this can also be achieved without a grid system and WebUI provides full support for flexbox. These grid capabilities are retained for backwards
+    compatibility. See the <a href="/webui/flexbox.html" class="color-info color-hover-accent-4 text-underline text-bold">Flexbox</a> section for more information
+    on the flexbox approach.</p>
+
 
 </section>
 
@@ -1812,10 +1834,90 @@
     </div>
   </div>
 
-
-
 </section>
 
+
+<section class="scrollspy text" id="gridMediaBreakpointUtilities">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Media Breakpoint Utilities</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Breakpoints can be used on any grid columns.</p>
+
+  <p>Breakpoint utility classes are not unique to the grid system, but are available to use anywhere. The grid system columns are based on
+    percentage widths, so in that sense are responsive. However, making columns take the full width if their containing element at various
+    breakpoint sizes requires a further step, by adding one of the <span class="color-info text-bold">respond-*</span> classes.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-info-light background-secondary area">
+    <div class="flex-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
+    </div>
+    <p class="text-sm">Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to most utility class using the format 
+      <span class="color-info text-bold">-bp-[breakpoint number]-[direction]</span>. The direction is either <span class="color-info text-bold">under</span> or 
+      <span class="color-info text-bold">over</span>.</p> 
+      
+    <p class="text-sm">For example <span class="color-info text-bold">-bp-1-under</span> or <span class="color-info text-bold">-bp-3-over</span>.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="content-row">
+    <div class="content-col-6 respond-bp-2-under">     
+      <div class="panel border-sm border-accent-4 background-accent-1-light height-md">
+        Lorem ipsum dolor sit amet        
+      </div>
+    </div>
+    <div class="content-col-14 respond-bp-2-under">
+      <div class="panel border-sm border-accent-4 background-accent-1-light height-md">
+        Lorem ipsum dolor sit amet
+      </div>
+    </div>
+  </div>
+      
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="content-row"&gt;
+  &lt;div class="content-col-6 respond-bp-2-under"&gt;     
+    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-md"&gt;
+      Lorem ipsum dolor sit amet        
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="content-col-14 respond-bp-2-under"&gt;
+    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-md"&gt;
+      Lorem ipsum dolor sit amet
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row-spacing-md"></div>
+
+  <p>See the <a href="/webui/media_breakpoints.html" class="color-info color-hover-accent-4 text-underline text-bold">Media Breakpoints</a> section for more information
+    on using breakpoints.</p>
+
+</section>
+  
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
@@ -1948,7 +2050,7 @@
 
         ui("#fileUpload2").uploadControl({
           showCount: false,
-          scrollY: true
+          scrollY: false
         });
 
         ui("#fileUpload3").uploadControl({
@@ -2055,6 +2157,7 @@
             case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "padding.html": ui("#paddingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;

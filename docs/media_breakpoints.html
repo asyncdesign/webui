@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/colors.html">
+  <link rel="canonical" href="http://localhost:4000/webui/media_breakpoints.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1020,348 +1020,122 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="themeColors">
+      <section class="scrollspy text" id="breakpointSettings">
 
-	<div class="height-md show-bp-4-over"></div>
-	<div class="height-sm show-bp-4-under"></div>
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
 
-	<h3>Theme Colors</h3>
-	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+  <h3>Breakpoint Settings</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-	<p>Theme colors are based on a subset of the Material Design color palette.</p>
+  Media breakpoint sizes are defined in the _settings.scss file, so can easily be changed according to your requirements. Please be aware
+  that you will need to specify breakpoint sizes to at least 2 decimal places if you are using em or rem units, and also ensure that there
+  is a minimum 0.01 unit difference between converging breakpoints.
 
-	<p class="text-bold"></p>
+  <p>Here are the default sizes</p>
 
-	<div class="text-sm pad-bottom-xl">
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit primary">primary</div>
-			<div class="flex-col flex-fit secondary">secondary</div>
-			<div class="flex-col flex-fit highlight">highlight</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit muted">muted</div>		
-			<div class="flex-col flex-fit disabled">disabled</div>
-			<div class="flex-col flex-fit transparent">transparent</div>
-		</div>				
-	</div>
+  <p class="text-sm text-bold">
+    $settings_bp_1_under: 29.99rem;<br />
+    $settings_bp_1_over: 30rem;<br />
+    $settings_bp_2_under: 39.99rem;<br />
+    $settings_bp_2_over: 40rem;<br />
+    $settings_bp_3_under: 49.99rem;<br />
+    $settings_bp_3_over: 50rem;<br />
+    $settings_bp_4_under: 69.99rem;<br />
+    $settings_bp_4_over: 70rem;<br />
+    $settings_bp_5_under: 89.99rem;<br />
+    $settings_bp_5_over: 90rem;
+  <p>
 
-	<div class="text-sm pad-bottom-xl">
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit light">light</div>
-			<div class="flex-col flex-fit default">default</div>	
-			<div class="flex-col flex-fit dark">dark</div>
-		</div>
-	</div>
+  <p>
+    These are the variables used by the WebUI media queries.
+  </p>
 
-	<div class="text-sm">
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit info-light">info-light</div>
-			<div class="flex-col flex-fit info">info</div>
-			<div class="flex-col flex-fit info-dark">info-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit success-light">success-light</div>
-			<div class="flex-col flex-fit success">success</div>
-			<div class="flex-col flex-fit success-dark">success-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit warning-light">warning-light</div>
-			<div class="flex-col flex-fit warning">warning</div>
-			<div class="flex-col flex-fit warning-dark">warning-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit danger-light">danger-light</div>
-			<div class="flex-col flex-fit danger">danger</div>
-			<div class="flex-col flex-fit danger-dark">danger-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit accent-1-light">accent-1-light</div>
-			<div class="flex-col flex-fit accent-1">accent-1</div>
-			<div class="flex-col flex-fit accent-1-dark">accent-1-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit accent-2-light">accent-2-light</div>
-			<div class="flex-col flex-fit accent-2">accent-2</div>
-			<div class="flex-col flex-fit accent-2-dark">accent-2-dark</div>
-		</div>		
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit accent-3-light">accent-3-light</div>
-			<div class="flex-col flex-fit accent-3">accent-3</div>
-			<div class="flex-col flex-fit accent-3-dark">accent-3-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit accent-4-light">accent-4-light</div>
-			<div class="flex-col flex-fit accent-4">accent-4</div>
-			<div class="flex-col flex-fit accent-4-dark">accent-4-dark</div>
-		</div>
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit accent-5-light">accent-5-light</div>
-			<div class="flex-col flex-fit accent-5">accent-5</div>
-			<div class="flex-col flex-fit accent-5-dark">accent-5-dark</div>
-		</div>
-							
-	</div>
+</section>
 
-	<div class="row-spacing-md"></div>
+  
+<section class="scrollspy text" id="breakpoints">
 
-	<p>The above classes all set the background and a complimentary foreground color. However, you can use the background and foreground colors separately by
-		simply prefixing the class name with <span class="color-info text-bold">background-</span> or <span class="color-info text-bold">color-</span> respectively.
-		See the following example.
-	</p>
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
 
-	<span class="badge-square-xs background-info-light text-xs">Example</span>
-	<div class="row-spacing-sm"></div>
+  <h3>Breakpoints</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-	<div class="text-sm">
-		<div class="flex-row flex-padding-xs">
-			<div class="flex-col flex-fit background-accent-1-dark color-info-light">Lorem ipsum</div>
-			<div class="flex-col flex-fit background-accent-4-dark color-success-light">Lorem ipsum</div>	
-			<div class="flex-col flex-fit background-accent-5-dark color-warning-light">Lorem ipsum</div>
-		</div>
-	</div>
-	
-	
-	<div class="row-spacing-md"></div>
-	
-	<span class="badge-square-xs background-success-light text-xs">Markup</span>
-	<div class="row-spacing-sm"></div>
+  <p>
+    Almost all WebUI CSS utility classes have corresponding breakpoint specific classes using the same naming convention as the variables above. The format is 
+    <b>-bp-[breakpoint number]-[direction]</b>. The direction is either <span class="color-info text-bold">under</span> or <span class="color-info text-bold">over</span>. 
+    For example <span class="color-info text-bold">-bp-1-under</span> or <span class="color-info text-bold">-bp-3-over</span>.
+  </p>
 
-	<div class="body background-secondary code-block">
-		<div class="content-row">
-			<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="text-sm"&gt;
-  &lt;div class="flex-row flex-padding-xs"&gt;
-    &lt;div class="flex-col flex-fit background-accent-1-dark color-info-light"&gt;Lorem ipsum&lt;/div&gt;
-    &lt;div class="flex-col flex-fit background-accent-4-dark color-success-light"&gt;Lorem ipsum&lt;/div&gt;	
-    &lt;div class="flex-col flex-fit background-accent-5-dark color-warning-light"&gt;Lorem ipsum&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-															
-			</div>
-		</div>
-	</div>
-
-	<div class="row-spacing-md"></div>
-
-	<p>If you are using the full WebUI CSS file, then you are also able to set border, boundary, and outline colors by prefixing with <span class="color-info text-bold">border-</span>, 
-		<span class="color-info text-bold">boundary-</span>, or <span class="color-info text-bold">outline-</span>.</p>
-
-	<div class="row-spacing-md"></div>
+  <div class="row-spacing-md"></div>
 
   <blockquote class="border-info-light background-secondary area">
-		<div class="flex-items-center">
-			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
-		</div>
-		<p class="text-sm">To use the event color classes the following format should be followed.
-			<span class="color-info text-bold">[element attribute]-[element event]-[theme color]</span>.</p>
-		<p class="text-sm">For example <span class="color-info text-bold">background-focus-info</span> or <span class="color-info text-bold">border-hover-accent-1</span></p>
-	</blockquote>
-	
-	<div class="row-spacing-md"></div>
-	
-  <blockquote class="border-warning-light background-secondary area">
-		<div class="flex-items-center">
-			<span class="color-warning fa fa-warning fa-2x pad-right-sm"></span><span class="text-bold">Color Combinations</span>
-		</div>
-		<p class="text-sm">Color combinations should always be chosen carefully, taking into account people with partial sight and / or color blindness.</p>
-	</blockquote>
+    <div class="flex-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
+    </div>
+    <p class="text-sm">Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to most utility class using the format 
+      <b>-bp-[breakpoint number]-[direction]</b>. The direction is either <span class="color-info text-bold">under</span> or <span class="color-info text-bold">over</span>.</p> 
+      
+    <p class="text-sm">For example <span class="color-info text-bold">-bp-1-under</span> or <span class="color-info text-bold">-bp-3-over</span>.</p>
+  </blockquote>
+  
+  <div class="row-spacing-md"></div>
 
-</section>
+  <p>Because WebUI implements breakpoints for minimum media sizes as well as maximum media sizes, utility classes can be combined to produce responsive behaviour within a range. 
+    For example, if you only wanted to show an element between breakpoint 2 and 4, you could use <span class="color-info text-bold">show-bp-2-over</span> and 
+    <span class="color-info text-bold">hide-bp-4-over</span> classes together. A very important thing to note is that to implement behaviour within a range, or in multiple 
+    step-up / step-down fashion, the utility classes must always point in the same direction.</p>
 
-<section class="scrollspy text" id="translucency">
+  <p>Another example could be combining <span class="color-info text-bold">text-md-bp-2-under</span> and <span class="color-info text-bold">text-xl-bp-4-under</span> to 
+    increase the text size between breakpoints 2 and 4 only. <span class="color-info text-bold">text-md</span> is 1em, so the size will be unchnaged under breakpoint 2.</p>
+  
+    <div class="row-spacing-md"></div>
 
-	<div class="height-md show-bp-4-over"></div>
-	<div class="height-sm show-bp-4-under"></div>
-
-	<h3>Translucency</h3>
-	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-	<p>The <span class="color-info text-bold">translucent-*</span> classes range from a zero alpha transparency to a value of 0.9,
-		and just like the theme colors, they can be used to set background, foreground, border, boundary, or outline. Here is a list of the translucency classes available:</p>
-
-	<div class="container grid-padding-sm text-center text-sm text-wrap">
-		<div class="table-row background-secondary">
-			<div class="table-col-14">Classes</div>
-			<div class="table-col-6">Alpha Value</div>				
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent, background-translucent, color-translucent, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-1, background-translucent-1, color-translucent-1, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.1</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-2, background-translucent-2, color-translucent-2, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.2</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-3, background-translucent-3, color-translucent-3, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.3</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-4, background-translucent-4, color-translucent-4, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.4</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-5, background-translucent-5, color-translucent-5, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.5</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-6, background-translucent-6, color-translucent-6, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.6</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-7, background-translucent-7, color-translucent-7, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.7</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-8, background-translucent-8, color-translucent-8, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.8</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-14">translucent-9, background-translucent-9, color-translucent-9, border-translucent, boundary-translucent, outline-translucent</div>
-			<div class="table-col-6">0.9</div>
-		</div>
-									
-	</div>
-
-	<div class="row-spacing-md"></div>
-
-	<p>Making use of translucency is one easy way to get more color shades.</p>
-
-	<div class="row-spacing-md"></div>
-
-	<span class="badge-square-xs background-info-light text-xs">Example</span>
-	<div class="row-spacing-xs"></div>
-
-	<div class="container background-accent-1-dark color-light">
-		<div class="panel background-translucent">
-			Pellentesque habitant morbi tristique senectus
-		</div>
-		<div class="panel background-translucent-1">
-			Pellentesque habitant morbi tristique senectus
-		</div>
-		<div class="panel background-translucent-2">
-			Pellentesque habitant morbi tristique senectus
-		</div>
-		<div class="panel background-translucent-3">
-			Pellentesque habitant morbi tristique senectus
-		</div>
-		<div class="panel background-translucent-4">
-			Pellentesque habitant morbi tristique senectus
-		</div>							
-	</div>
-
-	<div class="row-spacing-md"></div>
-
-	<span class="badge-square-xs background-success-light text-xs">Markup</span>
-	<div class="row-spacing-xs"></div>
-
-	<div class="body background-secondary code-block">
-			<div class="content-row">
-					<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="container background-accent-1-dark color-light"&gt;
-  &lt;div class="panel background-translucent"&gt;
-    Pellentesque habitant morbi tristique senectus
+    <span class="badge-square-xs background-info-light text-xs">Example</span>
+    <div class="row-spacing-sm"></div>
+  
+    <div class="flex-row">
+      <div class="flex-size-14">     
+        <div class="flex-col pad-xs border-sm border-accent-4 background-accent-1-light">
+          <span class="text-xl text-xs-bp-2-under text-md-bp-4-under">Lorem ipsum dolor sit amet</span>        
+        </div>
+      </div>
+      <div class="flex-size-6">
+        <div class="flex-col pad-xs border-sm border-accent-4 background-accent-1-light">
+          <span class="show-bp-2-over hide-bp-4-over">Lorem ipsum dolor sit amet</span>
+        </div>
+      </div>  
+    </div>
+        
+  
+    <div class="row-spacing-md"></div>
+  
+    <span class="badge-square-xs background-success-light text-xs">Markup</span>
+    <div class="row-spacing-sm"></div>
+  
+    <div class="body background-secondary code-block">
+      <div class="content-row">
+        <div class="content-col-20 scroll-y">
+  
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="flex-size-14"&gt;     
+    &lt;div class="flex-col pad-xs border-sm border-accent-4 background-accent-1-light"&gt;
+      &lt;span class="text-xl text-xs-bp-2-under text-md-bp-4-under"&gt;Lorem ipsum dolor sit amet&lt;/span&gt;        
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="panel background-translucent-1"&gt;
-    Pellentesque habitant morbi tristique senectus
-  &lt;/div&gt;
-  &lt;div class="panel background-translucent-2"&gt;
-    Pellentesque habitant morbi tristique senectus
-  &lt;/div&gt;
-  &lt;div class="panel background-translucent-3"&gt;
-    Pellentesque habitant morbi tristique senectus
-  &lt;/div&gt;
-  &lt;div class="panel background-translucent-4"&gt;
-    Pellentesque habitant morbi tristique senectus
-  &lt;/div&gt;							
+  &lt;div class="flex-size-6"&gt;
+    &lt;div class="flex-col pad-xs border-sm border-accent-4 background-accent-1-light"&gt;
+      &lt;span class="show-bp-2-over hide-bp-4-over"&gt;Lorem ipsum dolor sit amet&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;  
 &lt;/div&gt;</pre>
-																					
-					</div>
-			</div>
-	</div>
-
+            
+        </div>
+      </div>
+    </div>
+    
 </section>
-
-<section class="scrollspy text" id="focusAndHoverEvents">
-
-	<div class="height-md show-bp-4-over"></div>
-	<div class="height-sm show-bp-4-under"></div>
-
-	<h3>Focus and Hover Events</h3>
-	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-	
-
-	<p>WebUI has a full range classes supporting focus and hover events for colors. These are used for various types of button by default, but are also there for you to use
-		on other elements.</p>
-
-	<div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-		<div class="flex-items-center">
-			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Supported Elements</span>
-		</div>
-		<p class="text-sm">Not all HTML elements accept focus events by default. If you need focus events for elements such as divs or spans, then you will need to
-			to add a tabindex attribute to them and set the value to -1.
-		</p>
-	</blockquote>
-
-	
-	<div class="row-spacing-lg"></div>
-	
-	<span class="badge-square-xs background-info-light text-xs">Example</span>
-	<div class="row-spacing-xs"></div>
-
-	<div class="container gap-vertical-md">
-		<div class="container">
-			<button type="button" class="menu-button-sm menu-button-info rounded-md background-focus-accent-2">Background Focus</button>
-		</div>
-		<div class="container">
-			<input type="text" class="input-lg width-full rounded-md border-focus-accent-2" placeholder="Border Focus" />
-		</div>
-		<div class="container">
-			<button type="button" class="menu-button-sm menu-button-info rounded-md background-hover-accent-2">Background Hover</button>
-		</div>
-		<div class="container">
-			<input type="text" class="input-lg width-full rounded-md border-hover-accent-2" placeholder="Border Hover" />
-		</div>	
-	</div>
-
-	<div class="row-spacing-md"></div>
-
-	<span class="badge-square-xs background-success-light text-xs">Markup</span>
-	<div class="row-spacing-xs"></div>
-
-	<div class="body background-secondary code-block">
-			<div class="content-row">
-					<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="container gap-vertical-md"&gt;
-  &lt;div class="container"&gt;
-    &lt;button type="button" class="menu-button-sm menu-button-info rounded-md background-focus-accent-2"&gt;Background Focus&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="container"&gt;
-    &lt;input type="text" class="input-lg width-full rounded-md border-focus-accent-2" placeholder="Border Focus" /&gt;
-  &lt;/div&gt;
-  &lt;div class="container"&gt;
-    &lt;button type="button" class="menu-button-sm menu-button-info rounded-md background-hover-accent-2"&gt;Background Hover&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="container"&gt;
-    &lt;input type="text" class="input-lg width-full rounded-md border-hover-accent-2" placeholder="Border Hover" /&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-																												
-					</div>
-			</div>
-	</div>
-
-</section>
-
 
 
 
