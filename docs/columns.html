@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/grid_system.html">
+  <link rel="canonical" href="http://localhost:4000/webui/columns.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1044,210 +1044,147 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="gridSystemOverview">
+      <section class="scrollspy text" id="flowColumns">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Overview</h3>
+  <h3>Flow Columns</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
+  <p>Flow column classes use the CSS columns property, with column-width set to the default of "auto", and no column gap. Basic columns are
+    available in WebUI to enable the creation of masonry style layouts. Since WebUI provides many spacing and padding utilities it was thought that the column-gap
+    property provided little additional benefit.
+  </p>
 
-  The grid system is divided into 20 columns, and there are 3 grid types as follows:
+  <p>Similar to the grid system, the maximum number of columns available is 20. Column are implemented by using one of the <span class="color-info text-bold">flow-col-*</span>
+  classes. The format is <span class="color-info text-bold">flow-col-[column count]</span></p>
+
+  <div class="row-spacing-lg"></div>
 
   <p>
-    <span class="color-info text-bold">content</span> - Content type rows and columns have no padding, so they are ideal
-      for precise positioning or if you want components to be close to each other.
-    <br />
-    <span class="color-info text-bold">form</span> - Form type rows and columns have a 0.313rem padding all around, so
-      will give a default separation of components.
-      <br />
-    <span class="color-info text-bold">table</span> - Table rows and columns also have a 0.313rem padding, and in addition
-      include some flexbox capabilities and an outline border on all rows and columns.
+    There is also a full set of responsive classes allowing you to specify the column count at specific breakpoints. The format is 
+    <span class="color-info text-bold">flow-col-[column count]-bp-[breakpoint]-[direction]</span>. See the example below.
   </p>
-
-  <div class="row-spacing-md"></div>
-
-	<span class="badge-square-xs background-info-light text-xs">Example</span>
-	<div class="row-spacing-sm"></div>
-
-	<div class="container">
-		<div class="form-row">
-			<div class="form-col-20 text-center respond-bp-2-under">
-				<div class="panel background-accent-1-light">
-					Heading
-				</div>
-			</div>  
-		</div>
-		<div class="form-row">
-			<div class="form-col-4 respond-bp-2-under">
-				<div class="panel background-accent-2-light height-lg">
-					Navigation
-				</div>
-			</div>
-			<div class="form-col-16 respond-bp-2-under">
-				<div class="panel background-accent-4-light height-lg">
-					Main content
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row-spacing-md"></div>
-
-	<span class="badge-square-xs background-success-light text-xs">Markup</span>
-	<div class="row-spacing-sm"></div>
-
-	<div class="body background-secondary code-block">
-		<div class="content-row">
-			<div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="container"&gt;
-  &lt;div class="form-row"&gt;
-    &lt;div class="form-col-20 text-center respond-bp-3-under"&gt;
-      &lt;div class="panel background-accent-1-light"&gt;
-        Heading
-      &lt;/div&gt;
-    &lt;/div&gt;  
-  &lt;/div&gt;
-  &lt;div class="form-row"&gt;
-    &lt;div class="form-col-4 respond-bp-3-under"&gt;
-      &lt;div class="panel background-accent-2-light height-xl"&gt;
-        Navigation
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-col-16 respond-bp-3-under"&gt;
-      &lt;div class="panel background-accent-4-light height-xl"&gt;
-        Main content
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
-			</div>
-		</div>
-  </div>
-  
-  <div class="row-spacing-md"></div>
-
-  <p>You may have noticed the "respond-bp-3-under" media flags. These are simply saying that these columns are responsive, so when the screen
-    gets to a small size (based on the amount defined in _settings.scss), then move this column to the next line and expand to the
-    full width of the container. If you adjust the width of your browser you can see it in action.</p>
-
-</section>
-
-<section class="scrollspy text" id="contentGrid">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Content type rows and columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
   <div class="row-spacing-md"></div>
 
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="content-row">
-    <div class="content-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
+  <div class="flow-col-4 flow-col-2-bp-2-under flow-col-3-bp-3-under grid-padding-md text-sm">
+
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+        </div>
       </div>
     </div>
-    <div class="content-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua.
+        </div>
       </div>
     </div>
-    <div class="content-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+          Mauris massa.
+        </div>
       </div>
     </div>
-    <div class="content-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+          Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+          Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-      
-<pre>&lt;div class="content-row"&gt;
-  &lt;div class="content-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="content-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="content-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="content-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua.
+        </div>
+      </div>
+    </div>
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+          Mauris massa.
+        </div>
+      </div>
+    </div>
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Sed dignissim lacinia nunc. Curabitur tortor.
+        </div>
+      </div>
+    </div>
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua.
+        </div>
+      </div>
+    </div>
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, 
+          luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. 
+        </div>
+      </div>
+    </div>
+    <div class="container pad-bottom-md nobreak">
+      <div class="table-row">
+        <div class="table-col-20 accent-1"><span>Header</span></div>
+      </div>   
+      <div class="table-row flex-auto">
+        <div class="table-col-20 light">
+          Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+          Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+          Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
         </div>
       </div>
     </div>
   
-  <div class="row-spacing-md"></div>
-
-  <p>This is quite a basic scenario, and here you can see that the row is made up of 4 equal columns, each taking up one quarter of the full 20 column width.</p>
-
-</section>
-
-<section class="scrollspy text" id="formGrid">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Form type rows and columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-  
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row">
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light">
-        Lorem ipsum
-      </div>
-    </div>
   </div>
 
   <div class="row-spacing-md"></div>
@@ -1259,687 +1196,123 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="form-row"&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
+<pre>&lt;div class="flow-col-4 flow-col-2-bp-2-under flow-col-3-bp-3-under grid-padding-md text-sm"&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        incididunt ut labore et dolore magna aliqua.
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+        Mauris massa.
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light"&gt;
-      Lorem ipsum
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        incididunt ut labore et dolore magna aliqua.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+        Mauris massa.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Sed dignissim lacinia nunc. Curabitur tortor.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+        incididunt ut labore et dolore magna aliqua.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, 
+        luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. 
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="container pad-bottom-md nobreak"&gt;
+    &lt;div class="table-row"&gt;
+      &lt;div class="table-col-20 accent-1"&gt;&lt;span&gt;Header&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;   
+    &lt;div class="table-row flex-auto"&gt;
+      &lt;div class="table-col-20 light"&gt;
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-
+                                                                
       </div>
     </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <p>In this case we now have some separation between each column. However, if you want more separation just add one of the <span class="color-info text-bold">grid-padding-*</span>
-    classes to the grid parent element or add <span class="color-info text-bold">pad-*</span> classes to the required columns. If you prefer, you could wrap the content of each 
-    column with a body or panel container. See the <a href="/webui/padding.html" class="color-info color-hover-accent-4 text-underline text-bold">Padding</a> section 
-    for more on various padding options.
-  </p>
-
-  <div class="row-spacing-md"></div>
-
-  <p>One important aspect to note about the content and form grid types is that you don't need to repeat the use of rows when nesting columns, 
-    and this is also the method of setting varying numbers of columns per row at different screen sizes.</p>
-
-</section>
-
-<section class="scrollspy text" id="tableGrid">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Table type rows and columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The table grid is responsive and does not have borders by default. So, to use the table grid in default mode requires the
-      <span class="color-info text-bold">table-row</span> and <span class="color-info text-bold">table-col</span> classes. Each column will only
-      expand to accomodate its content. Elements such as buttons or textboxes with relative widths will expand or shrink to the size of the
-      column which is determined by the remaining row space available.
-  </p>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="table-row grid-padding-md">
-    <div class="table-col background-accent-1-light">
-      Lorem ipsum Lorem ipsum Lorem ipsum
-    </div>
-    <div class="table-col background-success-light">
-      Lorem ipsum
-    </div>
-    <div class="table-col background-accent-2-light">
-      Lorem ipsum
-    </div>
-    <div class="table-col background-accent-4-light">
-      Lorem ipsum
-    </div>
-  </div>
-  
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="table-row grid-padding-md"&gt;
-  &lt;div class="table-col background-accent-1-light"&gt;
-    Lorem ipsum Lorem ipsum Lorem ipsum
-  &lt;/div&gt;
-  &lt;div class="table-col background-success-light"&gt;
-    Lorem ipsum
-  &lt;/div&gt;
-  &lt;div class="table-col background-accent-2-light"&gt;
-    Lorem ipsum
-  &lt;/div&gt;
-  &lt;div class="table-col background-accent-4-light"&gt;
-    Lorem ipsum
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <p>Table rows and columns are a bit different to the other two grid types. Besides having the ability to show borders, they are designed primarily for displaying content in a 
-    tabular format and implement some flexbox behaviours, so each column will be of equal height based on the tallest column.</p>
+  </div>     
     
-    
-  <p>As with content and form type grids, you can add media breakpoint flags in order to control when columns respond at different screen sizes. But they differ in 2 key areas: 
-    Firstly, when nesting table columns you must add a table-row for each nested level. Secondly, if you want to add spacing between any rows using say row-spacing-* classes, 
-    then you will also need to wrap each group of separated rows with any div tag that has the class <span class="color-info text-bold">table-group</span>.</p>
-
-
-  <div class="row-spacing-lg"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Default Mode</span>
-    </div>
-    <p class="text-sm"><span class="text-bold">NOTE: </span>A wrapper with the table-group class is not required when using the default mode. The purpose of a wrapper is to
-    ensure proper rendering of borders.</p>
-  </blockquote>
-
-  <div class="row-spacing-lg"></div>
-
-  <p>The following example shows how to use table columns in grid mode. Grid mode is where all columns have a size specified and will be rendered with borders. Column sizes must 
-    not add up to more than 20 in a single row. You will see that table grids are used extensively throughout the documentation in this website.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="container">
-    <div class="table-row">
-      <div class="table-col-5 respond-bp-2-under">
-        <div class="panel background-accent-1-light">
-          Lorem ipsum
-        </div>
-      </div>
-      <div class="table-col-5 respond-bp-2-under">
-        <div class="panel background-accent-1-light">
-          Lorem ipsum
-        </div>
-      </div>
-      <div class="table-col-5 respond-bp-2-under">
-        <div class="panel background-accent-1-light">
-          Lorem ipsum
-        </div>
-      </div>
-      <div class="table-col-5 respond-bp-2-under">
-        <div class="panel background-accent-1-light">
-          Lorem ipsum
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="container"&gt;
-  &lt;div class="table-row"&gt;
-    &lt;div class="table-col-5 respond-bp-2-under"&gt;
-      &lt;div class="panel background-accent-1-light"&gt;
-        Lorem ipsum
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="table-col-5 respond-bp-2-under"&gt;
-      &lt;div class="panel background-accent-1-light"&gt;
-        Lorem ipsum
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="table-col-5 respond-bp-2-under"&gt;
-      &lt;div class="panel background-accent-1-light"&gt;
-        Lorem ipsum
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="table-col-5 respond-bp-2-under"&gt;
-      &lt;div class="panel background-accent-1-light"&gt;
-        Lorem ipsum
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
-      </div>
-    </div>
-  </div>
-
-
-</section>
-
-<section class="scrollspy text" id="nestingColumns">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Nesting columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The following example shows how to nest columns using both form type columns and content type columns together. Content columns have no padding, so
-    using them to wrap groups of form columns gives you the right padding for all columns. Using form columns only will create visual groups of columns, 
-    and this is one of the advantages of using the nested approach to responsive grids.
-  </p>  
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row">
-    <div class="form-col-20 respond-bp-4-under">
-      <div class="content-col-10 respond-bp-3-under">
-        <div class="form-col-10 respond-bp-2-under">
-          <div class="panel background-accent-1-light">
-            Lorem ipsum
-          </div>
-        </div>
-        <div class="form-col-10 respond-bp-2-under">
-          <div class="panel background-accent-1-light">
-            Lorem ipsum
-          </div>
-        </div>
-      </div>
-      <div class="content-col-10 respond-bp-3-under">
-        <div class="form-col-10 respond-bp-2-under">
-          <div class="panel background-accent-1-light">
-            Lorem ipsum
-          </div>
-        </div>
-        <div class="form-col-10 respond-bp-2-under">
-          <div class="panel background-accent-1-light">
-            Lorem ipsum
-          </div>
-        </div>
-      </div>
-    </div>  
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="form-row"&gt;
-  &lt;div class="form-col-20 respond-bp-4-under"&gt;
-    &lt;div class="content-col-10 respond-bp-3-under"&gt;
-      &lt;div class="form-col-10 respond-bp-2-under"&gt;
-        &lt;div class="panel background-accent-1-light"&gt;
-          Lorem ipsum
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="form-col-10 respond-bp-2-under"&gt;
-        &lt;div class="panel background-accent-1-light"&gt;
-          Lorem ipsum
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="content-col-10 respond-bp-3-under"&gt;
-      &lt;div class="form-col-10 respond-bp-2-under"&gt;
-        &lt;div class="panel background-accent-1-light"&gt;
-          Lorem ipsum
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="form-col-10 respond-bp-2-under"&gt;
-        &lt;div class="panel background-accent-1-light"&gt;
-          Lorem ipsum
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;  
-&lt;/div&gt;</pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <p>This markup will display 1 row of 4 columns at a large screen size down to medium, 2 rows of 2 columns at a medium screen
-  size down to small, and 4 rows of 1 column at the small size or less.</p> 
-  
-  <p>You may be thinking that the markup is a bit verbose,
-  and there are different approaches offered by different frameworks. In fact, there are pros and cons to each method.
-  One method might be to have helper classes for each screen size and column count that can all be applied to the same
-  column definition, but if you had 5 screen size steps it could get a bit strange. So in WebUI, we opted for the nesting
-  approach - it does seem a bit more extensible.</p>
-
-
-  <div class="row-spacing-lg"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Nested Table Columns</span>
-    </div>
-    <p class="text-sm">If you are using <span class="color-info text-bold">table-col</span> or <span class="color-info text-bold">table-col-*</span>
-      classes, then you need to add a <span class="color-info text-bold">table-row</span> for each nested level.</p>
-  </blockquote>  
-
-</section>
-
-<section class="scrollspy text" id="equalWidthColumns">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Equal width columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-
-  <p>WebUI supports any number of equal width columns within the maximum of 20 for all grid types. The classes used take the format [column type]-col-eq-[number of equal columns], 
-    for example form-col-eq-9. However, you won't find classes for the number of columns being 1, 2, 4, 5, 10, or 20, as these are divisors of 20. There is a lot of power and 
-    flexibility here as you are able to mix and match column types as well as equal columns and non-equal columns, allowing you to group and split columns is any number of ways, 
-    and all responsive too.</p>
-
-  <p>Of course, much of this can also be achieved without a grid system and WebUI provides full support for flexbox. These grid capabilities are retained for backwards
-    compatibility. See the <a href="/webui/flexbox.html" class="color-info color-hover-accent-4 text-underline text-bold">Flexbox</a> section for more information
-    on the flexbox approach.</p>
-
-
-</section>
-
-<section class="scrollspy text" id="equalHeightColumns">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Equal height columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-
-  Table type columns have column height equalisation built in by default, so you don't have to add anything to get equal height columns. However, you might want to
-  have equal height columns for content and form type columns also. You can easily do that by simply using a table row instead of content-row or form-row. You can, 
-  of course, also add the <span class="color-info text-bold">height-full</span> class to any content inside columns to make the content fill the column.
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="table-row">
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-        <br />
-        Lorem ipsum
-        <br />
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col-5 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="table-row"&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-      &lt;br /&gt;
-      Lorem ipsum
-      &lt;br /&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="form-col-5 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
-      </div>
-    </div>
-  </div>
-
-
-</section>
-
-<section class="scrollspy text" id="fixedAndVariableColumns">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Fixed width and variable columns</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-
-  You can combine fixed width and normal percentage based columns by using a combination of 
-  <span class="color-info text-bold">width-*, width-adjacent-*, and width-respond-*</span> classes on <span class="color-info text-bold">content-*</span>, 
-  <span class="color-info text-bold">form-*</span>, and <span class="color-info text-bold">table-*</span> column types.
-
-  <div class="row-spacing-md"></div>
-    
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row">
-    <div class="form-col width-lg width-respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-      </div>
-    </div>
-    <div class="form-col width-adjacent-lg width-respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-full">
-        Lorem ipsum
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>&lt;div class="table-row"&gt;
-  &lt;div class="form-col width-lg width-respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="form-col width-adjacent-lg width-respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-full"&gt;
-      Lorem ipsum
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
-      </div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-md"></div>
-
-</section>
-
-<section class="scrollspy text" id="gridColoring">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Grid Row Coloring</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p class="text-bold">Classes</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-7">Class</div>
-      <div class="table-col-13">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-7">row-odd-color-*</div>
-      <div class="table-col-13">Sets the foreground color of alternate grid rows starting with the first row.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-7">row-even-color-*</div>
-      <div class="table-col-13">Sets the foreground color of alternate grid rows starting with the second row.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-7">row-color-hover-*</div>
-      <div class="table-col-13">Sets the foreground color of a grid row when a hover event is triggered.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-7">row-color-focus-*</div>
-      <div class="table-col-13">Sets the foreground color of a grid row when focus is received.</div>
-    </div>  
-    <div class="table-row text-left">
-      <div class="table-col-7">row-odd-background-*</div>
-      <div class="table-col-13">Sets the background color of alternate grid rows starting with the first row.</div>
-    </div>  
-    <div class="table-row text-left">
-      <div class="table-col-7">row-even-background-*</div>
-      <div class="table-col-13">Sets the background color of alternate grid rows starting with the second row.</div>
-    </div>  
-    <div class="table-row text-left">
-      <div class="table-col-7">row-background-hover-*</div>
-      <div class="table-col-13">Sets the background color of a grid row when a hover event is triggered.</div>
-    </div>  
-    <div class="table-row text-left">
-      <div class="table-col-7">row-background-focus-*</div>
-      <div class="table-col-13">Sets the background color of a grid row when focus is received.</div>
-    </div>  
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="container row-even-background-primary row-even-color-accent-1 row-background-hover-accent-1-light">
-    <div class="table-row text-left">
-      <div class="table-col-4">Lorem</div>
-      <div class="table-col-8">ipsum</div>
-      <div class="table-col-8">dolor</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-4">Lorem</div>
-      <div class="table-col-8">ipsum</div>
-      <div class="table-col-8">dolor</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-4">Lorem</div>
-      <div class="table-col-8">ipsum</div>
-      <div class="table-col-8">dolor</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-4">Lorem</div>
-      <div class="table-col-8">ipsum</div>
-      <div class="table-col-8">dolor</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="container row-even-background-primary row-even-color-accent-1 row-background-hover-accent-1-light"&gt;
-  &lt;div class="table-row text-left"&gt;
-    &lt;div class="table-col-4"&gt;Lorem&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;ipsum&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;dolor&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="table-row text-left"&gt;
-    &lt;div class="table-col-4"&gt;Lorem&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;ipsum&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;dolor&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="table-row text-left"&gt;
-    &lt;div class="table-col-4"&gt;Lorem&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;ipsum&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;dolor&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="table-row text-left"&gt;
-    &lt;div class="table-col-4"&gt;Lorem&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;ipsum&lt;/div&gt;
-    &lt;div class="table-col-8"&gt;dolor&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="scrollspy text" id="gridMediaBreakpointUtilities">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Media Breakpoint Utilities</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Breakpoints can be used on any grid columns.</p>
-
-  <p>Breakpoint utility classes are not unique to the grid system, but are available to use anywhere. The grid system columns are based on
-    percentage widths, so in that sense are responsive. However, making columns take the full width if their containing element at various
-    breakpoint sizes requires a further step, by adding one of the <span class="color-info text-bold">respond-*</span> classes.
-  </p>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Naming convention</span>
-    </div>
-    <p class="text-sm">Breakpoints are numbered 1 to 5, with 1 being the smallest. A breakpoint suffix can be added to most utility class using the format 
-      <span class="color-info text-bold">-bp-[breakpoint number]-[direction]</span>. The direction is either <span class="color-info text-bold">under</span> or 
-      <span class="color-info text-bold">over</span>.</p> 
-      
-    <p class="text-sm">For example <span class="color-info text-bold">-bp-1-under</span> or <span class="color-info text-bold">-bp-3-over</span>.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="content-row">
-    <div class="content-col-6 respond-bp-2-under">     
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-md">
-        Lorem ipsum dolor sit amet        
-      </div>
-    </div>
-    <div class="content-col-14 respond-bp-2-under">
-      <div class="panel border-sm border-accent-4 background-accent-1-light height-md">
-        Lorem ipsum dolor sit amet
-      </div>
-    </div>
-  </div>
-      
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="content-row"&gt;
-  &lt;div class="content-col-6 respond-bp-2-under"&gt;     
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-md"&gt;
-      Lorem ipsum dolor sit amet        
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="content-col-14 respond-bp-2-under"&gt;
-    &lt;div class="panel border-sm border-accent-4 background-accent-1-light height-md"&gt;
-      Lorem ipsum dolor sit amet
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-          
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row-spacing-md"></div>
-
-  <p>See the <a href="/webui/media_breakpoints.html" class="color-info color-hover-accent-4 text-underline text-bold">Media Breakpoints</a> section for more information
-    on using breakpoints.</p>
-
 </section>
   
     </div>

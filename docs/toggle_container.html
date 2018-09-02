@@ -137,6 +137,15 @@
       </div>
 
       <div>
+        <a href="/webui/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
         <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
@@ -633,6 +642,15 @@
       </div>
 
       <div>
+        <a href="/webui/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
         <a href="/webui/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
@@ -1055,6 +1073,10 @@
       <div class="table-col-7">toggle-activator</div>
       <div class="table-col-13">Toggles the element specified by the data target attribute.</div>
     </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">toggle-inclusive</div>
+      <div class="table-col-13">When present on the toggle-container, toggle items will show without sibling toggle items being hidden.</div>
+    </div>
   </div>
 
 </section>
@@ -1120,6 +1142,55 @@
   <p>Right now, it is a trivial task to setup off-canvas panels, accordions, and tabs, etc. It is important to know the patterns
     to use for each type of component you want. Here are some patterns to implement various common components.
   </p>
+
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Basic Toggle</p>
+
+  <p>One very simple use for the toggle container is to toggle visibility of an element without writing any JavaScript. By using the
+    toggle container you can also specify a transition type and duration. If the type and duration is omitted the toggle item will show 
+    or hide immediately.
+  </p>
+  
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+	<div class="toggle-container" data-transition-duration="1000" data-transition-type="fade">	
+    <div class="form-row height-control-xl text-bold text-sm">
+      <div class="form-col-10">
+        <button type="button" data-target="#toggleItemBasic" class="toggle-activator button-sm button-accent-1">Toggle Element</button>       
+      </div>
+      <div class="form-col-10 flex-items-center">
+        <div class="toggle-item control height-control-sm width-md-lg text-sm hidden" id="toggleItemBasic">Toggle Item</div>
+      </div>
+    </div>  
+	</div>		
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="fade"&gt;	
+  &lt;div class="form-row height-control-xl text-bold text-sm"&gt;
+    &lt;div class="form-col-8"&gt;
+      &lt;button type="button" data-target="#toggleItemBasic" class="toggle-activator button-sm button-accent-1"&gt;Toggle Element&lt;/button&gt;       
+    &lt;/div&gt;
+    &lt;div class="form-col-12"&gt;
+      &lt;div class=""toggle-item control height-control-sm width-md-lg text-sm hidden" id="toggleItemBasic"&gt;Toggle Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;  
+&lt;/div&gt;</pre>		
+                                                          
+      </div>
+    </div>
+  </div>
+
 
   <div class="row-spacing-md"></div>
 
@@ -1600,6 +1671,7 @@
             case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "columns.html": ui("#columnsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
