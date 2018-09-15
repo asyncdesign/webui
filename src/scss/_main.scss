@@ -289,11 +289,6 @@ svg:not(:root) {
 		background-color: $theme_default_active;
 	}
 }
-.button-default.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_default_border;
-	background-color: $theme_light;
-	color: $theme_default_border;
-}
 .button-light {
 	color: $theme_light_foreground;
 	background-color: $theme_light;
@@ -304,11 +299,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_light_active;
 	}
-}
-.button-light.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_light_border;
-	background-color: $theme_dark;
-	color: $theme_light_border;
 }
 .button-dark {
 	color: $theme_dark_foreground;
@@ -321,11 +311,6 @@ svg:not(:root) {
 		background-color: $theme_dark_active;
 	}
 }
-.button-dark.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_dark_border;
-	background-color: $theme_light;
-	color: $theme_dark_border;
-}
 .button-accent-1 {
 	color: $theme_accent_1_foreground;
 	background-color: $theme_accent_1;
@@ -336,11 +321,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_accent_1_active;
 	}
-}
-.button-accent-1.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
-	background-color: $theme_light;
-	color: $theme_accent_1_border;
 }
 .button-accent-2 {
 	color: $theme_accent_2_foreground;
@@ -353,11 +333,6 @@ svg:not(:root) {
 		background-color: $theme_accent_2_active;
 	}
 }
-.button-accent-2.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
-	background-color: $theme_light;
-	color: $theme_accent_2_border;
-}
 .button-accent-3 {
 	color: $theme_accent_3_foreground;
 	background-color: $theme_accent_3;
@@ -368,11 +343,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_accent_3_active;
 	}
-}
-.button-accent-3.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
-	background-color: $theme_light;
-	color: $theme_accent_3_border;
 }
 .button-accent-4 {
 	color: $theme_accent_4_foreground;
@@ -385,11 +355,6 @@ svg:not(:root) {
 		background-color: $theme_accent_4_active;
 	}
 }
-.button-accent-4.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
-	background-color: $theme_light;
-	color: $theme_accent_4_border;
-}
 .button-accent-5 {
 	color: $theme_accent_5_foreground;
 	background-color: $theme_accent_5;
@@ -400,11 +365,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_accent_5_active;
 	}
-}
-.button-accent-5.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
-	background-color: $theme_light;
-	color: $theme_accent_5_border;
 }
 .button-success {
 	color: $theme_success_foreground;
@@ -417,11 +377,6 @@ svg:not(:root) {
 		background-color: $theme_success_active;
 	}
 }
-.button-success.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_success_border;
-	background-color: $theme_light;
-	color: $theme_success_border;
-}
 .button-info {
 	color: $theme_info_foreground;
 	background-color: $theme_info;
@@ -432,11 +387,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_info_active;
 	}
-}
-.button-info.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_info_border;
-	background-color: $theme_light;
-	color: $theme_info_border;
 }
 .button-warning {
 	color: $theme_warning_foreground;
@@ -449,11 +399,6 @@ svg:not(:root) {
 		background-color: $theme_warning_active;
 	}
 }
-.button-warning.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_warning_border;
-	background-color: $theme_light;
-	color: $theme_warning_border;
-}
 .button-danger {
 	color: $theme_danger_foreground;
 	background-color: $theme_danger;
@@ -464,11 +409,6 @@ svg:not(:root) {
 	&:active {
 		background-color: $theme_danger_active;
 	}
-}
-.button-danger.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_danger_border;
-	background-color: $theme_light;
-	color: $theme_danger_border;
 }
 .button-transparent {
 	color: $theme_transparent_foreground;
@@ -483,14 +423,254 @@ svg:not(:root) {
 		border-color: $theme_transparent_active;
 	}
 }
-.button-transparent.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_transparent_border;
-	color: $theme_transparent_border;
-}
 .button-disabled {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
 	border: 0.078rem solid $theme_disabled_border;
+}
+.menu-button,
+.menu-button-sm,
+.menu-button-lg {
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+	width: 100%;	
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+	border: 0.078rem solid $theme_default_border;
+	cursor: default;
+	&:not(.menu-button) {
+		padding: 0 1rem 0 1rem;
+	}
+}
+.menu-button {
+	padding: 0.063rem 1rem 0.063rem 1rem;
+}
+.menu-button-link,
+.menu-button-link-sm,
+.menu-button-link-lg {
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	&:not(.menu-button-link) {
+		padding: 0 1rem 0 1rem;
+	}
+}
+.menu-button-link {
+	padding: 0.063rem 1rem 0.063rem 1rem;
+}
+.menu-button-default {
+	color: $theme_default_foreground;
+	background-color: $theme_default;
+	border: 0.078rem solid $theme_default_border;
+	&:focus {
+		background-color: $theme_default_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_default_active;
+	}
+}
+.menu-button-light {
+	color: $theme_light_foreground;
+	background-color: $theme_light;
+	border: 0.078rem solid $theme_light_border;
+	&:focus {
+		background-color: $theme_light_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_light_active;
+	}
+}
+.menu-button-dark {
+	color: $theme_dark_foreground;
+	background-color: $theme_dark;
+	border: 0.078rem solid $theme_dark_border;
+	&:focus {
+		background-color: $theme_dark_active;	
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_dark_active;
+	}
+}
+.menu-button-accent-1 {
+	color: $theme_accent_1_foreground;
+	background-color: $theme_accent_1;
+	border: 0.078rem solid $theme_accent_1_border;
+	&:focus {
+		background-color: $theme_accent_1_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_accent_1_active;
+	}
+}
+.menu-button-accent-2 {
+	color: $theme_accent_2_foreground;
+	background-color: $theme_accent_2;
+	border: 0.078rem solid $theme_accent_2_border;
+	&:focus {
+		background-color: $theme_accent_2_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_accent_2_active;
+	}
+}
+.menu-button-accent-3 {
+	color: $theme_accent_3_foreground;
+	background-color: $theme_accent_3;
+	border: 0.078rem solid $theme_accent_3_border;
+	&:focus {
+		background-color: $theme_accent_3_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_accent_3_active;
+	}
+}
+.menu-button-accent-4 {
+	color: $theme_accent_4_foreground;
+	background-color: $theme_accent_4;
+	border: 0.078rem solid $theme_accent_4_border;
+	&:focus {
+		background-color: $theme_accent_4_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_accent_4_active;
+	}
+}
+.menu-button-accent-5 {
+	color: $theme_accent_5_foreground;
+	background-color: $theme_accent_5;
+	border: 0.078rem solid $theme_accent_5_border;
+	&:focus {
+		background-color: $theme_accent_5_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_accent_5_active;
+	}
+}
+.menu-button-success {
+	color: $theme_success_foreground;
+	background-color: $theme_success;
+	border: 0.078rem solid $theme_success_border;
+	&:focus {
+		background-color: $theme_success_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_success_active;
+	}
+}
+.menu-button-info {
+	color: $theme_info_foreground;
+	background-color: $theme_info;
+	border: 0.078rem solid $theme_info_border;
+	&:focus {
+		background-color: $theme_info_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_info_active;
+	}
+}
+.menu-button-warning {
+	color: $theme_warning_foreground;
+	background-color: $theme_warning;
+	border: 0.078rem solid $theme_warning_border;
+	&:focus {
+		background-color: $theme_warning_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_warning_active;
+	}
+}
+.menu-button-danger {
+	color: $theme_danger_foreground;
+	background-color: $theme_danger;
+	border: 0.078rem solid $theme_danger_border;
+	&:focus {
+		background-color: $theme_danger_active;
+	}
+	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
+		border-color: $theme_danger_active;
+	}
+}
+.menu-button-disabled {
+	color: $theme_disabled_foreground;
+	background-color: $theme_disabled;
+	border: 0.078rem solid $theme_disabled_border;
+}
+.button-default.accessibility:focus,
+.menu-button-default.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_default_border;
+	background-color: $theme_light;
+	color: $theme_default_border;
+}
+.button-light.accessibility:focus,
+.menu-button-light.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_light_border;
+	background-color: $theme_dark;
+	color: $theme_light_border;
+}
+.button-dark.accessibility:focus,
+.menu-button-dark.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_dark_border;
+	background-color: $theme_light;
+	color: $theme_dark_border;
+}
+.button-accent-1.accessibility:focus,
+.menu-button-accent-1.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
+	background-color: $theme_light;
+	color: $theme_accent_1_border;
+}
+.button-accent-2.accessibility:focus,
+.menu-button-accent-2.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
+	background-color: $theme_light;
+	color: $theme_accent_2_border;
+}
+.button-accent-3.accessibility:focus,
+.menu-button-accent-3.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
+	background-color: $theme_light;
+	color: $theme_accent_3_border;
+}
+.button-accent-4.accessibility:focus,
+.menu-button-accent-4.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
+	background-color: $theme_light;
+	color: $theme_accent_4_border;
+}
+.button-accent-5.accessibility:focus,
+.menu-button-accent-5.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
+	background-color: $theme_light;
+	color: $theme_accent_5_border;
+}
+.button-success.accessibility:focus,
+.menu-button-success.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_success_border;
+	background-color: $theme_light;
+	color: $theme_success_border;
+}
+.button-info.accessibility:focus,
+.menu-button-info.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_info_border;
+	background-color: $theme_light;
+	color: $theme_info_border;
+}
+.button-warning.accessibility:focus,
+.menu-button-warning.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_warning_border;
+	background-color: $theme_light;
+	color: $theme_warning_border;
+}
+.button-danger.accessibility:focus,
+.menu-button-danger.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_danger_border;
+	background-color: $theme_light;
+	color: $theme_danger_border;
+}
+.button-transparent.accessibility:focus {
+	box-shadow: 0 0 0 0.063rem $theme_transparent_border;
+	color: $theme_transparent_border;
 }
 .view-button,
 .view-button-sm,
@@ -714,233 +894,18 @@ svg:not(:root) {
 .view-button-right.accessibility:focus {
 	box-shadow: inset -0.125rem 0 0 0;
 }
-.menu-button,
-.menu-button-sm,
-.menu-button-lg {
-	text-decoration: none;
-	white-space: nowrap;
-	outline: none;
-	width: 100%;	
-	color: $theme_default_foreground;
-	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;
-	cursor: default;
-	&:not(.menu-button) {
-		padding: 0 1rem 0 1rem;
-	}
-}
-.menu-button {
-	padding: 0.063rem 1rem 0.063rem 1rem;
-}
-.menu-button-link,
-.menu-button-link-sm,
-.menu-button-link-lg {
-	display: block;
-	text-align: center;
-	cursor: pointer;
-	&:not(.menu-button-link) {
-		padding: 0 1rem 0 1rem;
-	}
-}
-.menu-button-link {
-	padding: 0.063rem 1rem 0.063rem 1rem;
-}
-.menu-button-default {
-	color: $theme_default_foreground;
-	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;
-	&:focus {
-		background-color: $theme_default_active;	
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_default_active;
-	}
-}
-.menu-button-default.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_default_border;
-	background-color: $theme_light;
-	color: $theme_default_border;
-}
-.menu-button-light {
-	color: $theme_light_foreground;
-	background-color: $theme_light;
-	border: 0.078rem solid $theme_light_border;
-	&:focus {
-		background-color: $theme_light_active;	
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_light_active;
-	}
-}
-.menu-button-light.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_light_border;
-	background-color: $theme_dark;
-	color: $theme_light_border;
-}
-.menu-button-dark {
-	color: $theme_dark_foreground;
-	background-color: $theme_dark;
-	border: 0.078rem solid $theme_dark_border;
-	&:focus {
-		background-color: $theme_dark_active;	
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_dark_active;
-	}
-}
-.menu-button-dark.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_dark_border;
-	background-color: $theme_light;
-	color: $theme_dark_border;
-}
-.menu-button-accent-1 {
-	color: $theme_accent_1_foreground;
-	background-color: $theme_accent_1;
-	border: 0.078rem solid $theme_accent_1_border;
-	&:focus {
-		background-color: $theme_accent_1_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_accent_1_active;
-	}
-}
-.menu-button-accent-1.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
-	background-color: $theme_light;
-	color: $theme_accent_1_border;
-}
-.menu-button-accent-2 {
-	color: $theme_accent_2_foreground;
-	background-color: $theme_accent_2;
-	border: 0.078rem solid $theme_accent_2_border;
-	&:focus {
-		background-color: $theme_accent_2_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_accent_2_active;
-	}
-}
-.menu-button-accent-2.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
-	background-color: $theme_light;
-	color: $theme_accent_2_border;
-}
-.menu-button-accent-3 {
-	color: $theme_accent_3_foreground;
-	background-color: $theme_accent_3;
-	border: 0.078rem solid $theme_accent_3_border;
-	&:focus {
-		background-color: $theme_accent_3_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_accent_3_active;
-	}
-}
-.menu-button-accent-3.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
-	background-color: $theme_light;
-	color: $theme_accent_3_border;
-}
-.menu-button-accent-4 {
-	color: $theme_accent_4_foreground;
-	background-color: $theme_accent_4;
-	border: 0.078rem solid $theme_accent_4_border;
-	&:focus {
-		background-color: $theme_accent_4_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_accent_4_active;
-	}
-}
-.menu-button-accent-4.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
-	background-color: $theme_light;
-	color: $theme_accent_4_border;
-}
-.menu-button-accent-5 {
-	color: $theme_accent_5_foreground;
-	background-color: $theme_accent_5;
-	border: 0.078rem solid $theme_accent_5_border;
-	&:focus {
-		background-color: $theme_accent_5_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_accent_5_active;
-	}
-}
-.menu-button-accent-5.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
-	background-color: $theme_light;
-	color: $theme_accent_5_border;
-}
-.menu-button-success {
-	color: $theme_success_foreground;
-	background-color: $theme_success;
-	border: 0.078rem solid $theme_success_border;
-	&:focus {
-		background-color: $theme_success_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_success_active;
-	}
-}
-.menu-button-success.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_success_border;
-	background-color: $theme_light;
-	color: $theme_success_border;
-}
-.menu-button-info {
-	color: $theme_info_foreground;
-	background-color: $theme_info;
-	border: 0.078rem solid $theme_info_border;
-	&:focus {
-		background-color: $theme_info_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_info_active;
-	}
-}
-.menu-button-info.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_info_border;
-	background-color: $theme_light;
-	color: $theme_info_border;
-}
-.menu-button-warning {
-	color: $theme_warning_foreground;
-	background-color: $theme_warning;
-	border: 0.078rem solid $theme_warning_border;
-	&:focus {
-		background-color: $theme_warning_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_warning_active;
-	}
-}
-.menu-button-warning.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_warning_border;
-	background-color: $theme_light;
-	color: $theme_warning_border;
-}
-.menu-button-danger {
-	color: $theme_danger_foreground;
-	background-color: $theme_danger;
-	border: 0.078rem solid $theme_danger_border;
-	&:focus {
-		background-color: $theme_danger_active;
-	}
-	&:focus:not([class*="border-transparent"]):not([class*="border-translucent"]):not([class*="border-cap"]) {
-		border-color: $theme_danger_active;
-	}
-}
-.menu-button-danger.accessibility:focus {
-	box-shadow: 0 0 0 0.063rem $theme_danger_border;
-	background-color: $theme_light;
-	color: $theme_danger_border;
-}
-.menu-button-disabled {
-	color: $theme_disabled_foreground;
-	background-color: $theme_disabled;
-	border: 0.078rem solid $theme_disabled_border;
+*[class*="checkbox"] input[type=checkbox],
+*[class*="radio"] input[type=radio],
+*[class*="toggle-button"] input[type=checkbox],
+*[class*="toggle-button"] input[type=radio],
+*[class*="toggle-switch-"] input[type=checkbox],
+*[class*="toggle-switch-"] input[type=radio] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	z-index: -1;
+	visibility: hidden;
 }
 .checkbox {
 	width: 1.125rem;
@@ -955,14 +920,6 @@ svg:not(:root) {
 		left: 0;
 		background-color: $theme_light;
 		backface-visibility: hidden;
-	}
-	input[type=checkbox] {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-		z-index: -1;
-		visibility: hidden;
 	}
 	&:not(.control-disabled) input[type=checkbox] {
 		&:checked + label {
@@ -992,14 +949,6 @@ svg:not(:root) {
 		border-radius: 50%;
 		backface-visibility: hidden;
 	}
-	input[type=radio] {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-		z-index: -1;
-		visibility: hidden;
-	}
 	&:not(.control-disabled) input[type=radio] {		
 		&:checked + label {
 			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2' fill='%23000'/%3E%3C/svg%3E");
@@ -1011,14 +960,349 @@ svg:not(:root) {
 *[class*="radio"].accessibility label:focus {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility;
 }
-*[class*="toggle-switch-"] input[type=checkbox],
-*[class*="toggle-switch-"] input[type=radio] {
-	position: absolute;
-	opacity: 0;
-	width: 0;
-	height: 0;
-	z-index: -1;
-	visibility: hidden;
+*[class*="toggle-button"] {
+	label {
+		display: block;
+	}
+	&:not(.toggle-button) label {
+		padding: 0 0.75rem 0 0.75rem;
+	}
+	&.toggle-button label {
+		padding: 0.063rem 0.75rem 0.063rem 0.75rem;
+	}
+}
+.toggle-button-xs {
+	line-height: 1.5rem;
+}
+.toggle-button-sm {
+	line-height: 1.75rem;
+}
+.toggle-button-md {
+	line-height: 2.125rem;
+}
+.toggle-button-lg {
+	line-height: 2.375rem;
+}
+.toggle-button-xl {
+	line-height: 2.75rem;
+}
+.toggle-button-default {
+	label {
+		color: $theme_default_foreground;
+		background-color: $theme_default;
+		border: 0.078rem solid $theme_default_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_default_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_default_hover;
+		}   
+	}
+}
+.toggle-button-light {
+	label {
+		color: $theme_light_foreground;
+		background-color: $theme_light;
+		border: 0.078rem solid $theme_light_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_light_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_light_hover;
+		}   
+	}
+}
+.toggle-button-dark {
+	label {
+		color: $theme_dark_foreground;
+		background-color: $theme_dark;
+		border: 0.078rem solid $theme_dark_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_dark_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_dark_hover;
+		}   
+	}
+}
+.toggle-button-accent-1 {
+	label {
+		color: $theme_accent_1_foreground;
+		background-color: $theme_accent_1;
+		border: 0.078rem solid $theme_accent_1_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_accent_1_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_accent_1_hover;
+		}   
+	}
+}
+.toggle-button-accent-2 {
+	label {
+		color: $theme_accent_2_foreground;
+		background-color: $theme_accent_2;
+		border: 0.078rem solid $theme_accent_2_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_accent_2_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_accent_2_hover;
+		}   
+	}
+}
+.toggle-button-accent-3 {
+	label {
+		color: $theme_accent_3_foreground;
+		background-color: $theme_accent_3;
+		border: 0.078rem solid $theme_accent_3_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_accent_3_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_accent_3_hover;
+		}   
+	}
+}
+.toggle-button-accent-4 {
+	label {
+		color: $theme_accent_4_foreground;
+		background-color: $theme_accent_4;
+		border: 0.078rem solid $theme_accent_4_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_accent_4_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_accent_4_hover;
+		}   
+	}
+}
+.toggle-button-accent-5 {
+	label {
+		color: $theme_accent_5_foreground;
+		background-color: $theme_accent_5;
+		border: 0.078rem solid $theme_accent_5_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_accent_5_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_accent_5_hover;
+		}   
+	}
+}
+.toggle-button-success {
+	label {
+		color: $theme_success_foreground;
+		background-color: $theme_success;
+		border: 0.078rem solid $theme_success_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_success_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_success_hover;
+		}   
+	}
+}
+.toggle-button-info {
+	label {
+		color: $theme_info_foreground;
+		background-color: $theme_info;
+		border: 0.078rem solid $theme_info_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_info_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_info_hover;
+		}   
+	}
+}
+.toggle-button-warning {
+	label {
+		color: $theme_warning_foreground;
+		background-color: $theme_warning;
+		border: 0.078rem solid $theme_warning_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_warning_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_warning_hover;
+		}   
+	}
+}
+.toggle-button-danger {
+	label {
+		color: $theme_danger_foreground;
+		background-color: $theme_danger;
+		border: 0.078rem solid $theme_danger_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_danger_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_danger_hover;
+		}   
+	}
+}
+.toggle-button-transparent {
+	label {
+		color: $theme_transparent_foreground;
+		background-color: $theme_transparent;
+		border: 0.078rem solid $theme_transparent_border;
+	}
+	&:not(.control-disabled) input[type=checkbox] {		
+		&:checked + label {
+			background-color: $theme_transparent_hover;
+		}   
+	}
+	&:not(.control-disabled) input[type=radio] {		
+		&:checked + label {
+			background-color: $theme_transparent_hover;
+		}   
+	}
+}
+.toggle-button-disabled {
+	label {
+		color: $theme_disabled_foreground;
+		background-color: $theme_disabled;
+		border: 0.078rem solid $theme_disabled_border;
+	}
+}
+.toggle-button-default.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_default_border;
+		background-color: $theme_light;
+		color: $theme_default_border;
+	}
+}
+.toggle-button-light.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_light_border;
+		background-color: $theme_dark;
+		color: $theme_light_border;
+	}
+}
+.toggle-button-dark.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_dark_border;
+		background-color: $theme_light;
+		color: $theme_dark_border;
+	}
+}
+.toggle-button-accent-1.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_accent_1_border;
+		background-color: $theme_light;
+		color: $theme_accent_1_border;
+	}
+}
+.toggle-button-accent-2.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_accent_2_border;
+		background-color: $theme_light;
+		color: $theme_accent_2_border;
+	}
+}
+.toggle-button-accent-3.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_accent_3_border;
+		background-color: $theme_light;
+		color: $theme_accent_3_border;
+	}
+}
+.toggle-button-accent-4.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_accent_4_border;
+		background-color: $theme_light;
+		color: $theme_accent_4_border;
+	}
+}
+.toggle-button-accent-5.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_accent_5_border;
+		background-color: $theme_light;
+		color: $theme_accent_5_border;
+	}
+}
+.toggle-button-success.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_success_border;
+		background-color: $theme_light;
+		color: $theme_success_border;
+	}
+}
+.toggle-button-info.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_info_border;
+		background-color: $theme_light;
+		color: $theme_info_border;
+	}
+}
+.toggle-button-warning.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_warning_border;
+		background-color: $theme_light;
+		color: $theme_warning_border;
+	}
+}
+.toggle-button-danger.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_danger_border;
+		background-color: $theme_light;
+		color: $theme_danger_border;
+	}
+}
+.toggle-button-transparent.accessibility:focus {
+	label {
+		box-shadow: 0 0 0 0.063rem $theme_transparent_border;
+		color: $theme_transparent_border;
+	}
 }
 *[class*="toggle-switch-"] {
 	position: relative;
@@ -2299,7 +2583,7 @@ svg:not(:root) {
 	text-decoration: none;
 }
 .text-normal, .text-normal * {
-	line-height: 1.7em;
+	line-height: 1.5em;
 	text-decoration: none;
 	white-space: normal;
 }

@@ -135,69 +135,73 @@
                         toggleItem.trigger("ui.toggleItem.hide.after");
                     }
                 } else {
-                    if (toggleItem.css("display") === "block") {
-                        toggleItem.trigger("ui.toggleItem.hide.before");
-                        if (transitionDuration && transitionType === "fade") {
-                            toggleItem.fadeOut(transitionDuration, 0, function() {
-                                toggleItem.trigger("ui.toggleItem.hide.after");
-                            });
-                        } else if (transitionDuration && transitionType === "collapse") {
-                            if (transitionOrientation === "horizontal") {
-                                toggleItem.collapseHorizontal(transitionDuration, 0, function() {
-                                    toggleItem.trigger("ui.toggleItem.hide.after");
-                                });
-                            } else {
-                                toggleItem.collapseVertical(transitionDuration, 0, function() {
-                                    toggleItem.trigger("ui.toggleItem.hide.after");
-                                });
-                            }
-                        } else {
-                            toggleItem.hide();
-                            toggleItem.trigger("ui.toggleItem.hide.after");
-                        }
-                    } else {
-                        toggleItem.trigger("ui.toggleItem.show.before");
-                        if (transitionDuration && transitionType === "fade") {
-                            toggleItem.fadeIn(transitionDuration, 0, function() {
-                                toggleItem.trigger("ui.toggleItem.show.after");
-                            });
-                        } else if (transitionDuration && transitionType === "collapse") {
-                            if (transitionOrientation === "horizontal") {
-                                if (transitionDistance) {
-                                    toggleItem.expandHorizontal(transitionDuration, transitionDistance, function() {
-                                        toggleItem.trigger("ui.toggleItem.show.after");
-                                    });
-                                } else {
-                                    toggleItem.expandHorizontal(transitionDuration, "auto", function() {
-                                        toggleItem.trigger("ui.toggleItem.show.after");
-                                    });
-                                }
-                            } else {
-                                if (transitionDistance) {
-                                    toggleItem.expandVertical(transitionDuration, transitionDistance, function() {
-                                        toggleItem.trigger("ui.toggleItem.show.after");
-                                    });
-                                } else {
-                                    toggleItem.expandVertical(transitionDuration, "auto", function() {
-                                        toggleItem.trigger("ui.toggleItem.show.after");
-                                    });
-                                }
-                            }
-                        } else {
-                            toggleItem.show();
-                            toggleItem.trigger("ui.toggleItem.show.after");
-                        }
-                        if (toggleContainer.hasClass("toggle-inclusive") === false) {
+                    var els = toggleItem, el;
+                    for (var i = 0; i < els.length; i++) {
+                        el = webui(els[i]);
+                        if (el.css("display") === "block") {
+                            el.trigger("ui.toggleItem.hide.before");
                             if (transitionDuration && transitionType === "fade") {
-                                toggleItem.siblings(".toggle-item").fadeOut(transitionDuration);
+                                el.fadeOut(transitionDuration, 0, function() {
+                                    el.trigger("ui.toggleItem.hide.after");
+                                });
                             } else if (transitionDuration && transitionType === "collapse") {
                                 if (transitionOrientation === "horizontal") {
-                                    toggleItem.siblings(".toggle-item").collapseHorizontal(transitionDuration);
+                                    el.collapseHorizontal(transitionDuration, 0, function() {
+                                        el.trigger("ui.toggleItem.hide.after");
+                                    });
                                 } else {
-                                    toggleItem.siblings(".toggle-item").collapseVertical(transitionDuration);
+                                    el.collapseVertical(transitionDuration, 0, function() {
+                                        el.trigger("ui.toggleItem.hide.after");
+                                    });
                                 }
                             } else {
-                                toggleItem.siblings(".toggle-item").hide();
+                                el.hide();
+                                el.trigger("ui.toggleItem.hide.after");
+                            }
+                        } else {
+                            el.trigger("ui.toggleItem.show.before");
+                            if (transitionDuration && transitionType === "fade") {
+                                el.fadeIn(transitionDuration, 0, function() {
+                                    el.trigger("ui.toggleItem.show.after");
+                                });
+                            } else if (transitionDuration && transitionType === "collapse") {
+                                if (transitionOrientation === "horizontal") {
+                                    if (transitionDistance) {
+                                        el.expandHorizontal(transitionDuration, transitionDistance, function() {
+                                            el.trigger("ui.toggleItem.show.after");
+                                        });
+                                    } else {
+                                        el.expandHorizontal(transitionDuration, "auto", function() {
+                                            el.trigger("ui.toggleItem.show.after");
+                                        });
+                                    }
+                                } else {
+                                    if (transitionDistance) {
+                                        el.expandVertical(transitionDuration, transitionDistance, function() {
+                                            el.trigger("ui.toggleItem.show.after");
+                                        });
+                                    } else {
+                                        el.expandVertical(transitionDuration, "auto", function() {
+                                            el.trigger("ui.toggleItem.show.after");
+                                        });
+                                    }
+                                }
+                            } else {
+                                el.show();
+                                el.trigger("ui.toggleItem.show.after");
+                            }
+                            if (toggleContainer.hasClass("toggle-inclusive") === false) {
+                                if (transitionDuration && transitionType === "fade") {
+                                    el.siblings(".toggle-item").fadeOut(transitionDuration);
+                                } else if (transitionDuration && transitionType === "collapse") {
+                                    if (transitionOrientation === "horizontal") {
+                                        el.siblings(".toggle-item").collapseHorizontal(transitionDuration);
+                                    } else {
+                                        el.siblings(".toggle-item").collapseVertical(transitionDuration);
+                                    }
+                                } else {
+                                    el.siblings(".toggle-item").hide();
+                                }
                             }
                         }
                     }
@@ -1524,7 +1528,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.0.0";
+    webui.version = "v8.0.1";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
