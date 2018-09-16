@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.0.0
+* Version: 8.1.0
 * MIT License
 */
 "use strict";
@@ -1528,7 +1528,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.0.1";
+    webui.version = "v8.1.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
