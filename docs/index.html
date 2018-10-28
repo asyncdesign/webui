@@ -58,7 +58,7 @@
 							</p>
 							
 							<p><i>Be creative. Start something amazing today!</i></p>
-							<p><span class="color-accent-1">Current version:</span> 8.0.0</p>
+							<p><span class="color-accent-1">Current version:</span> 8.1.0</p>
 						</div>
 					</div>
 					<div class="content-row">
@@ -98,7 +98,7 @@
                 
             <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="panel1">         
               
-    <div class="menu dropdown area text gap-vertical-sm" id="menu">
+    <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
 
       <div>
         <a href="/webui/index.html" class="color-dark text-bold color-hover-info">Home</a>
@@ -132,6 +132,24 @@
           <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
         </div>
       </div>
+    </div>
+
+    <div class="container text text-bold pad-left-lg pad-right-lg">
+      <div class="row-spacing-md border-xs border-transparent border-top-info-light"></div>
+
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+        </div>
+      </div>
+
+      <div class="row-spacing-xs"></div>
+    </div>
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
 
       <div>
         <a href="/webui/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
@@ -584,6 +602,329 @@
         <div class="pad-left-sm">
           <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
         </div>  
+        <div class="pad-left-sm">
+          <a href="#visibility" class="color-dark color-hover-info" data-scrollspy="#visibility">Visibility</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+
+      <div>
+        <a href="/webui/js_introduction.html" class="color-dark text-bold color-hover-info">Introduction</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
+        <div class="pad-left-sm">
+          <a href="#jsOverview" class="color-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUseage" class="color-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_traversal_api.html" class="color-dark text-bold color-hover-info">DOM Traversal API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsChildren" class="color-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFirst" class="color-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHas" class="color-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsIs" class="color-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsLast" class="color-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSibling" class="color-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSiblings" class="color-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsParent" class="color-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsParents" class="color-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSibling" class="color-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_manipulation_api.html" class="color-dark text-bold color-hover-info">DOM Manipulation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAddClass" class="color-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAppend" class="color-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsAppendTo" class="color-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAttr" class="color-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCss" class="color-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsData" class="color-dark color-hover-info" data-scrollspy="#jsData">data</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasClass" class="color-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHidden" class="color-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHide" class="color-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHtml" class="color-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsPrependTo" class="color-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsRemove" class="color-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsRemoveChildren" class="color-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemoveClass" class="color-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShow" class="color-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" class="color-dark color-hover-info" data-scrollspy="#jsText">text</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggle" class="color-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggleClass" class="color-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsVal" class="color-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+        </div>
+      </div>
+
+      <!--
+      <div>
+        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
+      </div>
+      -->
+      
+      <div>
+        <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsBlur" class="color-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDrag" class="color-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragEnd" class="color-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsDragEnter" class="color-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragLeave" class="color-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragOver" class="color-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragStart" class="color-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsDrop" class="color-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocus" class="color-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusIn" class="color-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusOut" class="color-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverIn" class="color-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverOut" class="color-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsKeyDown" class="color-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOff" class="color-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOn" class="color-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsResize" class="color-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsTrigger" class="color-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_transitions_api.html" class="color-dark text-bold color-hover-info">Transitions API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTransitionsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsCollapseHorizontal" class="color-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCollapseVertical" class="color-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandVertical" class="color-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeIn" class="color-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeOut" class="color-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_utilities_api.html" class="color-dark text-bold color-hover-info">Utilities API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAccessibilityContrastColor" class="color-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgHeight" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetColorShade" class="color-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetElementViewportStatus" class="color-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetScrollbarWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetTimeOffsetFromNow" class="color-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIsWindowInBreakPointRange" class="color-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_validation_api.html" class="color-dark text-bold color-hover-info">Validation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsIsChecked" class="color-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHasConformingString" class="color-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasNumericInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasIntegerInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasValidDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPastDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPresentDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasFutureDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasDateTimeInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>  
+ 
       </div>
 
     </div>
@@ -630,7 +971,7 @@
 							</div>
 							<div class="row-spacing-lg"></div>
 							<div class="text-bold">
-								Current version 8.0.0
+								Current version 8.1.0
 							</div>
 						</span>
 					</div>
@@ -1181,7 +1522,7 @@
 
 
         ui("#commandDownload").click( function() { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v8.0.0.zip";
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v8.1.0.zip";
         });
         
         ui("#commandDocumentation").click( function() {

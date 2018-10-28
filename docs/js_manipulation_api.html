@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/positioning.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_manipulation_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1726,96 +1726,36 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="absolutePositioning">
+      <section class="scrollspy text" id="jsAddClass">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Absolute Positioning</h3>
+  <h3>addClass (className)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">place-*</span> classes can be used to achieve absolute element positioning, and are ideal for positioning elements within layouts.
-  There are 9 placing classes as described in the following table.</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
+  <p>Adds the specified class(es) to each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of its container.</div>
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
     </div>
   </div>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">The <span class="color-info text-bold">place-*</span> classes are best used within a container. WebUI provides a set of container classes
-      that are all relatively positioned, and therefore serve as a positioning context when using the place-* classes.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <p>The following example uses a panel container as the positioning context.</p>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-xl text-sm">
-    <div class="height-md width-md accent-1 place-top-center">
-      <span class="place-middle-center">place-top-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-left">
-      <span class="place-middle-center">place-middle-left</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-center">
-      <span class="place-middle-center">place-middle-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-right">
-      <span class="place-middle-center">place-middle-right</span>
-    </div>
-    <div class="height-md width-md accent-1 place-bottom-center">
-      <span class="place-middle-center">place-bottom-center</span>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
+  
+  <div class="row-spacing-lg"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -1824,129 +1764,13 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-xl text-sm"&gt;
-  &lt;div class="height-md width-md accent-1 place-top-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-top-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-left"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-right"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-right&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-bottom-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-bottom-center&lt;/span&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
 &lt;/div&gt;</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="scrollspy text" id="fixedPositioning">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Fixed Positioning</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The <span class="color-info text-bold">dock-*</span> classes can be used to achieve fixed element positioning, and are ideal for positioning headers, footers, and menus.
-  There are 9 docking classes as described in the following table.</p>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">A WebUI container is not required when using the dock-* classes for absolute positioning, since a dock-* class will take the element out of the
-      normal content flow.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of the viewport.</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row text-bold text-sm">
-    <div class="form-col-20 background-accent-1-light gap-horizontal-md">
-      <button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel">Toggle Fixed Footer Panel</button>
-    </div>
-    <div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"><span class="place-middle-center">Fixed Footer Panal</span></div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="form-row text-bold text-sm"&gt;
-  &lt;div class="form-col-20 background-accent-1-light gap-horizontal-md"&gt;
-    &lt;button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel"&gt;
-      Toggle Fixed Footer Panel
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"&gt;
-    &lt;span class="place-middle-center"&gt;Fixed Footer Panal&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                          
+                                
       </div>
     </div>
   </div>
@@ -1960,8 +1784,10 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>ui("#toggleFixedFooterPanel").click(function() {
-  ui("#fixedFooterPanel").toggle();
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").addClass("background-accent-1-light border-lg border-dark");
+
 });</pre>
                           
       </div>
@@ -1970,97 +1796,43 @@
 
 </section>
 
-<section class="scrollspy text" id="customPositioning">
+<section class="scrollspy text" id="jsAppend">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Custom Positioning</h3>
+  <h3>append (elements, appendToStart)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  WebUI includes a number of utility classes that can be used to assist with element positioning, as listed in the following table. These classes can be used
-  on their own or in combination with the place-* or dock-* classes.
-
+  <p>Appends the specified elements or DOM fragment to each element in the set of matched elements or DOM fragment. Element objects specified as the first
+    argument can be an HTMLElement, a WebUI onject, or a valid DOM fragment. If a valid DOM fragment string is specified, a new DOM element is created and 
+    converted to a WebUI object, and then appended.
+  </p>
+  
   <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-15">Classes</div>
-      <div class="table-col-5">Offset</div>					
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-initial , left-initial , bottom-initial , right-initial</div>
-      <div class="table-col-5">0</div>
+      <div class="table-col-6">elements</div>
+      <div class="table-col-4">Onject or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-xxs , left-xxs , bottom-xxs , right-xxs</div>
-      <div class="table-col-5">0.625rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs-xs , left-xxs-xs , bottom-xxs-xs , right-xxs-xs</div>
-      <div class="table-col-5">0.938rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs , left-xs , bottom-xs , right-xs</div>
-      <div class="table-col-5">1.25rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs-sm , left-xs-sm , bottom-xs-sm , right-xs-sm</div>
-      <div class="table-col-5">1.875rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm , left-sm , bottom-sm , right-sm</div>
-      <div class="table-col-5">2.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm-md , left-sm-md , bottom-sm-md , right-sm-md</div>
-      <div class="table-col-5">3.75rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md , left-md , bottom-md , right-md</div>
-      <div class="table-col-5">5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md-lg , left-md-lg , bottom-md-lg , right-md-lg</div>
-      <div class="table-col-5">7.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg , left-lg , bottom-lg , right-lg</div>
-      <div class="table-col-5">10rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg-xl , left-lg-xl , bottom-lg-xl , right-lg-xl</div>
-      <div class="table-col-5">15rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl , left-xl , bottom-xl , right-xl</div>
-      <div class="table-col-5">20rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl-xxl , left-xl-xxl , bottom-xl-xxl , right-xl-xxl</div>
-      <div class="table-col-5">30rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxl , left-xxl , bottom-xxl , right-xxl</div>
-      <div class="table-col-5">40rem</div>
-    </div>                
+      <div class="table-col-6">appendToStart</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Either true or false. If true, elemnts are appended before any existing elements in the node list.</div>
+    </div>  
   </div>
-
+  
   <div class="row-spacing-lg"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-lg-xl text-sm">
-    <div class="panel accent-1 place-top-right top-xs right-sm">
-      <div>place-top-right top-xs right-sm</div>
-    </div>
-    <div class="panel accent-1 place-middle-left left-sm">
-      <div>place-middle-left left-sm</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -2069,74 +1841,1718 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-lg-xl text-sm"&gt;
-  &lt;div class="panel accent-1 place-top-right top-xs right-sm"&gt;
-    &lt;div&gt;place-top-right top-xs right-sm&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-1 place-middle-left left-sm"&gt;
-    &lt;div&gt;place-middle-left left-sm&lt;/div&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
 &lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+    ui("#element1").append(ui("#element2").append("&lt;div class='width-md height-sm'&gt;Element 2A&lt;/div&gt;"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+  
+<section class="scrollspy text" id="jsAppendTo">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>appendTo (to)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>This method is similar to append(), but appends the matched elements or DOM fragment to a specified target elements or DOM fragment at the end of the node list.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">to</div>
+      <div class="table-col-4">Object or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+    ui("&lt;div class='width-md height-sm'&gt;Element 3&lt;/div&gt;").appendTo(ui(".flex-row"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsAttr">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>attr (attrName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified attribute values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single attribute value or an array of attribute values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" name="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" name="exampleDiv2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var names = ui("#exampleArea .flex-row div").attr("name");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>attr (attrName, attrValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified attribute value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute value. If set to null or "", the named attribute will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" name="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" name="exampleDiv2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().attr("name", "div1");
+  ui("#exampleArea .flex-row div").last().attr("name", "div2")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsCss">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>css (ruleName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified computed css property values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single css property value or an array of css property values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm""&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var heights = ui("#exampleArea .flex-row div").css("height");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>css (ruleName, ruleValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified css property value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property value. If set to null or "", the named css property will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().css("height", "5rem");
+  ui("#exampleArea .flex-row div").last().css("height", "5rem")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsData">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>data (dataName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified data attribute values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single data attribute value or an array of attribute values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" data-percent="20"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" data-percent="50"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var percentages = ui("#exampleArea .flex-row div").data("percent");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>data (dataName, dataValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified data attribute value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute value. If set to null or "", the named data attribute will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" data-percent="20"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" data-percent="50"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().data("percent", "10");
+  ui("#exampleArea .flex-row div").last().data("percent", "25")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the specified class(es) exist on any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").hasClass("example");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHidden">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hidden ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the visibility property to hidden of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().hidden();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHide">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hide ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the display property to none of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().hide();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHtml">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>html ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the inner html of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - The element inner html fragment or an array of element inner html fragments.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row control-group"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-md background-accent-1-light pad-sm" id="exampleDiv"&gt;&lt;div class="width-sm height-xs accent-1"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var divTextContent = ui("#exampleDiv").html();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>html (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified inner html fragment for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">Any html fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row control-group"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-md background-accent-1-light pad-sm" id="exampleDiv"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleDiv").html("&lt;div class='width-xs height-sm background-dark'&gt;&lt;/div&gt;");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsPrependTo">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>prependTo (to)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>This method is similar to appendTo(), but prepends the matched elements or DOM fragment to a specified target elements or DOM fragment at the start of the node list.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">to</div>
+      <div class="table-col-4">Object or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+    ui("&lt;div class='width-md height-sm'&gt;Element 3&lt;/div&gt;").prependTo(ui(".flex-row"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsRemove">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>remove ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").remove();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsRemoveChildren">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>removeChildren ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes all child elements of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row").removeChildren();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>   
+
+<section class="scrollspy text" id="jsRemoveClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>removeClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes the specified class(es) from each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm background-accent-1-light border-lg border-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm background-accent-1-light border-lg border-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").removeClass("border-lg border-dark");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsShow">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>show ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the display property to block of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm hidden"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm hidden"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().show();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsText">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>text ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the text content of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single text content value or an array of text content values.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-sm" id="exampleDiv"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col"&gt;
+      &lt;textarea class="control width-xl height-md" id="exampleTextarea"&gt;Lorem ipsum dolor sit amet&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var divTextContent = ui("#exampleDiv").text();
+  var textareaTextContent = ui("#exampleTextarea").text();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>text (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified text content for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single text value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-sm" id="exampleDiv"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col"&gt;
+      &lt;textarea class="control width-xl height-md" id="exampleTextarea"&gt;Lorem ipsum dolor sit amet&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleDiv").text("10");
+  ui("#exampleTextarea").text("Example text");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsToggle">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>toggle</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Shows or hides all elements in the set of matched elements, and sets the aria-hidden attribute to either true or false.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButton"&gt;Toggle&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButton").click(function() {
+    ui("#exampleArea .flex-row div").toggle();	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>toggle (toggleState)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Shows or hides all elements in the set of matched elements depending on the toggleState argument, and sets the aria-hidden attribute to either true or false.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">toggleState</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "on" or "off".</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButtonOn"&gt;Toggle On&lt;/button&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButtonOff"&gt;Toggle Off&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButtonOn").click(function() {
+    ui("#exampleArea .flex-row div").toggle("on");	
+  });
+  ui("#toggleButtonOff").click(function() {
+    ui("#exampleArea .flex-row div").toggle("off");	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsToggleClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>toggleClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Toggles the addition or removal of a class or set of classes for all elements in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButton"&gt;Toggle On&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark boundary-success"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark boundary-success"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButton").click(function() {
+    ui("#exampleArea .flex-row div").toggleClass("background-dark");	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsVal">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>val ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the value of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single element value or an array of element values.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="form-col"&gt;
+    &lt;input type="text" value="20" class="input-sm" id="exampleInput" /&gt;
+  &lt;/div&gt;
+  &lt;div class="form-col"&gt;
+    &lt;select class="input-sm" id="exampleSelect"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>	
                                     
       </div>
     </div>
   </div>
 
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var textInputValue = ui("#exampleInput").val();
+  var selectInputValue = ui("#exampleSelect").val();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
 
   <div class="row-spacing-md"></div>
 
+  <h3>val (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p class="gap-horizontal-sm"><span class="text-bold">Snap Positioning</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
-  <p>If more granular positioning is required, then WebUI provides the snap positioning JavaScript utility function that can be used to accurately position 
-    elements relative to any other element.</p>
-
-
-    <span class="badge-square-xs background-info-light text-xs">Example</span>
-    <div class="row-spacing-sm"></div>
+  <p>Sets the specified value for each element in the set of matched elements.
+  </p>
   
-    <div class="container height-lg">
-      <div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
-        <div class="diamond-flat-shape" data-size="5rem" data-rotation="0" data-class="custom-image" id="shapeSnapPosition"></div>
-      </div>
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
 
-    
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-success-light text-xs">Markup</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>&lt;div class="container height-lg"&gt;
-  &lt;div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition"&gt;
-    &lt;div class="diamond-flat-shape" data-size="5rem" data-rotation="0" 
-    data-class="custom-image" id="shapeSnapPosition"&gt;&lt;/div&gt;
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="form-col"&gt;
+    &lt;input type="text" value="20" class="input-sm" id="exampleInput" /&gt;
   &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                      
-        </div>
+  &lt;div class="form-col"&gt;
+    &lt;select class="input-sm" id="exampleSelect"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>	
+                                        
       </div>
     </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
   
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-warning-light text-xs">Script</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary script-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");</pre>
-                            
-        </div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleInput").val("10");
+  ui("#exampleSelect").val("5");
+
+});</pre>
+                          
       </div>
     </div>
-  
+  </div>
+
 </section>
+
+<section class="scrollspy text" id="jsVisible">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>visible ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the visibility property to visible of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm invisible"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm invisible"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().visible();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/positioning.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_transitions_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1726,96 +1726,51 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="absolutePositioning">
+      <section class="scrollspy text" id="jsCollapseHorizontal">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Absolute Positioning</h3>
+  <h3>collapseHorizontal (duration, targetHeight, callback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">place-*</span> classes can be used to achieve absolute element positioning, and are ideal for positioning elements within layouts.
-  There are 9 placing classes as described in the following table.</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
+  <p>Collapses each element in the set of matched elements horizontally, for the specified duration and to the specified target height, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of its container.</div>
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "left" or "right".</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of its container.</div>
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of its container.</div>
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of its container.</div>
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
     </div>
   </div>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">The <span class="color-info text-bold">place-*</span> classes are best used within a container. WebUI provides a set of container classes
-      that are all relatively positioned, and therefore serve as a positioning context when using the place-* classes.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <p>The following example uses a panel container as the positioning context.</p>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-xl text-sm">
-    <div class="height-md width-md accent-1 place-top-center">
-      <span class="place-middle-center">place-top-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-left">
-      <span class="place-middle-center">place-middle-left</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-center">
-      <span class="place-middle-center">place-middle-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-right">
-      <span class="place-middle-center">place-middle-right</span>
-    </div>
-    <div class="height-md width-md accent-1 place-bottom-center">
-      <span class="place-middle-center">place-bottom-center</span>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
+  
+  <div class="row-spacing-lg"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -1824,129 +1779,13 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-xl text-sm"&gt;
-  &lt;div class="height-md width-md accent-1 place-top-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-top-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-left"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-right"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-right&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-bottom-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-bottom-center&lt;/span&gt;
+<pre>&lt;div class="width-lg"&gt;
+  &lt;div class="flex-col gap-vertical-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="scrollspy text" id="fixedPositioning">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Fixed Positioning</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The <span class="color-info text-bold">dock-*</span> classes can be used to achieve fixed element positioning, and are ideal for positioning headers, footers, and menus.
-  There are 9 docking classes as described in the following table.</p>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">A WebUI container is not required when using the dock-* classes for absolute positioning, since a dock-* class will take the element out of the
-      normal content flow.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of the viewport.</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row text-bold text-sm">
-    <div class="form-col-20 background-accent-1-light gap-horizontal-md">
-      <button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel">Toggle Fixed Footer Panel</button>
-    </div>
-    <div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"><span class="place-middle-center">Fixed Footer Panal</span></div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="form-row text-bold text-sm"&gt;
-  &lt;div class="form-col-20 background-accent-1-light gap-horizontal-md"&gt;
-    &lt;button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel"&gt;
-      Toggle Fixed Footer Panel
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"&gt;
-    &lt;span class="place-middle-center"&gt;Fixed Footer Panal&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                          
+                                    
       </div>
     </div>
   </div>
@@ -1960,8 +1799,12 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>ui("#toggleFixedFooterPanel").click(function() {
-  ui("#fixedFooterPanel").toggle();
+<pre>webui.ready(function() {
+
+  ui(".container").collapseHorizontal(3000, 20, function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
 });</pre>
                           
       </div>
@@ -1970,97 +1813,51 @@
 
 </section>
 
-<section class="scrollspy text" id="customPositioning">
+<section class="scrollspy text" id="jsCollapseVertical">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Custom Positioning</h3>
+  <h3>collapseVertical (duration, targetHeight, callback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  WebUI includes a number of utility classes that can be used to assist with element positioning, as listed in the following table. These classes can be used
-  on their own or in combination with the place-* or dock-* classes.
-
+  <p>Collapses each element in the set of matched elements vertically, for the specified duration and to the specified target height, and optionally with a callback.
+  </p>
+  
   <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-15">Classes</div>
-      <div class="table-col-5">Offset</div>					
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-initial , left-initial , bottom-initial , right-initial</div>
-      <div class="table-col-5">0</div>
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "left" or "right".</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-xxs , left-xxs , bottom-xxs , right-xxs</div>
-      <div class="table-col-5">0.625rem</div>
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-xxs-xs , left-xxs-xs , bottom-xxs-xs , right-xxs-xs</div>
-      <div class="table-col-5">0.938rem</div>
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-xs , left-xs , bottom-xs , right-xs</div>
-      <div class="table-col-5">1.25rem</div>
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
     </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs-sm , left-xs-sm , bottom-xs-sm , right-xs-sm</div>
-      <div class="table-col-5">1.875rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm , left-sm , bottom-sm , right-sm</div>
-      <div class="table-col-5">2.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm-md , left-sm-md , bottom-sm-md , right-sm-md</div>
-      <div class="table-col-5">3.75rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md , left-md , bottom-md , right-md</div>
-      <div class="table-col-5">5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md-lg , left-md-lg , bottom-md-lg , right-md-lg</div>
-      <div class="table-col-5">7.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg , left-lg , bottom-lg , right-lg</div>
-      <div class="table-col-5">10rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg-xl , left-lg-xl , bottom-lg-xl , right-lg-xl</div>
-      <div class="table-col-5">15rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl , left-xl , bottom-xl , right-xl</div>
-      <div class="table-col-5">20rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl-xxl , left-xl-xxl , bottom-xl-xxl , right-xl-xxl</div>
-      <div class="table-col-5">30rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxl , left-xxl , bottom-xxl , right-xxl</div>
-      <div class="table-col-5">40rem</div>
-    </div>                
   </div>
-
+  
   <div class="row-spacing-lg"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-lg-xl text-sm">
-    <div class="panel accent-1 place-top-right top-xs right-sm">
-      <div>place-top-right top-xs right-sm</div>
-    </div>
-    <div class="panel accent-1 place-middle-left left-sm">
-      <div>place-middle-left left-sm</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -2069,12 +1866,10 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-lg-xl text-sm"&gt;
-  &lt;div class="panel accent-1 place-top-right top-xs right-sm"&gt;
-    &lt;div&gt;place-top-right top-xs right-sm&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-1 place-middle-left left-sm"&gt;
-    &lt;div&gt;place-middle-left left-sm&lt;/div&gt;
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
                                     
@@ -2082,61 +1877,544 @@
     </div>
   </div>
 
-
   <div class="row-spacing-md"></div>
-
-
-  <p class="gap-horizontal-sm"><span class="text-bold">Snap Positioning</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
-  <p>If more granular positioning is required, then WebUI provides the snap positioning JavaScript utility function that can be used to accurately position 
-    elements relative to any other element.</p>
-
-
-    <span class="badge-square-xs background-info-light text-xs">Example</span>
-    <div class="row-spacing-sm"></div>
   
-    <div class="container height-lg">
-      <div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
-        <div class="diamond-flat-shape" data-size="5rem" data-rotation="0" data-class="custom-image" id="shapeSnapPosition"></div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").collapseVertical(3000, "1rem", function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
       </div>
     </div>
+  </div>
 
-    
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-success-light text-xs">Markup</span>
-    <div class="row-spacing-sm"></div>
+</section>
+
+<section class="scrollspy text" id="jsExpandHorizontal">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>expandHorizontal (duration, targetHeight, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Expands each element in the set of matched elements horizontally, for the specified duration and to the specified target height, and optionally with a callback.
+  </p>
   
-    <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
+  <div class="row-spacing-md"></div>
   
-<pre>&lt;div class="container height-lg"&gt;
-  &lt;div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition"&gt;
-    &lt;div class="diamond-flat-shape" data-size="5rem" data-rotation="0" 
-    data-class="custom-image" id="shapeSnapPosition"&gt;&lt;/div&gt;
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "left" or "right".</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-lg"&gt;
+  &lt;div class="flex-col gap-vertical-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                                      
-        </div>
+                                    
       </div>
     </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
   
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-warning-light text-xs">Script</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary script-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");</pre>
-                            
-        </div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").expandHorizontal(3000, "20rem", function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
       </div>
     </div>
-  
+  </div>
+
 </section>
+
+<section class="scrollspy text" id="jsExpandVertical">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>expandVertical (duration, targetHeight, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Expands each element in the set of matched elements vertically, for the specified duration and to the specified target height, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "left" or "right".</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").expandVertical(3000, "20rem", function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsFadeIn">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>fadeIn (duration, initialOpacity, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Eases in the opacity each element in the set of matched elements horizontally, for the specified duration and starting at the initial opacity, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">initialOpacity</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A value of between 0 and 1.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").fadeIn(5000, 0.1, function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsFadeOut">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>fadeOut (duration, finalOpacity, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Eases out the opacity each element in the set of matched elements horizontally, for the specified duration and ending at the final opacity, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">finalOpacity</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A value of between 0 and 1.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").fadeOut(5000, 0.2, function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsSlideHorizontal">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>slideHorizontal (direction, distance, duration, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Moves each element in the set of matched elements left or right for the specified distance and duration, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "left" or "right".</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-lg"&gt;
+  &lt;div class="flex-row gap-vertical-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").slideHorizontal("right", 100, 5000, function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsSlideVertical">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>slideVertical (direction, distance, duration, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Moves each element in the set of matched elements up or down for the specified distance and duration, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">direction</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "up" or "down".</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">distance</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-sm border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").slideVertical("down", 100, 5000, function(el) {
+    console.log("Transition completed for " + el.attr("id"));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/positioning.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_introduction.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1726,227 +1726,97 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="absolutePositioning">
+      <section class="scrollspy text" id="jsOverview">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Absolute Positioning</h3>
+  <h3>Overview</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">place-*</span> classes can be used to achieve absolute element positioning, and are ideal for positioning elements within layouts.
-  There are 9 placing classes as described in the following table.</p>
+  <p>The WebUI selector engine provides a rich query API for working with HTML elements. If you are already familiar with jQuery, the WebUI API will be easy to work with, as 
+    it works in the same way. The API includes all of the common methods needed for querying the document object model (DOM), and a range of higher level utility and component 
+    specific methods to make many tasks easier. 
+  </p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of its container.</div>
-    </div>
-  </div>
+  <p>The selector engine converts HTML elements to WebUI objects, which are then returned by the API methods as a single object or an array of objects. It also makes it easy
+    to create and append new elements to the DOM through its constructor.
+  </p>
 
-  <div class="row-spacing-md"></div>
+  <div class="row-spacing-lg"></div>
 
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">The <span class="color-info text-bold">place-*</span> classes are best used within a container. WebUI provides a set of container classes
-      that are all relatively positioned, and therefore serve as a positioning context when using the place-* classes.</p>
-  </blockquote>
+  <p class="text-bold">WebUI Aliases</p>
 
-  <div class="row-spacing-md"></div>
+  <p>There are two alias variables that can be used with WebUI - these are "webui" or just "ui". These are equivalent to the "jQuery" and "$" aliases in jQuery. WebUI uses
+    different aliases to avoid conflicts in projects that may be using jQuery as well as WebUI, although it is not recommended to use both if it can be avoided.
+  </p>
 
-  <p>The following example uses a panel container as the positioning context.</p>
+	<div class="row-spacing-md"></div>
 
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-xl text-sm">
-    <div class="height-md width-md accent-1 place-top-center">
-      <span class="place-middle-center">place-top-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-left">
-      <span class="place-middle-center">place-middle-left</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-center">
-      <span class="place-middle-center">place-middle-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-right">
-      <span class="place-middle-center">place-middle-right</span>
-    </div>
-    <div class="height-md width-md accent-1 place-bottom-center">
-      <span class="place-middle-center">place-bottom-center</span>
-    </div>
-  </div>
+	<p class="text-bold">JavaScript DOM Ready Event</p>
+	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
 
   <div class="row-spacing-md"></div>
   
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="body background-secondary code-block">
+  <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-xl text-sm"&gt;
-  &lt;div class="height-md width-md accent-1 place-top-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-top-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-left"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-right"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-right&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-bottom-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-bottom-center&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
+<pre>webui.ready(function() {
+  // Call WebUI functions here...
+});</pre>
                           
       </div>
     </div>
   </div>
 
+
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">JavaScript Files</p>
+
+	<p>For more information on the JavaScript files available and which CSS files they should be used with, see the 
+      <a href="/webui/getting_started.html#useage" class="color-info color-hover-accent-4 text-underline text-bold">Getting Started</a> section.</p>
+  
+
 </section>
 
-
-<section class="scrollspy text" id="fixedPositioning">
+<section class="scrollspy text" id="jsUseage">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Fixed Positioning</h3>
+  <h3>Useage</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">dock-*</span> classes can be used to achieve fixed element positioning, and are ideal for positioning headers, footers, and menus.
-  There are 9 docking classes as described in the following table.</p>
+
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Constructor</p>
+
+  <p>The WebUI constructor accepts a valid CSS selector expression or an HTML fragment. The following example shows an example of using a selector expression
+    to select a form column, and then appending an HTML fragment to the column.
+  </p>
 
   <div class="row-spacing-md"></div>
 
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">A WebUI container is not required when using the dock-* classes for absolute positioning, since a dock-* class will take the element out of the
-      normal content flow.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of the viewport.</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row text-bold text-sm">
-    <div class="form-col-20 background-accent-1-light gap-horizontal-md">
-      <button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel">Toggle Fixed Footer Panel</button>
-    </div>
-    <div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"><span class="place-middle-center">Fixed Footer Panal</span></div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
-
+  
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="form-row text-bold text-sm"&gt;
-  &lt;div class="form-col-20 background-accent-1-light gap-horizontal-md"&gt;
-    &lt;button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel"&gt;
-      Toggle Fixed Footer Panel
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"&gt;
-    &lt;span class="place-middle-center"&gt;Fixed Footer Panal&lt;/span&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="area" id="myArea"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
 &lt;/div&gt;</pre>
-                          
+      
       </div>
     </div>
   </div>
@@ -1960,8 +1830,88 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>ui("#toggleFixedFooterPanel").click(function() {
-  ui("#fixedFooterPanel").toggle();
+<pre>webui.ready(function() {
+  
+  var column = ui("#myArea .form-col");
+			
+  ui("&lt;div class='container width-lg height-md accent-2-light'&gt;&lt;/div&gt;").appendTo(column);
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Method Chaining</p>
+
+  <p>All DOM traversal and manipulation API methods are chainable, since each method returns the HTML elements being acted on as a WebUI object. The next method in the 
+    chain knows how to work with elements returned by the previous. In the example below, a border is added to the div element before appending the result to the form column.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+  
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area" id="myArea"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+  
+  var column = ui("#myArea .form-col");
+			
+  ui("&lt;div class='container width-lg height-md accent-2-light'&gt;&lt;/div&gt;").addClass("border-sm border-dark").appendTo(column);
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+	<div class="row-spacing-md"></div>
+
+  <p class="text-bold">JavaScript DOM Ready Event</p>
+
+  <p></p>
+  
+	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+  
+  ui("#myElement").show();
+
 });</pre>
                           
       </div>
@@ -1970,173 +1920,7 @@
 
 </section>
 
-<section class="scrollspy text" id="customPositioning">
 
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Custom Positioning</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  WebUI includes a number of utility classes that can be used to assist with element positioning, as listed in the following table. These classes can be used
-  on their own or in combination with the place-* or dock-* classes.
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-15">Classes</div>
-      <div class="table-col-5">Offset</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-initial , left-initial , bottom-initial , right-initial</div>
-      <div class="table-col-5">0</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs , left-xxs , bottom-xxs , right-xxs</div>
-      <div class="table-col-5">0.625rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs-xs , left-xxs-xs , bottom-xxs-xs , right-xxs-xs</div>
-      <div class="table-col-5">0.938rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs , left-xs , bottom-xs , right-xs</div>
-      <div class="table-col-5">1.25rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs-sm , left-xs-sm , bottom-xs-sm , right-xs-sm</div>
-      <div class="table-col-5">1.875rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm , left-sm , bottom-sm , right-sm</div>
-      <div class="table-col-5">2.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm-md , left-sm-md , bottom-sm-md , right-sm-md</div>
-      <div class="table-col-5">3.75rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md , left-md , bottom-md , right-md</div>
-      <div class="table-col-5">5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md-lg , left-md-lg , bottom-md-lg , right-md-lg</div>
-      <div class="table-col-5">7.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg , left-lg , bottom-lg , right-lg</div>
-      <div class="table-col-5">10rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg-xl , left-lg-xl , bottom-lg-xl , right-lg-xl</div>
-      <div class="table-col-5">15rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl , left-xl , bottom-xl , right-xl</div>
-      <div class="table-col-5">20rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl-xxl , left-xl-xxl , bottom-xl-xxl , right-xl-xxl</div>
-      <div class="table-col-5">30rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxl , left-xxl , bottom-xxl , right-xxl</div>
-      <div class="table-col-5">40rem</div>
-    </div>                
-  </div>
-
-  <div class="row-spacing-lg"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-lg-xl text-sm">
-    <div class="panel accent-1 place-top-right top-xs right-sm">
-      <div>place-top-right top-xs right-sm</div>
-    </div>
-    <div class="panel accent-1 place-middle-left left-sm">
-      <div>place-middle-left left-sm</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="panel background-accent-1-light height-lg-xl text-sm"&gt;
-  &lt;div class="panel accent-1 place-top-right top-xs right-sm"&gt;
-    &lt;div&gt;place-top-right top-xs right-sm&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-1 place-middle-left left-sm"&gt;
-    &lt;div&gt;place-middle-left left-sm&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                    
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row-spacing-md"></div>
-
-
-  <p class="gap-horizontal-sm"><span class="text-bold">Snap Positioning</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
-  <p>If more granular positioning is required, then WebUI provides the snap positioning JavaScript utility function that can be used to accurately position 
-    elements relative to any other element.</p>
-
-
-    <span class="badge-square-xs background-info-light text-xs">Example</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="container height-lg">
-      <div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
-        <div class="diamond-flat-shape" data-size="5rem" data-rotation="0" data-class="custom-image" id="shapeSnapPosition"></div>
-      </div>
-    </div>
-
-    
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-success-light text-xs">Markup</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>&lt;div class="container height-lg"&gt;
-  &lt;div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition"&gt;
-    &lt;div class="diamond-flat-shape" data-size="5rem" data-rotation="0" 
-    data-class="custom-image" id="shapeSnapPosition"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                      
-        </div>
-      </div>
-    </div>
-  
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-warning-light text-xs">Script</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary script-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");</pre>
-                            
-        </div>
-      </div>
-    </div>
-  
-</section>
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">

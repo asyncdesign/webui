@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/positioning.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_events_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1726,96 +1726,36 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="absolutePositioning">
+      <section class="scrollspy text" id="jsBlur">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Absolute Positioning</h3>
+  <h3>blur (eventCallback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">place-*</span> classes can be used to achieve absolute element positioning, and are ideal for positioning elements within layouts.
-  There are 9 placing classes as described in the following table.</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
+  <p>Called when any element in the set of matched elements loses focus.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-5">place-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of its container.</div>
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element in the set of matched elements loses focus.</div>
     </div>
   </div>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">The <span class="color-info text-bold">place-*</span> classes are best used within a container. WebUI provides a set of container classes
-      that are all relatively positioned, and therefore serve as a positioning context when using the place-* classes.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <p>The following example uses a panel container as the positioning context.</p>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-xl text-sm">
-    <div class="height-md width-md accent-1 place-top-center">
-      <span class="place-middle-center">place-top-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-left">
-      <span class="place-middle-center">place-middle-left</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-center">
-      <span class="place-middle-center">place-middle-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-right">
-      <span class="place-middle-center">place-middle-right</span>
-    </div>
-    <div class="height-md width-md accent-1 place-bottom-center">
-      <span class="place-middle-center">place-bottom-center</span>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
+  
+  <div class="row-spacing-lg"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -1824,129 +1764,17 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-xl text-sm"&gt;
-  &lt;div class="height-md width-md accent-1 place-top-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-top-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-left"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-right"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-right&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-bottom-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-bottom-center&lt;/span&gt;
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="scrollspy text" id="fixedPositioning">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Fixed Positioning</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The <span class="color-info text-bold">dock-*</span> classes can be used to achieve fixed element positioning, and are ideal for positioning headers, footers, and menus.
-  There are 9 docking classes as described in the following table.</p>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">A WebUI container is not required when using the dock-* classes for absolute positioning, since a dock-* class will take the element out of the
-      normal content flow.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of the viewport.</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row text-bold text-sm">
-    <div class="form-col-20 background-accent-1-light gap-horizontal-md">
-      <button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel">Toggle Fixed Footer Panel</button>
-    </div>
-    <div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"><span class="place-middle-center">Fixed Footer Panal</span></div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="form-row text-bold text-sm"&gt;
-  &lt;div class="form-col-20 background-accent-1-light gap-horizontal-md"&gt;
-    &lt;button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel"&gt;
-      Toggle Fixed Footer Panel
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"&gt;
-    &lt;span class="place-middle-center"&gt;Fixed Footer Panal&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                          
+                                              
       </div>
     </div>
   </div>
@@ -1960,107 +1788,50 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>ui("#toggleFixedFooterPanel").click(function() {
-  ui("#fixedFooterPanel").toggle();
+<pre>webui.ready(function() {
+
+  ui("#textbox1, #select1").blur(function(e) {
+    console.log("Event fired.");
+  });
+
 });</pre>
                           
       </div>
     </div>
   </div>
-
+  
 </section>
 
-<section class="scrollspy text" id="customPositioning">
+<section class="scrollspy text" id="jsChange">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Custom Positioning</h3>
+  <h3>change (eventCallback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  WebUI includes a number of utility classes that can be used to assist with element positioning, as listed in the following table. These classes can be used
-  on their own or in combination with the place-* or dock-* classes.
-
+  <p>Called when the value is changed for any element in the set of matched elements.
+  </p>
+  
   <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-15">Classes</div>
-      <div class="table-col-5">Offset</div>					
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-initial , left-initial , bottom-initial , right-initial</div>
-      <div class="table-col-5">0</div>
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called the value is changed for any element in the set of matched elements.</div>
     </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs , left-xxs , bottom-xxs , right-xxs</div>
-      <div class="table-col-5">0.625rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs-xs , left-xxs-xs , bottom-xxs-xs , right-xxs-xs</div>
-      <div class="table-col-5">0.938rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs , left-xs , bottom-xs , right-xs</div>
-      <div class="table-col-5">1.25rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs-sm , left-xs-sm , bottom-xs-sm , right-xs-sm</div>
-      <div class="table-col-5">1.875rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm , left-sm , bottom-sm , right-sm</div>
-      <div class="table-col-5">2.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm-md , left-sm-md , bottom-sm-md , right-sm-md</div>
-      <div class="table-col-5">3.75rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md , left-md , bottom-md , right-md</div>
-      <div class="table-col-5">5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md-lg , left-md-lg , bottom-md-lg , right-md-lg</div>
-      <div class="table-col-5">7.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg , left-lg , bottom-lg , right-lg</div>
-      <div class="table-col-5">10rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg-xl , left-lg-xl , bottom-lg-xl , right-lg-xl</div>
-      <div class="table-col-5">15rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl , left-xl , bottom-xl , right-xl</div>
-      <div class="table-col-5">20rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl-xxl , left-xl-xxl , bottom-xl-xxl , right-xl-xxl</div>
-      <div class="table-col-5">30rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxl , left-xxl , bottom-xxl , right-xxl</div>
-      <div class="table-col-5">40rem</div>
-    </div>                
   </div>
-
+  
   <div class="row-spacing-lg"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-lg-xl text-sm">
-    <div class="panel accent-1 place-top-right top-xs right-sm">
-      <div>place-top-right top-xs right-sm</div>
-    </div>
-    <div class="panel accent-1 place-middle-left left-sm">
-      <div>place-middle-left left-sm</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -2069,74 +1840,1448 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-lg-xl text-sm"&gt;
-  &lt;div class="panel accent-1 place-top-right top-xs right-sm"&gt;
-    &lt;div&gt;place-top-right top-xs right-sm&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-1 place-middle-left left-sm"&gt;
-    &lt;div&gt;place-middle-left left-sm&lt;/div&gt;
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                                    
+                                              
       </div>
     </div>
   </div>
 
-
   <div class="row-spacing-md"></div>
-
-
-  <p class="gap-horizontal-sm"><span class="text-bold">Snap Positioning</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
-  <p>If more granular positioning is required, then WebUI provides the snap positioning JavaScript utility function that can be used to accurately position 
-    elements relative to any other element.</p>
-
-
-    <span class="badge-square-xs background-info-light text-xs">Example</span>
-    <div class="row-spacing-sm"></div>
   
-    <div class="container height-lg">
-      <div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
-        <div class="diamond-flat-shape" data-size="5rem" data-rotation="0" data-class="custom-image" id="shapeSnapPosition"></div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#textbox1, #select1").change(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
       </div>
     </div>
+  </div>
+  
+</section>
 
-    
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-success-light text-xs">Markup</span>
-    <div class="row-spacing-sm"></div>
+<section class="scrollspy text" id="jsClick">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>click (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any element in the set of matched elements receives mouse click events.
+  </p>
   
-    <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
+  <div class="row-spacing-md"></div>
   
-<pre>&lt;div class="container height-lg"&gt;
-  &lt;div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition"&gt;
-    &lt;div class="diamond-flat-shape" data-size="5rem" data-rotation="0" 
-    data-class="custom-image" id="shapeSnapPosition"&gt;&lt;/div&gt;
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element in the set of matched elements receives mouse click events.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div2"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
                                       
-        </div>
       </div>
     </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
   
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-warning-light text-xs">Script</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary script-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");</pre>
-                            
-        </div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").click(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
       </div>
     </div>
+  </div>
   
 </section>
+
+<section class="scrollspy text" id="jsDrag">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>drag (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any draggable element in the set of matched elements changes position during the drag operation.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any draggable element in the set of matched elements changes position during the drag operation.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").drag( function(e) {
+    console.log(e.clientX + ", " + e.clientY);
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDragEnd">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>dragEnd (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when the drag an drop operation has completed for any draggable element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when the drag an drop operation has completed for any draggable element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").dragEnd( function(e) {
+    console.log("dragEnd");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDragEnter">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>dragEnter (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any draggable element in the set of matched elements enters a valid drop target.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any draggable element in the set of matched elements enters a valid drop target.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").dragEnter( function(e) {
+    console.log("dragEnter");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDragLeave">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>dragLeave (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any draggable element in the set of matched elements leaves a valid drop target.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any draggable element in the set of matched elements leaves a valid drop target.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").dragLeave( function(e) {
+    console.log("dragLeave");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDragOver">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>dragOver (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when a draggable element is dragged over any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when a draggable element is dragged over any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".panel").dragOver( function(e) {
+    e.preventDefault();
+    webui(e.target).setState("border-dark", "border-info");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDragStart">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>dragStart (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Initiates a drag and drop operation for each draggable element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called at the start of a drag and drop operation for each draggable element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").dragStart( function(e) {
+    e.dataTransfer.setData("Example data", e.target.id);
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsDrop">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>drop (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when a draggable element is dropped on any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when a draggable element is dropped on any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="panel border-sm border-dark width-md-lg height-lg-xl" id="exampleArea"&gt;
+  &lt;div class="container info width-md height-sm cursor-copy" draggable="true" id="dragItem1"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container success width-md height-sm cursor-copy" draggable="true" id="dragItem2"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem2&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="container warning width-md height-sm cursor-copy" draggable="true" id="dragItem3"&gt;
+    &lt;span class="place-middle-center"&gt;DragItem3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".panel").drop( function(e) {
+    e.preventDefault();
+    
+    webui(e.target).setState("border-info", "border-dark");
+
+    var data = e.dataTransfer.getData("text");
+    webui(e.target).append(webui("#" + data));
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsFocus">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>focus (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any element in the set of matched elements gains focus.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element in the set of matched elements gains focus.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#textbox1, #select1").focus(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsFocusIn">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>focusIn (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any element, its parent, or its child elements in the set of matched elements is about to gain focus.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element, its parent, or its child elements in the set of matched elements is about to gain focus.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".area").focusIn(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsFocusOut">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>focusOut (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any element, its parent, or its child elements in the set of matched elements is about to lose focus.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element, its parent, or its child elements in the set of matched elements is about to lose focus.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".area").focusOut(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsHoverIn">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hoverIn (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when the pointer device enters any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when the pointer device enters any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".area").hoverIn(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsHoverOut">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hoverOut (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when the pointer device leaves any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when the pointer device leaves any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".area").hoverOut(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsKeyDown">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>keyDown (eventCallback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Called when any element in the set of matched elements receives keyboard key down events.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when any element in the set of matched elements receives keyboard key down events.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;input type="text" class="input-sm width-lg" id="textbox1" /&gt;
+    &lt;select class="input-sm width-lg" id="select1"&gt;
+      &lt;option value="0"&gt;-- Select --&lt;/option&gt;
+      &lt;option value="1"&gt;One&lt;/option&gt;
+      &lt;option value="2"&gt;Two&lt;/option&gt;					
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                         
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#textbox1, #select1").keyDown(function(e) {
+    console.log("Event fired.");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsOff">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>off (name, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes the named event listener for all elements in the set of matched elements, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">name</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">The name of the event matched by the trigger function.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when the named event is triggered on any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                  
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").on("customEvent", function(e) {
+    console.log("Data for event: " + e.detail);
+
+    ui(".container").off("customEvent", function(e) {
+      console.log("Listener removed.");
+    });
+  
+  });
+
+  ui(".container").trigger("customEvent", "example data.");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsOn">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>on (name, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Adds an event listener for the named event, and is called when the named event is dispatched by the trigger function for any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">name</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">The name of the event matched by the trigger function.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">function</div>
+      <div class="table-col-10">A function that will be called when the named event is triggered on any element in the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                  
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").on("customEvent", function(e) {
+    console.log("Data for event: " + e.detail);
+  });
+
+  ui(".container").trigger("customEvent", "example data.");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsResize">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>resize (eventCallback, params)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Creates a resize event for any HTML element.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Date object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when a reset event occurs.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">params</div>
+      <div class="table-col-4">Object</div>
+      <div class="table-col-10">Any JavaScript object.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="resizeButton"&gt;Resize&lt;/button&gt;
+    &lt;div class="width-md height-control-sm control" id="resizeExample"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var resizeCallback = function (el, params) {
+    console.log(el);
+    console.log("Name: " + params.name + ", Data: " + params.data);
+  };
+  
+  ui("#resizeExample").resize(resizeCallback, { 
+    name: "EventData",
+    data: 54321
+  });	
+
+  ui("#resizeButton").click(function() {
+    ui("#resizeExample").css("height", "20rem");
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsTrigger">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>trigger (eventCallback, args)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Dispatches the named event to matching event listerners for all elements in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">eventCallback</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">The name of the event.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">args</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">Any data that should be carried in the event detail and available to matching event listeners.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="width-xl"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div1"&gt;&lt;/div&gt;
+    &lt;div class="container flex-auto height-md border-sm border-dark" id="div2"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                  
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui(".container").on("customEvent", function(e) {
+    console.log("Data for event: " + e.detail);
+  });
+
+  ui(".container").trigger("customEvent", "example data.");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">

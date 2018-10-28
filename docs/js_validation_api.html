@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/positioning.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_validation_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -1726,96 +1726,26 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="absolutePositioning">
+      <section class="scrollspy text" id="jsIsChecked">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Absolute Positioning</h3>
+  <h3>isChecked ()</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The <span class="color-info text-bold">place-*</span> classes can be used to achieve absolute element positioning, and are ideal for positioning elements within layouts.
-  There are 9 placing classes as described in the following table.</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of its container.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">place-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of its container.</div>
+  <p>Determines whether all checkboxes or radio buttons are checked within the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
     </div>
   </div>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">The <span class="color-info text-bold">place-*</span> classes are best used within a container. WebUI provides a set of container classes
-      that are all relatively positioned, and therefore serve as a positioning context when using the place-* classes.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <p>The following example uses a panel container as the positioning context.</p>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-xl text-sm">
-    <div class="height-md width-md accent-1 place-top-center">
-      <span class="place-middle-center">place-top-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-left">
-      <span class="place-middle-center">place-middle-left</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-center">
-      <span class="place-middle-center">place-middle-center</span>
-    </div>
-    <div class="height-md width-md accent-1 place-middle-right">
-      <span class="place-middle-center">place-middle-right</span>
-    </div>
-    <div class="height-md width-md accent-1 place-bottom-center">
-      <span class="place-middle-center">place-bottom-center</span>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
+  
+  <div class="row-spacing-lg"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -1824,129 +1754,19 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-xl text-sm"&gt;
-  &lt;div class="height-md width-md accent-1 place-top-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-top-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-left"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-center&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-middle-right"&gt;
-    &lt;span class="place-middle-center"&gt;place-middle-right&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="height-md width-md accent-1 place-bottom-center"&gt;
-    &lt;span class="place-middle-center"&gt;place-bottom-center&lt;/span&gt;
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox1" checked /&gt;
+      &lt;label for="checkbox1"&gt;&lt;/label&gt;
+    &lt;/div&gt;    
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox2" /&gt;
+      &lt;label for="checkbox2"&gt;&lt;/label&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="scrollspy text" id="fixedPositioning">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Fixed Positioning</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The <span class="color-info text-bold">dock-*</span> classes can be used to achieve fixed element positioning, and are ideal for positioning headers, footers, and menus.
-  There are 9 docking classes as described in the following table.</p>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-    <div class="flex-items-center">
-      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Absolute Positioning</span>
-    </div>
-    <p class="text-sm">A WebUI container is not required when using the dock-* classes for absolute positioning, since a dock-* class will take the element out of the
-      normal content flow.</p>
-  </blockquote>
-
-  <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-left</div>
-      <div class="table-col-15">Positions an element at the top left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-center</div>
-      <div class="table-col-15">Positions an element at the top center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-top-right</div>
-      <div class="table-col-15">Positions an element at the top right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-left</div>
-      <div class="table-col-15">Positions an element at the middle left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-center</div>
-      <div class="table-col-15">Positions an element at the middle center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-middle-right</div>
-      <div class="table-col-15">Positions an element at the middle right of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-left</div>
-      <div class="table-col-15">Positions an element at the bottom left of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-center</div>
-      <div class="table-col-15">Positions an element at the bottom center of the viewport.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">dock-bottom-right</div>
-      <div class="table-col-15">Positions an element at the bottom right of the viewport.</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="form-row text-bold text-sm">
-    <div class="form-col-20 background-accent-1-light gap-horizontal-md">
-      <button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel">Toggle Fixed Footer Panel</button>
-    </div>
-    <div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"><span class="place-middle-center">Fixed Footer Panal</span></div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="form-row text-bold text-sm"&gt;
-  &lt;div class="form-col-20 background-accent-1-light gap-horizontal-md"&gt;
-    &lt;button type="button" class="button-sm button-accent-1" id="toggleFixedFooterPanel"&gt;
-      Toggle Fixed Footer Panel
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="panel dock-bottom-center hidden height-sm width-full accent-1-light" id="fixedFooterPanel"&gt;
-    &lt;span class="place-middle-center"&gt;Fixed Footer Panal&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                          
+                                        
       </div>
     </div>
   </div>
@@ -1960,107 +1780,50 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>ui("#toggleFixedFooterPanel").click(function() {
-  ui("#fixedFooterPanel").toggle();
+<pre>webui.ready(function() {
+
+  var isChecked = ui("#checkbox1").isChecked();
+  var areAllChecked = ui("[name=checkGroup1]").isChecked();
+
 });</pre>
                           
       </div>
     </div>
   </div>
 
-</section>
+  <div class="row-spacing-md"></div>
 
-<section class="scrollspy text" id="customPositioning">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Custom Positioning</h3>
+  <h3>isChecked (dependsOnSelector, dependsOnRegExp)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  WebUI includes a number of utility classes that can be used to assist with element positioning, as listed in the following table. These classes can be used
-  on their own or in combination with the place-* or dock-* classes.
-
+  <p>Determines whether all checkboxes or radio buttons are checked within the set of matched elements, depending on whether the specified depentant
+    control has a value or property matching the specified dependant regular expression.
+  </p>
+  
   <div class="row-spacing-md"></div>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-15">Classes</div>
-      <div class="table-col-5">Offset</div>					
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-initial , left-initial , bottom-initial , right-initial</div>
-      <div class="table-col-5">0</div>
+      <div class="table-col-6">dependsOnSelector</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid CSS selector expression.</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-15">top-xxs , left-xxs , bottom-xxs , right-xxs</div>
-      <div class="table-col-5">0.625rem</div>
+      <div class="table-col-6">dependsOnRegExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
     </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxs-xs , left-xxs-xs , bottom-xxs-xs , right-xxs-xs</div>
-      <div class="table-col-5">0.938rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs , left-xs , bottom-xs , right-xs</div>
-      <div class="table-col-5">1.25rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xs-sm , left-xs-sm , bottom-xs-sm , right-xs-sm</div>
-      <div class="table-col-5">1.875rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm , left-sm , bottom-sm , right-sm</div>
-      <div class="table-col-5">2.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-sm-md , left-sm-md , bottom-sm-md , right-sm-md</div>
-      <div class="table-col-5">3.75rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md , left-md , bottom-md , right-md</div>
-      <div class="table-col-5">5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-md-lg , left-md-lg , bottom-md-lg , right-md-lg</div>
-      <div class="table-col-5">7.5rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg , left-lg , bottom-lg , right-lg</div>
-      <div class="table-col-5">10rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-lg-xl , left-lg-xl , bottom-lg-xl , right-lg-xl</div>
-      <div class="table-col-5">15rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl , left-xl , bottom-xl , right-xl</div>
-      <div class="table-col-5">20rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xl-xxl , left-xl-xxl , bottom-xl-xxl , right-xl-xxl</div>
-      <div class="table-col-5">30rem</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-15">top-xxl , left-xxl , bottom-xxl , right-xxl</div>
-      <div class="table-col-5">40rem</div>
-    </div>                
   </div>
-
+  
   <div class="row-spacing-lg"></div>
-
-  <span class="badge-square-xs background-info-light text-xs">Example</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="panel background-accent-1-light height-lg-xl text-sm">
-    <div class="panel accent-1 place-top-right top-xs right-sm">
-      <div>place-top-right top-xs right-sm</div>
-    </div>
-    <div class="panel accent-1 place-middle-left left-sm">
-      <div>place-middle-left left-sm</div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
   
   <span class="badge-square-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-sm"></div>
@@ -2069,74 +1832,1044 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="panel background-accent-1-light height-lg-xl text-sm"&gt;
-  &lt;div class="panel accent-1 place-top-right top-xs right-sm"&gt;
-    &lt;div&gt;place-top-right top-xs right-sm&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="panel accent-1 place-middle-left left-sm"&gt;
-    &lt;div&gt;place-middle-left left-sm&lt;/div&gt;
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" id="dependantElement" /&gt;
+      &lt;label for="dependantElement"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox1" checked /&gt;
+      &lt;label for="checkbox1"&gt;&lt;/label&gt;
+    &lt;/div&gt;    
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox2" /&gt;
+      &lt;label for="checkbox2"&gt;&lt;/label&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                                    
+                                                
       </div>
     </div>
   </div>
 
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  var isChecked = ui("#checkbox1").isChecked("#dependantElement", ui.TRUE_VALUE);
+  var areAllChecked = ui("[name=checkGroup1]").isChecked("#dependantElement", ui.TRUE_VALUE);
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsHasConformingString">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasConformingString (regExp, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements matches the regular expression, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">regExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;String&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasConformingString(ui.BASIC_STRING, false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
 
   <div class="row-spacing-md"></div>
 
+  <h3>hasConformingString (regExp, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p class="gap-horizontal-sm"><span class="text-bold">Snap Positioning</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
-  <p>If more granular positioning is required, then WebUI provides the snap positioning JavaScript utility function that can be used to accurately position 
-    elements relative to any other element.</p>
-
-
-    <span class="badge-square-xs background-info-light text-xs">Example</span>
-    <div class="row-spacing-sm"></div>
+  <p>Determines whether the value of all controls within the set of matched elements matches the regular expression, and 
+      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
+  </p>
   
-    <div class="container height-lg">
-      <div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
-        <div class="diamond-flat-shape" data-size="5rem" data-rotation="0" data-class="custom-image" id="shapeSnapPosition"></div>
-      </div>
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
     </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">regExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnSelector</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid CSS selector expression.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnRegExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
 
-    
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-success-light text-xs">Markup</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary code-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>&lt;div class="container height-lg"&gt;
-  &lt;div class="width-lg-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition"&gt;
-    &lt;div class="diamond-flat-shape" data-size="5rem" data-rotation="0" 
-    data-class="custom-image" id="shapeSnapPosition"&gt;&lt;/div&gt;
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;String&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" id="dependantElement" /&gt;
+      &lt;label for="dependantElement"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-                                      
-        </div>
+                                                
       </div>
     </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
   
-    <div class="row-spacing-md"></div>
-    
-    <span class="badge-square-xs background-warning-light text-xs">Script</span>
-    <div class="row-spacing-sm"></div>
-  
-    <div class="body background-secondary script-block">
-      <div class="content-row">
-        <div class="content-col-20 scroll-y">
-  
-<pre>ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");</pre>
-                            
-        </div>
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasConformingString(ui.BASIC_STRING, false, "#dependantElement", ui.TRUE_VALUE)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
       </div>
     </div>
+  </div>
   
 </section>
+
+<section class="scrollspy text" id="jsHasNumericInRange">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasNumericInRange (lowerLimit, upperLimit, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid numeric value within the specified lower and upper limit, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">lowerLimit</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A valid numeric value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">upperLimit</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A valid numeric value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Numeric&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasNumericInRange(10, 19.65, false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>hasNumericInRange (lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid numeric value within the specified lower and upper limit, and 
+      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">lowerLimit</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A valid numeric value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">upperLimit</div>
+      <div class="table-col-4">Numeric</div>
+      <div class="table-col-10">A valid numeric value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnSelector</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid CSS selector expression.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnRegExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Numeric&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" id="dependantElement" /&gt;
+      &lt;label for="dependantElement"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasNumericInRange(10, 19.65, false, "#dependantElement", ui.TRUE_VALUE)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsHasIntegerInRange">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasIntegerInRange (lowerLimit, upperLimit, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid integer value within the specified lower and upper limit, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">lowerLimit</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">A valid integer value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">upperLimit</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">A valid integer value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Integer&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasIntegerInRange(10, 20, false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>hasIntegerInRange (lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid integer value within the specified lower and upper limit, and 
+      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">lowerLimit</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">A valid integer value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">upperLimit</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">A valid integer value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnSelector</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid CSS selector expression.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dependsOnRegExp</div>
+      <div class="table-col-4">Regular Expression</div>
+      <div class="table-col-10">A valid regular expression.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Integer&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;div class="checkbox"&gt;
+      &lt;input type="checkbox" value="" id="dependantElement" /&gt;
+      &lt;label for="dependantElement"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasIntegerInRange(10, 20, false, "#dependantElement", ui.TRUE_VALUE)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsHasValidDateTime">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasValidDateTime (format, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid datetime value for the specified format, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">format</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime format.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Datetime&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasValidDateTime("DD/MM/YYYY hh:mm", false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasPastDateTime">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasPastDateTime (format, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid past datetime value for the specified format, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">format</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime format.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Datetime&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasPastDateTime("DD/MM/YYYY hh:mm", false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasPresentDateTime">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasPresentDateTime (format, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid present datetime value for the specified format, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">format</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime format.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Datetime&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasPresentDateTime("DD/MM/YYYY hh:mm", false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasFutureDateTime">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasFutureDateTime (format, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid future datetime value for the specified format, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">format</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime format.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Datetime&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasFutureDateTime("DD/MM/YYYY hh:mm", false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasDateTimeInRange">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasDateTimeInRange (minDateTimeString, maxDateTimeString, format, allowEmpty)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the value of all controls within the set of matched elements is a valid datetime value within a min and max value for the specified format, and 
+    optionally allows an empty value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container grid-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - Boolean.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">minDateTimeString</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime string.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">maxDateTimeString</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime string.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">format</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid datetime format.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">allowEmpty</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Whether to allow an empty value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row flex-nowrap flex-items-center gap-horizontal-sm" id="inputGroup1"&gt;
+    &lt;label class="form-label-sm"&gt;Datetime&lt;/label&gt;
+    &lt;input type="text" class="input input-sm width-xl rounded-sm" id="input1" /&gt;	
+    &lt;label class="form-label-sm" id="message1"&gt;&lt;/label&gt;	
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui("#input1").blur( function() { 
+    if (!ui("#input1").hasDateTimeInRange("17/09/2018 12:00", "17/09/2018 13:30", "DD/MM/YYYY hh:mm", false)) {
+      ui("#inputGroup1").setState("", "control-group-danger", true);
+      ui("#message1").text("Validation message");
+    } else {
+      ui("#inputGroup1").setState("", "control-group-success", true);
+      ui("#message1").text("");
+    }
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">

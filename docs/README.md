@@ -1,9 +1,9 @@
 
-##
+<div align="center">
+  <img src="images/webui_blue_96x96.png" alt="Webui Logo" />
+</div>
 
-<img src="images/webui_blue_96x96.png" alt="Webui Logo" align="right" hspace="30" /> 
-
-## **WebUI**
+<h1 align="center"><b>WebUI</b></h1>
 
 *Web design made easy*
 
@@ -22,7 +22,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.0.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.1.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:

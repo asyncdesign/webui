@@ -474,7 +474,7 @@
 			return new fn.o(selector);
 		},
 
-		selectorRegExp = /^([a-zA-Z0-9_\-\s\[\]\.\#\*\,\(\)\:]{1,255})$/,
+		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/,
 		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 		fn;
@@ -928,6 +928,12 @@
 		if (args.length === 1) {
 			for (var i = 0; i < this.length; i++) {
 				var val = win.getComputedStyle(this[i])[ruleName];
+				if (ruleName === "height" && this[i].getBoundingClientRect().height > parseFloat(val)) {
+						val = this[i].getBoundingClientRect().height + "px";
+				}
+				else if (ruleName === "width" && this[i].getBoundingClientRect().width > parseFloat(val)) {
+						val = this[i].getBoundingClientRect().width + "px";
+				}
 				styles.push(val != "" ? val : this[i].style[ruleName]);
 			}
 			return styles.length === 1 ? styles[0] : styles;
@@ -1012,7 +1018,6 @@
 		for (var i = 0; i < this.length; i++) {
 			this[i].style["visibility"] = "visible";
 		}
-		this.removeClass("hidden");
 		return this;
 	};
 
@@ -1020,7 +1025,6 @@
 		for (var i = 0; i < this.length; i++) {
 			this[i].style["visibility"] = "hidden";
 		}
-		this.addClass("hidden");
 		return this;
 	};
 
@@ -1107,14 +1111,14 @@
 
 	fn.focusIn = function (eventCallback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].onfocusin = eventCallback;
+			this[i].addEventListener("focusin", eventCallback);
 		}
 		return this;
 	};
 
 	fn.focusOut = function (eventCallback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].onfocusout = eventCallback;
+			this[i].addEventListener("focusout", eventCallback);
 		}
 		return this;
 	};
@@ -1661,7 +1665,7 @@
 			sum = 0;
 
 		for(var i = 0; i < len; i++){
-			sum += parseFloat(elements[i].offsetWidth);
+			sum += parseFloat(webui(elements[i]).css("width"));
 		}	
 		return sum/len;
 	};
@@ -1671,7 +1675,7 @@
 			sum = 0;
 
 		for(var i = 0; i < len; i++){
-			sum += parseFloat(elements[i].offsetHeight);
+			sum += parseFloat(webui(elements[i]).css("height"));
 		}	
 		return sum/len;
 	};

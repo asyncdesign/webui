@@ -20,10 +20,12 @@
 
     fn.slideVertical = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, pos,
+        uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos,
         frameAdjustment = 50 / (duration / 1000),
         uiDirection = direction ? direction : "down",
-        uiDistance = distance ? distance : 0;
+        distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
+						
+        uiDistance = distanceValue;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -37,14 +39,14 @@
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
 
                 if ((dir === "down" && pos > finalPosition) || (dir === "up" && pos < finalPosition) || duration === 0) {
-                    element.css("top", finalPosition + "px");
+                    element.css("top", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
                     }
                     return;
                 }
                 else {
-                    element.css("top", pos + "px");
+                    element.css("top", pos + distanceUnit);
 
                     win.requestAnimationFrame(function () {
                         nextFrame(element, movement, pos, finalPosition, dir);
@@ -58,10 +60,12 @@
 
     fn.slideHorizontal = function (direction, distance, duration, callback) {
         var args = arguments, els = this,
-        uiElement, uiMovement, uiPosition, uiFinalPosition, pos,
+        uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos,
         frameAdjustment = 50 / (duration / 1000),
         uiDirection = direction ? direction : "right",
-        uiDistance = distance ? distance : 0;
+        distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
+
+        uiDistance = distanceValue;
 
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -76,14 +80,14 @@
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
 
                 if ((dir === "right" && pos > finalPosition) || (dir === "left" && pos < finalPosition) || duration === 0) {
-                    element.css("left", finalPosition + "px");
+                    element.css("left", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
                     }
                     return;
                 }
                 else {
-                    element.css("left", pos + "px");
+                    element.css("left", pos + distanceUnit);
 
                     win.requestAnimationFrame(function () {
                         nextFrame(element, movement, pos, finalPosition, dir);
@@ -391,7 +395,7 @@
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
 
-            if (uiElement.css("display") !== "block") {
+            if (uiElement.css("display") === "none" || uiElement.css("visibility") === "hidden") {
                 continue;
             }
 

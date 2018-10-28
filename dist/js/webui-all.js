@@ -350,7 +350,7 @@
         return selector;
     }, webui = function(selector) {
         return new fn.o(selector);
-    }, selectorRegExp = /^([a-zA-Z0-9_\-\s\[\]\.\#\*\,\(\)\:]{1,255})$/, domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/, fn;
+    }, selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/, domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/, fn;
     fn = webui.fn = webui.prototype = {
         length: 0,
         o: function(selector) {
@@ -711,6 +711,11 @@
         if (args.length === 1) {
             for (var i = 0; i < this.length; i++) {
                 var val = win.getComputedStyle(this[i])[ruleName];
+                if (ruleName === "height" && this[i].getBoundingClientRect().height > parseFloat(val)) {
+                    val = this[i].getBoundingClientRect().height + "px";
+                } else if (ruleName === "width" && this[i].getBoundingClientRect().width > parseFloat(val)) {
+                    val = this[i].getBoundingClientRect().width + "px";
+                }
                 styles.push(val != "" ? val : this[i].style[ruleName]);
             }
             return styles.length === 1 ? styles[0] : styles;
@@ -779,14 +784,12 @@
         for (var i = 0; i < this.length; i++) {
             this[i].style["visibility"] = "visible";
         }
-        this.removeClass("hidden");
         return this;
     };
     fn.hidden = function() {
         for (var i = 0; i < this.length; i++) {
             this[i].style["visibility"] = "hidden";
         }
-        this.addClass("hidden");
         return this;
     };
     fn.resize = function(eventCallback, params) {
@@ -850,13 +853,13 @@
     };
     fn.focusIn = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onfocusin = eventCallback;
+            this[i].addEventListener("focusin", eventCallback);
         }
         return this;
     };
     fn.focusOut = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onfocusout = eventCallback;
+            this[i].addEventListener("focusout", eventCallback);
         }
         return this;
     };
@@ -1298,14 +1301,14 @@
     webui.getAvgWidth = function(elements) {
         var len = elements.length, sum = 0;
         for (var i = 0; i < len; i++) {
-            sum += parseFloat(elements[i].offsetWidth);
+            sum += parseFloat(webui(elements[i]).css("width"));
         }
         return sum / len;
     };
     webui.getAvgHeight = function(elements) {
         var len = elements.length, sum = 0;
         for (var i = 0; i < len; i++) {
-            sum += parseFloat(elements[i].offsetHeight);
+            sum += parseFloat(webui(elements[i]).css("height"));
         }
         return sum / len;
     };
@@ -3429,7 +3432,8 @@
     };
     /* PUBLIC */
     fn.slideVertical = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
+        uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -3439,13 +3443,13 @@
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition || duration === 0) {
-                    element.css("top", finalPosition + "px");
+                    element.css("top", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
                     }
                     return;
                 } else {
-                    element.css("top", pos + "px");
+                    element.css("top", pos + distanceUnit);
                     win.requestAnimationFrame(function() {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
@@ -3456,7 +3460,8 @@
         return els;
     };
     fn.slideHorizontal = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", uiDistance = distance ? distance : 0;
+        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
+        uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
@@ -3466,13 +3471,13 @@
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition || duration === 0) {
-                    element.css("left", finalPosition + "px");
+                    element.css("left", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
                     }
                     return;
                 } else {
-                    element.css("left", pos + "px");
+                    element.css("left", pos + distanceUnit);
                     win.requestAnimationFrame(function() {
                         nextFrame(element, movement, pos, finalPosition, dir);
                     });
@@ -3703,7 +3708,7 @@
         uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
-            if (uiElement.css("display") !== "block") {
+            if (uiElement.css("display") === "none" || uiElement.css("visibility") === "hidden") {
                 continue;
             }
             uiElement.css("opacity", "1");
@@ -3733,7 +3738,7 @@
     /* PRIVATE */
     var fn = webui.fn, selectorRegExpMatches = function(selector, regExp) {
         var el = webui(selector);
-        return el.is("input[type='text']") && regExp.test(el.val()) || el.is("textarea") && regExp.test(el.text()) || el.is("select") && regExp.test(el.find("option:checked").text()) || el.is("input[type='checkbox']") && regExp.test(el.is(":checked"));
+        return el.is("input[type='text']") && regExp.test(el.val()) || el.is("textarea") && regExp.test(el.text()) || el.is("select") && regExp.test(el.find("option:checked").text()) || el.is("datalist") && regExp.test(el.find("option:checked").text()) || el.is("input[type='checkbox']") && regExp.test(el.is(":checked")) || el.is("input[type='radio']") && regExp.test(el.is(":checked"));
     }, containsSpaceOrDot = function(selector) {
         var el = webui(selector);
         return /^\s$/.test(el.val()) || el.val().indexOf(".") > -1;
