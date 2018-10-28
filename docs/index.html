@@ -90,13 +90,13 @@
     </div>
 
     <div class="dock-top-center width-full height-sm background-transparent show-bp-4-under" id="mobileNav">
-        <div class="toggle-container" data-transition-duration="700" data-close-external="#panel1">
+        <div class="toggle-container" data-transition-duration="700" data-close-external="#defaultMobileSideNav">
   
             <div class="content-col dock-top-left layer-top">
-              <button data-target="#panel1" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars" id="slideButton1"></button>
+              <button data-target="#defaultMobileSideNav" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars" id="slideButton1"></button>
             </div>
                 
-            <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="panel1">         
+            <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="defaultMobileSideNav">         
               
     <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
 
@@ -1519,6 +1519,39 @@
           transitionDuration: 700,
 				  transitionType: "collapse"
         });
+  
+        ui(".siteSideMenu").scrollspy({ 
+          activatorSelector: "div > div > a",
+          activatorActiveClass: "color-info",
+          scrollTargetClass: "scrollspy",
+          scrollTargetOffset: 50,
+          activatorCallback: onMenuItemSelect
+        });			         
+
+        function onMenuItemSelect() {
+          if (ui.isWindowInBreakPointRange(["", "lg"])) {
+            var menuWidth = ui("#defaultMobileSideNav")[0].offsetWidth + "px";
+            ui("#defaultMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
+          }
+        }
+
+        ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+
+        ui("#cssMenuSwitch").click(function() {
+          document.location.href = "/webui/getting_started.html";
+          ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui("#jsMenuSwitch").click(function() {
+          document.location.href = "/webui/js_introduction.html";
+          ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui("#jsMenu").hide();
+        ui("#cssMenu").show();
+        ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+        ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+
 
 
         ui("#commandDownload").click( function() { 
