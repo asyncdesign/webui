@@ -1983,8 +1983,8 @@
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
-    &lt;div class="width-md height-sm" name="exampleDiv1"&gt;&lt;/div&gt;
-    &lt;div class="width-md height-sm" name="exampleDiv2"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv2"&gt;&lt;/div&gt;
   &lt;/div&gt;	
 &lt;/div&gt;</pre>
                                 
@@ -2003,7 +2003,7 @@
 
 <pre>webui.ready(function() {
 
-  var names = ui("#exampleArea .flex-row div").attr("name");
+  var ids = ui("#exampleArea .flex-row div").attr("id");
 
 });</pre>
                           
@@ -2053,8 +2053,8 @@
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
-    &lt;div class="width-md height-sm" name="exampleDiv1"&gt;&lt;/div&gt;
-    &lt;div class="width-md height-sm" name="exampleDiv2"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv2"&gt;&lt;/div&gt;
   &lt;/div&gt;	
 &lt;/div&gt;</pre>
                                 
@@ -2073,8 +2073,8 @@
 
 <pre>webui.ready(function() {
 
-  ui("#exampleArea .flex-row div").first().attr("name", "div1");
-  ui("#exampleArea .flex-row div").last().attr("name", "div2")
+  ui("#exampleArea .flex-row div").first().attr("id", "div1");
+  ui("#exampleArea .flex-row div").last().attr("id", "div2")
 
 });</pre>
                           
