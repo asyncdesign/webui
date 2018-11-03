@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 8.1.0
+* Version: 8.1.1
 * MIT License
 */
 
@@ -1661,8 +1661,7 @@
 	};
 
 	webui.getAvgWidth = function (elements) {
-		var len = elements.length, 
-			sum = 0;
+		var len = elements.length, sum = 0;
 
 		for(var i = 0; i < len; i++){
 			sum += parseFloat(webui(elements[i]).css("width"));
@@ -1671,13 +1670,36 @@
 	};
 
 	webui.getAvgHeight = function (elements) {
-		var len = elements.length, 
-			sum = 0;
+		var len = elements.length, sum = 0;
 
 		for(var i = 0; i < len; i++){
 			sum += parseFloat(webui(elements[i]).css("height"));
 		}	
 		return sum/len;
+	};
+
+	webui.getMaxWidth = function(elements) {
+		var len = elements.length, max = 0, width = 0;
+
+		for (var i = 0; i < len; i++) {
+				width = parseFloat(webui(elements[i]).css("width"));
+				if (width > max) {
+						max = width;
+				}
+		}
+		return max;
+	};
+
+	webui.getMaxHeight = function(elements) {
+		var len = elements.length, max = 0, height = 0;
+		
+		for (var i = 0; i < len; i++) {
+				height = parseFloat(webui(elements[i]).css("height"));
+				if (height > max) {
+						max = height;
+				}
+		}
+		return max;
 	};
 
 	webui.rgbToHex = function (r, g, b) {
@@ -1894,7 +1916,7 @@
 		}		
 	};
 
-	webui.version = "v8.1.0";
+	webui.version = "v8.1.1";
 
 	/* RUN */
 

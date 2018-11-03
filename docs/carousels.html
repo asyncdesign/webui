@@ -501,9 +501,6 @@
           <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
-        </div>
-        <div class="pad-left-sm">
           <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
         </div>  
         <div class="pad-left-sm">
@@ -1347,9 +1344,6 @@
           <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
-        </div>
-        <div class="pad-left-sm">
           <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
         </div>  
         <div class="pad-left-sm">
@@ -1735,8 +1729,11 @@
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
   <p>The WebUI carousel currently supports vertical and horizontal slide transitions as well as a fade transition. In addition there are 2 modes
-    that can be set, these are configured by setting <span class="color-accent-2 text-bold">autoScale</span> to true or false (the default is true).
-    When autoScale is true the aspect ratio of any slide content such as images is maintained.
+    that can be set, these are configured by setting <span class="color-info text-bold">autoScale</span> to true or false (the default is true).
+    When autoScale is true the aspect ratio of any slide content such as images is maintained. Setting autoScale to false allows you to load content 
+    with varying dimensions, where the height of each slide will auto size to the height of the tallest content - you will also need to set the
+    height of the carousel to that same height. 
+    
   </p>
 
   <p>NOTE: WebUI doesn't currently support multiple carousels per page.</p>
@@ -1815,53 +1812,6 @@
       <div class="table-col-15">The direction of the transition.<br />Can be "vertical" or "horizontal". Default: "horizontal".</div>
     </div>
   </div>
-
-</section>
-
-<section class="scrollspy text" id="carouselEvents">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>Carousel Events</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>There are 2 event callbacks that can be used, <span class="color-info text-bold">ui.carousel.change.before</span> and 
-    <span class="color-info text-bold">ui.carousel.change.after</span>. The following script shows how to use the event callbacks.</p>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary script-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>webui.ready(function() {
-
-  carousel.on("ui.carousel.change.before", function(e) {
-    console.log("ui.carousel.change.before: current slide index = " + e.detail);
-  });
-
-  carousel.on("ui.carousel.change.after", function(e) {
-    console.log("ui.carousel.change.after: current slide index = " + e.detail);
-  });
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-info-light background-secondary area">
-		<div class="flex-items-center">
-			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Carousel Events</span>
-		</div>
-    <p class="text-sm">In order to get the new slide just moved to, you will need the <span class="color-info text-bold">ui.carousel.change.after</span> event.</p>
-	</blockquote>
 
 </section>
 
@@ -2071,29 +2021,28 @@
 
 </section>
 
-<section class="scrollspy text" id="modalEvents">
+<section class="scrollspy text" id="carouselEvents">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>Events</h3>
+  <h3>Carousel Events</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>There are 2 event callbacks that can be used, ui.carousel.change.before and ui.carousel.change.after. 
-    The following script shows how to use the event callbacks.</p>
-
+  <p>There are 2 event callbacks that can be used, <span class="color-info text-bold">ui.carousel.change.before</span> and 
+    <span class="color-info text-bold">ui.carousel.change.after</span>. The following script shows how to use the event callbacks.</p>
 
   <div class="row-spacing-md"></div>
-    
+  
   <span class="badge-square-xs background-warning-light text-xs">Script</span>
   <div class="row-spacing-sm"></div>
 
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
-      
+
 <pre>webui.ready(function() {
-  
+
   carousel.on("ui.carousel.change.before", function(e) {
     console.log("ui.carousel.change.before: current slide index = " + e.detail);
   });
@@ -2101,15 +2050,23 @@
   carousel.on("ui.carousel.change.after", function(e) {
     console.log("ui.carousel.change.after: current slide index = " + e.detail);
   });
-                    
+
 });</pre>
-                                
+                          
       </div>
     </div>
-  </div>      
-    
-</section>
-  
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-info-light background-secondary area">
+		<div class="flex-items-center">
+			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Carousel Events</span>
+		</div>
+    <p class="text-sm">In order to get the new slide just moved to, you will need the <span class="color-info text-bold">ui.carousel.change.after</span> event.</p>
+	</blockquote>
+
+</section>  
     </div>
 
     <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
@@ -2364,12 +2321,12 @@
                       autoScale: true,
                       playDirection: "next",
                       stopOnHover: true,
-                      transitionDuration: 1500, 
+                      transitionDuration: 1300, 
                       transitionType: "slide", 
                       transitionOrientation: "vertical" 
                     });
                   
-                    ui("#c1_textForSlide1").fadeIn(1500);
+                  ui("#c1_textForSlide1").fadeIn(1500);
 
 
                   carousel.on("ui.carousel.change.before", function(e) {

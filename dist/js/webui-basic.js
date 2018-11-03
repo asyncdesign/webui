@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.1.0
+* Version: 8.1.1
 * MIT License
 */
 "use strict";
@@ -1312,6 +1312,26 @@
         }
         return sum / len;
     };
+    webui.getMaxWidth = function(elements) {
+        var len = elements.length, max = 0, width = 0;
+        for (var i = 0; i < len; i++) {
+            width = parseFloat(webui(elements[i]).css("width"));
+            if (width > max) {
+                max = width;
+            }
+        }
+        return max;
+    };
+    webui.getMaxHeight = function(elements) {
+        var len = elements.length, max = 0, height = 0;
+        for (var i = 0; i < len; i++) {
+            height = parseFloat(webui(elements[i]).css("height"));
+            if (height > max) {
+                max = height;
+            }
+        }
+        return max;
+    };
     webui.rgbToHex = function(r, g, b) {
         return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     };
@@ -1531,7 +1551,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.1.0";
+    webui.version = "v8.1.1";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
