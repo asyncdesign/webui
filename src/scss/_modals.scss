@@ -72,14 +72,30 @@
 .modal-lg {
 	position: fixed;
 	display: inherit;
-	overflow-y: auto;
+	overflow-x: hidden;
 	background-color: transparent;
 	@include layer-5();		
+}
+.modal-scroll-body {
+	overflow-y: scroll;
+	height: 100%;
 }
 .modal-animate {
 	animation: animate-fadein 0.5s ease-in-out;
 }
 
+@media all and (min-width: $settings_modal_bp_3_over) and (max-width: $settings_modal_bp_4_under) {
+	.modal-sm {
+		left: 65%;
+		width: 35%;
+		margin-left: -32.5%;
+	}
+	.modal-md {
+		left: 40%;
+		width: 60%;
+		margin-left: -20%;
+	}
+}
 @media all and (min-width: $settings_modal_bp_2_over) and (max-width: $settings_modal_bp_3_under) {
 	.modal-sm {
 		left: 50%;
@@ -87,9 +103,9 @@
 		margin-left: -25%;
 	}
 	.modal-md {
-		left: 25%;
-		width: 75%;
-		margin-left: -12.5%;
+		left: 30%;
+		width: 70%;
+		margin-left: -15%;
 	}
 }
 @media all and (max-width: $settings_modal_bp_2_under) {
@@ -97,6 +113,8 @@
 		left: 20%;
 		width: 80%;
 		margin-left: -10%;
-		height: 90vh;
+		&.modal-auto-stretch {
+			height: 90vh;
+		}
 	}
 }

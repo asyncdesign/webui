@@ -50,7 +50,7 @@
 							
 			var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
 			
-			if (parseFloat(webui(root).css("height")) > win.innerHeight) {
+			if (parseFloat(webui("body").css("height")) > win.innerHeight) {
 				webui("body").css("padding-right", scrollShift);
 				webui("body").css("overflow", "hidden");
 			}
@@ -59,9 +59,7 @@
 
 			if (focusEl.length && !focusEl.hasClass("disabled")) {
 				focusEl[0].focus();
-			}
-
-			modal.trigger("ui.modal.show.after");			
+			}		
 		}
 		return this;
 	};
@@ -94,7 +92,7 @@
 		e.preventDefault();
 
 		var modal = webui(this).closest(".modal");
-		modal.trigger("ui.modal.hide.before").hideModal().trigger("ui.modal.hide.after");
+		modal.hideModal();
 	});
 
 

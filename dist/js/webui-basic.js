@@ -1558,6 +1558,7 @@
         webui(".radio label").attr("tabindex", "0").attr("role", "radio");
         webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
         webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
+        webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
     });
     /* EVENTS */
     webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
