@@ -233,6 +233,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -247,6 +250,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -1076,6 +1082,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -1090,6 +1099,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -1725,10 +1737,10 @@
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>collapseHorizontal (duration, targetHeight, callback)</h3>
+  <h3>collapseHorizontal (duration, targetWidth, callback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Collapses each element in the set of matched elements horizontally, for the specified duration and to the specified target height, and optionally with a callback.
+  <p>Collapses each element in the set of matched elements horizontally, for the specified duration and to the specified target width, and optionally with a callback.
   </p>
   
   <div class="row-spacing-md"></div>
@@ -1743,19 +1755,14 @@
       <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-6">direction</div>
-      <div class="table-col-4">String</div>
-      <div class="table-col-10">A value of "left" or "right".</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-6">distance</div>
-      <div class="table-col-4">String or Numeric</div>
-      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
-    </div>
-    <div class="table-row text-left">
       <div class="table-col-6">duration</div>
       <div class="table-col-4">Integer</div>
       <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">targetWidth</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-6">callback</div>
@@ -1830,19 +1837,14 @@
       <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-6">direction</div>
-      <div class="table-col-4">String</div>
-      <div class="table-col-10">A value of "left" or "right".</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-6">distance</div>
-      <div class="table-col-4">String or Numeric</div>
-      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
-    </div>
-    <div class="table-row text-left">
       <div class="table-col-6">duration</div>
       <div class="table-col-4">Integer</div>
       <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">targetHeight</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-6">callback</div>
@@ -1899,10 +1901,10 @@
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>expandHorizontal (duration, targetHeight, callback)</h3>
+  <h3>expandHorizontal (duration, targetWidth, callback)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Expands each element in the set of matched elements horizontally, for the specified duration and to the specified target height, and optionally with a callback.
+  <p>Expands each element in the set of matched elements horizontally, for the specified duration and to the specified target width, and optionally with a callback.
   </p>
   
   <div class="row-spacing-md"></div>
@@ -1917,19 +1919,14 @@
       <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-6">direction</div>
-      <div class="table-col-4">String</div>
-      <div class="table-col-10">A value of "left" or "right".</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-6">distance</div>
-      <div class="table-col-4">String or Numeric</div>
-      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
-    </div>
-    <div class="table-row text-left">
       <div class="table-col-6">duration</div>
       <div class="table-col-4">Integer</div>
       <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">targetWidth</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-6">callback</div>
@@ -2004,19 +2001,14 @@
       <div class="table-col-10">Description</div>					
     </div>
     <div class="table-row text-left">
-      <div class="table-col-6">direction</div>
-      <div class="table-col-4">String</div>
-      <div class="table-col-10">A value of "left" or "right".</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-6">distance</div>
-      <div class="table-col-4">String or Numeric</div>
-      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
-    </div>
-    <div class="table-row text-left">
       <div class="table-col-6">duration</div>
       <div class="table-col-4">Integer</div>
       <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">targetHeight</div>
+      <div class="table-col-4">String or Numeric</div>
+      <div class="table-col-10">A valid CSS string value in pixels or rems, or a valid numeric value in pixels.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-6">callback</div>
@@ -2571,12 +2563,9 @@
 
                   ui("#showModal").click( function() { 
                     ui("#modal1").showModal();
+                    ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
-
-                  ui("#hideModal").click( function() { 
-                    ui("#modal1").hideModal();
-                  });
-
+                 
                   ui("#modalsMenu").expandVertical(700, "auto"); 
                   codeHighlighter.highlight(".code-block"); 
                   scriptHighlighter.highlight(".script-block");

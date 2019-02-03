@@ -233,6 +233,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -247,6 +250,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -1076,6 +1082,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -1090,6 +1099,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -1729,7 +1741,7 @@
 		<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
 		<p class="text-bold">Simple Method</p>
-		<a href="https://github.com/asyncdesign/webui/archive/v8.1.1.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
+		<a href="https://github.com/asyncdesign/webui/archive/v8.2.0.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
 
 		<ul class="list-bullet list-spacing-md">
 			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
@@ -1953,9 +1965,7 @@
 		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css"</code> to the styles array.</li>
 		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"</code> to the scripts array.</li>
 		<li>In <span class="text-bold">typings.d.ts</span> add <code class="color-info text-lg">declare var webui: any</code></li>
-		<li>In your <span class="text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';</code> at the top of your file.
-			(You can import webui instead if you prefer)
-		</li>
+		<li>In your <span class="text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';</code> at the top of your file.</li>
 	</ul>
 
 	<div class="row-spacing-md"></div>
@@ -2694,12 +2704,9 @@
 
                   ui("#showModal").click( function() { 
                     ui("#modal1").showModal();
+                    ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
-
-                  ui("#hideModal").click( function() { 
-                    ui("#modal1").hideModal();
-                  });
-
+                 
                   ui("#modalsMenu").expandVertical(700, "auto"); 
                   codeHighlighter.highlight(".code-block"); 
                   scriptHighlighter.highlight(".script-block");

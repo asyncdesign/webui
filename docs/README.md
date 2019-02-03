@@ -22,7 +22,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.1.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.2.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -127,9 +127,11 @@ WebUI comes with a range of pre-built CSS and JavaScript files. The following ta
 WebUI can be used without javascript files if you only need the CSS, so a set of style only files are provided. The filenames for these begin with "webui-styles-" and 
 follow the same pattern as in the above table, but none includes WebUI components which rely on javascript.
 
-#### **JavaScript Page Load Event**
+#### **JavaScript Document Load Event**
 
-All WebUI JavaScript should be enclosed in the load event callback, as shown in the following example.
+All WebUI JavaScript should be enclosed in the document load event callback, as shown in the following example.
+
+**NOTE:** This event is does not need to be used if you are using a framework lifecycle load event.
 
 ````
 webui.ready(function() {
@@ -148,7 +150,6 @@ webui.ready(function() {
 * In **.angular-cli.json** add **"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"** to the scripts array.
 * In **typings.d.ts** add **declare var webui: any**
 * In your **app.components.ts** add **import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';** at the top of your file.
-  (You can import webui instead if you prefer)
 		
 #### **React**
 

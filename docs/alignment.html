@@ -233,6 +233,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -247,6 +250,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -1076,6 +1082,9 @@
         <div class="pad-left-sm">
           <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
       </div>
 
       <div>
@@ -1090,6 +1099,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
@@ -2246,12 +2258,9 @@
 
                   ui("#showModal").click( function() { 
                     ui("#modal1").showModal();
+                    ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
-
-                  ui("#hideModal").click( function() { 
-                    ui("#modal1").hideModal();
-                  });
-
+                 
                   ui("#modalsMenu").expandVertical(700, "auto"); 
                   codeHighlighter.highlight(".code-block"); 
                   scriptHighlighter.highlight(".script-block");
