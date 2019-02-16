@@ -16,7 +16,16 @@
         border: 0.078rem solid $theme_muted;
         page-break-inside: avoid;
     }
-    button {
+    meter,
+    progress {
+        page-break-inside: avoid;
+    }
+    button,
+    input[type=button], 
+    input[type=submit],
+    *[class*="button-link"],
+    *[class*="view-button-link"],
+    *[class*="menu-button-link"] {
         display: none;
     }
     img {

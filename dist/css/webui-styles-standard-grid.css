@@ -1,6 +1,6 @@
 /*!
 * Name: webui-standard-grid - css
-* Version: 8.2.0
+* Version: 8.2.1
 * MIT License
 */
 .flow-col-1 {
@@ -2096,6 +2096,7 @@ svg:not(:root) {
   width: 1.125rem;
   height: 1.125rem;
   position: relative;
+  background-color: white;
   border: 0.125rem solid #bdbdbd; }
   .checkbox label {
     width: 100%;
@@ -2118,6 +2119,7 @@ svg:not(:root) {
   width: 1.125rem;
   height: 1.125rem;
   position: relative;
+  background-color: white;
   border: 0.125rem solid #bdbdbd;
   border-radius: 50%; }
   .radio label {
@@ -8485,7 +8487,15 @@ svg:not(:root) {
   blockquote {
     border: 0.078rem solid #bdbdbd;
     page-break-inside: avoid; }
-  button {
+  meter,
+  progress {
+    page-break-inside: avoid; }
+  button,
+  input[type=button],
+  input[type=submit],
+  *[class*="button-link"],
+  *[class*="view-button-link"],
+  *[class*="menu-button-link"] {
     display: none; }
   img {
     max-width: 37.5rem; }
