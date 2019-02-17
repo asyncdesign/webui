@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 8.1.1
+* Version: 8.2.1
 * MIT License
 */
 
