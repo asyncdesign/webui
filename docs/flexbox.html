@@ -1943,11 +1943,11 @@
     </div>
     <div class="table-row text-left">
       <div class="table-col-8">flex-col</div>
-      <div class="table-col-12">white-space: normal, flex-flow: column wrap, flex: 1 1 auto</div>
+      <div class="table-col-12">white-space: normal, flex-flow: column nowrap, flex: 1 1 auto</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-8">flex-col-reverse</div>
-      <div class="table-col-12">white-space: normal, flex-flow: column-reverse wrap, flex: 1 1 auto</div>
+      <div class="table-col-12">white-space: normal, flex-flow: column-reverse nowrap, flex: 1 1 auto</div>
     </div>
   </div>  
 
@@ -1976,7 +1976,8 @@
   <p>The examples below show how to make a very simple flexbox structure using some of the basic flexbox utility classes. The flex container is nothing more than a div being
     set to <span class="color-info text-bold">display: flex</span> and using the defaults for flex-grow, flex-shrink, and flex-basis - in most cases this is sufficient for 
     the container. Within that are two div tags, which automatically become flex items because they are immediate children of the flex container. The flex items have also been set 
-    to flex-grow so that they will each expand equally to use all available space in the flex container.</p>
+    to flex-grow so that they will each expand equally to use all available space in the flex container. Notice that the text content wraps within the flex element when
+    the page width is reduced.</p>
 
     <div class="row-spacing-md"></div>
 
@@ -2017,7 +2018,8 @@
   <div class="row-spacing-lg"></div>
 
   <p>Another way to do a similar thing is by using the high level classes such as <span class="color-info text-bold">flex-row</span> and 
-    <span class="color-info text-bold">flex-col</span>.</p>
+    <span class="color-info text-bold">flex-col</span>. However, <span class="color-info text-bold">flex-col</span> stops any content
+    from wrapping when the page width is reduced, and causes the flex element to break to the next line instead.</p>
 
   <div class="row-spacing-md"></div>
 
@@ -2067,7 +2069,7 @@
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
   <p>Much like the grid system, flex items can be given a size ranging from 1 to 20. Although they perform a similar function, the difference is that flex item sizes can
-    be either vertical or horizontal, depending on the flex direction of the flex container. You can change the flex direction by using either 
+    be either vertical or horizontal, depending on the flex direction of the parent flex container. You can change the flex direction by using either 
     <span class="color-info text-bold">flex-direction-row</span> or <span class="color-info text-bold">flex-direction-column</span> on the container.
   </p>
 
@@ -2081,14 +2083,14 @@
   <div class="row-spacing-sm"></div>
 
   <div class="flex-row">
-    <div class="flex-size-6">     
-      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-sm">
-        Lorem ipsum dolor sit amet        
-      </div>
+    <div class="flex-size-6"> 
+      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs">    
+        Lorem ipsum dolor sit amet    
+      </div>    
     </div>
     <div class="flex-size-14">
-      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-sm">
-        Lorem ipsum dolor sit amet
+      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs">
+        Lorem ipsum dolor sit amet 
       </div>
     </div>
   </div>
@@ -2102,14 +2104,14 @@
     <div class="content-row">
       <div class="content-col-20 scroll-y">
 
-<pre>&lt;div class="flex-row border-sm border-muted pad-sm"&gt;
-  &lt;div class="flex-size-6"&gt;     
-    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
-      Lorem ipsum dolor sit amet        
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="flex-size-6"&gt;
+    &lt;div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs"&gt;     
+      Lorem ipsum dolor sit amet
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="flex-size-14"&gt;
-    &lt;div class="flex-col pad-xs border-sm border-accent-2 background-secondary"&gt;
+    &lt;div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs"&gt;
       Lorem ipsum dolor sit amet
     &lt;/div&gt;
   &lt;/div&gt;
@@ -2118,6 +2120,78 @@
       </div>
     </div>
   </div>
+
+  <p>Using <span class="color-info text-bold">flex-size-*</span> alone isn't sufficient for arranging html controls, unless you have
+    a fixed width container. For text only content it may be all that is needed, however.</p>
+
+
+  <div class="row-spacing-md"></div>
+
+  <p>As you might expect, flex classes can be combined. In the following example <span class="color-info text-bold">flex-size-*</span>
+    is used with <span class="color-info text-bold">flex-col</span> on the container. This causes the flex container to shrink or wrap content 
+    instead of allowing the content to overflow, and therefore behave more like a responsive container.
+  </p>
+  
+
+  <p>The code below shows how to use flex item sizes combined with column classes.</p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="flex-row">
+    <div class="flex-size-6"> 
+      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs">   
+        <input type="text" class="input-sm rounded-sm" />  
+      </div>    
+    </div>
+    <div class="flex-size-14">
+      <div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs">
+        <input type="text" class="input-sm rounded-sm" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="flex-size-6"&gt;
+    &lt;div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs"&gt;     
+      &lt;input type="text" class="input-sm rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="flex-size-14"&gt;
+    &lt;div class="flex-col border-sm border-accent-4 background-accent-1-light pad-xs"&gt;
+      &lt;input type="text" class="input-sm rounded-sm" /&gt;
+    &lt;/div&gt;  
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      </div>
+    </div>
+  </div>
+
+	<div class="row-spacing-lg"></div>
+
+  <blockquote class="border-warning-light background-secondary area">
+		<div class="flex-items-center">
+			<span class="color-warning fa fa-warning fa-2x pad-right-sm"></span><span class="text-bold">Internet Explorer</span>
+		</div>
+    <p class="text-sm">The examples above use styling classes on the <span class="color-info text-bold">flex-col</span> div only, 
+      and not on the <span class="color-info text-bold">flex-size-*</span> div - this is for Internet Explorer compatibility.<br /><br />
+      If you are not targeting Internet Explorer, then only one div is needed with all classes added.</p>
+	</blockquote>
+	
+	<div class="row-spacing-md"></div>
+
 
 </section>
 
@@ -2509,7 +2583,15 @@
                     autoPositioning: true,
                     autoResizing: true,
                     autoPositioningMargin: 0,
-                    transitionDuration: 1000
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
                   });
 
                   ui("#tooltipsMenu").expandVertical(700, "auto"); 

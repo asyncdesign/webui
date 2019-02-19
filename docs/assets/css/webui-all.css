@@ -1,6 +1,6 @@
 /*!
 * Name: webui-all - css
-* Version: 8.2.0
+* Version: 8.2.1
 * MIT License
 */
 .flow-col-1 {
@@ -1528,12 +1528,12 @@
 
 .flex-col {
   white-space: normal;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   flex: 1 1 auto; }
 
 .flex-col-reverse {
   white-space: normal;
-  flex-flow: column-reverse wrap;
+  flex-flow: column-reverse nowrap;
   flex: 1 1 auto; }
 
 .flex-auto {
@@ -6500,6 +6500,7 @@ svg:not(:root) {
   width: 1.125rem;
   height: 1.125rem;
   position: relative;
+  background-color: white;
   border: 0.125rem solid #bdbdbd; }
   .checkbox label {
     width: 100%;
@@ -6522,6 +6523,7 @@ svg:not(:root) {
   width: 1.125rem;
   height: 1.125rem;
   position: relative;
+  background-color: white;
   border: 0.125rem solid #bdbdbd;
   border-radius: 50%; }
   .radio label {
@@ -22486,7 +22488,16 @@ svg:not(:root) {
     border: 0.078rem solid #bdbdbd;
     page-break-inside: avoid; }
 
-  button {
+  meter,
+  progress {
+    page-break-inside: avoid; }
+
+  button,
+  input[type=button],
+  input[type=submit],
+  *[class*="button-link"],
+  *[class*="view-button-link"],
+  *[class*="menu-button-link"] {
     display: none; }
 
   img {

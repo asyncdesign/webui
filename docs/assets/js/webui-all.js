@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.1.1
+* Version: 8.2.1
 * MIT License
 */
 "use strict";
@@ -1551,7 +1551,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.2.0";
+    webui.version = "v8.2.1";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
@@ -1576,10 +1576,10 @@
     webui(".toggle-activator").click(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
-        if (!selector.length) {
+        if (!selector) {
             selector = webui(this).attr("href");
         }
-        if (selector.length) {
+        if (selector && selector.length) {
             var toggleContainer = webui(this).closest(".toggle-container");
             runToggleAction(selector, toggleContainer);
         }
@@ -1587,10 +1587,10 @@
     webui(".toggle-activator-focus").focus(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
-        if (!selector.length) {
+        if (!selector) {
             selector = webui(this).attr("href");
         }
-        if (selector.length) {
+        if (selector && selector.length) {
             var toggleContainer = webui(this).closest(".toggle-container");
             runToggleAction(selector, toggleContainer);
         }
@@ -1598,10 +1598,10 @@
     webui(".toggle-activator-dynamic").hoverIn(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
-        if (!selector.length) {
+        if (!selector) {
             selector = webui(this).attr("href");
         }
-        if (selector.length) {
+        if (selector && selector.length) {
             var toggleContainer = webui(this).closest(".toggle-container");
             runToggleAction(selector, toggleContainer);
         }

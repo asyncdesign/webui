@@ -1813,37 +1813,11 @@
     </div>
   </div>
 
-  <p class="text-bold">Configuration Classes</p>
-
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
-    <div class="table-row background-secondary">
-      <div class="table-col-5">Class</div>
-      <div class="table-col-15">Description</div>					
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">tooltip-dynamic</div>
-      <div class="table-col-15">Causes the tooltip to show while hovering over its target control.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">tooltip-focus</div>
-      <div class="table-col-15">Causes the tooltip to show on focus of its target control.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">tooltip-static</div>
-      <div class="table-col-15">Use this option if you just want to show or hide tooltips manually with javascript.</div>
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-5">tooltip-animate</div>
-      <div class="table-col-15">Causes the tooltip to fade in when activated.</div>
-    </div>
-  </div>
-
   <div class="row-spacing-md"></div>
 
   <p>Tooltips are a popular way of displaying hints to the user, and can help guide and make the user's experience more intuitive.
     Although an initial size is set on the tooltip they do automatically downsize for smaller screen areas, so a tooltip that
-    is initially large may switch to medium or small when displayed in a confined space. Similarly, a tooltip may reposition itself if within a confined space.
-    Automatic resizing and repositioning can be enabled or disabled along with other configuration options as shown in the configuration table above.</p>
+    is initially large may switch to medium or small when displayed in a confined space. Similarly, a tooltip may reposition itself if within a confined space.</p>
   
   
 </section>	
@@ -2009,7 +1983,7 @@
     autoPositioning: true,
     autoResizing: true,
     autoPositioningMargin: 0,
-    transitionDuration: 1000
+    transitionDuration: 2000
   });
 
 });</pre>
@@ -2021,12 +1995,89 @@
   <div class="row-spacing-md"></div>
 
   <p>There may be cases when you need to show or hide tooltips via javascript. You can do that simply by specifying an id on
-    the tooltip wrapper, as shown above, and calling one of the webui.js functions, and optionally specifying a message. Below
+    the tooltip wrapper, calling one of the webui.js functions, and optionally specifying a message. Below
     is some javascript to configure options and explicitly show a tooltip.</p>
   
-    <div class="row-spacing-md"></div>
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm">
+    <div class="table-col">
+        <button id="tooltipStaticShow" class="button-sm button-accent-1">Show Tooltip</button>
+    </div>
+    <div class="table-col">
+        <button id="tooltipStaticHide" class="button-sm button-accent-1">Hide Tooltip</button>
+    </div>
+    <div class="table-col">
+      <div class="tooltip" id="tooltipStatic">
+        <div class="tooltip-static tooltip-bottom tooltip-sm tooltip-dark text-sm"></div>
+        <input type="text" class="input-sm width-md-lg">
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
   
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
   
+<pre>&lt;div class="table-row text-sm"&gt;
+  &lt;div class="table-col"&gt;
+      &lt;button id="tooltipStaticShow" class="button-sm button-accent-1"&gt;Show Tooltip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+      &lt;button id="tooltipStaticHide" class="button-sm button-accent-1"&gt;Hide Tooltip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="tooltip" id="tooltipStatic"&gt;
+      &lt;div class="tooltip-static tooltip-bottom tooltip-sm tooltip-dark text-sm"&gt;&lt;/div&gt;
+      &lt;input type="text" class="input-sm width-md-lg"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+
+<pre>webui.ready(function() {
+
+  ui.initTooltips({
+    autoPositioning: true,
+    autoResizing: true,
+    autoPositioningMargin: 0,
+    transitionDuration: 2000
+  });
+
+  ui("#tooltipStaticShow").click(function() {
+    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+  });
+
+  ui("#tooltipStaticHide").click(function() {
+    ui("#tooltipStatic").hideTooltip();
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
 </section>
 
 
@@ -2099,7 +2150,7 @@
     <div class="table-row text-sm">
       <div class="table-col">
         <div class="tooltip width-full" id="tooltipEnterValues">
-          <div class="tooltip-focus tooltip-top tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
+          <div class="tooltip-focus tooltip-top tooltip-lg tooltip-accent-4 tooltip-nopadding tooltip-noautosize rounded-md">
             <div class="primary border-sm border-accent-4 rounded-md">
               <div class="panel accent-4 text-bold rounded-top-md place-top-center width-full">
                 Heading
@@ -2129,7 +2180,7 @@
 <pre>&lt;div class="table-row text-sm"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="tooltip width-full" id="tooltipEnterValues"&gt;
-      &lt;div class="tooltip-focus tooltip-top tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md"&gt;
+      &lt;div class="tooltip-focus tooltip-top tooltip-lg tooltip-accent-4 tooltip-nopadding tooltip-noautosize rounded-md"&gt;
         &lt;div class="primary border-sm border-accent-4 rounded-md"&gt;
           &lt;div class="panel accent-4 text-bold rounded-top-md place-top-center width-full"&gt;
             Heading
@@ -2166,7 +2217,7 @@
       autoPositioning: true,
       autoResizing: true,
       autoPositioningMargin: 0,
-      transitionDuration: 1000
+      transitionDuration: 2000
     });
   
   });</pre>
@@ -2182,7 +2233,7 @@
         <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Tooltip Pointer</span>
       </div>
       <p class="text-sm">In order to set the tooltip pointer colour, you need to include the tooltip theme colour - 
-        in the above example <span class="color-info text-bold">tooltip-dark</span> is used.</p>
+        in the above example <span class="color-info text-bold">tooltip-accent-4</span> is used.</p>
     </blockquote>
     
   
@@ -2300,7 +2351,15 @@
                     autoPositioning: true,
                     autoResizing: true,
                     autoPositioningMargin: 0,
-                    transitionDuration: 1000
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
                   });
 
                   ui("#tooltipsMenu").expandVertical(700, "auto"); 

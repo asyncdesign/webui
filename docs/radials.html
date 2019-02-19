@@ -2084,7 +2084,15 @@
                     autoPositioning: true,
                     autoResizing: true,
                     autoPositioningMargin: 0,
-                    transitionDuration: 1000
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
                   });
 
                   ui("#tooltipsMenu").expandVertical(700, "auto"); 

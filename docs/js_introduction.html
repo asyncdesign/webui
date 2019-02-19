@@ -1760,7 +1760,9 @@
 	<div class="row-spacing-md"></div>
 
 	<p class="text-bold">JavaScript DOM Ready Event</p>
-	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
+  <p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
+  <p><b>NOTE:</b> This event is does not need to be used if you are using a framework lifecycle load event.</p>
+
 
   <div class="row-spacing-md"></div>
   
@@ -2013,7 +2015,15 @@
                     autoPositioning: true,
                     autoResizing: true,
                     autoPositioningMargin: 0,
-                    transitionDuration: 1000
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
                   });
 
                   ui("#tooltipsMenu").expandVertical(700, "auto"); 
