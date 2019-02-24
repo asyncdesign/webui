@@ -1994,8 +1994,8 @@
   <div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse">
     <div class="content-col-20">
       <button data-target="#panel1" class="toggle-activator menu-button menu-button-accent-1 transition-long">Heading 1 (Tap to open)</button>
-      <div id="panel1" class="toggle-item border-sm border-accent-1 hidden">
-        <div class="panel width-full">
+      <div id="panel1" class="toggle-item hidden">
+        <div class="panel border-sm border-accent-1 width-full">
           Panel 1 content
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
         </div>
@@ -2003,8 +2003,8 @@
       </div>
       <div class="row-spacing-xs"></div>     
       <button data-target="#panel2" class="toggle-activator menu-button menu-button-accent-1 transition-long">Heading 2 (Tap to open)</button>
-      <div id="panel2" class="toggle-item border-sm border-accent-1 hidden">
-        <div class="panel width-full">
+      <div id="panel2" class="toggle-item">
+        <div class="panel border-sm border-accent-1 width-full">
           Panel 2 content
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
         </div>
@@ -2012,8 +2012,8 @@
       </div>
       <div class="row-spacing-xs"></div>
       <button data-target="#panel3" class="toggle-activator menu-button menu-button-accent-1 transition-long">Heading 3 (Tap to open)</button>
-      <div id="panel3" class="toggle-item border-sm border-accent-1 hidden">
-        <div class="panel width-full">
+      <div id="panel3" class="toggle-item hidden">
+        <div class="panel border-sm border-accent-1 width-full">
           Panel 3 content
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
         </div>
@@ -2034,8 +2034,8 @@
 <pre>&lt;div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse"&gt;
   &lt;div class="content-col-20"&gt;
     &lt;button data-target="#panel1" class="toggle-activator menu-button menu-button-accent-1 transition-long"&gt;Heading 1 (Tap to open)&lt;/button&gt;
-    &lt;div id="panel1" class="toggle-item border-sm border-accent-1 hidden"&gt;
-      &lt;div class="panel width-full"&gt;
+    &lt;div id="panel1" class="toggle-item hidden"&gt;
+      &lt;div class="panel border-sm border-accent-1 width-full"&gt;
         Panel 1 content
         &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
       &lt;/div&gt;
@@ -2043,8 +2043,8 @@
     &lt;/div&gt;
     &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;     
     &lt;button data-target="#panel2" class="toggle-activator menu-button menu-button-accent-1 transition-long"&gt;Heading 2 (Tap to open)&lt;/button&gt;
-    &lt;div id="panel2" class="toggle-item border-sm border-accent-1 hidden"&gt;
-      &lt;div class="panel width-full"&gt;
+    &lt;div id="panel2" class="toggle-item"&gt;
+      &lt;div class="panel border-sm border-accent-1 width-full"&gt;
         Panel 2 content
         &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
       &lt;/div&gt;
@@ -2052,8 +2052,8 @@
     &lt;/div&gt;
     &lt;div class="row-spacing-xs"&gt;&lt;/div&gt;
     &lt;button data-target="#panel3" class="toggle-activator menu-button menu-button-accent-1 transition-long"&gt;Heading 3 (Tap to open)&lt;/button&gt;
-    &lt;div id="panel3" class="toggle-item border-sm border-accent-1 hidden"&gt;
-      &lt;div class="panel width-full"&gt;
+    &lt;div id="panel3" class="toggle-item hidden"&gt;
+      &lt;div class="panel border-sm border-accent-1 width-full"&gt;
         Panel 3 content
         &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&lt;/p&gt;
       &lt;/div&gt;
@@ -2067,6 +2067,9 @@
   </div>
 
   <div class="row-spacing-md"></div>
+
+  <p>Notice that in order to make any accordion panels open by default you just omit the <span class="color-info text-bold">hidden</span> class from
+    the toggle item element.</p>
   
   <p>See the <span class="color-info text-bold">DEMO-Accordions-Menus-Tabs.html</span> demo page with the install or download package, for more examples
     using the toggle container.</p>
