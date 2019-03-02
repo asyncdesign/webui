@@ -1551,7 +1551,7 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.2.1";
+    webui.version = "v8.3.0";
     /* RUN */
     webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");

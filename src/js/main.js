@@ -1916,7 +1916,7 @@
 		}		
 	};
 
-	webui.version = "v8.2.1";
+	webui.version = "v8.3.0";
 
 	/* RUN */
 

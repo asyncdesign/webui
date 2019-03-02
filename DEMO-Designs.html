@@ -81,7 +81,7 @@
 
 					<div class="content-row">
 						<div class="panel width-full outline-light">
-							<div class="carousel" id="carousel"> <!-- Specify both width and height if using autoScale: false -->
+							<div class="carousel" id="carousel1"> <!-- Specify both width and height if using autoScale: false -->
 								<div class="carousel-item-holder">		
 									<div class="carousel-item border-md border-secondary">
 										<img src="images/landscape_1.jpg" />
@@ -119,6 +119,48 @@
 								</div>
 							</div>
 						</div>
+
+
+						<div class="panel width-full outline-light">
+							<div class="carousel" id="carousel2"> <!-- Specify both width and height if using autoScale: false -->
+								<div class="carousel-item-holder">		
+									<div class="carousel-item border-md border-secondary">
+										<img src="images/landscape_1.jpg" />
+									</div>
+									<div class="carousel-item border-md border-secondary">
+										<img src="images/landscape_2.jpg" />
+									</div>
+									<div class="carousel-item border-md border-secondary">
+										<img src="images/landscape_3.jpg" />
+									</div>
+								</div>
+								<div class="text text-bold">
+									<a href="" id="c2_prev" class="text-xl pad-md background-transparent color-light fa fa-step-backward place-middle-left"></a>
+									<a href="" id="c2_next" class="text-xl pad-md background-transparent color-light fa fa-step-forward place-middle-right"></a>
+								</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide1">Fade in text for slide 1</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide2">Fade in text for slide 2</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide3">Fade in text for slide 3</div>			
+							</div>
+						
+							<div class="row-spacing-md"></div>
+
+							<div class="width-full flex-justify-space-between">
+								<div>
+									<select id="c2_selectSlide" class="control width-lg">
+										<option value="">Select slide</option>
+										<option value="0">1</option>
+										<option value="1">2</option>
+										<option value="2">3</option>
+									</select>
+								</div>	
+								<div>
+									<button id="c2_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
+									<button id="c2_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
+								</div>
+							</div>
+						</div>
+
 					</div>
 
 				</div>
@@ -531,15 +573,16 @@
 				}
 
 			});
+			
 
-			var carousel = ui("#carousel")
+			var carousel1 = ui("#carousel1")
 							.carouselControl({ 
 								interval: 10000,
 								autoPlay: true,
 								autoScale: true,
 								playDirection: "next",
 								stopOnHover: true,
-								transitionDuration: 1500, 
+								transitionDuration: 1000, 
 								transitionType: "slide", 
 								transitionOrientation: "vertical" 
 							});
@@ -547,59 +590,130 @@
 			ui("#c1_textForSlide1").fadeIn(1500);
 
 
-			carousel.on("ui.carousel.change.before", function(e) {
+			carousel1.on("ui.carousel.change.before", function(e) {
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 			});
 			
 			
-			carousel.on("ui.carousel.change.after", function(e) {
+			carousel1.on("ui.carousel.change.after", function(e) {
 				if (e.detail == 1) {
-					ui("#c1_textForSlide1").fadeIn(1500);
+					ui("#c1_textForSlide1").fadeIn(1000);
 				}
 				else if (e.detail == 2) {
-					ui("#c1_textForSlide2").fadeIn(1500);
+					ui("#c1_textForSlide2").fadeIn(1000);
 				}
 				else if (e.detail == 3) {
-					ui("#c1_textForSlide3").fadeIn(1500);
+					ui("#c1_textForSlide3").fadeIn(1000);
 				}
 			});
 			
 
 			ui("#c1_selectSlide").change( function() { 
 				var index = webui(this).getOptionValues(true)[0];
-				carousel.select(index);
+				carousel1.control.select(index);
 				if (index == 0) {
-					ui("#c1_textForSlide1").fadeIn(1500);
+					ui("#c1_textForSlide1").fadeIn(1000);
 				}
 				else if (index == 1) {
-					ui("#c1_textForSlide2").fadeIn(1500);
+					ui("#c1_textForSlide2").fadeIn(1000);
 				}
 				else if (index == 2) {
-					ui("#c1_textForSlide3").fadeIn(1500);
+					ui("#c1_textForSlide3").fadeIn(1000);
 				}
 			});
 			
 			ui("#c1_prev").click(function(e) {
 				e.preventDefault();
-				carousel.prev();
+				carousel1.control.prev();
 			});
 			
 			ui("#c1_next").click(function(e) {
 				e.preventDefault();
-				carousel.next();
+				carousel1.control.next();
 			});
 
 			ui("#c1_play").click(function(e) {
 				e.preventDefault();
-				carousel.play();
+				carousel1.control.play();
 			});
 			
 			ui("#c1_stop").click(function(e) {
 				e.preventDefault();
-				carousel.stop();
+				carousel1.control.stop();
+			});
+				
+
+			var carousel2 = ui("#carousel2")
+							.carouselControl({ 
+								interval: 10000,
+								autoPlay: true,
+								autoScale: true,
+								playDirection: "next",
+								stopOnHover: true,
+								transitionDuration: 1000, 
+								transitionType: "slide", 
+								transitionOrientation: "horizontal" 
+							});
+
+			carousel2.control.select(2);
+			
+			ui("#c2_textForSlide2").fadeIn(1500);
+
+
+			carousel2.on("ui.carousel.change.before", function(e) {
+				ui("#c2_textForSlide1, #c2_textForSlide2, #c2_textForSlide3").hide();
+			});
+			
+			
+			carousel2.on("ui.carousel.change.after", function(e) {
+				if (e.detail == 1) {
+					ui("#c2_textForSlide1").fadeIn(1000);
+				}
+				else if (e.detail == 2) {
+					ui("#c2_textForSlide2").fadeIn(1000);
+				}
+				else if (e.detail == 3) {
+					ui("#c2_textForSlide3").fadeIn(1000);
+				}
+			});
+			
+
+			ui("#c2_selectSlide").change( function() { 
+				var index = webui(this).getOptionValues(true)[0];
+				carousel2.control.select(index);
+				if (index == 0) {
+					ui("#c2_textForSlide1").fadeIn(1000);
+				}
+				else if (index == 1) {
+					ui("#c2_textForSlide2").fadeIn(1000);
+				}
+				else if (index == 2) {
+					ui("#c2_textForSlide3").fadeIn(1000);
+				}
+			});
+			
+			ui("#c2_prev").click(function(e) {
+				e.preventDefault();
+				carousel2.control.prev();
+			});
+			
+			ui("#c2_next").click(function(e) {
+				e.preventDefault();
+				carousel2.control.next();
+			});
+
+			ui("#c2_play").click(function(e) {
+				e.preventDefault();
+				carousel2.control.play();
+			});
+			
+			ui("#c2_stop").click(function(e) {
+				e.preventDefault();
+				carousel2.control.stop();
 			});
 				
 		});
+
 			
 	</script>
 
