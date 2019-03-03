@@ -583,7 +583,7 @@
 								playDirection: "next",
 								stopOnHover: true,
 								transitionDuration: 1000, 
-								transitionType: "slide", 
+								transitionType: "fade", 
 								transitionOrientation: "vertical" 
 							});
 			
@@ -610,7 +610,7 @@
 
 			ui("#c1_selectSlide").change( function() { 
 				var index = webui(this).getOptionValues(true)[0];
-				carousel1.control.select(index);
+				carousel1.select(index);
 				if (index == 0) {
 					ui("#c1_textForSlide1").fadeIn(1000);
 				}
@@ -624,22 +624,22 @@
 			
 			ui("#c1_prev").click(function(e) {
 				e.preventDefault();
-				carousel1.control.prev();
+				carousel1.prev();
 			});
 			
 			ui("#c1_next").click(function(e) {
 				e.preventDefault();
-				carousel1.control.next();
+				carousel1.next();
 			});
 
 			ui("#c1_play").click(function(e) {
 				e.preventDefault();
-				carousel1.control.play();
+				carousel1.play();
 			});
 			
 			ui("#c1_stop").click(function(e) {
 				e.preventDefault();
-				carousel1.control.stop();
+				carousel1.stop();
 			});
 				
 
@@ -655,7 +655,7 @@
 								transitionOrientation: "horizontal" 
 							});
 
-			carousel2.control.select(2);
+			carousel2.select(2);
 			
 			ui("#c2_textForSlide2").fadeIn(1500);
 
@@ -680,7 +680,7 @@
 
 			ui("#c2_selectSlide").change( function() { 
 				var index = webui(this).getOptionValues(true)[0];
-				carousel2.control.select(index);
+				carousel2.select(index);
 				if (index == 0) {
 					ui("#c2_textForSlide1").fadeIn(1000);
 				}
@@ -694,22 +694,22 @@
 			
 			ui("#c2_prev").click(function(e) {
 				e.preventDefault();
-				carousel2.control.prev();
+				carousel2.prev();
 			});
 			
 			ui("#c2_next").click(function(e) {
 				e.preventDefault();
-				carousel2.control.next();
+				carousel2.next();
 			});
 
 			ui("#c2_play").click(function(e) {
 				e.preventDefault();
-				carousel2.control.play();
+				carousel2.play();
 			});
 			
 			ui("#c2_stop").click(function(e) {
 				e.preventDefault();
-				carousel2.control.stop();
+				carousel2.stop();
 			});
 				
 		});

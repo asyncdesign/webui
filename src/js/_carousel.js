@@ -33,6 +33,7 @@
 		run = null,
 
 		shift = function(dir) {
+
 			current += delta;
 			cycle = !!(current === 0 || current > carouselItemCount);
 	
@@ -45,7 +46,8 @@
 				else {
 					carouselHolder.css(dir, "-" + (carouselItemWidth * current) + "px");
 				}
-			}		
+			}	
+
 		},
 		
 		resetCarousel = function(carousel, itemCount, isResizeEvent) {
@@ -55,53 +57,56 @@
 				carousel.css("width", "100%");
 				
 				carouselHolder = carousel.find(".carousel-item-holder");
-				carouselItems = carouselHolder.find(".carousel-item");
 
 				if (isResizeEvent) {
-						carouselItems.css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
+						carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
 				} else {
-						carouselItems.css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", carousel[0].offsetHeight - itemBorderHeight + "px");
+						carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", carousel[0].offsetHeight - itemBorderHeight + "px");
 				}
 
-				carouselItemWidth = ui.getAvgWidth(carouselItems);
-				carouselItemHeight = ui.getAvgHeight(carouselItems);
-				
-				if (transitionOrientation === "vertical" && transitionType === "slide") {
-						var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-						var t = carouselItemHeight * current;
-						carouselHolder.css("top", "-" + t + "px").css("height", h + "px").css("width", carouselItemWidth + "px");
-				} else {
-						var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-						var l = carouselItemWidth * current;
-						carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-				}
+				win.setTimeout(function() {
+						carouselItemWidth = ui.getAvgWidth(carouselItems);
+						carouselItemHeight = ui.getAvgHeight(carouselItems);
+						
+						if (transitionOrientation === "vertical" && transitionType === "slide") {
+								var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+								var t = carouselItemHeight * current;
+								carouselHolder.css("top", "-" + t + "px").css("height", h + "px").css("width", carouselItemWidth + "px");
+						} else {
+								var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+								var l = carouselItemWidth * current;
+								carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+						}
 
-				carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");					
+						carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");					
+				}, 100);
 
 			}
 			else {
 				
 				carouselHolder = carousel.find(".carousel-item-holder");
-				carouselItems = carouselHolder.find(".carousel-item");
 
-				carouselItems.css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
+				carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
 
-				carouselItemWidth = ui.getMaxWidth(carouselItems);
-				carouselItemHeight = ui.getMaxHeight(carouselItems);
+				win.setTimeout(function() {
+						carouselItemWidth = ui.getMaxWidth(carouselItems);
+						carouselItemHeight = ui.getMaxHeight(carouselItems);
 
-				carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
+						carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
 
-				if (transitionOrientation === "vertical" && transitionType === "slide") {
-						var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-						var t = carouselItemHeight * current;
-						carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
-				} else {
-						var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-						var l = carouselItemWidth * current;
-						carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-				}	
-				
+						if (transitionOrientation === "vertical" && transitionType === "slide") {
+								var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+								var t = carouselItemHeight * current;
+								carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+						} else {
+								var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+								var l = carouselItemWidth * current;
+								carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+						}	
+				}, 100);
+
 			}
+
 		},
 
 		prevSlide = function () {
@@ -111,7 +116,6 @@
 				transitionCompleted = false;
 	
 				delta = -1;
-	
 	
 				carousel.trigger("ui.carousel.change.before", [current]);
 	
@@ -143,7 +147,7 @@
 					}
 				}
 			}
-			return this;
+
 		},
 	
 		nextSlide = function () {
@@ -184,7 +188,7 @@
 					}
 				}
 			}
-			return this;
+
 		},
 	
 		selectSlide = function (index) {
@@ -205,8 +209,7 @@
 			}
 	
 			carousel.trigger("ui.carousel.change.after", [current]);
-			
-			return this;
+
 		},
 
 		playCarousel = function () {
@@ -222,16 +225,14 @@
 				run = setInterval(function() {
 					prevSlide();
 				}, interval);					
-			}
-	
-			return this;	
+			}	
+
 		},		
 	
 		stopCarousel = function () {
 	
 			clearInterval(run);
-	
-			return this;	
+
 		};		
 
 		carousel.css("display", "block");
@@ -274,35 +275,30 @@
 
 			prevSlide();
 
-			return this;
 		};
 	
 		this.next = function () {
 	
 			nextSlide();
 
-			return this;
 		};
 	
 		this.select = function (index) {
 	
 			selectSlide(index);
 
-			return this;
 		};
 	
 		this.play = function () {
 	
 			playCarousel();
 
-			return this;
 		};		
 	
 		this.stop = function () {
 	
 			stopCarousel();
-			
-			return this;
+
 		};		
 	
 	};
@@ -323,8 +319,38 @@
 				transitionOrientation: "horizontal"
 			}, options);
 
-			this.control = new CarouselInstance(this, settings);
+			var control = new CarouselInstance(this, settings);
 
+			this.prev = function () {
+
+				control.prev();
+	
+			};
+		
+			this.next = function () {
+		
+				control.next();
+	
+			};
+		
+			this.select = function (index) {
+		
+				control.select(index);
+	
+			};
+		
+			this.play = function () {
+		
+				control.play();
+	
+			};		
+		
+			this.stop = function () {
+		
+				control.stop();
+				
+			};		
+	
 			return this;
 
 		},
