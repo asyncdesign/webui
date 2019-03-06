@@ -792,62 +792,47 @@
         }
         return this;
     };
-    fn.resize = function(eventCallback, params) {
-        var el;
+    fn.has = function(query) {
+        return this.find(query).length > 0 ? true : false;
+    };
+    fn.is = function(query) {
+        var els = this.parent().find(query);
         for (var i = 0; i < this.length; i++) {
-            el = this[i];
-            var zIndex = parseInt(getComputedStyle(el));
-            if (isNaN(zIndex)) {
-                zIndex = 0;
-            }
-            zIndex--;
-            var expand = document.createElement("div");
-            webui(expand).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
-            var expandChild = document.createElement("div");
-            webui(expandChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "10000000px").css("height", "10000000px");
-            expand.appendChild(expandChild);
-            var shrink = document.createElement("div");
-            webui(shrink).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
-            var shrinkChild = document.createElement("div");
-            webui(shrinkChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "200%").css("height", "200%");
-            shrink.appendChild(shrinkChild);
-            el.appendChild(expand);
-            el.appendChild(shrink);
-            function setScroll() {
-                expand.scrollLeft = 1e7;
-                expand.scrollTop = 1e7;
-                shrink.scrollLeft = 1e7;
-                shrink.scrollTop = 1e7;
-            }
-            setScroll();
-            var size = el.getBoundingClientRect();
-            var currentWidth = size.width;
-            var currentHeight = size.height;
-            var onScroll = function() {
-                var size = el.getBoundingClientRect();
-                var newWidth = size.width;
-                var newHeight = size.height;
-                if (newWidth != currentWidth || newHeight != currentHeight) {
-                    currentWidth = newWidth;
-                    currentHeight = newHeight;
-                    eventCallback(el, params);
+            for (var j = 0; j < els.length; j++) {
+                if (this[i] === els[j]) {
+                    return true;
                 }
-                setScroll();
-            };
-            expand.addEventListener("scroll", onScroll);
-            shrink.addEventListener("scroll", onScroll);
+            }
         }
-        return this;
+        return false;
     };
     fn.hoverIn = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onmouseenter = eventCallback;
+            this[i].addEventListener("mouseenter", eventCallback);
         }
         return this;
     };
     fn.hoverOut = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onmouseleave = eventCallback;
+            this[i].addEventListener("mouseleave", eventCallback);
+        }
+        return this;
+    };
+    fn.mouseUp = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("mouseup", eventCallback);
+        }
+        return this;
+    };
+    fn.mouseDown = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("mousedown", eventCallback);
+        }
+        return this;
+    };
+    fn.mouseMove = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("mousemove", eventCallback);
         }
         return this;
     };
@@ -865,85 +850,133 @@
     };
     fn.focus = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onfocus = eventCallback;
+            this[i].addEventListener("focus", eventCallback);
         }
         return this;
     };
     fn.blur = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onblur = eventCallback;
+            this[i].addEventListener("blur", eventCallback);
         }
         return this;
     };
     fn.change = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onchange = eventCallback;
+            this[i].addEventListener("change", eventCallback);
+        }
+        return this;
+    };
+    fn.resize = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("resize", eventCallback);
+        }
+        return this;
+    };
+    fn.scroll = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("scroll", eventCallback);
         }
         return this;
     };
     fn.keyDown = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onkeydown = eventCallback;
+            this[i].addEventListener("keydown", eventCallback);
+        }
+        return this;
+    };
+    fn.keyUp = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("keyup", eventCallback);
         }
         return this;
     };
     fn.click = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].onclick = eventCallback;
+            this[i].addEventListener("click", eventCallback);
         }
         return this;
     };
     fn.dragStart = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondragstart = eventCallback;
+            this[i].addEventListener("dragstart", eventCallback);
         }
         return this;
     };
     fn.drag = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondrag = eventCallback;
+            this[i].addEventListener("drag", eventCallback);
         }
         return this;
     };
     fn.dragEnd = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondragend = eventCallback;
+            this[i].addEventListener("dragend", eventCallback);
         }
         return this;
     };
     fn.dragEnter = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondragenter = eventCallback;
+            this[i].addEventListener("dragenter", eventCallback);
         }
         return this;
     };
     fn.dragOver = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondragover = eventCallback;
+            this[i].addEventListener("dragover", eventCallback);
         }
         return this;
     };
     fn.dragLeave = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondragleave = eventCallback;
+            this[i].addEventListener("dragleave", eventCallback);
         }
         return this;
     };
     fn.drop = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ondrop = eventCallback;
+            this[i].addEventListener("drop", eventCallback);
         }
         return this;
     };
     fn.onTransitionStart = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ontransitionrun = eventCallback;
+            this[i].addEventListener("transitionrun", eventCallback);
         }
         return this;
     };
     fn.onTransitionEnd = function(eventCallback) {
         for (var i = 0; i < this.length; i++) {
-            this[i].ontransitionend = eventCallback;
+            this[i].addEventListener("transitionend", eventCallback);
+        }
+        return this;
+    };
+    fn.touchStart = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("touchstart", eventCallback);
+        }
+        return this;
+    };
+    fn.touchEnd = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("touchend", eventCallback);
+        }
+        return this;
+    };
+    fn.touchMove = function(eventCallback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener("touchmove", eventCallback);
+        }
+        return this;
+    };
+    fn.on = function(name, callback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].addEventListener(name, callback);
+        }
+        return this;
+    };
+    fn.off = function(name, callback) {
+        for (var i = 0; i < this.length; i++) {
+            this[i].removeEventListener(name, callback);
         }
         return this;
     };
@@ -960,32 +993,6 @@
             this[i].dispatchEvent(event);
         }
         return this;
-    };
-    fn.on = function(name, callback) {
-        for (var i = 0; i < this.length; i++) {
-            this[i].addEventListener(name, callback);
-        }
-        return this;
-    };
-    fn.off = function(name, callback) {
-        for (var i = 0; i < this.length; i++) {
-            this[i].removeEventListener(name, callback);
-        }
-        return this;
-    };
-    fn.has = function(query) {
-        return this.find(query).length > 0 ? true : false;
-    };
-    fn.is = function(query) {
-        var els = this.parent().find(query);
-        for (var i = 0; i < this.length; i++) {
-            for (var j = 0; j < els.length; j++) {
-                if (this[i] === els[j]) {
-                    return true;
-                }
-            }
-        }
-        return false;
     };
     fn.toggle = function(toggleState) {
         if (arguments.length === 1) {
@@ -1273,6 +1280,53 @@
                     this.css("min-height", "1px");
                 }
             }
+        }
+        return this;
+    };
+    fn.resizeElement = function(eventCallback, params) {
+        var el;
+        for (var i = 0; i < this.length; i++) {
+            el = this[i];
+            var zIndex = parseInt(getComputedStyle(el));
+            if (isNaN(zIndex)) {
+                zIndex = 0;
+            }
+            zIndex--;
+            var expand = document.createElement("div");
+            webui(expand).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+            var expandChild = document.createElement("div");
+            webui(expandChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "10000000px").css("height", "10000000px");
+            expand.appendChild(expandChild);
+            var shrink = document.createElement("div");
+            webui(shrink).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
+            var shrinkChild = document.createElement("div");
+            webui(shrinkChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "200%").css("height", "200%");
+            shrink.appendChild(shrinkChild);
+            el.appendChild(expand);
+            el.appendChild(shrink);
+            function setScroll() {
+                expand.scrollLeft = 1e7;
+                expand.scrollTop = 1e7;
+                shrink.scrollLeft = 1e7;
+                shrink.scrollTop = 1e7;
+            }
+            setScroll();
+            var size = el.getBoundingClientRect();
+            var currentWidth = size.width;
+            var currentHeight = size.height;
+            var onScroll = function() {
+                var size = el.getBoundingClientRect();
+                var newWidth = size.width;
+                var newHeight = size.height;
+                if (newWidth != currentWidth || newHeight != currentHeight) {
+                    currentWidth = newWidth;
+                    currentHeight = newHeight;
+                    eventCallback(el, params);
+                }
+                setScroll();
+            };
+            expand.addEventListener("scroll", onScroll);
+            shrink.addEventListener("scroll", onScroll);
         }
         return this;
     };
