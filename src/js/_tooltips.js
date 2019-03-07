@@ -365,5 +365,18 @@
 		}
 	});
 
+	webui(".tooltip .tooltip-static").nextSibling().keyDown(function (e) {	
+		if (e.which == 27) {
+			e.preventDefault();
+			webui(this).parent(".tooltip").hideTooltip();
+		}
+	});
+	
+	webui(".tooltip .tooltip-focus").nextSibling().keyDown(function (e) {	
+		if (e.which == 27) {
+			e.preventDefault();
+			webui(this).parent(".tooltip").hideTooltip();
+		}
+	});
 
 }(window));

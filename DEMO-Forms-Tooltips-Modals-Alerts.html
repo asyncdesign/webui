@@ -112,7 +112,7 @@
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
 									<div class="tooltip width-full" id="tooltipAddress">
-										<div class="tooltip-focus tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautohide tooltip-noautosize rounded-md">
+										<div class="tooltip-static tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautohide tooltip-noautosize rounded-md">
 
 											<div class="container background-light color-accent-1 border-md border-dark rounded-md">
 												<div class="panel">
@@ -149,7 +149,7 @@
 											</div>
 
 										</div>
-										<button id="SearchPatient" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm">Address Details</button>
+										<button id="AddressDetails" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm">Address Details</button>
 									</div>
 								</div>
 							</div>
@@ -413,8 +413,8 @@
 												<div class="panel accent-4 text-bold rounded-top-md place-top-center width-full">
 													Heading
 												</div>
-												<div class="row-spacing-md"></div>
-												<div class="area text-sm rounded-bottom-md">
+												<div class="row-spacing-lg"></div>
+												<div class="panel text-sm rounded-bottom-md">
 													Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
 													nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
 													qui, ridens impedit persecuti sit eu, vidit diceret nam eu.
@@ -560,74 +560,59 @@
 
 		<div class="row-spacing-lg"></div>
 
-
 		<div id="modal1" class="modal">
-
-			<div class="modal-md modal-top-center accent-1-light">
-
-				<div class="form-row panel accent-1 text-lg">
-					<div class="form-col-17">
-						Modal window example
-					</div>
-					<div class="form-col-3 text-right">
-						<a href="javascript:void(0)"><i class="fa fa-close color-primary color-hover-accent-3 modal-close"></i></a>
-					</div>
+			<div class="modal-md modal-top-center modal-auto-stretch accent-1-light">
+	
+				<div class="place-top-right layer-top">
+					<a href="javascript:void(0)" class="container modal-close height-xs-sm width-xs-sm accent-1 color-hover-accent-4 rounded-full raised-md fixed" id="modalClose1">
+						<i class="fa fa-close place-middle-center"></i>
+					</a>
 				</div>
-
-				<div class="row-spacing-sm"></div>
-
-				<div class="form-row">
-					<div class="form-col-20">
-						<div class="body">
-							<div class="content-col-20">
-								<div class="control-group-append">
-									<div class="tooltip content-col-15">
-										<div class="tooltip-dynamic tooltip-bottom tooltip-lg tooltip-dark rounded-md">
-											Use color-translucent-* and background-translucent-* to blend colors. This textbox is blended with the modal background.
-										</div>
-										<input type="text" class="input-sm color-dark background-translucent-4 border-sm border-muted width-full" />
-									</div>
-									<button type="button" class="button-sm button-default color-primary background-translucent-4 border-sm border-muted"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
+	
+				<div class="modal-scroll-body">
+					<div class="form-row">
+						<div class="form-col-20 pad-left-md pad-top-md">
+								<span class="text-xl text-bold">Modal Example</span>
 						</div>
 					</div>
-				</div>
-
-				<div class="row-spacing-sm"></div>
-
-				<div class="form-row">
-					<div class="form-col-20">
-						<div class="body">
-							<div class="content-col-20">
-								<div class="panel border-sm border-muted height-lg-xl scroll-y">
-									<div class="content-row">
-										<div class="content-col-20">
-											Create responsive modals, and optionally add animation.
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-												quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-												ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
-												erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
-												eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-												Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
-												erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+					<div class="form-row">
+						<div class="form-col-20">
+							<div class="body">
+								<div class="content-col-20">
+									<div class="panel border-sm border-muted">
+										<div class="content-row">
+											<div class="content-col-20 text">
+												<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+													quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+													ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+													erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+													eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+													Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+													erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+												<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+													quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+													ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+													erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+													eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+													Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+													erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="form-row">
-					<div class="form-col-20 pad-left-md place-bottom-left">
-						<button type="button" class="button-sm button-accent-1">Save</button>
-						<button type="button" class="button-sm button-accent-4 modal-close">Cancel</button>
+					<div class="form-row">
+						<div class="form-col-20 gap-horizontal-xs text-sm text-right pad-right-md">
+							<button type="button" class="button-sm button-success rounded-md">OK</button>
+							<button type="button" class="button-sm button-accent-4 rounded-md modal-close">Cancel</button>
+						</div>
 					</div>
-				</div>
-
+					<div class="row-spacing-sm"></div>
 			</div>
-		</div>
+			</div>
+		</div>	
 
 		<div class="row-spacing-xl"></div>
 
@@ -677,6 +662,10 @@
 
 
 			//Tooltips
+			ui("#AddressDetails").click( function() {
+				ui("#tooltipAddress").showTooltip();
+			});
+
 			ui("#tooltipEnterValues").showTooltip();
 			ui("#tooltipAboutModals").showTooltip("Try various sized modals that scale to screen size...");	
 			
@@ -684,6 +673,7 @@
 			// Modals
 			ui("#commandShowModal").click( function() {
 				ui("#modal1").showModal();
+				ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
 			});
 
 			

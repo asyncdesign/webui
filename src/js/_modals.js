@@ -59,7 +59,11 @@
 
 			if (focusEl.length && !focusEl.hasClass("disabled")) {
 				focusEl[0].focus();
-			}		
+			}	
+			else {
+				modal.attr("tabindex", "-1");
+				modal[0].focus();
+			}	
 		}
 		return this;
 	};
@@ -95,6 +99,12 @@
 		modal.hideModal();
 	});
 
+	webui(".modal").keyDown(function (e) {	
+		if (e.which == 27) {
+			e.preventDefault();
+			webui(this).hideModal();
+		}
+	});	
 
 }(window));
 		

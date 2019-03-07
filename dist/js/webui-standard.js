@@ -2385,6 +2385,18 @@
             tooltip.hideTooltip();
         }
     });
+    webui(".tooltip .tooltip-static").nextSibling().keyDown(function(e) {
+        if (e.which == 27) {
+            e.preventDefault();
+            webui(this).parent(".tooltip").hideTooltip();
+        }
+    });
+    webui(".tooltip .tooltip-focus").nextSibling().keyDown(function(e) {
+        if (e.which == 27) {
+            e.preventDefault();
+            webui(this).parent(".tooltip").hideTooltip();
+        }
+    });
 })(window);
 
 (function(win) {
@@ -2428,6 +2440,9 @@
             var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
             if (focusEl.length && !focusEl.hasClass("disabled")) {
                 focusEl[0].focus();
+            } else {
+                modal.attr("tabindex", "-1");
+                modal[0].focus();
             }
         }
         return this;
@@ -2451,6 +2466,12 @@
         e.preventDefault();
         var modal = webui(this).closest(".modal");
         modal.hideModal();
+    });
+    webui(".modal").keyDown(function(e) {
+        if (e.which == 27) {
+            e.preventDefault();
+            webui(this).hideModal();
+        }
     });
 })(window);
 
