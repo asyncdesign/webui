@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 8.2.1
+* Version: 8.3.0
 * MIT License
 */
 
@@ -477,76 +477,74 @@
 		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/,
 		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
-		fn;
+		fn = webui.fn = webui.prototype = {
+			length: 0,
 
-	fn = webui.fn = webui.prototype = {
-		length: 0,
+			o: function (selector) {
 
-		o: function (selector) {
+				if (!selector) {
+					return this;
+				}
 
-			if (!selector) {
-				return this;
-			}
+				if (selector.nodeType) {
+					this[0] = selector;
+					this.length = 1;
+					return this;
+				}
 
-			if (selector.nodeType) {
-				this[0] = selector;
-				this.length = 1;
-				return this;
-			}
+				if (selector instanceof webui) {
+					return selector;
+				}
 
-			if (selector instanceof webui) {
-				return selector;
-			}
-
-			if (isString(selector)) {
-				if (selectorRegExp.test(selector)) {
-					var el = root.querySelectorAll(selector);
-					if (el.length === 0) {
-						return this;
+				if (isString(selector)) {
+					if (selectorRegExp.test(selector)) {
+						var el = root.querySelectorAll(selector);
+						if (el.length === 0) {
+							return this;
+						}
+						else if (el.length === 1) {
+							this[0] = el[0];
+							this.length = 1;
+							return this;
+						}
+						else if (el.length > 1) {
+							return webui.mergeArray(this, el);
+						}
 					}
-					else if (el.length === 1) {
-						this[0] = el[0];
-						this.length = 1;
-						return this;
-					}
-					else if (el.length > 1) {
-						return webui.mergeArray(this, el);
+					else if (domFragRegExp.test(selector)) {
+						var fragment = root.createDocumentFragment();
+						var wrapper = root.createElement("div");
+						wrapper.innerHTML = selector;
+
+						while (wrapper.lastChild) {
+							fragment.appendChild(wrapper.firstChild);
+						}
+						var elements = [].slice.call(fragment.childNodes);
+
+						return webui.mergeArray(this, elements);
 					}
 				}
-				else if (domFragRegExp.test(selector)) {
-					var fragment = root.createDocumentFragment();
-					var wrapper = root.createElement("div");
-					wrapper.innerHTML = selector;
-
-					while (wrapper.lastChild) {
-						fragment.appendChild(wrapper.firstChild);
-					}
-					var elements = [].slice.call(fragment.childNodes);
-
-					return webui.mergeArray(this, elements);
-				}
-			}
-			return webui.createArray(selector, this);
-		},
-		pop: [].pop,
-		push: [].push,
-		reverse: [].reverse,
-		shift: [].shift,
-		sort: [].sort,
-		splice: [].splice,
-		slice: [].slice,
-		indexOf: [].indexOf,
-		forEach: [].forEach,
-		unshift: [].unshift,
-		concat: [].concat,
-		join: [].join,
-		every: [].every,
-		some: [].some,
-		filter: [].filter,
-		map: [].map,
-		reduce: [].reduce,
-		reduceRight: [].reduceRight
-	};
+				return webui.createArray(selector, this);
+			},
+			pop: [].pop,
+			push: [].push,
+			reverse: [].reverse,
+			shift: [].shift,
+			sort: [].sort,
+			splice: [].splice,
+			slice: [].slice,
+			indexOf: [].indexOf,
+			forEach: [].forEach,
+			unshift: [].unshift,
+			concat: [].concat,
+			join: [].join,
+			every: [].every,
+			some: [].some,
+			filter: [].filter,
+			map: [].map,
+			reduce: [].reduce,
+			reduceRight: [].reduceRight
+		};
 
 	fn.constructor = webui;
 	fn.o.prototype = fn;
@@ -2077,18 +2075,18 @@
 	/* COMPATIBILITY */
 
 	if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-		// NODE
+			// NODE
     	module.exports = webui;
 	}
-    if (typeof define === "function" && define.amd) {
-        // AMD
-        define(function() {
-            return webui;
-        });
-    } 
-    if (typeof win === "object" && typeof win.document === "object") {
-        // WINDOW
-        win.webui = win.ui = webui;
+	if (typeof define === "function" && define.amd) {
+			// AMD
+			define(function() {
+					return webui;
+			});
+	} 
+	if (typeof win === "object" && typeof win.document === "object") {
+			// WINDOW
+			win.webui = win.ui = webui;
 	}
 
 }(window));

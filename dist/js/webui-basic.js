@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.2.1
+* Version: 8.3.0
 * MIT License
 */
 "use strict";
@@ -350,8 +350,7 @@
         return selector;
     }, webui = function(selector) {
         return new fn.o(selector);
-    }, selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/, domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/, fn;
-    fn = webui.fn = webui.prototype = {
+    }, selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/, domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/, fn = webui.fn = webui.prototype = {
         length: 0,
         o: function(selector) {
             if (!selector) {

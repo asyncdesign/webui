@@ -587,8 +587,6 @@
 								transitionOrientation: "vertical" 
 							});
 			
-			ui("#c1_textForSlide1").fadeIn(1500);
-
 
 			carousel1.on("ui.carousel.change.before", function(e) {
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
@@ -641,6 +639,8 @@
 				e.preventDefault();
 				carousel1.stop();
 			});
+
+			ui("#c1_textForSlide1").fadeIn(1000);
 				
 
 			var carousel2 = ui("#carousel2")
@@ -654,10 +654,6 @@
 								transitionType: "slide", 
 								transitionOrientation: "horizontal" 
 							});
-
-			carousel2.select(2);
-			
-			ui("#c2_textForSlide2").fadeIn(1500);
 
 
 			carousel2.on("ui.carousel.change.before", function(e) {
@@ -711,6 +707,9 @@
 				e.preventDefault();
 				carousel2.stop();
 			});
+
+			carousel2.select(1);
+			ui("#c2_textForSlide2").fadeIn(1000);
 				
 		});
 

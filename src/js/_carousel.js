@@ -192,10 +192,10 @@
 		},
 	
 		selectSlide = function (index) {
-	
-			carousel.trigger("ui.carousel.change.before", [current]);
-	
-			if (!isNaN(index) && (index >= 0 && index <= carouselItemCount)) {
+		
+			if (!isNaN(index) && (index >= 0 && index < carouselItemCount)) {
+
+				carousel.trigger("ui.carousel.change.before", [current]);
 	
 				current = parseInt(index) + 1;
 	
@@ -205,10 +205,11 @@
 				else {
 					carouselHolder.css("left", "-" + (carouselItemWidth * current) + "px");
 				}
+
 				transitionCompleted = true;
+
+				carousel.trigger("ui.carousel.change.after", [current]);
 			}
-	
-			carousel.trigger("ui.carousel.change.after", [current]);
 
 		},
 
