@@ -131,8 +131,7 @@
             return false;
         }
     };
-    /* EXTENSIONS */
-    Array.prototype.inArray = function(value) {
+    /* EXTENSIONS */    Array.prototype.inArray = function(value) {
         try {
             for (var i = 0; i < this.length; i++) {
                 if (this[i] === value) {

@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.3.0
+* Version: 8.4.0
 * MIT License
 */
 "use strict";
@@ -1332,8 +1332,7 @@
     webui.elementHoverAt = function(x, y) {
         return webui(root.elementFromPoint(x, y));
     };
-    /* NON-CHAINABLE FUNCTIONS */
-    webui.on = function(name, callback) {
+    /* NON-CHAINABLE FUNCTIONS */    webui.on = function(name, callback) {
         root.addEventListener(name, callback);
     };
     webui.off = function(name, callback) {
@@ -1604,17 +1603,15 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.3.0";
-    /* RUN */
-    webui.ready(function() {
+    webui.version = "v8.4.0";
+    /* RUN */    webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
         webui(".radio label").attr("tabindex", "0").attr("role", "radio");
         webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
         webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
         webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
     });
-    /* EVENTS */
-    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
+    /* EVENTS */    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
         if (e.which == 13 || e.which == 32) {
             e.preventDefault();
             this.click();
@@ -1682,8 +1679,7 @@
             }
         }
     });
-    /* COMPATIBILITY */
-    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+    /* COMPATIBILITY */    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
         // NODE
         module.exports = webui;
     }

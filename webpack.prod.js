@@ -1,15 +1,13 @@
+//process.traceDeprecation = true;
+
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ConcatPlugin = require('webpack-concat-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: 'css/[name].min.css',
-  allChunks: true,
-  disable: process.env.NODE_ENV === 'development',
-});
+const RemovePlugin = require('remove-files-webpack-plugin');
 
 module.exports = {
+
   entry: {"webui-all": ["./src/js/main.js","./src/scss/webui-all.scss"],
           "webui-all-grid": ["./src/js/main.js","./src/scss/webui-all-grid.scss"],
           "webui-all-flexbox": ["./src/js/main.js","./src/scss/webui-all-flexbox.scss"],
@@ -51,44 +49,6 @@ module.exports = {
     }),
     new ConcatPlugin({
       uglify: true,
-      fileName: 'js/webui-all-grid.min.js',
-      filesToConcat: ["./src/js/main.js", 
-        "./src/js/_menus.js", 
-        "./src/js/_alerts.js", 
-        "./src/js/_tooltips.js", 
-        "./src/js/_modals.js", 
-        "./src/js/_upload.js", 
-        "./src/js/_tabs.js",
-        "./src/js/_radial.js",
-        "./src/js/_carousel.js",
-        "./src/js/_shapes.js",
-        "./src/js/_scrollspy.js",
-        "./src/js/_positioning.js",
-        "./src/js/_transitions.js",
-        "./src/js/_validation.js" 
-      ]
-    }),
-    new ConcatPlugin({
-      uglify: true,
-      fileName: 'js/webui-all-flexbox.min.js',
-      filesToConcat: ["./src/js/main.js", 
-        "./src/js/_menus.js", 
-        "./src/js/_alerts.js", 
-        "./src/js/_tooltips.js", 
-        "./src/js/_modals.js", 
-        "./src/js/_upload.js", 
-        "./src/js/_tabs.js",
-        "./src/js/_radial.js",
-        "./src/js/_carousel.js",
-        "./src/js/_shapes.js",
-        "./src/js/_scrollspy.js",
-        "./src/js/_positioning.js",
-        "./src/js/_transitions.js",
-        "./src/js/_validation.js"
-      ]
-    }),
-    new ConcatPlugin({
-      uglify: true,
       fileName: 'js/webui-standard.min.js',
       filesToConcat: ["./src/js/main.js", 
         "./src/js/_menus.js", 
@@ -107,53 +67,7 @@ module.exports = {
     }),
     new ConcatPlugin({
       uglify: true,
-      fileName: 'js/webui-standard-grid.min.js',
-      filesToConcat: ["./src/js/main.js", 
-        "./src/js/_menus.js", 
-        "./src/js/_alerts.js", 
-        "./src/js/_tooltips.js", 
-        "./src/js/_modals.js", 
-        "./src/js/_upload.js", 
-        "./src/js/_tabs.js",
-        "./src/js/_radial.js",
-        "./src/js/_carousel.js",
-        "./src/js/_scrollspy.js",
-        "./src/js/_positioning.js",
-        "./src/js/_transitions.js",
-        "./src/js/_validation.js"
-      ]
-    }),
-    new ConcatPlugin({
-      uglify: true,
-      fileName: 'js/webui-standard-flexbox.min.js',
-      filesToConcat: ["./src/js/main.js", 
-        "./src/js/_menus.js", 
-        "./src/js/_alerts.js", 
-        "./src/js/_tooltips.js", 
-        "./src/js/_modals.js", 
-        "./src/js/_upload.js", 
-        "./src/js/_tabs.js",
-        "./src/js/_radial.js",
-        "./src/js/_carousel.js",
-        "./src/js/_scrollspy.js",
-        "./src/js/_positioning.js",
-        "./src/js/_transitions.js",
-        "./src/js/_validation.js"
-      ]
-    }),
-    new ConcatPlugin({
-      uglify: true,
       fileName: 'js/webui-basic.min.js',
-      filesToConcat: ["./src/js/main.js"]
-    }),
-    new ConcatPlugin({
-      uglify: true,
-      fileName: 'js/webui-basic-grid.min.js',
-      filesToConcat: ["./src/js/main.js"]
-    }),
-    new ConcatPlugin({
-      uglify: true,
-      fileName: 'js/webui-basic-flexbox.min.js',
       filesToConcat: ["./src/js/main.js"]
     }),
     new ConcatPlugin({
@@ -161,29 +75,61 @@ module.exports = {
       fileName: 'js/webui-utils.min.js',
       filesToConcat: ["./src/js/utils.js"]
     }),
-    extractSass,
+    new MiniCssExtractPlugin({
+      filename: "css/[name].min.css"
+    }),
+    new RemovePlugin({
+      after: {
+        root: path.resolve(__dirname, 'dist'),
+        include: [
+          'js/webui-all-flexbox.min.js', 
+          'js/webui-all-grid.min.js',
+          'js/webui-basic-flexbox.min.js', 
+          'js/webui-basic-grid.min.js',
+          'js/webui-standard-flexbox.min.js', 
+          'js/webui-standard-grid.min.js',
+          'js/webui-styles-all.min.js', 
+          'js/webui-styles-all-flexbox.min.js',
+          'js/webui-styles-all-grid.min.js', 
+          'js/webui-styles-basic.min.js', 
+          'js/webui-styles-basic-flexbox.min.js',
+          'js/webui-styles-basic-grid.min.js', 
+          'js/webui-styles-standard.min.js', 
+          'js/webui-styles-standard-flexbox.min.js',
+          'js/webui-styles-standard-grid.min.js'
+        ]
+      }
+    })
   ],
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: extractSass.extract({
-        use: [{
-          loader: 'css-loader',
-          options: {
-            sourceMap: false,
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: false,
+              sourceMap: false
+            }
           },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: false,
-          },
-        }],
-        fallback: 'style-loader',
-      }),
-    }],
+          "sass-loader"
+        ]
+      }
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].min.js',
   },
+  mode: 'production',
+  stats: {
+    all: false,
+    warnings: false,
+    errors: true,
+    errorDetails: true,
+    modules: false,
+    moduleTrace: false
+  }
 };

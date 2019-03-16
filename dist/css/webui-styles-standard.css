@@ -1,6 +1,6 @@
 /*!
 * Name: webui-standard-flexbox - css
-* Version: 8.3.0
+* Version: 8.4.0
 * MIT License
 */
 .flow-col-1 {
@@ -3059,38 +3059,46 @@ svg:not(:root) {
 
 .list, .list-inline {
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 1rem;
   list-style-type: none; }
 
 .list-bullet {
   padding-left: 0.938rem;
   list-style-type: disc; }
 
+.list-bullet-square {
+  padding-left: 0.938rem;
+  list-style-type: square; }
+
 .list-alpha {
   padding-left: 0.938rem;
   list-style-type: lower-alpha; }
+
+.list-alpha-upper {
+  padding-left: 0.938rem;
+  list-style-type: upper-alpha; }
 
 .list-number {
   padding-left: 0.938rem;
   list-style-type: decimal; }
 
-.list-spacing-sm li {
+.list-spacing-sm:not(.list-inline) li:not(:last-of-type) {
   padding-bottom: 0.313rem; }
 
-.list-spacing-md li {
-  padding-bottom: 0.625rem; }
-
-.list-spacing-lg li {
+.list-spacing-md:not(.list-inline) li:not(:last-of-type) {
   padding-bottom: 0.938rem; }
 
-.list-inline-spacing-sm li:not(:last-of-type) {
-  padding-right: 0.313rem; }
+.list-spacing-lg:not(.list-inline) li:not(:last-of-type) {
+  padding-bottom: 1.563rem; }
 
-.list-inline-spacing-md li:not(:last-of-type) {
-  padding-right: 0.625rem; }
+.list-spacing-sm.list-inline li:not(:last-of-type) {
+  padding-right: 2.313rem; }
 
-.list-inline-spacing-lg li:not(:last-of-type) {
-  padding-right: 0.938rem; }
+.list-spacing-md.list-inline li:not(:last-of-type) {
+  padding-right: 2.938rem; }
+
+.list-spacing-lg.list-inline li:not(:last-of-type) {
+  padding-right: 3.563rem; }
 
 .nav-links a {
   text-decoration: none; }
@@ -4816,6 +4824,21 @@ svg:not(:root) {
 
 .height-adjacent-xxl {
   height: calc(100% - 40rem); }
+
+.pad-initial {
+  padding: 0; }
+
+.pad-left-initial {
+  padding-left: 0; }
+
+.pad-top-initial {
+  padding-top: 0; }
+
+.pad-right-initial {
+  padding-right: 0; }
+
+.pad-bottom-initial {
+  padding-bottom: 0; }
 
 .pad-xxs {
   padding: 0.078rem; }
@@ -10233,3 +10256,4 @@ svg:not(:root) {
     max-width: 37.5rem; }
   *[class*="menu-"], *[class*="dropdown-"] {
     display: none; } }
+

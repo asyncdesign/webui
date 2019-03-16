@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.3.0
+* Version: 8.4.0
 * MIT License
 */
 "use strict";
@@ -1332,8 +1332,7 @@
     webui.elementHoverAt = function(x, y) {
         return webui(root.elementFromPoint(x, y));
     };
-    /* NON-CHAINABLE FUNCTIONS */
-    webui.on = function(name, callback) {
+    /* NON-CHAINABLE FUNCTIONS */    webui.on = function(name, callback) {
         root.addEventListener(name, callback);
     };
     webui.off = function(name, callback) {
@@ -1604,17 +1603,15 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.3.0";
-    /* RUN */
-    webui.ready(function() {
+    webui.version = "v8.4.0";
+    /* RUN */    webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
         webui(".radio label").attr("tabindex", "0").attr("role", "radio");
         webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
         webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
         webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
     });
-    /* EVENTS */
-    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
+    /* EVENTS */    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
         if (e.which == 13 || e.which == 32) {
             e.preventDefault();
             this.click();
@@ -1682,8 +1679,7 @@
             }
         }
     });
-    /* COMPATIBILITY */
-    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+    /* COMPATIBILITY */    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
         // NODE
         module.exports = webui;
     }
@@ -1706,8 +1702,7 @@
             location.href = url;
         }
     };
-    /* PUBLIC */
-    webui.initMenus = function(options) {
+    /* PUBLIC */    webui.initMenus = function(options) {
         transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
         transitionType = options.transitionType !== void 0 ? options.transitionType : transitionType;
     };
@@ -1773,8 +1768,7 @@
             }
         }
     };
-    /* EVENTS */
-    webui(".menu-activator").click(function(e) {
+    /* EVENTS */    webui(".menu-activator").click(function(e) {
         var menuItem = webui(this);
         menuItem.toggleDropdown();
     });
@@ -1852,8 +1846,7 @@
 (function(win) {
     /* PRIVATE */
     var fn = webui.fn, position = "top-right", duration = 300, transitionDuration = 300, width = "18.750rem", showHeader = true, inline = true, style = "outline-square", autoHide = false, showIcon = true, showClose = true;
-    /* PUBLIC */
-    webui.initAlerts = function(options) {
+    /* PUBLIC */    webui.initAlerts = function(options) {
         position = options.position !== void 0 ? options.position : position;
         duration = options.duration !== void 0 ? options.duration : duration;
         transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
@@ -2060,8 +2053,7 @@
             break;
         }
     };
-    /* EVENTS */
-    webui(".alert-close").click(function(e) {
+    /* EVENTS */    webui(".alert-close").click(function(e) {
         e.preventDefault();
         var alert = webui(this).closest(".alert");
         alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
@@ -2214,8 +2206,7 @@
             });
         }, 100);
     }
-    /* PUBLIC */
-    webui.initTooltips = function(options) {
+    /* PUBLIC */    webui.initTooltips = function(options) {
         tooltipAutoPos = options.autoPositioning !== void 0 ? options.autoPositioning : tooltipAutoPos;
         tooltipAutoPosMargin = options.autoPositioningMargin !== void 0 ? options.autoPositioningMargin : tooltipAutoPosMargin;
         tooltipAutoSize = options.autoResizing !== void 0 ? options.autoResizing : tooltipAutoSize;
@@ -2342,8 +2333,7 @@
             }
         }
     };
-    /* EVENTS */
-    webui(".tooltip").hoverIn(function() {
+    /* EVENTS */    webui(".tooltip").hoverIn(function() {
         var els = webui(this);
         var disabledTarget = els.children(".control-disabled");
         if (!disabledTarget.length) {
@@ -2401,8 +2391,7 @@
 (function(win) {
     /* PRIVATE */
     var root = webui.root, fn = webui.fn, transitionDuration;
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "modalControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "modalControl", {
         value: function(options) {
             var el = this;
             var settings = ui.extend({
@@ -2460,8 +2449,7 @@
         }
         return this;
     };
-    /* EVENTS */
-    webui(".modal-close").click(function(e) {
+    /* EVENTS */    webui(".modal-close").click(function(e) {
         e.preventDefault();
         var modal = webui(this).closest(".modal");
         modal.hideModal();
@@ -2477,8 +2465,7 @@
 (function(win) {
     /* PRIVATE */
     var fn = webui.fn;
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "uploadControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "uploadControl", {
         value: function(options) {
             var settings = ui.extend({
                 showFiles: true,
@@ -2586,8 +2573,7 @@
         }
         element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "tabControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "tabControl", {
         value: function(options) {
             var settings = ui.extend({
                 activeTabId: null,
@@ -2718,8 +2704,7 @@
             radialItem.css("top", radialTop);
         }
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "radialControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "radialControl", {
         value: function(options) {
             var settings = ui.extend({
                 zoom: 1,
@@ -2997,8 +2982,7 @@
             stopCarousel();
         };
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "carouselControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "carouselControl", {
         value: function(options) {
             var settings = ui.extend({
                 interval: 1e4,
@@ -3050,8 +3034,7 @@
             }
         }
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "scrollspy", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "scrollspy", {
         value: function(options) {
             var settings = ui.extend({
                 activatorSelector: "li > a",
@@ -3082,8 +3065,7 @@
 (function(win) {
     /* PRIVATE */
     var fn = webui.fn;
-    /* PUBLIC */
-    fn.snapPosition = function(targetElement, position, cssUnit, origin) {
+    /* PUBLIC */    fn.snapPosition = function(targetElement, position, cssUnit, origin) {
         var args = arguments, target = webui(targetElement), els = this, el, wrapper;
         if (args.length > 0 && target.length) {
             if (!target.parent().hasClass("snap-target-context")) {
@@ -3160,8 +3142,7 @@
         sizeUnit = sizeUnit.length > 0 ? sizeUnit : "px";
         return sizeUnit !== "auto" ? sizeUnit : "auto";
     };
-    /* PUBLIC */
-    fn.slideVertical = function(direction, distance, duration, callback) {
+    /* PUBLIC */    fn.slideVertical = function(direction, distance, duration, callback) {
         var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
         uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
@@ -3485,8 +3466,7 @@
             return null;
         }
     };
-    /* PUBLIC */
-    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
+    /* PUBLIC */    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
         var args = arguments, el, ok = true;
         if (args.length === 0) {
             for (var i = 0; i < this.length; i++) {
@@ -3890,8 +3870,7 @@
             return 0;
         }
     };
-    /* REGULAR EXPRESSIONS */
-    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
+    /* REGULAR EXPRESSIONS */    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
     webui.ITEM_CODE = /^([A-Z0-9]{1,50})$/;
     webui.INTEGER = /^[-+]?\d+$/;
     webui.POSITIVE_INTEGER = /^\d+$/;
