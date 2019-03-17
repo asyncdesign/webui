@@ -10,6 +10,8 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
 [![License](https://img.shields.io/badge/contributions-welcome-yellow.svg)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
 [![License](https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com)](https://www.npmjs.com/package/asyncdesign-webui)
+[![Generic badge](https://img.shields.io/badge/Webpack-4.29.6-blue.svg)](https://github.com/webpack/webpack)
+[![Generic badge](https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg)](https://github.com/asyncdesign/webui/network/dependencies)
 [![](https://data.jsdelivr.com/v1/package/npm/asyncdesign-webui/badge)](https://www.jsdelivr.com/package/npm/asyncdesign-webui)
 
 
