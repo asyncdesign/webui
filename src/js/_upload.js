@@ -53,17 +53,15 @@
 							for (var i = 0; i < files.length; i++) {
 								textValue += files[i].name + "<br />";
 							}
-							textValue += "<br />";
 						}
 						if (label.hasClass("hide-count") === false) {
 							if (files.length > 1) {
-								textValue += "(" + files.length + ") files";
+								textValue += "<br />(" + files.length + ") files.";
 							}
 						}
 						if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-							textValue += "Files loaded.";
+							textValue += "<br />Files ready.";
 						}
-						textValue += "<br />";
 						label.html(textValue);
 						element.trigger("ui.upload.change.after");
 					}
