@@ -107,7 +107,7 @@ module.exports = {
     }),
     new WebpackMessages({
       name: 'production',
-      logger: str => console.log(`>> ${str}`)
+      logger: str => console.log(`\n> ${str}\n`)
     })
   ],
   module: {

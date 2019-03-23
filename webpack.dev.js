@@ -132,7 +132,7 @@ module.exports = {
     }),
     new WebpackMessages({
       name: 'development',
-      logger: str => console.log(`>> ${str}`)
+      logger: str => console.log(`\n> ${str}`)
     })
   ],
   module: {
