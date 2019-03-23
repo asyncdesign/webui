@@ -1985,6 +1985,12 @@
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
 		
+		webui(".checkbox.control-disabled label").attr("tabindex", "-1");
+		webui(".radio.control-disabled label").attr("tabindex", "-1");
+		
+		webui(".control-group-disabled .checkbox label").attr("tabindex", "-1");
+		webui(".control-group-disabled .radio label").attr("tabindex", "-1");
+		
 		webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
 		webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
 
