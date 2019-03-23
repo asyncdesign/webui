@@ -1911,7 +1911,7 @@
                     }
                 }
             }
-            var alertItemBody = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
+            var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
             if (showHeader && inline) {
                 if (icon && close) {
                     webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
