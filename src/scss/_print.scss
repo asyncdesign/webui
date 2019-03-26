@@ -1,24 +1,24 @@
 
 @media print {
     a {
-        text-decoration: underline;
+      text-decoration: underline;
     }
     h1, h2, h3 {
-        page-break-after: avoid;
+      page-break-after: avoid;
     }
     p a[href^="http://"]::after {
-        content: " (" attr(href) ")";
+      content: " (" attr(href) ")";
     }
     img,
     pre,
     code,
     blockquote {
-        border: 0.078rem solid $theme_muted;
-        page-break-inside: avoid;
+      border: 0.078rem solid $theme_muted;
+      page-break-inside: avoid;
     }
     meter,
     progress {
-        page-break-inside: avoid;
+      page-break-inside: avoid;
     }
     button,
     input[type=button], 
@@ -26,13 +26,13 @@
     *[class*="button-link"],
     *[class*="view-button-link"],
     *[class*="menu-button-link"] {
-        display: none;
+      display: none;
     }
     img {
         max-width: 37.5rem;
     }
     *[class*="menu-"], *[class*="dropdown-"] {
-        display: none;
+      display: none;
     }
 
 }

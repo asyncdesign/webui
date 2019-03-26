@@ -1849,7 +1849,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, position = "top-right", duration = 300, transitionDuration = 300, width = "18.750rem", showHeader = true, inline = true, style = "outline-square", autoHide = false, showIcon = true, showClose = true;
+    var position = "top-right", duration = 300, transitionDuration = 300, width = "18.750rem", showHeader = true, inline = true, style = "outline-square", autoHide = false, showIcon = true, showClose = true;
     /* PUBLIC */    webui.initAlerts = function(options) {
         position = options.position !== void 0 ? options.position : position;
         duration = options.duration !== void 0 ? options.duration : duration;
@@ -2394,7 +2394,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var root = webui.root, fn = webui.fn, transitionDuration;
+    var fn = webui.fn, transitionDuration;
     /* PUBLIC */    Object.defineProperty(webui.prototype, "modalControl", {
         value: function(options) {
             var el = this;
@@ -2468,8 +2468,8 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn;
-    /* PUBLIC */    Object.defineProperty(webui.prototype, "uploadControl", {
+    /* PUBLIC */
+    Object.defineProperty(webui.prototype, "uploadControl", {
         value: function(options) {
             var settings = ui.extend({
                 showFiles: true,
@@ -2644,7 +2644,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
+    var zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
         var radialWidth = el.offsetWidth;
         var radialHeight = el.offsetHeight;
         var radialContent = webui(el).find(".radial-content").css("transition", "all " + params.duration / 1e3 + "s ease-out");
@@ -3020,7 +3020,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, resetScrollspy = function(container, settings) {
+    var resetScrollspy = function(container, settings) {
         var scrollTargets = webui(document).find("." + settings.scrollTargetClass);
         for (var i = 0; i < scrollTargets.length; i++) {
             var el = webui(scrollTargets[i]);

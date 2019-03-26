@@ -3,7 +3,6 @@
 	
 	/* PRIVATE */
 	
-	var fn = webui.fn;
 
 	/* PUBLIC */
 

@@ -3,63 +3,64 @@
 		
 	/* PRIVATE */
 
-	var transitionDuration,
+	var 
+		transitionDuration,
 		transitionType,
 
-	selectTab = function (element) {
-		var tabId = element.attr("href");
-		if (!tabId) {
-			tabId = element.data("target");
-		}
-		var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
-		var curTabId = tabId.replace("#", "");
+		selectTab = function (element) {
+			var tabId = element.attr("href");
+			if (!tabId) {
+				tabId = element.data("target");
+			}
+			var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
+			var curTabId = tabId.replace("#", "");
 
-		element.parents(".tabs").find(".tab-item").removeClass("selected");
+			element.parents(".tabs").find(".tab-item").removeClass("selected");
 
-		element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
+			element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
 
-		var activeTab = element.parents(".tabs").find(tabId);
-		
-		if (transitionType === "fade") {
-			activeTab.show().children().fadeIn(transitionDuration);
-		}
-		else if (transitionType === "collapse") {
-			activeTab.expandVertical(transitionDuration, "auto");
-		}
-		else {
-			activeTab.show();
-		}
-
-		
-		activeTab.addClass("selected");
-
-		if (transitionType === "fade") {
-			activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-			activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-			activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+			var activeTab = element.parents(".tabs").find(tabId);
 			
-			activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
-		}
-		else if (transitionType === "collapse") {
-			activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
-			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+			if (transitionType === "fade") {
+				activeTab.show().children().fadeIn(transitionDuration);
+			}
+			else if (transitionType === "collapse") {
+				activeTab.expandVertical(transitionDuration, "auto");
+			}
+			else {
+				activeTab.show();
+			}
 
-			activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");						
-		}
-		else {
-			activeTab.siblings(".tab-item").hide();			
-			activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
-			activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
-			activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
 			
-			activeTab.find(".tabs").find(".tab-item").first().show();									
-		}
-		
-		element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
-	};
+			activeTab.addClass("selected");
+
+			if (transitionType === "fade") {
+				activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+				activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+				activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
+				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+				
+				activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
+			}
+			else if (transitionType === "collapse") {
+				activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
+				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
+				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+
+				activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");						
+			}
+			else {
+				activeTab.siblings(".tab-item").hide();			
+				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
+				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
+				
+				activeTab.find(".tabs").find(".tab-item").first().show();									
+			}
+			
+			element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
+		};
 
 
 	/* PUBLIC */

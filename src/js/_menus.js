@@ -4,7 +4,8 @@
 	
 	/* PRIVATE */
 
-	var fn = webui.fn,
+	var 
+		fn = webui.fn,
 		transitionDuration = 500,
 		transitionType = "fade",
 		

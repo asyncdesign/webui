@@ -3,7 +3,7 @@
 	
 	/* PRIVATE */
 
-	var root = webui.root, 
+	var 
 		fn = webui.fn,
 		transitionDuration;
 

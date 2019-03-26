@@ -3,39 +3,40 @@
 	
 	/* PRIVATE */
 	
-	var fn = webui.fn,
+	var 
+		fn = webui.fn,
 
-	selectorRegExpMatches = function(selector, regExp) {
-		var el = webui(selector);
-		return el.is("input[type='text']") && regExp.test(el.val()) || 
-				el.is("textarea") && regExp.test(el.text()) || 
-				el.is("select") && regExp.test(el.find("option:checked").text()) || 
-				el.is("datalist") && regExp.test(el.find("option:checked").text()) || 
-				el.is("input[type='checkbox']") && regExp.test(el.is(":checked")) ||
-				el.is("input[type='radio']") && regExp.test(el.is(":checked"));
-	},
-	
-	containsSpaceOrDot = function(selector) {
-		var el = webui(selector);
-		return /^\s$/.test(el.val()) || el.val().indexOf(".") > -1;
-	},
-	
-	containsSpace = function(selector) {
-		return /^\s$/.test(webui(selector).val());
-	},
-	
-	toDateObject = function(year, month, day, hour, minute, second) {
-		try {
-			var date = new Date(year, month, day, hour, minute, second);
-			if (date.getDate() == day && date.getMonth() == month && date.getFullYear() == year && date.getHours() == hour && date.getMinutes() == minute && date.getSeconds() == second) {
-				return date;
+		selectorRegExpMatches = function(selector, regExp) {
+			var el = webui(selector);
+			return el.is("input[type='text']") && regExp.test(el.val()) || 
+					el.is("textarea") && regExp.test(el.text()) || 
+					el.is("select") && regExp.test(el.find("option:checked").text()) || 
+					el.is("datalist") && regExp.test(el.find("option:checked").text()) || 
+					el.is("input[type='checkbox']") && regExp.test(el.is(":checked")) ||
+					el.is("input[type='radio']") && regExp.test(el.is(":checked"));
+		},
+		
+		containsSpaceOrDot = function(selector) {
+			var el = webui(selector);
+			return /^\s$/.test(el.val()) || el.val().indexOf(".") > -1;
+		},
+		
+		containsSpace = function(selector) {
+			return /^\s$/.test(webui(selector).val());
+		},
+		
+		toDateObject = function(year, month, day, hour, minute, second) {
+			try {
+				var date = new Date(year, month, day, hour, minute, second);
+				if (date.getDate() == day && date.getMonth() == month && date.getFullYear() == year && date.getHours() == hour && date.getMinutes() == minute && date.getSeconds() == second) {
+					return date;
+				}
+				return null;
+			} 
+			catch (ex) {
+				return null;
 			}
-			return null;
-		} 
-		catch (ex) {
-			return null;
-		}
-	};
+		};
 	
 	/* PUBLIC */
 	

@@ -151,9 +151,9 @@ follow the same pattern as in the above table, but none includes WebUI component
 
 #### **JavaScript Document Load Event**
 
-All WebUI JavaScript should be enclosed in the document load event callback, as shown in the following example. 
+All WebUI JavaScript should be enclosed in the document loaded event callback, as shown in the following example. 
 
-**NOTE:** This event is does not need to be used if you are using a framework lifecycle load event.
+**NOTE:** This event does not need to be used if you are using a framework lifecycle loaded event.
 
 ````
 webui.ready(function() {

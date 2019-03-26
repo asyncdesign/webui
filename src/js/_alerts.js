@@ -3,8 +3,7 @@
 	
 	/* PRIVATE */
 
-	var fn = webui.fn,
-
+	var
 		position = "top-right",
 		duration = 300,
 		transitionDuration = 300,
@@ -224,7 +223,6 @@
 		var alert = webui(this).closest(".alert");
 		alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
 	});
-
 
 }(window));
 		

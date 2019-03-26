@@ -4,7 +4,7 @@
 	
 	/* PRIVATE */
 
-	var fn = webui.fn,
+	var
 		zoom = 1,
 		mode = "full",
 		responsive = true,
