@@ -4715,9 +4715,6 @@ textarea {
   resize: vertical;
   overflow: auto; }
 
-a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]).accessibility:focus {
-  outline: 0.188rem solid #424242; }
-
 input[type=checkbox],
 input[type=radio] {
   vertical-align: -0.125rem !important;
@@ -6047,6 +6044,12 @@ svg:not(:root) {
   color: black;
   background-color: #fffde7;
   border: 0.078rem solid #ff3d00; }
+
+a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]):not(.control-disabled).accessibility:focus,
+.accessibility a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]):not(.control-disabled):focus {
+  padding: 0.125rem 0.275rem;
+  box-shadow: 0 0 0 0.125rem #424242;
+  font-weight: bold; }
 
 .control:not(.control-disabled).accessibility:focus,
 *[class*="input"]:not(.control-disabled).accessibility:focus,
