@@ -919,17 +919,14 @@ svg:not(:root) {
 	width: 1.25rem;
 	height: 1.25rem;
 	position: relative;
-	box-sizing: content-box;
-	background-color: $theme_light;
-	border: 0.078rem solid $theme_default_border;
 	label {
 		position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
 		right: 0;
-		margin: 0.0625rem;
 		background-color: $theme_light;
+		border: 0.078rem solid $theme_default_border;
 		backface-visibility: hidden;
 	}
 	input[type=checkbox]:checked + label {
@@ -937,39 +934,34 @@ svg:not(:root) {
 		background-repeat: no-repeat;
 		background-origin: padding-box;
 		background-position: 40% 40%;	
-		background-size: 88%;
+		background-size: 75%;
 	} 
 }
 *[class*="checkbox"].rounded-sm.accessibility label {
-	border-radius: 0.1rem;
+	border-radius: 0.188rem;
 }
 *[class*="checkbox"].rounded-md.accessibility label {
-	border-radius: 0.275rem;
+	border-radius: 0.375rem;
 }
 *[class*="checkbox"].rounded-lg.accessibility label {
-	border-radius: 0.425rem;
+	border-radius: 0.563rem;
 }
 *[class*="checkbox"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_accessibility;
+	border: 0.125rem solid $theme_accessibility;
 }
 .radio {
 	width: 1.25rem;
 	height: 1.25rem;
 	position: relative;
-	border-radius: 50%;
-	background-color: $theme_light;
-	box-sizing: content-box;
-	border: 0.078rem solid $theme_default_border;
 	label {
 		position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
 		right: 0;
-		margin: 0.0625rem;
 		border-radius: 50%;
-		background-color: $theme_light;	
+		background-color: $theme_light;
+		border: 0.078rem solid $theme_default_border;	
 		backface-visibility: hidden;
 	}
 	input[type=radio]:checked + label {		
@@ -977,21 +969,20 @@ svg:not(:root) {
 		background-repeat: no-repeat;
 		background-origin: padding-box;
 		background-position: center center;	
-		background-size: 56%;
+		background-size: 42%;
 	} 
 }
 *[class*="radio"].rounded-sm.accessibility label {
-	border-radius: 0.1rem;
+	border-radius: 0.188rem;
 }
 *[class*="radio"].rounded-md.accessibility label {
-	border-radius: 0.275rem;
+	border-radius: 0.375rem;
 }
 *[class*="radio"].rounded-lg.accessibility label {
-	border-radius: 0.425rem;
+	border-radius: 0.563rem;
 }
 *[class*="radio"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_accessibility;
+	border: 0.125rem solid $theme_accessibility;
 }
 *[class*="toggle-button"] {
 	label {
@@ -1539,9 +1530,15 @@ svg:not(:root) {
 	border: 0.078rem solid $theme_danger_border;
 }
 .control:not(.control-disabled).accessibility:focus,
-*[class*="input"]:not(.control-disabled).accessibility:focus {
+*[class*="input"]:not(.control-disabled).accessibility:focus,
+.accessibility .control:not(.control-disabled):focus,
+.accessibility *[class*="input"]:not(.control-disabled):focus {
 	box-shadow: 0 0 0 0.063rem $theme_accessibility;
 	border-color: $theme_accessibility;
+}
+.accessibility *[class*="checkbox"] label:focus,
+.accessibility *[class*="radio"] label:focus {
+	border: 0.125rem solid $theme_accessibility;
 }
 .control-group-success label:not(.control-disabled),
 .control-group-success *[class*="text"]:not(.control-disabled),
@@ -1577,8 +1574,7 @@ svg:not(:root) {
 *[class*="radio"].control-success.accessibility label:focus,
 .control-group-success *[class*="checkbox"].accessibility label:focus,
 .control-group-success *[class*="radio"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_success;
+	border: 0.125rem solid $theme_success;
 }
 
 .control-group-info label:not(.control-disabled),
@@ -1615,8 +1611,7 @@ svg:not(:root) {
 *[class*="radio"].control-info.accessibility label:focus,
 .control-group-info *[class*="checkbox"].accessibility label:focus,
 .control-group-info *[class*="radio"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_info;	
+	border: 0.125rem solid $theme_info;
 }
 
 .control-group-warning label:not(.control-disabled),
@@ -1653,8 +1648,7 @@ svg:not(:root) {
 *[class*="radio"].control-warning.accessibility label:focus,
 .control-group-warning *[class*="checkbox"].accessibility label:focus,
 .control-group-warning *[class*="radio"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_warning;
+	border: 0.125rem solid $theme_warning;
 }
 .control-group-danger label:not(.control-disabled),
 .control-group-danger *[class*="text"]:not(.control-disabled),
@@ -1690,8 +1684,7 @@ svg:not(:root) {
 *[class*="radio"].control-danger.accessibility label:focus,
 .control-group-danger *[class*="checkbox"].accessibility label:focus,
 .control-group-danger *[class*="radio"].accessibility label:focus {
-	margin: 0.0625rem;
-	box-shadow: 0 0 0 0.188rem $theme_danger;	
+	border: 0.125rem solid $theme_danger;
 }
 .control-disabled,
 .control-group-disabled .control,

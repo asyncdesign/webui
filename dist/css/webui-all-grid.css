@@ -1545,7 +1545,9 @@
   position: relative;
   display: inline-block; }
 
-.tooltip *[class*="tooltip-"] {
+.tooltip .tooltip-dynamic,
+.tooltip .tooltip-focus,
+.tooltip .tooltip-static {
   display: none;
   color: black;
   background-color: #bdbdbd;
@@ -1555,7 +1557,9 @@
   position: absolute;
   white-space: normal;
   z-index: 120; }
-  .tooltip *[class*="tooltip-"].tooltip-nopadding {
+  .tooltip .tooltip-dynamic.tooltip-nopadding,
+  .tooltip .tooltip-focus.tooltip-nopadding,
+  .tooltip .tooltip-static.tooltip-nopadding {
     padding: 0; }
 
 .tooltip-dynamic::after,
@@ -3816,76 +3820,67 @@ svg:not(:root) {
 .checkbox {
   width: 1.25rem;
   height: 1.25rem;
-  position: relative;
-  box-sizing: content-box;
-  background-color: white;
-  border: 0.078rem solid #bdbdbd; }
+  position: relative; }
   .checkbox label {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    margin: 0.0625rem;
     background-color: white;
+    border: 0.078rem solid #bdbdbd;
     backface-visibility: hidden; }
   .checkbox input[type=checkbox]:checked + label {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-origin: padding-box;
     background-position: 40% 40%;
-    background-size: 88%; }
+    background-size: 75%; }
 
 *[class*="checkbox"].rounded-sm.accessibility label {
-  border-radius: 0.1rem; }
+  border-radius: 0.188rem; }
 
 *[class*="checkbox"].rounded-md.accessibility label {
-  border-radius: 0.275rem; }
+  border-radius: 0.375rem; }
 
 *[class*="checkbox"].rounded-lg.accessibility label {
-  border-radius: 0.425rem; }
+  border-radius: 0.563rem; }
 
 *[class*="checkbox"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #424242; }
+  border: 0.125rem solid #424242; }
 
 .radio {
   width: 1.25rem;
   height: 1.25rem;
-  position: relative;
-  border-radius: 50%;
-  background-color: white;
-  box-sizing: content-box;
-  border: 0.078rem solid #bdbdbd; }
+  position: relative; }
   .radio label {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    margin: 0.0625rem;
     border-radius: 50%;
     background-color: white;
+    border: 0.078rem solid #bdbdbd;
     backface-visibility: hidden; }
   .radio input[type=radio]:checked + label {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-origin: padding-box;
     background-position: center center;
-    background-size: 56%; }
+    background-size: 42%; }
 
 *[class*="radio"].rounded-sm.accessibility label {
-  border-radius: 0.1rem; }
+  border-radius: 0.188rem; }
 
 *[class*="radio"].rounded-md.accessibility label {
-  border-radius: 0.275rem; }
+  border-radius: 0.375rem; }
 
 *[class*="radio"].rounded-lg.accessibility label {
-  border-radius: 0.425rem; }
+  border-radius: 0.563rem; }
 
 *[class*="radio"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #424242; }
+  border: 0.125rem solid #424242; }
 
 *[class*="toggle-button"] label {
   display: block; }
@@ -4322,9 +4317,15 @@ svg:not(:root) {
   border: 0.078rem solid #ff3d00; }
 
 .control:not(.control-disabled).accessibility:focus,
-*[class*="input"]:not(.control-disabled).accessibility:focus {
+*[class*="input"]:not(.control-disabled).accessibility:focus,
+.accessibility .control:not(.control-disabled):focus,
+.accessibility *[class*="input"]:not(.control-disabled):focus {
   box-shadow: 0 0 0 0.063rem #424242;
   border-color: #424242; }
+
+.accessibility *[class*="checkbox"] label:focus,
+.accessibility *[class*="radio"] label:focus {
+  border: 0.125rem solid #424242; }
 
 .control-group-success label:not(.control-disabled),
 .control-group-success *[class*="text"]:not(.control-disabled),
@@ -4366,8 +4367,7 @@ svg:not(:root) {
 *[class*="radio"].control-success.accessibility label:focus,
 .control-group-success *[class*="checkbox"].accessibility label:focus,
 .control-group-success *[class*="radio"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #43a047; }
+  border: 0.125rem solid #43a047; }
 
 .control-group-info label:not(.control-disabled),
 .control-group-info *[class*="text"]:not(.control-disabled),
@@ -4409,8 +4409,7 @@ svg:not(:root) {
 *[class*="radio"].control-info.accessibility label:focus,
 .control-group-info *[class*="checkbox"].accessibility label:focus,
 .control-group-info *[class*="radio"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #2196f3; }
+  border: 0.125rem solid #2196f3; }
 
 .control-group-warning label:not(.control-disabled),
 .control-group-warning *[class*="text"]:not(.control-disabled),
@@ -4452,8 +4451,7 @@ svg:not(:root) {
 *[class*="radio"].control-warning.accessibility label:focus,
 .control-group-warning *[class*="checkbox"].accessibility label:focus,
 .control-group-warning *[class*="radio"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #ff8f00; }
+  border: 0.125rem solid #ff8f00; }
 
 .control-group-danger label:not(.control-disabled),
 .control-group-danger *[class*="text"]:not(.control-disabled),
@@ -4495,8 +4493,7 @@ svg:not(:root) {
 *[class*="radio"].control-danger.accessibility label:focus,
 .control-group-danger *[class*="checkbox"].accessibility label:focus,
 .control-group-danger *[class*="radio"].accessibility label:focus {
-  margin: 0.0625rem;
-  box-shadow: 0 0 0 0.188rem #ff3d00; }
+  border: 0.125rem solid #ff3d00; }
 
 .control-disabled,
 .control-group-disabled .control,

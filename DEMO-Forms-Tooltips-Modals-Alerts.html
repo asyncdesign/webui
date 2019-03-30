@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="text-sm color-accent-5-dark">
+<body class="text-sm color-accent-5-dark accessibility">
 
 
 	<div class="responsive-gutter-xs">
@@ -78,7 +78,7 @@
 										<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
 											First name is required.
 										</div>
-										<input id="FirstName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+										<input id="FirstName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
 									</div>
 									<label class="text-sm text-italic">Sample control text</label>
 								</div>
@@ -95,7 +95,7 @@
 									</div>
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+									<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row control-group-danger">
@@ -103,7 +103,7 @@
 									Company
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="Company" type="text" autocomplete="off" class="input-sm width-full rounded-sm accessibility" />
+									<input id="Company" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -112,12 +112,15 @@
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
 									<div class="tooltip width-full" id="tooltipAddress">
+										
+										<button id="AddressDetails" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm accessibility">Address Details</button>
+
 										<div class="tooltip-static tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautohide tooltip-noautosize rounded-md">
 
 											<div class="container background-light color-accent-1 border-md border-dark rounded-md">
 												<div class="panel">
 													<div class="move-right">
-														<i class="fa fa-close fa-lg color-accent-1 button-link width-control-sm" onclick="ui('#tooltipAddress').hideTooltip()"></i>
+														<i class="fa fa-close fa-lg color-accent-1 button-link width-control-sm tooltip-close"></i>
 													</div>
 												</div>
 												<div class="panel">
@@ -128,7 +131,7 @@
 													</div>
 													<div class="content-row">
 														<div class="content-col-20 respond-bp-3-under">
-															<textarea id="Address" rows="3" class="control width-full rounded-sm accessibility"></textarea>
+															<textarea id="Address" rows="3" class="control width-full rounded-sm"></textarea>
 														</div>
 													</div>
 													<div class="content-row">
@@ -141,7 +144,7 @@
 															<input id="Postcode" type="text" class="input width-md rounded-sm" />
 														</div>
 														<div class="content-col-10 respond-bp-3-under">
-															<button class="button button-accent-2 rounded-sm move-right">Save</button>
+															<button class="button button-accent-2 rounded-sm move-right accessibility">Save</button>
 														</div>
 													</div>
 													<div class="row-spacing-sm"></div>
@@ -149,7 +152,7 @@
 											</div>
 
 										</div>
-										<button id="AddressDetails" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm">Address Details</button>
+										
 									</div>
 								</div>
 							</div>
@@ -158,7 +161,7 @@
 									Town / City
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="TownCity" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="TownCity" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -166,7 +169,7 @@
 									Postcode
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="Postcode" type="text" class="input-sm width-md rounded-sm accessibility" />
+									<input id="Postcode" type="text" class="input-sm width-md rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -174,7 +177,7 @@
 									Telephone
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="Telephone" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="Telephone" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -182,7 +185,7 @@
 									Date of birth
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+									<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row control-group-danger">
@@ -190,7 +193,7 @@
 									Gender
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<select id="Gender" class="input-sm width-md-lg rounded-sm accessibility">
+									<select id="Gender" class="input-sm width-md-lg rounded-sm">
 										<option value="1">Male</option>
 										<option value="3">Female</option>
 										<option value="4">Other</option>
@@ -221,7 +224,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row">
 										<div class="content-col width-xs-sm">
-											<div class="checkbox accessibility">
+											<div class="checkbox rounded-sm">
 												<input type="checkbox" value="" id="checkboxHepatitis" />
 												<label for="checkboxHepatitis"></label>
 											</div>
@@ -235,7 +238,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row control-group-disabled">
 										<div class="content-col width-xs-sm">
-											<div class="checkbox accessibility">
+											<div class="checkbox rounded-sm">
 												<input type="checkbox" value="" id="checkboxTetanus" disabled />
 												<label for="checkboxTetanus"></label>
 											</div>
@@ -249,7 +252,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row">
 										<div class="content-col width-xs-sm">
-											<div class="checkbox accessibility">
+											<div class="checkbox rounded-sm">
 												<input type="checkbox" value="" id="checkboxTyphoid" />
 												<label for="checkboxTyphoid"></label>
 											</div>
@@ -266,7 +269,7 @@
 									Alcohol
 								</div>
 								<div class="form-col respond-bp-3-under">
-									<input id="Alcohol" type="number" class="input-sm width-md rounded-sm accessibility" /> <label>(units per week)</label>
+									<input id="Alcohol" type="number" class="input-sm width-md rounded-sm" /> <label>(units per week)</label>
 								</div>
 							</div>
 							<div class="form-row">
@@ -274,7 +277,7 @@
 									Smoking
 								</div>
 								<div class="form-col respond-bp-3-under">
-									<input id="Smoking" type="number" class="input-sm width-md rounded-sm accessibility" /> (cigarettes per day)
+									<input id="Smoking" type="number" class="input-sm width-md rounded-sm" /> (cigarettes per day)
 								</div>
 							</div>
 							<div class="row-spacing-lg"></div>
@@ -283,7 +286,7 @@
 									Time exercising
 								</div>
 								<div class="form-col respond-bp-3-under">
-									<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm accessibility" /> (per week)
+									<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm" /> (per week)
 								</div>
 							</div>
 							<div class="row-spacing-lg"></div>
@@ -294,7 +297,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row">
 										<div class="content-col width-xs-sm">
-											<div class="radio accessibility">
+											<div class="radio">
 												<input type="radio" value="1" name="sleep" id="radio4" />
 												<label for="radio4"></label>
 											</div>
@@ -308,7 +311,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row">
 										<div class="content-col width-xs-sm">
-											<div class="radio accessibility">
+											<div class="radio">
 												<input type="radio" value="2" name="sleep" id="radio6" />
 												<label for="radio6"></label>
 											</div>
@@ -322,7 +325,7 @@
 								<div class="form-col width-md respond-bp-3-under">
 									<div class="content-row">
 										<div class="content-col width-xs-sm">
-											<div class="radio accessibility">
+											<div class="radio">
 												<input type="radio" value="3" name="sleep" id="radio8" />
 												<label for="radio8"></label>
 											</div>
@@ -343,7 +346,7 @@
 									GP name
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="GpName" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="GpName" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -351,7 +354,7 @@
 									GP code
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="GpCode" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="GpCode" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -359,7 +362,7 @@
 									Surgery
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="Surgery" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="Surgery" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -367,7 +370,7 @@
 									Address
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<textarea id="GpAddress" rows="3" class="control width-full rounded-sm accessibility"></textarea>
+									<textarea id="GpAddress" rows="3" class="control width-full rounded-sm"></textarea>
 								</div>
 							</div>
 							<div class="form-row">
@@ -375,7 +378,7 @@
 									Town / City
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm accessibility" />
+									<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm" />
 								</div>
 							</div>
 							<div class="form-row">
@@ -383,7 +386,7 @@
 									Postcode
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm accessibility" />
+									<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />
 								</div>
 							</div>
 							<div class="row-spacing-lg"></div>
@@ -421,7 +424,7 @@
 												</div>
 											</div>
 										</div>
-										<input id="textURL" type="text" class="input-sm rounded-sm width-full accessibility" />
+										<input id="textURL" type="text" class="input-sm rounded-sm width-full" />
 									</div>
 								</div>
 							</div>
@@ -435,7 +438,7 @@
 											Start Date
 										</div>
 										<div class="content-col">
-											<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+											<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm" />
 										</div>
 									</div>
 									<div class="row-spacing-sm"></div>
@@ -444,7 +447,7 @@
 											End Date
 										</div>
 										<div class="content-col">
-											<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+											<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm" />
 										</div>
 									</div>
 								</div>
@@ -489,7 +492,7 @@
 					<div class="form-row responsive-gutter-sm">
 						<div class="form-col-20">
 							<div class="form-col">
-								<button id="Save" type="button" class="button-sm button-disabled rounded-sm">Save</button>
+								<button id="Save" type="button" class="button-sm button-disabled rounded-sm accessibility">Save</button>
 							</div>
 						</div>
 					</div>

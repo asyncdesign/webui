@@ -2357,7 +2357,7 @@
             webui(this).hideTooltip();
         }
     });
-    webui(".tooltip").children("input, button, select, textarea").focus(function() {
+    webui(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function() {
         var tooltip = webui(this).parent(".tooltip");
         var disabledTarget = webui(this).hasClass("control-disabled");
         if (!disabledTarget) {
@@ -2371,24 +2371,29 @@
             }
         }
     });
-    webui(".tooltip").children("input, button, select, textarea").blur(function() {
+    webui(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function() {
         var tooltip = webui(this).parent(".tooltip");
         var el = tooltip.children(".tooltip-focus").first();
         if (el.length && !el.hasClass("tooltip-noautohide")) {
             tooltip.hideTooltip();
         }
     });
-    webui(".tooltip .tooltip-static").nextSibling().keyDown(function(e) {
+    webui(".tooltip .tooltip-static").siblings().first().keyDown(function(e) {
         if (e.which == 27) {
             e.preventDefault();
             webui(this).parent(".tooltip").hideTooltip();
         }
     });
-    webui(".tooltip .tooltip-focus").nextSibling().keyDown(function(e) {
+    webui(".tooltip .tooltip-focus").siblings().first().keyDown(function(e) {
         if (e.which == 27) {
             e.preventDefault();
             webui(this).parent(".tooltip").hideTooltip();
         }
+    });
+    webui(".tooltip-close").click(function(e) {
+        e.preventDefault();
+        var tooltip = webui(this).closest(".tooltip");
+        tooltip.hideTooltip();
     });
 })(window);
 
