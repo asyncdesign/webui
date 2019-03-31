@@ -2786,7 +2786,7 @@
                     radialItem.css("top", radialTop);
                 }
                 if (responsive) {
-                    webui(radials[i]).resize(resetRadial, {
+                    webui(radials[i]).resizeElement(resetRadial, {
                         zoom: zoom,
                         mode: mode,
                         transitionDuration: transitionDuration

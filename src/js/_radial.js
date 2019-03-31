@@ -108,7 +108,7 @@
 				}
 				
 				if (responsive) {
-					webui(radials[i]).resize(resetRadial, {zoom: zoom, mode: mode, transitionDuration: transitionDuration});
+					webui(radials[i]).resizeElement(resetRadial, {zoom: zoom, mode: mode, transitionDuration: transitionDuration});
 				}
 			}
 
