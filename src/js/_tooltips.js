@@ -18,13 +18,14 @@
 		SHADOW_RIGHT = 2,
 		SHADOW_BOTTOM = 3,
 
-		getTooltipViewportStatus = function (element, requiredMargin) {
+		getTooltipViewportStatus = function (tooltip, requiredMargin) {
 			if (arguments.length > 0) {
 
 				var margin = 0;
 				var pointerSize = 5;
-				var targetHeight = element.siblings().first()[0].offsetHeight;
-				var targetWidth = element.siblings().first()[0].offsetWidth;
+				var target = tooltip.siblings().first();
+				var targetHeight = target[0].offsetHeight;
+				var targetWidth = target[0].offsetWidth;
 				if (arguments.length > 1 && requiredMargin != null && !isNaN(requiredMargin)) {
 					margin = requiredMargin;
 				}
@@ -34,22 +35,40 @@
 					right: win.innerWidth,
 					bottom: win.innerHeight
 				};
-				var clientRect = element[0].getBoundingClientRect();
-				var elementWidth = clientRect.right - clientRect.left;
-				var elementHeight = clientRect.bottom - clientRect.top;
+				var tooltipRect = tooltip[0].getBoundingClientRect();
+				var tooltipWidth = tooltipRect.right - tooltipRect.left;
+				var tooltipHeight = tooltipRect.bottom - tooltipRect.top;
+
 				var bounds = {
-					top: clientRect.top - elementHeight - targetHeight / 2 + pointerSize - margin,
-					left: clientRect.left + targetWidth + pointerSize - margin,
-					bottom: clientRect.bottom + targetHeight + targetHeight / 2 - pointerSize + margin,
-					right: clientRect.right + targetWidth + pointerSize + margin
+					top: tooltipRect.top - tooltipHeight - pointerSize - margin,
+					left: tooltipRect.left - tooltipWidth - pointerSize - margin,
+					bottom: tooltipRect.bottom + targetHeight + pointerSize + margin,
+					right: tooltipRect.right + targetWidth + pointerSize + margin
 				};
-				if (element.hasClass("tooltip-left") || element.hasClass("tooltip-right")) {
-					if (element.hasClass("tooltip-left")) {
-						bounds.left = clientRect.left - elementWidth - pointerSize - margin;
+
+				var targetIsFirst = !target.prevSibling()[0];
+
+				if (tooltip.hasClass("tooltip-left") || tooltip.hasClass("tooltip-right")) {
+					if (tooltip.hasClass("tooltip-right")) {
+							bounds.left = tooltipRect.left + targetWidth + pointerSize - margin;
 					}
-					bounds.top = clientRect.top - elementHeight / 2 + targetHeight / 2 - margin;
-					bounds.bottom = clientRect.bottom - elementHeight / 2 + targetHeight / 2 + margin;
+
+					if (targetIsFirst) {
+						bounds.top = tooltipRect.top - tooltipHeight / 2 - targetHeight / 2 - margin;
+						bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 - targetHeight / 2 + margin;
+					}
+					else {
+						bounds.top = tooltipRect.top - tooltipHeight / 2 + targetHeight / 2 - margin;
+						bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 + targetHeight / 2 + margin;
+					}
 				}
+				else {
+					if (targetIsFirst) {
+						bounds.top = tooltipRect.top - targetHeight - tooltipHeight - pointerSize - margin;
+						bounds.bottom = tooltipRect.bottom + pointerSize + margin;
+					}
+				}
+
 				return {
 					result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
 					topExceeded: bounds.top < viewport.top,
@@ -185,12 +204,14 @@
 	};
 
 	fn.showTooltip = function (message, resetOnly) {
-		var el = webui(this).first();
 
+		var el = webui(this).first();
 		var tooltip = el.children("[class*='tooltip-']").first();
 
 		if (tooltip.length) {
+
 			var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
+
 			if (tooltip.hasClass("tooltip-left")) {
 				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
 					if (ui.isWindowInBreakPointRange(["", "sm"])) {
@@ -201,13 +222,13 @@
 					if (tooltip.css("display") === "block") {
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
 							flipTooltip(tooltip, RIGHT, SHADOW_LEFT);
-						}
+						}	
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
 							flipTooltip(tooltip, TOP, SHADOW_LEFT);
-						}
+						}	
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
 							flipTooltip(tooltip, BOTTOM, SHADOW_LEFT);
-						}
+						}	
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
 							flipTooltip(tooltip, TOP, SHADOW_LEFT);
 						}
@@ -223,9 +244,15 @@
 					if (tooltip.css("display") === "block") {
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
 							flipTooltip(tooltip, BOTTOM, SHADOW_TOP);
-						}
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-							flipTooltip(tooltip, TOP, SHADOW_TOP);
+							if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
+								flipTooltip(tooltip, LEFT, SHADOW_TOP);
+								if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
+									flipTooltip(tooltip, RIGHT, SHADOW_TOP);
+									if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
+										flipTooltip(tooltip, TOP, SHADOW_TOP);
+									}			
+								}		
+							}	
 						}
 					}
 				}
@@ -248,7 +275,7 @@
 						}
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
 							flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
-						}
+						}		
 					}
 				}
 			} else if (tooltip.hasClass("tooltip-bottom")) {
@@ -261,9 +288,15 @@
 					if (tooltip.css("display") === "block") {
 						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
 							flipTooltip(tooltip, TOP, SHADOW_BOTTOM);
-						}
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-							flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
+							if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
+								flipTooltip(tooltip, RIGHT, SHADOW_BOTTOM);
+								if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
+									flipTooltip(tooltip, LEFT, SHADOW_BOTTOM);
+									if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
+										flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
+									}			
+								}		
+							}	
 						}
 					}
 				}
@@ -274,10 +307,12 @@
 					tooltip.html(message);
 				}
 				var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
+				var targetIsFirst = !target.prevSibling()[0] && (tooltip.hasClass("tooltip-top") || tooltip.hasClass("tooltip-bottom"));
+
 				if (target.length) {
 					var targetWidth = target[0].offsetWidth;
-					var targetHeight = target[0].offsetHeight;
-					var tooltipHeight = tooltip[0].offsetHeight;
+					var targetHeight = targetIsFirst ? 0 : target[0].offsetHeight;
+					var tooltipHeight = targetIsFirst ? tooltip[0].offsetHeight + target[0].offsetHeight : tooltip[0].offsetHeight;
 					positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
 					if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
 						tooltip.trigger("ui.tooltip.show.before");
@@ -365,17 +400,19 @@
 		}
 	});
 
-	webui(".tooltip .tooltip-static").siblings().first().keyDown(function (e) {	
+	webui(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
 		if (e.which == 27) {
 			e.preventDefault();
-			webui(this).parent(".tooltip").hideTooltip();
+			var el = webui(this).first();
+			el.parent(".tooltip").hideTooltip();
 		}
 	});
 	
-	webui(".tooltip .tooltip-focus").siblings().first().keyDown(function (e) {	
+	webui(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
 		if (e.which == 27) {
 			e.preventDefault();
-			webui(this).parent(".tooltip").hideTooltip();
+			var el = webui(this).first();
+			el.parent(".tooltip").hideTooltip();
 		}
 	});
 
