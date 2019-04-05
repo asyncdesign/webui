@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 8.3.0
+* Version: 8.4.0
 * MIT License
 */
 "use strict";
@@ -1332,8 +1332,7 @@
     webui.elementHoverAt = function(x, y) {
         return webui(root.elementFromPoint(x, y));
     };
-    /* NON-CHAINABLE FUNCTIONS */
-    webui.on = function(name, callback) {
+    /* NON-CHAINABLE FUNCTIONS */    webui.on = function(name, callback) {
         root.addEventListener(name, callback);
     };
     webui.off = function(name, callback) {
@@ -1604,17 +1603,19 @@
             document.addEventListener("DOMContentLoaded", callback);
         }
     };
-    webui.version = "v8.3.0";
-    /* RUN */
-    webui.ready(function() {
+    webui.version = "v8.4.0";
+    /* RUN */    webui.ready(function() {
         webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
         webui(".radio label").attr("tabindex", "0").attr("role", "radio");
+        webui(".checkbox.control-disabled label").attr("tabindex", "-1");
+        webui(".radio.control-disabled label").attr("tabindex", "-1");
+        webui(".control-group-disabled .checkbox label").attr("tabindex", "-1");
+        webui(".control-group-disabled .radio label").attr("tabindex", "-1");
         webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
         webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
         webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
     });
-    /* EVENTS */
-    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
+    /* EVENTS */    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
         if (e.which == 13 || e.which == 32) {
             e.preventDefault();
             this.click();
@@ -1682,8 +1683,7 @@
             }
         }
     });
-    /* COMPATIBILITY */
-    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
+    /* COMPATIBILITY */    if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
         // NODE
         module.exports = webui;
     }
@@ -1706,8 +1706,7 @@
             location.href = url;
         }
     };
-    /* PUBLIC */
-    webui.initMenus = function(options) {
+    /* PUBLIC */    webui.initMenus = function(options) {
         transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
         transitionType = options.transitionType !== void 0 ? options.transitionType : transitionType;
     };
@@ -1773,8 +1772,7 @@
             }
         }
     };
-    /* EVENTS */
-    webui(".menu-activator").click(function(e) {
+    /* EVENTS */    webui(".menu-activator").click(function(e) {
         var menuItem = webui(this);
         menuItem.toggleDropdown();
     });
@@ -1851,9 +1849,8 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, position = "top-right", duration = 300, transitionDuration = 300, width = "18.750rem", showHeader = true, inline = true, style = "outline-square", autoHide = false, showIcon = true, showClose = true;
-    /* PUBLIC */
-    webui.initAlerts = function(options) {
+    var position = "top-right", duration = 300, transitionDuration = 300, width = "18.750rem", showHeader = true, inline = true, style = "outline-square", autoHide = false, showIcon = true, showClose = true;
+    /* PUBLIC */    webui.initAlerts = function(options) {
         position = options.position !== void 0 ? options.position : position;
         duration = options.duration !== void 0 ? options.duration : duration;
         transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
@@ -1918,7 +1915,7 @@
                     }
                 }
             }
-            var alertItemBody = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
+            var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
             if (showHeader && inline) {
                 if (icon && close) {
                     webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
@@ -2060,8 +2057,7 @@
             break;
         }
     };
-    /* EVENTS */
-    webui(".alert-close").click(function(e) {
+    /* EVENTS */    webui(".alert-close").click(function(e) {
         e.preventDefault();
         var alert = webui(this).closest(".alert");
         alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
@@ -2070,12 +2066,13 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, tooltipAutoPos = true, tooltipAutoSize = true, tooltipAutoPosMargin = 0, transitionDuration = 500, LEFT = 0, TOP = 1, RIGHT = 2, BOTTOM = 3, SHADOW_LEFT = 0, SHADOW_TOP = 1, SHADOW_RIGHT = 2, SHADOW_BOTTOM = 3, getTooltipViewportStatus = function(element, requiredMargin) {
+    var fn = webui.fn, tooltipAutoPos = true, tooltipAutoSize = true, tooltipAutoPosMargin = 0, transitionDuration = 500, LEFT = 0, TOP = 1, RIGHT = 2, BOTTOM = 3, SHADOW_LEFT = 0, SHADOW_TOP = 1, SHADOW_RIGHT = 2, SHADOW_BOTTOM = 3, getTooltipViewportStatus = function(tooltip, requiredMargin) {
         if (arguments.length > 0) {
             var margin = 0;
             var pointerSize = 5;
-            var targetHeight = element.siblings().first()[0].offsetHeight;
-            var targetWidth = element.siblings().first()[0].offsetWidth;
+            var target = tooltip.siblings().first();
+            var targetHeight = target[0].offsetHeight;
+            var targetWidth = target[0].offsetWidth;
             if (arguments.length > 1 && requiredMargin != null && !isNaN(requiredMargin)) {
                 margin = requiredMargin;
             }
@@ -2085,21 +2082,32 @@
                 right: win.innerWidth,
                 bottom: win.innerHeight
             };
-            var clientRect = element[0].getBoundingClientRect();
-            var elementWidth = clientRect.right - clientRect.left;
-            var elementHeight = clientRect.bottom - clientRect.top;
+            var tooltipRect = tooltip[0].getBoundingClientRect();
+            var tooltipWidth = tooltipRect.right - tooltipRect.left;
+            var tooltipHeight = tooltipRect.bottom - tooltipRect.top;
             var bounds = {
-                top: clientRect.top - elementHeight - targetHeight / 2 + pointerSize - margin,
-                left: clientRect.left + targetWidth + pointerSize - margin,
-                bottom: clientRect.bottom + targetHeight + targetHeight / 2 - pointerSize + margin,
-                right: clientRect.right + targetWidth + pointerSize + margin
+                top: tooltipRect.top - tooltipHeight - pointerSize - margin,
+                left: tooltipRect.left - tooltipWidth - pointerSize - margin,
+                bottom: tooltipRect.bottom + targetHeight + pointerSize + margin,
+                right: tooltipRect.right + targetWidth + pointerSize + margin
             };
-            if (element.hasClass("tooltip-left") || element.hasClass("tooltip-right")) {
-                if (element.hasClass("tooltip-left")) {
-                    bounds.left = clientRect.left - elementWidth - pointerSize - margin;
+            var targetIsFirst = !target.prevSibling()[0];
+            if (tooltip.hasClass("tooltip-left") || tooltip.hasClass("tooltip-right")) {
+                if (tooltip.hasClass("tooltip-right")) {
+                    bounds.left = tooltipRect.left + targetWidth + pointerSize - margin;
                 }
-                bounds.top = clientRect.top - elementHeight / 2 + targetHeight / 2 - margin;
-                bounds.bottom = clientRect.bottom - elementHeight / 2 + targetHeight / 2 + margin;
+                if (targetIsFirst) {
+                    bounds.top = tooltipRect.top - tooltipHeight / 2 - targetHeight / 2 - margin;
+                    bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 - targetHeight / 2 + margin;
+                } else {
+                    bounds.top = tooltipRect.top - tooltipHeight / 2 + targetHeight / 2 - margin;
+                    bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 + targetHeight / 2 + margin;
+                }
+            } else {
+                if (targetIsFirst) {
+                    bounds.top = tooltipRect.top - targetHeight - tooltipHeight - pointerSize - margin;
+                    bounds.bottom = tooltipRect.bottom + pointerSize + margin;
+                }
             }
             return {
                 result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
@@ -2214,8 +2222,7 @@
             });
         }, 100);
     }
-    /* PUBLIC */
-    webui.initTooltips = function(options) {
+    /* PUBLIC */    webui.initTooltips = function(options) {
         tooltipAutoPos = options.autoPositioning !== void 0 ? options.autoPositioning : tooltipAutoPos;
         tooltipAutoPosMargin = options.autoPositioningMargin !== void 0 ? options.autoPositioningMargin : tooltipAutoPosMargin;
         tooltipAutoSize = options.autoResizing !== void 0 ? options.autoResizing : tooltipAutoSize;
@@ -2258,9 +2265,15 @@
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
                             flipTooltip(tooltip, BOTTOM, SHADOW_TOP);
-                        }
-                        if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-                            flipTooltip(tooltip, TOP, SHADOW_TOP);
+                            if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
+                                flipTooltip(tooltip, LEFT, SHADOW_TOP);
+                                if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
+                                    flipTooltip(tooltip, RIGHT, SHADOW_TOP);
+                                    if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
+                                        flipTooltip(tooltip, TOP, SHADOW_TOP);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -2296,9 +2309,15 @@
                     if (tooltip.css("display") === "block") {
                         if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
                             flipTooltip(tooltip, TOP, SHADOW_BOTTOM);
-                        }
-                        if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-                            flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
+                            if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
+                                flipTooltip(tooltip, RIGHT, SHADOW_BOTTOM);
+                                if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
+                                    flipTooltip(tooltip, LEFT, SHADOW_BOTTOM);
+                                    if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
+                                        flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -2309,10 +2328,11 @@
                     tooltip.html(message);
                 }
                 var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
+                var targetIsFirst = !target.prevSibling()[0] && (tooltip.hasClass("tooltip-top") || tooltip.hasClass("tooltip-bottom"));
                 if (target.length) {
                     var targetWidth = target[0].offsetWidth;
-                    var targetHeight = target[0].offsetHeight;
-                    var tooltipHeight = tooltip[0].offsetHeight;
+                    var targetHeight = targetIsFirst ? 0 : target[0].offsetHeight;
+                    var tooltipHeight = targetIsFirst ? tooltip[0].offsetHeight + target[0].offsetHeight : tooltip[0].offsetHeight;
                     positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
                     if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
                         tooltip.trigger("ui.tooltip.show.before");
@@ -2342,8 +2362,7 @@
             }
         }
     };
-    /* EVENTS */
-    webui(".tooltip").hoverIn(function() {
+    /* EVENTS */    webui(".tooltip").hoverIn(function() {
         var els = webui(this);
         var disabledTarget = els.children(".control-disabled");
         if (!disabledTarget.length) {
@@ -2363,7 +2382,7 @@
             webui(this).hideTooltip();
         }
     });
-    webui(".tooltip").children("input, button, select, textarea").focus(function() {
+    webui(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function() {
         var tooltip = webui(this).parent(".tooltip");
         var disabledTarget = webui(this).hasClass("control-disabled");
         if (!disabledTarget) {
@@ -2377,32 +2396,38 @@
             }
         }
     });
-    webui(".tooltip").children("input, button, select, textarea").blur(function() {
+    webui(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function() {
         var tooltip = webui(this).parent(".tooltip");
         var el = tooltip.children(".tooltip-focus").first();
         if (el.length && !el.hasClass("tooltip-noautohide")) {
             tooltip.hideTooltip();
         }
     });
-    webui(".tooltip .tooltip-static").nextSibling().keyDown(function(e) {
+    webui(".tooltip .tooltip-static").siblings().keyDown(function(e) {
         if (e.which == 27) {
             e.preventDefault();
-            webui(this).parent(".tooltip").hideTooltip();
+            var el = webui(this).first();
+            el.parent(".tooltip").hideTooltip();
         }
     });
-    webui(".tooltip .tooltip-focus").nextSibling().keyDown(function(e) {
+    webui(".tooltip .tooltip-focus").siblings().keyDown(function(e) {
         if (e.which == 27) {
             e.preventDefault();
-            webui(this).parent(".tooltip").hideTooltip();
+            var el = webui(this).first();
+            el.parent(".tooltip").hideTooltip();
         }
+    });
+    webui(".tooltip-close").click(function(e) {
+        e.preventDefault();
+        var tooltip = webui(this).closest(".tooltip");
+        tooltip.hideTooltip();
     });
 })(window);
 
 (function(win) {
     /* PRIVATE */
-    var root = webui.root, fn = webui.fn, transitionDuration;
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "modalControl", {
+    var fn = webui.fn, transitionDuration;
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "modalControl", {
         value: function(options) {
             var el = this;
             var settings = ui.extend({
@@ -2460,8 +2485,7 @@
         }
         return this;
     };
-    /* EVENTS */
-    webui(".modal-close").click(function(e) {
+    /* EVENTS */    webui(".modal-close").click(function(e) {
         e.preventDefault();
         var modal = webui(this).closest(".modal");
         modal.hideModal();
@@ -2476,7 +2500,6 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn;
     /* PUBLIC */
     Object.defineProperty(webui.prototype, "uploadControl", {
         value: function(options) {
@@ -2518,17 +2541,15 @@
                             for (var i = 0; i < files.length; i++) {
                                 textValue += files[i].name + "<br />";
                             }
-                            textValue += "<br />";
                         }
                         if (label.hasClass("hide-count") === false) {
                             if (files.length > 1) {
-                                textValue += "(" + files.length + ") files";
+                                textValue += "<br />(" + files.length + ") files.";
                             }
                         }
                         if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-                            textValue += "Files loaded.";
+                            textValue += "<br />Files ready.";
                         }
-                        textValue += "<br />";
                         label.html(textValue);
                         element.trigger("ui.upload.change.after");
                     }
@@ -2586,8 +2607,7 @@
         }
         element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "tabControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "tabControl", {
         value: function(options) {
             var settings = ui.extend({
                 activeTabId: null,
@@ -2656,7 +2676,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
+    var zoom = 1, mode = "full", responsive = true, transitionDuration = 1e3, resetRadial = function(el, params) {
         var radialWidth = el.offsetWidth;
         var radialHeight = el.offsetHeight;
         var radialContent = webui(el).find(".radial-content").css("transition", "all " + params.duration / 1e3 + "s ease-out");
@@ -2718,8 +2738,7 @@
             radialItem.css("top", radialTop);
         }
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "radialControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "radialControl", {
         value: function(options) {
             var settings = ui.extend({
                 zoom: 1,
@@ -2794,7 +2813,7 @@
                     radialItem.css("top", radialTop);
                 }
                 if (responsive) {
-                    webui(radials[i]).resize(resetRadial, {
+                    webui(radials[i]).resizeElement(resetRadial, {
                         zoom: zoom,
                         mode: mode,
                         transitionDuration: transitionDuration
@@ -2997,8 +3016,7 @@
             stopCarousel();
         };
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "carouselControl", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "carouselControl", {
         value: function(options) {
             var settings = ui.extend({
                 interval: 1e4,
@@ -3398,8 +3416,7 @@
         shapeInner.appendTo(shapeContainer);
         shapeContainer.appendTo(shape);
     }
-    /* PUBLIC */
-    fn.renderPolygonShape = function(polygonPoints) {
+    /* PUBLIC */    fn.renderPolygonShape = function(polygonPoints) {
         var shape, id;
         for (var i = 0; i < this.length; i++) {
             shape = webui(this[i]);
@@ -3413,7 +3430,7 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, resetScrollspy = function(container, settings) {
+    var resetScrollspy = function(container, settings) {
         var scrollTargets = webui(document).find("." + settings.scrollTargetClass);
         for (var i = 0; i < scrollTargets.length; i++) {
             var el = webui(scrollTargets[i]);
@@ -3429,8 +3446,7 @@
             }
         }
     };
-    /* PUBLIC */
-    Object.defineProperty(webui.prototype, "scrollspy", {
+    /* PUBLIC */    Object.defineProperty(webui.prototype, "scrollspy", {
         value: function(options) {
             var settings = ui.extend({
                 activatorSelector: "li > a",
@@ -3461,8 +3477,7 @@
 (function(win) {
     /* PRIVATE */
     var fn = webui.fn;
-    /* PUBLIC */
-    fn.snapPosition = function(targetElement, position, cssUnit, origin) {
+    /* PUBLIC */    fn.snapPosition = function(targetElement, position, cssUnit, origin) {
         var args = arguments, target = webui(targetElement), els = this, el, wrapper;
         if (args.length > 0 && target.length) {
             if (!target.parent().hasClass("snap-target-context")) {
@@ -3539,8 +3554,7 @@
         sizeUnit = sizeUnit.length > 0 ? sizeUnit : "px";
         return sizeUnit !== "auto" ? sizeUnit : "auto";
     };
-    /* PUBLIC */
-    fn.slideVertical = function(direction, distance, duration, callback) {
+    /* PUBLIC */    fn.slideVertical = function(direction, distance, duration, callback) {
         var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", distanceUnit = args.length > 1 ? getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? getValueFromCssSize(distance) : 0;
         uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
@@ -3864,8 +3878,7 @@
             return null;
         }
     };
-    /* PUBLIC */
-    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
+    /* PUBLIC */    fn.isChecked = function(dependsOnSelector, dependsOnRegExp) {
         var args = arguments, el, ok = true;
         if (args.length === 0) {
             for (var i = 0; i < this.length; i++) {
@@ -4269,8 +4282,7 @@
             return 0;
         }
     };
-    /* REGULAR EXPRESSIONS */
-    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
+    /* REGULAR EXPRESSIONS */    webui.BASIC_STRING = /^([a-zA-Z0-9_\s\-\+\~\.\£\@\*\%\(\)\,\:\'\/]{1,2999})$/;
     webui.ITEM_CODE = /^([A-Z0-9]{1,50})$/;
     webui.INTEGER = /^[-+]?\d+$/;
     webui.POSITIVE_INTEGER = /^\d+$/;

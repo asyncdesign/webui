@@ -1741,7 +1741,7 @@
 		<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
 		<p class="text-bold">Simple Method</p>
-		<a href="https://github.com/asyncdesign/webui/archive/v8.3.0.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
+		<a href="https://github.com/asyncdesign/webui/archive/v8.4.0.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
 
 		<ul class="list-bullet list-spacing-md">
 			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
@@ -1934,7 +1934,7 @@
 
 	<p class="text-bold">JavaScript DOM Ready Event</p>
 	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
-	<p><b>NOTE:</b> This event is does not need to be used if you are using a framework lifecycle load event.</p>
+	<p><b>NOTE:</b> This event does not need to be used if you are using a framework lifecycle loaded event.</p>
 
   <div class="row-spacing-md"></div>
   
@@ -2489,8 +2489,91 @@
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
   <p>WebUI provides the <span class="text-bold color-info">accessibility</span> class to increase the visibility of any form control. Depending on the 
-    type of control used, this behaviour may be when hover or focus events occur.
+    type of control used, this behaviour relates to control focus events.
 	</p>
+
+	<p>Adding the <span class="text-bold color-info">accessibility</span> class globally will cause all focusable controls to show a dark focus ring when
+		tabbed to. If more control over focus ring colors is required, then the class can be added to individual elements in combination with the
+		<span class="text-bold color-info">control-group-*</span> classes.
+	</p>
+
+	<span class="badge-square-xs background-info-light text-xs">Example</span>
+	<div class="row-spacing-sm"></div>
+
+	<div class="area accessibility">
+		<div class="form-row control-group">
+			<div class="table-col control-label-sm">
+				First name
+			</div>
+			<div class="table-col">
+				<input name="firstName" type="text" class="input-sm width-md-lg rounded-sm" />
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-col">
+				This demonstrates an <a href="#0" class="color-info text-underline">Accessible Hyperlink</a>, improving visibility when focused.
+			</div>
+		</div>
+	</div>
+	<div class="area control-group-success">
+		<div class="form-row control-group">
+			<div class="table-col control-label-sm">
+				First name
+			</div>
+			<div class="table-col">
+				<input name="firstName" type="text" class="input-sm width-md-lg rounded-sm accessibility" />
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-col">
+				This demonstrates an <a href="#0" class="color-info text-underline accessibility">Accessible Hyperlink</a>, improving visibility when focused.
+			</div>
+		</div>
+	</div>
+
+	<div class="row-spacing-md"></div>
+	
+	<span class="badge-square-xs background-success-light text-xs">Markup</span>
+	<div class="row-spacing-sm"></div>
+
+	<div class="body background-secondary code-block">
+		<div class="content-row">
+			<div class="content-col-20 scroll-y">
+
+<pre>&lt;div class="area accessibility"&gt;
+  &lt;div class="form-row control-group"&gt;
+    &lt;div class="table-col control-label-sm"&gt;
+      First name
+    &lt;/div&gt;
+    &lt;div class="table-col"&gt;
+      &lt;input name="firstName" type="text" class="input-sm width-md-lg rounded-sm" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row"&gt;
+    &lt;div class="form-col"&gt;
+      This demonstrates an &lt;a href="#0" class="color-info text-underline"&gt;Accessible Hyperlink&lt;/a&gt;, improving visibility when focused.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="area control-group-success"&gt;
+  &lt;div class="form-row control-group"&gt;
+    &lt;div class="table-col control-label-sm"&gt;
+      First name
+    &lt;/div&gt;
+    &lt;div class="table-col"&gt;
+      &lt;input name="firstName" type="text" class="input-sm width-md-lg rounded-sm accessibility" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-row"&gt;
+    &lt;div class="form-col"&gt;
+      This demonstrates an &lt;a href="#0" class="color-info text-underline accessibility"&gt;Accessible Hyperlink&lt;/a&gt;, improving visibility when focused.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                            
+			</div>
+		</div>
+	</div>
 
 
   <div class="row-spacing-md"></div>
@@ -2504,7 +2587,7 @@
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">accessibility</div>
-      <div class="table-col-13">Changes the appearance of controls on hover or when receiving focus.</div>
+      <div class="table-col-13">Changes the appearance of controls when receiving focus.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">screen-reader</div>

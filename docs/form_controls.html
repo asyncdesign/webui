@@ -1945,6 +1945,10 @@
       <div class="table-col-6">1rem</div>
     </div>
     <div class="table-row text-left">
+      <div class="table-col-14">control-label-xxs</div>
+      <div class="table-col-6">1.25rem</div>
+    </div>
+    <div class="table-row text-left">
       <div class="table-col-14">control-label-xs</div>
       <div class="table-col-6">1.5rem</div>
     </div>
@@ -1963,6 +1967,10 @@
     <div class="table-row text-left">
       <div class="table-col-14">control-label-xl</div>
       <div class="table-col-6">2.75rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-xxl</div>
+      <div class="table-col-6">3.125rem</div>
     </div>
   </div>
   
@@ -2796,19 +2804,27 @@
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">list</div>
-      <div class="table-col-13">Styles ordered and unordered lists without bullets, padding, or margins.</div>
+      <div class="table-col-13">Formats ordered and unordered lists without a list style or padding, and with a small left margin.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">list-inline</div>
-      <div class="table-col-13">Styles ordered and unordered lists inline and without bullets, padding, or margins.</div>
+      <div class="table-col-13">Formats ordered and unordered lists inline without a list style or padding, and with a small left margin.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">list-bullet</div>
       <div class="table-col-13">Sets the list style type to disc.</div>
     </div>
     <div class="table-row text-left">
+      <div class="table-col-7">list-bullet-square</div>
+      <div class="table-col-13">Sets the list style type to square.</div>
+    </div>
+    <div class="table-row text-left">
       <div class="table-col-7">list-alpha</div>
       <div class="table-col-13">Sets the list style type to lower-alpha.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-alpha-upper</div>
+      <div class="table-col-13">Sets the list style type to upper-alpha.</div>
     </div>
     <div class="table-row text-left">
       <div class="table-col-7">list-number</div>
@@ -2822,20 +2838,24 @@
 
   <div class="container grid-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
-      <div class="table-col-14">Classes</div>
-      <div class="table-col-6">Spacing</div>					
+      <div class="table-col-10">Classes</div>
+      <div class="table-col-5">Spacing</div>
+      <div class="table-col-5">Spacing (inline)</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-14">list-spacing-sm , list-inline-spacing-sm</div>
-      <div class="table-col-6">0.313rem</div>
+      <div class="table-col-10">list-spacing-sm</div>
+      <div class="table-col-5">0.313rem</div>
+      <div class="table-col-5">2.313rem</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-14">list-spacing-md , list-inline-spacing-md</div>
-      <div class="table-col-6">0.625rem</div>
+      <div class="table-col-10">list-spacing-md</div>
+      <div class="table-col-5">0.938rem</div>
+      <div class="table-col-5">2.938rem</div>
     </div>
     <div class="table-row text-left">
-      <div class="table-col-14">list-spacing-lg , list-inline-spacing-lg</div>
-      <div class="table-col-6">0.938rem</div>
+      <div class="table-col-10">list-spacing-lg</div>
+      <div class="table-col-5">1.563rem</div>
+      <div class="table-col-5">3.563rem</div>
     </div>
   </div>  
 
@@ -2860,7 +2880,14 @@
       </ul>
     </div>
     <div class="table-col">
-      <ul class="list-inline list-inline-spacing-md">
+      <ul class="list list-spacing-md list-alpha-upper">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+    <div class="table-col">
+      <ul class="list-inline list-spacing-md">
         <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>
@@ -2893,7 +2920,14 @@
     &lt;/ul&gt;
   &lt;/div&gt;
   &lt;div class="table-col"&gt;
-    &lt;ul class="list-inline list-inline-spacing-md"&gt;
+    &lt;ul class="list list-spacing-md list-alpha-upper"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;ul class="list-inline list-spacing-md"&gt;
       &lt;li&gt;Item 1&lt;/li&gt;
       &lt;li&gt;Item 2&lt;/li&gt;
       &lt;li&gt;Item 3&lt;/li&gt;
@@ -2973,7 +3007,7 @@
   <div class="table-row text-sm grid-padding-md">
     <div class="table-col">
       <div class="badge-square-xs warning">
-        This is a warning.
+        This is a warning
       </div>
     </div>
     <div class="table-col">
@@ -2983,7 +3017,7 @@
     </div>
     <div class="table-col">
       <div class="badge-round-sm dark">
-        A dark badge.
+        A dark badge
       </div>
     </div>
   </div>  

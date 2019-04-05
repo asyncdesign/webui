@@ -1,19 +1,40 @@
 
-<div align="center">
+<p align="center">
   <img src="images/webui_blue_96x96.png" alt="Webui Logo" />
-</div>
+</p>
 
 <h1 align="center"><b>WebUI</b></h1>
 
 *Web design made easy*
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
-[![License](https://img.shields.io/badge/contributions-welcome-yellow.svg)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
-[![License](https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com)](https://www.npmjs.com/package/asyncdesign-webui)
-[![](https://data.jsdelivr.com/v1/package/npm/asyncdesign-webui/badge)](https://www.jsdelivr.com/package/npm/asyncdesign-webui)
+<p>&nbsp;</p>
 
+<p align="center">
+  <a href="https://github.com/asyncdesign/webui/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License">
+  </a>
+  <a href="https://github.com/asyncdesign/webui">
+    <img src="https://img.shields.io/badge/contributions-welcome-yellow.svg" alt="Contributions">
+  </a>
+  <a href="https://www.npmjs.com/package/asyncdesign-webui">
+    <img src="https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com" alt="npm">
+  </a>
+  <a href="https://github.com/webpack/webpack">
+    <img src="https://img.shields.io/badge/Webpack-4.29.6-blue.svg" alt="npm">
+  </a>
+  <a href="https://github.com/asyncdesign/webui/network/dependencies">
+    <img src="https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg" alt="npm">
+  </a>
+  <a href="https://www.jsdelivr.com/package/npm/asyncdesign-webui">
+    <img src="https://data.jsdelivr.com/v1/package/npm/asyncdesign-webui/badge?style=rounded" alt="npm">
+  </a>
+</p>
+
+<p>&nbsp;</p>
 
 WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
+
+<p>&nbsp;</p>
 
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about WebUI**
 
@@ -23,7 +44,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.3.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.4.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -130,9 +151,9 @@ follow the same pattern as in the above table, but none includes WebUI component
 
 #### **JavaScript Document Load Event**
 
-All WebUI JavaScript should be enclosed in the document load event callback, as shown in the following example.
+All WebUI JavaScript should be enclosed in the document loaded event callback, as shown in the following example.
 
-**NOTE:** This event is does not need to be used if you are using a framework lifecycle load event.
+**NOTE:** This event does not need to be used if you are using a framework lifecycle loaded event.
 
 ````
 webui.ready(function() {
