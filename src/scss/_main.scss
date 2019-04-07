@@ -1690,11 +1690,9 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 .control-group-danger *[class*="radio"].accessibility label:focus {
 	border: 0.125rem solid $theme_danger;
 }
-.control-disabled,
+.control-disabled:not([class*="checkbox"]):not([class*="radio"]),
 .control-group-disabled .control,
-.control-group-disabled *[class*="input"],
-.control-group-disabled *[class*="checkbox"],
-.control-group-disabled *[class*="radio"] {
+.control-group-disabled *[class*="input"] {
 	color: $theme_disabled_foreground !important;
 	background-color: $theme_disabled !important;
 	border: 0.078rem solid $theme_disabled_border !important;
