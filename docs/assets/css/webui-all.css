@@ -1,6 +1,6 @@
 /*!
 * Name: webui-all - css
-* Version: 8.4.0
+* Version: 8.4.1
 * MIT License
 */
 .flow-col-1 {
@@ -7172,11 +7172,9 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 .control-group-danger *[class*="radio"].accessibility label:focus {
   border: 0.125rem solid #ff3d00; }
 
-.control-disabled,
+.control-disabled:not([class*="checkbox"]):not([class*="radio"]),
 .control-group-disabled .control,
-.control-group-disabled *[class*="input"],
-.control-group-disabled *[class*="checkbox"],
-.control-group-disabled *[class*="radio"] {
+.control-group-disabled *[class*="input"] {
   color: #bdbdbd !important;
   background-color: #eeeeee !important;
   border: 0.078rem solid #eeeeee !important; }
