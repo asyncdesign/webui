@@ -10,7 +10,7 @@
 	<title>title</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="dist/css/webui-all.css">
+	<link rel="stylesheet" href="dist/css/webui-components-all.css">
 
 	<link rel="stylesheet" href="site.css">
 
@@ -52,10 +52,12 @@
 
 			<div class="row-spacing-lg"></div>
 
-			<div class="panel">
+			<div class="body">
 				
 				<p class="text-lg">Components (Construct complex CSS components easily. You have the ability to pick and choose how your components look and behave.)</p>
 
+				<div class="row-spacing-xl"></div>
+				<div class="text-sm color-accent-5">Menu component</div>
 				<div class="row-spacing-xs"></div>
 
 				<div class="content-row show-bp-4-over">
@@ -241,6 +243,63 @@
 						</div>
 					</div>
 				</div>
+
+
+				<div class="row-spacing-xl"></div>
+				<div class="text-sm color-accent-5">Navbar</div>
+				<div class="row-spacing-xs"></div>
+
+
+				<nav class="nav-lg dark" id="navbar1">
+					<div class="nav-logo accent-1 pad-left-md pad-right-md">Your Logo</div>
+					<div class="nav-menu dark">
+						<div><a href="#0">Menu 1</a></div>
+						<div>
+							<div class="nav-menu accent-1">
+								<div class="pad-md-lg-bp-2-under"><input type="text" class="input-xs width-md move-right-bp-2-under" /></div>
+								<div><a href="#0">Sub Menu Item 2</a></div>
+								<div><a href="#0">Sub Menu Item 3</a></div>
+								<div><a href="#0">Sub Menu Item 4</a></div>
+								<div><a href="#0">Sub Menu Item 5</a></div>
+							</div>
+						</div>
+						<div><a href="#0">Menu 2</a></div>
+						<div>
+							<div class="nav-menu accent-1">
+								<div><a href="#0">Sub Menu Item 1</a></div>
+								<div><a href="#0">Sub Menu Item 2</a></div>
+								<div><a href="#0">Sub Menu Item 3</a></div>
+								<div><a href="#0">Sub Menu Item 4</a></div>
+								<div><a href="#0">Sub Menu Item 5</a></div>
+							</div>
+						</div>
+						<div><a href="#0">Menu 3</a></div>
+						<div>
+							<div class="nav-menu accent-1">
+								<div><a href="#0">Sub Menu Item 1</a></div>
+								<div><a href="#0">Sub Menu Item 2</a></div>
+								<div><a href="#0">Sub Menu Item 3</a></div>
+								<div><a href="#0">Sub Menu Item 4</a></div>
+								<div><a href="#0">Sub Menu Item 5</a></div>
+							</div>
+						</div>
+						<div><a href="#0">Menu 4</a></div>
+						<div>
+							<div class="nav-menu accent-1">
+								<div><a href="#0">Sub Menu Item 1</a></div>
+								<div><a href="#0">Sub Menu Item 2</a></div>
+								<div><a href="#0">Sub Menu Item 3</a></div>
+								<div><a href="#0">Sub Menu Item 4</a></div>
+								<div><a href="#0">Sub Menu Item 5</a></div>
+							</div>
+						</div>
+
+						<div class="width-full-bp-2-under pad-md-lg-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-over"><input type="text" class="input-xs width-md move-right-bp-2-under" /></div>
+
+					</div>
+					<div class="nav-button-lg accent-1" id="navToggle1"></div>
+				</nav>
+
 
 				<div class="content-row">
 					<div class="form-col-9 respond-bp-4-under">
@@ -503,67 +562,71 @@
 						<div class="content-col-2 respond-bp-4-under"></div>
 						<div class="content-col-9 respond-bp-4-under">
 
-							<div class="row-spacing-md"></div>
-							<div class="text-sm color-accent-5">Inclusive and exclusive menu behaviour</div>
-							<div class="row-spacing-xs"></div>
-
-							<div class="content-col-10 respond-bp-3-under">
-
+							<div class="content-row">
+								<div class="row-spacing-md"></div>
+								<div class="text-sm color-accent-5">Inclusive and exclusive menu behaviour</div>
 								<div class="row-spacing-xs"></div>
-				
-								<div class="dropdown">
-									<button type="button" class="menu-activator menu-button menu-button-dark text-left width-lg">Menu</button>
-									<div class="dropdown-content-expand width-lg">
-										<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 1</button>
-										<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_1">
-											<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
-											<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
-										</div>
-										<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 2</button>
-										<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_2">
-											<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
-											<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
-										</div>
-										<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 3</button>
-										<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_3">
-											<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
-											<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
-										</div>
-									</div>
+
+								<div class="content-col-10">
+
 									<div class="row-spacing-xs"></div>
-								</div>
-			
-							</div>
-							<div class="content-col-10 respond-bp-3-under">
-
-								<div class="dropdown text">
-									<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Using button links)</a>
-									<div class="dropdown-content-expand menu-inclusive pad-left-sm">
-										<div class="content-row">
-											<div class="content-col">
-												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
-												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-													<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
-													<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
-													<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
-												</div>
-												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
-												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-													<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
-													<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
-												</div>
-												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
-												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-													<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
-													<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
-												</div>
-
+					
+									<div class="dropdown">
+										<button type="button" class="menu-activator menu-button menu-button-dark text-left width-lg">Menu</button>
+										<div class="dropdown-content-expand width-lg">
+											<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 1</button>
+											<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_1">
+												<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
+												<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
+											</div>
+											<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 2</button>
+											<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_2">
+												<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
+												<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
+											</div>
+											<button type="button" class="menu-activator menu-button menu-button-accent-2 text-left">Menu 3</button>
+											<div class="dropdown-content-expand menu-inclusive menu-close width-lg" id="ddc_3">
+												<button type="button" data-url="https://www.google.co.uk" class="menu-button menu-button-light text-left">Google</button>
+												<button type="button" data-url="https://www.microsoft.com" class="menu-button menu-button-light text-left">Microsoft</button>
 											</div>
 										</div>
 										<div class="row-spacing-xs"></div>
 									</div>
+				
+								</div>
+								<div class="content-col-10">
+
+									<div class="dropdown text">
+										<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Using button links)</a>
+										<div class="dropdown-content-expand menu-inclusive pad-left-sm">
+											<div class="content-row">
+												<div class="content-col">
+													<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
+													<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+														<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
+														<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
+														<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
+													</div>
+													<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
+													<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+														<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
+														<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
+													</div>
+													<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
+													<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+														<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
+														<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
+													</div>
+
+												</div>
+											</div>
+											<div class="row-spacing-xs"></div>
+										</div>
+									</div>
 								</div>
 							</div>
+
+
 
 						</div>
 					</div>
@@ -643,7 +706,7 @@
 
 
 
-	<script type="text/javascript" src="dist/js/webui-standard.js"></script>
+	<script type="text/javascript" src="dist/js/webui-components.js"></script>
 
 	<script>
 
@@ -665,6 +728,18 @@
 				transitionDuration: 1000,
 				transitionType: "fade"
 			});
+
+			ui("#navbar1").navbarControl({ 
+				transitionDuration: 1000,
+				smallDeviceAlignment: "right",
+				largeDeviceOffset: -40,
+				smallDeviceBreakpoint: "sm"
+			});
+
+			ui("#navToggle1").navButtonControl({ 
+				transitionDuration: 300
+			});
+
 
 			// Positioning for left off-canvas menu button
 			ui("#ocButton1").snapPosition("#oc1", [1, 1], "rem", "top-right");

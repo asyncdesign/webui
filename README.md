@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com" alt="npm">
   </a>
   <a href="https://github.com/webpack/webpack">
-    <img src="https://img.shields.io/badge/Webpack-4.29.6-blue.svg" alt="npm">
+    <img src="https://img.shields.io/badge/Webpack-4.41.5-blue.svg" alt="npm">
   </a>
   <a href="https://github.com/asyncdesign/webui/network/dependencies">
     <img src="https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg" alt="npm">
@@ -44,7 +44,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v8.4.1.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v10.0.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -56,7 +56,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 </head>
 <body>
 
-  <script src="js/webui-standard.min.js"></script>
+  <script src="js/webui.min.js"></script>
 </body>
 </html>
 ````

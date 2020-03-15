@@ -1,0 +1,38 @@
+
+@mixin mediaQueryRules() {
+	nav.nav-sm {
+		& .nav-menu {
+			height: 0;
+		}
+	}
+	nav.nav-lg {
+		& .nav-menu {
+			height: 0;
+		}
+	}
+	.nav-menu {
+		position: relative;
+		padding: 0;
+		overflow: hidden;
+		display: none;
+		@include layer-3();
+    & > * {
+			display: none;
+			margin-left: 0;
+			& > .nav-menu {
+				position: initial;
+				display: initial;
+			}	
+		} 
+	}
+  .nav-menu, .nav-menu > *, .nav-menu > * a {
+		float: left;
+		width: 100%;
+  }
+	.nav-menu > * a {
+    padding: 0;
+	}	
+	*[class*="nav-button"] {
+		display: block;
+	}
+}

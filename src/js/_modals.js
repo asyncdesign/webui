@@ -106,5 +106,13 @@
 		}
 	});	
 
+
+	/* RUN */
+
+	webui.ready (function() {
+		webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
+	});
+
+
 }(window));
 		

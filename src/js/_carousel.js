@@ -14,7 +14,9 @@
 			transitionDuration = settings.transitionDuration,
 			transitionType = settings.transitionType,
 			transitionOrientation = settings.transitionOrientation,
-			
+			width = settings.width,
+			height = settings.height,
+		
 			carouselHolder,
 			carouselItems,
 			carouselItemCount,
@@ -47,9 +49,28 @@
 						carouselHolder.css(dir, "-" + (carouselItemWidth * current) + "px");
 					}
 				}	
-
 			},
-			
+			swap = function(callback) {
+
+				if (delta === 1)
+				{           
+						if (current === carouselItemCount) {
+								current = 1;
+						}
+						else {
+								current += 1;
+						}            
+				}
+				else {
+						if (current === 1) {
+								current = carouselItemCount;
+						}
+						else {
+								current -= 1;
+						}
+				}
+				if (callback) callback();
+			},
 			resetCarousel = function(carousel, itemCount, isResizeEvent) {
 
 				if (autoScale) {
@@ -64,51 +85,51 @@
 							carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", carousel[0].offsetHeight - itemBorderHeight + "px");
 					}
 
-					win.setTimeout(function() {
-							carouselItemWidth = ui.getAvgWidth(carouselItems);
-							carouselItemHeight = ui.getAvgHeight(carouselItems);
-							
-							if (transitionOrientation === "vertical" && transitionType === "slide") {
-									var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-									var t = carouselItemHeight * current;
-									carouselHolder.css("top", "-" + t + "px").css("height", h + "px").css("width", carouselItemWidth + "px");
-							} else {
-									var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-									var l = carouselItemWidth * current;
-									carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-							}
+					carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
+					carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
 
-							carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");					
-					}, 100);
-
+					if (transitionType === "crossfade") {
+						carouselHolder.css("width", carouselItemWidth + "px");
+					}
+					else {	
+						if (transitionOrientation === "vertical" && transitionType === "slide") {
+								var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+								var t = carouselItemHeight * current;
+								carouselHolder.css("top", "-" + t + "px").css("height", h + "px").css("width", carouselItemWidth + "px");
+						} else {
+								var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+								var l = carouselItemWidth * current;
+								carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+						}
+					}
+					carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");
 				}
 				else {
 					
 					carouselHolder = carousel.find(".carousel-item-holder");
-
 					carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
 
-					win.setTimeout(function() {
-							carouselItemWidth = ui.getMaxWidth(carouselItems);
-							carouselItemHeight = ui.getMaxHeight(carouselItems);
+					carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
+					carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
 
-							carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
+					carouselItems.children().css("width", carouselItemWidth - itemBorderWidth + "px").css("height", carouselItemHeight - itemBorderHeight + "px");
 
-							if (transitionOrientation === "vertical" && transitionType === "slide") {
-									var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
-									var t = carouselItemHeight * current;
-									carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
-							} else {
-									var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
-									var l = carouselItemWidth * current;
-									carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
-							}	
-					}, 100);
-
+					if (transitionType === "crossfade") {
+						carouselHolder.css("height", carouselItemHeight + "px").css("width", carouselItemWidth + "px");
+					}
+					else {
+						if (transitionOrientation === "vertical" && transitionType === "slide") {
+								var h = carouselItemHeight * itemCount + carouselItemHeight * 3;
+								var t = carouselItemHeight * current;
+								carouselHolder.css("height", h + "px").css("width", carouselItemWidth + "px").css("top", "-" + t + "px");
+						} else {
+								var w = carouselItemWidth * itemCount + carouselItemWidth * 3;
+								var l = carouselItemWidth * current;
+								carouselHolder.css("width", w + "px").css("height", carouselItemHeight + "px").css("left", "-" + l + "px");
+						}	
+					}
 				}
-
 			},
-
 			prevSlide = function () {
 
 				if (transitionCompleted) {
@@ -120,14 +141,27 @@
 					carousel.trigger("ui.carousel.change.before", [current]);
 		
 					if (transitionType === "fade") {
-						carouselHolder.fadeOut(1000, 0.5, function (element) {
+						carouselHolder.fadeOut(transitionDuration, 0.9, function (element) {
 							element.slideHorizontal("right", carouselItemWidth, 0, function (element) {
 								shift("left");
-								element.fadeIn(transitionDuration, 0, function (element) {
+								element.fadeIn(transitionDuration, 0.3, function (element) {
 									transitionCompleted = true;
 									carousel.trigger("ui.carousel.change.after", [current]);
 								});
 							});
+						});
+					}
+					else if (transitionType === "crossfade") {          
+						swap(function() {
+						var items = carouselHolder.find(".carousel-item");
+
+								items.eq(current - 1).fadeIn(transitionDuration, 0, function() {                  
+										items.eq(current - 1).siblings(".carousel-item").fadeOut(transitionDuration, 0, function() {
+
+												transitionCompleted = true;
+												carousel.trigger("ui.carousel.change.after", [ current ]);
+										});
+								});
 						});
 					}
 					else if (transitionType === "slide") {
@@ -147,9 +181,7 @@
 						}
 					}
 				}
-
-			},
-		
+			},		
 			nextSlide = function () {
 		
 				if (transitionCompleted) {
@@ -161,14 +193,27 @@
 					carousel.trigger("ui.carousel.change.before", [current]);
 		
 					if (transitionType === "fade") {
-						carouselHolder.fadeOut(1000, 0.5, function (element) {
+						carouselHolder.fadeOut(transitionDuration, 0.9, function (element) {
 							element.slideHorizontal("left", carouselItemWidth, 0, function (element) {
 								shift("left");
-								element.fadeIn(transitionDuration, 0, function (element) {							
+								element.fadeIn(transitionDuration, 0.3, function (element) {							
 									transitionCompleted = true;
 									carousel.trigger("ui.carousel.change.after", [current]);
 								});
 							});
+						});
+					}
+					else if (transitionType === "crossfade") {          
+						swap(function() {
+								var items = carouselHolder.find(".carousel-item");
+
+								items.eq(current - 1).fadeIn(transitionDuration, 0, function() {                  
+										items.eq(current - 1).siblings(".carousel-item").fadeOut(transitionDuration, 0, function() {
+
+												transitionCompleted = true;
+												carousel.trigger("ui.carousel.change.after", [ current ]);
+										});
+								});               
 						});
 					}
 					else if (transitionType === "slide") {
@@ -188,9 +233,7 @@
 						}
 					}
 				}
-
-			},
-		
+			},		
 			selectSlide = function (index) {
 			
 				if (!isNaN(index) && (index >= 0 && index < carouselItemCount)) {
@@ -199,20 +242,22 @@
 		
 					current = parseInt(index) + 1;
 		
-					if (transitionOrientation === "vertical" && transitionType === "slide") {
-						carouselHolder.css("top", "-" + (carouselItemHeight * current) + "px");
+					if (transitionType === "crossfade") {
+						carouselItems.eq(index).css("z-index", "1").siblings(".carousel-item").css("z-index", "auto");
 					}
 					else {
-						carouselHolder.css("left", "-" + (carouselItemWidth * current) + "px");
+						if (transitionOrientation === "vertical" && transitionType === "slide") {
+							carouselHolder.css("top", "-" + (carouselItemHeight * current) + "px");
+						}
+						else {
+							carouselHolder.css("left", "-" + (carouselItemWidth * current) + "px");
+						}
 					}
-
 					transitionCompleted = true;
 
 					carousel.trigger("ui.carousel.change.after", [current]);
 				}
-
 			},
-
 			playCarousel = function () {
 		
 				clearInterval(run);
@@ -230,19 +275,30 @@
 
 			},		
 		
-			stopCarousel = function () {
-		
+			stopCarousel = function () {		
 				clearInterval(run);
-
 			};		
 
 		carousel.css("display", "block");
+
+		if (autoScale) {
+			carousel.css("width", "100%");
+		}
+		else {
+			carousel.css("width", width).css("height", height);
+		}
+
 		carouselHolder = carousel.find(".carousel-item-holder").css("display", "block");     
 		carouselItems = carouselHolder.find(".carousel-item");
 		carouselItemCount = carouselItems.length;
 
 		if (carouselItemCount) {
-			carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
+			if (transitionType === "crossfade") {
+				carouselItems.css("position", "absolute").css("float", "left").children().css("display", "block").css("width", "100%").css("margin", "0");               
+			}
+			else {
+				carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
+			}
 			itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
 			itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
 
@@ -256,8 +312,13 @@
 					};		
 			}
 
-			webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
-			webui(carouselItems.first()[0].cloneNode(true)).appendTo(carouselHolder);
+			if (transitionType !== "crossfade") {
+				webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
+				webui(carouselItems.first()[0].cloneNode(true)).appendTo(carouselHolder);
+			}
+			else {
+				selectSlide(0);
+			}
 			
 			if (autoPlay) {
 					playCarousel();
@@ -273,33 +334,23 @@
 		}
 
 		this.prev = function () {
-
 			prevSlide();
-
 		};
 	
-		this.next = function () {
-	
+		this.next = function () {	
 			nextSlide();
-
 		};
 	
-		this.select = function (index) {
-	
+		this.select = function (index) {	
 			selectSlide(index);
-
 		};
 	
-		this.play = function () {
-	
+		this.play = function () {	
 			playCarousel();
-
 		};		
 	
-		this.stop = function () {
-	
+		this.stop = function () {	
 			stopCarousel();
-
 		};		
 	
 	};
@@ -317,39 +368,31 @@
 				stopOnHover: true,
 				transitionDuration: 1500,
 				transitionType: "slide",
-				transitionOrientation: "horizontal"
+				transitionOrientation: "horizontal",
+				width: "600px",
+				height: "400px"
 			}, options);
 
 			var control = new CarouselInstance(this, settings);
 
 			this.prev = function () {
-
-				control.prev();
-	
+				control.prev();	
 			};
 		
-			this.next = function () {
-		
-				control.next();
-	
+			this.next = function () {		
+				control.next();	
 			};
 		
-			this.select = function (index) {
-		
-				control.select(index);
-	
+			this.select = function (index) {		
+				control.select(index);	
 			};
 		
-			this.play = function () {
-		
-				control.play();
-	
+			this.play = function () {		
+				control.play();	
 			};		
 		
-			this.stop = function () {
-		
-				control.stop();
-				
+			this.stop = function () {		
+				control.stop();				
 			};		
 	
 			return this;

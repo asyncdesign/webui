@@ -1,0 +1,70 @@
+.nav-button-sm {
+	width: 2.375rem;
+	height: 2.375rem;
+	& .nav-button-item {
+		position: absolute;
+		right: 10px;
+		width: 20px;
+		height: 2px;
+	}
+}
+.nav-button-lg {
+	width: 2.75rem;
+	height: 2.75rem;
+	& .nav-button-item {
+		position: absolute;
+		right: 12px;
+		width: 22px;
+		height: 2px;
+	}
+}
+.nav-button-sm {
+	& .nav-button-item:nth-child(1) {
+		top: 11px;
+	}
+	& .nav-button-item:nth-child(2) {
+		top: 18px;
+	}
+	& .nav-button-item:nth-child(3) {
+		top: 25px;
+	}
+}
+.nav-button-sm.active {
+	& .nav-button-item:nth-child(1) {
+		top: 18px;
+		transform: rotate(45deg);
+	}
+	& .nav-button-item:nth-child(2) {
+		width: 0;
+	}
+	& .nav-button-item:nth-child(3) {
+		top: 18px;
+		transform: rotate(-45deg);
+	}
+}
+.nav-button-lg {
+	& .nav-button-item:nth-child(1) {
+		top: 13px;
+	}
+	& .nav-button-item:nth-child(2) {
+		top: 20px;
+	}
+	& .nav-button-item:nth-child(3) {
+		top: 27px;
+	}
+}
+.nav-button-lg.active {
+	& .nav-button-item:nth-child(1) {
+		top: 20px;
+		transform: rotate(45deg);
+	}
+	& .nav-button-item:nth-child(2) {
+		width: 0;
+	}
+	& .nav-button-item:nth-child(3) {
+		top: 20px;
+		transform: rotate(-45deg);
+	}
+}
+
+	

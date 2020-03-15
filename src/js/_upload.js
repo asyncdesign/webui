@@ -24,12 +24,12 @@
 			}
 			if (settings.scrollX) {
 				this.siblings().first("label").css("overflow-x", "scroll");
-				this.filter(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+				this.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
 			}
 			if (settings.scrollY) {
 				this.siblings().first("label").css("overflow-y", "scroll");
-				this.filter(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-				this.filter(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+				this.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+				this.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
 			}
 			
 			return this;

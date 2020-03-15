@@ -10,7 +10,7 @@
 	<title>title</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="dist/css/webui-all.css">
+	<link rel="stylesheet" href="dist/css/webui-components-all.css">
 
 	<link rel="stylesheet" href="site.css">
 
@@ -76,12 +76,12 @@
 
 			<div class="content-row">
 				
-				<div class="form-col-10 respond-bp-4-under">
+				<div class="content-col-10 respond-bp-4-under">
 					<div class="row-spacing-xs"></div>
 
-					<div class="content-row">
-						<div class="panel width-full outline-light">
-							<div class="carousel" id="carousel1"> <!-- Specify both width and height if using autoScale: false -->
+					<div class="content-row gap-vertical-md">
+						<div class="width-full">
+							<div class="carousel" id="carousel1">
 								<div class="carousel-item-holder">		
 									<div class="carousel-item border-md border-secondary">
 										<img src="images/landscape_1.jpg" />
@@ -93,13 +93,13 @@
 										<img src="images/landscape_3.jpg" />
 									</div>
 								</div>
-								<div class="text text-bold">
-									<a href="" id="c1_prev" class="text-xl pad-md background-transparent color-light fa fa-step-backward place-middle-left"></a>
-									<a href="" id="c1_next" class="text-xl pad-md background-transparent color-light fa fa-step-forward place-middle-right"></a>
+								<div class="text-normal text-xl text-bold">
+									<a href="" id="c1_prev" class="text-xl background-transparent color-light fa fa-step-backward place-middle-left left-xs layer-top"></a>
+									<a href="" id="c1_next" class="text-xl background-transparent color-light fa fa-step-forward place-middle-right right-xs layer-top"></a>
 								</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide1">Fade in text for slide 1</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide2">Fade in text for slide 2</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c1_textForSlide3">Fade in text for slide 3</div>			
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c1_textForSlide1">Fade in text for slide 1</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c1_textForSlide2">Fade in text for slide 2</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c1_textForSlide3">Fade in text for slide 3</div>			
 							</div>
 						
 							<div class="row-spacing-md"></div>
@@ -113,7 +113,7 @@
 										<option value="2">3</option>
 									</select>
 								</div>	
-								<div>
+								<div class="pad-right-xs-sm">
 									<button id="c1_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
 									<button id="c1_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
 								</div>
@@ -121,8 +121,8 @@
 						</div>
 
 
-						<div class="panel width-full outline-light">
-							<div class="carousel" id="carousel2"> <!-- Specify both width and height if using autoScale: false -->
+						<div class="width-full">
+							<div class="carousel" id="carousel2">
 								<div class="carousel-item-holder">		
 									<div class="carousel-item border-md border-secondary">
 										<img src="images/landscape_1.jpg" />
@@ -134,13 +134,13 @@
 										<img src="images/landscape_3.jpg" />
 									</div>
 								</div>
-								<div class="text text-bold">
-									<a href="" id="c2_prev" class="text-xl pad-md background-transparent color-light fa fa-step-backward place-middle-left"></a>
-									<a href="" id="c2_next" class="text-xl pad-md background-transparent color-light fa fa-step-forward place-middle-right"></a>
+								<div class="text-normal text-xl text-bold">
+									<a href="" id="c2_prev" class="text-xl background-transparent color-light fa fa-step-backward place-middle-left left-xs layer-top"></a>
+									<a href="" id="c2_next" class="text-xl background-transparent color-light fa fa-step-forward place-middle-right right-xs layer-top"></a>
 								</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide1">Fade in text for slide 1</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide2">Fade in text for slide 2</div>
-								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center" id="c2_textForSlide3">Fade in text for slide 3</div>			
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c2_textForSlide1">Fade in text for slide 1</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c2_textForSlide2">Fade in text for slide 2</div>
+								<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c2_textForSlide3">Fade in text for slide 3</div>			
 							</div>
 						
 							<div class="row-spacing-md"></div>
@@ -154,7 +154,7 @@
 										<option value="2">3</option>
 									</select>
 								</div>	
-								<div>
+								<div class="pad-right-xs-sm">
 									<button id="c2_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
 									<button id="c2_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
 								</div>
@@ -305,7 +305,7 @@
 							<div class="body">
 
 								<div class="form-row">
-									<div class="form-col-6 respond-bp-1-under">
+									<div class="form-col-6 respond-bp-2-under">
 										<div class="background-translucent-4">
 											<div class="content-row">
 												<div class="panel text-center color-accent-1"><i class="fa fa-photo fa-4x"></i></div>
@@ -332,12 +332,12 @@
 									</div>
 									<div class="form-col-1">
 									</div>
-									<div class="form-col-13 respond-bp-1-under">
+									<div class="form-col-13 respond-bp-2-under">
 										<div class="content-row">
-											<div class="content-col-20 text show-bp-1-over text-right">
+											<div class="content-col-20 text show-bp-2-over text-right">
 												Discover the rolling hills and valleys of Scotland. Expore shimmering rivers and lakes. See historic castles and more.
 											</div>
-											<div class="content-col-20 text text-center show-bp-1-under">
+											<div class="content-col-20 text text-center show-bp-2-under">
 												<div class="panel color-light">
 													Discover the rolling hills and valleys of Scotland. Expore shimmering rivers and lakes. See historic castles and more.
 												</div>
@@ -345,7 +345,7 @@
 										</div>
 
 										<div class="row-spacing-md"></div>
-										<div class="container move-right show-bp-1-over">
+										<div class="container move-right show-bp-2-over">
 											<div class="tooltip">
 												<div class="tooltip-dynamic tooltip-left tooltip-sm tooltip-accent-2 rounded-md">
 													Castle 1
@@ -353,7 +353,7 @@
 												<img src="images/scotland_1.png" width="85" height="75" alt="Media" />
 											</div>
 										</div>
-										<div class="container move-right-stacked show-bp-1-over">
+										<div class="container move-right-stacked show-bp-2-over">
 											<div class="tooltip">
 												<div class="tooltip-dynamic tooltip-left tooltip-sm tooltip-accent-2 rounded-md">
 													Castle 2
@@ -361,7 +361,7 @@
 												<img src="images/scotland_2.png" width="85" height="75" alt="Media" />
 											</div>
 										</div>
-										<div class="container show-bp-1-under">
+										<div class="container show-bp-2-under">
 											<div class="content-row">
 												<div class="content-col-20">
 													<div class="content-row">
@@ -390,10 +390,10 @@
 										<div class="row-spacing-xl"></div>
 										<div class="row-spacing-xs"></div>
 										<div class="content-row">
-											<div class="content-col-20 text-right show-bp-1-over">
+											<div class="content-col-20 text-right show-bp-2-over">
 												<button type="button" class="button-sm button-accent-1 width-lg accessibility">Book Now</button>
 											</div>
-											<div class="content-col-20 text-center show-bp-1-under">
+											<div class="content-col-20 text-center show-bp-2-under">
 												<button type="button" class="button-sm button-accent-1 width-lg accessibility">Book Now</button>
 											</div>
 										</div>
@@ -549,7 +549,7 @@
 	</div>
 
 
-	<script type="text/javascript" src="dist/js/webui-standard.js"></script>
+	<script type="text/javascript" src="dist/js/webui-components.js"></script>
 
 	<script>
 
@@ -582,15 +582,18 @@
 								autoScale: true,
 								playDirection: "next",
 								stopOnHover: true,
-								transitionDuration: 1000, 
-								transitionType: "fade", 
-								transitionOrientation: "vertical" 
+								transitionDuration: 1500, 
+								transitionType: "crossfade", 
+								transitionOrientation: "vertical",
+								width: "840px",
+								height: "245px"
 							});
 			
-
+			
 			carousel1.on("ui.carousel.change.before", function(e) {
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 			});
+			
 			
 			
 			carousel1.on("ui.carousel.change.after", function(e) {
@@ -609,6 +612,7 @@
 			ui("#c1_selectSlide").change( function() { 
 				var index = webui(this).getOptionValues(true)[0];
 				carousel1.select(index);
+				
 				if (index == 0) {
 					ui("#c1_textForSlide1").fadeIn(1000);
 				}
@@ -618,6 +622,7 @@
 				else if (index == 2) {
 					ui("#c1_textForSlide3").fadeIn(1000);
 				}
+				
 			});
 			
 			ui("#c1_prev").click(function(e) {
@@ -643,6 +648,7 @@
 			ui("#c1_textForSlide1").fadeIn(1000);
 				
 
+			
 			var carousel2 = ui("#carousel2")
 							.carouselControl({ 
 								interval: 10000,
@@ -650,9 +656,9 @@
 								autoScale: true,
 								playDirection: "next",
 								stopOnHover: true,
-								transitionDuration: 1000, 
+								transitionDuration: 1200, 
 								transitionType: "slide", 
-								transitionOrientation: "horizontal" 
+								transitionOrientation: "vertical" 
 							});
 
 
@@ -711,7 +717,7 @@
 			carousel2.select(1);
 			ui("#c2_textForSlide2").fadeIn(1000);
 				
-		});
+		}, true);
 
 			
 	</script>

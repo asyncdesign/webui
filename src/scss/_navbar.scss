@@ -1,0 +1,92 @@
+nav.nav-sm {
+	position: relative;
+	height: 2.375rem;
+	& .nav-logo {
+		height: 2.375rem;
+		line-height: 2.375rem;
+	}
+	& .nav-menu {
+		height: 2.375rem;
+		& > * {
+			line-height: 2.375rem;	
+			& > .nav-menu {
+				top: 2.375rem;
+			}
+		}	
+	}
+}
+nav.nav-lg {
+	position: relative;
+	height: 2.75rem;
+	& .nav-logo {
+		height: 2.75rem;
+		line-height: 2.75rem;
+	}
+	& .nav-menu {
+		height: 2.75rem;
+		& > * {
+			line-height: 2.75rem;	
+			& > .nav-menu {
+				top: 2.75rem;
+			}
+		}	
+	}
+}
+.nav-logo {
+  float: left;  
+}
+
+.nav-menu {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	@include layer-initial();
+  & > * {
+		float: left;	
+		margin-left: 1.25rem;
+		& > .nav-menu {
+			position: absolute;
+			display: none;
+			@include layer-3();
+		}
+	}
+	& a {
+		text-decoration: none;
+		background-color: inherit;
+		color: inherit;		
+	}
+}
+*[class*="nav-button"] {
+	position: absolute;
+	display: none;
+	top: 0;
+	right: 0;
+}
+
+@media screen and (max-width: 29.99rem) {
+	.mq-xs {
+		@include mediaQueryRules();
+	}
+}
+@media screen and (max-width: 39.99rem) {
+	.mq-sm {
+		@include mediaQueryRules();
+	}
+}
+@media screen and (max-width: 49.99rem) {
+	.mq-md {
+		@include mediaQueryRules();
+	}
+}
+@media screen and (max-width: 69.99rem) {
+	.mq-lg {
+		@include mediaQueryRules();
+	}
+}
+@media screen and (max-width: 89.99rem) {
+	.mq-xl {
+		@include mediaQueryRules();
+	}
+}
+

@@ -19,6 +19,21 @@
 	flex-flow: column-reverse nowrap;
 	flex: 1 1 auto;
 }
+.flex-cols-auto > * {
+	flex: 1 1 auto;
+}
+.flex-cols-initial > * {
+	flex: 0 1 auto;
+}
+.flex-cols-expand > * {
+	flex: 1 0 auto;
+}
+.flex-cols-fit > * {
+	flex: 1 0 0%;
+}
+.flex-cols-none > * {
+	flex: 0 0 auto;
+}
 .flex-auto {
   flex: 1 1 auto;
 }
@@ -201,7 +216,8 @@
 .flex-padding-xl > *[class*="flex-size-"] {
 	padding: 1.563rem;
 }
-*[class*="flex-"]:not(.flex-inline):not([class*="flex-order"]) {
+*[class*="flex-"]:not(.flex-inline):not([class*="flex-order"]),
+*[class*="flex-cols-"] > * {
 	display: flex; 	
 }
 *[class*="flex-"] {

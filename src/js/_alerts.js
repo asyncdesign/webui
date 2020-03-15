@@ -154,7 +154,7 @@
 			}
 		}
 	};
-	ui.showSuccessAlert = function(message, auto, icon, close) {
+	webui.showSuccessAlert = function(message, auto, icon, close) {
 		var msgType = "success";
 		switch (arguments.length) {
 		case 1:
@@ -169,7 +169,7 @@
 			break;
 		}
 	};
-	ui.showInfoAlert = function(message, auto, icon, close) {
+	webui.showInfoAlert = function(message, auto, icon, close) {
 		var msgType = "info";
 		switch (arguments.length) {
 		case 1:
@@ -184,7 +184,7 @@
 			break;
 		}
 	};
-	ui.showWarningAlert = function(message, auto, icon, close) {
+	webui.showWarningAlert = function(message, auto, icon, close) {
 		var msgType = "warning";
 		switch (arguments.length) {
 		case 1:
@@ -199,7 +199,7 @@
 			break;
 		}
 	};
-	ui.showDangerAlert = function(message, auto, icon, close) {
+	webui.showDangerAlert = function(message, auto, icon, close) {
 		var msgType = "danger";
 		switch (arguments.length) {
 		case 1:
