@@ -88,7 +88,8 @@
             var toggleBody = webui(".off-canvas-body");
             var toggleItem = toggleContainer.find(selector);
             var transitionDuration = parseInt(toggleContainer.data("transition-duration"));
-            var transitionDelay = toggleContainer.data("transition-delay");
+            var transitionInDelay = toggleContainer.data("transition-in-delay");
+            var transitionOutDelay = toggleContainer.data("transition-out-delay");
             var transitionType = toggleContainer.data("transition-type");
             var transitionOrientation = toggleContainer.data("transition-orientation");
             var transitionDistance = toggleContainer.data("transition-distance");
@@ -101,7 +102,7 @@
                     toggleBody.css("transition-duration", transitionDuration / 1e3 + "s");
                     if (toggleItem.hasClass("off-canvas-closed")) {
                         toggleItem.trigger("ui.toggleItem.show.before");
-                        delay(transitionDelay, function() {
+                        delay(transitionInDelay, function() {
                             toggleItem.removeClass("off-canvas-closed");
                             if (offCanvasLeft) {
                                 toggleItem.css("transform", "translate(0, 0)");
@@ -114,7 +115,7 @@
                         toggleItem.trigger("ui.toggleItem.show.after");
                     } else {
                         toggleItem.trigger("ui.toggleItem.hide.before");
-                        delay(transitionDelay, function() {
+                        delay(transitionOutDelay, function() {
                             if (offCanvasLeft) {
                                 toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
                                 toggleBody.css("transform", "translate(0, 0)");
@@ -130,7 +131,7 @@
                     ui(".off-canvas-left, .off-canvas-right").css("transition-duration", transitionDuration / 1e3 + "s");
                     if (toggleItem.hasClass("off-canvas-closed")) {
                         toggleItem.trigger("ui.toggleItem.show.before");
-                        delay(transitionDelay, function() {
+                        delay(transitionInDelay, function() {
                             toggleItem.removeClass("off-canvas-closed");
                             if (offCanvasLeft) {
                                 toggleItem.css("transform", "translate(0, 0)");
@@ -141,7 +142,7 @@
                         toggleItem.trigger("ui.toggleItem.show.after");
                     } else {
                         toggleItem.trigger("ui.toggleItem.hide.before");
-                        delay(transitionDelay, function() {
+                        delay(transitionOutDelay, function() {
                             if (offCanvasLeft) {
                                 toggleItem.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
                             } else {
@@ -157,7 +158,7 @@
                         el = webui(els[i]);
                         if (el.css("display") === "block") {
                             el.trigger("ui.toggleItem.hide.before");
-                            delay(transitionDelay, function() {
+                            delay(transitionOutDelay, function() {
                                 if (transitionDuration && transitionType === "fade") {
                                     el.fadeOut(transitionDuration, 0, function() {
                                         el.trigger("ui.toggleItem.hide.after");
@@ -179,12 +180,14 @@
                             });
                         } else {
                             el.trigger("ui.toggleItem.show.before");
-                            delay(transitionDelay, function() {
-                                if (transitionDuration && transitionType === "fade") {
+                            if (transitionDuration && transitionType === "fade") {
+                                delay(transitionInDelay, function() {
                                     el.fadeIn(transitionDuration, 0, function() {
                                         el.trigger("ui.toggleItem.show.after");
                                     });
-                                } else if (transitionDuration && transitionType === "collapse") {
+                                });
+                            } else if (transitionDuration && transitionType === "collapse") {
+                                delay(transitionInDelay, function() {
                                     if (transitionOrientation === "horizontal") {
                                         if (transitionDistance) {
                                             el.expandHorizontal(transitionDuration, transitionDistance, function() {
@@ -206,11 +209,15 @@
                                             });
                                         }
                                     }
-                                } else {
+                                });
+                            } else {
+                                delay(transitionInDelay, function() {
                                     el.show();
                                     el.trigger("ui.toggleItem.show.after");
-                                }
-                                if (toggleContainer.hasClass("toggle-inclusive") === false) {
+                                });
+                            }
+                            if (toggleContainer.hasClass("toggle-inclusive") === false) {
+                                delay(transitionOutDelay, function() {
                                     if (transitionDuration && transitionType === "fade") {
                                         el.siblings(".toggle-item").fadeOut(transitionDuration);
                                     } else if (transitionDuration && transitionType === "collapse") {
@@ -222,8 +229,8 @@
                                     } else {
                                         el.siblings(".toggle-item").hide();
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     }
                 }
@@ -1441,7 +1448,7 @@
     /* NON-CHAINABLE FUNCTIONS */    webui.elementHoverAt = function(x, y) {
         return webui(root.elementFromPoint(x, y));
     };
-    webui.calculateCursorSpeed = function(e, previousEvent) {
+    webui.calculatePointerSpeed = function(e, previousEvent) {
         var x = e.clientX, y = e.clientY, prevX, prevY, prevT, previousTime, distX, distY, interval, velocity;
         if (previousEvent === false) {
             return 0;
@@ -1906,7 +1913,29 @@
             runToggleAction(selector, toggleContainer);
         }
     });
+    webui(".toggle-deactivator-focus").blur(function(e) {
+        e.preventDefault();
+        var selector = webui(this).data("target");
+        if (!selector) {
+            selector = webui(this).attr("href");
+        }
+        if (selector && selector.length) {
+            var toggleContainer = webui(this).closest(".toggle-container");
+            runToggleAction(selector, toggleContainer);
+        }
+    });
     webui(".toggle-activator-dynamic").hoverIn(function(e) {
+        e.preventDefault();
+        var selector = webui(this).data("target");
+        if (!selector) {
+            selector = webui(this).attr("href");
+        }
+        if (selector && selector.length) {
+            var toggleContainer = webui(this).closest(".toggle-container");
+            runToggleAction(selector, toggleContainer);
+        }
+    });
+    webui(".toggle-deactivator-dynamic").hoverOut(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
         if (!selector) {
