@@ -504,7 +504,10 @@
     fn.prevSibling = function(query) {
         var args = arguments.length, nodes = [];
         for (var i = 0; i < this.length; i++) {
-            nodes.push(this[i].previousElementSibling);
+            var el = this[i].previousElementSibling;
+            if (el) {
+                nodes.push(el);
+            }
         }
         return args ? webui(nodes).select(query) : webui(nodes);
     };
@@ -522,7 +525,10 @@
     fn.nextSibling = function(query) {
         var args = arguments.length, nodes = [];
         for (var i = 0; i < this.length; i++) {
-            nodes.push(this[i].nextElementSibling);
+            var el = this[i].nextElementSibling;
+            if (el) {
+                nodes.push(el);
+            }
         }
         return args ? webui(nodes).select(query) : webui(nodes);
     };
@@ -1141,7 +1147,7 @@
         }
         return this;
     };
-    fn.initialize = function(enabledCssClass, disabledCssClass, enabledValue, disabledValue) {
+    fn.initializeOptionsList = function(enabledCssClass, disabledCssClass, enabledValue, disabledValue) {
         var args = arguments, el;
         for (var i = 0; i < this.length; i++) {
             el = webui(this[i]);
@@ -1164,16 +1170,6 @@
                 }
                 if (totalOptions > 1) {
                     el.setSelectedOption(0);
-                }
-            } else if (isTextbox(this[i]) || isPassword(this[i]) || isTextarea(this[i])) {
-                if (args.length === 1 || args.length === 2) {
-                    el.enable(enabledCssClass, disabledCssClass);
-                } else if (args.length === 1 || args.length === 2) {
-                    el.disable(disabledCssClass, enabledCssClass);
-                } else if (args.length === 3 || args.length === 4) {
-                    el.enable(enabledCssClass, disabledCssClass, enabledValue);
-                } else if (args.length === 3 || args.length === 4) {
-                    el.disable(disabledCssClass, enabledCssClass, disabledValue);
                 }
             }
         }
@@ -1326,7 +1322,7 @@
                     this.css("max-height", height);
                 }
             } else if (args.length === 3 && (breakPointRange && breakPointRange.length === 2)) {
-                if (webui.isWindowInBreakPointRange([ "", breakPointRange[0] ])) {
+                if (webui.isWindowInBreakPointRange([ 0, breakPointRange[0] ])) {
                     this.css("min-height", "1px");
                 }
             }
@@ -1617,23 +1613,23 @@
         var max = 0;
         if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
             switch (breakPointRange[0]) {
-              case "xs":
+              case 1:
                 min = 30;
                 break;
 
-              case "sm":
+              case 2:
                 min = 40;
                 break;
 
-              case "md":
+              case 3:
                 min = 50;
                 break;
 
-              case "lg":
+              case 4:
                 min = 70;
                 break;
 
-              case "xl":
+              case 5:
                 min = 90;
                 break;
 
@@ -1642,23 +1638,23 @@
                 break;
             }
             switch (breakPointRange[1]) {
-              case "xs":
+              case 1:
                 max = 29.99;
                 break;
 
-              case "sm":
+              case 2:
                 max = 39.99;
                 break;
 
-              case "md":
+              case 3:
                 max = 49.99;
                 break;
 
-              case "lg":
+              case 4:
                 max = 69.99;
                 break;
 
-              case "xl":
+              case 5:
                 max = 89.99;
                 break;
 
@@ -1892,6 +1888,17 @@
         }
     });
     webui(".toggle-activator").click(function(e) {
+        e.preventDefault();
+        var selector = webui(this).data("target");
+        if (!selector) {
+            selector = webui(this).attr("href");
+        }
+        if (selector && selector.length) {
+            var toggleContainer = webui(this).closest(".toggle-container");
+            runToggleAction(selector, toggleContainer);
+        }
+    });
+    webui(".toggle-deactivator").click(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
         if (!selector) {

@@ -504,7 +504,10 @@
     fn.prevSibling = function(query) {
         var args = arguments.length, nodes = [];
         for (var i = 0; i < this.length; i++) {
-            nodes.push(this[i].previousElementSibling);
+            var el = this[i].previousElementSibling;
+            if (el) {
+                nodes.push(el);
+            }
         }
         return args ? webui(nodes).select(query) : webui(nodes);
     };
@@ -522,7 +525,10 @@
     fn.nextSibling = function(query) {
         var args = arguments.length, nodes = [];
         for (var i = 0; i < this.length; i++) {
-            nodes.push(this[i].nextElementSibling);
+            var el = this[i].nextElementSibling;
+            if (el) {
+                nodes.push(el);
+            }
         }
         return args ? webui(nodes).select(query) : webui(nodes);
     };
@@ -1141,7 +1147,7 @@
         }
         return this;
     };
-    fn.initialize = function(enabledCssClass, disabledCssClass, enabledValue, disabledValue) {
+    fn.initializeOptionsList = function(enabledCssClass, disabledCssClass, enabledValue, disabledValue) {
         var args = arguments, el;
         for (var i = 0; i < this.length; i++) {
             el = webui(this[i]);
@@ -1164,16 +1170,6 @@
                 }
                 if (totalOptions > 1) {
                     el.setSelectedOption(0);
-                }
-            } else if (isTextbox(this[i]) || isPassword(this[i]) || isTextarea(this[i])) {
-                if (args.length === 1 || args.length === 2) {
-                    el.enable(enabledCssClass, disabledCssClass);
-                } else if (args.length === 1 || args.length === 2) {
-                    el.disable(disabledCssClass, enabledCssClass);
-                } else if (args.length === 3 || args.length === 4) {
-                    el.enable(enabledCssClass, disabledCssClass, enabledValue);
-                } else if (args.length === 3 || args.length === 4) {
-                    el.disable(disabledCssClass, enabledCssClass, disabledValue);
                 }
             }
         }
@@ -1326,7 +1322,7 @@
                     this.css("max-height", height);
                 }
             } else if (args.length === 3 && (breakPointRange && breakPointRange.length === 2)) {
-                if (webui.isWindowInBreakPointRange([ "", breakPointRange[0] ])) {
+                if (webui.isWindowInBreakPointRange([ 0, breakPointRange[0] ])) {
                     this.css("min-height", "1px");
                 }
             }
@@ -1617,23 +1613,23 @@
         var max = 0;
         if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
             switch (breakPointRange[0]) {
-              case "xs":
+              case 1:
                 min = 30;
                 break;
 
-              case "sm":
+              case 2:
                 min = 40;
                 break;
 
-              case "md":
+              case 3:
                 min = 50;
                 break;
 
-              case "lg":
+              case 4:
                 min = 70;
                 break;
 
-              case "xl":
+              case 5:
                 min = 90;
                 break;
 
@@ -1642,23 +1638,23 @@
                 break;
             }
             switch (breakPointRange[1]) {
-              case "xs":
+              case 1:
                 max = 29.99;
                 break;
 
-              case "sm":
+              case 2:
                 max = 39.99;
                 break;
 
-              case "md":
+              case 3:
                 max = 49.99;
                 break;
 
-              case "lg":
+              case 4:
                 max = 69.99;
                 break;
 
-              case "xl":
+              case 5:
                 max = 89.99;
                 break;
 
@@ -1892,6 +1888,17 @@
         }
     });
     webui(".toggle-activator").click(function(e) {
+        e.preventDefault();
+        var selector = webui(this).data("target");
+        if (!selector) {
+            selector = webui(this).attr("href");
+        }
+        if (selector && selector.length) {
+            var toggleContainer = webui(this).closest(".toggle-container");
+            runToggleAction(selector, toggleContainer);
+        }
+    });
+    webui(".toggle-deactivator").click(function(e) {
         e.preventDefault();
         var selector = webui(this).data("target");
         if (!selector) {
@@ -2145,54 +2152,58 @@
 
 (function(win) {
     /* PRIVATE */
-    var transitionDuration = 300, smallDeviceAlignment = "left", largeDeviceOffset = -40, smallDeviceBreakpoint = "sm", resetNavbar = function(el, params) {
-        var rootMenus = ui(el).children(".nav-menu");
-        var childMenus = ui(el).children(".nav-menu").find(".nav-menu");
+    var transitionDuration = 300, largeDeviceOffset = -40, smallDeviceBreakpoint = 2, smallDeviceAlignment = "left", resetNavbar = function(el, params) {
         var mq = null;
         var mqClassName = null;
         switch (params.smallDeviceBreakpoint) {
-          case "xs":
+          case 1:
             mq = window.matchMedia("(max-width: 29.99rem)");
-            mqClassName = "mq-xs";
+            mqClassName = "mq-1";
             break;
 
-          case "sm":
+          case 2:
             mq = window.matchMedia("(max-width: 39.99rem)");
-            mqClassName = "mq-sm";
+            mqClassName = "mq-2";
             break;
 
-          case "md":
+          case 3:
             mq = window.matchMedia("(max-width: 49.99rem)");
-            mqClassName = "mq-md";
+            mqClassName = "mq-3";
             break;
 
-          case "lg":
+          case 4:
             mq = window.matchMedia("(max-width: 69.99rem)");
-            mqClassName = "mq-lg";
+            mqClassName = "mq-4";
             break;
 
-          case "xl":
+          case 5:
             mq = window.matchMedia("(max-width: 89.99rem)");
-            mqClassName = "mq-xl";
+            mqClassName = "mq-5";
             break;
 
           default:
-            mqClassName = "mq-sm";
+            mqClassName = "mq-2";
             break;
         }
+        var navbar = ui(el);
+        var rootMenus = navbar.children(".nav-menu");
+        var childMenus = navbar.children(".nav-menu").find(".nav-menu");
+        var components = rootMenus.children(".nav-component");
         if (!mq.matches) {
-            ui(el).removeClass(mqClassName);
-            ui(el).find("[class*='nav-button']").css("display", "none");
+            navbar.removeClass(mqClassName);
+            navbar.find("[class*='nav-button']").css("display", "none");
             rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
-            rootMenus.css("height", "auto").css("display", "block");
-            childMenus.css("padding", "0").css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceOffset) + "px");
+            rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.375rem" : "2.75rem").addClass("active");
+            childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceOffset) + "px");
+            childMenus.css("top", navbar.css("height"));
             childMenus.parent().siblings().children(".nav-menu").hide();
-            childMenus.children().css("float", "none");
             childMenus.hide();
+            components.css("display", "flex").css("height", navbar.css("height"));
         } else {
-            ui(el).addClass(mqClassName);
-            ui(el).find("[class*='nav-button']").css("display", "block").removeClass("active");
-            rootMenus.css("height", "0").css("display", "none").removeClass("active");
+            navbar.addClass(mqClassName);
+            navbar.find("[class*='nav-button']").css("display", "block").removeClass("active");
+            rootMenus.css("display", "none").removeClass("active");
+            rootMenus.find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
             if (smallDeviceAlignment === "center") {
                 rootMenus.find("a").css("text-align", "center");
             } else if (smallDeviceAlignment === "right") {
@@ -2200,8 +2211,7 @@
             } else {
                 rootMenus.find("a").css("text-align", "left");
             }
-            rootMenus.find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
-            childMenus.css("margin-left", "0").removeClass("active");
+            childMenus.css("margin-left", "0").css("top", "0").removeClass("active");
             childMenus.parent().siblings().children(".nav-menu").hide();
             childMenus.hide();
         }
@@ -2210,55 +2220,56 @@
         value: function(options) {
             var settings = ui.extend({
                 transitionDuration: 300,
-                smallDeviceAlignment: "left",
                 largeDeviceOffset: -40,
-                smallDeviceBreakpoint: "sm"
+                smallDeviceBreakpoint: 2,
+                smallDeviceAlignment: "left"
             }, options);
             transitionDuration = settings.transitionDuration;
-            smallDeviceAlignment = settings.smallDeviceAlignment;
             largeDeviceOffset = settings.largeDeviceOffset;
             smallDeviceBreakpoint = settings.smallDeviceBreakpoint;
-            var navbars = webui(this);
-            var navItems = navbars.children(".nav-menu").children();
-            var navButtons = navbars.find("[class*='nav-button']");
+            smallDeviceAlignment = settings.smallDeviceAlignment;
             var mq = null;
             var mqClassName = null;
             switch (smallDeviceBreakpoint) {
-              case "xs":
+              case 1:
                 mq = window.matchMedia("(max-width: 29.99rem)");
-                mqClassName = "mq-xs";
+                mqClassName = "mq-1";
                 break;
 
-              case "sm":
+              case 2:
                 mq = window.matchMedia("(max-width: 39.99rem)");
-                mqClassName = "mq-sm";
+                mqClassName = "mq-2";
                 break;
 
-              case "md":
+              case 3:
                 mq = window.matchMedia("(max-width: 49.99rem)");
-                mqClassName = "mq-md";
+                mqClassName = "mq-3";
                 break;
 
-              case "lg":
+              case 4:
                 mq = window.matchMedia("(max-width: 69.99rem)");
-                mqClassName = "mq-lg";
+                mqClassName = "mq-4";
                 break;
 
-              case "xl":
+              case 5:
                 mq = window.matchMedia("(max-width: 89.99rem)");
-                mqClassName = "mq-xl";
+                mqClassName = "mq-5";
                 break;
 
               default:
-                mqClassName = "mq-sm";
+                mqClassName = "mq-2";
                 break;
             }
+            var navbars = webui(this);
+            var navItems = navbars.children(".nav-menu").children();
+            var navButtons = navbars.find("[class*='nav-button']");
             if (!mq.matches) {
                 navbars.removeClass(mqClassName);
                 navbars.children(".nav-menu").find("a").css("padding-left", "0").css("padding-right", "1.25rem");
+                navItems.children(".nav-menu").css("top", navbars.css("height"));
             } else {
                 navbars.addClass(mqClassName);
-                navbars.find(".nav-menu").css("height", "0");
+                navbars.children(".nav-menu").find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
                 if (smallDeviceAlignment === "center") {
                     navbars.children(".nav-menu").find("a").css("text-align", "center");
                 } else if (smallDeviceAlignment === "right") {
@@ -2266,7 +2277,7 @@
                 } else {
                     navbars.children(".nav-menu").find("a").css("text-align", "left");
                 }
-                navbars.children(".nav-menu").find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
+                navItems.children(".nav-menu").css("height", "0").css("top", "0");
             }
             navButtons.click(function(e) {
                 e.preventDefault();
@@ -2279,29 +2290,31 @@
                 }
             });
             navItems.click(function(e) {
-                var activeMenus = ui(this).nextSibling().children(".nav-menu");
-                activeMenus.toggleClass("active").parent().siblings().children(".nav-menu").removeClass("active");
-                if (!mq.matches) {
-                    navbars.removeClass(mqClassName);
-                    activeMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) - largeDeviceOffset) + "px");
-                    if (activeMenus.css("display") === "none") {
-                        activeMenus.css("padding", "0");
-                        activeMenus.parent().siblings().children(".nav-menu").hide();
-                        activeMenus.children().css("float", "none");
-                        activeMenus.expandVertical(transitionDuration, "auto");
+                if (ui(this).nextSibling().length) {
+                    var activeMenus = ui(this).nextSibling().children(".nav-menu");
+                    activeMenus.toggleClass("active").parent().siblings().children(".nav-menu").removeClass("active");
+                    if (!mq.matches) {
+                        navbars.removeClass(mqClassName);
+                        activeMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) - largeDeviceOffset) + "px");
+                        if (activeMenus.css("display") === "none") {
+                            activeMenus.children().css("display", "block");
+                            activeMenus.parent().siblings().children(".nav-menu").hide();
+                            activeMenus.children().css("float", "none");
+                            activeMenus.expandVertical(transitionDuration, "auto");
+                        } else {
+                            activeMenus.collapseVertical(transitionDuration);
+                        }
                     } else {
-                        activeMenus.collapseVertical(transitionDuration);
-                    }
-                } else {
-                    navbars.addClass(mqClassName);
-                    activeMenus.css("height", "auto");
-                    activeMenus.children().css("height", "auto");
-                    if (activeMenus.hasClass("active")) {
-                        activeMenus.parent().siblings().children(".nav-menu").collapseVertical(transitionDuration);
-                        activeMenus.children().css("display", "block");
-                        activeMenus.expandVertical(transitionDuration, "auto");
-                    } else {
-                        activeMenus.collapseVertical(transitionDuration);
+                        navbars.addClass(mqClassName);
+                        activeMenus.css("height", "auto");
+                        activeMenus.children().css("height", "auto");
+                        if (activeMenus.hasClass("active")) {
+                            activeMenus.parent().siblings().children(".nav-menu").collapseVertical(transitionDuration);
+                            activeMenus.children().css("display", "block");
+                            activeMenus.expandVertical(transitionDuration, "auto");
+                        } else {
+                            activeMenus.collapseVertical(transitionDuration);
+                        }
                     }
                 }
             });
@@ -2723,7 +2736,7 @@
             var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
             if (tooltip.hasClass("tooltip-left")) {
                 if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (ui.isWindowInBreakPointRange([ 0, 2 ])) {
                         tooltipWidth = 125;
                     }
                 }
@@ -2745,7 +2758,7 @@
                 }
             } else if (tooltip.hasClass("tooltip-top")) {
                 if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (ui.isWindowInBreakPointRange([ 0, 2 ])) {
                         tooltipWidth = 125;
                     }
                 }
@@ -2767,7 +2780,7 @@
                 }
             } else if (tooltip.hasClass("tooltip-right")) {
                 if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (ui.isWindowInBreakPointRange([ 0, 2 ])) {
                         tooltipWidth = 125;
                     }
                 }
@@ -2789,7 +2802,7 @@
                 }
             } else if (tooltip.hasClass("tooltip-bottom")) {
                 if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-                    if (ui.isWindowInBreakPointRange([ "", "sm" ])) {
+                    if (ui.isWindowInBreakPointRange([ 0, 2 ])) {
                         tooltipWidth = 125;
                     }
                 }

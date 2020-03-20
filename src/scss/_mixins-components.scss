@@ -1,19 +1,7 @@
 
 @mixin mediaQueryRules() {
-	nav.nav-sm {
-		& .nav-menu {
-			height: 0;
-		}
-	}
-	nav.nav-lg {
-		& .nav-menu {
-			height: 0;
-		}
-	}
 	.nav-menu {
 		position: relative;
-		padding: 0;
-		overflow: hidden;
 		display: none;
 		@include layer-3();
     & > * {
@@ -31,7 +19,7 @@
   }
 	.nav-menu > * a {
     padding: 0;
-	}	
+	}
 	*[class*="nav-button"] {
 		display: block;
 	}

@@ -214,7 +214,7 @@
 
 			if (tooltip.hasClass("tooltip-left")) {
 				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange(["", "sm"])) {
+					if (ui.isWindowInBreakPointRange([0, 2])) {
 						tooltipWidth = 125;
 					}
 				}
@@ -236,7 +236,7 @@
 				}
 			} else if (tooltip.hasClass("tooltip-top")) {
 				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange(["", "sm"])) {
+					if (ui.isWindowInBreakPointRange([0, 2])) {
 						tooltipWidth = 125;
 					}
 				}
@@ -258,7 +258,7 @@
 				}
 			} else if (tooltip.hasClass("tooltip-right")) {
 				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange(["", "sm"])) {
+					if (ui.isWindowInBreakPointRange([0, 2])) {
 						tooltipWidth = 125;
 					}
 				}
@@ -280,7 +280,7 @@
 				}
 			} else if (tooltip.hasClass("tooltip-bottom")) {
 				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange(["", "sm"])) {
+					if (ui.isWindowInBreakPointRange([0, 2])) {
 						tooltipWidth = 125;
 					}
 				}

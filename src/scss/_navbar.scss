@@ -8,11 +8,11 @@ nav.nav-sm {
 	& .nav-menu {
 		height: 2.375rem;
 		& > * {
-			line-height: 2.375rem;	
-			& > .nav-menu {
-				top: 2.375rem;
-			}
-		}	
+			line-height: 2.375rem;
+		}		
+		& .nav-component {
+			height: 2.375rem;
+		}
 	}
 }
 nav.nav-lg {
@@ -25,11 +25,11 @@ nav.nav-lg {
 	& .nav-menu {
 		height: 2.75rem;
 		& > * {
-			line-height: 2.75rem;	
-			& > .nav-menu {
-				top: 2.75rem;
-			}
+			line-height: 2.75rem;
 		}	
+		& .nav-component {
+			height: 2.75rem;
+		}
 	}
 }
 .nav-logo {
@@ -40,7 +40,7 @@ nav.nav-lg {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	overflow: visible;
+	overflow: hidden;
 	@include layer-initial();
   & > * {
 		float: left;	
@@ -63,29 +63,33 @@ nav.nav-lg {
 	top: 0;
 	right: 0;
 }
+.nav-menu > .nav-component {
+	display: flex;
+	align-items: center;
+}
 
 @media screen and (max-width: 29.99rem) {
-	.mq-xs {
+	.mq-1 {
 		@include mediaQueryRules();
 	}
 }
 @media screen and (max-width: 39.99rem) {
-	.mq-sm {
+	.mq-2 {
 		@include mediaQueryRules();
 	}
 }
 @media screen and (max-width: 49.99rem) {
-	.mq-md {
+	.mq-3 {
 		@include mediaQueryRules();
 	}
 }
 @media screen and (max-width: 69.99rem) {
-	.mq-lg {
+	.mq-4 {
 		@include mediaQueryRules();
 	}
 }
 @media screen and (max-width: 89.99rem) {
-	.mq-xl {
+	.mq-5 {
 		@include mediaQueryRules();
 	}
 }

@@ -250,13 +250,18 @@
 				<div class="row-spacing-xs"></div>
 
 
-				<nav class="nav-lg dark" id="navbar1">
+				<nav class="nav-sm dark" id="navbar1">
 					<div class="nav-logo accent-1 pad-left-md pad-right-md">Your Logo</div>
 					<div class="nav-menu dark">
 						<div><a href="#0">Menu 1</a></div>
 						<div>
 							<div class="nav-menu accent-1">
-								<div class="pad-md-lg-bp-2-under"><input type="text" class="input-xs width-md move-right-bp-2-under" /></div>
+								<div class="nav-component pad-md-lg-bp-2-under pad-top-sm-bp-2-over">
+									<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+										<input type="checkbox" value="4" id="check-switch-4" />
+										<label for="check-switch-4" class="background-dark left-transition-medium"></label>
+									</div>
+								</div>
 								<div><a href="#0">Sub Menu Item 2</a></div>
 								<div><a href="#0">Sub Menu Item 3</a></div>
 								<div><a href="#0">Sub Menu Item 4</a></div>
@@ -294,10 +299,27 @@
 							</div>
 						</div>
 
-						<div class="width-full-bp-2-under pad-md-lg-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-over"><input type="text" class="input-xs width-md move-right-bp-2-under" /></div>
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under pad-right-md-lg-bp-2-over">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="1" id="check-switch-1" />
+								<label for="check-switch-1" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="2" id="check-switch-2" />
+								<label for="check-switch-2" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="3" id="check-switch-3" />
+								<label for="check-switch-3" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
 
 					</div>
-					<div class="nav-button-lg accent-1" id="navToggle1"></div>
+					<div class="nav-button-sm accent-1" id="navToggle1"></div>
 				</nav>
 
 
@@ -733,7 +755,7 @@
 				transitionDuration: 1000,
 				smallDeviceAlignment: "right",
 				largeDeviceOffset: -40,
-				smallDeviceBreakpoint: "sm"
+				smallDeviceBreakpoint: 2
 			});
 
 			ui("#navToggle1").navButtonControl({ 
