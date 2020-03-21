@@ -1,14 +1,14 @@
 
 @mixin mediaQueryRules() {
 	.nav-menu {
-		position: relative;
+		position: absolute;
 		display: none;
 		@include layer-3();
     & > * {
 			display: none;
 			margin-left: 0;
 			& > .nav-menu {
-				position: initial;
+				position: static;
 				display: initial;
 			}	
 		} 

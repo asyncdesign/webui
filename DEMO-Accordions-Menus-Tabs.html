@@ -322,6 +322,81 @@
 					<div class="nav-button-sm accent-1" id="navToggle1"></div>
 				</nav>
 
+				<div class="row-spacing-xl"></div>
+				<div class="row-spacing-xl"></div>
+
+				<nav class="nav-sm dark" id="navbar2">
+					<div class="nav-logo accent-1 pad-left-md pad-right-md">Your Logo</div>
+					<ul class="nav-menu dark">
+						<li><a href="#0">Menu 1</a></li>
+						<li>
+							<ul class="nav-menu accent-1">
+								<div class="nav-component pad-md-lg-bp-2-under pad-top-sm-bp-2-over">
+									<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+										<input type="checkbox" value="4" id="check-switch-4" />
+										<label for="check-switch-4" class="background-dark left-transition-medium"></label>
+									</div>
+								</div>
+								<li><a href="#0">Sub Menu Item 2</a></li>
+								<li><a href="#0">Sub Menu Item 3</a></li>
+								<li><a href="#0">Sub Menu Item 4</a></li>
+								<li><a href="#0">Sub Menu Item 5</a></li>
+							</ul>
+						</li>
+						<li><a href="#0">Menu 2</a></li>
+						<li>
+							<ul class="nav-menu accent-1">
+								<li><a href="#0">Sub Menu Item 1</a></li>
+								<li><a href="#0">Sub Menu Item 2</a></li>
+								<li><a href="#0">Sub Menu Item 3</a></li>
+								<li><a href="#0">Sub Menu Item 4</a></li>
+								<li><a href="#0">Sub Menu Item 5</a></li>
+							</ul>
+						</li>
+						<li><a href="#0">Menu 3</a></li>
+						<li>
+							<ul class="nav-menu accent-1">
+								<li><a href="#0">Sub Menu Item 1</a></li>
+								<li><a href="#0">Sub Menu Item 2</a></li>
+								<li><a href="#0">Sub Menu Item 3</a></li>
+								<li><a href="#0">Sub Menu Item 4</a></li>
+								<li><a href="#0">Sub Menu Item 5</a></li>
+							</ul>
+						</li>
+						<li><a href="#0">Menu 4</a></li>
+						<li>
+							<ul class="nav-menu accent-1">
+								<li><a href="#0">Sub Menu Item 1</a></li>
+								<li><a href="#0">Sub Menu Item 2</a></li>
+								<li><a href="#0">Sub Menu Item 3</a></li>
+								<li><a href="#0">Sub Menu Item 4</a></li>
+								<li><a href="#0">Sub Menu Item 5</a></li>
+							</ul>
+						</li>
+
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under pad-right-md-lg-bp-2-over">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="1" id="check-switch-1" />
+								<label for="check-switch-1" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="2" id="check-switch-2" />
+								<label for="check-switch-2" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
+						<div class="nav-component width-full-bp-2-under move-right-bp-2-over pad-right-md-lg-bp-2-under">
+							<div class="toggle-switch-sm accent-1-light rounded-sm move-right-bp-2-under">	
+								<input type="checkbox" value="3" id="check-switch-3" />
+								<label for="check-switch-3" class="background-dark left-transition-medium"></label>
+							</div>
+						</div>
+
+					</ul>
+					<div class="nav-button-sm accent-1" id="navToggle2"></div>
+				</nav>
+
 
 				<div class="content-row">
 					<div class="form-col-9 respond-bp-4-under">
@@ -753,12 +828,26 @@
 
 			ui("#navbar1").navbarControl({ 
 				transitionDuration: 1000,
-				smallDeviceAlignment: "right",
+				smallDeviceAlignment: "left",
 				largeDeviceOffset: -40,
-				smallDeviceBreakpoint: 2
+				smallDeviceBreakpoint: 2,
+				smallDeviceExpansion: "overlay"			
 			});
 
+			ui("#navbar2").navbarControl({ 
+				transitionDuration: 1000,
+				smallDeviceAlignment: "right",
+				largeDeviceOffset: -70,
+				smallDeviceBreakpoint: 3,
+				smallDeviceExpansion: "expand"
+			});
+
+
 			ui("#navToggle1").navButtonControl({ 
+				transitionDuration: 300
+			});
+
+			ui("#navToggle2").navButtonControl({ 
 				transitionDuration: 300
 			});
 
