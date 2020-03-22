@@ -475,10 +475,11 @@
 
 							<div class="form-row">
 								<div class="form-col">
-									<div class="tooltip" id="tooltipAboutModals">
-										<button id="commandShowModal" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal Window</button>
-										<div class="tooltip-static tooltip-left tooltip-lg tooltip-dark rounded-md"></div>							
+									<div class="tooltip" id="tooltipAboutModals1">
+										<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal 1</button>
+										<div class="tooltip-static tooltip-left tooltip-md tooltip-dark rounded-md"></div>							
 									</div>
+									<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal 2</button>
 								</div>
 							</div>
 		
@@ -626,7 +627,50 @@
 					<div class="row-spacing-sm"></div>
 			</div>
 			</div>
+		</div>
+
+		<div id="modal2" class="modal">
+			<div class="modal-sm modal-top-center modal-auto-stretch accent-1-light">
+	
+				<div class="place-top-right layer-top">
+					<a href="javascript:void(0)" class="container modal-close height-xs-sm width-xs-sm accent-1 color-hover-accent-4 rounded-full raised-md fixed" id="modalClose2">
+						<i class="fa fa-close place-middle-center"></i>
+					</a>
+				</div>
+	
+				<div class="modal-scroll-body">
+					<div class="form-row">
+						<div class="form-col-20 pad-left-md pad-top-md">
+								<span class="text-xl text-bold">Modal Example</span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col-20">
+							<div class="body">
+								<div class="content-col-20">
+									<div class="panel border-sm border-muted">
+										<div class="content-row">
+											<div class="content-col-20 text">
+												<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+													quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col-20 gap-horizontal-xs text-sm text-right pad-right-md">
+							<button type="button" class="button-sm button-success rounded-md">OK</button>
+							<button type="button" class="button-sm button-accent-4 rounded-md modal-close">Cancel</button>
+						</div>
+					</div>
+					<div class="row-spacing-sm"></div>
+			</div>
+			</div>
 		</div>	
+
 
 		<div class="row-spacing-xl"></div>
 
@@ -659,10 +703,16 @@
 				transitionDuration: 700
 			});
 
-			ui("#modal1").modalControl({
-				closeFromBackdrop: true,
-				transitionDuration: 500
+			var modal1 = ui("#modal1").modalControl({
+				transitionDuration: 750,
+				closeFromBackdrop: true			
 			});
+
+			var modal2 = ui("#modal2").modalControl({
+				transitionDuration: 0,
+				closeFromBackdrop: false				
+			});
+
 
 
 			// Show manual alerts
@@ -681,13 +731,19 @@
 			});
 
 			ui("#tooltipEnterValues").showTooltip();
-			ui("#tooltipAboutModals").showTooltip("Try various sized modals that scale to screen size...");	
+			ui("#tooltipAboutModals1").showTooltip("Try various sized modals that scale to screen size...");	
+			ui("#tooltipAboutModals2").showTooltip("Try various sized modals that scale to screen size...");	
 			
 
 			// Modals
-			ui("#commandShowModal").click( function() {
-				ui("#modal1").showModal();
+			ui("#commandShowModal1").click( function() {
+				modal1.open();
 				ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
+			});
+
+			ui("#commandShowModal2").click( function() {
+				modal2.open();
+				ui("#modalClose2").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
 			});
 
 			

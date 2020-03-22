@@ -5,7 +5,7 @@
 
 	var NavbarInstance = function(navbar, settings) {
 
-	var
+		var
 
 		transitionDuration = settings.transitionDuration,
 		largeDeviceOffset = settings.largeDeviceOffset,
@@ -208,6 +208,8 @@
 
 
 			var control = new NavbarInstance(this, settings);
+
+			return this;
 
 		},
 		enumerable: false

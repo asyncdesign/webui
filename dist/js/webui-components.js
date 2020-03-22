@@ -2336,6 +2336,7 @@
                 smallDeviceExpansion: "overlay"
             }, options);
             var control = new NavbarInstance(this, settings);
+            return this;
         },
         enumerable: false
     });
@@ -2939,75 +2940,83 @@
 
 (function(win) {
     /* PRIVATE */
-    var fn = webui.fn, transitionDuration;
+    var ModalInstance = function(modal, settings) {
+        var transitionDuration = settings.transitionDuration, closeFromBackdrop = settings.closeFromBackdrop, showModal = function() {
+            if (modal) {
+                modal.trigger("ui.modal.show.before");
+                if (transitionDuration) {
+                    modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
+                } else {
+                    modal.show().trigger("ui.modal.show.after");
+                }
+                var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+                if (parseFloat(webui("body").css("height")) > win.innerHeight) {
+                    webui("body").css("padding-right", scrollShift);
+                    webui("body").css("overflow", "hidden");
+                }
+                var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
+                if (focusEl.length && !focusEl.hasClass("disabled")) {
+                    focusEl[0].focus();
+                } else {
+                    modal.attr("tabindex", "-1");
+                    modal[0].focus();
+                }
+            }
+            return this;
+        }, hideModal = function() {
+            if (modal) {
+                webui("body").css("padding-right", "");
+                webui("body").css("overflow", "");
+                modal.trigger("ui.modal.hide.before");
+                if (transitionDuration) {
+                    modal.fadeOut(transitionDuration).trigger("ui.modal.hide.after");
+                } else {
+                    modal.hide().trigger("ui.modal.hide.after");
+                }
+            }
+            return this;
+        };
+        this.openModal = function() {
+            showModal();
+        };
+        this.closeModal = function() {
+            hideModal();
+        };
+        if (closeFromBackdrop) {
+            modal.click(function(e) {
+                if (e.target !== this) {
+                    return;
+                }
+                hideModal();
+            });
+        }
+        modal.find(".modal-close").click(function(e) {
+            e.preventDefault();
+            hideModal();
+        });
+        modal.keyDown(function(e) {
+            if (e.which == 27) {
+                e.preventDefault();
+                hideModal();
+            }
+        });
+    };
     /* PUBLIC */    Object.defineProperty(webui.prototype, "modalControl", {
         value: function(options) {
-            var el = this;
             var settings = ui.extend({
-                closeFromBackdrop: false,
-                transitionDuration: 300
+                transitionDuration: 300,
+                closeFromBackdrop: false
             }, options);
-            transitionDuration = settings.transitionDuration;
-            if (settings.closeFromBackdrop) {
-                el.closest(".modal").click(function(e) {
-                    if (e.target !== this) {
-                        return;
-                    }
-                    el.hideModal();
-                });
-            }
+            var control = new ModalInstance(this, settings);
+            this.open = function() {
+                control.openModal();
+            };
+            this.close = function() {
+                control.closeModal();
+            };
             return this;
         },
         enumerable: false
-    });
-    fn.showModal = function() {
-        var modal = this;
-        if (modal) {
-            modal.trigger("ui.modal.show.before");
-            if (transitionDuration) {
-                modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
-            } else {
-                modal.show().trigger("ui.modal.show.after");
-            }
-            var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
-            if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-                webui("body").css("padding-right", scrollShift);
-                webui("body").css("overflow", "hidden");
-            }
-            var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
-            if (focusEl.length && !focusEl.hasClass("disabled")) {
-                focusEl[0].focus();
-            } else {
-                modal.attr("tabindex", "-1");
-                modal[0].focus();
-            }
-        }
-        return this;
-    };
-    fn.hideModal = function() {
-        var modal = this;
-        if (modal) {
-            webui("body").css("padding-right", "");
-            webui("body").css("overflow", "");
-            modal.trigger("ui.modal.hide.before");
-            if (transitionDuration) {
-                modal.fadeOut(transitionDuration).trigger("ui.modal.hide.after");
-            } else {
-                modal.hide().parent().remove().trigger("ui.modal.hide.after");
-            }
-        }
-        return this;
-    };
-    /* EVENTS */    webui(".modal-close").click(function(e) {
-        e.preventDefault();
-        var modal = webui(this).closest(".modal");
-        modal.hideModal();
-    });
-    webui(".modal").keyDown(function(e) {
-        if (e.which == 27) {
-            e.preventDefault();
-            webui(this).hideModal();
-        }
     });
     /* RUN */    webui.ready(function() {
         webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
@@ -3101,20 +3110,16 @@
                 el.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
                 if (trigger === "hover") {
                     el.hoverIn(function(e) {
-                        //e.preventDefault();
                         webui(this).css("transform", "scale(" + zoom + ")");
                     });
                     el.hoverOut(function(e) {
-                        //e.preventDefault();
                         webui(this).css("transform", "scale(1)");
                     });
                 } else if (trigger === "focus") {
                     el.focus(function(e) {
-                        //e.preventDefault();
                         webui(this).css("transform", "scale(" + zoom + ")");
                     });
                     el.blur(function(e) {
-                        //e.preventDefault();
                         webui(this).css("transform", "scale(1)");
                     });
                 }
@@ -4093,17 +4098,17 @@
     /* PRIVATE */
     var fn = webui.fn;
     /* PUBLIC */    fn.slideVertical = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "down", distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0;
+        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), uiDirection = direction ? direction : "down", distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0;
         uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
-            uiMovement = uiDistance / duration * frameAdjustment;
+            uiMovement = uiDistance / safeDuration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("top"));
             uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
-                if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition || duration === 0) {
+                if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition || safeDuration === 1) {
                     element.css("top", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
@@ -4121,17 +4126,17 @@
         return els;
     };
     fn.slideHorizontal = function(direction, distance, duration, callback) {
-        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, frameAdjustment = 50 / (duration / 1e3), uiDirection = direction ? direction : "right", distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0;
+        var args = arguments, els = this, uiElement, uiDistance, uiMovement, uiPosition, uiFinalPosition, pos, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), uiDirection = direction ? direction : "right", distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px", distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0;
         uiDistance = distanceValue;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("display", "block");
-            uiMovement = uiDistance / duration * frameAdjustment;
+            uiMovement = uiDistance / safeDuration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("left"));
             uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
             var nextFrame = function(element, movement, position, finalPosition, dir) {
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
-                if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition || duration === 0) {
+                if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition || safeDuration === 1) {
                     element.css("left", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
                         callback(element);
@@ -4149,7 +4154,7 @@
         return els;
     };
     fn.expandVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "", isAuto = targetHeightUnit === "auto";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiMovement, uiCurrentHeight, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "", isAuto = targetHeightUnit === "auto";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -4173,10 +4178,10 @@
             }
             uiElement.css("height", "0");
             uiCurrentHeight = 0;
-            uiMovement = uiTargetHeight / duration * frameAdjustment;
+            uiMovement = uiTargetHeight / safeDuration * frameAdjustment;
             var nextFrame = function(el, targetHeight, heightUnit, currentHeight, movement, overflow) {
                 var height = currentHeight + movement;
-                if (height >= targetHeight || duration === 0) {
+                if (height >= targetHeight || safeDuration === 1) {
                     if (isAuto) {
                         el.css("height", "auto").css("overflow", overflow);
                     } else {
@@ -4198,7 +4203,7 @@
         return els;
     };
     fn.expandHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "", isAuto = targetWidthUnit === "auto";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiMovement, uiCurrentWidth, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "", isAuto = targetWidthUnit === "auto";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -4222,10 +4227,10 @@
             }
             uiElement.css("width", "0");
             uiCurrentWidth = 0;
-            uiMovement = uiTargetWidth / duration * frameAdjustment;
+            uiMovement = uiTargetWidth / safeDuration * frameAdjustment;
             var nextFrame = function(el, targetWidth, widthUnit, currentWidth, movement, overflow) {
                 var width = currentWidth + movement;
-                if (width >= targetWidth || duration === 0) {
+                if (width >= targetWidth || safeDuration === 1) {
                     if (isAuto) {
                         el.css("width", "auto").css("overflow", overflow);
                     } else {
@@ -4247,7 +4252,7 @@
         return els;
     };
     fn.collapseVertical = function(duration, targetHeight, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, frameAdjustment = 50 / (duration / 1e3), targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight, uiMovement, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px", targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -4268,10 +4273,10 @@
             if (targetHeightUnit === "rem") {
                 uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
             }
-            uiMovement = uiCurrentHeight / duration * frameAdjustment;
+            uiMovement = uiCurrentHeight / safeDuration * frameAdjustment;
             var nextFrame = function(el, targetHeight, heightUnit, currentHeight, movement, overflow) {
                 var height = currentHeight - movement;
-                if (height <= targetHeight || duration === 0) {
+                if (height <= targetHeight || safeDuration === 1) {
                     if (targetHeight) {
                         el.css("height", targetHeight + heightUnit).css("overflow", overflow);
                     } else {
@@ -4293,7 +4298,7 @@
         return els;
     };
     fn.collapseHorizontal = function(duration, targetWidth, callback) {
-        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, frameAdjustment = 50 / (duration / 1e3), targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
+        var args = arguments, els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth, uiMovement, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3), targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px", targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiOverflow = uiElement.css("overflow");
@@ -4314,10 +4319,10 @@
             if (targetWidthUnit === "rem") {
                 uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
             }
-            uiMovement = uiCurrentWidth / duration * frameAdjustment;
+            uiMovement = uiCurrentWidth / safeDuration * frameAdjustment;
             var nextFrame = function(el, targetWidth, widthUnit, currentWidth, movement, overflow) {
                 var width = currentWidth - movement;
-                if (width <= targetWidth || duration === 0) {
+                if (width <= targetWidth || safeDuration === 1) {
                     if (targetWidth) {
                         el.css("width", targetWidth + widthUnit).css("overflow", overflow);
                     } else {
@@ -4339,15 +4344,15 @@
         return els;
     };
     fn.fadeIn = function(duration, initialOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, frameAdjustment = 50 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3);
         uiCurrentOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
             uiElement.css("opacity", "0").css("display", "block");
-            uiChange = 1 / duration * frameAdjustment;
+            uiChange = 1 / safeDuration * frameAdjustment;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity + change;
-                if (opacity >= .99 || duration < frameAdjustment) {
+                if (opacity >= .99 || safeDuration < frameAdjustment) {
                     element.css("opacity", "1").css("display", "block");
                     if (args.length === 3 && callback) {
                         callback(element);
@@ -4365,7 +4370,7 @@
         return els;
     };
     fn.fadeOut = function(duration, finalOpacity, callback) {
-        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, frameAdjustment = 50 / (duration / 1e3);
+        var args = arguments, els = this, uiElement, uiChange, uiCurrentOpacity, safeDuration = duration > 0 ? duration : 1, frameAdjustment = 50 / (safeDuration / 1e3);
         uiCurrentOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
         for (var i = 0; i < els.length; i++) {
             uiElement = webui(els[i]);
@@ -4373,10 +4378,10 @@
                 continue;
             }
             uiElement.css("opacity", "1");
-            uiChange = 1 / duration * frameAdjustment;
+            uiChange = 1 / safeDuration * frameAdjustment;
             var nextFrame = function(element, currentOpacity, change) {
                 var opacity = currentOpacity - change;
-                if (opacity <= uiCurrentOpacity + .01 || duration < frameAdjustment) {
+                if (opacity <= uiCurrentOpacity + .01 || safeDuration < frameAdjustment) {
                     uiCurrentOpacity > .01 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");
                     if (args.length === 3 && callback) {
                         callback(element);

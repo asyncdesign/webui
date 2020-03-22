@@ -27,21 +27,17 @@
 
 				if (trigger === "hover") {
 					el.hoverIn(function (e) {
-						//e.preventDefault();
 						webui(this).css("transform", "scale(" + zoom + ")");
 					});
 					el.hoverOut(function (e) {
-						//e.preventDefault();
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 				else if (trigger === "focus") {
 					el.focus(function (e) {
-						//e.preventDefault();
 						webui(this).css("transform", "scale(" + zoom + ")");
 					});
 					el.blur(function (e) {
-						//e.preventDefault();
 						webui(this).css("transform", "scale(1)");
 					});
 				}
