@@ -11,7 +11,7 @@
 		value: function (options) {
 			var settings = ui.extend({
 				zoom: 1.05,
-				tringer: "hover",
+				trigger: "hover",
 				transitionDuration: 500
 			}, options);
 

@@ -1525,6 +1525,7 @@
     };
     webui.rgbStringToHex = function(rgb) {
         var rgbValues = rgb.replace(/[^\d,]/g, "").split(",");
+        rgbValues = rgbValues.slice(0, 3);
         if (rgbValues && rgbValues.length === 3) {
             return "#" + ((1 << 24) + (parseInt(rgbValues[0]) << 16) + (parseInt(rgbValues[1]) << 8) + parseInt(rgbValues[2])).toString(16).slice(1);
         }
@@ -2153,7 +2154,7 @@
 (function(win) {
     /* PRIVATE */
     var NavbarInstance = function(navbar, settings) {
-        var transitionDuration = settings.transitionDuration, largeDeviceOffset = settings.largeDeviceOffset, smallDeviceBreakpoint = settings.smallDeviceBreakpoint, smallDeviceAlignment = settings.smallDeviceAlignment, smallDeviceExpansion = settings.smallDeviceExpansion, resetNavbar = function(el, params) {
+        var transitionDuration = settings.transitionDuration, largeDeviceOffset = settings.largeDeviceOffset, largeDeviceMenuOffset = settings.largeDeviceMenuOffset, smallDeviceBreakpoint = settings.smallDeviceBreakpoint, smallDeviceAlignment = settings.smallDeviceAlignment, smallDeviceExpansion = settings.smallDeviceExpansion, resetNavbar = function(el, params) {
             var mq = null;
             var mqClassName = null;
             switch (params.smallDeviceBreakpoint) {
@@ -2193,9 +2194,10 @@
                 navbar.removeClass(mqClassName);
                 navbar.find("[class*='nav-button']").css("display", "none");
                 rootMenus.css("position", "static").css("top", "auto");
+                rootMenus.first().css("padding-left", params.largeDeviceOffset + "px");
                 rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
                 rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.375rem" : "2.75rem").addClass("active");
-                childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceOffset) + "px");
+                childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceMenuOffset) + "px");
                 childMenus.css("top", navbar.css("height"));
                 childMenus.parent().siblings().children(".nav-menu").hide();
                 childMenus.hide();
@@ -2209,6 +2211,7 @@
                 } else {
                     rootMenus.css("position", "absolute").css("top", navbar.css("height"));
                 }
+                rootMenus.first().css("padding-left", "0");
                 rootMenus.find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
                 if (smallDeviceAlignment === "center") {
                     rootMenus.find("a").css("text-align", "center");
@@ -2258,6 +2261,7 @@
         var navButtons = navbar.find("[class*='nav-button']");
         if (!mq.matches) {
             navbar.removeClass(mqClassName);
+            navbar.children(".nav-menu").first().css("padding-left", largeDeviceOffset + "px");
             navbar.children(".nav-menu").css("position", "static").css("top", "auto");
             navbar.children(".nav-menu").find("a").css("padding-left", "0").css("padding-right", "1.25rem");
             navItems.children(".nav-menu").css("top", navbar.css("height"));
@@ -2268,6 +2272,7 @@
             } else {
                 navbar.children(".nav-menu").css("position", "absolute").css("top", navbar.css("height"));
             }
+            navbar.children(".nav-menu").first().css("padding-left", "0");
             navbar.children(".nav-menu").find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
             if (smallDeviceAlignment === "center") {
                 navbar.children(".nav-menu").find("a").css("text-align", "center");
@@ -2277,6 +2282,7 @@
                 navbar.children(".nav-menu").find("a").css("text-align", "left");
             }
             navItems.children(".nav-menu").css("height", "0").css("top", "0");
+            navButtons.css("display", "block");
         }
         navButtons.click(function(e) {
             e.preventDefault();
@@ -2294,7 +2300,7 @@
                 activeMenus.toggleClass("active").parent().siblings().children(".nav-menu").removeClass("active");
                 if (!mq.matches) {
                     navbar.removeClass(mqClassName);
-                    activeMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) - largeDeviceOffset) + "px");
+                    activeMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) - largeDeviceMenuOffset) + "px");
                     if (activeMenus.css("display") === "none") {
                         activeMenus.children().css("display", "block");
                         activeMenus.parent().siblings().children(".nav-menu").hide();
@@ -2321,6 +2327,7 @@
         function navbarResize() {
             resetNavbar(navbar, {
                 largeDeviceOffset: largeDeviceOffset,
+                largeDeviceMenuOffset: largeDeviceMenuOffset,
                 smallDeviceBreakpoint: smallDeviceBreakpoint,
                 smallDeviceExpansion: smallDeviceExpansion
             });
@@ -2330,7 +2337,8 @@
         value: function(options) {
             var settings = ui.extend({
                 transitionDuration: 300,
-                largeDeviceOffset: -40,
+                largeDeviceOffset: 0,
+                largeDeviceMenuOffset: -40,
                 smallDeviceBreakpoint: 2,
                 smallDeviceAlignment: "left",
                 smallDeviceExpansion: "overlay"
@@ -2344,19 +2352,22 @@
 
 (function(win) {
     /* PRIVATE */
-    var transitionDuration = 300;
+    var transitionDuration = 300, backgroundColor = "#BDBDBD", color = "#000000";
     /* PUBLIC */    Object.defineProperty(webui.prototype, "navButtonControl", {
         value: function(options) {
             var settings = ui.extend({
-                transitionDuration: 300
+                transitionDuration: 300,
+                backgroundColor: "#BDBDBD",
+                color: "#000000"
             }, options);
             transitionDuration = settings.transitionDuration;
+            backgroundColor = settings.backgroundColor;
+            color = settings.color;
             var navButtons = webui(this);
             navButtons.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
             navButtons.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1e3 + "s");
-            var color = ui.rgbStringToHex(navButtons.css("color"));
-            var backgroundColor = ui.getAccessibilityContrastColor(color);
-            navButtons.find(".nav-button-item").css("background-color", backgroundColor);
+            navButtons.css("background-color", backgroundColor);
+            navButtons.find(".nav-button-item").css("background-color", color);
         }
     });
 })(window);
@@ -3098,7 +3109,7 @@
         value: function(options) {
             var settings = ui.extend({
                 zoom: 1.05,
-                tringer: "hover",
+                trigger: "hover",
                 transitionDuration: 500
             }, options);
             zoom = settings.zoom;
@@ -4076,6 +4087,7 @@
                 activatorCallback: null
             }, options);
             var container = this;
+            resetScrollspy(container, settings);
             if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
                 win.addEventListener("scroll", function() {
                     resetScrollspy(container, settings);

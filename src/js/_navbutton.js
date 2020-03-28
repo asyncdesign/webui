@@ -5,7 +5,9 @@
 
 	var
 
-		transitionDuration = 300;
+		transitionDuration = 300, 
+		backgroundColor = "#BDBDBD", 
+		color = "#000000";
 
 	/* PUBLIC */
 
@@ -13,22 +15,24 @@
 		value: function (options) {
 
 			var settings = ui.extend({
-				transitionDuration: 300
+				transitionDuration: 300, 
+				backgroundColor: "#BDBDBD", 
+				color: "#000000"
 			}, options);
 
 			transitionDuration = settings.transitionDuration;
-
+			backgroundColor = settings.backgroundColor;
+			color = settings.color;
 
 			var navButtons = webui(this);
 
 			navButtons.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
 			navButtons.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
 
-			var color = ui.rgbStringToHex(navButtons.css("color"));
-			var backgroundColor = ui.getAccessibilityContrastColor(color);
-			navButtons.find(".nav-button-item").css("background-color", backgroundColor);
-
+			navButtons.css("background-color", backgroundColor);
+			navButtons.find(".nav-button-item").css("background-color", color);			
 		}
+		
 	});
 
 }(window));

@@ -1939,6 +1939,7 @@
 
 	webui.rgbStringToHex = function (rgb) {
 		var rgbValues = rgb.replace(/[^\d,]/g, '').split(',');
+		rgbValues = rgbValues.slice(0, 3);
 		if (rgbValues && rgbValues.length === 3) {
 			return "#" + ((1 << 24) + (parseInt(rgbValues[0]) << 16) + (parseInt(rgbValues[1]) << 8) + parseInt(rgbValues[2])).toString(16).slice(1);
 		}

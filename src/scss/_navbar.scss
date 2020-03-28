@@ -13,7 +13,13 @@ nav.nav-sm {
 		& .nav-component {
 			height: 2.375rem;
 		}
-	}
+	}	
+	& .nav-button-sm {
+		position: absolute;
+		display: none;
+		top: 0;
+		right: 0;
+	}	
 }
 nav.nav-lg {
 	position: relative;
@@ -31,11 +37,16 @@ nav.nav-lg {
 			height: 2.75rem;
 		}
 	}
+	& .nav-button-lg {
+		position: absolute;
+		display: none;
+		top: 0;
+		right: 0;
+	}	
 }
 .nav-logo {
   float: left;  
 }
-
 .nav-menu {
 	list-style-type: none;
 	padding: 0;
@@ -56,12 +67,6 @@ nav.nav-lg {
 		background-color: inherit;
 		color: inherit;		
 	}
-}
-*[class*="nav-button"] {
-	position: absolute;
-	display: none;
-	top: 0;
-	right: 0;
 }
 .nav-menu > .nav-component {
 	display: flex;

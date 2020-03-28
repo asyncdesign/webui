@@ -9,6 +9,7 @@
 
 		transitionDuration = settings.transitionDuration,
 		largeDeviceOffset = settings.largeDeviceOffset,
+		largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
 		smallDeviceBreakpoint = settings.smallDeviceBreakpoint,
 		smallDeviceAlignment = settings.smallDeviceAlignment,
 		smallDeviceExpansion = settings.smallDeviceExpansion,
@@ -37,10 +38,11 @@
 				navbar.find("[class*='nav-button']").css("display", "none");
 
 				rootMenus.css("position", "static").css("top", "auto");
+				rootMenus.first().css("padding-left", params.largeDeviceOffset + "px");
 				rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
 				rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.375rem" : "2.75rem").addClass("active");
 				
-				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceOffset) + "px");	
+				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceMenuOffset) + "px");	
 				childMenus.css("top", navbar.css("height"));	
 				childMenus.parent().siblings().children(".nav-menu").hide();
 				childMenus.hide();
@@ -60,6 +62,7 @@
 					rootMenus.css("position", "absolute").css("top", navbar.css("height"));
 				}
 				
+				rootMenus.first().css("padding-left", "0");
 				rootMenus.find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
 
 				if (smallDeviceAlignment === "center") {
@@ -97,6 +100,7 @@
 
 		if (!mq.matches) {
 			navbar.removeClass(mqClassName);
+			navbar.children(".nav-menu").first().css("padding-left", largeDeviceOffset + "px");
 			navbar.children(".nav-menu").css("position", "static").css("top", "auto");
 			navbar.children(".nav-menu").find("a").css("padding-left", "0").css("padding-right", "1.25rem");
 
@@ -112,6 +116,7 @@
 				navbar.children(".nav-menu").css("position", "absolute").css("top", navbar.css("height"));
 			}
 
+			navbar.children(".nav-menu").first().css("padding-left", "0");
 			navbar.children(".nav-menu").find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");		
 
 			if (smallDeviceAlignment === "center") {
@@ -124,8 +129,11 @@
 				navbar.children(".nav-menu").find("a").css("text-align", "left");
 			}
 
-			navItems.children(".nav-menu").css("height", "0").css("top", "0");			
+			navItems.children(".nav-menu").css("height", "0").css("top", "0");	
+			
+			navButtons.css("display", "block");
 		}
+
 
 
 		navButtons.click(function(e) {
@@ -152,7 +160,7 @@
 
 				if (!mq.matches) {
 					navbar.removeClass(mqClassName);
-					activeMenus.css("margin-left", "-" + ((parseFloat(ui(this).css("width"))) - largeDeviceOffset) + "px");
+					activeMenus.css("margin-left", "-" + ((parseFloat(ui(this).css("width"))) - largeDeviceMenuOffset) + "px");
 
 					if (activeMenus.css("display") === "none") {
 						activeMenus.children().css("display", "block");
@@ -188,7 +196,10 @@
 		win.addEventListener("resize", navbarResize);
 
 		function navbarResize() {
-			resetNavbar(navbar, { largeDeviceOffset: largeDeviceOffset, smallDeviceBreakpoint: smallDeviceBreakpoint, smallDeviceExpansion: smallDeviceExpansion });
+			resetNavbar(navbar, { largeDeviceOffset: largeDeviceOffset, 
+														largeDeviceMenuOffset: largeDeviceMenuOffset, 
+														smallDeviceBreakpoint: smallDeviceBreakpoint, 
+														smallDeviceExpansion: smallDeviceExpansion });
 		};	
 
 	};
@@ -200,7 +211,8 @@
 
 			var settings = ui.extend({
 				transitionDuration: 300,
-				largeDeviceOffset: -40,
+				largeDeviceOffset: 0,
+				largeDeviceMenuOffset: -40,
 				smallDeviceBreakpoint: 2,
 				smallDeviceAlignment: "left",
 				smallDeviceExpansion: "overlay"
