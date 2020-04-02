@@ -520,15 +520,15 @@
 			});
 			
 			ui("#commandInitialiseSelect").click( function() { 
-				ui("#selectInitialise").initialize();
+				ui("#selectInitialise").initializeOptionsList();
 			});
 			
 			ui("#commandInitialiseSelectWithClasses").click( function() { 
-				ui("#selectInitialise").initialize("input", "input control-disabled");
+				ui("#selectInitialise").initializeOptionsList("input", "input control-disabled");
 			});
 			
 			ui("#commandInitialiseSelectWithClassesWithValues").click( function() { 
-				ui("#selectInitialise").initialize("input", "input control-disabled", "Available items", "Unavailable");
+				ui("#selectInitialise").initializeOptionsList("input", "input control-disabled", "Available items", "Unavailable");
 			});
 						
 			ui("#commandSetSelectedIndex").click( function() { 
