@@ -2090,6 +2090,25 @@
 		return "";
 	};
 
+	webui.copyToClipboard = function (valueOrSelector) {
+		if (arguments.length) {		
+			var el = valueOrSelector;
+			if (el.length) {
+				var tempEl = root.createElement("textarea");
+				root.body.appendChild(tempEl);
+				tempEl.value = isElement(el) ? el.text() : el;
+				tempEl.style.position = "absolute";
+				tempEl.style.top = "-9999px";
+				tempEl.style.width = "0px";
+				tempEl.style.height = "0px";        
+				tempEl.select();
+				tempEl.setSelectionRange(0, 99999);
+				root.execCommand("copy");
+				root.body.removeChild(tempEl);
+			}
+		}
+	};
+
 	webui.createArray = function (obj, wrapper) {
 		var arr = wrapper || [];
 
