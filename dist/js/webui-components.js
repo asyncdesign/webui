@@ -2382,10 +2382,13 @@
             backgroundColor = settings.backgroundColor;
             color = settings.color;
             var navButtons = webui(this);
-            navButtons.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
-            navButtons.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1e3 + "s");
-            navButtons.css("background-color", backgroundColor);
-            navButtons.find(".nav-button-item").css("background-color", color);
+            for (var i = 0; i < navButtons.length; i++) {
+                var navButton = webui(navButtons[i]);
+                navButton.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
+                navButton.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1e3 + "s");
+                navButton.css("background-color", backgroundColor);
+                navButton.find(".nav-button-item").css("background-color", color);
+            }
         }
     });
 })(window);
