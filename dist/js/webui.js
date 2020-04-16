@@ -1444,9 +1444,9 @@
     /* NON-CHAINABLE FUNCTIONS */    webui.elementHoverAt = function(x, y) {
         return webui(root.elementFromPoint(x, y));
     };
-    webui.calculatePointerSpeed = function(e, previousEvent) {
-        var x = e.clientX, y = e.clientY, prevX, prevY, prevT, previousTime, distX, distY, interval, velocity;
-        if (previousEvent === false) {
+    webui.calculatePointerSpeed = function(event, previousEvent) {
+        var x = event.clientX, y = event.clientY, prevX, prevY, prevT, previousTime, distX, distY, interval, velocity;
+        if (!previousEvent) {
             return 0;
         }
         previousTime = previousEvent.time;

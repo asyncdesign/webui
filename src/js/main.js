@@ -1829,21 +1829,21 @@
 		return webui(root.elementFromPoint(x, y));
 	};
 
-	webui.calculatePointerSpeed = function(e, previousEvent) {
+	webui.calculatePointerSpeed = function(event, previousEvent) {
 		var 
-			x = e.clientX, 
-			y = e.clientY, 
-			prevX, 
-			prevY, 
-			prevT, 
+			x = event.clientX,
+			y = event.clientY,
+			prevX,
+			prevY,
+			prevT,
 			previousTime,
-			distX, 
-			distY, 
-			interval, 
+			distX,
+			distY,
+			interval,
 			velocity;
 
-		if (previousEvent === false) { 
-			return 0; 
+		if (!previousEvent) { 
+			return 0;
 		}
 
 		previousTime = previousEvent.time;
