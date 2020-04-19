@@ -2306,10 +2306,16 @@
             e.preventDefault();
             ui(this).toggleClass("active");
             if (ui(this).hasClass("active")) {
+                navbar.trigger("ui.navmenu.show.before");
                 ui(this).parent().children(".nav-menu").children().css("display", "block");
-                ui(this).parent().children(".nav-menu").expandVertical(transitionDuration, "auto");
+                ui(this).parent().children(".nav-menu").expandVertical(transitionDuration, "auto", function() {
+                    navbar.trigger("ui.navmenu.show.after");
+                });
             } else {
-                ui(this).parent().children(".nav-menu").collapseVertical(transitionDuration);
+                navbar.trigger("ui.navmenu.hide.before");
+                ui(this).parent().children(".nav-menu").collapseVertical(transitionDuration, 0, function() {
+                    navbar.trigger("ui.navmenu.hide.after");
+                });
             }
         });
         navItems.click(function(e) {
@@ -2320,23 +2326,35 @@
                     navbar.removeClass(mqClassName);
                     activeMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) - largeDeviceMenuOffset) + "px");
                     if (activeMenus.css("display") === "none") {
+                        navbar.trigger("ui.navitem.show.before");
                         activeMenus.children().css("display", "block");
                         activeMenus.parent().siblings().children(".nav-menu").hide();
                         activeMenus.children().css("float", "none");
-                        activeMenus.expandVertical(transitionDuration, "auto");
+                        activeMenus.expandVertical(transitionDuration, "auto", function() {
+                            navbar.trigger("ui.navitem.show.after");
+                        });
                     } else {
-                        activeMenus.collapseVertical(transitionDuration);
+                        navbar.trigger("ui.navitem.hide.before");
+                        activeMenus.collapseVertical(transitionDuration, 0, function() {
+                            navbar.trigger("ui.navitem.hide.after");
+                        });
                     }
                 } else {
                     navbar.addClass(mqClassName);
                     activeMenus.css("height", "auto");
                     activeMenus.children().css("height", "auto");
                     if (activeMenus.hasClass("active")) {
+                        navbar.trigger("ui.navitem.show.before");
                         activeMenus.parent().siblings().children(".nav-menu").collapseVertical(transitionDuration);
                         activeMenus.children().css("display", "block");
-                        activeMenus.expandVertical(transitionDuration, "auto");
+                        activeMenus.expandVertical(transitionDuration, "auto", function() {
+                            navbar.trigger("ui.navitem.show.after");
+                        });
                     } else {
-                        activeMenus.collapseVertical(transitionDuration);
+                        navbar.trigger("ui.navitem.hide.before");
+                        activeMenus.collapseVertical(transitionDuration, 0, function() {
+                            navbar.trigger("ui.navitem.hide.after");
+                        });
                     }
                 }
             }

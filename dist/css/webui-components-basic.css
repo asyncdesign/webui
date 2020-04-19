@@ -56,7 +56,7 @@ nav.nav-sm {
     line-height: 2.375rem; }
   nav.nav-sm .nav-menu {
     height: 2.375rem; }
-    nav.nav-sm .nav-menu > * {
+    nav.nav-sm .nav-menu *:not(.nav-component) > * {
       line-height: 2.375rem; }
     nav.nav-sm .nav-menu .nav-component {
       height: 2.375rem; }
@@ -74,7 +74,7 @@ nav.nav-lg {
     line-height: 2.75rem; }
   nav.nav-lg .nav-menu {
     height: 2.75rem; }
-    nav.nav-lg .nav-menu > * {
+    nav.nav-lg .nav-menu *:not(.nav-component) > * {
       line-height: 2.75rem; }
     nav.nav-lg .nav-menu .nav-component {
       height: 2.75rem; }
@@ -2821,7 +2821,7 @@ svg:not(:root) {
 .progress > progress {
   background-color: white;
   border: 1px solid #bdbdbd;
-  height: 0.8rem;
+  height: 1.25rem;
   width: 100%;
   border-radius: 0; }
 
@@ -2843,8 +2843,9 @@ svg:not(:root) {
 .progress > .progress-label {
   display: block;
   position: absolute;
-  top: 0.1rem;
+  top: 0;
   text-align: center;
+  line-height: 1.25rem;
   width: 100%;
   z-index: 110; }
 
