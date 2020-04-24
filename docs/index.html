@@ -10,7 +10,7 @@
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
@@ -58,7 +58,7 @@
 							</p>
 							
 							<p><i>Be creative. Start something amazing today!</i></p>
-							<p><span class="color-accent-1">Current version:</span> 8.4.1</p>
+							<p><span class="color-accent-1">Current version:</span> 10.0.0</p>
 						</div>
 					</div>
 					<div class="content-row">
@@ -74,7 +74,7 @@
 					<div class="row-spacing-sm"></div>
 					<div class="content-row">
 						<div class="form-col-20 text-sm color-accent-4">
-							MIT License (MIT) Copyright (c) 2010 - 2019 AsyncDesign.
+							MIT License (MIT) Copyright (c) 2010 - 2020 AsyncDesign.
 						</div>
 					</div>	
 				</div>
@@ -82,6 +82,17 @@
 				<div class="content-row border-sm border-muted"></div>
 			</div>
 		</div>
+    <div class="pad-top-sm-md pad-right-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+				</div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitch">8.x</a>
+        </div>
+      </div>
+    </div>
+
 	</div>
 </div>
 
@@ -368,6 +379,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -394,6 +408,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -451,6 +471,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -569,7 +607,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -584,6 +622,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -638,10 +688,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -676,6 +726,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -746,14 +799,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -764,6 +809,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -859,6 +907,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -889,10 +940,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -932,8 +989,13 @@
 
     </div>
 
-
             </div>
+
+            <div class="content-col dock-top-right right-xxs control-group text height-control-lg flex-items-center">
+              <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>
+              <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitchMobile">8.x</a>           
+            </div>
+
           </div>
     </div>
 
@@ -974,7 +1036,7 @@
 							</div>
 							<div class="row-spacing-lg"></div>
 							<div class="text-bold">
-								Current version 8.4.1
+								Current version 10.0.0
 							</div>
 						</span>
 					</div>
@@ -1327,7 +1389,7 @@
 
 				<div class="content-row">
 					<div class="form-col-20 color-info text-center text-lg">
-						<span class="text-mega text-italic">Arriving soon... </span>Updated WebUI themes using WebUI 8.x latest.
+						<span class="text-mega text-italic">Arriving soon... </span>Updated WebUI themes using WebUI 10.x latest.
 					</div>
 				</div>
 
@@ -1483,7 +1545,7 @@
     <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-1 color-hover-muted dock-bottom-right pad-xs show-bp-3-under"></i>
 
     
-    <script src="/webui/assets/js/webui-all.js"></script>
+    <script src="/webui/assets/js/webui-components.js"></script>
  
     <script>
 
@@ -1503,11 +1565,23 @@
         });			         
 
         function onMenuItemSelect() {
-          if (ui.isWindowInBreakPointRange(["", "lg"])) {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
             var menuWidth = ui("#defaultMobileSideNav")[0].offsetWidth + "px";
             ui("#defaultMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
           }
         }
+
+        ui("#v8MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
+
+        ui("#v8MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
 
         ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
 
@@ -1529,7 +1603,7 @@
 
 
         ui("#commandDownload").click( function() { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v8.4.1.zip";
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v10.0.0.zip";
         });
         
         ui("#commandDocumentation").click( function() {
@@ -1549,7 +1623,7 @@
         });
 
         
-      });
+      }, true);
 
     </script>
 

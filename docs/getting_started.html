@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=" en ">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/getting_started.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
@@ -314,6 +314,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -340,6 +343,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -397,6 +406,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -515,7 +542,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -530,6 +557,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -584,10 +623,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -622,6 +661,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -692,14 +734,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -710,6 +744,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -805,6 +842,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -835,10 +875,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -878,8 +924,13 @@
 
     </div>
 
-
       </div>
+
+      <div class="content-col dock-top-right right-xxs control-group text height-control-md flex-items-center">
+        <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>
+        <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitchMobile">8.x</a>      
+      </div>
+
     </div>
   </div>
 
@@ -888,9 +939,21 @@
         <img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
         <span class="text-xl text-bold color-info">WebUI</span>
     </div>
+
+    <div class="pad-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitch">8.x</a>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="box">
-    <div class="box dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
+    <div class="dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
     <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
@@ -1163,6 +1226,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -1189,6 +1255,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -1246,6 +1318,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -1364,7 +1454,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -1379,6 +1469,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -1433,10 +1535,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -1471,6 +1573,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -1541,14 +1646,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -1559,6 +1656,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -1654,6 +1754,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -1684,10 +1787,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -1727,81 +1836,81 @@
 
     </div>
 
-
       </div>
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
       <section class="scrollspy text" id="installation">
 
-		<div class="height-md show-bp-4-over"></div>
-		<div class="height-sm show-bp-4-under"></div>
+	<div class="height-md show-bp-4-over"></div>
+	<div class="height-sm show-bp-4-under"></div>
 
-		<h3>Installation</h3>
-		<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	<h3>Installation</h3>
+	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-		<p class="text-bold">Simple Method</p>
-		<a href="https://github.com/asyncdesign/webui/archive/v8.4.1.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
+	<p class="text-bold">Simple Method</p>
+	<a href="https://github.com/asyncdesign/webui/archive/v10.0.0.zip" class="color-info color-hover-accent-4 text-underline"><b>Download the latest release here.</b></a>
 
-		<ul class="list-bullet list-spacing-md">
-			<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
-			<li>WebUI has no dependencies, so you don't need to include jQuery.</li>
-			<li>In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:</li>
-		</ul>
+	<ul class="list-bullet list-spacing-md">
+		<li>Extract the CSS and JavaScript files from the dist folder to your project folders.</li>
+		<li>WebUI has no dependencies, so you don't need to include jQuery.</li>
+		<li>In your web page, add a link to the CSS in the head section and links to the JavaScript files at the bottom of the body section, for example:</li>
+	</ul>
 
-		<span class="badge-square-xs background-success-light text-xs">Markup</span>
-		<div class="row-spacing-sm"></div>
-	
-		<div class="body background-secondary code-block">
-				<div class="content-row">
-						<div class="content-col-20 scroll-y">
+	<span class="badge-square-xs background-success-light text-xs">Markup</span>
+	<div class="row-spacing-sm"></div>
+
+	<div class="body background-secondary code-block">
+		<div class="content-row">
+				<div class="content-col-20 scroll-y">
+					<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;html&gt;
 &lt;head&gt;
-  &lt;link rel="stylesheet" href="css/webui-standard.min.css"&gt; 
+  &lt;link rel="stylesheet" href="css/webui-components-standard.min.css"&gt; 
 &lt;/head&gt;
 &lt;body&gt;
 
-  &lt;script src="js/webui-standard.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/webui-components.min.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
 
-						</div>
-				</div>
-		</div>
-	
-		<div class="row-spacing-md"></div>		
+					</div>
+			</div>
+	</div>
 
-		<p class="text-bold">NPM</p>
-		<p>This is the recommended way to install WebUI if you are building websites using popular frameworks such as Angular, React, or Vue.</p>
-		<div class="body background-secondary">
+	<div class="row-spacing-md"></div>
+
+	<p class="text-bold">NPM</p>
+	<p>This is the recommended way to install WebUI if you are building websites using popular frameworks such as Angular, React, or Vue.</p>
+	<div class="body background-secondary">
 <pre>
   > npm install asyncdesign-webui
 </pre>
-		</div>
+	</div>
 
-		<p class="text-bold">NuGet</p>
-		<p>If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.</p>
-		<div class="body background-secondary">		
+	<p class="text-bold">NuGet</p>
+	<p>If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.</p>
+	<div class="body background-secondary">		
 <pre>
   > Install-Package asyncdesign-webui
 </pre>
-		</div>
+	</div>
 
-		<p class="text-bold">Bower</p>
-		<p>Alternatively, you can use Bower to install the WebUI packages.</p>				
-		<div class="body background-secondary">		
+	<p class="text-bold">Bower</p>
+	<p>Alternatively, you can use Bower to install the WebUI packages.</p>				
+	<div class="body background-secondary">		
 <pre>
   > bower install asyncdesign-webui
 </pre>
-		</div>
+	</div>
 
-		<div class="row-spacing-md"></div>
+	<div class="row-spacing-md"></div>
 
-		<ul class="list-bullet list-spacing-md">
-			<li>That's it. You are ready to start developing with WebUI.</li>
-			<li>Be sure to look at the static <b>DEMO</b> pages at the root of the download, containing many examples that demonstrate a good selection of components.</li>
-		</ul>
+	<ul class="list-bullet list-spacing-md">
+		<li>That's it. You are ready to start developing with WebUI.</li>
+		<li>Be sure to look at the static <b>DEMO</b> pages at the root of the download, containing many examples that demonstrate a good selection of components.</li>
+	</ul>
 
 </section>
 
@@ -1837,20 +1946,24 @@
 	<p class="gap-horizontal-sm"><span class="text-bold">Components Available</span><span class="badge-square-xs background-warning-light text-xs">JavaScript required</span></p>
 	<p>The following components are included in WebUI.</p>
 
-	<ul class="list-bullet list-spacing-md">
+	<ul class="list-bullet list-spacing-sm">
 		<li>Alerts</li>
+		<li>Animations</li>		
 		<li>Carousel</li>
 		<li>Menus</li>
 		<li>Modals</li>
+		<li>Navbar</li>
+		<li>NavButton</li>
 		<li>Positioning</li>
+		<li>Radial</li>
 		<li>Scrollspy</li>
 		<li>Shapes</li>
-		<li>Radial</li>
 		<li>Tabs</li>
 		<li>Toggle Container</li>
-		<li>Transitions</li>
 		<li>Tooltips</li>
-		<li>Upload</li>				
+		<li>Upload</li>
+		<li>Validation</li>
+		<li>Zoom</li>		
 	</ul>
 
 </section>
@@ -1868,73 +1981,61 @@
 	<p class="text-bold">CSS and JavaScript files</p>
 	<p>WebUI comes with a range of pre-built CSS and JavaScript files. The following table shows the combinations that can be used and what is included in each.</p>
 
-	<div class="container grid-padding-sm text-center text-sm text-wrap">
+	<div class="container col-padding-sm text-center text-sm text-wrap">
 		<div class="table-row background-secondary">
 			<div class="table-col-5">CSS</div>
 			<div class="table-col-5">JS</div>
-			<div class="table-col-10">Includes</div>					
+			<div class="table-col-10">Details</div>					
+		</div>
+		<div class="table-row text-left">
+			<div class="table-col-5">webui-basic.min.css</div>
+			<div class="table-col-5">webui.min.js (Optional)</div>
+			<div class="table-col-10">Includes basic styles only. Does not include standard styles, advanced styles or WebUI components.</div>
+		</div>
+		<div class="table-row text-left">
+			<div class="table-col-5">webui-standard.min.css</div>
+			<div class="table-col-5">webui.min.js (Optional)</div>
+			<div class="table-col-10">Includes basic and standard styles. Does not include advanced styles or WebUI components.</div>
 		</div>
 		<div class="table-row text-left">
 			<div class="table-col-5">webui-all.min.css</div>
-			<div class="table-col-5">webui-all.min.js</div>
-			<div class="table-col-10">Includes everything, with advanced styles, flexbox, the traditional grid system, and all components.</div>	
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-5">webui-all-flexbox.min.css</div>
-			<div class="table-col-5">webui-all.min.js</div>
-			<div class="table-col-10">Includes everything apart from the traditional grid system.</div>
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-5">webui-all-grid.min.css</div>
-			<div class="table-col-5">webui-all.min.js</div>
-			<div class="table-col-10">Includes everything apart from flexbox styles.</div>
+			<div class="table-col-5">webui.min.js (Optional)</div>
+			<div class="table-col-10">Includes basic, standard, and advanced styles. Does not include WebUI components.</div>	
 		</div>
 
 		<div class="table-row text-left">
-			<div class="table-col-5">webui-standard.min.css</div>
-			<div class="table-col-5">webui-standard.min.js</div>
-			<div class="table-col-10">Includes standard styles, flexbox, the traditional grid system, and most components. Does not include advanced styles or the shapes component.</div>	
+			<div class="table-col-5">webui-components-basic.min.css</div>
+			<div class="table-col-5">webui-components.min.js (Required)</div>
+			<div class="table-col-10">Includes basic styles only, and WebUI components.</div>
 		</div>
 		<div class="table-row text-left">
-			<div class="table-col-5">webui-standard-flexbox.min.css</div>
-			<div class="table-col-5">webui-standard.min.js</div>
-			<div class="table-col-10">Includes standard styles, flexbox, and most components. Does not include the traditional grid system, advanced styles or the shapes component.</div>	
+			<div class="table-col-5">webui-components-standard.min.css</div>
+			<div class="table-col-5">webui-components.min.js (Required)</div>
+			<div class="table-col-10">Includes basic and standard styles, and WebUI components.</div>
 		</div>
 		<div class="table-row text-left">
-			<div class="table-col-5">webui-standard-grid.min.css</div>
-			<div class="table-col-5">webui-standard.min.js</div>
-			<div class="table-col-10">Includes standard styles, the traditional grid system, and most components. Does not include flexbox styles, advanced styles or the shapes component.</div>	
-		</div>
-
-		<div class="table-row text-left">
-			<div class="table-col-5">webui-basic.min.css</div>
-			<div class="table-col-5">webui-basic.min.js</div>
-			<div class="table-col-10">Includes only basic styles, flexbox, and the traditional grid system. Does not include any components.</div>	
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-5">webui-basic-flexbox.min.css</div>
-			<div class="table-col-5">webui-basic.min.js</div>
-			<div class="table-col-10">Includes only basic styles and flexbox. Does not include any components.</div>	
-		</div>
-		<div class="table-row text-left">
-			<div class="table-col-5">webui-basic-grid.min.css</div>
-			<div class="table-col-5">webui-basic.min.js</div>
-			<div class="table-col-10">Includes only basic styles and the traditional grid system. Does not include any components.</div>	
+			<div class="table-col-5">webui-components-all.min.css</div>
+			<div class="table-col-5">webui-components.min.js (Required)</div>
+			<div class="table-col-10">Includes basic, standard, and advanced styles, and WebUI components.</div>	
 		</div>
 
 	</div>
 
 	<div class="row-spacing-md"></div>
-	
-	<p class="text-bold">Styles without JavaScript</p>
-	<p>WebUI can be used without javascript files if you only need the CSS, so a set of style only files are provided. The filenames for these begin with "webui-styles-" and
-		follow the same pattern as in the above table, but none includes WebUI components which rely on javascript.</p>
-
-	<div class="row-spacing-md"></div>
 
 	<p class="text-bold">JavaScript DOM Ready Event</p>
 	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
-	<p><b>NOTE:</b> This event does not need to be used if you are using a framework lifecycle loaded event.</p>
+
+	<p>Use the optional flag set to true to ensure the page is fully loaded and the document.readyState is "complete" before running scripts. 
+		By default, the webui.ready event is called when the document DOMContentLoaded event is fired.
+	</p>
+
+  <blockquote class="border-info-light background-secondary area">
+		<div class="flex-items-center">
+			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">DOM Ready Event</span>
+		</div>
+		<p class="text-sm"><b>NOTE:</b> The webui.ready event does not need to be used if you are using a framework lifecycle loaded / ready event.</p>
+	</blockquote>
 
   <div class="row-spacing-md"></div>
   
@@ -1944,14 +2045,19 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
   // Call WebUI functions here...
 });</pre>
-                          
+
+<pre>webui.ready(function() {
+  // Call WebUI functions here...
+}, true);</pre>
+
       </div>
     </div>
-  </div>
+	</div>
 
 	
 	<div class="row-spacing-md"></div>
@@ -1964,9 +2070,9 @@
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
 		<li>In <span class="text-bold">tsconfig.json</span> add <code class="color-info text-lg">"allowJs": true</code> to the <code class="color-info text-lg text-bold">"compilerOptions"</code> object.</li>
 		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css"</code> to the styles array.</li>
-		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js"</code> to the scripts array.</li>
+		<li>In <span class="text-bold">.angular-cli.json</span> add <code class="color-info text-lg">"../node_modules/asyncdesign-webui/dist/js/webui.min.js"</code> to the scripts array.</li>
 		<li>In <span class="text-bold">typings.d.ts</span> add <code class="color-info text-lg">declare var webui: any</code></li>
-		<li>In your <span class="text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js';</code> at the top of your file.</li>
+		<li>In your <span class="text-bold">app.components.ts</span> add <code class="color-info text-lg">import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui.min.js';</code> at the top of your file.</li>
 	</ul>
 
 	<div class="row-spacing-md"></div>
@@ -1976,7 +2082,7 @@
 	<ul class="list-bullet list-spacing-md">
 		<li>From the command line, navigate to your <span class="text-bold">React</span> project folder.</li>
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
-		<li>In your <span class="text-bold">React</span> component js file such as <span class="text-bold">App.js</span> add <code class="color-info text-lg">import webui from '../node_modules/asyncdesign-webui/dist/js/webui-standard.min.js'</code></li>
+		<li>In your <span class="text-bold">React</span> component js file such as <span class="text-bold">App.js</span> add <code class="color-info text-lg">import webui from '../node_modules/asyncdesign-webui/dist/js/webui.min.js'</code></li>
 		<li>Then add <code class="color-info text-lg">import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css'</code></li>
 		<li>Don't forget to use <code class="color-info text-lg">className=""</code> instead of  <code class="color-info text-lg">class=""</code> on your html elements.</li>
 		<li>If you need to use WebUI javascript functions, this should be done in the <code class="color-info text-lg">componentDidMount() lifecycle method.</code></li>
@@ -1989,7 +2095,7 @@
 	<ul class="list-bullet list-spacing-md">
 		<li>From the command line, navigate to your <span class="text-bold">Vue CLI</span> project folder.</li>
 		<li>Type <code class="color-info text-lg">npm install asyncdesign-webui</code> and wait for the install to finish.</li>
-		<li>In <span class="text-bold">webpack.base.conf.js</span> under <span class="text-bold">resolve: alias:</span> add <code class="color-info text-lg">'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-standard.min.js')</code></li>
+		<li>In <span class="text-bold">webpack.base.conf.js</span> under <span class="text-bold">resolve: alias:</span> add <code class="color-info text-lg">'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui.min.js')</code></li>
 		<li>In <span class="text-bold">main.js</span> add <code class="color-info text-lg">import webui from 'webui';</code></li>
 		<li>In <span class="text-bold">main.js</span> add <code class="color-info text-lg">import '../node_modules/asyncdesign-webui/dist/css/webui-standard.min.css';</code></li>
 		<li>Then finally, add <code class="color-info text-lg">Vue.use(webui)</code> directly below your imports.</li>
@@ -2055,6 +2161,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="container responsive-gutter-sm"&gt;
   &lt;div class="flex-row"&gt;
@@ -2097,27 +2204,17 @@
 	<p>It's very easy to create flexbox layouts with WebUI. Just use a flex-row, and add flex-columns and flex items (flex-size-*, flex-auto, flex-initial, etc.) 
 	You can also take advantage of the many flexbox responsive utility classes available.</p>
 
-	<p>Here's another flexbox example - this time creating a simple responsive navbar.</p>
+	<p>Here are some examples.</p>
 
 	<div class="row-spacing-md"></div>
 
 	<span class="badge-square-xs background-info-light text-xs">Example</span>
 	<div class="row-spacing-sm"></div>
 
-	<div class="container pad-xs pad-left-sm pad-right-sm pad-md-bp-2-under background-dark">
-		<div class="flex-row flex-items-center flex-direction-column-bp-2-under">
-			<div class="flex-initial flex-justify-center-bp-2-under">
-				<a href="javascript:void 0" class="color-accent-2-light text-xl fa fa-paper-plane fa-lg"></a>
-			</div>              
-			<div class="flex-auto flex-wrap flex-justify-center flex-justify-space-around flex-direction-column-bp-2-under pad-md-bp-2-under gap-vertical-sm-bp-2-under">
-				<a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center">PAGES</a>
-				<a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center">PROMOTIONS</a>
-				<a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center">PRODUCTS</a>
-			</div>          
-			<div class="flex-initial flex-justify-end-bp-2-over">
-				<input type="text" class="input-sm width-full" placeholder="" />
-			</div>
-		</div>
+	<div class="flex text-sm">
+		<div class="flex-items-center default rounded-left-sm pad-left-sm pad-right-sm"><span>Label</span></div>
+		<input type="text" class="input-sm flex-auto" />
+		<button type="button" class="button-sm button-accent-1 rounded-right-sm">Send</button>
 	</div>
 
 	<div class="row-spacing-md"></div>
@@ -2128,26 +2225,49 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="container pad-xs pad-left-sm pad-right-sm pad-md-bp-1-under background-dark"&gt;
-  &lt;div class="flex-row flex-items-center flex-direction-column-bp-1-under"&gt;
-    &lt;div class="flex-initial flex-justify-center-bp-1-under"&gt;
-      &lt;a href="javascript:void 0" class="color-accent-2-light text-xl fa fa-paper-plane fa-lg"&gt;&lt;/a&gt;
-    &lt;/div&gt;              
-    &lt;div class="flex-auto flex-wrap flex-justify-center flex-justify-space-around flex-direction-column-bp-1-under pad-md-bp-1-under gap-vertical-sm-bp-1-under"&gt;
-      &lt;a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center"&gt;PAGES&lt;/a&gt;
-      &lt;a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center"&gt;PROMOTIONS&lt;/a&gt;
-      &lt;a href="#0" class="text-sm color-light color-hover-accent-2-light flex-justify-center"&gt;PRODUCTS&lt;/a&gt;
-    &lt;/div&gt;          
-    &lt;div class="flex-initial flex-justify-end-bp-1-over"&gt;
-      &lt;input type="text" class="input-sm width-full" placeholder="" /&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="flex text-sm"&gt;
+  &lt;div class="flex-items-center default rounded-left-sm pad-left-sm pad-right-sm"&gt;&lt;span&gt;Label&lt;/span&gt;&lt;/div&gt;
+  &lt;input type="text" class="input-sm flex-auto" /&gt;
+  &lt;button type="button" class="button-sm button-accent-1 rounded-right-sm"&gt;Send&lt;/button&gt;
 &lt;/div&gt;</pre>
 
 			</div>
 		</div>
 	</div>
+
+	<div class="row-spacing-md"></div>
+
+	<span class="badge-square-xs background-info-light text-xs">Example</span>
+	<div class="row-spacing-sm"></div>
+
+	<div class="flex-col border-sm border-dark rounded-sm width-lg-xl height-xl">
+		<header class="accent-2-light rounded-top-sm height-sm pad-sm">Header</header>		
+		<p class="flex-auto pad-sm">Content.</p>		
+		<footer class="accent-2-light rounded-bottom-sm height-sm pad-sm">Footer</footer>
+	</div>
+
+	<div class="row-spacing-md"></div>
+
+	<span class="badge-square-xs background-success-light text-xs">Markup</span>
+	<div class="row-spacing-sm"></div>
+
+	<div class="body background-secondary code-block">
+		<div class="content-row">
+			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="flex-col border-sm border-dark rounded-sm width-lg-xl height-xl"&gt;
+  &lt;header class="accent-2-light rounded-top-sm height-sm pad-sm">Header&lt;/header&gt;		
+  &lt;p class="flex-auto pad-sm">Content.&lt;/p&gt;		
+  &lt;footer class="accent-2-light rounded-bottom-sm height-sm pad-sm">Footer&lt;/footer&gt;
+&lt;/div&gt;</pre>
+
+			</div>
+		</div>
+	</div>
+
 
 	<div class="row-spacing-md"></div>
 
@@ -2204,6 +2324,7 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="container"&gt;
   &lt;div class="form-row"&gt;
@@ -2252,7 +2373,7 @@
 	<div class="container responsive-gutter-md">
 		<div class="content-row toolbar-sm dark">
 			<div class="form-col-20 text-center pad-top-xs-sm">
-				Nav bar
+				Navigation
 			</div>
 		</div>
 		<div class="content-row"> 
@@ -2272,11 +2393,12 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="container responsive-gutter-lg"&gt;
   &lt;div class="content-row toolbar-sm dark"&gt;
     &lt;div class="form-col-20 form-col-align-lg text-center"&gt;
-      Menu bar
+      Navigation
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="content-row"&gt; 
@@ -2366,6 +2488,7 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="container text"&gt;
   &lt;div class="table-row"&gt;
@@ -2420,19 +2543,19 @@
 	<div class="container">
 		<div class="table-row text-bold">
 			<div class="table-col-4">
-				<div class="panel color-success">Lorem ipsum</div>
+				<div class="panel color-info">Lorem ipsum</div>
 			</div>
 			<div class="table-col-4">
-				<div class="panel background-warning">Lorem ipsum</div>
+				<div class="panel background-info-light">Lorem ipsum</div>
 			</div>
 			<div class="table-col-4">
-				<div class="panel accent-1">Lorem ipsum</div>
+				<div class="panel accent-2-light">Lorem ipsum</div>
 			</div>
 			<div class="table-col-4">
 				<div class="panel color-hover-danger">Lorem ipsum</div>
 			</div>
 			<div class="table-col-4">
-				<div class="panel background-hover-info">Lorem ipsum</div>
+				<div class="panel background-hover-success-light">Lorem ipsum</div>
 			</div>						
 		</div>
 	</div>
@@ -2445,23 +2568,24 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="container"&gt;
   &lt;div class="table-row text-bold"&gt;
     &lt;div class="table-col-4"&gt;
-      &lt;div class="panel color-success"&gt;Lorem ipsum&lt;/div&gt;
+      &lt;div class="panel color-info"&gt;Lorem ipsum&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="table-col-4"&gt;
-      &lt;div class="panel background-warning"&gt;Lorem ipsum&lt;/div&gt;
+      &lt;div class="panel background-info-light"&gt;Lorem ipsum&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="table-col-4"&gt;
-      &lt;div class="panel accent-1"&gt;Lorem ipsum&lt;/div&gt;
+      &lt;div class="panel accent-2-light"&gt;Lorem ipsum&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="table-col-4"&gt;
       &lt;div class="panel color-hover-danger"&gt;Lorem ipsum&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="table-col-4"&gt;
-      &lt;div class="panel background-hover-info"&gt;Lorem ipsum&lt;/div&gt;
+      &lt;div class="panel background-hover-success-light"&gt;Lorem ipsum&lt;/div&gt;
     &lt;/div&gt;						
   &lt;/div&gt;
 &lt;/div&gt;</pre>
@@ -2539,6 +2663,7 @@
 	<div class="body background-secondary code-block">
 		<div class="content-row">
 			<div class="content-col-20 scroll-y">
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area accessibility"&gt;
   &lt;div class="form-row control-group"&gt;
@@ -2580,7 +2705,7 @@
 
   <p class="text-bold">Classes</p>
   
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Class</div>
       <div class="table-col-13">Description</div>					
@@ -2628,7 +2753,7 @@
 
     </div>
 
-    <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
+    <div class="dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
 <div class="area text-center">    
@@ -2639,7 +2764,7 @@
 </div>
 
 <div class="area text-center">    
-    <a href="https://twitter.com/asyncdesign?lang=en" class=" text text-bold color-accent-5-dark">
+    <a href="https://twitter.com/asyncdesign?lang=en" class="text text-bold color-accent-5-dark">
       <div>WebUI on Twitter</div>
       <img src="/webui/assets/images/webui_twitter.jpg" alt="Media" class="border-sm border-color-muted" />
     </a>   
@@ -2653,8 +2778,7 @@
   <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-4-under"></i>
 
 
-  <script src="/webui/assets/js/webui-all.js"></script>
-  <!--<script src="/webui/assets/js/webui-utils.js"></script>-->
+  <script src="/webui/assets/js/webui-components.js"></script>
 
   <script src="/webui/assets/js/mark.js"></script>
   <script src="/webui/assets/js/site.js"></script>
@@ -2679,11 +2803,23 @@
         });			         
 
         function onMenuItemSelect() {
-          if (ui.isWindowInBreakPointRange(["", "lg"])) {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
             var menuWidth = ui("#homeMobileSideNav")[0].offsetWidth + "px";
             ui("#homeMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
           }
         }
+
+        ui("#v8MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
+
+        ui("#v8MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
 
         ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
 
@@ -2696,7 +2832,15 @@
           document.location.href = "/webui/js_introduction.html";
           ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
         });
-        
+
+        ui(".code-copy").click(function() {
+          var el = ui(this).parent().find("pre");
+          if (el && el.length) {
+            ui.copyToClipboard(el.text());
+          }
+        });
+
+    
         var loc = document.location.pathname;
         var parts = loc.split("\/");
         if (parts && parts.length > 0) {
@@ -2731,7 +2875,23 @@
             case "sizing.html": ui("#sizingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "colors.html": ui("#colorsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "typography.html": ui("#typographyMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
-            case "buttons.html": ui("#buttonsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "buttons.html": 
+            
+                  ui("#navButtonExample1, #navButtonExample2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  ui("#navButtonExample1, #navButtonExample2").click(function() { 
+                    ui(this).toggleClass("active");
+                  });
+
+                  ui("#buttonsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
             case "form_controls.html": ui("#formControlsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "tooltips.html": 
             
@@ -2787,15 +2947,45 @@
                   scriptHighlighter.highlight(".script-block");
                   
                   break;
+            case "navbars.html": ui("#navbarsMenu").expandVertical(700, "auto"); 
+
+                  ui("#navbar1").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 0,
+                    largeDeviceMenuOffset: -40,
+                    smallDeviceAlignment: "left",		
+                    smallDeviceBreakpoint: 2,
+                    smallDeviceExpansion: "overlay"			
+                  });
+
+                  ui("#navbar2").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 50,
+                    largeDeviceMenuOffset: -70,
+                    smallDeviceAlignment: "right",
+                    smallDeviceBreakpoint: 3,
+                    smallDeviceExpansion: "expand"
+                  });
+      
+                  ui("#navToggle1, #navToggle2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
             case "modals.html": 
             
-                  ui("#modal1").modalControl({
+                  var modal1 = ui("#modal1").modalControl({
                     closeFromBackdrop: true,
                     transitionDuration: 500
                   });
 
                   ui("#showModal").click( function() { 
-                    ui("#modal1").showModal();
+                    modal1.open();
                     ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
                  
@@ -2971,6 +3161,20 @@
                   
                   break;
             case "utility_classes.html": ui("#utilityClassesMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "zoom.html": 
+            
+                  ui(".zoom-image").zoomControl({ 
+                    zoom: 1.1,
+                    trigger: "hover",
+                    transitionDuration: 300
+                  });
+
+                  ui("#zoomMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+
             case "js_introduction.html": 
             
                   ui("#jsIntroductionMenu").expandVertical(700, "auto"); 
@@ -3046,7 +3250,7 @@
           }
         }
 
-      });
+      }, true);
 
     </script>
 

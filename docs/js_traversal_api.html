@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=" en ">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/js_traversal_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
@@ -314,6 +314,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -340,6 +343,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -397,6 +406,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -515,7 +542,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -530,6 +557,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -584,10 +623,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -622,6 +661,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -692,14 +734,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -710,6 +744,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -805,6 +842,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -835,10 +875,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -878,8 +924,13 @@
 
     </div>
 
-
       </div>
+
+      <div class="content-col dock-top-right right-xxs control-group text height-control-md flex-items-center">
+        <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>
+        <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitchMobile">8.x</a>      
+      </div>
+
     </div>
   </div>
 
@@ -888,9 +939,21 @@
         <img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
         <span class="text-xl text-bold color-info">WebUI</span>
     </div>
+
+    <div class="pad-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitch">8.x</a>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="box">
-    <div class="box dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
+    <div class="dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
     <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
@@ -1163,6 +1226,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -1189,6 +1255,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -1246,6 +1318,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -1364,7 +1454,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -1379,6 +1469,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -1433,10 +1535,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -1471,6 +1573,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -1541,14 +1646,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -1559,6 +1656,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -1654,6 +1754,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -1684,10 +1787,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -1727,7 +1836,6 @@
 
     </div>
 
-
       </div>
     </div>
 
@@ -1745,7 +1853,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -1759,6 +1867,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -1780,6 +1889,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -1801,7 +1911,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -1825,6 +1935,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -1846,6 +1957,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -1874,7 +1986,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -1898,6 +2010,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -1919,6 +2032,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -1932,88 +2046,22 @@
   
 </section>
 
-<section class="scrollspy text" id="jsEq">
+<section class="scrollspy text" id="jsElements">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>eq (index)</h3>
+  <h3>elements (query)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Gets the element at the specified index in the set of matched elements.
+  <p>Returns all HTML elements in the set of matched elements as a plain array.
   </p>
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
-      <div class="table-col-20">Returns - WebUI object.</div>				
-    </div>
-    <div class="table-row text-left">
-      <div class="table-col-6">index</div>
-      <div class="table-col-4">number</div>
-      <div class="table-col-10">The index of the element in a the set of matched elements.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="area" id="exampleArea"&gt;
-  &lt;div class="flex-row gap-horizontal-sm"&gt;
-    &lt;div class="width-md height-sm"&gt;Element 0&lt;/div&gt;
-    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
-    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
-  &lt;/div&gt;	
-&lt;/div&gt;</pre>
-                                
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary script-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>webui.ready(function() {
-
-  var matchedElements = ui("#exampleArea .flex-row div").eq(1);
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<section class="scrollspy text" id="jsFilter">
-
-  <div class="height-md show-bp-4-over"></div>
-  <div class="height-sm show-bp-4-under"></div>
-
-  <h3>filter (query)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Filters all elements matching the query selector expression within each element in the set of matched elements.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container grid-padding-sm text-sm text-wrap">
-    <div class="table-row background-secondary text-bold">
-      <div class="table-col-20">Returns - WebUI object.</div>				
+      <div class="table-col-20">Returns - Array.</div>				
     </div>
     <div class="table-row text-bold">
       <div class="table-col-6">Argument</div>
@@ -2035,12 +2083,13 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
-    &lt;div class="width-md height-sm" name="filterable"&gt;Element 0&lt;/div&gt;
+    &lt;div class="width-md height-sm" name="selectable"&gt;Element 0&lt;/div&gt;
     &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
-    &lt;div class="width-md height-sm" name="filterable"&gt;Element 2&lt;/div&gt;
+    &lt;div class="width-md height-sm" name="selectable"&gt;Element 2&lt;/div&gt;
   &lt;/div&gt;	
 &lt;/div&gt;</pre>
                                 
@@ -2056,10 +2105,80 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
-  var matchedElements = ui(".flex-row div").filter("[name=filterable]");
+  var array = ui(".flex-row div").select("[name=selectable]").elements();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="jsEq">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>eq (index)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the element at the specified index in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">index</div>
+      <div class="table-col-4">number</div>
+      <div class="table-col-10">The index of the element in a the set of matched elements.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 0&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var matchedElements = ui("#exampleArea .flex-row div").eq(1);
 
 });</pre>
                           
@@ -2082,7 +2201,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2106,6 +2225,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2126,6 +2246,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2153,7 +2274,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2167,6 +2288,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2187,6 +2309,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2213,7 +2336,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - Boolean.</div>				
     </div>
@@ -2237,6 +2360,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2258,6 +2382,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2284,7 +2409,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - Boolean.</div>				
     </div>
@@ -2308,6 +2433,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2329,6 +2455,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2355,7 +2482,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2369,6 +2496,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2389,6 +2517,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2416,7 +2545,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2430,6 +2559,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2451,6 +2581,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2472,7 +2603,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2496,6 +2627,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2519,6 +2651,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2545,7 +2678,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2559,6 +2692,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2582,6 +2716,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2603,7 +2738,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2627,6 +2762,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2650,6 +2786,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2676,7 +2813,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2690,6 +2827,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2711,6 +2849,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2732,7 +2871,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2756,6 +2895,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2777,6 +2917,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2803,7 +2944,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2817,6 +2958,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2838,6 +2980,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2859,7 +3002,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2883,6 +3026,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2904,6 +3048,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2931,7 +3076,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -2945,6 +3090,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -2966,6 +3112,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -2987,7 +3134,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -3011,6 +3158,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -3034,6 +3182,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -3060,7 +3209,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -3074,6 +3223,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -3097,6 +3247,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -3118,7 +3269,7 @@
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -3142,6 +3293,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -3165,6 +3317,7 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -3178,76 +3331,20 @@
 
 </section>
 
-<section class="scrollspy text" id="jsSiblings">
+<section class="scrollspy text" id="jsSelect">
 
   <div class="height-md show-bp-4-over"></div>
   <div class="height-sm show-bp-4-under"></div>
 
-  <h3>siblings ()</h3>
+  <h3>select (query)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Gets all sibling elements for each element in the set of matched elements.
+  <p>Selects all elements matching the query selector expression within each element in the set of matched elements.
   </p>
   
   <div class="row-spacing-md"></div>
   
-  <div class="container grid-padding-sm text-sm text-wrap">
-    <div class="table-row background-secondary text-bold">
-      <div class="table-col-20">Returns - WebUI object.</div>				
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="badge-square-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary code-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>&lt;div class="area" id="exampleArea"&gt;
-  &lt;div class="flex-row gap-horizontal-sm"&gt;
-    &lt;div class="width-md height-sm"&gt;Element 0&lt;/div&gt;
-    &lt;div class="width-md height-sm" id="element1"&gt;Element 1&lt;/div&gt;
-    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
-  &lt;/div&gt;	
-&lt;/div&gt;</pre>
-                                
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="badge-square-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-sm"></div>
-
-  <div class="body background-secondary script-block">
-    <div class="content-row">
-      <div class="content-col-20 scroll-y">
-
-<pre>webui.ready(function() {
-
-  var matchedElements = ui("#element1").siblings();
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <h3>siblings (query)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Gets all sibling elements matching the query selector expression for each element in the set of matched elements.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container grid-padding-sm text-sm text-wrap">
+  <div class="container col-padding-sm text-sm text-wrap">
     <div class="table-row background-secondary text-bold">
       <div class="table-col-20">Returns - WebUI object.</div>				
     </div>
@@ -3271,6 +3368,71 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" name="selectable"&gt;Element 0&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm" name="selectable"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var matchedElements = ui(".flex-row div").select("[name=selectable]");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="jsSiblings">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>siblings ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets all sibling elements for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="area" id="exampleArea"&gt;
   &lt;div class="flex-row gap-horizontal-sm"&gt;
@@ -3292,6 +3454,75 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var matchedElements = ui("#element1").siblings();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>siblings (query)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets all sibling elements matching the query selector expression for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">query</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A valid CSS selector expression.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 0&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
 
@@ -3307,7 +3538,7 @@
 
     </div>
 
-    <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
+    <div class="dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
 <div class="area text-center">    
@@ -3318,7 +3549,7 @@
 </div>
 
 <div class="area text-center">    
-    <a href="https://twitter.com/asyncdesign?lang=en" class=" text text-bold color-accent-5-dark">
+    <a href="https://twitter.com/asyncdesign?lang=en" class="text text-bold color-accent-5-dark">
       <div>WebUI on Twitter</div>
       <img src="/webui/assets/images/webui_twitter.jpg" alt="Media" class="border-sm border-color-muted" />
     </a>   
@@ -3332,8 +3563,7 @@
   <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-4-under"></i>
 
 
-  <script src="/webui/assets/js/webui-all.js"></script>
-  <!--<script src="/webui/assets/js/webui-utils.js"></script>-->
+  <script src="/webui/assets/js/webui-components.js"></script>
 
   <script src="/webui/assets/js/mark.js"></script>
   <script src="/webui/assets/js/site.js"></script>
@@ -3358,11 +3588,23 @@
         });			         
 
         function onMenuItemSelect() {
-          if (ui.isWindowInBreakPointRange(["", "lg"])) {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
             var menuWidth = ui("#homeMobileSideNav")[0].offsetWidth + "px";
             ui("#homeMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
           }
         }
+
+        ui("#v8MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
+
+        ui("#v8MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
 
         ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
 
@@ -3375,7 +3617,15 @@
           document.location.href = "/webui/js_introduction.html";
           ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
         });
-        
+
+        ui(".code-copy").click(function() {
+          var el = ui(this).parent().find("pre");
+          if (el && el.length) {
+            ui.copyToClipboard(el.text());
+          }
+        });
+
+    
         var loc = document.location.pathname;
         var parts = loc.split("\/");
         if (parts && parts.length > 0) {
@@ -3410,7 +3660,23 @@
             case "sizing.html": ui("#sizingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "colors.html": ui("#colorsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "typography.html": ui("#typographyMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
-            case "buttons.html": ui("#buttonsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "buttons.html": 
+            
+                  ui("#navButtonExample1, #navButtonExample2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  ui("#navButtonExample1, #navButtonExample2").click(function() { 
+                    ui(this).toggleClass("active");
+                  });
+
+                  ui("#buttonsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
             case "form_controls.html": ui("#formControlsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "tooltips.html": 
             
@@ -3466,15 +3732,45 @@
                   scriptHighlighter.highlight(".script-block");
                   
                   break;
+            case "navbars.html": ui("#navbarsMenu").expandVertical(700, "auto"); 
+
+                  ui("#navbar1").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 0,
+                    largeDeviceMenuOffset: -40,
+                    smallDeviceAlignment: "left",		
+                    smallDeviceBreakpoint: 2,
+                    smallDeviceExpansion: "overlay"			
+                  });
+
+                  ui("#navbar2").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 50,
+                    largeDeviceMenuOffset: -70,
+                    smallDeviceAlignment: "right",
+                    smallDeviceBreakpoint: 3,
+                    smallDeviceExpansion: "expand"
+                  });
+      
+                  ui("#navToggle1, #navToggle2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
             case "modals.html": 
             
-                  ui("#modal1").modalControl({
+                  var modal1 = ui("#modal1").modalControl({
                     closeFromBackdrop: true,
                     transitionDuration: 500
                   });
 
                   ui("#showModal").click( function() { 
-                    ui("#modal1").showModal();
+                    modal1.open();
                     ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
                  
@@ -3650,6 +3946,20 @@
                   
                   break;
             case "utility_classes.html": ui("#utilityClassesMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "zoom.html": 
+            
+                  ui(".zoom-image").zoomControl({ 
+                    zoom: 1.1,
+                    trigger: "hover",
+                    transitionDuration: 300
+                  });
+
+                  ui("#zoomMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+
             case "js_introduction.html": 
             
                   ui("#jsIntroductionMenu").expandVertical(700, "auto"); 
@@ -3725,7 +4035,7 @@
           }
         }
 
-      });
+      }, true);
 
     </script>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=" en ">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/webui/assets/css/webui-all.css">
+  <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
   <link rel="canonical" href="http://localhost:4000/webui/form_controls.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
@@ -314,6 +314,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -340,6 +343,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -397,6 +406,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -515,7 +542,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -530,6 +557,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -584,10 +623,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -622,6 +661,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -692,14 +734,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -710,6 +744,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -805,6 +842,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -835,10 +875,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -878,8 +924,13 @@
 
     </div>
 
-
       </div>
+
+      <div class="content-col dock-top-right right-xxs control-group text height-control-md flex-items-center">
+        <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>
+        <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitchMobile">8.x</a>      
+      </div>
+
     </div>
   </div>
 
@@ -888,9 +939,21 @@
         <img src="/webui/assets/images/webui_blue_32x32.png" alt="Media" />
         <span class="text-xl text-bold color-info">WebUI</span>
     </div>
+
+    <div class="pad-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v8MenuSwitch">8.x</a>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="box">
-    <div class="box dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
+    <div class="dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
     <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
@@ -1163,6 +1226,9 @@
         <div class="pad-left-sm">
           <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
       </div>
 
       <div>
@@ -1189,6 +1255,12 @@
         </div>
         <div class="pad-left-sm">
           <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
           <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
@@ -1246,6 +1318,24 @@
         </div>  
         <div class="pad-left-sm">
           <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
@@ -1364,7 +1454,7 @@
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload Control</a>
+        <a href="/webui/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
@@ -1379,6 +1469,18 @@
         <div class="pad-left-sm">
           <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
         </div>  
+      </div>
+
+      <div>
+        <a href="/webui/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
       </div>
 
       <div>
@@ -1433,10 +1535,10 @@
           <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
-        </div> 
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
         <div class="pad-left-sm">
-          <a href="#jsFilter" class="color-dark color-hover-info" data-scrollspy="#jsFilter">filter</a>
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
           <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
@@ -1471,6 +1573,9 @@
         <div class="pad-left-sm">
           <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
         <div class="pad-left-sm">
           <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
         </div>
@@ -1541,14 +1646,6 @@
           <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
-
-      <!--
-      <div>
-        <a href="/webui/js_extended_api.html" class="color-dark text-bold color-hover-info">DOM Extended API</a>
-      </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsExtendedApiMenu">
-      </div>
-      -->
       
       <div>
         <a href="/webui/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
@@ -1559,6 +1656,9 @@
         </div>
         <div class="pad-left-sm">
           <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
@@ -1654,6 +1754,9 @@
           <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
@@ -1684,10 +1787,16 @@
           <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
         </div>
         <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
           <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
         </div>
         <div class="pad-left-sm">
           <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
       </div>
 
@@ -1727,7 +1836,6 @@
 
     </div>
 
-
       </div>
     </div>
 
@@ -1742,7 +1850,7 @@
 
   <p class="text-bold">Sizes</p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-14">Classes</div>
       <div class="table-col-6">Height</div>					
@@ -1799,7 +1907,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <input type="text" placeholder="Textbox 1" class="input-sm">
     </div>
@@ -1819,8 +1927,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;input type="text" placeholder="Textbox 1" class="input-sm"&gt;
   &lt;/div&gt;
@@ -1856,7 +1965,7 @@
   <h3>Control Classes</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Classes</div>
       <div class="table-col-13">Description</div>					
@@ -1900,7 +2009,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row grid-padding-lg">
+  <div class="table-row col-padding-lg">
     <div class="table-col">
       <textarea class="control width-lg height-md-lg"></textarea>
     </div>
@@ -1917,8 +2026,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
     
-<pre>&lt;div class="table-row grid-padding-lg"&gt;
+<pre>&lt;div class="table-row col-padding-lg"&gt;
   &lt;div class="table-col"&gt;
     &lt;textarea class="control width-lg height-md-lg"&gt;&lt;/textarea&gt;
   &lt;/div&gt;
@@ -1935,7 +2045,7 @@
 
   <p class="text-bold">Labels</p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-14">Classes</div>
       <div class="table-col-6">Line height</div>					
@@ -1981,7 +2091,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row grid-padding-sm control-group">
+  <div class="table-row col-padding-sm control-group">
     <div class="table-col control-label-sm">
         First name
     </div>
@@ -1998,8 +2108,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
     
-<pre>&lt;div class="table-row grid-padding-sm control-group"&gt;
+<pre>&lt;div class="table-row col-padding-sm control-group"&gt;
   &lt;div class="table-col control-label-sm"&gt;
       First name
   &lt;/div&gt;
@@ -2017,7 +2128,7 @@
 
   <p class="text-bold">Control Grouping</p>
   
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Classes</div>
       <div class="table-col-13">Description</div>					
@@ -2050,7 +2161,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="control-group">
           <button class="button-sm menu-button-info background-focus-info-dark rounded-left-sm transition-long"><i class="fa fa-angle-double-left"></i></button>
@@ -2070,8 +2181,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="control-group"&gt;
         &lt;button class="button-sm menu-button-info background-focus-info-dark rounded-left-sm transition-long"&gt;&lt;i class="fa fa-angle-double-left"&gt;&lt;/i&gt;&lt;/button&gt;
@@ -2096,7 +2208,7 @@
 
   <div class="row-spacing-md"></div>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Class</div>
       <div class="table-col-13">Description</div>					
@@ -2134,7 +2246,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row grid-padding-sm control-group control-group-success">
+  <div class="table-row col-padding-sm control-group control-group-success">
     <div class="table-col control-label-sm">
         First name
     </div>
@@ -2143,7 +2255,7 @@
     </div>
   </div>
 
-  <div class="table-row grid-padding-sm">
+  <div class="table-row col-padding-sm">
     <div class="table-col flex-auto">
       <textarea class="control control-warning height-md instrumentation"></textarea>
     </div>
@@ -2157,8 +2269,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
     
-<pre>&lt;div class="table-row grid-padding-sm control-group control-group-success"&gt;
+<pre>&lt;div class="table-row col-padding-sm control-group control-group-success"&gt;
   &lt;div class="table-col control-label-sm"&gt;
       First name
   &lt;/div&gt;
@@ -2167,7 +2280,7 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="table-row grid-padding-sm"&gt;
+&lt;div class="table-row col-padding-sm"&gt;
   &lt;div class="table-col flex-auto"&gt;
     &lt;textarea class="control control-warning height-md instrumentation"&gt;&lt;/textarea&gt;
   &lt;/div&gt;
@@ -2221,6 +2334,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="form-row text-xs"&gt;
   &lt;div class="form-col-20"&gt;
@@ -2277,6 +2391,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="table-row"&gt;
   &lt;div class="table-col flex-auto"&gt;
@@ -2343,6 +2458,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="table-row"&gt;
   &lt;div class="table-col"&gt;
@@ -2400,6 +2516,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="table-row"&gt;
   &lt;div class="table-col"&gt;
@@ -2436,7 +2553,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="checkbox border-accent-4">
         <input type="checkbox" value="" id="checkbox3" />
@@ -2465,8 +2582,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="checkbox border-accent-4"&gt;
       &lt;input type="checkbox" value="" id="checkbox3" /&gt;
@@ -2498,7 +2616,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="toggle-switch-xs accent-1-light rounded-sm">	
         <input type="checkbox" value="1" id="check-switch-1" />
@@ -2527,8 +2645,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="toggle-switch-xs accent-1-light rounded-sm"&gt;	
       &lt;input type="checkbox" value="1" id="check-switch-1" /&gt;
@@ -2585,6 +2704,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="content-row"&gt;
   &lt;div class="control-group"&gt;
@@ -2614,7 +2734,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="radio border-success">
         <input type="radio" value="" name="radiogroup1" id="radio1" />
@@ -2643,8 +2763,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="radio border-success"&gt;
       &lt;input type="radio" value="" name="radiogroup1" id="radio1" /&gt;
@@ -2676,7 +2797,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="toggle-switch-xs accent-1-light rounded-sm">	
         <input type="radio" value="1" id="radio-switch-1" name="radio-switch-1" />
@@ -2705,8 +2826,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="toggle-switch-xs accent-1-light rounded-sm"&gt;	
       &lt;input type="radio" value="1" id="radio-switch-1" name="radio-switch-1" /&gt;
@@ -2763,6 +2885,7 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>&lt;div class="content-row"&gt;
   &lt;div class="control-group"&gt;
@@ -2797,7 +2920,7 @@
 
   <p class="text-bold">Styling Classes</p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Class</div>
       <div class="table-col-13">Description</div>					
@@ -2836,7 +2959,7 @@
 
   <p class="text-bold">Spacing Classes</p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-10">Classes</div>
       <div class="table-col-5">Spacing</div>
@@ -2864,7 +2987,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm text-nowrap grid-padding-lg">
+  <div class="table-row text-sm text-nowrap col-padding-lg">
     <div class="table-col">
       <ul class="list list-spacing-md">
         <li>Item 1</li>
@@ -2903,8 +3026,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm text-nowrap grid-padding-lg"&gt;
+<pre>&lt;div class="table-row text-sm text-nowrap col-padding-lg"&gt;
   &lt;div class="table-col"&gt;
     &lt;ul class="list list-spacing-md"&gt;
       &lt;li&gt;Item 1&lt;/li&gt;
@@ -2941,6 +3065,224 @@
 
 </section>
 
+<section class="scrollspy text" id="rangeControls">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Range Controls</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Range Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range</div>
+      <div class="table-col-13">The mandatory class for range control styling.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-xs, range-sm, range-md, range-lg, range-xl</div>
+      <div class="table-col-13">Specifies the overall height of the range control.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-[WebUI color suffix]</div>
+      <div class="table-col-13">Specifies the range control color. The color suffix can be one of the standard WebUI colors.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-disabled</div>
+      <div class="table-col-13">Specifies that the range control should be styled as disabled.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-rounded</div>
+      <div class="table-col-13">Specifies that the range control thumb should be round instead of a rectangle.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-series</div>
+      <div class="table-col-13">Used to style a range control series.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="range-series width-full color-dark">
+    <span>0</span>
+    <span>25</span>
+    <span>50</span>
+    <span>75</span>
+    <span>100</span>
+  </div>
+  <input type="range" value="25" min="0" max="100" class="range width-full" />
+
+  <div class="row-spacing-xl"></div>
+
+  <div class="content-row">
+    <div class="content-col-20">
+      <input type="range" value="25" min="0" max="100" class="range range-lg range-success width-full" />
+    </div>
+  </div>
+  <div class="content-row">
+    <div class="content-col-20">
+      <ul class="range-series list-inline margin-initial width-full color-success">
+        <li>0</li>
+        <li>25</li>
+        <li>50</li>
+        <li>75</li>
+        <li>100</li>
+      </ul>
+    </div>	
+  </div>
+          
+  <div class="row-spacing-xl"></div>
+
+  <div class="content-row">
+    <div class="content-col-20">
+      <input type="range" value="25" min="0" max="100" class="range range-xs range-info width-full" />
+    </div>
+  </div>
+  <div class="content-row">
+    <div class="content-col-20">
+      <ul class="range-series list-inline margin-initial width-full color-accent-5">
+        <li>0</li>
+        <li>25</li>
+        <li>50</li>
+        <li>75</li>
+        <li>100</li>
+      </ul>
+    </div>	
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="range-series width-full color-dark"&gt;
+  &lt;span&gt;0&lt;/span&gt;
+  &lt;span&gt;25&lt;/span&gt;
+  &lt;span&gt;50&lt;/span&gt;
+  &lt;span&gt;75&lt;/span&gt;
+  &lt;span&gt;100&lt;/span&gt;
+&lt;/div&gt;
+&lt;input type="range" value="25" min="0" max="100" class="range width-full" /&gt;
+
+&lt;div class="row-spacing-xl"&gt;&lt;/div&gt;
+
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;input type="range" value="25" min="0" max="100" class="range range-lg range-success width-full" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;ul class="range-series list-inline margin-initial width-full color-success"&gt;
+      &lt;li&gt;0&lt;/li&gt;
+      &lt;li&gt;25&lt;/li&gt;
+      &lt;li&gt;50&lt;/li&gt;
+      &lt;li&gt;75&lt;/li&gt;
+      &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;
+        
+&lt;div class="row-spacing-xl"&gt;&lt;/div&gt;
+
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;input type="range" value="25" min="0" max="100" class="range range-xs range-info width-full" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;ul class="range-series list-inline margin-initial width-full color-accent-5"&gt;
+      &lt;li&gt;0&lt;/li&gt;
+      &lt;li&gt;25&lt;/li&gt;
+      &lt;li&gt;50&lt;/li&gt;
+      &lt;li&gt;75&lt;/li&gt;
+      &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                    
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="progressControls">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Progress Controls</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Progress Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress</div>
+      <div class="table-col-13">The mandatory class for progress control wrapper element.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress-[WebUI color suffix]</div>
+      <div class="table-col-13">Specifies the progress control color. The color suffix can be one of the standard WebUI colors.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress-labal</div>
+      <div class="table-col-13">Class for a supplimentary overlay text.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="progress progress-accent-2 width-full rounded-sm">			
+    <progress value="25" max="100" id="progressbar"></progress>
+    <div class="progress-label color-dark">25%</div>  
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="progress progress-accent-2 width-full rounded-sm"&gt;			
+  &lt;progress value="25" max="100" id="progressbar"&gt;&lt;/progress&gt;
+  &lt;div class="progress-label color-dark"&gt;25%&lt;/div&gt;  
+&lt;/div&gt;</pre>
+                                                    
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
 
 <section class="scrollspy text" id="badges">
 
@@ -2952,7 +3294,7 @@
 
   <p class="text-bold">Classes</p>
 
-  <div class="container grid-padding-sm text-center text-sm text-wrap">
+  <div class="container col-padding-sm text-center text-sm text-wrap">
     <div class="table-row background-secondary">
       <div class="table-col-7">Class</div>
       <div class="table-col-13">Description</div>					
@@ -3004,7 +3346,7 @@
   <span class="badge-square-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-sm"></div>
 
-  <div class="table-row text-sm grid-padding-md">
+  <div class="table-row text-sm col-padding-md">
     <div class="table-col">
       <div class="badge-square-xs warning">
         This is a warning
@@ -3030,8 +3372,9 @@
   <div class="body background-secondary code-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
-<pre>&lt;div class="table-row text-sm grid-padding-md"&gt;
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
   &lt;div class="table-col"&gt;
     &lt;div class="badge-square-xs warning"&gt;
       This is a warning.
@@ -3058,7 +3401,7 @@
 
     </div>
 
-    <div class="box dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
+    <div class="dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
       <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
         
 <div class="area text-center">    
@@ -3069,7 +3412,7 @@
 </div>
 
 <div class="area text-center">    
-    <a href="https://twitter.com/asyncdesign?lang=en" class=" text text-bold color-accent-5-dark">
+    <a href="https://twitter.com/asyncdesign?lang=en" class="text text-bold color-accent-5-dark">
       <div>WebUI on Twitter</div>
       <img src="/webui/assets/images/webui_twitter.jpg" alt="Media" class="border-sm border-color-muted" />
     </a>   
@@ -3083,8 +3426,7 @@
   <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-4-under"></i>
 
 
-  <script src="/webui/assets/js/webui-all.js"></script>
-  <!--<script src="/webui/assets/js/webui-utils.js"></script>-->
+  <script src="/webui/assets/js/webui-components.js"></script>
 
   <script src="/webui/assets/js/mark.js"></script>
   <script src="/webui/assets/js/site.js"></script>
@@ -3109,11 +3451,23 @@
         });			         
 
         function onMenuItemSelect() {
-          if (ui.isWindowInBreakPointRange(["", "lg"])) {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
             var menuWidth = ui("#homeMobileSideNav")[0].offsetWidth + "px";
             ui("#homeMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
           }
         }
+
+        ui("#v8MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
+
+        ui("#v8MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui".replace("webui", "webui/8x");
+        });
 
         ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
 
@@ -3126,7 +3480,15 @@
           document.location.href = "/webui/js_introduction.html";
           ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
         });
-        
+
+        ui(".code-copy").click(function() {
+          var el = ui(this).parent().find("pre");
+          if (el && el.length) {
+            ui.copyToClipboard(el.text());
+          }
+        });
+
+    
         var loc = document.location.pathname;
         var parts = loc.split("\/");
         if (parts && parts.length > 0) {
@@ -3161,7 +3523,23 @@
             case "sizing.html": ui("#sizingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "colors.html": ui("#colorsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "typography.html": ui("#typographyMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
-            case "buttons.html": ui("#buttonsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "buttons.html": 
+            
+                  ui("#navButtonExample1, #navButtonExample2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  ui("#navButtonExample1, #navButtonExample2").click(function() { 
+                    ui(this).toggleClass("active");
+                  });
+
+                  ui("#buttonsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
             case "form_controls.html": ui("#formControlsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
             case "tooltips.html": 
             
@@ -3217,15 +3595,45 @@
                   scriptHighlighter.highlight(".script-block");
                   
                   break;
+            case "navbars.html": ui("#navbarsMenu").expandVertical(700, "auto"); 
+
+                  ui("#navbar1").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 0,
+                    largeDeviceMenuOffset: -40,
+                    smallDeviceAlignment: "left",		
+                    smallDeviceBreakpoint: 2,
+                    smallDeviceExpansion: "overlay"			
+                  });
+
+                  ui("#navbar2").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 50,
+                    largeDeviceMenuOffset: -70,
+                    smallDeviceAlignment: "right",
+                    smallDeviceBreakpoint: 3,
+                    smallDeviceExpansion: "expand"
+                  });
+      
+                  ui("#navToggle1, #navToggle2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
             case "modals.html": 
             
-                  ui("#modal1").modalControl({
+                  var modal1 = ui("#modal1").modalControl({
                     closeFromBackdrop: true,
                     transitionDuration: 500
                   });
 
                   ui("#showModal").click( function() { 
-                    ui("#modal1").showModal();
+                    modal1.open();
                     ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
                   });
                  
@@ -3401,6 +3809,20 @@
                   
                   break;
             case "utility_classes.html": ui("#utilityClassesMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "zoom.html": 
+            
+                  ui(".zoom-image").zoomControl({ 
+                    zoom: 1.1,
+                    trigger: "hover",
+                    transitionDuration: 300
+                  });
+
+                  ui("#zoomMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+
             case "js_introduction.html": 
             
                   ui("#jsIntroductionMenu").expandVertical(700, "auto"); 
@@ -3476,7 +3898,7 @@
           }
         }
 
-      });
+      }, true);
 
     </script>
 

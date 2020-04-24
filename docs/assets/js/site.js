@@ -3,7 +3,7 @@
 	var codeHighlighter = {
 		
 		highlight : function (selector) {
-			var tags = ["html", "head", "body", "div", "span", "label", "link", "img", "input", "button", "select", "option", "textarea", "blockquote", "ul", "li", "a", "i", "p", "b"];
+			var tags = ["html", "head", "body", "div", "span", "header", "footer", "nav", "label", "link", "img", "input", "button", "select", "option", "textarea", "blockquote", "ul", "li", "a", "i", "p", "b"];
 			var attributes = ["class", "type", "id", "href", "rel", "src"];
 			
 			var codeBlock;
