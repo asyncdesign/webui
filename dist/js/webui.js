@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 10.0.0
+* Version: 10.0.1
 * MIT License
 */
 "use strict";
@@ -1893,7 +1893,7 @@
             }
         }
     };
-    webui.version = "v10.0.0";
+    webui.version = "v10.0.1";
     /* EVENT HANDLERS */    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
         if (e.which == 13 || e.which == 32) {
             e.preventDefault();
