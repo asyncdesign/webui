@@ -1,6 +1,6 @@
 /*!
 * Name: webui-components-all - css
-* Version: 10.0.1
+* Version: 10.1.0
 * MIT License
 */
 .flow-col-1 {
@@ -4694,16 +4694,16 @@ nav.nav-lg {
   background-color: transparent; }
 
 .tooltip-transparent.tooltip-top::after {
-  border-top-color: #bdbdbd; }
+  border-top-color: transparent; }
 
 .tooltip-transparent.tooltip-left::after {
-  border-left-color: #bdbdbd; }
+  border-left-color: transparent; }
 
 .tooltip-transparent.tooltip-bottom::after {
-  border-bottom-color: #bdbdbd; }
+  border-bottom-color: transparent; }
 
 .tooltip-transparent.tooltip-right::after {
-  border-right-color: #bdbdbd; }
+  border-right-color: transparent; }
 
 .upload {
   position: absolute;
@@ -6325,6 +6325,18 @@ th,
 td {
   background-color: inherit;
   border: inherit; }
+
+th.resize-y, td.resize-y {
+  overflow-y: auto;
+  resize: horizontal; }
+
+th.resize-x, td.resize-x {
+  overflow-x: auto;
+  resize: vertical; }
+
+th.resize, td.resize {
+  overflow: auto;
+  resize: both; }
 
 a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]) {
   padding: 0 0.075rem; }
@@ -8054,7 +8066,9 @@ svg:not(:root) {
 
 *[class*="toggle-switch-"] {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
   text-decoration: none;
   white-space: nowrap;
   outline: none;
@@ -8062,33 +8076,56 @@ svg:not(:root) {
   background-color: #bdbdbd;
   border: 0.078rem solid #bdbdbd;
   cursor: default; }
-  *[class*="toggle-switch-"] label {
-    position: absolute;
-    top: 0.2rem;
-    left: 0.2rem;
-    z-index: 1;
-    border-radius: inherit; }
   *[class*="toggle-switch-"]::before {
-    content: 'ON';
-    position: absolute;
-    font-size: 0.8em;
+    content: '\2713';
+    font-size: 1rem;
     color: inherit;
     left: 0;
     width: 50%;
     text-align: center;
+    margin-top: -0.1rem;
     z-index: 0; }
   *[class*="toggle-switch-"]::after {
-    content: 'OFF';
-    position: absolute;
-    font-size: 0.8em;
+    content: '\2715';
+    font-size: 1rem;
     color: inherit;
     right: 0;
     width: 50%;
     text-align: center;
+    margin-top: -0.1rem;
     z-index: 0; }
+  *[class*="toggle-switch-"] label {
+    position: absolute;
+    top: 10%;
+    left: 0.2rem;
+    height: 80%;
+    z-index: 1;
+    border-radius: inherit; }
+
+*[class*="toggle-switch-"].onoff::before {
+  content: 'ON';
+  font-size: 0.8rem;
+  width: 45%;
+  margin-top: 0; }
+*[class*="toggle-switch-"].onoff::after {
+  content: 'OFF';
+  font-size: 0.8rem;
+  width: 55%;
+  margin-top: 0; }
+
+*[class*="toggle-switch-"].yesno::before {
+  content: 'YES';
+  font-size: 0.8rem;
+  width: 55%;
+  margin-top: 0; }
+*[class*="toggle-switch-"].yesno::after {
+  content: 'NO';
+  font-size: 0.8rem;
+  width: 45%;
+  margin-top: 0; }
 
 .toggle-switch-xs {
-  width: 4.5rem;
+  width: 4.75rem;
   height: 1.5rem; }
 
 .toggle-switch-sm {
@@ -8108,28 +8145,23 @@ svg:not(:root) {
   height: 2.75rem; }
 
 .toggle-switch-xs label {
-  width: 2rem;
-  height: 0.98rem; }
+  width: 2rem; }
 
 .toggle-switch-sm label {
-  width: 2.2rem;
-  height: 1.23rem; }
+  width: 2.2rem; }
 
 .toggle-switch-md label {
-  width: 2.4rem;
-  height: 1.6rem; }
+  width: 2.4rem; }
 
 .toggle-switch-lg label {
-  width: 2.6rem;
-  height: 1.83rem; }
+  width: 2.6rem; }
 
 .toggle-switch-xl label {
-  width: 2.8rem;
-  height: 2.17rem; }
+  width: 2.8rem; }
 
 .toggle-switch-xs input[type=checkbox]:checked + label,
 .toggle-switch-xs input[type=radio]:checked + label {
-  left: 2.1rem; }
+  left: 2.35rem; }
 
 .toggle-switch-sm input[type=checkbox]:checked + label,
 .toggle-switch-sm input[type=radio]:checked + label {
@@ -9640,21 +9672,6 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 .pregress-xl, .button-link-xl, .toggle-button-xl, .view-button-link-lg, .menu-button-link-lg {
   line-height: 2.75rem;
   height: 2.75rem; }
-
-.toggle-switch-xs {
-  line-height: 1.4rem; }
-
-.toggle-switch-sm {
-  line-height: 1.65rem; }
-
-.toggle-switch-md {
-  line-height: 2.025rem; }
-
-.toggle-switch-lg {
-  line-height: 2.275rem; }
-
-.toggle-switch-xl {
-  line-height: 2.65rem; }
 
 .outline-sm {
   outline-width: 0.078rem; }

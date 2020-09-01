@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 10.0.1
+* Version: 10.1.0
 * MIT License
 */
 
@@ -1859,7 +1859,7 @@
 		velocity = Math.sqrt(distX * distX + distY * distY) / interval;
 
 		return velocity;
-}
+	};
 
 	webui.pxToRem = function (pxValue) {
 		var el = root.getElementsByTagName("html")[0];
@@ -1935,7 +1935,7 @@
 
 	webui.rgbToHex = function (r, g, b) {
 		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-	}
+	};
 
 	webui.rgbStringToHex = function (rgb) {
 		var rgbValues = rgb.replace(/[^\d,]/g, '').split(',');
@@ -1944,7 +1944,7 @@
 			return "#" + ((1 << 24) + (parseInt(rgbValues[0]) << 16) + (parseInt(rgbValues[1]) << 8) + parseInt(rgbValues[2])).toString(16).slice(1);
 		}
 		return null;
-	}
+	};
 
 	webui.getAccessibilityContrastColor = function (hexColor) {
 		if (hexColor.indexOf("#") === 0) {
@@ -2324,7 +2324,7 @@
 		}
 	};
 
-	webui.version = "v10.0.1";
+	webui.version = "v10.1.0";
 
 
 	/* EVENT HANDLERS */
