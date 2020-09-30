@@ -1,6 +1,6 @@
 /*!
 * Name: webui-all - css
-* Version: 10.1.0
+* Version: 10.1.1
 * MIT License
 */
 .flow-col-1 {
@@ -5452,24 +5452,26 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
   border-color: #43a047; }
 
 .control-success:not(.control-disabled),
-.control-group-success .control:not(.control-disabled),
-.control-group-success *[class*="input"]:not(.control-disabled) {
+.control-group-success :not(.control-disabled),
+.control-group-success .control:not(.control-disabled) {
   border-color: #43a047; }
-  .control-success:not(.control-disabled)[type="text"], .control-success:not(.control-disabled)[type="button"], .control-success:not(.control-disabled).instrumentation,
+  .control-success:not(.control-disabled)[type="text"], .control-success:not(.control-disabled)[type="button"], .control-success:not(.control-disabled)[class*="button"], .control-success:not(.control-disabled).instrumentation,
+  .control-group-success :not(.control-disabled)[type="text"],
+  .control-group-success :not(.control-disabled)[type="button"],
+  .control-group-success :not(.control-disabled)[class*="button"],
+  .control-group-success :not(.control-disabled).instrumentation,
   .control-group-success .control:not(.control-disabled)[type="text"],
   .control-group-success .control:not(.control-disabled)[type="button"],
-  .control-group-success .control:not(.control-disabled).instrumentation,
-  .control-group-success *[class*="input"]:not(.control-disabled)[type="text"],
-  .control-group-success *[class*="input"]:not(.control-disabled)[type="button"],
-  .control-group-success *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-group-success .control:not(.control-disabled)[class*="button"],
+  .control-group-success .control:not(.control-disabled).instrumentation {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232DB200' d='M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center right 0.625rem;
     background-size: 1.25em 1.25em;
     padding-right: 2.5rem; }
-  .control-success:not(.control-disabled).instrumentation,
-  .control-group-success .control:not(.control-disabled).instrumentation,
-  .control-group-success *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-success:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-success :not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-success .control:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation {
     background-position: right 0.625rem top 0.5rem; }
 
 .control-success:not(.control-disabled).accessibility:focus,
@@ -5494,24 +5496,26 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
   border-color: #2196f3; }
 
 .control-info:not(.control-disabled),
-.control-group-info .control:not(.control-disabled),
-.control-group-info *[class*="input"]:not(.control-disabled) {
+.control-group-info :not(.control-disabled),
+.control-group-info .control:not(.control-disabled) {
   border-color: #2196f3; }
-  .control-info:not(.control-disabled)[type="text"], .control-info:not(.control-disabled)[type="button"], .control-info:not(.control-disabled).instrumentation,
+  .control-info:not(.control-disabled)[type="text"], .control-info:not(.control-disabled)[type="button"], .control-info:not(.control-disabled)[class*="button"], .control-info:not(.control-disabled).instrumentation,
+  .control-group-info :not(.control-disabled)[type="text"],
+  .control-group-info :not(.control-disabled)[type="button"],
+  .control-group-info :not(.control-disabled)[class*="button"],
+  .control-group-info :not(.control-disabled).instrumentation,
   .control-group-info .control:not(.control-disabled)[type="text"],
   .control-group-info .control:not(.control-disabled)[type="button"],
-  .control-group-info .control:not(.control-disabled).instrumentation,
-  .control-group-info *[class*="input"]:not(.control-disabled)[type="text"],
-  .control-group-info *[class*="input"]:not(.control-disabled)[type="button"],
-  .control-group-info *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-group-info .control:not(.control-disabled)[class*="button"],
+  .control-group-info .control:not(.control-disabled).instrumentation {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230072FF' d='M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center right 0.625rem;
     background-size: 1.25em 1.25em;
     padding-right: 2.5rem; }
-  .control-info:not(.control-disabled).instrumentation,
-  .control-group-info .control:not(.control-disabled).instrumentation,
-  .control-group-info *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-info:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-info :not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-info .control:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation {
     background-position: right 0.625rem top 0.5rem; }
 
 .control-info:not(.control-disabled).accessibility:focus,
@@ -5536,24 +5540,26 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
   border-color: #ff8f00; }
 
 .control-warning:not(.control-disabled),
-.control-group-warning .control:not(.control-disabled),
-.control-group-warning *[class*="input"]:not(.control-disabled) {
+.control-group-warning :not(.control-disabled),
+.control-group-warning .control:not(.control-disabled) {
   border-color: #ff8f00; }
-  .control-warning:not(.control-disabled)[type="text"], .control-warning:not(.control-disabled)[type="button"], .control-warning:not(.control-disabled).instrumentation,
+  .control-warning:not(.control-disabled)[type="text"], .control-warning:not(.control-disabled)[type="button"], .control-warning:not(.control-disabled)[class*="button"], .control-warning:not(.control-disabled).instrumentation,
+  .control-group-warning :not(.control-disabled)[type="text"],
+  .control-group-warning :not(.control-disabled)[type="button"],
+  .control-group-warning :not(.control-disabled)[class*="button"],
+  .control-group-warning :not(.control-disabled).instrumentation,
   .control-group-warning .control:not(.control-disabled)[type="text"],
   .control-group-warning .control:not(.control-disabled)[type="button"],
-  .control-group-warning .control:not(.control-disabled).instrumentation,
-  .control-group-warning *[class*="input"]:not(.control-disabled)[type="text"],
-  .control-group-warning *[class*="input"]:not(.control-disabled)[type="button"],
-  .control-group-warning *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-group-warning .control:not(.control-disabled)[class*="button"],
+  .control-group-warning .control:not(.control-disabled).instrumentation {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF9300' d='M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center right 0.625rem;
     background-size: 1.25em 1.25em;
     padding-right: 2.5rem; }
-  .control-warning:not(.control-disabled).instrumentation,
-  .control-group-warning .control:not(.control-disabled).instrumentation,
-  .control-group-warning *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-warning:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-warning :not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-warning .control:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation {
     background-position: right 0.625rem top 0.5rem; }
 
 .control-warning:not(.control-disabled).accessibility:focus,
@@ -5578,24 +5584,26 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
   border-color: #ff3d00; }
 
 .control-danger:not(.control-disabled),
-.control-group-danger .control:not(.control-disabled),
-.control-group-danger *[class*="input"]:not(.control-disabled) {
+.control-group-danger :not(.control-disabled),
+.control-group-danger .control:not(.control-disabled) {
   border-color: #ff3d00; }
-  .control-danger:not(.control-disabled)[type="text"], .control-danger:not(.control-disabled)[type="button"], .control-danger:not(.control-disabled).instrumentation,
+  .control-danger:not(.control-disabled)[type="text"], .control-danger:not(.control-disabled)[type="button"], .control-danger:not(.control-disabled)[class*="button"], .control-danger:not(.control-disabled).instrumentation,
+  .control-group-danger :not(.control-disabled)[type="text"],
+  .control-group-danger :not(.control-disabled)[type="button"],
+  .control-group-danger :not(.control-disabled)[class*="button"],
+  .control-group-danger :not(.control-disabled).instrumentation,
   .control-group-danger .control:not(.control-disabled)[type="text"],
   .control-group-danger .control:not(.control-disabled)[type="button"],
-  .control-group-danger .control:not(.control-disabled).instrumentation,
-  .control-group-danger *[class*="input"]:not(.control-disabled)[type="text"],
-  .control-group-danger *[class*="input"]:not(.control-disabled)[type="button"],
-  .control-group-danger *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-group-danger .control:not(.control-disabled)[class*="button"],
+  .control-group-danger .control:not(.control-disabled).instrumentation {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF0000' d='M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center right 0.625rem;
     background-size: 1.25em 1.25em;
     padding-right: 2.5rem; }
-  .control-danger:not(.control-disabled).instrumentation,
-  .control-group-danger .control:not(.control-disabled).instrumentation,
-  .control-group-danger *[class*="input"]:not(.control-disabled).instrumentation {
+  .control-danger:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-danger :not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation,
+  .control-group-danger .control:not(.control-disabled):not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation {
     background-position: right 0.625rem top 0.5rem; }
 
 .control-danger:not(.control-disabled).accessibility:focus,
@@ -7142,6 +7150,9 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 
 .fixed-body {
   width: calc(100vw - 38px); }
+
+.layer-initial {
+  z-index: auto; }
 
 .layer-top {
   z-index: 200; }
