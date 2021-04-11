@@ -1,13 +1,14 @@
-nav.nav-sm {
+.nav-sm {
 	position: relative;
 	height: 2.375rem;
 	& .nav-logo {
 		height: 2.375rem;
 		line-height: 2.375rem;
+		float: left;
 	}
 	& .nav-menu {
 		height: 2.375rem;
-		& *:not(.nav-component) > * {
+		& *:not(.nav-component) > *:not([class*="text"]) {
 			line-height: 2.375rem;
 		}		
 		& .nav-component {
@@ -17,20 +18,20 @@ nav.nav-sm {
 	& .nav-button-sm {
 		position: absolute;
 		display: none;
-		top: 0;
 		right: 0;
 	}	
 }
-nav.nav-lg {
+.nav-lg {
 	position: relative;
 	height: 2.75rem;
 	& .nav-logo {
 		height: 2.75rem;
 		line-height: 2.75rem;
+		float: left;
 	}
 	& .nav-menu {
 		height: 2.75rem;
-		& *:not(.nav-component) > * {
+		& *:not(.nav-component) > *:not([class*="text"]) {
 			line-height: 2.75rem;
 		}	
 		& .nav-component {
@@ -40,12 +41,8 @@ nav.nav-lg {
 	& .nav-button-lg {
 		position: absolute;
 		display: none;
-		top: 0;
 		right: 0;
 	}	
-}
-.nav-logo {
-  float: left;  
 }
 .nav-menu {
 	list-style-type: none;
@@ -71,6 +68,22 @@ nav.nav-lg {
 .nav-menu > .nav-component {
 	display: flex;
 	align-items: center;
+}
+.nav-sm.nav-reverse {
+	& .nav-logo {
+		float: right;
+	}
+	& .nav-button-sm {
+		left: 0;
+	}
+}
+.nav-lg.nav-reverse {
+	& .nav-logo {
+		float: right;
+	}
+	& .nav-button-lg {
+		left: 0;
+	}
 }
 
 @media screen and (max-width: $settings_bp_1_under) {

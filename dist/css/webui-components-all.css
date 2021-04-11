@@ -1,6 +1,6 @@
 /*!
 * Name: webui-components-all - css
-* Version: 10.1.1
+* Version: 10.1.2
 * MIT License
 */
 .flow-col-1 {
@@ -3029,44 +3029,41 @@
   background-color: transparent;
   z-index: 130; }
 
-nav.nav-sm {
+.nav-sm {
   position: relative;
   height: 2.375rem; }
-  nav.nav-sm .nav-logo {
+  .nav-sm .nav-logo {
     height: 2.375rem;
-    line-height: 2.375rem; }
-  nav.nav-sm .nav-menu {
+    line-height: 2.375rem;
+    float: left; }
+  .nav-sm .nav-menu {
     height: 2.375rem; }
-    nav.nav-sm .nav-menu *:not(.nav-component) > * {
+    .nav-sm .nav-menu *:not(.nav-component) > *:not([class*="text"]) {
       line-height: 2.375rem; }
-    nav.nav-sm .nav-menu .nav-component {
+    .nav-sm .nav-menu .nav-component {
       height: 2.375rem; }
-  nav.nav-sm .nav-button-sm {
+  .nav-sm .nav-button-sm {
     position: absolute;
     display: none;
-    top: 0;
     right: 0; }
 
-nav.nav-lg {
+.nav-lg {
   position: relative;
   height: 2.75rem; }
-  nav.nav-lg .nav-logo {
+  .nav-lg .nav-logo {
     height: 2.75rem;
-    line-height: 2.75rem; }
-  nav.nav-lg .nav-menu {
+    line-height: 2.75rem;
+    float: left; }
+  .nav-lg .nav-menu {
     height: 2.75rem; }
-    nav.nav-lg .nav-menu *:not(.nav-component) > * {
+    .nav-lg .nav-menu *:not(.nav-component) > *:not([class*="text"]) {
       line-height: 2.75rem; }
-    nav.nav-lg .nav-menu .nav-component {
+    .nav-lg .nav-menu .nav-component {
       height: 2.75rem; }
-  nav.nav-lg .nav-button-lg {
+  .nav-lg .nav-button-lg {
     position: absolute;
     display: none;
-    top: 0;
     right: 0; }
-
-.nav-logo {
-  float: left; }
 
 .nav-menu {
   list-style-type: none;
@@ -3089,6 +3086,18 @@ nav.nav-lg {
 .nav-menu > .nav-component {
   display: flex;
   align-items: center; }
+
+.nav-sm.nav-reverse .nav-logo {
+  float: right; }
+
+.nav-sm.nav-reverse .nav-button-sm {
+  left: 0; }
+
+.nav-lg.nav-reverse .nav-logo {
+  float: right; }
+
+.nav-lg.nav-reverse .nav-button-lg {
+  left: 0; }
 
 @media screen and (max-width: 29.99rem) {
   .mq-1 .nav-menu {

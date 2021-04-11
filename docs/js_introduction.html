@@ -844,6 +844,9 @@
         <div class="pad-left-sm">
           <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
       </div>
 
       <div>
@@ -1768,6 +1771,9 @@
         <div class="pad-left-sm">
           <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
       </div>
 
       <div>
@@ -1892,9 +1898,18 @@
 	<div class="row-spacing-md"></div>
 
 	<p class="text-bold">JavaScript DOM Ready Event</p>
-  <p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
-  <p><b>NOTE:</b> This event is does not need to be used if you are using a framework lifecycle load event.</p>
+	<p>All WebUI JavaScript should be enclosed in the DOM ready event callback, as shown in the following example.</p>
 
+	<p>Use the optional flag set to true to ensure the page is fully loaded and the document.readyState is "complete" before running scripts. 
+		By default, the webui.ready event is called when the document DOMContentLoaded event is fired.
+	</p>
+
+  <blockquote class="border-info-light background-secondary area">
+		<div class="flex-items-center">
+			<span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">DOM Ready Event</span>
+		</div>
+		<p class="text-sm"><b>NOTE:</b> The webui.ready event does not need to be used if you are using a framework lifecycle mounted / render event.</p>
+	</blockquote>
 
   <div class="row-spacing-md"></div>
   
@@ -1904,16 +1919,19 @@
   <div class="body background-secondary script-block">
     <div class="content-row">
       <div class="content-col-20 scroll-y">
-        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+				<button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
 
 <pre>webui.ready(function() {
   // Call WebUI functions here...
 });</pre>
-                          
+
+<pre>webui.ready(function() {
+  // Call WebUI functions here...
+}, true);</pre>
+
       </div>
     </div>
-  </div>
-
+	</div>
 
   <div class="row-spacing-lg"></div>
 
@@ -2363,7 +2381,7 @@
                       autoScale: true,
                       playDirection: "next",
                       stopOnHover: true,
-                      transitionDuration: 1300, 
+                      transitionDuration: 1200, 
                       transitionType: "slide", 
                       transitionOrientation: "vertical" 
                     });

@@ -27,22 +27,22 @@
       uiPosition = parseFloat(uiElement.css("top"));
       uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
     
-      var nextFrame = function (element, movement, position, finalPosition, dir) {
+      var nextFrame = function (el, movement, position, finalPosition, dir) {
 
         pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
 
         if ((dir === "down" && pos > finalPosition) || (dir === "up" && pos < finalPosition) || safeDuration === 1) {
-          element.css("top", finalPosition + distanceUnit);
+          el.css("top", finalPosition + distanceUnit);
           if (args.length === 4 && callback) {
-            callback(element);
+            callback(el);
           }
           return;
         }
         else {
-          element.css("top", pos + distanceUnit);
+          el.css("top", pos + distanceUnit);
 
           win.requestAnimationFrame(function () {
-            nextFrame(element, movement, pos, finalPosition, dir);
+            nextFrame(el, movement, pos, finalPosition, dir);
           });
         }
       };
@@ -70,22 +70,22 @@
       uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
       
       
-      var nextFrame = function (element, movement, position, finalPosition, dir) {
+      var nextFrame = function (el, movement, position, finalPosition, dir) {
 
         pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
 
         if ((dir === "right" && pos > finalPosition) || (dir === "left" && pos < finalPosition) || safeDuration === 1) {
-          element.css("left", finalPosition + distanceUnit);
+          el.css("left", finalPosition + distanceUnit);
           if (args.length === 4 && callback) {
-            callback(element);
+            callback(el);
           }
           return;
         }
         else {
-          element.css("left", pos + distanceUnit);
+          el.css("left", pos + distanceUnit);
 
           win.requestAnimationFrame(function () {
-            nextFrame(element, movement, pos, finalPosition, dir);
+            nextFrame(el, movement, pos, finalPosition, dir);
           });
         }
       };
@@ -367,22 +367,22 @@
         uiElement.css("opacity", "0").css("display", "block");
         uiChange = 1 / safeDuration * frameAdjustment;
     
-        var nextFrame = function (element, currentOpacity, change) {
+        var nextFrame = function (el, currentOpacity, change) {
 
           var opacity = currentOpacity + change;
 
           if (opacity >= 0.99 || safeDuration < frameAdjustment) {
-            element.css("opacity", "1").css("display", "block");
+            el.css("opacity", "1").css("display", "block");
             if (args.length === 3 && callback) {
-              callback(element);
+              callback(el);
             }
             return;
           }
           else if (opacity < 0.99) {
-            element.css("opacity", opacity).css("display", "block");
+            el.css("opacity", opacity);
 
             win.requestAnimationFrame(function () {
-              nextFrame(element, opacity, change);
+              nextFrame(el, opacity, change);
             });
           }
         };
@@ -409,22 +409,22 @@
       uiElement.css("opacity", "1");			
       uiChange = 1 / safeDuration * frameAdjustment;
 
-      var nextFrame = function (element, currentOpacity, change) {
+      var nextFrame = function (el, currentOpacity, change) {
 
         var opacity = currentOpacity - change;
 
         if (opacity <= uiCurrentOpacity + 0.01 || safeDuration < frameAdjustment) {
-          uiCurrentOpacity > 0.01 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");	
+          uiCurrentOpacity > 0.01 ? el.css("opacity", uiCurrentOpacity + "") : el.css("display", "none");	
           if (args.length === 3 && callback) {
-            callback(element);
+            callback(el);
           }	
           return;
         }
         else if (opacity > 0.01) {
-          element.css("opacity", opacity);
+          el.css("opacity", opacity);
 
           win.requestAnimationFrame(function () {
-            nextFrame(element, opacity, change);
+            nextFrame(el, opacity, change);
           });
         }
       };
@@ -432,5 +432,52 @@
     }
     return els;
   };
+
+
+  fn.animate = function (animateWhat, delta, propertyValue, duration, callback) {
+    var 
+      els = this,
+      pv = propertyValue ? ui.getValueFromCssSize(propertyValue) : 0, 
+      pu = animateWhat !== "opacity" ? propertyValue ? ui.getUnitFromCssSize(propertyValue) : "px" : "",	   
+      timeFraction = null;
+
+    var start = performance.now();
+
+    requestAnimationFrame(function animate(time) {
+
+      if (delta === 1) {
+        timeFraction = ((time - start) / duration);
+        if (timeFraction > 1) timeFraction = 1;
+      }
+      else {
+        timeFraction = 1 - ((time - start) / duration);	
+        if (timeFraction < 0) timeFraction = 0;
+      }
+
+      var progress = timeFraction;
+
+
+      els.css(animateWhat, progress * pv + pu);
+
+      if (delta === 1) {
+        if (timeFraction < 1) {
+          requestAnimationFrame(animate);
+        }
+        else {
+          callback(els);
+        }
+      }
+      else {
+        if (timeFraction > 0) {
+          requestAnimationFrame(animate);
+        }
+        else {
+          callback(els);
+        }
+      }
+    });
+    return els;		
+  };
+
 
 }(window));

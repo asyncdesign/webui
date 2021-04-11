@@ -18,9 +18,8 @@
 
 <body class="text-sm color-accent-4-dark">
 
-
 	<div class="responsive-gutter-xs">
-
+	
 		<div class="row-spacing-lg"></div>
 
 		<div id="MainTitle" class="panel">
@@ -124,13 +123,13 @@
 						<div class="width-full">
 							<div class="carousel" id="carousel2">
 								<div class="carousel-item-holder">		
-									<div class="carousel-item border-md border-secondary">
+									<div class="carousel-item">
 										<img src="images/landscape_1.jpg" />
 									</div>
-									<div class="carousel-item border-md border-secondary">
+									<div class="carousel-item">
 										<img src="images/landscape_2.jpg" />
 									</div>
-									<div class="carousel-item border-md border-secondary">
+									<div class="carousel-item">
 										<img src="images/landscape_3.jpg" />
 									</div>
 								</div>
@@ -495,7 +494,7 @@
 								playDirection: "next",
 								stopOnHover: true,
 								transitionDuration: 1500, 
-								transitionType: "crossfade", 
+								transitionType: "slide", 
 								transitionOrientation: "vertical",
 								width: "440px",
 								height: "145px"
@@ -557,8 +556,9 @@
 				carousel1.stop();
 			});
 
-			ui("#c1_textForSlide1").fadeIn(1000);
-				
+			
+			carousel1.select(1);
+
 
 			
 			var carousel2 = ui("#carousel2")
@@ -568,8 +568,8 @@
 								autoScale: true,
 								playDirection: "next",
 								stopOnHover: true,
-								transitionDuration: 1200, 
-								transitionType: "slide", 
+								transitionDuration: 1000, 
+								transitionType: "crossfade", 
 								transitionOrientation: "vertical" 
 							});
 
@@ -626,32 +626,35 @@
 				carousel2.stop();
 			});
 
-			carousel2.select(1);
-			ui("#c2_textForSlide2").fadeIn(1000);
+			carousel2.select(2);
+
+
+
+			ui("#navbar1").navbarControl({ 
+				transitionDuration: 850,
+				largeDeviceOffset: 50,
+				largeDeviceMenuOffset: -70,
+				smallDeviceAlignment: "left",			
+				smallDeviceBreakpoint: 3,
+				smallDeviceExpansion: "overlay"			
+			});
+
+			ui("#navToggle1").navButtonControl({ 
+				transitionDuration: 300, 
+				backgroundColor: "transparent", 
+				color: "#000"
+			});
+
+			ui(".zoom-image").zoomControl({ 
+				zoom: 1.1,
+				trigger: "hover",
+				transitionDuration: 300
+			});
+
 				
 		}, true);
 
 
-		ui("#navbar1").navbarControl({ 
-			transitionDuration: 1000,
-			largeDeviceOffset: 50,
-			largeDeviceMenuOffset: -70,
-			smallDeviceAlignment: "left",			
-			smallDeviceBreakpoint: 3,
-			smallDeviceExpansion: "overlay"			
-		});
-
-		ui("#navToggle1").navButtonControl({ 
-			transitionDuration: 300, 
-			backgroundColor: "transparent", 
-			color: "#000"
-		});
-
-		ui(".zoom-image").zoomControl({ 
-			zoom: 1.1,
-			trigger: "hover",
-			transitionDuration: 300
-		});
 
 			
 	</script>

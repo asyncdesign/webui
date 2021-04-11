@@ -1,6 +1,6 @@
 /*!
 * Name: webui - UI functions
-* Version: 10.1.1
+* Version: 10.1.2
 * MIT License
 */
 "use strict";
@@ -1893,7 +1893,7 @@
             }
         }
     };
-    webui.version = "v10.1.1";
+    webui.version = "v10.1.2";
     /* EVENT HANDLERS */    webui(".checkbox:not(.control-disabled) label").keyDown(function(e) {
         if (e.which == 13 || e.which == 32) {
             e.preventDefault();
@@ -3473,11 +3473,7 @@
             if (autoScale) {
                 carousel.css("width", "100%");
                 carouselHolder = carousel.find(".carousel-item-holder");
-                if (isResizeEvent) {
-                    carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
-                } else {
-                    carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", carousel[0].offsetHeight - itemBorderHeight + "px");
-                }
+                carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth + "px").css("height", "auto");
                 carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
                 carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
                 if (transitionType === "crossfade") {
@@ -3601,16 +3597,22 @@
                 carousel.trigger("ui.carousel.change.before", [ current ]);
                 current = parseInt(index) + 1;
                 if (transitionType === "crossfade") {
-                    carouselItems.eq(index).css("z-index", "1").siblings(".carousel-item").css("z-index", "auto");
+                    var items = carouselHolder.find(".carousel-item");
+                    items.eq(index).fadeIn(0, 0, function() {
+                        items.eq(index).siblings(".carousel-item").fadeOut(0, 0, function() {
+                            transitionCompleted = true;
+                            carousel.trigger("ui.carousel.change.after", [ current ]);
+                        });
+                    });
                 } else {
                     if (transitionOrientation === "vertical" && transitionType === "slide") {
                         carouselHolder.css("top", "-" + carouselItemHeight * current + "px");
                     } else {
                         carouselHolder.css("left", "-" + carouselItemWidth * current + "px");
                     }
+                    transitionCompleted = true;
+                    carousel.trigger("ui.carousel.change.after", [ current ]);
                 }
-                transitionCompleted = true;
-                carousel.trigger("ui.carousel.change.after", [ current ]);
             }
         }, playCarousel = function() {
             clearInterval(run);
@@ -3641,8 +3643,10 @@
             } else {
                 carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
             }
-            itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
-            itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+            if (!autoScale) {
+                itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
+                itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+            }
             resetCarousel(carousel, carouselItemCount);
             if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
                 win.addEventListener("resize", carouselResize);
@@ -3674,7 +3678,7 @@
         this.next = function() {
             nextSlide();
         };
-        this.select = function(index) {
+        this.pick = function(index) {
             selectSlide(index);
         };
         this.play = function() {
@@ -3706,7 +3710,7 @@
                 control.next();
             };
             this.select = function(index) {
-                control.select(index);
+                control.pick(index);
             };
             this.play = function() {
                 control.play();
@@ -4157,18 +4161,18 @@
             uiMovement = uiDistance / safeDuration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("top"));
             uiFinalPosition = uiDirection === "down" ? uiPosition + uiDistance : uiPosition - uiDistance;
-            var nextFrame = function(element, movement, position, finalPosition, dir) {
+            var nextFrame = function(el, movement, position, finalPosition, dir) {
                 pos = dir === "down" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "down" && pos > finalPosition || dir === "up" && pos < finalPosition || safeDuration === 1) {
-                    element.css("top", finalPosition + distanceUnit);
+                    el.css("top", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
-                        callback(element);
+                        callback(el);
                     }
                     return;
                 } else {
-                    element.css("top", pos + distanceUnit);
+                    el.css("top", pos + distanceUnit);
                     win.requestAnimationFrame(function() {
-                        nextFrame(element, movement, pos, finalPosition, dir);
+                        nextFrame(el, movement, pos, finalPosition, dir);
                     });
                 }
             };
@@ -4185,18 +4189,18 @@
             uiMovement = uiDistance / safeDuration * frameAdjustment;
             uiPosition = parseFloat(uiElement.css("left"));
             uiFinalPosition = uiDirection === "right" ? uiPosition + uiDistance : uiPosition - uiDistance;
-            var nextFrame = function(element, movement, position, finalPosition, dir) {
+            var nextFrame = function(el, movement, position, finalPosition, dir) {
                 pos = dir === "right" ? parseFloat(position + movement) : parseFloat(position - movement);
                 if (dir === "right" && pos > finalPosition || dir === "left" && pos < finalPosition || safeDuration === 1) {
-                    element.css("left", finalPosition + distanceUnit);
+                    el.css("left", finalPosition + distanceUnit);
                     if (args.length === 4 && callback) {
-                        callback(element);
+                        callback(el);
                     }
                     return;
                 } else {
-                    element.css("left", pos + distanceUnit);
+                    el.css("left", pos + distanceUnit);
                     win.requestAnimationFrame(function() {
-                        nextFrame(element, movement, pos, finalPosition, dir);
+                        nextFrame(el, movement, pos, finalPosition, dir);
                     });
                 }
             };
@@ -4401,18 +4405,18 @@
             uiElement = webui(els[i]);
             uiElement.css("opacity", "0").css("display", "block");
             uiChange = 1 / safeDuration * frameAdjustment;
-            var nextFrame = function(element, currentOpacity, change) {
+            var nextFrame = function(el, currentOpacity, change) {
                 var opacity = currentOpacity + change;
                 if (opacity >= .99 || safeDuration < frameAdjustment) {
-                    element.css("opacity", "1").css("display", "block");
+                    el.css("opacity", "1").css("display", "block");
                     if (args.length === 3 && callback) {
-                        callback(element);
+                        callback(el);
                     }
                     return;
                 } else if (opacity < .99) {
-                    element.css("opacity", opacity).css("display", "block");
+                    el.css("opacity", opacity);
                     win.requestAnimationFrame(function() {
-                        nextFrame(element, opacity, change);
+                        nextFrame(el, opacity, change);
                     });
                 }
             };
@@ -4430,23 +4434,52 @@
             }
             uiElement.css("opacity", "1");
             uiChange = 1 / safeDuration * frameAdjustment;
-            var nextFrame = function(element, currentOpacity, change) {
+            var nextFrame = function(el, currentOpacity, change) {
                 var opacity = currentOpacity - change;
                 if (opacity <= uiCurrentOpacity + .01 || safeDuration < frameAdjustment) {
-                    uiCurrentOpacity > .01 ? element.css("opacity", uiCurrentOpacity + "") : element.css("display", "none");
+                    uiCurrentOpacity > .01 ? el.css("opacity", uiCurrentOpacity + "") : el.css("display", "none");
                     if (args.length === 3 && callback) {
-                        callback(element);
+                        callback(el);
                     }
                     return;
                 } else if (opacity > .01) {
-                    element.css("opacity", opacity);
+                    el.css("opacity", opacity);
                     win.requestAnimationFrame(function() {
-                        nextFrame(element, opacity, change);
+                        nextFrame(el, opacity, change);
                     });
                 }
             };
             nextFrame(uiElement, 1, uiChange);
         }
+        return els;
+    };
+    fn.animate = function(animateWhat, delta, propertyValue, duration, callback) {
+        var els = this, pv = propertyValue ? ui.getValueFromCssSize(propertyValue) : 0, pu = animateWhat !== "opacity" ? propertyValue ? ui.getUnitFromCssSize(propertyValue) : "px" : "", timeFraction = null;
+        var start = performance.now();
+        requestAnimationFrame(function animate(time) {
+            if (delta === 1) {
+                timeFraction = (time - start) / duration;
+                if (timeFraction > 1) timeFraction = 1;
+            } else {
+                timeFraction = 1 - (time - start) / duration;
+                if (timeFraction < 0) timeFraction = 0;
+            }
+            var progress = timeFraction;
+            els.css(animateWhat, progress * pv + pu);
+            if (delta === 1) {
+                if (timeFraction < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    callback(els);
+                }
+            } else {
+                if (timeFraction > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    callback(els);
+                }
+            }
+        });
         return els;
     };
 })(window);

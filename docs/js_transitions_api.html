@@ -844,6 +844,9 @@
         <div class="pad-left-sm">
           <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
       </div>
 
       <div>
@@ -1768,6 +1771,9 @@
         <div class="pad-left-sm">
           <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
         </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
       </div>
 
       <div>
@@ -2546,6 +2552,100 @@
 
 </section>
 
+<section class="scrollspy text" id="jsAnimate">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>animate (animateWhat, delta, propertyValue, duration, callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Animates each element in the set of matched elements according the specified property and duration, and optionally with a callback.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">animateWhat</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">The CSS property that should be animated.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">delta</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">Either 0 or 1 specifying the direction of the animnation.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">propertyValue</div>
+      <div class="table-col-4">String or numeric</div>
+      <div class="table-col-10">The CSS property value, e.g. "10rem".</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">duration</div>
+      <div class="table-col-4">Integer</div>
+      <div class="table-col-10">An integer value in milliseconds.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">callback</div>
+      <div class="table-col-4">Function</div>
+      <div class="table-col-10">A function to be called when the transition has completed.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div id="elementToAnimate" class="width-sm height-sm background-dark place-top-right"&gt;&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#elementToAnimate").animate("top", 1, "200px", 3000, function(el) {
+    console.log(el[0]);
+    
+    ui("#elementToAnimate").animate("right", 1, "15rem", 1000, function(el) {
+      console.log(el[0]);
+    });
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
 
 
 
@@ -2873,7 +2973,7 @@
                       autoScale: true,
                       playDirection: "next",
                       stopOnHover: true,
-                      transitionDuration: 1300, 
+                      transitionDuration: 1200, 
                       transitionType: "slide", 
                       transitionOrientation: "vertical" 
                     });

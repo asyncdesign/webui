@@ -78,13 +78,8 @@
 					carousel.css("width", "100%");
 					
 					carouselHolder = carousel.find(".carousel-item-holder");
-
-					if (isResizeEvent) {
-							carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", "auto");
-					} else {
-							carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth - itemBorderWidth + "px").css("height", carousel[0].offsetHeight - itemBorderHeight + "px");
-					}
-
+					carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth + "px").css("height", "auto");
+	
 					carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
 					carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
 
@@ -153,7 +148,7 @@
 					}
 					else if (transitionType === "crossfade") {          
 						swap(function() {
-						var items = carouselHolder.find(".carousel-item");
+								var items = carouselHolder.find(".carousel-item");
 
 								items.eq(current - 1).fadeIn(transitionDuration, 0, function() {                  
 										items.eq(current - 1).siblings(".carousel-item").fadeOut(transitionDuration, 0, function() {
@@ -239,11 +234,20 @@
 				if (!isNaN(index) && (index >= 0 && index < carouselItemCount)) {
 
 					carousel.trigger("ui.carousel.change.before", [current]);
-		
+
 					current = parseInt(index) + 1;
 		
 					if (transitionType === "crossfade") {
-						carouselItems.eq(index).css("z-index", "1").siblings(".carousel-item").css("z-index", "auto");
+						var items = carouselHolder.find(".carousel-item");
+
+						items.eq(index).fadeIn(0, 0, function() {                  
+								items.eq(index).siblings(".carousel-item").fadeOut(0, 0, function() {
+
+										transitionCompleted = true;
+										carousel.trigger("ui.carousel.change.after", [ current ]);
+								});
+						});               
+
 					}
 					else {
 						if (transitionOrientation === "vertical" && transitionType === "slide") {
@@ -252,10 +256,9 @@
 						else {
 							carouselHolder.css("left", "-" + (carouselItemWidth * current) + "px");
 						}
+						transitionCompleted = true;
+						carousel.trigger("ui.carousel.change.after", [current]);	
 					}
-					transitionCompleted = true;
-
-					carousel.trigger("ui.carousel.change.after", [current]);
 				}
 			},
 			playCarousel = function () {
@@ -299,8 +302,11 @@
 			else {
 				carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
 			}
-			itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
-			itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+
+			if (!autoScale) {
+				itemBorderWidth = parseFloat(carouselItems.first().css("borderLeftWidth")) + parseFloat(carouselItems.first().css("borderRightWidth"));
+				itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
+			}
 
 			resetCarousel(carousel, carouselItemCount);
 
@@ -341,7 +347,7 @@
 			nextSlide();
 		};
 	
-		this.select = function (index) {	
+		this.pick = function (index) {
 			selectSlide(index);
 		};
 	
@@ -384,7 +390,7 @@
 			};
 		
 			this.select = function (index) {		
-				control.select(index);	
+				control.pick(index);	
 			};
 		
 			this.play = function () {		
