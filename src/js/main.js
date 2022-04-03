@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 10.1.2
+* Version: 11.0.0
 * MIT License
 */
 
@@ -1872,14 +1872,13 @@
 	};
 
 	webui.getValueFromCssSize = function(size) {
-		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9]+/gi, "")) : !isNaN(size) ? size : 0;
+		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9.]+/gi, "")) : !isNaN(size) ? size : 0;
 		return parseFloat(sizeValue);
 	};
 
 	webui.getUnitFromCssSize = function(size) {
 		var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z%]+/gi, "") : "px";
-		sizeUnit = sizeUnit.length > 0 ? sizeUnit : "px";
-		return sizeUnit !== "auto" ? sizeUnit : "auto";
+		return sizeUnit.length > 0 ? sizeUnit : "px";
 	};
 
 	webui.getAvgWidth = function (elements) {
@@ -2324,7 +2323,7 @@
 		}
 	};
 
-	webui.version = "v10.1.2";
+	webui.version = "v11.0.0";
 
 
 	/* EVENT HANDLERS */
@@ -2341,6 +2340,16 @@
 			e.preventDefault();
 			this.click();
 		}
+	});
+
+	webui(".control-hint > input").focusOut(function() {
+		if (!this.value || !this.value.length) {
+			ui(this).css("padding-top", "0");
+			ui(this).siblings("label").css("transform", "scale(1) translateY(-50%)");
+		}		
+	}).focusIn(function() {
+			ui(this).css("padding-top", "0.6rem");
+			ui(this).siblings("label").css("transform", "scale(0.7) translateY(-125%)");
 	});
 
 	webui(".toggle-activator").click(function (e) {

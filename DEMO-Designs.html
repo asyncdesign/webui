@@ -55,7 +55,7 @@
 
 		<div class="row-spacing-xs"></div>
 
-		<div class="body background-accent-3-light rounded-sm">
+		<div class="body background-accent-4-light rounded-sm">
 
 			<div class="row-spacing-md"></div>
 
@@ -505,7 +505,7 @@
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 			});
 			
-			
+			ui("#c1_textForSlide1").fadeIn(1000);
 			
 			carousel1.on("ui.carousel.change.after", function(e) {
 				if (e.detail == 1) {
@@ -557,7 +557,7 @@
 			});
 
 			
-			carousel1.select(1);
+			carousel1.select(2);
 
 
 			
@@ -578,7 +578,7 @@
 				ui("#c2_textForSlide1, #c2_textForSlide2, #c2_textForSlide3").hide();
 			});
 			
-			
+
 			carousel2.on("ui.carousel.change.after", function(e) {
 				if (e.detail == 1) {
 					ui("#c2_textForSlide1").fadeIn(1000);
@@ -627,7 +627,7 @@
 			});
 
 			carousel2.select(2);
-
+			
 
 
 			ui("#navbar1").navbarControl({ 

@@ -329,7 +329,7 @@
 				<div class="text-sm color-accent-5">Navbar (Expand)</div>
 				<div class="row-spacing-xs"></div>
 
-				<nav class="nav-sm dark nav-reverse" id="navbar2">
+				<nav class="nav-lg dark nav-reverse" id="navbar2">
 					<div class="nav-logo accent-1 pad-left-md pad-right-md">Your Logo</div>
 					<ul class="nav-menu dark">
 						<li><a href="#0">Menu 1</a></li>
@@ -400,7 +400,7 @@
 						</div>
 						
 					</ul>
-					<div class="nav-button-sm" id="navToggle2"></div>
+					<div class="nav-button-lg" id="navToggle2"></div>
 				</nav>
 
 
@@ -543,7 +543,7 @@
 						<div class="text-sm color-accent-5">Accordion using toggle container</div>
 						<div class="row-spacing-xs"></div>
 
-						<div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1">
+						<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
 
 							<div class="content-col-20">
 
@@ -586,7 +586,7 @@
 						<div class="text-sm color-accent-5">Accordion using toggle container with child accordion</div>
 						<div class="row-spacing-xs"></div>
 
-						<div class="toggle-container" data-transition-duration="1000" data-transition-type="collapse" id="toggle1">
+						<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
 
 							<div class="content-col-20">
 
@@ -809,7 +809,7 @@
 		</div>
 	</div>
 
-	<div class="toggle-container" data-transition-duration="1200" data-transition-orientation="horizontal" data-transition-type="collapse" data-transition-distance="50%">
+	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="horizontal" data-transition-type="collapse" data-transition-distance="50%">
 		<div class="toggle-item hidden dock-top-right light boundary-left-muted width-lg-xl height-viewport layer-top" id="panel2">
 			<div class="width-lg-xl height-sm">
 				<div class="place-middle-center"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
@@ -857,7 +857,7 @@
 		webui.ready(function() {
 				
 			ui.initMenus({
-				transitionDuration: 700,
+				transitionDuration: 300,
 				transitionType: "collapse"
 			});
 			
@@ -869,19 +869,19 @@
 			ui("#tabs1").tabControl({ 
 				activeTabId: "#tab2", 
 				activeTabFocused: true,
-				transitionDuration: 1000,
+				transitionDuration: 600,
 				transitionType: "fade"
 			});
 
 			ui("#tabs2").tabControl({ 
 				activeTabId: "#tab1a", 
 				activeTabFocused: true,
-				transitionDuration: 1000,
+				transitionDuration: 600,
 				transitionType: "fade"
 			});
 
 			ui("#navbar1").navbarControl({ 
-				transitionDuration: 1000,
+				transitionDuration: 600,
 				largeDeviceOffset: 0,
 				largeDeviceMenuOffset: -40,
 				smallDeviceAlignment: "left",		
@@ -890,7 +890,7 @@
 			});
 
 			ui("#navbar2").navbarControl({ 
-				transitionDuration: 1000,
+				transitionDuration: 600,
 				largeDeviceOffset: 50,
 				largeDeviceMenuOffset: -70,
 				smallDeviceAlignment: "right",

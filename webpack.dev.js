@@ -1,9 +1,8 @@
 //process.traceDeprecation = true;
 
 const path = require('path');
-//const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ConcatPlugin = require('webpack-concat-plugin');
+const WebpackConcatPlugin = require('webpack-concat-files-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
 const WebpackMessages = require('webpack-messages');
 
@@ -17,45 +16,38 @@ module.exports = {
           "webui-basic": ["./src/scss/webui-basic.scss"]
   },
   plugins: [
-    new ConcatPlugin({
-      uglify: {
-        compress: false,
-        mangle: false,
-        output: {
-          beautify: true,
-          comments: "core + components"
-        }
-      },
-      fileName: 'js/webui-components.js',
-      filesToConcat: ["./src/js/main.js", 
-        "./src/js/_menus.js",
-        "./src/js/_navbar.js",
-        "./src/js/_navbutton.js",
-        "./src/js/_alerts.js", 
-        "./src/js/_tooltips.js", 
-        "./src/js/_modals.js", 
-        "./src/js/_upload.js",
-        "./src/js/_zoom.js",
-        "./src/js/_tabs.js",
-        "./src/js/_radial.js",
-        "./src/js/_carousel.js",
-        "./src/js/_shapes.js",
-        "./src/js/_scrollspy.js",
-        "./src/js/_animation.js",
-        "./src/js/_validation.js"
-      ]
+    new WebpackConcatPlugin({
+      bundles: [
+        {
+          dest: './dist/js/webui-components.js',
+          src: './src/js/*.js'
+          /*
+          src: ["./src/js/main.js", 
+            "./src/js/_menus.js",
+            "./src/js/_navbar.js",
+            "./src/js/_navbutton.js",
+            "./src/js/_alerts.js", 
+            "./src/js/_tooltips.js", 
+            "./src/js/_modals.js", 
+            "./src/js/_upload.js",
+            "./src/js/_zoom.js",
+            "./src/js/_tabs.js",
+            "./src/js/_radial.js",
+            "./src/js/_carousel.js",
+            "./src/js/_shapes.js",
+            "./src/js/_scrollspy.js",
+            "./src/js/_animation.js",
+            "./src/js/_validation.js"]
+          */
+          
+      }]
     }),
-    new ConcatPlugin({
-      uglify: {
-        compress: false,
-        mangle: false,
-        output: {
-          beautify: true,
-          comments: "core"
-        }
-      },
-      fileName: 'js/webui.js',
-      filesToConcat: ["./src/js/main.js"]
+    new WebpackConcatPlugin({
+      bundles: [
+        {
+          dest: './dist/js/webui.js',
+          src: './src/js/main.js'
+        }]
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css"

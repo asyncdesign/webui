@@ -34,15 +34,6 @@ progress {
 table {
 	border-collapse: collapse;
 }
-thead,
-tbody,
-tfoot,
-tr,
-th,
-td {
-	background-color: inherit;
-	border: inherit;
-}
 th.resize-y, td.resize-y {
 	overflow-y: auto;
 	resize: horizontal;
@@ -124,6 +115,137 @@ svg:not(:root) {
 	content: "";
 	display: block;
 	clear: both;
+}
+.table th, .table td {
+  text-align: left;
+}
+.table.table-default {
+  color: $theme_default_foreground;
+  background-color: $theme_default;
+}
+.table.table-default thead tr {
+  border-bottom: 0.05rem solid $theme_default_highlight;
+}
+.table.table-default.table-bordered td {
+  border: 0.05rem solid $theme_default_highlight;
+}
+.table.table-default.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_default_alternate;
+}
+.table.table-default.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_default_highlight;
+}
+.table.table-light {
+  color: $theme_light_foreground;
+  background-color: $theme_light;
+}
+.table.table-light thead tr {
+  border-bottom: 0.05rem solid $theme_light_highlight;
+}
+.table.table-light.table-bordered td {
+  border: 0.05rem solid $theme_light_highlight;
+}
+.table.table-light.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_light_alternate;
+}
+.table.table-light.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_light_highlight;
+}
+.table.table-dark {
+  color: $theme_dark_foreground;
+  background-color: $theme_dark;
+}
+.table.table-dark thead tr {
+  border-bottom: 0.05rem solid $theme_dark_highlight;
+}
+.table.table-dark.table-bordered td {
+  border: 0.05rem solid $theme_dark_highlight;
+}
+.table.table-dark.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_dark_alternate;
+}
+.table.table-dark.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_dark_highlight;
+}
+.table.table-accent-1 {
+  color: $theme_default_foreground;
+  background-color: $theme_accent_1_light;
+}
+.table.table-accent-1 thead tr {
+  border-bottom: 0.05rem solid $theme_accent_1_highlight;
+}
+.table.table-accent-1.table-bordered td {
+  border: 0.05rem solid $theme_accent_1_highlight;
+}
+.table.table-accent-1.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_accent_1_alternate;
+}
+.table.table-accent-1.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_accent_1_highlight;
+}
+.table.table-accent-2 {
+  color: $theme_default_foreground;
+  background-color: $theme_accent_2_light;
+}
+.table.table-accent-2 thead tr {
+  border-bottom: 0.05rem solid $theme_accent_2_highlight;
+}
+.table.table-accent-2.table-bordered td {
+  border: 0.05rem solid $theme_accent_2_highlight;
+}
+.table.table-accent-2.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_accent_2_alternate;
+}
+.table.table-accent-2.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_accent_2_highlight;
+}
+.table.table-accent-3 {
+  color: $theme_default_foreground;
+  background-color: $theme_accent_3_light;
+}
+.table.table-accent-3 thead tr {
+  border-bottom: 0.05rem solid $theme_accent_3_highlight;
+}
+.table.table-accent-3.table-bordered td {
+  border: 0.05rem solid $theme_accent_3_highlight;
+}
+.table.table-accent-3.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_accent_3_alternate;
+}
+.table.table-accent-3.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_accent_3_highlight;
+}
+.table.table-accent-4 {
+  color: $theme_default_foreground;
+  background-color: $theme_accent_4_light;
+}
+.table.table-accent-4 thead tr {
+  border-bottom: 0.05rem solid $theme_accent_4_highlight;
+}
+.table.table-accent-4.table-bordered td {
+  border: 0.05rem solid $theme_accent_4_highlight;
+}
+.table.table-accent-4.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_accent_4_alternate;
+}
+.table.table-accent-4.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_accent_4_highlight;
+}
+.table.table-accent-5 {
+  color: $theme_default_foreground;
+  background-color: $theme_accent_5_light;
+}
+.table.table-accent-5 thead tr {
+  border-bottom: 0.05rem solid $theme_accent_5_highlight;
+}
+.table.table-accent-5.table-bordered td {
+  border: 0.05rem solid $theme_accent_5_highlight;
+}
+.table.table-accent-5.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
+  background-color: $theme_accent_5_alternate;
+}
+.table.table-accent-5.table-hover tr:not(thead tr, tfoot tr):hover {
+  background-color: $theme_accent_5_highlight;
 }
 .list-inline > * {
 	float: left;
@@ -430,7 +552,7 @@ svg:not(:root) {
 	width: 100%;	
 	color: $theme_default_foreground;
 	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;
+	border: 0.078rem solid $theme_default;
 	cursor: default;
 	padding: 0 1rem 0 1rem;
 }
@@ -446,7 +568,7 @@ svg:not(:root) {
 .menu-button-default {
 	color: $theme_default_foreground;
 	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;
+	border: 0.078rem solid $theme_default;
 	&:focus {
 		background-color: $theme_default_active;	
 	}
@@ -457,7 +579,7 @@ svg:not(:root) {
 .menu-button-light {
 	color: $theme_light_foreground;
 	background-color: $theme_light;
-	border: 0.078rem solid $theme_light_border;
+	border: 0.078rem solid $theme_light;
 	&:focus {
 		background-color: $theme_light_active;	
 	}
@@ -468,7 +590,7 @@ svg:not(:root) {
 .menu-button-dark {
 	color: $theme_dark_foreground;
 	background-color: $theme_dark;
-	border: 0.078rem solid $theme_dark_border;
+	border: 0.078rem solid $theme_dark;
 	&:focus {
 		background-color: $theme_dark_active;	
 	}
@@ -479,7 +601,7 @@ svg:not(:root) {
 .menu-button-accent-1 {
 	color: $theme_accent_1_foreground;
 	background-color: $theme_accent_1;
-	border: 0.078rem solid $theme_accent_1_border;
+	border: 0.078rem solid $theme_accent_1;
 	&:focus {
 		background-color: $theme_accent_1_active;
 	}
@@ -490,7 +612,7 @@ svg:not(:root) {
 .menu-button-accent-2 {
 	color: $theme_accent_2_foreground;
 	background-color: $theme_accent_2;
-	border: 0.078rem solid $theme_accent_2_border;
+	border: 0.078rem solid $theme_accent_2;
 	&:focus {
 		background-color: $theme_accent_2_active;
 	}
@@ -501,7 +623,7 @@ svg:not(:root) {
 .menu-button-accent-3 {
 	color: $theme_accent_3_foreground;
 	background-color: $theme_accent_3;
-	border: 0.078rem solid $theme_accent_3_border;
+	border: 0.078rem solid $theme_accent_3;
 	&:focus {
 		background-color: $theme_accent_3_active;
 	}
@@ -512,7 +634,7 @@ svg:not(:root) {
 .menu-button-accent-4 {
 	color: $theme_accent_4_foreground;
 	background-color: $theme_accent_4;
-	border: 0.078rem solid $theme_accent_4_border;
+	border: 0.078rem solid $theme_accent_4;
 	&:focus {
 		background-color: $theme_accent_4_active;
 	}
@@ -523,7 +645,7 @@ svg:not(:root) {
 .menu-button-accent-5 {
 	color: $theme_accent_5_foreground;
 	background-color: $theme_accent_5;
-	border: 0.078rem solid $theme_accent_5_border;
+	border: 0.078rem solid $theme_accent_5;
 	&:focus {
 		background-color: $theme_accent_5_active;
 	}
@@ -534,7 +656,7 @@ svg:not(:root) {
 .menu-button-success {
 	color: $theme_success_foreground;
 	background-color: $theme_success;
-	border: 0.078rem solid $theme_success_border;
+	border: 0.078rem solid $theme_success;
 	&:focus {
 		background-color: $theme_success_active;
 	}
@@ -545,7 +667,7 @@ svg:not(:root) {
 .menu-button-info {
 	color: $theme_info_foreground;
 	background-color: $theme_info;
-	border: 0.078rem solid $theme_info_border;
+	border: 0.078rem solid $theme_info;
 	&:focus {
 		background-color: $theme_info_active;
 	}
@@ -556,7 +678,7 @@ svg:not(:root) {
 .menu-button-warning {
 	color: $theme_warning_foreground;
 	background-color: $theme_warning;
-	border: 0.078rem solid $theme_warning_border;
+	border: 0.078rem solid $theme_warning;
 	&:focus {
 		background-color: $theme_warning_active;
 	}
@@ -567,7 +689,7 @@ svg:not(:root) {
 .menu-button-danger {
 	color: $theme_danger_foreground;
 	background-color: $theme_danger;
-	border: 0.078rem solid $theme_danger_border;
+	border: 0.078rem solid $theme_danger;
 	&:focus {
 		background-color: $theme_danger_active;
 	}
@@ -578,7 +700,7 @@ svg:not(:root) {
 .menu-button-disabled {
 	color: $theme_disabled_foreground;
 	background-color: $theme_disabled;
-	border: 0.078rem solid $theme_disabled_border;
+	border: 0.078rem solid $theme_disabled;
 }
 .button-default.accessibility:focus,
 .menu-button-default.accessibility:focus {
@@ -941,12 +1063,12 @@ svg:not(:root) {
 		border: 0.078rem solid $theme_default_border;	
 		backface-visibility: hidden;
 	}
-	input[type=radio]:checked + label {		
+	input[type=radio]:checked + label {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-origin: padding-box;
-		background-position: center center;	
-		background-size: 42%;
+		background-position: center;	
+		background-size: 47%;
 	} 
 }
 *[class*="radio"].rounded-sm.accessibility label {
@@ -2075,7 +2197,6 @@ svg:not(:root) {
 		left: 0;
 		width: 50%;
 		text-align: center;
-		margin-top: -0.1rem;
 		z-index: 0;	
 	}
 	&::after {
@@ -2085,7 +2206,6 @@ svg:not(:root) {
 		right: 0;
 		width: 50%;
 		text-align: center;
-		margin-top: -0.1rem;
 		z-index: 0;	
 	}
 	label {
@@ -2102,13 +2222,11 @@ svg:not(:root) {
 		content: 'ON';
 		font-size: 0.8rem;
 		width: 45%;
-		margin-top: 0;
 	}
 	&::after {
 		content: 'OFF';
 		font-size: 0.8rem;
 		width: 55%;
-		margin-top: 0;
 	}
 }
 *[class*="toggle-switch-"].yesno {
@@ -2116,34 +2234,37 @@ svg:not(:root) {
 		content: 'YES';
 		font-size: 0.8rem;
 		width: 55%;
-		margin-top: 0;
 	}
 	&::after {
 		content: 'NO';
 		font-size: 0.8rem;
 		width: 45%;
-		margin-top: 0;
 	}
 }
 .toggle-switch-xs {
 	width: 4.75rem;
-	height: 1.5rem;	
+	height: 1.5rem;
+	line-height: 1.5rem;	
 }
 .toggle-switch-sm {
 	width: 5rem;
-	height: 1.75rem;	
+	height: 1.75rem;
+	line-height: 1.75rem;
 }
 .toggle-switch-md {
 	width: 5.5rem;
 	height: 2.125rem;
+	line-height: 2.125rem;
 }
 .toggle-switch-lg {
 	width: 6rem;
-	height: 2.375rem;	
+	height: 2.475rem;
+	line-height: 2.475rem;
 }
 .toggle-switch-xl {
 	width: 6.5rem;
-	height: 2.75rem;
+	height: 2.825rem;
+	line-height: 2.825rem;
 }
 .toggle-switch-xs label {
 	width: 2rem;
@@ -2504,6 +2625,29 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 		word-spacing: normal;
 	}
 }
+.control-hint {
+	position: relative;
+}
+.control-hint > label {
+	position: absolute;
+	left: 0.7rem;
+	top: 50%;
+	opacity: 0.4;
+	transform-origin: 0 0;			
+	transform: translate(0, -50%);
+	transition: transform 0.5s ease-in-out;
+	pointer-events: none;
+	border: none;
+}	
+.control-hint > input::-moz-placeholder {
+	color: transparent;
+}
+.control-hint > input:-ms-input-placeholder {
+	color: transparent;
+}
+.control-hint > input::placeholder {
+	color: transparent;
+}
 .width-auto {
 	width: auto;
 	min-width: 0;
@@ -2570,10 +2714,10 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 	width: 2.125rem;
 }
 .width-control-lg {
-	width: 2.375rem;
+	width: 2.475rem;
 }
 .width-control-xl {
-	width: 2.75rem;
+	width: 2.825rem;
 }
 .width-one-quarter {
 	width: 25%;
@@ -2707,10 +2851,10 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 	height: 2.125rem;
 }
 .height-control-lg {
-	height: 2.375rem;
+	height: 2.475rem;
 }
 .height-control-xl {
-	height: 2.75rem;
+	height: 2.825rem;
 }
 .height-one-quarter {
 	height: 25%;
@@ -3578,10 +3722,10 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 	line-height: 2.125rem;
 }
 .control-label-lg {
-	line-height: 2.375rem;
+	line-height: 2.475rem;
 }
 .control-label-xl {
-	line-height: 2.75rem;
+	line-height: 2.825rem;
 }
 .control-label-xxl {
 	line-height: 3.125rem;
@@ -3596,10 +3740,10 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 	height: 2.125rem;
 }
 .input-lg, .button-lg, .range-lg, .view-button-sm, .menu-button-sm {
-	height: 2.375rem;
+	height: 2.475rem;
 }
 .input-xl, .button-xl, .range-xl, .view-button-lg, .menu-button-lg {
-	height: 2.75rem;
+	height: 2.825rem;
 }
 .progress-xs, .button-link-xs, .toggle-button-xs {
 	line-height: 1.5rem;
@@ -3614,12 +3758,12 @@ a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu
 	height: 2.125rem;
 }
 .progress-lg, .button-link-lg, .toggle-button-lg, .view-button-link-sm, .menu-button-link-sm {
-	line-height: 2.375rem;
-	height: 2.375rem;
+	line-height: 2.475rem;
+	height: 2.475rem;
 }
 .pregress-xl, .button-link-xl, .toggle-button-xl, .view-button-link-lg, .menu-button-link-lg {
-	line-height: 2.75rem;
-	height: 2.75rem;
+	line-height: 2.825rem;
+	height: 2.825rem;
 }
 .outline-sm {
 	outline-width: 0.078rem;

@@ -204,7 +204,6 @@
 
 								items.eq(current - 1).fadeIn(transitionDuration, 0, function() {                  
 										items.eq(current - 1).siblings(".carousel-item").fadeOut(transitionDuration, 0, function() {
-
 												transitionCompleted = true;
 												carousel.trigger("ui.carousel.change.after", [ current ]);
 										});
@@ -216,7 +215,7 @@
 							carouselHolder.slideVertical("up", carouselItemHeight, transitionDuration, function(element) {
 								shift("top");
 								transitionCompleted = true;
-								carousel.trigger("ui.carousel.change.after", [current]);
+								carousel.trigger("ui.carousel.change.after", [current]);						
 							});
 						}
 						else {
@@ -240,13 +239,13 @@
 					if (transitionType === "crossfade") {
 						var items = carouselHolder.find(".carousel-item");
 
-						items.eq(index).fadeIn(0, 0, function() {                  
-								items.eq(index).siblings(".carousel-item").fadeOut(0, 0, function() {
+						items.eq(current - 1).fadeIn(0, 0, function() {                  
+								items.eq(current - 1).siblings(".carousel-item").fadeOut(0, 0, function() {
 
 										transitionCompleted = true;
 										carousel.trigger("ui.carousel.change.after", [ current ]);
 								});
-						});               
+						});            
 
 					}
 					else {
@@ -257,7 +256,7 @@
 							carouselHolder.css("left", "-" + (carouselItemWidth * current) + "px");
 						}
 						transitionCompleted = true;
-						carousel.trigger("ui.carousel.change.after", [current]);	
+						carousel.trigger("ui.carousel.change.after", [current]);
 					}
 				}
 			},

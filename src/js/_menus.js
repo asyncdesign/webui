@@ -55,7 +55,7 @@
 								siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
 							}
 							else if (transitionType === "collapse") {
-								siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration, "auto");
+								siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
 							}
 							else {
 								siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
@@ -70,7 +70,7 @@
 							dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 						}
 						else if (transitionType === "collapse") {
-							dropdown.expandVertical(transitionDuration).trigger("ui.dropdown.show.after");
+							dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
 						}
 						else {
 							dropdown.show().trigger("ui.dropdown.show.after");
@@ -128,7 +128,7 @@
 				menuItem.siblings("[class*='dropdown-']").fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 			}
 			else if (transitionType === "collapse") {
-				menuItem.siblings("[class*='dropdown-']").expandVertical(transitionDuration).trigger("ui.dropdown.show.after");
+				menuItem.siblings("[class*='dropdown-']").expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
 			}
 			else {
 				menuItem.siblings("[class*='dropdown-']").show().trigger("ui.dropdown.show.after");
