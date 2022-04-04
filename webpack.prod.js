@@ -4,17 +4,17 @@ const path = require('path');
 const terser = require('terser');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackConcatPlugin = require('webpack-concat-files-plugin');
-const RemovePlugin = require('remove-files-webpack-plugin');
+const RemoveFilesPlugin = require('remove-files-webpack-plugin');
 const WebpackMessages = require('webpack-messages');
 
 module.exports = {
 
-  entry: {"webui-components-all": ["./src/scss/webui-components-all.scss"],
-          "webui-components-standard": ["./src/scss/webui-components-standard.scss"],
-          "webui-components-basic": ["./src/scss/webui-components-basic.scss"],
-          "webui-all": ["./src/scss/webui-all.scss"],         
-          "webui-standard": ["./src/scss/webui-standard.scss"],
-          "webui-basic": ["./src/scss/webui-basic.scss"]
+  entry: {'webui-components-all': ['./src/scss/webui-components-all.scss'],
+          'webui-components-standard': ['./src/scss/webui-components-standard.scss'],
+          'webui-components-basic': ['./src/scss/webui-components-basic.scss'],
+          'webui-all': ['./src/scss/webui-all.scss'],         
+          'webui-standard': ['./src/scss/webui-standard.scss'],
+          'webui-basic': ['./src/scss/webui-basic.scss']
   },
   performance: {
     hints: false
@@ -25,24 +25,6 @@ module.exports = {
         {
           dest: './dist/js/webui-components.min.js',
           src: './src/js/*.js',
-          /*
-          src: ["./src/js/main.js", 
-            "./src/js/_menus.js",
-            "./src/js/_navbar.js",
-            "./src/js/_navbutton.js", 
-            "./src/js/_alerts.js", 
-            "./src/js/_tooltips.js", 
-            "./src/js/_modals.js", 
-            "./src/js/_upload.js",
-            "./src/js/_zoom.js",
-            "./src/js/_tabs.js",
-            "./src/js/_radial.js",
-            "./src/js/_carousel.js",
-            "./src/js/_shapes.js",
-            "./src/js/_scrollspy.js",
-            "./src/js/_animation.js",
-            "./src/js/_validation.js"]
-          */
           transforms: {
             after: async (code) => {
               const minifiedCode = await terser.minify(code);
@@ -66,9 +48,9 @@ module.exports = {
         }]
     }),
     new MiniCssExtractPlugin({
-      filename: "css/[name].min.css"
+      filename: 'css/[name].min.css'
     }),
-    new RemovePlugin({
+    new RemoveFilesPlugin({
       after: {
         root: path.resolve(__dirname, 'dist'),
         include: [
@@ -94,13 +76,13 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: false,
               sourceMap: false
             }
           },
-          "sass-loader"
+          'sass-loader'
         ]
       }
     ]
