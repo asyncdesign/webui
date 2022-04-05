@@ -136,15 +136,16 @@
 				var transitionOrientation = toggleContainer.data("transition-orientation");
 				var transitionDistance = toggleContainer.data("transition-distance");
 
+				var offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer");
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
-				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");
+				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");				
 
 
 				if (toggleItem.length) {
 
 					var toggleItemWidth = toggleItem[0].offsetWidth;
 
-					if (offCanvas && toggleBody.length) {
+					if (!offCanvasDrawer && offCanvas && toggleBody.length) {
 
 						ui(".off-canvas-left, .off-canvas-right").css("transition-duration", (transitionDuration / 1000) + "s");
 						toggleBody.css("transition-duration", (transitionDuration / 1000) + "s");
@@ -164,9 +165,8 @@
 									toggleItem.css("transform", "translate(0, 0)");
 									toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 								}
-							});
-
-							toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.trigger("ui.toggleItem.show.after");
+							});				
 						} 
 						else {
 										
@@ -181,11 +181,9 @@
 									toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
 									toggleBody.css("transform", "translate(0, 0)");
 								}
-
 								toggleItem.addClass("off-canvas-closed");
-							});
-
-							toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.trigger("ui.toggleItem.hide.after");
+							});				
 						}
 					}
 					else if (offCanvas) {
@@ -205,9 +203,8 @@
 								else {
 									toggleItem.css("transform", "translate(0, 0)");
 								}
-							});
-
-							toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.trigger("ui.toggleItem.show.after");
+							});			
 						} 
 						else {
 										
@@ -220,11 +217,9 @@
 								else {
 									toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
 								}
-
 								toggleItem.addClass("off-canvas-closed");
-							});
-
-							toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.trigger("ui.toggleItem.hide.after");
+							});						
 						}
 					}
 					else {
