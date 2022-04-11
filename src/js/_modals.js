@@ -47,15 +47,20 @@
 	
 			if (modal) {
 	
-				webui("body").css("padding-right", "");
-				webui("body").css("overflow", "");
-	
 				modal.trigger("ui.modal.hide.before");
 				
 				if (transitionDuration) {
-					modal.fadeOut(transitionDuration).trigger("ui.modal.hide.after");					
+					modal.fadeOut(transitionDuration, 0, function() {
+						webui("body").css("padding-right", "");
+						webui("body").css("overflow", "");
+
+						modal.trigger("ui.modal.hide.after");
+					});					
 				}
 				else {
+					webui("body").css("padding-right", "");
+					webui("body").css("overflow", "");
+					
 					modal.hide().trigger("ui.modal.hide.after");
 				}
 			}
@@ -92,6 +97,7 @@
 			}
 		});	
 
+		webui(".modal-sm, .modal-md, .modal-lg, .modal-full, .modal-unsized").find(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
 			
 	};
 
@@ -120,12 +126,6 @@
 		enumerable: false
 	});
 	
-
-	/* RUN */
-
-	webui.ready (function() {
-		webui(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
-	});
 
 }(window));
 		

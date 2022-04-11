@@ -2032,19 +2032,19 @@
 		var max = 0;
 		if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
 			switch (breakPointRange[0]) {
-				case 1: min = 30; break;
-				case 2: min = 40; break;
-				case 3: min = 50; break;
-				case 4: min = 70; break;
-				case 5: min = 90; break;
+				case 1: min = parseFloat(ui.breakpoint1) + 0.01; break;
+				case 2: min = parseFloat(ui.breakpoint2) + 0.01; break;
+				case 3: min = parseFloat(ui.breakpoint3) + 0.01; break;
+				case 4: min = parseFloat(ui.breakpoint4) + 0.01; break;
+				case 5: min = parseFloat(ui.breakpoint5) + 0.01; break;
 				default: min = 0; break;
 			}
 			switch (breakPointRange[1]) {
-				case 1: max = 29.99; break;
-				case 2: max = 39.99; break;
-				case 3: max = 49.99; break;
-				case 4: max = 69.99; break;
-				case 5: max = 89.99; break;
+				case 1: max = parseFloat(ui.breakpoint1); break;
+				case 2: max = parseFloat(ui.breakpoint2); break;
+				case 3: max = parseFloat(ui.breakpoint3); break;
+				case 4: max = parseFloat(ui.breakpoint4); break;
+				case 5: max = parseFloat(ui.breakpoint5); break;
 				default: max = 0; break;
 			}
 		}

@@ -10,80 +10,131 @@
 	@include layer-4();
 }
 .modal-sm {
-	top: calc(50% - 12.5rem);	
+	top: calc(50% - 12.5vh);	
 	left: 75%;
 	width: 25%;
 	margin-left: -37.5%;
 	height: 25vh;
 }
 .modal-md {
-	top: calc(50% - 17.188rem);	
+	top: calc(50% - 25vh);	
 	left: 50%;
 	width: 50%;
 	margin-left: -25%;
 	height: 50vh
 }
 .modal-lg {
-	top: calc(50% - 21.875rem);
+	top: calc(50% - 37.5vh);
 	left: 25%;
 	width: 75%;
 	margin-left: -12.5%;
 	height: 75vh;
+}
+.modal-full {
+	top: 0;
+	left: 0;
+	width: 100%;
+  height: 100vh;
+}
+.modal-unsized {
+	position: fixed;
+	top: 5%;
+	left: 5%;
+	margin: 0;
+	max-width: 90%;
+	& .modal-scroll-body {
+		overflow-y: auto;
+		max-width: 99.6%;
+	}
+}
+.modal-sm,
+.modal-md,
+.modal-lg,
+.modal-full {
+	position: fixed;
+	overflow-x: hidden;
 }
 .modal-top-left {
 	top: 5%;
 	left: 5%;
 	margin: 0;
 }
-.modal-top-center {
+.modal-top-center:not(.modal-unsized) {
 	top: 5%;
+	bottom: auto;
 }
-.modal-top-right {
+.modal-unsized.modal-top-center {
+	top: 5%;
+	left: 50%;	 
+	transform: translateX(-50%);
+}
+.modal-top-right:not(.modal-unsized) {
 	top: 5%;
 	margin-left: -5%;	
 }
-.modal-middle-left {
+.modal-unsized.modal-top-right {
+	top: 5%;
+	left: auto;
+	right: 5%;
+}
+.modal-middle-left:not(.modal-unsized) {
 	left: 5%;
 	margin-right: -5%;
 	margin: 0;
 }
-.modal-middle-right {
+.modal-unsized.modal-middle-left {
+	top: 50%;
+	left: 5%;
+	transform: translateY(-50%);
+}
+.modal-unsized.modal-middle-center {
+	top: 50%;
+	left: 50%; 
+	transform: translate(-50%, -50%);
+}
+.modal-middle-right:not(.modal-unsized) {
 	right: 5%;
 	margin-left: -5%;	
 }
+.modal-unsized.modal-middle-right {
+	top: 50%;
+	left: auto;
+	right: 5%;
+	transform: translateY(-50%);
+}
 .modal-bottom-left {
 	top: auto;
-	bottom: 5%;
 	left: 5%;
+	bottom: 5%;
 	margin: 0;	
 }
-.modal-bottom-center {
+.modal-bottom-center:not(.modal-unsized) {
 	top: auto;
 	bottom: 5%;
+}
+.modal-unsized.modal-bottom-center {
+	top: auto;
+	left: 50%; 
+	bottom: 5%;
+	transform: translateX(-50%);
 }
 .modal-bottom-right {
 	top: auto;
+	left: auto;
 	bottom: 5%;
 	right: 5%;
 	margin-left: -5%;
 }
-.modal-sm,
-.modal-md,
-.modal-lg {
-	position: fixed;
-	display: inherit;
-	overflow-x: hidden;
-	background-color: transparent;
-	@include layer-5();		
-}
 .modal-scroll-body {
 	overflow-y: scroll;
 	height: 100%;
+	max-height: 90vh;
 }
-.modal-animate {
-	animation: animate-fadein 0.5s ease-in-out;
+*[class*=modal-] {
+	display: inherit;
+	background-color: transparent;
+	@include layer-5();		
 }
-
 @media all and (min-width: $settings_modal_bp_3_over) and (max-width: $settings_modal_bp_4_under) {
 	.modal-sm {
 		left: 65%;
@@ -114,6 +165,7 @@
 		width: 80%;
 		margin-left: -10%;
 		&.modal-auto-stretch {
+			top: 5%;
 			height: 90vh;
 		}
 	}

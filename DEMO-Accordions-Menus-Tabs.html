@@ -60,7 +60,7 @@
 				<div class="text-sm color-accent-5">Menu component</div>
 				<div class="row-spacing-xs"></div>
 
-				<div class="content-row show-bp-4-over">
+				<div class="content-row show-bp-4-over" id="menuControl1">
 					<div class="content-col-20 dark">
 						<div class="content-row">
 							<div class="content-col-1">
@@ -155,7 +155,7 @@
 					</div>
 				</div>
 
-				<div class="content-row show-bp-4-under">
+				<div class="content-row show-bp-4-under" id="menuControl2">
 					<div class="content-col-20">
 						<div class="content-col-8 dark toolbar-sm">
 							<div class="content-row">
@@ -855,12 +855,16 @@
 	<script>
 
 		webui.ready(function() {
-				
-			ui.initMenus({
+			
+			ui("#menuControl1").menuControl({ 
+				transitionDuration: 300,
+				transitionType: "fade"
+			});
+
+			ui("#menuControl2").menuControl({ 
 				transitionDuration: 300,
 				transitionType: "collapse"
 			});
-			
 
 			ui("#fileUpload2").uploadControl({
 				scrollY: true
