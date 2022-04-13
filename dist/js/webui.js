@@ -893,13 +893,17 @@
 
 	fn.removeClass = function (className) {
 		for (var i = 0; i < this.length; i++) {
-			if (this[i].classList) {
-				var classNames = className.split(" ");
-				for (var j = 0; j < classNames.length; j++) {
-					this[i].classList.remove(classNames[j]);
-				}
+			if (className === "*") {
+				this[i].classList = "";
 			} else {
-				this[i].className = this[i].className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+				if (this[i].classList) {
+					var classNames = className.split(" ");
+					for (var j = 0; j < classNames.length; j++) {
+						this[i].classList.remove(classNames[j]);
+					}
+				} else {
+					this[i].className = this[i].className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+				}	
 			}
 		}
 		return this;

@@ -893,13 +893,17 @@
 
 	fn.removeClass = function (className) {
 		for (var i = 0; i < this.length; i++) {
-			if (this[i].classList) {
-				var classNames = className.split(" ");
-				for (var j = 0; j < classNames.length; j++) {
-					this[i].classList.remove(classNames[j]);
-				}
+			if (className === "*") {
+				this[i].classList = "";
 			} else {
-				this[i].className = this[i].className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+				if (this[i].classList) {
+					var classNames = className.split(" ");
+					for (var j = 0; j < classNames.length; j++) {
+						this[i].classList.remove(classNames[j]);
+					}
+				} else {
+					this[i].className = this[i].className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+				}	
 			}
 		}
 		return this;
@@ -2486,13 +2490,14 @@
 
 
 (function (win) {
-	
+
 	/* PRIVATE */
 
 	var
 		position = "top-right",
 		duration = 300,
 		transitionDuration = 300,
+		displayOrder = "ascending",
 		width = "18.750rem",
 		showHeader = true,
 		inline = true,
@@ -2503,10 +2508,11 @@
 
 	/* PUBLIC */
 
-	webui.initAlerts = function(options) {
+	webui.initAlerts = function (options) {
 		position = options.position !== void 0 ? options.position : position;
 		duration = options.duration !== void 0 ? options.duration : duration;
 		transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
+		displayOrder = options.displayOrder != void 0 ? options.displayOrder : displayOrder;
 		width = options.width != void 0 ? options.width : width;
 		showHeader = options.showHeader != void 0 ? options.showHeader : showHeader;
 		inline = options.inline != void 0 ? options.inline : inline;
@@ -2515,20 +2521,20 @@
 		showIcon = options.showIcon !== void 0 ? options.showIcon : showIcon;
 		showClose = options.showClose !== void 0 ? options.showClose : showClose;
 	};
-	webui.showAlert = function(message, type, auto, icon, close) {
+
+	webui.showAlert = function (message, type, auto, icon, close) {
 		if (arguments.length > 1) {
 
-			var alertContainer = !webui(".alert-container").length ? 
-									webui("<div></div>").addClass("alert-container").addClass("alert-" + position).appendTo("body") : 
-									webui(".alert-container").addClass("alert-" + position);
+			var alertContainer = !webui(".alert-container").length ?
+				webui("<div></div>").addClass("alert-container").addClass("alert-" + position).appendTo("body") :
+				webui(".alert-container").addClass("alert-" + position);
 
-			
+
 			alertContainer.css("width", width);
 			var alertItemOuter = webui("<div></div>");
 			var alertItemInner = webui("<div role='alert'></div>").addClass("alert alert-" + type)
-									.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
-									.appendTo(alertItemOuter);
-
+				.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
+				.appendTo(alertItemOuter);
 
 			alertItemInner.trigger("ui.alert.show.before");
 
@@ -2538,29 +2544,39 @@
 			else {
 				alertItemInner.show().trigger("ui.alert.show.after");
 			}
-			alertItemOuter.appendTo(alertContainer);
-	
+
+			if (displayOrder.toLowerCase() === "descending") {
+				alertItemOuter.appendTo(alertContainer);
+			}
+			else {
+				if (alertContainer.find(".alert").length > 0) {
+					alertItemOuter.prependTo(alertContainer);
+				}
+				else {
+					alertItemOuter.appendTo(alertContainer);
+				}
+			}
 
 			if (style === "outline-square" || style === "outline-rounded") {
 				switch (type) {
-				case "success":
-					alertItemInner.addClass("alert-success-outline");
-					break;
+					case "success":
+						alertItemInner.addClass("alert-success-outline");
+						break;
 
-				case "info":
-					alertItemInner.addClass("alert-info-outline");
-					break;
+					case "info":
+						alertItemInner.addClass("alert-info-outline");
+						break;
 
-				case "warning":
-					alertItemInner.addClass("alert-warning-outline");
-					break;
+					case "warning":
+						alertItemInner.addClass("alert-warning-outline");
+						break;
 
-				case "danger":
-					alertItemInner.addClass("alert-danger-outline");
-					break;
+					case "danger":
+						alertItemInner.addClass("alert-danger-outline");
+						break;
 
-				default:
-					break;
+					default:
+						break;
 				}
 			}
 			if (style.toLowerCase().indexOf("rounded") >= 0) {
@@ -2576,9 +2592,9 @@
 					}
 					if (close) {
 						webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
-						.click(function() {
-							ui.hideAlert(alertItemInner, false);
-						});
+							.click(function () {
+								ui.hideAlert(alertItemInner, false);
+							});
 					}
 				}
 			}
@@ -2588,18 +2604,18 @@
 					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
 					webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
 					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
-					.click(function() {
-						ui.hideAlert(alertItemInner, false);
-					});
+						.click(function () {
+							ui.hideAlert(alertItemInner, false);
+						});
 				} else if (icon) {
 					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
 					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
 				} else if (close) {
 					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
 					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
-					.click(function() {
-						ui.hideAlert(alertItemInner, false);
-					});
+						.click(function () {
+							ui.hideAlert(alertItemInner, false);
+						});
 				} else {
 					webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
 				}
@@ -2608,96 +2624,101 @@
 			}
 			if (auto != null) {
 				if (auto) {
-					setTimeout(function() {
+					setTimeout(function () {
 						ui.hideAlert(alertItemInner, true);
 					}, duration);
 				}
 			} else {
 				if (autoHide) {
-					setTimeout(function() {
+					setTimeout(function () {
 						ui.hideAlert(alertItemInner, true);
 					}, duration);
 				}
 			}
 		}
 	};
-	webui.hideAlert = function(alert, auto) {
+
+	webui.hideAlert = function (alert, auto) {
 		if (alert) {
 
 			alert.trigger("ui.alert.hide.before");
-			
+
 			if (auto && transitionDuration) {
 
 				alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
-				
-				setTimeout(function() {
+
+				setTimeout(function () {
 					alert.parent().remove();
 				}, transitionDuration);
-				
+
 			}
 			else {
 				alert.hide().parent().remove().trigger("ui.alert.hide.after");
 			}
 		}
 	};
-	webui.showSuccessAlert = function(message, auto, icon, close) {
+
+	webui.showSuccessAlert = function (message, auto, icon, close) {
 		var msgType = "success";
 		switch (arguments.length) {
-		case 1:
-			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-		case 2:
-			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-		case 3:
-			ui.showAlert(message, msgType, auto, icon, showClose); break;
-		case 4:
-			ui.showAlert(message, msgType, auto, icon, close); break;
-		default:
-			break;
+			case 1:
+				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+			case 2:
+				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+			case 3:
+				ui.showAlert(message, msgType, auto, icon, showClose); break;
+			case 4:
+				ui.showAlert(message, msgType, auto, icon, close); break;
+			default:
+				break;
 		}
 	};
-	webui.showInfoAlert = function(message, auto, icon, close) {
+
+	webui.showInfoAlert = function (message, auto, icon, close) {
 		var msgType = "info";
 		switch (arguments.length) {
-		case 1:
-			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-		case 2:
-			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-		case 3:
-			ui.showAlert(message, msgType, auto, icon, showClose); break;
-		case 4:
-			ui.showAlert(message, msgType, auto, icon, close); break;
-		default:
-			break;
+			case 1:
+				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+			case 2:
+				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+			case 3:
+				ui.showAlert(message, msgType, auto, icon, showClose); break;
+			case 4:
+				ui.showAlert(message, msgType, auto, icon, close); break;
+			default:
+				break;
 		}
 	};
-	webui.showWarningAlert = function(message, auto, icon, close) {
+
+	webui.showWarningAlert = function (message, auto, icon, close) {
 		var msgType = "warning";
 		switch (arguments.length) {
-		case 1:
-			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-		case 2:
-			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-		case 3:
-			ui.showAlert(message, msgType, auto, icon, showClose); break;
-		case 4:
-			ui.showAlert(message, msgType, auto, icon, close); break;
-		default:
-			break;
+			case 1:
+				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+			case 2:
+				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+			case 3:
+				ui.showAlert(message, msgType, auto, icon, showClose); break;
+			case 4:
+				ui.showAlert(message, msgType, auto, icon, close); break;
+			default:
+				break;
 		}
 	};
-	webui.showDangerAlert = function(message, auto, icon, close) {
+	
+	webui.showDangerAlert = function (message, auto, icon, close) {
 		var msgType = "danger";
 		switch (arguments.length) {
-		case 1:
-			ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-		case 2:
-			ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-		case 3:
-			ui.showAlert(message, msgType, auto, icon, showClose); break;
-		case 4:
-			ui.showAlert(message, msgType, auto, icon, close); break;
-		default:
-			break;
+			case 1:
+				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
+			case 2:
+				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
+			case 3:
+				ui.showAlert(message, msgType, auto, icon, showClose); break;
+			case 4:
+				ui.showAlert(message, msgType, auto, icon, close); break;
+			default:
+				break;
 		}
 	};
 
@@ -2711,7 +2732,7 @@
 	});
 
 }(window));
-		
+
 
 (function (win) {
     
@@ -3936,8 +3957,9 @@
 			
 			navButtons.css("display", "block");
 		}
+		
 
-
+		/* EVENTS */
 
 		navButtons.click(function(e) {
 			e.preventDefault();
@@ -4851,6 +4873,129 @@
 
 }(window));
 		
+
+(function (win) {
+	
+	/* PRIVATE */
+
+	var ToastInstance = function(toast, settings) {
+
+		var
+			position = settings.position,
+			width = settings.width,
+			duration = settings.duration,
+			transitionDuration = settings.transitionDuration,
+			toastItemTemplate = settings.toastItemTemplate,
+			toastItemOrder = settings.toastItemOrder,
+			autoHide = settings.autoHide,
+
+			showToastItem = function() {
+
+				var toastContainer = toast.css("width", width).removeClass("*").addClass("toast-container toast-" + position);
+				var itemTemplate = webui(toastItemTemplate);
+
+				if (itemTemplate.length) {
+
+					var toastItem = webui(itemTemplate[0].cloneNode(true));
+
+					if (toastItemOrder.toLowerCase() === "descending") {
+						toastItem.appendTo(toastContainer);
+					}
+					else {
+						if (toastContainer.find(".toast-item").length > 0) {
+							toastItem.prependTo(toastContainer);
+						}
+						else {
+							toastItem.appendTo(toastContainer);
+						}
+					}
+
+					toastItem.trigger("ui.toastitem.show.before");
+	
+					if (transitionDuration) {
+						toastItem.fadeIn(transitionDuration).trigger("ui.toastitem.show.after");
+					}
+					else {
+						toastItem.show().trigger("ui.toastitem.show.after");
+					}
+
+					if (autoHide) {
+						setTimeout(function() {
+							hideToastItem(toastItem);
+						}, duration);
+					}	
+
+					var toastClose = toastItem.find(".toast-close");
+					if (toastClose.length > 0) {
+						toastClose.first().click(function () {
+							hideToastItem(toastItem);
+						});
+					}
+				
+				}
+					
+			},
+
+			hideToastItem = function(toastItem) {
+
+				if (toastItem) {
+		
+					toastItem.trigger("ui.toastitem.hide.before");
+					
+					if (transitionDuration) {
+		
+						toastItem.fadeOut(transitionDuration).trigger("ui.toastitem.hide.after");
+						
+						setTimeout(function() {
+							toastItem.remove();
+						}, transitionDuration);
+						
+					}
+					else {
+						toastItem.hide().trigger("ui.toastitem.hide.after");
+					}
+				}
+			};
+
+
+		this.showToastItem = function () {
+			showToastItem();
+		};
+
+	};
+
+	/* PUBLIC */
+
+	Object.defineProperty(webui.prototype, "toastControl", {
+		value: function (options) {
+
+			var settings = ui.extend({
+				position: "top-right",
+				width: "25rem",
+				duration: 3000,
+				transitionDuration: 300,
+				toastItemTemplate: null,
+				toastItemOrder: "ascending",
+				autoHide: false
+			}, options);
+
+
+			var control = new ToastInstance(this, settings);
+
+			this.showToastItem = function () {
+				control.showToastItem();	
+			};
+
+
+			return this;
+
+		},
+		enumerable: false
+	});
+
+
+}(window));
+		
 ﻿
 (function (win) {
 
@@ -5283,6 +5428,74 @@
 	
 	/* PRIVATE */
 	
+	var UploadInstance = function(upload, settings) {
+
+		var
+
+		showFiles = settings.showFiles,
+		showCount = settings.showCount,
+		scrollX = settings.scrollX,
+		scrollY = settings.scrollY;
+
+
+		if (showFiles === false) {
+			upload.siblings().first("label").addClass("hide-files");
+		}
+		if (showCount === false) {
+			upload.siblings().first("label").addClass("hide-count");
+		}
+		if (scrollX) {
+			upload.siblings().first("label").css("overflow-x", "scroll");
+			upload.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+		}
+		if (scrollY) {
+			upload.siblings().first("label").css("overflow-y", "scroll");
+			upload.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+			upload.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+		}
+
+		upload.change(function() {
+			var element = webui(this);
+	
+			if (element) {
+	
+				element.trigger("ui.upload.change.before");				
+				var label = element.siblings("label").first();
+				if (element.length > 0) {
+					var files = element[0].files;
+					if (files != null && files.length > 0) {
+						if (label) {
+							var textValue = "";
+							if (label.hasClass("hide-files") === false) {
+								for (var i = 0; i < files.length; i++) {
+									textValue += files[i].name + "<br />";
+								}
+							}
+							if (label.hasClass("hide-count") === false) {
+								if (files.length > 1) {
+									textValue += "<br />(" + files.length + ") files.";
+								}
+							}
+							if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
+								textValue += "<br />Files ready.";
+							}
+							label.html(textValue);
+							element.trigger("ui.upload.change.after");
+						}
+					} else {
+						if (element.val() !== null && element.val().length > 0) {
+							if (label) {
+								label.text(element.val().replace("C:\\fakepath\\", ""));
+								element.trigger("ui.upload.change.after");
+							}
+						}
+					}
+				}
+			}
+		});
+	
+
+	};
 
 	/* PUBLIC */
 
@@ -5296,65 +5509,13 @@
 				scrollY: false
 			}, options);
 
-			if (settings.showFiles === false) {
-				this.siblings().first("label").addClass("hide-files");
-			}
-			if (settings.showCount === false) {
-				this.siblings().first("label").addClass("hide-count");
-			}
-			if (settings.scrollX) {
-				this.siblings().first("label").css("overflow-x", "scroll");
-				this.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
-			}
-			if (settings.scrollY) {
-				this.siblings().first("label").css("overflow-y", "scroll");
-				this.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-				this.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
-			}
+
+			var control = new UploadInstance(this, settings);
 			
 			return this;
 		}
 	});
 
-	webui(".upload, .upload-sm").change(function() {
-		var element = webui(this);
-
-		if (element) {
-
-			element.trigger("ui.upload.change.before");				
-			var label = element.siblings("label").first();
-			if (element.length > 0) {
-				var files = element[0].files;
-				if (files != null && files.length > 0) {
-					if (label) {
-						var textValue = "";
-						if (label.hasClass("hide-files") === false) {
-							for (var i = 0; i < files.length; i++) {
-								textValue += files[i].name + "<br />";
-							}
-						}
-						if (label.hasClass("hide-count") === false) {
-							if (files.length > 1) {
-								textValue += "<br />(" + files.length + ") files.";
-							}
-						}
-						if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-							textValue += "<br />Files ready.";
-						}
-						label.html(textValue);
-						element.trigger("ui.upload.change.after");
-					}
-				} else {
-					if (element.val() !== null && element.val().length > 0) {
-						if (label) {
-							label.text(element.val().replace("C:\\fakepath\\", ""));
-							element.trigger("ui.upload.change.after");
-						}
-					}
-				}
-			}
-		}
-	});
 
 }(window));
 		

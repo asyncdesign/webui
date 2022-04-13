@@ -6377,6 +6377,57 @@ input.upload.accessibility:focus + label {
   transform: scale(1);
 }
 
+.toast-container {
+  position: absolute;
+  max-width: 85%;
+  z-index: 160;
+}
+
+.toast-item {
+  position: relative;
+  display: block;
+  opacity: 1;
+  margin: 0 0 0.75rem 0;
+}
+
+.toast-top-left {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+}
+
+.toast-top-center {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.toast-top-right {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.toast-bottom-left {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+}
+
+.toast-bottom-center {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.toast-bottom-right {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+}
+
 .pointer-top-sm {
   border-width: 0 0.313rem 0.438rem 0.313rem;
 }
@@ -7695,52 +7746,61 @@ input.upload.accessibility:focus + label {
   border-color: transparent rgb(153, 36, 0) transparent transparent;
 }
 
-.place-top-left, .dock-top-left {
-  left: 0;
+.place-top-left,
+.dock-top-left {
   top: 0;
+  left: 0;
 }
 
-.place-top-center, .dock-top-center {
-  left: 50%;
+.place-top-center,
+.dock-top-center {
   top: 0;
+  left: 50%;
   transform: translate(-50%, 0);
 }
 
-.place-top-right, .dock-top-right {
-  right: 0;
+.place-top-right,
+.dock-top-right {
   top: 0;
+  right: 0;
 }
 
-.place-middle-left, .dock-middle-left {
-  left: 0;
+.place-middle-left,
+.dock-middle-left {
   top: 50%;
+  left: 0;
   transform: translate(0, -50%);
 }
 
-.place-middle-center, .dock-middle-center {
-  left: 50%;
+.place-middle-center,
+.dock-middle-center {
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.place-middle-right, .dock-middle-right {
-  right: 0;
+.place-middle-right,
+.dock-middle-right {
   top: 50%;
+  right: 0;
   transform: translate(0, -50%);
 }
 
-.place-bottom-left, .dock-bottom-left {
-  left: 0;
+.place-bottom-left,
+.dock-bottom-left {
   bottom: 0;
+  left: 0;
 }
 
-.place-bottom-center, .dock-bottom-center {
-  left: 50%;
+.place-bottom-center,
+.dock-bottom-center {
   bottom: 0;
+  left: 50%;
   transform: translate(-50%, 0);
 }
 
-.place-bottom-right, .dock-bottom-right {
+.place-bottom-right,
+.dock-bottom-right {
   right: 0;
   bottom: 0;
 }

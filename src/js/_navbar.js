@@ -133,8 +133,9 @@
 			
 			navButtons.css("display", "block");
 		}
+		
 
-
+		/* EVENTS */
 
 		navButtons.click(function(e) {
 			e.preventDefault();

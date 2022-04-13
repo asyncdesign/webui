@@ -486,6 +486,16 @@
 							<div class="form-row">
 								<div class="form-col">
 									<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Alert</button>
+									<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm transition-medium">Show Toast Item</button>
+									<select id="SelectToastPosition" class="control width-lg-xl">
+										<option value="">Select Toast Position</option>
+										<option value="toast-top-left">toast-top-left</option>
+										<option value="toast-top-center">toast-top-center</option>
+										<option value="toast-top-right">toast-top-right</option>
+										<option value="toast-bottom-left">toast-bottom-left</option>
+										<option value="toast-bottom-center">toast-bottom-center</option>
+										<option value="toast-bottom-right">toast-bottom-right</option>
+									</select>
 								</div>
 							</div>
 
@@ -626,9 +636,11 @@
 		<!-- The .modal wrapper should not be used for normal dialog windows -->
 		<div class="modal-unsized modal-bottom-right accent-1-light hidden" id="dialog1">
 
-			<div class="text-mega place-top-right">
+			<div class="modal-cancel-button modal-close place-top-right margin-top-xxs margin-right-xxs"></div>
+
+			<!--<div class="text-mega place-top-right">
 				<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
-			</div>
+			</div>-->
 
 			<!--<div><img src="images/pears.jpg" alt="picture" class="image"></div>-->
 
@@ -656,7 +668,40 @@
 
 		</div>
 
+		
+		<div class="toast-item alert alert-warning-outline rounded-md pad-left-md pad-right-md hidden" role="alert" id="toastItem1">
+			<div class="panel">
+				<div class="move-left pad-right-md">
+					<div class="alert-warning-icon"></div>
+				</div>
+				<div class="move-right">
+					<div class="alert-cancel-button toast-close" role="button"></div>
+				</div>
+				<div class="move-left pad-top-xs"><span class="text-bold time-element"></div>
+			</div>
+		</div>
 
+
+		<!--
+		<div class="toast-item container light text hidden" id="toastItem1">
+			<div class="table-row">
+				<div class="table-col-7">
+					<img src="images/landscape_blue.jpg" class="image height-full" />
+				</div>
+				<div class="table-col-13">
+					<div class="panel">Pellentesque habitant morbi tristique senectus et netus et 
+						malesuada fames ac turpis egestas.
+					</div>
+					<div class="row-spacing-md"></div>
+					<div class="time-element text pad-sm-md"></div>
+				</div>
+			</div>
+		</div>-->
+
+
+		<div id="toastContainer1">
+		</div>
+		
 
 		<div class="row-spacing-xl"></div>
 
@@ -673,6 +718,7 @@
 				position: "top-center",
 				duration: 6000,
 				transitionDuration: 1000,
+				displayOrder: "ascending",
 				width: "60rem",
 				showHeader: true,
 				inline: true,
@@ -699,15 +745,28 @@
 				closeFromBackdrop: false				
 			});
 
-			/*
-			var modalButton1 = ui("#modalButton1").modalButtonControl({
-				content: "&#10007;",
-				positionType: "absolute",
-				color: "#000000",
-				hoverColor: "#BDBDBD",				
-				transitionDuration: 300
+			var toastContainer1 = ui("#toastContainer1").toastControl({
+				position: "bottom-right",
+				width: "40rem",
+				duration: 15000,
+				transitionDuration: 300,
+				toastItemTemplate: "#toastItem1",
+				toastItemOrder: "ascending",
+				autoHide: true
 			});
-			*/
+
+			ui("#commandShowToast").click( function() {
+				ui("#toastItem1").find(".time-element").first().text(new Date().toTimeString());
+				toastContainer1.showToastItem();				
+			});
+
+			ui("#SelectToastPosition").change( function() { 
+				var position = ui(this).getOptionValues(true)[0];
+
+				ui("#toastContainer1").removeClass("*");
+				ui("#toastContainer1").addClass("toast-container " + position);
+
+			});
 
 			// Show manual alerts
 			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(700);
@@ -715,7 +774,7 @@
 
 			// Alerts
 			ui("#commandShowAlert").click( function() { 
-				ui.showInfoAlert("<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.", true);
+				ui.showInfoAlert("<span class='text-bold'>Alert - </span>" + new Date().toTimeString() + ")", true);
 			});
 
 
