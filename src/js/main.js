@@ -894,7 +894,7 @@
 	fn.removeClass = function (className) {
 		for (var i = 0; i < this.length; i++) {
 			if (className === "*") {
-				this[i].classList = "";
+				this[i].className = "";
 			} else {
 				if (this[i].classList) {
 					var classNames = className.split(" ");
@@ -2486,4 +2486,4 @@
 			win.webui = win.ui = webui;
 	}
 
-}(window));
+})(window);

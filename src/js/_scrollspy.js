@@ -57,9 +57,11 @@
                   settings.activatorCallback();
               });  
           }  
-      }			
+      }	
+      		
       return this;
-    }
+    },
+		enumerable: false
 	});
 	
 })(window);

@@ -10,7 +10,7 @@
 	<title>title</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="dist/css/webui-components-standard.css">
+	<link rel="stylesheet" href="dist/css/webui-components-all.css">
 
 	<link rel="stylesheet" href="site.css">
 
@@ -528,7 +528,7 @@
 
 		<div class="body">
 
-			<p class="text-lg">Alerts (Build custom alerts in markup, or display alerts dynamically using WebUI functions without any markup.)</p>
+			<p class="text-lg">Alerts (Build custom alerts in markup, or display alerts dynamically using WebUI functions.)</p>
 
 			<div class="alert alert-success-outline rounded-md pad-left-md pad-right-md hidden" role="alert" id="alert1">
 				<div class="panel">
@@ -668,39 +668,28 @@
 
 		</div>
 
-		
-		<div class="toast-item alert alert-warning-outline rounded-md pad-left-md pad-right-md hidden" role="alert" id="toastItem1">
-			<div class="panel">
-				<div class="move-left pad-right-md">
-					<div class="alert-warning-icon"></div>
+
+
+		<div class="toast-item color-accent-4-dark text-sm background-light rounded-sm raised-md hidden" role="alert" id="toastItem1">
+			<div class="flex-row flex-nowrap pad-sm">
+				<div class="flex-auto flex-justify-start flex-items-center gap-horizontal-sm text-xl">
+					<span class="text-bold text-lg color-accent-3">&asymp;</span><span class="text-bold text-sm">Notification</span>
 				</div>
-				<div class="move-right">
-					<div class="alert-cancel-button toast-close" role="button"></div>
+				<div class="flex-initial flex-items-center gap-horizontal-xs text-xl">
+					<div class="text-bold text-xs time-element"></div>
+					<div class="toast-close button-link width-xs-sm text-lg text-bold color-hover-info">&cross;</div>
 				</div>
-				<div class="move-left pad-top-xs"><span class="text-bold time-element"></div>
+			</div>
+			<div class="flex-row flex-nowrap background-accent-5-light pad-sm">
+				<div class="flex-auto height-xs">
+					<div class="text">Your files have been received.</div>
+				</div>
 			</div>
 		</div>
 
 
-		<!--
-		<div class="toast-item container light text hidden" id="toastItem1">
-			<div class="table-row">
-				<div class="table-col-7">
-					<img src="images/landscape_blue.jpg" class="image height-full" />
-				</div>
-				<div class="table-col-13">
-					<div class="panel">Pellentesque habitant morbi tristique senectus et netus et 
-						malesuada fames ac turpis egestas.
-					</div>
-					<div class="row-spacing-md"></div>
-					<div class="time-element text pad-sm-md"></div>
-				</div>
-			</div>
-		</div>-->
-
-
-		<div id="toastContainer1">
-		</div>
+		<div id="alertContainer1"></div>
+		<div id="toastContainer1"></div>
 		
 
 		<div class="row-spacing-xl"></div>
@@ -713,8 +702,50 @@
 	<script>
 
 		webui.ready(function() {
-				
-			ui.initAlerts({
+					
+			//Tooltips
+			var tooltipContext = webui("body").tooltipControl({
+				autoPositioning: true,
+				autoResizing: true,
+				autoPositioningMargin: 0,
+				transitionDuration: 500
+			});
+
+			ui("#AddressDetails").click( function() {
+				tooltipContext.showTooltip(ui("#tooltipAddress"));
+			});
+
+			tooltipContext.showTooltip(ui("#tooltipEnterValues"));
+			tooltipContext.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
+			tooltipContext.showTooltip(ui("#tooltipAboutModals2"), "Try various sized modals that scale to screen size...");	
+
+
+			// Toast notifications
+			var toastContainer1 = ui("#toastContainer1").toastControl({
+				position: "bottom-right",
+				width: "25rem",
+				duration: 15000,
+				transitionDuration: 300,
+				toastItemTemplate: "#toastItem1",
+				toastItemOrder: "ascending",
+				autoHide: true
+			});
+
+			ui("#commandShowToast").click( function() {
+				ui("#toastItem1").find(".time-element").first().text(new Date().toLocaleTimeString());
+				toastContainer1.showToastItem();				
+			});
+
+			ui("#SelectToastPosition").change( function() { 
+				var position = ui(this).getOptionValues(true)[0];
+
+				ui("#toastContainer1").removeClass("*");
+				ui("#toastContainer1").addClass("toast-container " + position);
+
+			});
+
+			// Alerts
+			var alertContainer1 = ui("#alertContainer1").alertControl({
 				position: "top-center",
 				duration: 6000,
 				transitionDuration: 1000,
@@ -727,13 +758,23 @@
 				showIcon: true,
 				showClose: true
 			});
-						
-			ui.initTooltips({
-				autoPositioning: true,
-				autoResizing: true,
-				autoPositioningMargin: 0,
-				transitionDuration: 500
+
+			ui("#commandShowAlert").click( function() { 
+				alertContainer1.showInfoAlert("<span class='text-bold'>Alert - </span>" + new Date().toTimeString(), true);
 			});
+
+
+			// Manual alerts
+			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(700);
+
+			ui(".alert-close").click( function() { 
+				var alert = ui(this).closest(".alert")
+
+				alert.hide();
+
+			});			
+
+			// Modals
 
 			var modal1 = ui("#modal1").modalControl({
 				transitionDuration: 500,
@@ -745,50 +786,6 @@
 				closeFromBackdrop: false				
 			});
 
-			var toastContainer1 = ui("#toastContainer1").toastControl({
-				position: "bottom-right",
-				width: "40rem",
-				duration: 15000,
-				transitionDuration: 300,
-				toastItemTemplate: "#toastItem1",
-				toastItemOrder: "ascending",
-				autoHide: true
-			});
-
-			ui("#commandShowToast").click( function() {
-				ui("#toastItem1").find(".time-element").first().text(new Date().toTimeString());
-				toastContainer1.showToastItem();				
-			});
-
-			ui("#SelectToastPosition").change( function() { 
-				var position = ui(this).getOptionValues(true)[0];
-
-				ui("#toastContainer1").removeClass("*");
-				ui("#toastContainer1").addClass("toast-container " + position);
-
-			});
-
-			// Show manual alerts
-			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(700);
-
-
-			// Alerts
-			ui("#commandShowAlert").click( function() { 
-				ui.showInfoAlert("<span class='text-bold'>Alert - </span>" + new Date().toTimeString() + ")", true);
-			});
-
-
-			//Tooltips
-			ui("#AddressDetails").click( function() {
-				ui("#tooltipAddress").showTooltip();
-			});
-
-			ui("#tooltipEnterValues").showTooltip();
-			ui("#tooltipAboutModals1").showTooltip("Try various sized modals that scale to screen size...");	
-			ui("#tooltipAboutModals2").showTooltip("Try various sized modals that scale to screen size...");	
-			
-
-			// Modals
 			ui("#commandShowModal1").click( function() {
 				modal1.open();
 			});

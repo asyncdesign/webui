@@ -16,7 +16,7 @@
 
 			showToastItem = function() {
 
-				var toastContainer = toast.css("width", width).removeClass("*").addClass("toast-container toast-" + position);
+				var toastContainer = toast.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
 				var itemTemplate = webui(toastItemTemplate);
 
 				if (itemTemplate.length) {
@@ -111,13 +111,10 @@
 				control.showToastItem();	
 			};
 
-
 			return this;
-
 		},
 		enumerable: false
 	});
 
-
-}(window));
+})(window);
 		

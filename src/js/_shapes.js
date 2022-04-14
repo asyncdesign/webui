@@ -400,5 +400,5 @@
 		return this;
     };
     
-}(window));
+})(window);
     

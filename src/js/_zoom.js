@@ -1,48 +1,60 @@
 
 (function (win) {
+
 	/* PRIVATE */
-	var zoom = 1.05,
+
+	var 
+	
+		zoomFactor = 1.05,
 		trigger = "hover",
 		transitionDuration = 500;
 
 
 	/* PUBLIC */
+
 	Object.defineProperty(webui.prototype, "zoomControl", {
 		value: function (options) {
+
 			var settings = ui.extend({
-				zoom: 1.05,
+				zoomFactor: 1.05,
 				trigger: "hover",
 				transitionDuration: 500
 			}, options);
 
-			zoom = settings.zoom;
+			zoomFactor = settings.zoomFactor;
 			trigger = settings.trigger;
 			transitionDuration = settings.transitionDuration;
 
-			var els = webui(this);
+			var zoomObjects = webui(this);
 
-			for (var i = 0; i < els.length; i++) {
-				var el = webui(els[i]);
-				el.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+			for (var i = 0; i < zoomObjects.length; i++) {
+
+				var zoomObject = webui(zoomObjects[i]);
+				
+				zoomObject.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
 
 				if (trigger === "hover") {
-					el.hoverIn(function (e) {
-						webui(this).css("transform", "scale(" + zoom + ")");
+					zoomObject.hoverIn(function (e) {
+						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					el.hoverOut(function (e) {
+					zoomObject.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 				else if (trigger === "focus") {
-					el.focus(function (e) {
-						webui(this).css("transform", "scale(" + zoom + ")");
+					zoomObject.focus(function (e) {
+						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					el.blur(function (e) {
+					zoomObject.blur(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 			}
 
-		}
+			return this;
+		},
+		enumerable: false
+
 	});
+
 })(window);

@@ -117,8 +117,10 @@
 				webui(this).siblings(".radial-content").first().toggleClass("radial-open");
 			});
 
-		}
+			return this;
+		},
+		enumerable: false
 	});
 
-}(window));
+})(window);
 	

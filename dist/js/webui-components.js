@@ -894,7 +894,7 @@
 	fn.removeClass = function (className) {
 		for (var i = 0; i < this.length; i++) {
 			if (className === "*") {
-				this[i].classList = "";
+				this[i].className = "";
 			} else {
 				if (this[i].classList) {
 					var classNames = className.split(" ");
@@ -2486,252 +2486,282 @@
 			win.webui = win.ui = webui;
 	}
 
-}(window));
+})(window);
 
 
 (function (win) {
 
 	/* PRIVATE */
 
-	var
-		position = "top-right",
-		duration = 300,
-		transitionDuration = 300,
-		displayOrder = "ascending",
-		width = "18.750rem",
-		showHeader = true,
-		inline = true,
-		style = "outline-square",
-		autoHide = false,
-		showIcon = true,
-		showClose = true;
+	var AlertInstance = function (alert, settings) {
+
+		var
+			position = settings.position,
+			duration = settings.duration,
+			transitionDuration = settings.transitionDuration,
+			displayOrder = settings.displayOrder,
+			width = settings.width,
+			showHeader = settings.showHeader,
+			inline = settings.inline,
+			style = settings.style,
+			autoHide = settings.autoHide,
+			showIcon = settings.showIcon,
+			showClose = settings.showClose,
+
+
+			showAlert = function (message, type, auto, icon, close) {
+				if (arguments.length > 1) {
+
+					var autoHideAlert = auto === null ? auto = autoHide : auto;
+					var showAlertIcon = icon === null ? icon = showIcon : icon;
+					var showAlertClose = close === null ? close = showClose : close;
+
+					var alertContainer = alert.removeClass("*").addClass("alert-container alert-" + position).css("width", width);
+
+					var alertItemOuter = webui("<div></div>");
+					var alertItemInner = webui("<div role='alert'></div>").addClass("alert alert-" + type)
+						.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
+						.appendTo(alertItemOuter);
+
+					alertItemInner.trigger("ui.alert.show.before");
+
+					if (transitionDuration) {
+						alertItemInner.fadeIn(transitionDuration).trigger("ui.alert.show.after");
+					}
+					else {
+						alertItemInner.show().trigger("ui.alert.show.after");
+					}
+
+					if (displayOrder.toLowerCase() === "descending") {
+						alertItemOuter.appendTo(alertContainer);
+					}
+					else {
+						if (alertContainer.find(".alert").length > 0) {
+							alertItemOuter.prependTo(alertContainer);
+						}
+						else {
+							alertItemOuter.appendTo(alertContainer);
+						}
+					}
+
+					if (style === "outline-square" || style === "outline-rounded") {
+						switch (type) {
+							case "success":
+								alertItemInner.addClass("alert-success-outline");
+								break;
+
+							case "info":
+								alertItemInner.addClass("alert-info-outline");
+								break;
+
+							case "warning":
+								alertItemInner.addClass("alert-warning-outline");
+								break;
+
+							case "danger":
+								alertItemInner.addClass("alert-danger-outline");
+								break;
+
+							default:
+								break;
+						}
+					}
+					if (style.toLowerCase().indexOf("rounded") >= 0) {
+						alertItemInner.addClass("rounded-md");
+					}
+					if (showHeader && !inline) {
+						if (showAlertIcon || showAlertClose) {
+							var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
+							var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
+							var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
+							if (showAlertIcon) {
+								webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
+							}
+							if (showAlertClose) {
+								webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
+									.click(function () {
+										hideAlert(alertItemInner, false);
+									});
+							}
+						}
+					}
+					var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
+					if (showHeader && inline) {
+						if (showAlertIcon && showAlertClose) {
+							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+								.click(function () {
+									hideAlert(alertItemInner, false);
+								});
+						} else if (showAlertIcon) {
+							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+						} else if (showAlertClose) {
+							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+								.click(function () {
+									hideAlert(alertItemInner, false);
+								});
+						} else {
+							webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
+						}
+					} else {
+						webui("<div></div>").appendTo(alertItemBody).html(message);
+					}
+
+					if (autoHideAlert) {
+						setTimeout(function () {
+							hideAlert(alertItemInner, true);
+						}, duration);
+					}
+
+				}
+			},
+
+			hideAlert = function (alert, auto) {
+				if (alert) {
+
+					alert.trigger("ui.alert.hide.before");
+
+					if (auto && transitionDuration) {
+
+						alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
+
+						setTimeout(function () {
+							alert.parent().remove();
+						}, transitionDuration);
+
+					}
+					else {
+						alert.hide().parent().remove().trigger("ui.alert.hide.after");
+					}
+				}
+			};
+
+
+		this.showAlert = function (message, type, auto, icon, close) {
+			showAlert(message, type, auto, icon, close);
+		};
+
+		this.hideAlert = function (alert) {
+			hideAlert(alert, false);
+		};
+
+	};
 
 	/* PUBLIC */
 
-	webui.initAlerts = function (options) {
-		position = options.position !== void 0 ? options.position : position;
-		duration = options.duration !== void 0 ? options.duration : duration;
-		transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
-		displayOrder = options.displayOrder != void 0 ? options.displayOrder : displayOrder;
-		width = options.width != void 0 ? options.width : width;
-		showHeader = options.showHeader != void 0 ? options.showHeader : showHeader;
-		inline = options.inline != void 0 ? options.inline : inline;
-		style = options.style != void 0 ? options.style : style;
-		autoHide = options.autoHide !== void 0 ? options.autoHide : autoHide;
-		showIcon = options.showIcon !== void 0 ? options.showIcon : showIcon;
-		showClose = options.showClose !== void 0 ? options.showClose : showClose;
-	};
+	Object.defineProperty(webui.prototype, "alertControl", {
+		value: function (options) {
 
-	webui.showAlert = function (message, type, auto, icon, close) {
-		if (arguments.length > 1) {
-
-			var alertContainer = !webui(".alert-container").length ?
-				webui("<div></div>").addClass("alert-container").addClass("alert-" + position).appendTo("body") :
-				webui(".alert-container").addClass("alert-" + position);
+			var settings = ui.extend({
+				position: "top-right",
+				duration: 3000,
+				transitionDuration: 300,
+				displayOrder: "ascending",
+				width: "25rem",
+				showHeader: true,
+				inline: true,
+				style: "outline-square",
+				autoHide: true,
+				showIcon: true,
+				showClose: true
+			}, options);
 
 
-			alertContainer.css("width", width);
-			var alertItemOuter = webui("<div></div>");
-			var alertItemInner = webui("<div role='alert'></div>").addClass("alert alert-" + type)
-				.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
-				.appendTo(alertItemOuter);
+			var control = new AlertInstance(this, settings);
 
-			alertItemInner.trigger("ui.alert.show.before");
-
-			if (transitionDuration) {
-				alertItemInner.fadeIn(transitionDuration).trigger("ui.alert.show.after");
-			}
-			else {
-				alertItemInner.show().trigger("ui.alert.show.after");
-			}
-
-			if (displayOrder.toLowerCase() === "descending") {
-				alertItemOuter.appendTo(alertContainer);
-			}
-			else {
-				if (alertContainer.find(".alert").length > 0) {
-					alertItemOuter.prependTo(alertContainer);
-				}
-				else {
-					alertItemOuter.appendTo(alertContainer);
-				}
-			}
-
-			if (style === "outline-square" || style === "outline-rounded") {
-				switch (type) {
-					case "success":
-						alertItemInner.addClass("alert-success-outline");
-						break;
-
-					case "info":
-						alertItemInner.addClass("alert-info-outline");
-						break;
-
-					case "warning":
-						alertItemInner.addClass("alert-warning-outline");
-						break;
-
-					case "danger":
-						alertItemInner.addClass("alert-danger-outline");
-						break;
-
+			this.showAlert = function (message, type, auto, icon, close) {
+				switch (arguments.length) {
+					case 2:
+						control.showAlert(message, type, settings.autoHide, settings.showIcon, settings.showClose); break;
+					case 3:
+						control.showAlert(message, type, auto, settings.showIcon, settings.showClose); break;
+					case 4:
+						control.showAlert(message, type, auto, icon, settings.showClose); break;
+					case 5:
+						control.showAlert(message, type, auto, icon, close); break;
 					default:
 						break;
 				}
-			}
-			if (style.toLowerCase().indexOf("rounded") >= 0) {
-				alertItemInner.addClass("rounded-md");
-			}
-			if (showHeader && !inline) {
-				if (icon || close) {
-					var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
-					var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
-					var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
-					if (icon) {
-						webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
-					}
-					if (close) {
-						webui("<div role='button'></div>").addClass("alert-cancel-button").appendTo(alertItemHeaderRight)
-							.click(function () {
-								ui.hideAlert(alertItemInner, false);
-							});
-					}
+			};
+
+			this.hideAlert = function (alert) {
+				control.hideAlert(alert, false);
+			};
+
+			this.showSuccessAlert = function (message, auto, icon, close) {
+				var msgType = "success";
+				switch (arguments.length) {
+					case 1:
+						control.showAlert(message, msgType, settings.autoHide, settings.showIcon, settings.showClose); break;
+					case 2:
+						control.showAlert(message, msgType, auto, settings.showIcon, settings.showClose); break;
+					case 3:
+						control.showAlert(message, msgType, auto, icon, settings.showClose); break;
+					case 4:
+						control.showAlert(message, msgType, auto, icon, close); break;
+					default:
+						break;
 				}
-			}
-			var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
-			if (showHeader && inline) {
-				if (icon && close) {
-					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-					webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
-						.click(function () {
-							ui.hideAlert(alertItemInner, false);
-						});
-				} else if (icon) {
-					webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
-				} else if (close) {
-					webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-					webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
-						.click(function () {
-							ui.hideAlert(alertItemInner, false);
-						});
-				} else {
-					webui("<div></div>").addClass("pad-xs").appendTo(alertItemBody).css("padding-left", "0").html(message);
+			};
+
+			this.showInfoAlert = function (message, auto, icon, close) {
+				var msgType = "info";
+				switch (arguments.length) {
+					case 1:
+						control.showAlert(message, msgType, settings.autoHide, settings.showIcon, settings.showClose); break;
+					case 2:
+						control.showAlert(message, msgType, auto, settings.showIcon, settings.showClose); break;
+					case 3:
+						control.showAlert(message, msgType, auto, icon, settings.showClose); break;
+					case 4:
+						control.showAlert(message, msgType, auto, icon, close); break;
+					default:
+						break;
 				}
-			} else {
-				webui("<div></div>").appendTo(alertItemBody).html(message);
-			}
-			if (auto != null) {
-				if (auto) {
-					setTimeout(function () {
-						ui.hideAlert(alertItemInner, true);
-					}, duration);
+			};
+
+			this.showWarningAlert = function (message, auto, icon, close) {
+				var msgType = "warning";
+				switch (arguments.length) {
+					case 1:
+						control.showAlert(message, msgType, settings.autoHide, settings.showIcon, settings.showClose); break;
+					case 2:
+						control.showAlert(message, msgType, auto, settings.showIcon, settings.showClose); break;
+					case 3:
+						control.showAlert(message, msgType, auto, icon, settings.showClose); break;
+					case 4:
+						control.showAlert(message, msgType, auto, icon, close); break;
+					default:
+						break;
 				}
-			} else {
-				if (autoHide) {
-					setTimeout(function () {
-						ui.hideAlert(alertItemInner, true);
-					}, duration);
+			};
+
+			this.showDangerAlert = function (message, auto, icon, close) {
+				var msgType = "danger";
+				switch (arguments.length) {
+					case 1:
+						control.showAlert(message, msgType, settings.autoHide, settings.showIcon, settings.showClose); break;
+					case 2:
+						control.showAlert(message, msgType, auto, settings.showIcon, settings.showClose); break;
+					case 3:
+						control.showAlert(message, msgType, auto, icon, settings.showClose); break;
+					case 4:
+						control.showAlert(message, msgType, auto, icon, close); break;
+					default:
+						break;
 				}
-			}
-		}
-	};
+			};
 
-	webui.hideAlert = function (alert, auto) {
-		if (alert) {
+			return this;
 
-			alert.trigger("ui.alert.hide.before");
-
-			if (auto && transitionDuration) {
-
-				alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
-
-				setTimeout(function () {
-					alert.parent().remove();
-				}, transitionDuration);
-
-			}
-			else {
-				alert.hide().parent().remove().trigger("ui.alert.hide.after");
-			}
-		}
-	};
-
-	webui.showSuccessAlert = function (message, auto, icon, close) {
-		var msgType = "success";
-		switch (arguments.length) {
-			case 1:
-				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-			case 2:
-				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-			case 3:
-				ui.showAlert(message, msgType, auto, icon, showClose); break;
-			case 4:
-				ui.showAlert(message, msgType, auto, icon, close); break;
-			default:
-				break;
-		}
-	};
-
-	webui.showInfoAlert = function (message, auto, icon, close) {
-		var msgType = "info";
-		switch (arguments.length) {
-			case 1:
-				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-			case 2:
-				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-			case 3:
-				ui.showAlert(message, msgType, auto, icon, showClose); break;
-			case 4:
-				ui.showAlert(message, msgType, auto, icon, close); break;
-			default:
-				break;
-		}
-	};
-
-	webui.showWarningAlert = function (message, auto, icon, close) {
-		var msgType = "warning";
-		switch (arguments.length) {
-			case 1:
-				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-			case 2:
-				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-			case 3:
-				ui.showAlert(message, msgType, auto, icon, showClose); break;
-			case 4:
-				ui.showAlert(message, msgType, auto, icon, close); break;
-			default:
-				break;
-		}
-	};
-	
-	webui.showDangerAlert = function (message, auto, icon, close) {
-		var msgType = "danger";
-		switch (arguments.length) {
-			case 1:
-				ui.showAlert(message, msgType, autoHide, showIcon, showClose); break;
-			case 2:
-				ui.showAlert(message, msgType, auto, showIcon, showClose); break;
-			case 3:
-				ui.showAlert(message, msgType, auto, icon, showClose); break;
-			case 4:
-				ui.showAlert(message, msgType, auto, icon, close); break;
-			default:
-				break;
-		}
-	};
-
-	/* EVENTS */
-
-	webui(".alert-close").click(function (e) {
-		e.preventDefault();
-
-		var alert = webui(this).closest(".alert");
-		alert.trigger("ui.alert.hide.before").hide().trigger("ui.alert.hide.after");
+		},
+		enumerable: false
 	});
 
-}(window));
+})(window);
 
 
 (function (win) {
@@ -3055,8 +3085,7 @@
     return els;
   };
 
-
-}(window));
+})(window);
 
 (function (win) {
 	
@@ -3465,7 +3494,7 @@
 		enumerable: false
 	});
 
-}(window));
+})(window);
 		
 
 (function (win) {
@@ -3687,7 +3716,7 @@
 		enumerable: false
 	});
 
-}(window));
+})(window);
 	
 
 
@@ -3820,7 +3849,7 @@
 	});
 	
 
-}(window));
+})(window);
 		
 
 (function (win) {
@@ -4065,12 +4094,11 @@
 			var control = new NavbarInstance(this, settings);
 
 			return this;
-
 		},
 		enumerable: false
 	});
 
-}(window));
+})(window);
 	
 
 
@@ -4085,6 +4113,7 @@
 		backgroundColor = "#BDBDBD", 
 		color = "#000000";
 
+	
 	/* PUBLIC */
 
 	Object.defineProperty(webui.prototype, "navButtonControl", {
@@ -4111,12 +4140,15 @@
 
 				navButton.css("background-color", backgroundColor);
 				navButton.find(".nav-button-item").css("background-color", color);	
-			}		
-		}
+			}	
+			
+			return this;
+		},
+		enumerable: false
 		
 	});
 
-}(window));
+})(window);
 	
 
 
@@ -4239,10 +4271,12 @@
 				webui(this).siblings(".radial-content").first().toggleClass("radial-open");
 			});
 
-		}
+			return this;
+		},
+		enumerable: false
 	});
 
-}(window));
+})(window);
 	
 
 
@@ -4304,9 +4338,11 @@
                   settings.activatorCallback();
               });  
           }  
-      }			
+      }	
+      		
       return this;
-    }
+    },
+		enumerable: false
 	});
 	
 })(window);
@@ -4726,7 +4762,7 @@
 		return this;
     };
     
-}(window));
+})(window);
     
 
 (function (win) {
@@ -4851,8 +4887,10 @@
 					}
 				}
 			}
+			
 			return this;
-		}
+		},
+		enumerable: false
 	});
 
 	webui(".tab-activator").click(function(e) {
@@ -4871,7 +4909,7 @@
 		}
 	});
 
-}(window));
+})(window);
 		
 
 (function (win) {
@@ -4891,7 +4929,7 @@
 
 			showToastItem = function() {
 
-				var toastContainer = toast.css("width", width).removeClass("*").addClass("toast-container toast-" + position);
+				var toastContainer = toast.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
 				var itemTemplate = webui(toastItemTemplate);
 
 				if (itemTemplate.length) {
@@ -4986,442 +5024,475 @@
 				control.showToastItem();	
 			};
 
-
 			return this;
-
 		},
 		enumerable: false
 	});
 
-
-}(window));
+})(window);
 		
 ﻿
 (function (win) {
 
 	/* PRIVATE */
 
-	var fn = webui.fn,
+	var TooltipInstance = function(context, settings) {
 
-		tooltipAutoPos = true,
-		tooltipAutoSize = true,
-		tooltipAutoPosMargin = 0,
-		transitionDuration = 500,
-		LEFT = 0,
-		TOP = 1,
-		RIGHT = 2,
-		BOTTOM = 3,
-		SHADOW_LEFT = 0,
-		SHADOW_TOP = 1,
-		SHADOW_RIGHT = 2,
-		SHADOW_BOTTOM = 3,
 
-		getTooltipViewportStatus = function (tooltip, requiredMargin) {
-			if (arguments.length > 0) {
+		var
+			autoPositioning = settings.autoPositioning,
+			autoResizing = settings.autoResizing,
+			autoPositioningMargin = settings.autoPositioningMargin,
+			transitionDuration = settings.transitionDuration,
+			LEFT = 0,
+			TOP = 1,
+			RIGHT = 2,
+			BOTTOM = 3,
+			SHADOW_LEFT = 0,
+			SHADOW_TOP = 1,
+			SHADOW_RIGHT = 2,
+			SHADOW_BOTTOM = 3,
 
-				var margin = 0;
-				var pointerSize = 5;
-				var target = tooltip.siblings().first();
-				var targetHeight = target[0].offsetHeight;
-				var targetWidth = target[0].offsetWidth;
-				if (arguments.length > 1 && requiredMargin != null && !isNaN(requiredMargin)) {
-					margin = requiredMargin;
-				}
-				var viewport = {
-					left: 0,
-					top: 0,
-					right: win.innerWidth,
-					bottom: win.innerHeight
-				};
-				var tooltipRect = tooltip[0].getBoundingClientRect();
-				var tooltipWidth = tooltipRect.right - tooltipRect.left;
-				var tooltipHeight = tooltipRect.bottom - tooltipRect.top;
+			getTooltipViewportStatus = function (tooltip, requiredMargin) {
+				if (arguments.length > 0) {
 
-				var bounds = {
-					top: tooltipRect.top - tooltipHeight - pointerSize - margin,
-					left: tooltipRect.left - tooltipWidth - pointerSize - margin,
-					bottom: tooltipRect.bottom + targetHeight + pointerSize + margin,
-					right: tooltipRect.right + targetWidth + pointerSize + margin
-				};
-
-				var targetIsFirst = !target.prevSibling()[0];
-
-				if (tooltip.hasClass("tooltip-left") || tooltip.hasClass("tooltip-right")) {
-					if (tooltip.hasClass("tooltip-right")) {
-							bounds.left = tooltipRect.left + targetWidth + pointerSize - margin;
+					var margin = 0;
+					var pointerSize = 5;
+					var target = tooltip.siblings().first();
+					var targetHeight = target[0].offsetHeight;
+					var targetWidth = target[0].offsetWidth;
+					if (arguments.length > 1 && requiredMargin != null && !isNaN(requiredMargin)) {
+						margin = requiredMargin;
 					}
+					var viewport = {
+						left: 0,
+						top: 0,
+						right: win.innerWidth,
+						bottom: win.innerHeight
+					};
+					var tooltipRect = tooltip[0].getBoundingClientRect();
+					var tooltipWidth = tooltipRect.right - tooltipRect.left;
+					var tooltipHeight = tooltipRect.bottom - tooltipRect.top;
 
-					if (targetIsFirst) {
-						bounds.top = tooltipRect.top - tooltipHeight / 2 - targetHeight / 2 - margin;
-						bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 - targetHeight / 2 + margin;
+					var bounds = {
+						top: tooltipRect.top - tooltipHeight - pointerSize - margin,
+						left: tooltipRect.left - tooltipWidth - pointerSize - margin,
+						bottom: tooltipRect.bottom + targetHeight + pointerSize + margin,
+						right: tooltipRect.right + targetWidth + pointerSize + margin
+					};
+
+					var targetIsFirst = !target.prevSibling()[0];
+
+					if (tooltip.hasClass("tooltip-left") || tooltip.hasClass("tooltip-right")) {
+						if (tooltip.hasClass("tooltip-right")) {
+								bounds.left = tooltipRect.left + targetWidth + pointerSize - margin;
+						}
+
+						if (targetIsFirst) {
+							bounds.top = tooltipRect.top - tooltipHeight / 2 - targetHeight / 2 - margin;
+							bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 - targetHeight / 2 + margin;
+						}
+						else {
+							bounds.top = tooltipRect.top - tooltipHeight / 2 + targetHeight / 2 - margin;
+							bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 + targetHeight / 2 + margin;
+						}
 					}
 					else {
-						bounds.top = tooltipRect.top - tooltipHeight / 2 + targetHeight / 2 - margin;
-						bounds.bottom = tooltipRect.bottom - tooltipHeight / 2 + targetHeight / 2 + margin;
+						if (targetIsFirst) {
+							bounds.top = tooltipRect.top - targetHeight - tooltipHeight - pointerSize - margin;
+							bounds.bottom = tooltipRect.bottom + pointerSize + margin;
+						}
 					}
-				}
-				else {
-					if (targetIsFirst) {
-						bounds.top = tooltipRect.top - targetHeight - tooltipHeight - pointerSize - margin;
-						bounds.bottom = tooltipRect.bottom + pointerSize + margin;
-					}
-				}
 
-				return {
-					result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
-					topExceeded: bounds.top < viewport.top,
-					leftExceeded: bounds.left < viewport.left,
-					bottomExceeded: bounds.bottom > viewport.bottom,
-					rightExceeded: bounds.right > viewport.right
+					return {
+						result: !(viewport.top > bounds.top || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.right < bounds.right),
+						topExceeded: bounds.top < viewport.top,
+						leftExceeded: bounds.left < viewport.left,
+						bottomExceeded: bounds.bottom > viewport.bottom,
+						rightExceeded: bounds.right > viewport.right
+					};
+				}
+				return null;
+			},
+
+			flipTooltip = function (tooltip, orientation, shadowClass) {
+
+				if (arguments.length > 1) {
+					switch (orientation) {
+						case TOP:
+							tooltip.removeClass("tooltip-left");
+							tooltip.removeClass("tooltip-right");
+							tooltip.removeClass("tooltip-bottom");
+							tooltip.addClass("tooltip-top");
+							break;
+
+						case LEFT:
+							tooltip.removeClass("tooltip-top");
+							tooltip.removeClass("tooltip-right");
+							tooltip.removeClass("tooltip-bottom");
+							tooltip.addClass("tooltip-left");
+							break;
+
+						case BOTTOM:
+							tooltip.removeClass("tooltip-top");
+							tooltip.removeClass("tooltip-left");
+							tooltip.removeClass("tooltip-right");
+							tooltip.addClass("tooltip-bottom");
+							break;
+
+						case RIGHT:
+							tooltip.removeClass("tooltip-top");
+							tooltip.removeClass("tooltip-left");
+							tooltip.removeClass("tooltip-bottom");
+							tooltip.addClass("tooltip-right");
+							break;
+
+						default:
+							break;
+					}
+				}
+				if (arguments.length > 2) {
+					switch (shadowClass) {
+						case SHADOW_TOP:
+							tooltip.addClass("shadow-top");
+							break;
+
+						case SHADOW_LEFT:
+							tooltip.addClass("shadow-left");
+							break;
+
+						case SHADOW_BOTTOM:
+							tooltip.addClass("shadow-bottom");
+							break;
+
+						case SHADOW_RIGHT:
+							tooltip.addClass("shadow-right");
+							break;
+
+						default:
+							break;
+					}
+				}
+			},
+
+			positionTooltip = function (tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight) {
+
+				if (tooltip.hasClass("tooltip-left")) {
+					tooltip.css("margin-left", "-" + (tooltipWidth + 5) + "px");
+					tooltip.css("top", targetHeight / 2 - tooltipHeight / 2 + "px");
+				} else if (tooltip.hasClass("tooltip-top")) {
+					tooltip.css("margin-top", "-" + (tooltipHeight + 5) + "px");
+					tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
+				} else if (tooltip.hasClass("tooltip-right")) {
+					tooltip.css("margin-left", targetWidth + 5 + "px");
+					tooltip.css("top", targetHeight / 2 - tooltipHeight / 2 + "px");
+				} else if (tooltip.hasClass("tooltip-bottom")) {
+					tooltip.css("margin-top", targetHeight + 5 + "px");
+					tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
+				} else {
+					tooltip.css("margin-top", "-" + (tooltipHeight + 5) + "px");
+					tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
+				}
+			},
+
+			resetTooltips = function () {
+
+				var tooltipWrappers = webui(context).find(".tooltip");
+
+				for (var i = 0; i < tooltipWrappers.length; i++) {
+					var tooltip = webui(tooltipWrappers[i]).children("[class*='tooltip-']").first();
+					tooltip.css("margin-left", "");
+					tooltip.css("margin-top", "");
+					tooltip.css("left", "");
+					tooltip.css("top", "");
+					if (tooltip.hasClass("shadow-left")) {
+						flipTooltip(tooltip, LEFT);
+					} else if (tooltip.hasClass("shadow-top")) {
+						flipTooltip(tooltip, TOP);
+					} else if (tooltip.hasClass("shadow-right")) {
+						flipTooltip(tooltip, RIGHT);
+					} else if (tooltip.hasClass("shadow-bottom")) {
+						flipTooltip(tooltip, BOTTOM);
+					}
+					showTooltip(webui(tooltipWrappers[i]), null, true);
 				};
-			}
-			return null;
-		},
+			},
 
-		flipTooltip = function (tooltip, orientation, shadowClass) {
+			showTooltip = function (tooltipWrapper, message, resetOnly) {
 
-			if (arguments.length > 1) {
-				switch (orientation) {
-					case TOP:
-						tooltip.removeClass("tooltip-left");
-						tooltip.removeClass("tooltip-right");
-						tooltip.removeClass("tooltip-bottom");
-						tooltip.addClass("tooltip-top");
-						break;
-
-					case LEFT:
-						tooltip.removeClass("tooltip-top");
-						tooltip.removeClass("tooltip-right");
-						tooltip.removeClass("tooltip-bottom");
-						tooltip.addClass("tooltip-left");
-						break;
-
-					case BOTTOM:
-						tooltip.removeClass("tooltip-top");
-						tooltip.removeClass("tooltip-left");
-						tooltip.removeClass("tooltip-right");
-						tooltip.addClass("tooltip-bottom");
-						break;
-
-					case RIGHT:
-						tooltip.removeClass("tooltip-top");
-						tooltip.removeClass("tooltip-left");
-						tooltip.removeClass("tooltip-bottom");
-						tooltip.addClass("tooltip-right");
-						break;
-
-					default:
-						break;
+				var el = webui(tooltipWrapper).first();
+				var tooltip = el.children("[class*='tooltip-']").first();
+		
+				if (tooltip.length) {
+		
+					var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
+		
+					if (tooltip.hasClass("tooltip-left")) {
+						if (autoResizing && !tooltip.hasClass("tooltip-noautosize")) {
+							if (ui.isWindowInBreakPointRange([0, 2])) {
+								tooltipWidth = 125;
+							}
+						}
+						if (autoPositioning && !tooltip.hasClass("tooltip-noautopos")) {
+							if (tooltip.css("display") === "block") {
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).leftExceeded) {
+									flipTooltip(tooltip, RIGHT, SHADOW_LEFT);
+								}	
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).rightExceeded) {
+									flipTooltip(tooltip, TOP, SHADOW_LEFT);
+								}	
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).topExceeded) {
+									flipTooltip(tooltip, BOTTOM, SHADOW_LEFT);
+								}	
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).bottomExceeded) {
+									flipTooltip(tooltip, TOP, SHADOW_LEFT);
+								}
+							}
+						}
+					} else if (tooltip.hasClass("tooltip-top")) {
+						if (autoResizing && !tooltip.hasClass("tooltip-noautosize")) {
+							if (ui.isWindowInBreakPointRange([0, 2])) {
+								tooltipWidth = 125;
+							}
+						}
+						if (autoPositioning && !tooltip.hasClass("tooltip-noautopos")) {
+							if (tooltip.css("display") === "block") {
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).topExceeded) {
+									flipTooltip(tooltip, BOTTOM, SHADOW_TOP);
+									if (getTooltipViewportStatus(tooltip, autoPositioningMargin).bottomExceeded) {
+										flipTooltip(tooltip, LEFT, SHADOW_TOP);
+										if (getTooltipViewportStatus(tooltip, autoPositioningMargin).leftExceeded) {
+											flipTooltip(tooltip, RIGHT, SHADOW_TOP);
+											if (getTooltipViewportStatus(tooltip, autoPositioningMargin).rightExceeded) {
+												flipTooltip(tooltip, TOP, SHADOW_TOP);
+											}			
+										}		
+									}	
+								}
+							}
+						}
+					} else if (tooltip.hasClass("tooltip-right")) {
+						if (autoResizing && !tooltip.hasClass("tooltip-noautosize")) {
+							if (ui.isWindowInBreakPointRange([0, 2])) {
+								tooltipWidth = 125;
+							}
+						}
+						if (autoPositioning && !tooltip.hasClass("tooltip-noautopos")) {
+							if (tooltip.css("display") === "block") {
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).rightExceeded) {
+									flipTooltip(tooltip, LEFT, SHADOW_RIGHT);
+								}
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).leftExceeded) {
+									flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
+								}
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).bottomExceeded) {
+									flipTooltip(tooltip, TOP, SHADOW_RIGHT);
+								}
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).topExceeded) {
+									flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
+								}		
+							}
+						}
+					} else if (tooltip.hasClass("tooltip-bottom")) {
+						if (autoResizing && !tooltip.hasClass("tooltip-noautosize")) {
+							if (ui.isWindowInBreakPointRange([0, 2])) {
+								tooltipWidth = 125;
+							}
+						}
+						if (autoPositioning && !tooltip.hasClass("tooltip-noautopos")) {
+							if (tooltip.css("display") === "block") {
+								if (getTooltipViewportStatus(tooltip, autoPositioningMargin).bottomExceeded) {
+									flipTooltip(tooltip, TOP, SHADOW_BOTTOM);
+									if (getTooltipViewportStatus(tooltip, autoPositioningMargin).topExceeded) {
+										flipTooltip(tooltip, RIGHT, SHADOW_BOTTOM);
+										if (getTooltipViewportStatus(tooltip, autoPositioningMargin).rightExceeded) {
+											flipTooltip(tooltip, LEFT, SHADOW_BOTTOM);
+											if (getTooltipViewportStatus(tooltip, autoPositioningMargin).leftExceeded) {
+												flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
+											}			
+										}		
+									}	
+								}
+							}
+						}
+					}
+					if (tooltipWidth > 0) {
+						tooltip.css("width", tooltipWidth + "px");
+						if (arguments.length > 0 && message != null && message.length) {
+							tooltip.html(message);
+						}
+						var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
+						var targetIsFirst = !target.prevSibling()[0] && (tooltip.hasClass("tooltip-top") || tooltip.hasClass("tooltip-bottom"));
+		
+						if (target.length) {
+							var targetWidth = target[0].offsetWidth;
+							var targetHeight = targetIsFirst ? 0 : target[0].offsetHeight;
+							var tooltipHeight = targetIsFirst ? tooltip[0].offsetHeight + target[0].offsetHeight : tooltip[0].offsetHeight;
+							positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
+							if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
+								tooltip.trigger("ui.tooltip.show.before");
+								if (transitionDuration) {
+									tooltip.fadeIn(transitionDuration).trigger("ui.tooltip.show.after");
+								}
+								else {
+									tooltip.show().trigger("ui.tooltip.show.after");
+								}
+								win.setTimeout(function () {
+									resetTooltips();
+								}, 50);
+							}
+						}
+					}
 				}
-			}
-			if (arguments.length > 2) {
-				switch (shadowClass) {
-					case SHADOW_TOP:
-						tooltip.addClass("shadow-top");
-						break;
-
-					case SHADOW_LEFT:
-						tooltip.addClass("shadow-left");
-						break;
-
-					case SHADOW_BOTTOM:
-						tooltip.addClass("shadow-bottom");
-						break;
-
-					case SHADOW_RIGHT:
-						tooltip.addClass("shadow-right");
-						break;
-
-					default:
-						break;
+				return this;
+			},
+		
+			hideTooltip = function (tooltipWrapper) {
+				var el = webui(tooltipWrapper).first();
+		
+				var tooltip = el.children("[class*='tooltip-']").first();
+		
+				if (tooltip && tooltip.length) {
+					tooltip.trigger("ui.tooltip.hide.before");
+					if (transitionDuration) {
+						tooltip.fadeOut(transitionDuration).trigger("ui.tooltip.hide.after");
+					}
+					else {
+						tooltip.hide().trigger("ui.tooltip.hide.after");
+					}
 				}
-			}
-		},
-
-		positionTooltip = function (tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight) {
-
-			if (tooltip.hasClass("tooltip-left")) {
-				tooltip.css("margin-left", "-" + (tooltipWidth + 5) + "px");
-				tooltip.css("top", targetHeight / 2 - tooltipHeight / 2 + "px");
-			} else if (tooltip.hasClass("tooltip-top")) {
-				tooltip.css("margin-top", "-" + (tooltipHeight + 5) + "px");
-				tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
-			} else if (tooltip.hasClass("tooltip-right")) {
-				tooltip.css("margin-left", targetWidth + 5 + "px");
-				tooltip.css("top", targetHeight / 2 - tooltipHeight / 2 + "px");
-			} else if (tooltip.hasClass("tooltip-bottom")) {
-				tooltip.css("margin-top", targetHeight + 5 + "px");
-				tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
-			} else {
-				tooltip.css("margin-top", "-" + (tooltipHeight + 5) + "px");
-				tooltip.css("left", targetWidth / 2 - tooltipWidth / 2 + "px");
-			}
-		},
-
-		resetTooltips = function () {
-
-			var tooltips = webui(".tooltip");
-
-			for (var i = 0; i < tooltips.length; i++) {
-				var tooltip = webui(tooltips[i]).children("[class*='tooltip-']").first();
-				tooltip.css("margin-left", "");
-				tooltip.css("margin-top", "");
-				tooltip.css("left", "");
-				tooltip.css("top", "");
-				if (tooltip.hasClass("shadow-left")) {
-					flipTooltip(tooltip, LEFT);
-				} else if (tooltip.hasClass("shadow-top")) {
-					flipTooltip(tooltip, TOP);
-				} else if (tooltip.hasClass("shadow-right")) {
-					flipTooltip(tooltip, RIGHT);
-				} else if (tooltip.hasClass("shadow-bottom")) {
-					flipTooltip(tooltip, BOTTOM);
-				}
-				webui(tooltips[i]).showTooltip(null, true);
 			};
-		};
 
-	if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
-		win.addEventListener("resize", function () {
-			resetTooltips();
-		});
-		win.setTimeout(function () {
-			win.addEventListener("scroll", function () {
+
+			this.showTooltip = function (tooltipWrapper, message) {
+				showTooltip(tooltipWrapper, message);
+			};
+
+			this.hideTooltip = function (tooltipWrapper) {
+				hideTooltip(tooltipWrapper);
+			};
+
+	
+
+		/* EVENTS */
+
+		if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
+			win.addEventListener("resize", function () {
 				resetTooltips();
 			});
-		}, 100);
-	}
+			win.setTimeout(function () {
+				win.addEventListener("scroll", function () {
+					resetTooltips();
+				});
+			}, 100);
+		}
+
+
+		webui(context).find(".tooltip").hoverIn(function () {
+			var tooltipWrapper = webui(this);
+
+			var disabledTarget = tooltipWrapper.children(".control-disabled");
+			if (!disabledTarget.length) {
+				var disabledParent = tooltipWrapper.parents(".control-group-disabled");
+				if (!disabledParent.length) {
+					var tooltip = tooltipWrapper.children(".tooltip-dynamic").first();
+					if (tooltip.length) {
+						showTooltip(tooltipWrapper);
+						resetTooltips();
+					}
+				}
+			}
+		});
+
+		webui(context).find(".tooltip").hoverOut(function () {
+			var tooltip = webui(this).children(".tooltip-dynamic").first();
+
+			if (tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
+				hideTooltip(webui(this));
+			}
+		});
+
+		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
+			var tooltipWrapper = webui(this).parent(".tooltip");
+
+			var disabledTarget = webui(this).hasClass("control-disabled");
+			if (!disabledTarget) {
+				var disabledParent = webui(this).parents(".control-group-disabled");
+				if (!disabledParent.length) {
+					var el = tooltipWrapper.children(".tooltip-focus").first();
+					if (el.length) {
+						showTooltip(tooltipWrapper);
+						resetTooltips();
+					}
+				}
+			}
+		});
+
+		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
+			var tooltipWrapper = webui(this).parent(".tooltip");
+
+			var el = tooltipWrapper.children(".tooltip-focus").first();
+			if (el.length && !el.hasClass("tooltip-noautohide")) {
+				hideTooltip(tooltipWrapper);
+			}
+		});
+
+		webui(context).find(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
+			if (e.which == 27) {
+				e.preventDefault();
+				var el = webui(this).first();
+				hideTooltip(el.parent(".tooltip"));
+			}
+		});
+		
+		webui(context).find(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
+			if (e.which == 27) {
+				e.preventDefault();
+				var el = webui(this).first();
+				hideTooltip(el.parent(".tooltip"));
+			}
+		});
+
+		webui(context).find(".tooltip-close").click(function (e) {
+			e.preventDefault();
+
+			var tooltipWrapper = webui(this).closest(".tooltip");
+			hideTooltip(tooltipWrapper);
+		});		
+
+	};
+
 
 	/* PUBLIC */
 
-	webui.initTooltips = function (options) {
-		tooltipAutoPos = options.autoPositioning !== void 0 ? options.autoPositioning : tooltipAutoPos;
-		tooltipAutoPosMargin = options.autoPositioningMargin !== void 0 ? options.autoPositioningMargin : tooltipAutoPosMargin;
-		tooltipAutoSize = options.autoResizing !== void 0 ? options.autoResizing : tooltipAutoSize;
-		transitionDuration = options.transitionDuration !== void 0 ? options.transitionDuration : transitionDuration;
-	};
+	Object.defineProperty(webui.prototype, "tooltipControl", {
+		value: function (options) {
 
-	fn.showTooltip = function (message, resetOnly) {
-
-		var el = webui(this).first();
-		var tooltip = el.children("[class*='tooltip-']").first();
-
-		if (tooltip.length) {
-
-			var tooltipWidth = tooltip.hasClass("tooltip-sm") ? 125 : tooltip.hasClass("tooltip-md") ? 175 : tooltip.hasClass("tooltip-lg") ? 225 : 125;
-
-			if (tooltip.hasClass("tooltip-left")) {
-				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange([0, 2])) {
-						tooltipWidth = 125;
-					}
-				}
-				if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
-					if (tooltip.css("display") === "block") {
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-							flipTooltip(tooltip, RIGHT, SHADOW_LEFT);
-						}	
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-							flipTooltip(tooltip, TOP, SHADOW_LEFT);
-						}	
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-							flipTooltip(tooltip, BOTTOM, SHADOW_LEFT);
-						}	
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-							flipTooltip(tooltip, TOP, SHADOW_LEFT);
-						}
-					}
-				}
-			} else if (tooltip.hasClass("tooltip-top")) {
-				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange([0, 2])) {
-						tooltipWidth = 125;
-					}
-				}
-				if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
-					if (tooltip.css("display") === "block") {
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-							flipTooltip(tooltip, BOTTOM, SHADOW_TOP);
-							if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-								flipTooltip(tooltip, LEFT, SHADOW_TOP);
-								if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-									flipTooltip(tooltip, RIGHT, SHADOW_TOP);
-									if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-										flipTooltip(tooltip, TOP, SHADOW_TOP);
-									}			
-								}		
-							}	
-						}
-					}
-				}
-			} else if (tooltip.hasClass("tooltip-right")) {
-				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange([0, 2])) {
-						tooltipWidth = 125;
-					}
-				}
-				if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
-					if (tooltip.css("display") === "block") {
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-							flipTooltip(tooltip, LEFT, SHADOW_RIGHT);
-						}
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-							flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
-						}
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-							flipTooltip(tooltip, TOP, SHADOW_RIGHT);
-						}
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-							flipTooltip(tooltip, BOTTOM, SHADOW_RIGHT);
-						}		
-					}
-				}
-			} else if (tooltip.hasClass("tooltip-bottom")) {
-				if (tooltipAutoSize && !tooltip.hasClass("tooltip-noautosize")) {
-					if (ui.isWindowInBreakPointRange([0, 2])) {
-						tooltipWidth = 125;
-					}
-				}
-				if (tooltipAutoPos && !tooltip.hasClass("tooltip-noautopos")) {
-					if (tooltip.css("display") === "block") {
-						if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).bottomExceeded) {
-							flipTooltip(tooltip, TOP, SHADOW_BOTTOM);
-							if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).topExceeded) {
-								flipTooltip(tooltip, RIGHT, SHADOW_BOTTOM);
-								if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).rightExceeded) {
-									flipTooltip(tooltip, LEFT, SHADOW_BOTTOM);
-									if (getTooltipViewportStatus(tooltip, tooltipAutoPosMargin).leftExceeded) {
-										flipTooltip(tooltip, BOTTOM, SHADOW_BOTTOM);
-									}			
-								}		
-							}	
-						}
-					}
-				}
-			}
-			if (tooltipWidth > 0) {
-				tooltip.css("width", tooltipWidth + "px");
-				if (arguments.length > 0 && message != null && message.length) {
-					tooltip.html(message);
-				}
-				var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
-				var targetIsFirst = !target.prevSibling()[0] && (tooltip.hasClass("tooltip-top") || tooltip.hasClass("tooltip-bottom"));
-
-				if (target.length) {
-					var targetWidth = target[0].offsetWidth;
-					var targetHeight = targetIsFirst ? 0 : target[0].offsetHeight;
-					var tooltipHeight = targetIsFirst ? tooltip[0].offsetHeight + target[0].offsetHeight : tooltip[0].offsetHeight;
-					positionTooltip(tooltip, targetWidth, targetHeight, tooltipWidth, tooltipHeight);
-					if (arguments.length < 2 || arguments.length > 1 && !resetOnly) {
-						tooltip.trigger("ui.tooltip.show.before");
-						if (transitionDuration) {
-							tooltip.fadeIn(transitionDuration).trigger("ui.tooltip.show.after");
-						}
-						else {
-							tooltip.show().trigger("ui.tooltip.show.after");
-						}
-						win.setTimeout(function () {
-							resetTooltips();
-						}, 50);
-					}
-				}
-			}
-		}
-		return this;
-	};
-
-	fn.hideTooltip = function () {
-		var el = webui(this).first();
-
-		var tooltip = el.children("[class*='tooltip-']").first();
-
-		if (tooltip && tooltip.length) {
-			tooltip.trigger("ui.tooltip.hide.before");
-			if (transitionDuration) {
-				tooltip.fadeOut(transitionDuration).trigger("ui.tooltip.hide.after");
-			}
-			else {
-				tooltip.hide().trigger("ui.tooltip.hide.after");
-			}
-		}
-	};
+			var settings = ui.extend({
+				autoPositioning: true,
+				autoResizing: true,
+				autoPositioningMargin: 0,
+				transitionDuration: 300
+			}, options);
 
 
-	/* EVENTS */
+			var control = new TooltipInstance(this, settings);
 
-	webui(".tooltip").hoverIn(function () {
-		var els = webui(this);
 
-		var disabledTarget = els.children(".control-disabled");
-		if (!disabledTarget.length) {
-			var disabledParent = els.parents(".control-group-disabled");
-			if (!disabledParent.length) {
-				var tooltip = els.children(".tooltip-dynamic").first();
-				if (tooltip.length) {
-					els.showTooltip();
-					resetTooltips();
-				}
-			}
-		}
+			this.showTooltip = function (tooltipWrapper, message) {
+				control.showTooltip(tooltipWrapper, message);	
+			};
+
+			this.hideTooltip = function (tooltipWrapper) {
+				control.hideTooltip(tooltipWrapper);	
+			};
+
+			return this;
+		},
+		enumerable: false
 	});
 
-	webui(".tooltip").hoverOut(function () {
-		var tooltip = webui(this).children(".tooltip-dynamic").first();
-
-		if (tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
-			webui(this).hideTooltip();
-		}
-	});
-
-	webui(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
-		var tooltip = webui(this).parent(".tooltip");
-
-		var disabledTarget = webui(this).hasClass("control-disabled");
-		if (!disabledTarget) {
-			var disabledParent = webui(this).parents(".control-group-disabled");
-			if (!disabledParent.length) {
-				var el = tooltip.children(".tooltip-focus").first();
-				if (el.length) {
-					tooltip.showTooltip();
-					resetTooltips();
-				}
-			}
-		}
-	});
-
-	webui(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
-		var tooltip = webui(this).parent(".tooltip");
-
-		var el = tooltip.children(".tooltip-focus").first();
-		if (el.length && !el.hasClass("tooltip-noautohide")) {
-			tooltip.hideTooltip();
-		}
-	});
-
-	webui(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
-		if (e.which == 27) {
-			e.preventDefault();
-			var el = webui(this).first();
-			el.parent(".tooltip").hideTooltip();
-		}
-	});
-	
-	webui(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
-		if (e.which == 27) {
-			e.preventDefault();
-			var el = webui(this).first();
-			el.parent(".tooltip").hideTooltip();
-		}
-	});
-
-	webui(".tooltip-close").click(function (e) {
-		e.preventDefault();
-
-		var tooltip = webui(this).closest(".tooltip");
-		tooltip.hideTooltip();
-	});
-
-}(window));
+})(window);
 
 
 (function (win) {
@@ -5431,69 +5502,70 @@
 	var UploadInstance = function(upload, settings) {
 
 		var
+			showFiles = settings.showFiles,
+			showCount = settings.showCount,
+			scrollX = settings.scrollX,
+			scrollY = settings.scrollY;
 
-		showFiles = settings.showFiles,
-		showCount = settings.showCount,
-		scrollX = settings.scrollX,
-		scrollY = settings.scrollY;
+
+			//TODO: Test support for multiple controls
 
 
-		if (showFiles === false) {
-			upload.siblings().first("label").addClass("hide-files");
-		}
-		if (showCount === false) {
-			upload.siblings().first("label").addClass("hide-count");
-		}
-		if (scrollX) {
-			upload.siblings().first("label").css("overflow-x", "scroll");
-			upload.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
-		}
-		if (scrollY) {
-			upload.siblings().first("label").css("overflow-y", "scroll");
-			upload.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-			upload.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
-		}
+			if (showFiles === false) {
+				upload.siblings().first("label").addClass("hide-files");
+			}
+			if (showCount === false) {
+				upload.siblings().first("label").addClass("hide-count");
+			}
+			if (scrollX) {
+				upload.siblings().first("label").css("overflow-x", "scroll");
+				upload.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+			}
+			if (scrollY) {
+				upload.siblings().first("label").css("overflow-y", "scroll");
+				upload.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+				upload.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+			}
 
-		upload.change(function() {
-			var element = webui(this);
-	
-			if (element) {
-	
-				element.trigger("ui.upload.change.before");				
-				var label = element.siblings("label").first();
-				if (element.length > 0) {
-					var files = element[0].files;
-					if (files != null && files.length > 0) {
-						if (label) {
-							var textValue = "";
-							if (label.hasClass("hide-files") === false) {
-								for (var i = 0; i < files.length; i++) {
-									textValue += files[i].name + "<br />";
-								}
-							}
-							if (label.hasClass("hide-count") === false) {
-								if (files.length > 1) {
-									textValue += "<br />(" + files.length + ") files.";
-								}
-							}
-							if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-								textValue += "<br />Files ready.";
-							}
-							label.html(textValue);
-							element.trigger("ui.upload.change.after");
-						}
-					} else {
-						if (element.val() !== null && element.val().length > 0) {
+			upload.change(function() {
+				var element = webui(this);
+		
+				if (element) {
+		
+					element.trigger("ui.upload.change.before");				
+					var label = element.siblings("label").first();
+					if (element.length > 0) {
+						var files = element[0].files;
+						if (files != null && files.length > 0) {
 							if (label) {
-								label.text(element.val().replace("C:\\fakepath\\", ""));
+								var textValue = "";
+								if (label.hasClass("hide-files") === false) {
+									for (var i = 0; i < files.length; i++) {
+										textValue += files[i].name + "<br />";
+									}
+								}
+								if (label.hasClass("hide-count") === false) {
+									if (files.length > 1) {
+										textValue += "<br />(" + files.length + ") files.";
+									}
+								}
+								if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
+									textValue += "<br />Files ready.";
+								}
+								label.html(textValue);
 								element.trigger("ui.upload.change.after");
+							}
+						} else {
+							if (element.val() !== null && element.val().length > 0) {
+								if (label) {
+									label.text(element.val().replace("C:\\fakepath\\", ""));
+									element.trigger("ui.upload.change.after");
+								}
 							}
 						}
 					}
 				}
-			}
-		});
-	
+			});	
 
 	};
 
@@ -5513,11 +5585,12 @@
 			var control = new UploadInstance(this, settings);
 			
 			return this;
-		}
+		},
+		enumerable: false
 	});
 
 
-}(window));
+})(window);
 		
 ﻿
 (function (win) {
@@ -6047,53 +6120,65 @@
 	webui.FALSE_VALUE = /^(false)$/;
 	webui.ANY_VALUE = /^(?!\s*$).+/;
 	
-}(window));
+})(window);
 	
 
 (function (win) {
+
 	/* PRIVATE */
-	var zoom = 1.05,
+
+	var 
+	
+		zoomFactor = 1.05,
 		trigger = "hover",
 		transitionDuration = 500;
 
 
 	/* PUBLIC */
+
 	Object.defineProperty(webui.prototype, "zoomControl", {
 		value: function (options) {
+
 			var settings = ui.extend({
-				zoom: 1.05,
+				zoomFactor: 1.05,
 				trigger: "hover",
 				transitionDuration: 500
 			}, options);
 
-			zoom = settings.zoom;
+			zoomFactor = settings.zoomFactor;
 			trigger = settings.trigger;
 			transitionDuration = settings.transitionDuration;
 
-			var els = webui(this);
+			var zoomObjects = webui(this);
 
-			for (var i = 0; i < els.length; i++) {
-				var el = webui(els[i]);
-				el.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+			for (var i = 0; i < zoomObjects.length; i++) {
+
+				var zoomObject = webui(zoomObjects[i]);
+				
+				zoomObject.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
 
 				if (trigger === "hover") {
-					el.hoverIn(function (e) {
-						webui(this).css("transform", "scale(" + zoom + ")");
+					zoomObject.hoverIn(function (e) {
+						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					el.hoverOut(function (e) {
+					zoomObject.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 				else if (trigger === "focus") {
-					el.focus(function (e) {
-						webui(this).css("transform", "scale(" + zoom + ")");
+					zoomObject.focus(function (e) {
+						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					el.blur(function (e) {
+					zoomObject.blur(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 			}
 
-		}
+			return this;
+		},
+		enumerable: false
+
 	});
+
 })(window);

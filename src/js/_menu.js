@@ -218,6 +218,6 @@
 		enumerable: false
 	});
 
-}(window));
+})(window);
 	
 

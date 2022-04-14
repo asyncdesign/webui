@@ -526,5 +526,5 @@
 	webui.FALSE_VALUE = /^(false)$/;
 	webui.ANY_VALUE = /^(?!\s*$).+/;
 	
-}(window));
+})(window);
 	

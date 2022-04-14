@@ -121,8 +121,10 @@
 					}
 				}
 			}
+			
 			return this;
-		}
+		},
+		enumerable: false
 	});
 
 	webui(".tab-activator").click(function(e) {
@@ -141,5 +143,5 @@
 		}
 	});
 
-}(window));
+})(window);
 		

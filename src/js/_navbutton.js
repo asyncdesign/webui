@@ -9,6 +9,7 @@
 		backgroundColor = "#BDBDBD", 
 		color = "#000000";
 
+	
 	/* PUBLIC */
 
 	Object.defineProperty(webui.prototype, "navButtonControl", {
@@ -35,11 +36,14 @@
 
 				navButton.css("background-color", backgroundColor);
 				navButton.find(".nav-button-item").css("background-color", color);	
-			}		
-		}
+			}	
+			
+			return this;
+		},
+		enumerable: false
 		
 	});
 
-}(window));
+})(window);
 	
 

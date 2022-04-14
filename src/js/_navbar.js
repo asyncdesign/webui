@@ -241,11 +241,10 @@
 			var control = new NavbarInstance(this, settings);
 
 			return this;
-
 		},
 		enumerable: false
 	});
 
-}(window));
+})(window);
 	
 

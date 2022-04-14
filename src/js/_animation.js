@@ -320,5 +320,4 @@
     return els;
   };
 
-
-}(window));
+})(window);

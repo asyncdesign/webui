@@ -406,5 +406,5 @@
 		enumerable: false
 	});
 
-}(window));
+})(window);
 		
