@@ -7,19 +7,20 @@
 		transitionDuration,
 		transitionType,
 
-		selectTab = function (element) {
-			var tabId = element.attr("href");
+		selectTab = function (tabAcivator) {
+
+			var tabId = tabAcivator.attr("href");
 			if (!tabId) {
-				tabId = element.data("target");
+				tabId = tabAcivator.data("target");
 			}
-			var prevTabId = element.parents(".tabs").find(".tab-item.selected").last().attr("id");
+			var prevTabId = tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
 			var curTabId = tabId.replace("#", "");
 
-			element.parents(".tabs").find(".tab-item").removeClass("selected");
+			tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
 
-			element.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
+			tabAcivator.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
 
-			var activeTab = element.parents(".tabs").find(tabId);
+			var activeTab = tabAcivator.parents(".tabs").find(tabId);
 			
 			if (transitionType === "fade") {
 				activeTab.show().children().fadeIn(transitionDuration);
@@ -59,7 +60,28 @@
 				activeTab.find(".tabs").find(".tab-item").first().show();									
 			}
 			
-			element.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
+			tabAcivator.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
+		},
+
+		initialiseTabEvents = function (tabs) {
+
+			tabs.find(".tab-activator").click(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
+
+				if (activators.length) {
+					selectTab(activators.first());
+				}
+			});
+		
+			tabs.find(".tab-activator-focus").focus(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
+
+				if (activators.length) {
+					selectTab(activators.first());
+				}	
+			});
 		};
 
 
@@ -77,6 +99,9 @@
 
 			transitionDuration = settings.transitionDuration;
 			transitionType = settings.transitionType;
+
+
+			initialiseTabEvents(this);
 
 
 			if (settings.activeTabId) {
@@ -120,27 +145,11 @@
 						tab[0].click();
 					}
 				}
-			}
-			
+			}			
+	
 			return this;
 		},
 		enumerable: false
-	});
-
-	webui(".tab-activator").click(function(e) {
-		e.preventDefault();
-		var element = webui(this);
-		if (element) {
-			selectTab(element);
-		}
-	});
-
-	webui(".tab-activator-focus").focus(function(e) {
-		e.preventDefault();
-		var element = webui(this);
-		if (element) {
-			selectTab(element);
-		}
 	});
 
 })(window);
