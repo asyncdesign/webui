@@ -209,8 +209,9 @@
 				transitionType: "fade"
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI menu component does not support initialising multiple controls.") }
 
-			var control = new MenuInstance(this, settings);
+			var control = new MenuInstance(this.first(), settings);
 
 			return this;
 

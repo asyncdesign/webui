@@ -14,12 +14,12 @@
 		smallDeviceAlignment = settings.smallDeviceAlignment,
 		smallDeviceExpansion = settings.smallDeviceExpansion,
 		
-		resetNavbar = function(el, params) {
+		resetNavbar = function() {
 
 			var mq = null;
 			var mqClassName = null;
 			
-			switch (params.smallDeviceBreakpoint) {
+			switch (smallDeviceBreakpoint) {
 				case 1: mq = window.matchMedia("(max-width: " + ui.breakpoint1 + ")"); mqClassName = "mq-1"; break;
 				case 2: mq = window.matchMedia("(max-width: " + ui.breakpoint2 + ")"); mqClassName = "mq-2"; break;
 				case 3: mq = window.matchMedia("(max-width: " + ui.breakpoint3 + ")"); mqClassName = "mq-3"; break;
@@ -38,11 +38,11 @@
 				navbar.find("[class*='nav-button']").css("display", "none");
 
 				rootMenus.css("position", "static").css("top", "auto");
-				rootMenus.first().css("padding-left", params.largeDeviceOffset + "px");
+				rootMenus.first().css("padding-left", largeDeviceOffset + "px");
 				rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
 				rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.475rem" : "2.825rem").addClass("active");
 				
-				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceMenuOffset) + "px");	
+				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + largeDeviceMenuOffset) + "px");	
 				childMenus.css("top", navbar.css("height"));	
 				childMenus.parent().siblings().children(".nav-menu").hide();
 				childMenus.hide();
@@ -55,7 +55,7 @@
 
 				rootMenus.css("display", "none").removeClass("active");
 
-				if (params.smallDeviceExpansion === "expand") {
+				if (smallDeviceExpansion === "expand") {
 					rootMenus.css("position", "static").css("top", "auto");				
 				}
 				else {
@@ -212,14 +212,9 @@
 
 		});
 
-		win.addEventListener("resize", navbarResize);
-
-		function navbarResize() {
-			resetNavbar(navbar, { largeDeviceOffset: largeDeviceOffset, 
-														largeDeviceMenuOffset: largeDeviceMenuOffset, 
-														smallDeviceBreakpoint: smallDeviceBreakpoint, 
-														smallDeviceExpansion: smallDeviceExpansion });
-		};	
+		win.addEventListener("resize", function () {
+			resetNavbar();
+		});	
 
 	};
 
@@ -237,8 +232,9 @@
 				smallDeviceExpansion: "overlay"
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls.") }
 
-			var control = new NavbarInstance(this, settings);
+			var control = new NavbarInstance(this.first(), settings);
 
 			return this;
 		},

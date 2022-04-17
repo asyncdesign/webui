@@ -3,7 +3,7 @@
 	
 	/* PRIVATE */
 
-	var ToastInstance = function(toast, settings) {
+	var ToastInstance = function(container, settings) {
 
 		var
 			position = settings.position,
@@ -16,7 +16,7 @@
 
 			showToastItem = function() {
 
-				var toastContainer = toast.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
+				var toastContainer = container.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
 				var itemTemplate = webui(toastItemTemplate);
 
 				if (itemTemplate.length) {
@@ -104,8 +104,9 @@
 				autoHide: false
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls.") }
 
-			var control = new ToastInstance(this, settings);
+			var control = new ToastInstance(this.first(), settings);
 
 			this.showToastItem = function () {
 				control.showToastItem();	

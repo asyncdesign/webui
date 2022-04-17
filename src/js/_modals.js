@@ -111,7 +111,9 @@
 				closeFromBackdrop: false
 			}, options);
 
-			var control = new ModalInstance(this, settings);
+			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls.") }
+
+			var control = new ModalInstance(this.first(), settings);
 
 			this.open = function () {
 				control.openModal();	

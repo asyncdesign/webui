@@ -704,7 +704,7 @@
 		webui.ready(function() {
 					
 			//Tooltips
-			var tooltipContext = webui("body").tooltipControl({
+			var tooltipContext1 = webui("body").tooltipControl({
 				autoPositioning: true,
 				autoResizing: true,
 				autoPositioningMargin: 0,
@@ -712,12 +712,12 @@
 			});
 
 			ui("#AddressDetails").click( function() {
-				tooltipContext.showTooltip(ui("#tooltipAddress"));
+				tooltipContext1.showTooltip(ui("#tooltipAddress"));
 			});
 
-			tooltipContext.showTooltip(ui("#tooltipEnterValues"));
-			tooltipContext.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
-			tooltipContext.showTooltip(ui("#tooltipAboutModals2"), "Try various sized modals that scale to screen size...");	
+			tooltipContext1.showTooltip(ui("#tooltipEnterValues"));
+			tooltipContext1.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
+			tooltipContext1.showTooltip(ui("#tooltipAboutModals2"), "Try various sized modals that scale to screen size...");	
 
 
 			// Toast notifications

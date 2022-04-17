@@ -355,7 +355,7 @@
 		}
 
 
-		webui(context).find(".tooltip").hoverIn(function () {
+		context.find(".tooltip").hoverIn(function () {
 			var tooltipWrapper = webui(this);
 
 			var disabledTarget = tooltipWrapper.children(".control-disabled");
@@ -371,7 +371,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").hoverOut(function () {
+		context.find(".tooltip").hoverOut(function () {
 			var tooltip = webui(this).children(".tooltip-dynamic").first();
 
 			if (tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
@@ -379,7 +379,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
+		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
 			var tooltipWrapper = webui(this).parent(".tooltip");
 
 			var disabledTarget = webui(this).hasClass("control-disabled");
@@ -395,7 +395,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
+		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
 			var tooltipWrapper = webui(this).parent(".tooltip");
 
 			var el = tooltipWrapper.children(".tooltip-focus").first();
@@ -404,7 +404,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
+		context.find(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
 			if (e.which == 27) {
 				e.preventDefault();
 				var el = webui(this).first();
@@ -412,7 +412,7 @@
 			}
 		});
 		
-		webui(context).find(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
+		context.find(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
 			if (e.which == 27) {
 				e.preventDefault();
 				var el = webui(this).first();
@@ -420,7 +420,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip-close").click(function (e) {
+		context.find(".tooltip-close").click(function (e) {
 			e.preventDefault();
 
 			var tooltipWrapper = webui(this).closest(".tooltip");

@@ -25,17 +25,17 @@
 			backgroundColor = settings.backgroundColor;
 			color = settings.color;
 
-			var navButtons = webui(this);
+			var controls = this;
 
-			for (var i = 0; i < navButtons.length; i++) {
+			for (var i = 0; i < controls.length; i++) {
 				
-				var navButton = webui(navButtons[i]);
+				var control = webui(controls[i]);
 
-				navButton.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
-				navButton.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
+				control.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
+				control.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
 
-				navButton.css("background-color", backgroundColor);
-				navButton.find(".nav-button-item").css("background-color", color);	
+				control.css("background-color", backgroundColor);
+				control.find(".nav-button-item").css("background-color", color);	
 			}	
 			
 			return this;

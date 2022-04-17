@@ -63,9 +63,9 @@
 			tabAcivator.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
 		},
 
-		initialiseTabEvents = function (tabs) {
+		initialiseTabEvents = function (control) {
 
-			tabs.find(".tab-activator").click(function (e) {
+			control.find(".tab-activator").click(function (e) {
 				e.preventDefault();
 				var activators = webui(this);
 
@@ -74,7 +74,7 @@
 				}
 			});
 		
-			tabs.find(".tab-activator-focus").focus(function (e) {
+			control.find(".tab-activator-focus").focus(function (e) {
 				e.preventDefault();
 				var activators = webui(this);
 
@@ -100,12 +100,15 @@
 			transitionDuration = settings.transitionDuration;
 			transitionType = settings.transitionType;
 
+			if (this.length > 1) { console.warn("WebUI tabs component does not support initialising multiple controls.") }
 
-			initialiseTabEvents(this);
+			var control = this.first();
+
+			initialiseTabEvents(control);
 
 
 			if (settings.activeTabId) {
-				var href = this.find("[href='" + settings.activeTabId + "']");
+				var href = control.find("[href='" + settings.activeTabId + "']");
 				if (href.length) {
 					href[0].click();
 					href.addClass("selected");
@@ -114,7 +117,7 @@
 					}
 				}
 				else {
-					var dataTarget = this.find("[data-target='" + settings.activeTabId + "']");
+					var dataTarget = control.find("[data-target='" + settings.activeTabId + "']");
 					if (dataTarget.length) {
 						dataTarget[0].click();
 						dataTarget.addClass("selected");
@@ -123,7 +126,7 @@
 						}
 					}
 					else {
-						var activeTab = this.find(settings.activeTabId);
+						var activeTab = control.find(settings.activeTabId);
 						if (activeTab.length) {
 							activeTab.addClass("selected");
 							activeTab[0].click();
@@ -135,17 +138,17 @@
 				}
 			}
 			else {
-				var tab = this.find(".tab-activator").last().siblings().last();
+				var tab = control.find(".tab-activator").last().siblings().last();
 				if (tab.length) {
 					tab[0].click();
 				}
 				else {
-					tab = this.find(".tab-activator-focus").last().siblings().last();
+					tab = control.find(".tab-activator-focus").last().siblings().last();
 					if (tab.length) {
 						tab[0].click();
 					}
 				}
-			}			
+			}		
 	
 			return this;
 		},

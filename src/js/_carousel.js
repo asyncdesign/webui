@@ -378,7 +378,9 @@
 				height: "400px"
 			}, options);
 
-			var control = new CarouselInstance(this, settings);
+			if (this.length > 1) { console.warn("WebUI carousel component does not support initialising multiple controls.") }
+
+			var control = new CarouselInstance(this.first(), settings);
 
 			this.prev = function () {
 				control.prev();	

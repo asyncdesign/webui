@@ -179,8 +179,9 @@
 				showClose: true
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls.") }
 
-			var control = new AlertInstance(this, settings);
+			var control = new AlertInstance(this.first(), settings);
 
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {

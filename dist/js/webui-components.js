@@ -2669,8 +2669,9 @@
 				showClose: true
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls.") }
 
-			var control = new AlertInstance(this, settings);
+			var control = new AlertInstance(this.first(), settings);
 
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {
@@ -3466,7 +3467,9 @@
 				height: "400px"
 			}, options);
 
-			var control = new CarouselInstance(this, settings);
+			if (this.length > 1) { console.warn("WebUI carousel component does not support initialising multiple controls.") }
+
+			var control = new CarouselInstance(this.first(), settings);
 
 			this.prev = function () {
 				control.prev();	
@@ -3707,8 +3710,9 @@
 				transitionType: "fade"
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI menu component does not support initialising multiple controls.") }
 
-			var control = new MenuInstance(this, settings);
+			var control = new MenuInstance(this.first(), settings);
 
 			return this;
 
@@ -3833,7 +3837,9 @@
 				closeFromBackdrop: false
 			}, options);
 
-			var control = new ModalInstance(this, settings);
+			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls.") }
+
+			var control = new ModalInstance(this.first(), settings);
 
 			this.open = function () {
 				control.openModal();	
@@ -3867,12 +3873,12 @@
 		smallDeviceAlignment = settings.smallDeviceAlignment,
 		smallDeviceExpansion = settings.smallDeviceExpansion,
 		
-		resetNavbar = function(el, params) {
+		resetNavbar = function() {
 
 			var mq = null;
 			var mqClassName = null;
 			
-			switch (params.smallDeviceBreakpoint) {
+			switch (smallDeviceBreakpoint) {
 				case 1: mq = window.matchMedia("(max-width: " + ui.breakpoint1 + ")"); mqClassName = "mq-1"; break;
 				case 2: mq = window.matchMedia("(max-width: " + ui.breakpoint2 + ")"); mqClassName = "mq-2"; break;
 				case 3: mq = window.matchMedia("(max-width: " + ui.breakpoint3 + ")"); mqClassName = "mq-3"; break;
@@ -3891,11 +3897,11 @@
 				navbar.find("[class*='nav-button']").css("display", "none");
 
 				rootMenus.css("position", "static").css("top", "auto");
-				rootMenus.first().css("padding-left", params.largeDeviceOffset + "px");
+				rootMenus.first().css("padding-left", largeDeviceOffset + "px");
 				rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
 				rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.475rem" : "2.825rem").addClass("active");
 				
-				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + params.largeDeviceMenuOffset) + "px");	
+				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + largeDeviceMenuOffset) + "px");	
 				childMenus.css("top", navbar.css("height"));	
 				childMenus.parent().siblings().children(".nav-menu").hide();
 				childMenus.hide();
@@ -3908,7 +3914,7 @@
 
 				rootMenus.css("display", "none").removeClass("active");
 
-				if (params.smallDeviceExpansion === "expand") {
+				if (smallDeviceExpansion === "expand") {
 					rootMenus.css("position", "static").css("top", "auto");				
 				}
 				else {
@@ -4065,14 +4071,9 @@
 
 		});
 
-		win.addEventListener("resize", navbarResize);
-
-		function navbarResize() {
-			resetNavbar(navbar, { largeDeviceOffset: largeDeviceOffset, 
-														largeDeviceMenuOffset: largeDeviceMenuOffset, 
-														smallDeviceBreakpoint: smallDeviceBreakpoint, 
-														smallDeviceExpansion: smallDeviceExpansion });
-		};	
+		win.addEventListener("resize", function () {
+			resetNavbar();
+		});	
 
 	};
 
@@ -4090,8 +4091,9 @@
 				smallDeviceExpansion: "overlay"
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls.") }
 
-			var control = new NavbarInstance(this, settings);
+			var control = new NavbarInstance(this.first(), settings);
 
 			return this;
 		},
@@ -4129,17 +4131,17 @@
 			backgroundColor = settings.backgroundColor;
 			color = settings.color;
 
-			var navButtons = webui(this);
+			var controls = this;
 
-			for (var i = 0; i < navButtons.length; i++) {
+			for (var i = 0; i < controls.length; i++) {
 				
-				var navButton = webui(navButtons[i]);
+				var control = webui(controls[i]);
 
-				navButton.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
-				navButton.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
+				control.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
+				control.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
 
-				navButton.css("background-color", backgroundColor);
-				navButton.find(".nav-button-item").css("background-color", color);	
+				control.css("background-color", backgroundColor);
+				control.find(".nav-button-item").css("background-color", color);	
 			}	
 			
 			return this;
@@ -4159,7 +4161,7 @@
 	/* PRIVATE */
 
 	var
-		zoom = 1,
+		zoomFactor = 1,
 		mode = "full",
 		responsive = true,
 		transitionDuration = 1000,
@@ -4196,8 +4198,8 @@
 				var radialItemWidth = parseFloat(radialItem.css("width"));
 				var radialItemHeight = parseFloat(radialItem.css("height"));
 			
-				var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / params.zoom)) - radialItemWidth/2) + (radialWidth/2) + "px";
-				var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / params.zoom)) - radialItemHeight/2) + (radialHeight/2) + "px";
+				var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / params.zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
+				var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / params.zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
 				radialItem.css("left", radialLeft);
 				radialItem.css("top", radialTop);
 			}
@@ -4209,26 +4211,26 @@
 		value: function (options) {
 
 			var settings = ui.extend({
-				zoom: 1,
+				zoomFactor: 1,
 				mode: "full",
 				responsive: true,
 				transitionDuration: 300
 			}, options);
 
-			zoom = settings.zoom;
+			zoomFactor = settings.zoomFactor;
 			mode = settings.mode;
 			responsive = settings.responsive;
 			transitionDuration = settings.transitionDuration;
 
 
-			var radials = webui(this);
+			var controls = webui(this);
 
-			for (var i = 0; i < radials.length; i++) {
+			for (var i = 0; i < controls.length; i++) {
 
-				var radialWidth = radials[i].offsetWidth;
-				var radialHeight = radials[i].offsetHeight;
+				var radialWidth = controls[i].offsetWidth;
+				var radialHeight = controls[i].offsetHeight;
 
-				var radialContent = webui(radials[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1000 + "s ease-out");
+				var radialContent = webui(controls[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1000 + "s ease-out");
 						
 				var radialItems = radialContent.find(".radial-item");
 
@@ -4255,14 +4257,14 @@
 					var radialItemWidth = parseFloat(radialItem.css("width"));
 					var radialItemHeight = parseFloat(radialItem.css("height"));
 				
-					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoom)) - radialItemWidth/2) + (radialWidth/2) + "px";
-					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoom)) - radialItemHeight/2) + (radialHeight/2) + "px";
+					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
+					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
 					radialItem.css("left", radialLeft);
 					radialItem.css("top", radialTop);
 				}
 				
 				if (responsive) {
-					webui(radials[i]).resizeElement(resetRadial, {zoom: zoom, mode: mode, transitionDuration: transitionDuration});
+					webui(controls[i]).resizeElement(resetRadial, {zoomFactor: zoomFactor, mode: mode, transitionDuration: transitionDuration});
 				}
 			}
 
@@ -4286,7 +4288,8 @@
 
   var
 
-    resetScrollspy = function (container, settings) {
+    resetScrollspy = function (controls, settings) {
+      
       var scrollTargets = webui(document).find("." + settings.scrollTargetClass);
 
       for (var i = 0; i < scrollTargets.length; i++) {
@@ -4296,13 +4299,13 @@
         if (el[0].offsetTop <= scrollPos + settings.scrollTargetOffset) {
 
           var id = el.attr("id");
-          var activeItem = container.find("[data-scrollspy='#" + id + "']");
+          var activeItem = controls.find("[data-scrollspy='#" + id + "']");
 
           if (!activeItem) {
             return;
           }
 
-          container.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
+          controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
           activeItem.addClass(settings.activatorActiveClass);
         }
       }
@@ -4310,31 +4313,31 @@
 
   /* PUBLIC */
 
-  Object.defineProperty(webui.prototype, "scrollspy", {
+  Object.defineProperty(webui.prototype, "scrollspyControl", {
     value: function (options) {
 
       var settings = ui.extend({
         activatorSelector: "li > a",
         activatorActiveClass: "active",
-        scrollTargetClass: "scrollspy",
+        scrollTargetClass: "scroll-target",
         scrollTargetOffset: 0,
         activatorCallback: null
       }, options);
 
-      var container = this;
+      var controls = this;
 
-      resetScrollspy(container, settings);
+      resetScrollspy(controls, settings);
 
       if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
         win.addEventListener("scroll", function () {
-          resetScrollspy(container, settings);
+          resetScrollspy(controls, settings);
         });
       }
 
       if (settings.activatorCallback) {
-        var menuItems = container.find(settings.activatorSelector);
-        for (var i = 0; i < menuItems.length; i++) {
-          menuItems[i].addEventListener("click", function () {
+        var activators = controls.find(settings.activatorSelector);
+        for (var i = 0; i < activators.length; i++) {
+          activators[i].addEventListener("click", function () {
             settings.activatorCallback();
           });
         }
@@ -4829,9 +4832,9 @@
 			tabAcivator.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
 		},
 
-		initialiseTabEvents = function (tabs) {
+		initialiseTabEvents = function (control) {
 
-			tabs.find(".tab-activator").click(function (e) {
+			control.find(".tab-activator").click(function (e) {
 				e.preventDefault();
 				var activators = webui(this);
 
@@ -4840,7 +4843,7 @@
 				}
 			});
 		
-			tabs.find(".tab-activator-focus").focus(function (e) {
+			control.find(".tab-activator-focus").focus(function (e) {
 				e.preventDefault();
 				var activators = webui(this);
 
@@ -4866,12 +4869,15 @@
 			transitionDuration = settings.transitionDuration;
 			transitionType = settings.transitionType;
 
+			if (this.length > 1) { console.warn("WebUI tabs component does not support initialising multiple controls.") }
 
-			initialiseTabEvents(this);
+			var control = this.first();
+
+			initialiseTabEvents(control);
 
 
 			if (settings.activeTabId) {
-				var href = this.find("[href='" + settings.activeTabId + "']");
+				var href = control.find("[href='" + settings.activeTabId + "']");
 				if (href.length) {
 					href[0].click();
 					href.addClass("selected");
@@ -4880,7 +4886,7 @@
 					}
 				}
 				else {
-					var dataTarget = this.find("[data-target='" + settings.activeTabId + "']");
+					var dataTarget = control.find("[data-target='" + settings.activeTabId + "']");
 					if (dataTarget.length) {
 						dataTarget[0].click();
 						dataTarget.addClass("selected");
@@ -4889,7 +4895,7 @@
 						}
 					}
 					else {
-						var activeTab = this.find(settings.activeTabId);
+						var activeTab = control.find(settings.activeTabId);
 						if (activeTab.length) {
 							activeTab.addClass("selected");
 							activeTab[0].click();
@@ -4901,17 +4907,17 @@
 				}
 			}
 			else {
-				var tab = this.find(".tab-activator").last().siblings().last();
+				var tab = control.find(".tab-activator").last().siblings().last();
 				if (tab.length) {
 					tab[0].click();
 				}
 				else {
-					tab = this.find(".tab-activator-focus").last().siblings().last();
+					tab = control.find(".tab-activator-focus").last().siblings().last();
 					if (tab.length) {
 						tab[0].click();
 					}
 				}
-			}			
+			}		
 	
 			return this;
 		},
@@ -4925,7 +4931,7 @@
 	
 	/* PRIVATE */
 
-	var ToastInstance = function(toast, settings) {
+	var ToastInstance = function(container, settings) {
 
 		var
 			position = settings.position,
@@ -4938,7 +4944,7 @@
 
 			showToastItem = function() {
 
-				var toastContainer = toast.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
+				var toastContainer = container.removeClass("*").addClass("toast-container toast-" + position).css("width", width);
 				var itemTemplate = webui(toastItemTemplate);
 
 				if (itemTemplate.length) {
@@ -5026,8 +5032,9 @@
 				autoHide: false
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls.") }
 
-			var control = new ToastInstance(this, settings);
+			var control = new ToastInstance(this.first(), settings);
 
 			this.showToastItem = function () {
 				control.showToastItem();	
@@ -5397,7 +5404,7 @@
 		}
 
 
-		webui(context).find(".tooltip").hoverIn(function () {
+		context.find(".tooltip").hoverIn(function () {
 			var tooltipWrapper = webui(this);
 
 			var disabledTarget = tooltipWrapper.children(".control-disabled");
@@ -5413,7 +5420,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").hoverOut(function () {
+		context.find(".tooltip").hoverOut(function () {
 			var tooltip = webui(this).children(".tooltip-dynamic").first();
 
 			if (tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
@@ -5421,7 +5428,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
+		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
 			var tooltipWrapper = webui(this).parent(".tooltip");
 
 			var disabledTarget = webui(this).hasClass("control-disabled");
@@ -5437,7 +5444,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
+		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
 			var tooltipWrapper = webui(this).parent(".tooltip");
 
 			var el = tooltipWrapper.children(".tooltip-focus").first();
@@ -5446,7 +5453,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
+		context.find(".tooltip .tooltip-static").siblings().keyDown(function (e) {	
 			if (e.which == 27) {
 				e.preventDefault();
 				var el = webui(this).first();
@@ -5454,7 +5461,7 @@
 			}
 		});
 		
-		webui(context).find(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
+		context.find(".tooltip .tooltip-focus").siblings().keyDown(function (e) {	
 			if (e.which == 27) {
 				e.preventDefault();
 				var el = webui(this).first();
@@ -5462,7 +5469,7 @@
 			}
 		});
 
-		webui(context).find(".tooltip-close").click(function (e) {
+		context.find(".tooltip-close").click(function (e) {
 			e.preventDefault();
 
 			var tooltipWrapper = webui(this).closest(".tooltip");
@@ -5508,7 +5515,7 @@
 	
 	/* PRIVATE */
 	
-	var UploadInstance = function(upload, settings) {
+	var UploadInstance = function(control, settings) {
 
 		var
 			showFiles = settings.showFiles,
@@ -5517,34 +5524,32 @@
 			scrollY = settings.scrollY;
 
 
-			//TODO: Test support for multiple controls
-
-
 			if (showFiles === false) {
-				upload.siblings().first("label").addClass("hide-files");
+				control.siblings().first("label").addClass("hide-files");
 			}
 			if (showCount === false) {
-				upload.siblings().first("label").addClass("hide-count");
+				control.siblings().first("label").addClass("hide-count");
 			}
 			if (scrollX) {
-				upload.siblings().first("label").css("overflow-x", "scroll");
-				upload.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+				control.siblings().first("label").css("overflow-x", "scroll");
+				control.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
 			}
 			if (scrollY) {
-				upload.siblings().first("label").css("overflow-y", "scroll");
-				upload.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-				upload.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+				control.siblings().first("label").css("overflow-y", "scroll");
+				control.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+				control.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
 			}
 
-			upload.change(function() {
-				var element = webui(this);
+			control.change(function() {
+				
+				var upload = webui(this);
 		
-				if (element) {
+				if (upload) {
 		
-					element.trigger("ui.upload.change.before");				
-					var label = element.siblings("label").first();
-					if (element.length > 0) {
-						var files = element[0].files;
+					upload.trigger("ui.upload.change.before");				
+					var label = upload.siblings("label").first();
+					if (upload.length > 0) {
+						var files = upload[0].files;
 						if (files != null && files.length > 0) {
 							if (label) {
 								var textValue = "";
@@ -5562,13 +5567,13 @@
 									textValue += "<br />Files ready.";
 								}
 								label.html(textValue);
-								element.trigger("ui.upload.change.after");
+								upload.trigger("ui.upload.change.after");
 							}
 						} else {
-							if (element.val() !== null && element.val().length > 0) {
+							if (upload.val() !== null && upload.val().length > 0) {
 								if (label) {
-									label.text(element.val().replace("C:\\fakepath\\", ""));
-									element.trigger("ui.upload.change.after");
+									label.text(upload.val().replace("C:\\fakepath\\", ""));
+									upload.trigger("ui.upload.change.after");
 								}
 							}
 						}
@@ -6158,27 +6163,27 @@
 			trigger = settings.trigger;
 			transitionDuration = settings.transitionDuration;
 
-			var zoomObjects = webui(this);
+			var controls = this;
 
-			for (var i = 0; i < zoomObjects.length; i++) {
+			for (var i = 0; i < controls.length; i++) {
 
-				var zoomObject = webui(zoomObjects[i]);
+				var control = webui(controls[i]);
 				
-				zoomObject.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+				control.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
 
 				if (trigger === "hover") {
-					zoomObject.hoverIn(function (e) {
+					control.hoverIn(function (e) {
 						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					zoomObject.hoverOut(function (e) {
+					control.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 				else if (trigger === "focus") {
-					zoomObject.focus(function (e) {
+					control.focus(function (e) {
 						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					zoomObject.blur(function (e) {
+					control.blur(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}

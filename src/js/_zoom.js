@@ -25,27 +25,27 @@
 			trigger = settings.trigger;
 			transitionDuration = settings.transitionDuration;
 
-			var zoomObjects = webui(this);
+			var controls = this;
 
-			for (var i = 0; i < zoomObjects.length; i++) {
+			for (var i = 0; i < controls.length; i++) {
 
-				var zoomObject = webui(zoomObjects[i]);
+				var control = webui(controls[i]);
 				
-				zoomObject.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+				control.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
 
 				if (trigger === "hover") {
-					zoomObject.hoverIn(function (e) {
+					control.hoverIn(function (e) {
 						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					zoomObject.hoverOut(function (e) {
+					control.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
 				else if (trigger === "focus") {
-					zoomObject.focus(function (e) {
+					control.focus(function (e) {
 						webui(this).css("transform", "scale(" + zoomFactor + ")");
 					});
-					zoomObject.blur(function (e) {
+					control.blur(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}

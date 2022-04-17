@@ -3,7 +3,7 @@
 	
 	/* PRIVATE */
 	
-	var UploadInstance = function(upload, settings) {
+	var UploadInstance = function(control, settings) {
 
 		var
 			showFiles = settings.showFiles,
@@ -12,34 +12,32 @@
 			scrollY = settings.scrollY;
 
 
-			//TODO: Test support for multiple controls
-
-
 			if (showFiles === false) {
-				upload.siblings().first("label").addClass("hide-files");
+				control.siblings().first("label").addClass("hide-files");
 			}
 			if (showCount === false) {
-				upload.siblings().first("label").addClass("hide-count");
+				control.siblings().first("label").addClass("hide-count");
 			}
 			if (scrollX) {
-				upload.siblings().first("label").css("overflow-x", "scroll");
-				upload.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+				control.siblings().first("label").css("overflow-x", "scroll");
+				control.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
 			}
 			if (scrollY) {
-				upload.siblings().first("label").css("overflow-y", "scroll");
-				upload.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-				upload.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+				control.siblings().first("label").css("overflow-y", "scroll");
+				control.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+				control.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
 			}
 
-			upload.change(function() {
-				var element = webui(this);
+			control.change(function() {
+				
+				var upload = webui(this);
 		
-				if (element) {
+				if (upload) {
 		
-					element.trigger("ui.upload.change.before");				
-					var label = element.siblings("label").first();
-					if (element.length > 0) {
-						var files = element[0].files;
+					upload.trigger("ui.upload.change.before");				
+					var label = upload.siblings("label").first();
+					if (upload.length > 0) {
+						var files = upload[0].files;
 						if (files != null && files.length > 0) {
 							if (label) {
 								var textValue = "";
@@ -57,13 +55,13 @@
 									textValue += "<br />Files ready.";
 								}
 								label.html(textValue);
-								element.trigger("ui.upload.change.after");
+								upload.trigger("ui.upload.change.after");
 							}
 						} else {
-							if (element.val() !== null && element.val().length > 0) {
+							if (upload.val() !== null && upload.val().length > 0) {
 								if (label) {
-									label.text(element.val().replace("C:\\fakepath\\", ""));
-									element.trigger("ui.upload.change.after");
+									label.text(upload.val().replace("C:\\fakepath\\", ""));
+									upload.trigger("ui.upload.change.after");
 								}
 							}
 						}
