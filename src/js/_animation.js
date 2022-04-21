@@ -86,14 +86,16 @@
         }
       }
 
+      uiElement.css("height", "0");
       uiCurrentHeight = 0;
 
       uiElement.animate("height", 1, uiTargetHeight + targetHeightUnit, uiCurrentHeight, duration, function (el) {
-        el.css("overflow", uiOverflow);
-
+        
         if (isAuto) {
           el.css("height", "auto");
         }
+        el.css("overflow", uiOverflow);
+
         if (args.length === 3 && callback) {
           callback(el);
         }
@@ -132,14 +134,16 @@
         }
       }
 
+      uiElement.css("width", "0");
       uiCurrentWidth = 0;
 
       uiElement.animate("width", 1, uiTargetWidth + targetWidthUnit, uiCurrentWidth, duration, function (el) {
-        el.css("overflow", uiOverflow);
-
+        
         if (isAuto) {
           el.css("width", "auto");
         }
+        el.css("overflow", uiOverflow);
+        
         if (args.length === 3 && callback) {
           callback(el);
         }

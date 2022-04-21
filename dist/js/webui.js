@@ -9,9 +9,6 @@
 (function (win) {
 
 	var
-		_ui = win.ui,
-		_webui = win.webui,
-
 		root = document,
 
 		isObject = function (el) {
@@ -1678,7 +1675,7 @@
 		for (var i = 0; i < this.length; i++) {
 			el = this[i];
 
-			var zIndex = parseInt(getComputedStyle(el));
+			var zIndex = parseInt(getComputedStyle(el).getPropertyValue("z-index"));
 
 			if (isNaN(zIndex)) { 
 				zIndex = 0; 
@@ -2134,7 +2131,6 @@
 	};
 
 	webui.sum = function () {
-		var i;
 		var n = arguments.length;
 		var total = 0;
 		for (var i = 0; i < n; i++) {
@@ -2247,7 +2243,7 @@
         expires = expires * 1e3 * 60 * 60 * 24;
       }
       var expiryDate = new Date(today.getTime() + expires);
-      document.cookie = name + "=" + escape(value) + (expires ? ";expires=" + expiryDate.toGMTString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
+      document.cookie = name + "=" + escape(value) + (expires ? ";expires=" + expiryDate.toUTCString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
       return true;
     } 
     catch (ex) {
@@ -2282,13 +2278,6 @@
 			}
 		}
 		return arguments[0];
-	};
-
-	webui.noConflict = function () {
-		win.ui = _ui;
-		win.webui = _webui;
-
-		return webui;
 	};
 
 

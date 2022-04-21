@@ -71,7 +71,7 @@
 				}
 				if (callback) callback();
 			},
-			resetCarousel = function(carousel, itemCount, isResizeEvent) {
+			resetCarousel = function(carousel, itemCount) {
 
 				if (autoScale) {
 
@@ -313,7 +313,7 @@
 					win.addEventListener("resize", carouselResize);
 
 					function carouselResize() {
-						resetCarousel(carousel, carouselItemCount, true);
+						resetCarousel(carousel, carouselItemCount);
 					};		
 			}
 
