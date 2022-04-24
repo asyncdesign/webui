@@ -83,8 +83,9 @@
 				scrollY: false
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI upload component does not support initialising multiple controls. Initialize a new component instead.") }
 
-			var control = new UploadInstance(this, settings);
+			var control = new UploadInstance(this.first(), settings);
 			
 			return this;
 		},

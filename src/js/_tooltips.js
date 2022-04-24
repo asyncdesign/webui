@@ -442,6 +442,7 @@
 				transitionDuration: 300
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI tooltips component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new TooltipInstance(this, settings);
 

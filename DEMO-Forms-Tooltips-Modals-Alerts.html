@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="text-sm color-accent-5-dark accessibility">
+<body class="text-sm color-accent-5-dark accessibility-accent-1">
 
 
 	<div class="responsive-gutter-xs">
@@ -55,7 +55,7 @@
 			mobile devices. Visual accessibility cues can be applied to focusable controls by adding the accessibility class.)</p>
 
 
-			<div class="container background-primary rounded-sm">
+			<div class="container background-secondary rounded-sm">
 
 				<form>
 					<div class="row-spacing-lg"></div>
@@ -113,11 +113,11 @@
 								<div class="form-col-10 respond-bp-3-under">
 									<div class="tooltip width-full" id="tooltipAddress">
 										
-										<button id="AddressDetails" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm accessibility">Address Details</button>
+										<button id="AddressDetails" type="button" class="button-sm button-accent-2 transition-medium width-full rounded-sm">Address Details</button>
 
 										<div class="tooltip-static tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautohide tooltip-noautosize rounded-md">
 
-											<div class="container background-light color-accent-1 border-md border-dark rounded-md">
+											<div class="container background-light color-accent-1 border-sm border-dark rounded-md">
 												<div class="panel">
 													<div class="move-right">
 														<i class="fa fa-close fa-lg color-accent-1 button-link width-control-sm tooltip-close"></i>
@@ -144,7 +144,7 @@
 															<input id="Postcode" type="text" class="input width-md rounded-sm" />
 														</div>
 														<div class="content-col-10 respond-bp-3-under">
-															<button class="button button-accent-2 rounded-sm move-right accessibility">Save</button>
+															<button class="button button-accent-2 rounded-sm move-right">Save</button>
 														</div>
 													</div>
 													<div class="row-spacing-sm"></div>
@@ -203,7 +203,7 @@
 							<div class="row-spacing-lg"></div>
 							<div class="form-row">
 								<div class="form-col-5 respond-bp-3-under">
-									<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Find Patient</button>
+									<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Find Patient</button>
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
 
@@ -323,9 +323,9 @@
 									</div>
 								</div>
 								<div class="form-col width-md respond-bp-3-under">
-									<div class="content-row">
+									<div class="content-row control-group-disabled">
 										<div class="content-col width-xs-sm">
-											<div class="radio control-disabled">
+											<div class="radio">
 												<input type="radio" value="3" name="sleep" id="radio8" disabled />
 												<label for="radio8"></label>
 											</div>
@@ -370,7 +370,10 @@
 									Address
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
-									<textarea id="GpAddress" rows="3" class="control width-full rounded-sm"></textarea>
+									<div class="control-hint">
+										<textarea id="GpAddress" class="control width-full height-md rounded-sm"></textarea>
+										<label for="GpAddress"> GP Address</label>
+									</div>
 								</div>
 							</div>
 							<div class="form-row">
@@ -392,7 +395,7 @@
 							<div class="row-spacing-lg"></div>
 							<div class="form-row">
 								<div class="form-col-5 respond-bp-3-under">
-									<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Find GP</button>
+									<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Find GP</button>
 								</div>
 								<div class="form-col respond-bp-3-under">
 
@@ -412,8 +415,12 @@
 								<div class="form-col-10 respond-bp-3-under">
 									<div class="tooltip width-full" id="tooltipEnterValues">
 
-										<input id="textURL" type="text" class="input-sm rounded-sm width-full" />
-
+										<div class="control-hint">
+											<input id="textURL" type="text" class="input-md rounded-sm width-full" />
+											<label for="textURL">Enter a valid URL</label>
+										</div>
+	
+										
 										<div class="tooltip-focus tooltip-top tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-lg">
 											<div class="primary border-sm border-accent-4 rounded-md">
 												<div class="panel accent-4 text-bold rounded-top-md place-top-center width-full">
@@ -457,7 +464,7 @@
 
 							<div class="form-row">
 								<div class="form-col-5 respond-bp-2-under">
-									<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Validate</button>
+									<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Validate</button>
 								</div>
 								<div class="form-col respond-bp-2-under">
 
@@ -475,17 +482,17 @@
 							<div class="form-row">
 								<div class="form-col">
 									<div class="tooltip" id="tooltipAboutModals1">
-										<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Modal</button>
+										<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Modal</button>
 										<div class="tooltip-static tooltip-left tooltip-md tooltip-dark rounded-md"></div>							
 									</div>
-									<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Dialog</button>
+									<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Dialog</button>
 								</div>
 							</div>
 		
 							<div class="row-spacing-md"></div>
 							<div class="form-row">
 								<div class="form-col">
-									<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium accessibility">Show Alert</button>
+									<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium">Show Alert</button>
 									<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm transition-medium">Show Toast Item</button>
 									<select id="SelectToastPosition" class="control width-lg-xl">
 										<option value="">Select Toast Position</option>
@@ -513,7 +520,7 @@
 					<div class="form-row responsive-gutter-sm">
 						<div class="form-col-20">
 							<div class="form-col">
-								<button id="Save" type="button" class="button-sm button-disabled rounded-sm accessibility">Save</button>
+								<button id="Save" type="button" class="button-sm button-disabled rounded-sm">Save</button>
 							</div>
 						</div>
 					</div>
@@ -623,8 +630,8 @@
 					</div>
 					<div class="form-row">
 						<div class="flex flex-justify-end gap-horizontal-sm pad-md-lg">
-							<div><button type="button" class="button-sm button-success rounded-md">OK</button></div>
-							<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close">Cancel</button></div>
+							<div><button type="button" class="button-sm button-success rounded-md" id="modal1OkButton">OK</button></div>
+							<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="modal1CancelButton">Cancel</button></div>
 						</div>						
 					</div>
 				</div>
@@ -661,7 +668,7 @@
 				<div class="form-row">
 					<div class="flex flex-justify-end gap-horizontal-sm pad-md-lg">
 						<div><button type="button" class="button-sm button-success rounded-md">OK</button></div>
-						<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close">Cancel</button></div>
+						<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="dialog1CancelButton">Cancel</button></div>
 					</div>						
 				</div>
 			</div>
@@ -778,12 +785,23 @@
 
 			var modal1 = ui("#modal1").modalControl({
 				transitionDuration: 500,
-				closeFromBackdrop: true			
+				closeFromBackdrop: true,
+				disablePageScrolling: true,
+				focusElement: "#modal1CancelButton",
+				focusReturnElement: "#commandShowModal1"		
 			});
+
+			var modal1FocusTrap = ui("#modal1").focusTrapControl({
+				firstFocusElement: "#modal1OkButton",
+				lastFocusElement: "#modal1CancelButton"		
+			});
+
 
 			var dialog1 = ui("#dialog1").modalControl({
 				transitionDuration: 0,
-				closeFromBackdrop: false				
+				closeFromBackdrop: false,
+				disablePageScrolling: false,
+				focusElement: "#dialog1CancelButton"
 			});
 
 			ui("#commandShowModal1").click( function() {

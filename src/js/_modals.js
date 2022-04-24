@@ -9,6 +9,9 @@
 
 		transitionDuration = settings.transitionDuration,
 		closeFromBackdrop = settings.closeFromBackdrop,
+		disablePageScrolling = settings.disablePageScrolling,
+		focusElement = settings.focusElement,
+		focusReturnElement = settings.focusReturnElement,
 
 		showModal = function () {
 	
@@ -22,23 +25,31 @@
 				else {
 					modal.show().trigger("ui.modal.show.after");
 				}
-								
-				var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
-				
-				if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-					webui("body").css("padding-right", scrollShift);
-					webui("body").css("overflow", "hidden");
+					
+				if (disablePageScrolling) {
+					var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+					
+					if (parseFloat(webui("body").css("height")) > win.innerHeight) {
+						webui("body").css("padding-right", scrollShift);
+						webui("body").css("overflow", "hidden");
+					}
 				}
 				
-				var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
-	
-				if (focusEl.length && !focusEl.hasClass("disabled")) {
-					focusEl[0].focus();
-				}	
+				if (focusElement) {
+					var focusEl = modal.find(focusElement).first();
+		
+					if (focusEl && !focusEl.hasClass("disabled")) {
+						focusEl[0].focus();
+					}	
+					else {
+						modal.attr("tabindex", "-1");
+						modal[0].focus();
+					}	
+				}
 				else {
 					modal.attr("tabindex", "-1");
 					modal[0].focus();
-				}	
+				}
 			}
 			return this;
 		},
@@ -51,17 +62,29 @@
 				
 				if (transitionDuration) {
 					modal.fadeOut(transitionDuration, 0, function() {
-						webui("body").css("padding-right", "");
-						webui("body").css("overflow", "");
+						if (disablePageScrolling) {
+							webui("body").css("padding-right", "");
+							webui("body").css("overflow", "");
+						}
 
 						modal.trigger("ui.modal.hide.after");
 					});					
 				}
 				else {
-					webui("body").css("padding-right", "");
-					webui("body").css("overflow", "");
+					if (disablePageScrolling) {
+						webui("body").css("padding-right", "");
+						webui("body").css("overflow", "");
+					}
 					
 					modal.hide().trigger("ui.modal.hide.after");
+				}
+
+				if (focusReturnElement) {
+					var returnEl = webui(focusReturnElement).first();
+
+					if (returnEl && !returnEl.hasClass("disabled")) {
+						returnEl[0].focus();
+					}
 				}
 			}
 			return this;
@@ -97,7 +120,7 @@
 			}
 		});	
 
-		webui(".modal-sm, .modal-md, .modal-lg, .modal-full, .modal-unsized").find(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
+		modal.find(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
 			
 	};
 
@@ -108,10 +131,13 @@
 
 			var settings = ui.extend({			
 				transitionDuration: 300,
-				closeFromBackdrop: false
+				closeFromBackdrop: false,
+				disablePageScrolling: true,
+				focusElement: null,
+				focusReturnElement: null
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ModalInstance(this.first(), settings);
 

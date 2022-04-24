@@ -494,7 +494,7 @@
 			return new fn.o(selector);
 		},
 
-		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/,
+		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:\"\']{1,255})$/,
 		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 		fn = webui.fn = webui.prototype = {
@@ -1351,6 +1351,10 @@
 				}
 		}
 		return this;
+	};
+
+	fn.setFocus = function() {
+		this.first()[0].focus();
 	};
 
 	fn.setState = function (currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
@@ -2330,14 +2334,24 @@
 		}
 	});
 
-	webui(".control-hint > input").focusOut(function() {
+	webui(".control-hint > input").focusIn(function() {
+		ui(this).css("padding-top", "0.7rem");
+		ui(this).siblings("label").css("transform", "scale(0.7) translateY(-135%)");
+	}).focusOut(function() {
 		if (!this.value || !this.value.length) {
 			ui(this).css("padding-top", "0");
 			ui(this).siblings("label").css("transform", "scale(1) translateY(-50%)");
 		}		
-	}).focusIn(function() {
-			ui(this).css("padding-top", "0.6rem");
-			ui(this).siblings("label").css("transform", "scale(0.7) translateY(-125%)");
+	});
+
+	webui(".control-hint > textarea").focusIn(function() {	
+		ui(this).css("padding-top", "1rem");
+		ui(this).siblings("label").css("transform", "scale(0.7)").css("top", "0.5rem").slideVertical("up", "0.3rem", 300);
+	}).focusOut(function() {
+		if (!this.value || !this.value.length) {
+			ui(this).css("padding-top", "0");
+			ui(this).siblings("label").css("transform", "scale(1)").slideVertical("down", "0.3rem", 300);
+		}
 	});
 
 	webui(".toggle-activator").click(function (e) {
@@ -2444,17 +2458,22 @@
 	/* RUN */
 
 	webui.ready (function() {
+
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
+		webui("[class*='toggle-button'] label").attr("tabindex", "0").attr("role", "button");
 		
 		webui(".checkbox.control-disabled label").attr("tabindex", "-1");
 		webui(".radio.control-disabled label").attr("tabindex", "-1");
+		webui("[class*='toggle-button'].control-disabled label").attr("tabindex", "-1");
 		
 		webui(".control-group-disabled .checkbox label").attr("tabindex", "-1");
 		webui(".control-group-disabled .radio label").attr("tabindex", "-1");
+		webui(".control-group-disabled [class*='toggle-button'] label").attr("tabindex", "-1");
 		
 		webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
 		webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
+		
 	});
 
 

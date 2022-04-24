@@ -16,12 +16,15 @@
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
       distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px";
 
+    if (distanceUnit === "rem") {
+      distanceValue = ui.remToPx(distanceValue);
+      distanceUnit = "px";
+    }
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiElement.css("display", "block");
       uiPosition = parseFloat(uiElement.css("top"));
-
       uiDeltaPosition = uiDirection === 1 ? uiPosition : uiPosition - distanceValue;
 
       uiElement.animate("top", uiDirection, distanceValue + distanceUnit, uiDeltaPosition, duration, function (el) {
@@ -40,6 +43,11 @@
       uiDirection = direction.toLowerCase() === "right" ? 1 : 0,
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
       distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px";
+
+    if (distanceUnit === "rem") {
+      distanceValue = ui.remToPx(distanceValue);
+      distanceUnit = "px";
+    }
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);

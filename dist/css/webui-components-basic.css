@@ -1108,11 +1108,6 @@
   text-align: right;
 }
 
-input.upload.accessibility:focus + label {
-  box-shadow: 0 0 0 0.063rem rgb(64, 64, 64);
-  border-color: rgb(64, 64, 64);
-}
-
 .radial {
   padding: 0;
   display: block;
@@ -1185,6 +1180,15 @@ input.upload.accessibility:focus + label {
   position: fixed;
   right: 1.25rem;
   bottom: 1.25rem;
+}
+
+[data-webui-focus-start],
+[data-webui-focus-end] {
+  height: 0 !important;
+  width: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .pointer-top-sm {
@@ -2531,9 +2535,8 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-body,
-button,
 input,
+button,
 select,
 datalist,
 textarea,
@@ -3011,7 +3014,7 @@ svg:not(:root) {
 .button-default:hover {
   background-color: rgb(237, 237, 237);
 }
-.button-default:active {
+.button-default:focus {
   background-color: rgb(237, 237, 237);
 }
 
@@ -3023,7 +3026,7 @@ svg:not(:root) {
 .button-light:hover {
   background-color: rgb(237, 237, 237);
 }
-.button-light:active {
+.button-light:focus {
   background-color: rgb(237, 237, 237);
 }
 
@@ -3035,7 +3038,7 @@ svg:not(:root) {
 .button-dark:hover {
   background-color: rgb(115, 115, 115);
 }
-.button-dark:active {
+.button-dark:focus {
   background-color: rgb(115, 115, 115);
 }
 
@@ -3047,7 +3050,7 @@ svg:not(:root) {
 .button-accent-1:hover {
   background-color: rgb(57, 71, 147);
 }
-.button-accent-1:active {
+.button-accent-1:focus {
   background-color: rgb(57, 71, 147);
 }
 
@@ -3059,7 +3062,7 @@ svg:not(:root) {
 .button-accent-2:hover {
   background-color: rgb(88, 55, 149);
 }
-.button-accent-2:active {
+.button-accent-2:focus {
   background-color: rgb(88, 55, 149);
 }
 
@@ -3071,7 +3074,7 @@ svg:not(:root) {
 .button-accent-3:hover {
   background-color: rgb(135, 55, 149);
 }
-.button-accent-3:active {
+.button-accent-3:focus {
   background-color: rgb(135, 55, 149);
 }
 
@@ -3083,7 +3086,7 @@ svg:not(:root) {
 .button-accent-4:hover {
   background-color: rgb(102, 102, 102);
 }
-.button-accent-4:active {
+.button-accent-4:focus {
   background-color: rgb(102, 102, 102);
 }
 
@@ -3095,7 +3098,7 @@ svg:not(:root) {
 .button-accent-5:hover {
   background-color: rgb(51, 51, 51);
 }
-.button-accent-5:active {
+.button-accent-5:focus {
   background-color: rgb(51, 51, 51);
 }
 
@@ -3107,7 +3110,7 @@ svg:not(:root) {
 .button-success:hover {
   background-color: rgb(61, 143, 64);
 }
-.button-success:active {
+.button-success:focus {
   background-color: rgb(61, 143, 64);
 }
 
@@ -3119,7 +3122,7 @@ svg:not(:root) {
 .button-info:hover {
   background-color: rgb(11, 114, 193);
 }
-.button-info:active {
+.button-info:focus {
   background-color: rgb(11, 114, 193);
 }
 
@@ -3131,7 +3134,7 @@ svg:not(:root) {
 .button-warning:hover {
   background-color: rgb(204, 112, 0);
 }
-.button-warning:active {
+.button-warning:focus {
   background-color: rgb(204, 112, 0);
 }
 
@@ -3143,7 +3146,7 @@ svg:not(:root) {
 .button-danger:hover {
   background-color: rgb(219, 51, 0);
 }
-.button-danger:active {
+.button-danger:focus {
   background-color: rgb(219, 51, 0);
 }
 
@@ -3156,7 +3159,7 @@ svg:not(:root) {
   color: rgb(222, 222, 222);
   border-color: rgb(222, 222, 222);
 }
-.button-transparent:active {
+.button-transparent:focus {
   color: rgb(222, 222, 222);
   border-color: rgb(222, 222, 222);
 }
@@ -3341,95 +3344,6 @@ svg:not(:root) {
   border: 0.078rem solid rgb(237, 237, 237);
 }
 
-.button-default.accessibility:focus,
-.menu-button-default.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(222, 222, 222);
-  background-color: rgb(255, 255, 255);
-  color: rgb(222, 222, 222);
-}
-
-.button-light.accessibility:focus,
-.menu-button-light.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-}
-
-.button-dark.accessibility:focus,
-.menu-button-dark.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-.button-accent-1.accessibility:focus,
-.menu-button-accent-1.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(108, 122, 198);
-  background-color: rgb(255, 255, 255);
-  color: rgb(108, 122, 198);
-}
-
-.button-accent-2.accessibility:focus,
-.menu-button-accent-2.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(139, 106, 200);
-  background-color: rgb(255, 255, 255);
-  color: rgb(139, 106, 200);
-}
-
-.button-accent-3.accessibility:focus,
-.menu-button-accent-3.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(186, 106, 200);
-  background-color: rgb(255, 255, 255);
-  color: rgb(186, 106, 200);
-}
-
-.button-accent-4.accessibility:focus,
-.menu-button-accent-4.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(153, 153, 153);
-  background-color: rgb(255, 255, 255);
-  color: rgb(153, 153, 153);
-}
-
-.button-accent-5.accessibility:focus,
-.menu-button-accent-5.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(102, 102, 102);
-  background-color: rgb(255, 255, 255);
-  color: rgb(102, 102, 102);
-}
-
-.button-success.accessibility:focus,
-.menu-button-success.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(77, 179, 80);
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 179, 80);
-}
-
-.button-info.accessibility:focus,
-.menu-button-info.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(14, 143, 241);
-  background-color: rgb(255, 255, 255);
-  color: rgb(14, 143, 241);
-}
-
-.button-warning.accessibility:focus,
-.menu-button-warning.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(255, 140, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 140, 0);
-}
-
-.button-danger.accessibility:focus,
-.menu-button-danger.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(255, 60, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 60, 0);
-}
-
-.button-transparent.accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(189, 189, 189);
-  color: rgb(189, 189, 189);
-}
-
 .view-button,
 .view-button-sm,
 .view-button-lg {
@@ -3472,10 +3386,6 @@ svg:not(:root) {
   border-color: rgb(237, 237, 237);
 }
 
-.view-button-default.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(237, 237, 237);
-}
-
 .view-button-light {
   color: rgb(255, 255, 255);
   background-color: transparent;
@@ -3485,10 +3395,6 @@ svg:not(:root) {
 .view-button-light:focus {
   color: rgb(237, 237, 237);
   border-color: rgb(237, 237, 237);
-}
-
-.view-button-light.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(237, 237, 237);
 }
 
 .view-button-dark {
@@ -3502,10 +3408,6 @@ svg:not(:root) {
   border-color: rgb(115, 115, 115);
 }
 
-.view-button-dark.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(115, 115, 115);
-}
-
 .view-button-accent-1 {
   color: rgb(108, 122, 198);
   background-color: transparent;
@@ -3515,10 +3417,6 @@ svg:not(:root) {
 .view-button-accent-1:focus {
   color: rgb(57, 71, 147);
   border-color: rgb(57, 71, 147);
-}
-
-.view-button-accent-1.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(57, 71, 147);
 }
 
 .view-button-accent-2 {
@@ -3532,10 +3430,6 @@ svg:not(:root) {
   border-color: rgb(88, 55, 149);
 }
 
-.view-button-accent-2.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(88, 55, 149);
-}
-
 .view-button-accent-3 {
   color: rgb(186, 106, 200);
   background-color: transparent;
@@ -3545,10 +3439,6 @@ svg:not(:root) {
 .view-button-accent-3:focus {
   color: rgb(135, 55, 149);
   border-color: rgb(135, 55, 149);
-}
-
-.view-button-accent-3.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(135, 55, 149);
 }
 
 .view-button-accent-4 {
@@ -3562,10 +3452,6 @@ svg:not(:root) {
   border-color: rgb(102, 102, 102);
 }
 
-.view-button-accent-4.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(102, 102, 102);
-}
-
 .view-button-accent-5 {
   color: rgb(102, 102, 102);
   background-color: transparent;
@@ -3575,10 +3461,6 @@ svg:not(:root) {
 .view-button-accent-5:focus {
   color: rgb(51, 51, 51);
   border-color: rgb(51, 51, 51);
-}
-
-.view-button-accent-5.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(51, 51, 51);
 }
 
 .view-button-success {
@@ -3592,10 +3474,6 @@ svg:not(:root) {
   border-color: rgb(61, 143, 64);
 }
 
-.view-button-success.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(61, 143, 64);
-}
-
 .view-button-info {
   color: rgb(14, 143, 241);
   background-color: transparent;
@@ -3605,10 +3483,6 @@ svg:not(:root) {
 .view-button-info:focus {
   color: rgb(11, 114, 193);
   border-color: rgb(11, 114, 193);
-}
-
-.view-button-info.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(11, 114, 193);
 }
 
 .view-button-warning {
@@ -3622,10 +3496,6 @@ svg:not(:root) {
   border-color: rgb(204, 112, 0);
 }
 
-.view-button-warning.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(204, 112, 0);
-}
-
 .view-button-danger {
   color: rgb(255, 60, 0);
   background-color: transparent;
@@ -3635,10 +3505,6 @@ svg:not(:root) {
 .view-button-danger:focus {
   color: rgb(219, 51, 0);
   border-color: rgb(219, 51, 0);
-}
-
-.view-button-danger.accessibility:focus {
-  box-shadow: inset 0 -0.125rem rgb(219, 51, 0);
 }
 
 .view-button-disabled {
@@ -3657,18 +3523,10 @@ svg:not(:root) {
   padding: 0 0 0.125rem 0;
 }
 
-.view-button-top.accessibility:focus {
-  box-shadow: inset 0 0.125rem;
-}
-
 .view-button-left {
   border: none;
   border-left: 0.125rem solid transparent;
   padding: 0 0 0 0.313rem;
-}
-
-.view-button-left.accessibility:focus {
-  box-shadow: inset 0.125rem 0 0 0;
 }
 
 .view-button-bottom {
@@ -3676,18 +3534,10 @@ svg:not(:root) {
   border-bottom: 0.125rem solid transparent;
 }
 
-.view-button-bottom.accessibility:focus {
-  box-shadow: inset 0 -0.125rem;
-}
-
 .view-button-right {
   border: none;
   border-right: 0.125rem solid transparent;
   padding: 0 0.313rem 0 0;
-}
-
-.view-button-right.accessibility:focus {
-  box-shadow: inset -0.125rem 0 0 0;
 }
 
 *[class*=checkbox] input[type=checkbox],
@@ -3727,22 +3577,6 @@ svg:not(:root) {
   background-size: 75%;
 }
 
-*[class*=checkbox].rounded-sm.accessibility label {
-  border-radius: 0.188rem;
-}
-
-*[class*=checkbox].rounded-md.accessibility label {
-  border-radius: 0.375rem;
-}
-
-*[class*=checkbox].rounded-lg.accessibility label {
-  border-radius: 0.563rem;
-}
-
-*[class*=checkbox].accessibility label:focus {
-  border: 0.125rem solid rgb(64, 64, 64);
-}
-
 .radio {
   width: 1.25rem;
   height: 1.25rem;
@@ -3765,22 +3599,6 @@ svg:not(:root) {
   background-origin: padding-box;
   background-position: center;
   background-size: 47%;
-}
-
-*[class*=radio].rounded-sm.accessibility label {
-  border-radius: 0.188rem;
-}
-
-*[class*=radio].rounded-md.accessibility label {
-  border-radius: 0.375rem;
-}
-
-*[class*=radio].rounded-lg.accessibility label {
-  border-radius: 0.563rem;
-}
-
-*[class*=radio].accessibility label:focus {
-  border: 0.125rem solid rgb(64, 64, 64);
 }
 
 .progress {
@@ -3952,70 +3770,6 @@ svg:not(:root) {
   background-color: rgb(102, 102, 102);
 }
 
-.progress-success > progress {
-  border: 1px solid rgb(77, 179, 80);
-}
-
-.progress-success > progress::-webkit-progress-value {
-  background-color: rgb(77, 179, 80);
-}
-
-.progress-success > progress::-moz-progress-bar {
-  background-color: rgb(77, 179, 80);
-}
-
-.progress-success > progress::-ms-fill {
-  background-color: rgb(77, 179, 80);
-}
-
-.progress-info > progress {
-  border: 1px solid rgb(14, 143, 241);
-}
-
-.progress-info > progress::-webkit-progress-value {
-  background-color: rgb(14, 143, 241);
-}
-
-.progress-info > progress::-moz-progress-bar {
-  background-color: rgb(14, 143, 241);
-}
-
-.progress-info > progress::-ms-fill {
-  background-color: rgb(14, 143, 241);
-}
-
-.progress-warning > progress {
-  border: 1px solid rgb(255, 140, 0);
-}
-
-.progress-warning > progress::-webkit-progress-value {
-  background-color: rgb(255, 140, 0);
-}
-
-.progress-warning > progress::-moz-progress-bar {
-  background-color: rgb(255, 140, 0);
-}
-
-.progress-warning > progress::-ms-fill {
-  background-color: rgb(255, 140, 0);
-}
-
-.progress-danger > progress {
-  border: 1px solid rgb(255, 60, 0);
-}
-
-.progress-danger > progress::-webkit-progress-value {
-  background-color: rgb(255, 60, 0);
-}
-
-.progress-danger > progress::-moz-progress-bar {
-  background-color: rgb(255, 60, 0);
-}
-
-.progress-danger > progress::-ms-fill {
-  background-color: rgb(255, 60, 0);
-}
-
 .progress-disabled > progress {
   border: 1px solid rgb(237, 237, 237);
 }
@@ -4086,6 +3840,10 @@ svg:not(:root) {
   background: rgb(237, 237, 237);
 }
 
+.range:focus::-webkit-slider-runnable-track {
+  background: rgb(199, 199, 199);
+}
+
 .range::-webkit-slider-thumb {
   width: 0.75rem;
   height: 1.25rem;
@@ -4097,6 +3855,10 @@ svg:not(:root) {
 .range::-moz-range-track {
   height: 0.3rem;
   background: rgb(237, 237, 237);
+}
+
+.range:focus::-moz-range-track {
+  background: rgb(199, 199, 199);
 }
 
 .range::-moz-range-thumb {
@@ -4127,6 +3889,11 @@ svg:not(:root) {
   background: rgb(237, 237, 237);
 }
 
+.range:focus::-ms-fill-lower,
+.range:focus::-ms-fill-upper {
+  background: rgb(199, 199, 199);
+}
+
 .range-series {
   display: flex;
   justify-content: space-between;
@@ -4141,18 +3908,23 @@ svg:not(:root) {
   background: rgb(237, 237, 237);
 }
 
+.range-default:focus::-webkit-slider-runnable-track {
+  background: rgb(199, 199, 199);
+}
+
 .range-default::-webkit-slider-thumb {
   background: rgb(222, 222, 222);
 }
 .range-default::-webkit-slider-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-default::-webkit-slider-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-default::-moz-range-track {
   background: rgb(237, 237, 237);
+}
+
+.range-default:focus::-moz-range-track {
+  background: rgb(199, 199, 199);
 }
 
 .range-default::-moz-range-thumb {
@@ -4161,13 +3933,15 @@ svg:not(:root) {
 .range-default::-moz-range-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-default::-moz-range-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-default::-ms-fill-lower,
 .range-default::-ms-fill-upper {
   background: rgb(237, 237, 237);
+}
+
+.range-default:focus::-ms-fill-lower,
+.range-default:focus::-ms-fill-upper {
+  background: rgb(199, 199, 199);
 }
 
 .range-default::-ms-thumb {
@@ -4176,12 +3950,13 @@ svg:not(:root) {
 .range-default::-ms-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-default::-ms-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-light::-webkit-slider-runnable-track {
   background: rgb(255, 255, 255);
+}
+
+.range-light:focus::-webkit-slider-runnable-track {
+  background: rgb(230, 230, 230);
 }
 
 .range-light::-webkit-slider-thumb {
@@ -4190,12 +3965,13 @@ svg:not(:root) {
 .range-light::-webkit-slider-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-light::-webkit-slider-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-light::-moz-range-track {
   background: rgb(255, 255, 255);
+}
+
+.range-light:focus::-moz-range-track {
+  background: rgb(230, 230, 230);
 }
 
 .range-light::-moz-range-thumb {
@@ -4204,13 +3980,15 @@ svg:not(:root) {
 .range-light::-moz-range-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-light::-moz-range-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-light::-ms-fill-lower,
 .range-light::-ms-fill-upper {
   background: rgb(255, 255, 255);
+}
+
+.range-light:focus::-ms-fill-lower,
+.range-light:focus::-ms-fill-upper {
+  background: rgb(230, 230, 230);
 }
 
 .range-light::-ms-thumb {
@@ -4219,256 +3997,280 @@ svg:not(:root) {
 .range-light::-ms-thumb:hover {
   background-color: rgb(237, 237, 237);
 }
-.range-light::-ms-thumb:active {
-  background-color: rgb(237, 237, 237);
-}
 
 .range-dark::-webkit-slider-runnable-track {
+  background: rgb(0, 0, 0);
+}
+
+.range-dark:focus::-webkit-slider-runnable-track {
   background: rgb(115, 115, 115);
 }
 
 .range-dark::-webkit-slider-thumb {
-  background: rgb(0, 0, 0);
+  background: rgb(115, 115, 115);
 }
 .range-dark::-webkit-slider-thumb:hover {
-  background-color: rgb(115, 115, 115);
-}
-.range-dark::-webkit-slider-thumb:active {
-  background-color: rgb(115, 115, 115);
+  background-color: rgb(0, 0, 0);
 }
 
 .range-dark::-moz-range-track {
+  background: rgb(0, 0, 0);
+}
+
+.range-dark:focus::-moz-range-track {
   background: rgb(115, 115, 115);
 }
 
 .range-dark::-moz-range-thumb {
-  background: rgb(0, 0, 0);
+  background: rgb(115, 115, 115);
 }
 .range-dark::-moz-range-thumb:hover {
-  background-color: rgb(115, 115, 115);
-}
-.range-dark::-moz-range-thumb:active {
-  background-color: rgb(115, 115, 115);
+  background-color: rgb(0, 0, 0);
 }
 
 .range-dark::-ms-fill-lower,
 .range-dark::-ms-fill-upper {
+  background: rgb(0, 0, 0);
+}
+
+.range-dark:focus::-ms-fill-lower,
+.range-dark:focus::-ms-fill-upper {
   background: rgb(115, 115, 115);
 }
 
 .range-dark::-ms-thumb {
-  background: rgb(0, 0, 0);
+  background: rgb(115, 115, 115);
 }
 .range-dark::-ms-thumb:hover {
-  background-color: rgb(115, 115, 115);
-}
-.range-dark::-ms-thumb:active {
-  background-color: rgb(115, 115, 115);
+  background-color: rgb(0, 0, 0);
 }
 
 .range-accent-1::-webkit-slider-runnable-track {
-  background: rgb(229, 232, 245);
+  background: rgb(108, 122, 198);
+}
+
+.range-accent-1:focus::-webkit-slider-runnable-track {
+  background: rgb(57, 71, 147);
 }
 
 .range-accent-1::-webkit-slider-thumb {
-  background: rgb(108, 122, 198);
+  background: rgb(57, 71, 147);
 }
 .range-accent-1::-webkit-slider-thumb:hover {
-  background-color: rgb(57, 71, 147);
-}
-.range-accent-1::-webkit-slider-thumb:active {
-  background-color: rgb(57, 71, 147);
+  background-color: rgb(108, 122, 198);
 }
 
 .range-accent-1::-moz-range-track {
-  background: rgb(229, 232, 245);
+  background: rgb(108, 122, 198);
+}
+
+.range-accent-1:focus::-moz-range-track {
+  background: rgb(57, 71, 147);
 }
 
 .range-accent-1::-moz-range-thumb {
-  background: rgb(108, 122, 198);
+  background: rgb(57, 71, 147);
 }
 .range-accent-1::-moz-range-thumb:hover {
-  background-color: rgb(57, 71, 147);
-}
-.range-accent-1::-moz-range-thumb:active {
-  background-color: rgb(57, 71, 147);
+  background-color: rgb(108, 122, 198);
 }
 
 .range-accent-1::-ms-fill-lower,
 .range-accent-1::-ms-fill-upper {
-  background: rgb(229, 232, 245);
+  background: rgb(108, 122, 198);
+}
+
+.range-accent-1:focus::-ms-fill-lower,
+.range-accent-1:focus::-ms-fill-upper {
+  background: rgb(57, 71, 147);
 }
 
 .range-accent-1::-ms-thumb {
-  background: rgb(108, 122, 198);
+  background: rgb(57, 71, 147);
 }
 .range-accent-1::-ms-thumb:hover {
-  background-color: rgb(57, 71, 147);
-}
-.range-accent-1::-ms-thumb:active {
-  background-color: rgb(57, 71, 147);
+  background-color: rgb(108, 122, 198);
 }
 
 .range-accent-2::-webkit-slider-runnable-track {
-  background: rgb(235, 229, 245);
+  background: rgb(139, 106, 200);
+}
+
+.range-accent-2:focus::-webkit-slider-runnable-track {
+  background: rgb(88, 55, 149);
 }
 
 .range-accent-2::-webkit-slider-thumb {
-  background: rgb(139, 106, 200);
+  background: rgb(88, 55, 149);
 }
 .range-accent-2::-webkit-slider-thumb:hover {
-  background-color: rgb(88, 55, 149);
-}
-.range-accent-2::-webkit-slider-thumb:active {
-  background-color: rgb(88, 55, 149);
+  background-color: rgb(139, 106, 200);
 }
 
 .range-accent-2::-moz-range-track {
-  background: rgb(235, 229, 245);
+  background: rgb(139, 106, 200);
+}
+
+.range-accent-2:focus::-moz-range-track {
+  background: rgb(88, 55, 149);
 }
 
 .range-accent-2::-moz-range-thumb {
-  background: rgb(139, 106, 200);
+  background: rgb(88, 55, 149);
 }
 .range-accent-2::-moz-range-thumb:hover {
-  background-color: rgb(88, 55, 149);
-}
-.range-accent-2::-moz-range-thumb:active {
-  background-color: rgb(88, 55, 149);
+  background-color: rgb(139, 106, 200);
 }
 
 .range-accent-2::-ms-fill-lower,
 .range-accent-2::-ms-fill-upper {
-  background: rgb(235, 229, 245);
+  background: rgb(139, 106, 200);
+}
+
+.range-accent-2:focus::-ms-fill-lower,
+.range-accent-2:focus::-ms-fill-upper {
+  background: rgb(88, 55, 149);
 }
 
 .range-accent-2::-ms-thumb {
-  background: rgb(139, 106, 200);
+  background: rgb(88, 55, 149);
 }
 .range-accent-2::-ms-thumb:hover {
-  background-color: rgb(88, 55, 149);
-}
-.range-accent-2::-ms-thumb:active {
-  background-color: rgb(88, 55, 149);
+  background-color: rgb(139, 106, 200);
 }
 
 .range-accent-3::-webkit-slider-runnable-track {
-  background: rgb(243, 229, 245);
+  background: rgb(186, 106, 200);
+}
+
+.range-accent-3:focus::-webkit-slider-runnable-track {
+  background: rgb(135, 55, 149);
 }
 
 .range-accent-3::-webkit-slider-thumb {
-  background: rgb(186, 106, 200);
+  background: rgb(135, 55, 149);
 }
 .range-accent-3::-webkit-slider-thumb:hover {
-  background-color: rgb(135, 55, 149);
-}
-.range-accent-3::-webkit-slider-thumb:active {
-  background-color: rgb(135, 55, 149);
+  background-color: rgb(186, 106, 200);
 }
 
 .range-accent-3::-moz-range-track {
-  background: rgb(243, 229, 245);
+  background: rgb(186, 106, 200);
+}
+
+.range-accent-3:focus::-moz-range-track {
+  background: rgb(135, 55, 149);
 }
 
 .range-accent-3::-moz-range-thumb {
-  background: rgb(186, 106, 200);
+  background: rgb(135, 55, 149);
 }
 .range-accent-3::-moz-range-thumb:hover {
-  background-color: rgb(135, 55, 149);
-}
-.range-accent-3::-moz-range-thumb:active {
-  background-color: rgb(135, 55, 149);
+  background-color: rgb(186, 106, 200);
 }
 
 .range-accent-3::-ms-fill-lower,
 .range-accent-3::-ms-fill-upper {
-  background: rgb(243, 229, 245);
+  background: rgb(186, 106, 200);
+}
+
+.range-accent-3:focus::-ms-fill-lower,
+.range-accent-3:focus::-ms-fill-upper {
+  background: rgb(135, 55, 149);
 }
 
 .range-accent-3::-ms-thumb {
-  background: rgb(186, 106, 200);
+  background: rgb(135, 55, 149);
 }
 .range-accent-3::-ms-thumb:hover {
-  background-color: rgb(135, 55, 149);
-}
-.range-accent-3::-ms-thumb:active {
-  background-color: rgb(135, 55, 149);
+  background-color: rgb(186, 106, 200);
 }
 
 .range-accent-4::-webkit-slider-runnable-track {
-  background: rgb(237, 237, 237);
+  background: rgb(153, 153, 153);
+}
+
+.range-accent-4:focus::-webkit-slider-runnable-track {
+  background: rgb(102, 102, 102);
 }
 
 .range-accent-4::-webkit-slider-thumb {
-  background: rgb(153, 153, 153);
+  background: rgb(102, 102, 102);
 }
 .range-accent-4::-webkit-slider-thumb:hover {
-  background-color: rgb(102, 102, 102);
-}
-.range-accent-4::-webkit-slider-thumb:active {
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(153, 153, 153);
 }
 
 .range-accent-4::-moz-range-track {
-  background: rgb(237, 237, 237);
+  background: rgb(153, 153, 153);
+}
+
+.range-accent-4:focus::-moz-range-track {
+  background: rgb(102, 102, 102);
 }
 
 .range-accent-4::-moz-range-thumb {
-  background: rgb(153, 153, 153);
+  background: rgb(102, 102, 102);
 }
 .range-accent-4::-moz-range-thumb:hover {
-  background-color: rgb(102, 102, 102);
-}
-.range-accent-4::-moz-range-thumb:active {
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(153, 153, 153);
 }
 
 .range-accent-4::-ms-fill-lower,
 .range-accent-4::-ms-fill-upper {
-  background: rgb(237, 237, 237);
+  background: rgb(153, 153, 153);
+}
+
+.range-accent-4:focus::-ms-fill-lower,
+.range-accent-4:focus::-ms-fill-upper {
+  background: rgb(102, 102, 102);
 }
 
 .range-accent-4::-ms-thumb {
-  background: rgb(153, 153, 153);
+  background: rgb(102, 102, 102);
 }
 .range-accent-4::-ms-thumb:hover {
-  background-color: rgb(102, 102, 102);
-}
-.range-accent-4::-ms-thumb:active {
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(153, 153, 153);
 }
 
 .range-accent-5::-webkit-slider-runnable-track {
-  background: rgb(222, 222, 222);
+  background: rgb(102, 102, 102);
+}
+
+.range-accent-5:focus::-webkit-slider-runnable-track {
+  background: rgb(51, 51, 51);
 }
 
 .range-accent-5::-webkit-slider-thumb {
-  background: rgb(102, 102, 102);
+  background: rgb(51, 51, 51);
 }
 .range-accent-5::-webkit-slider-thumb:hover {
-  background-color: rgb(51, 51, 51);
-}
-.range-accent-5::-webkit-slider-thumb:active {
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(102, 102, 102);
 }
 
 .range-accent-5::-moz-range-track {
-  background: rgb(222, 222, 222);
+  background: rgb(102, 102, 102);
+}
+
+.range-accent-5:focus::-moz-range-track {
+  background: rgb(51, 51, 51);
 }
 
 .range-accent-5::-moz-range-thumb {
-  background: rgb(102, 102, 102);
+  background: rgb(51, 51, 51);
 }
 .range-accent-5::-moz-range-thumb:hover {
-  background-color: rgb(51, 51, 51);
-}
-.range-accent-5::-moz-range-thumb:active {
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(102, 102, 102);
 }
 
 .range-accent-5::-ms-fill-lower,
 .range-accent-5::-ms-fill-upper {
-  background: rgb(222, 222, 222);
+  background: rgb(51, 51, 51);
+}
+
+.range-accent-5:focus::-ms-fill-lower,
+.range-accent-5:focus::-ms-fill-upper {
+  background: rgb(26, 26, 26);
 }
 
 .range-accent-5::-ms-thumb {
@@ -4476,181 +4278,6 @@ svg:not(:root) {
 }
 .range-accent-5::-ms-thumb:hover {
   background-color: rgb(51, 51, 51);
-}
-.range-accent-5::-ms-thumb:active {
-  background-color: rgb(51, 51, 51);
-}
-
-.range-success::-webkit-slider-runnable-track {
-  background: rgb(234, 246, 234);
-}
-
-.range-success::-webkit-slider-thumb {
-  background: rgb(77, 179, 80);
-}
-.range-success::-webkit-slider-thumb:hover {
-  background-color: rgb(61, 143, 64);
-}
-.range-success::-webkit-slider-thumb:active {
-  background-color: rgb(61, 143, 64);
-}
-
-.range-success::-moz-range-track {
-  background: rgb(234, 246, 234);
-}
-
-.range-success::-moz-range-thumb {
-  background: rgb(77, 179, 80);
-}
-.range-success::-moz-range-thumb:hover {
-  background-color: rgb(61, 143, 64);
-}
-.range-success::-moz-range-thumb:active {
-  background-color: rgb(61, 143, 64);
-}
-
-.range-success::-ms-fill-lower,
-.range-success::-ms-fill-upper {
-  background: rgb(234, 246, 234);
-}
-
-.range-success::-ms-thumb {
-  background: rgb(77, 179, 80);
-}
-.range-success::-ms-thumb:hover {
-  background-color: rgb(61, 143, 64);
-}
-.range-success::-ms-thumb:active {
-  background-color: rgb(61, 143, 64);
-}
-
-.range-info::-webkit-slider-runnable-track {
-  background: rgb(226, 242, 253);
-}
-
-.range-info::-webkit-slider-thumb {
-  background: rgb(14, 143, 241);
-}
-.range-info::-webkit-slider-thumb:hover {
-  background-color: rgb(11, 114, 193);
-}
-.range-info::-webkit-slider-thumb:active {
-  background-color: rgb(11, 114, 193);
-}
-
-.range-info::-moz-range-track {
-  background: rgb(226, 242, 253);
-}
-
-.range-info::-moz-range-thumb {
-  background: rgb(14, 143, 241);
-}
-.range-info::-moz-range-thumb:hover {
-  background-color: rgb(11, 114, 193);
-}
-.range-info::-moz-range-thumb:active {
-  background-color: rgb(11, 114, 193);
-}
-
-.range-info::-ms-fill-lower,
-.range-info::-ms-fill-upper {
-  background: rgb(226, 242, 253);
-}
-
-.range-info::-ms-thumb {
-  background: rgb(14, 143, 241);
-}
-.range-info::-ms-thumb:hover {
-  background-color: rgb(11, 114, 193);
-}
-.range-info::-ms-thumb:active {
-  background-color: rgb(11, 114, 193);
-}
-
-.range-warning::-webkit-slider-runnable-track {
-  background: rgb(255, 241, 224);
-}
-
-.range-warning::-webkit-slider-thumb {
-  background: rgb(255, 140, 0);
-}
-.range-warning::-webkit-slider-thumb:hover {
-  background-color: rgb(204, 112, 0);
-}
-.range-warning::-webkit-slider-thumb:active {
-  background-color: rgb(204, 112, 0);
-}
-
-.range-warning::-moz-range-track {
-  background: rgb(255, 241, 224);
-}
-
-.range-warning::-moz-range-thumb {
-  background: rgb(255, 140, 0);
-}
-.range-warning::-moz-range-thumb:hover {
-  background-color: rgb(204, 112, 0);
-}
-.range-warning::-moz-range-thumb:active {
-  background-color: rgb(204, 112, 0);
-}
-
-.range-warning::-ms-fill-lower,
-.range-warning::-ms-fill-upper {
-  background: rgb(255, 241, 224);
-}
-
-.range-warning::-ms-thumb {
-  background: rgb(255, 140, 0);
-}
-.range-warning::-ms-thumb:hover {
-  background-color: rgb(204, 112, 0);
-}
-.range-warning::-ms-thumb:active {
-  background-color: rgb(204, 112, 0);
-}
-
-.range-danger::-webkit-slider-runnable-track {
-  background: rgb(255, 232, 224);
-}
-
-.range-danger::-webkit-slider-thumb {
-  background: rgb(255, 60, 0);
-}
-.range-danger::-webkit-slider-thumb:hover {
-  background-color: rgb(219, 51, 0);
-}
-.range-danger::-webkit-slider-thumb:active {
-  background-color: rgb(219, 51, 0);
-}
-
-.range-danger::-moz-range-track {
-  background: rgb(255, 232, 224);
-}
-
-.range-danger::-moz-range-thumb {
-  background: rgb(255, 60, 0);
-}
-.range-danger::-moz-range-thumb:hover {
-  background-color: rgb(219, 51, 0);
-}
-.range-danger::-moz-range-thumb:active {
-  background-color: rgb(219, 51, 0);
-}
-
-.range-danger::-ms-fill-lower,
-.range-danger::-ms-fill-upper {
-  background: rgb(255, 232, 224);
-}
-
-.range-danger::-ms-thumb {
-  background: rgb(255, 60, 0);
-}
-.range-danger::-ms-thumb:hover {
-  background-color: rgb(219, 51, 0);
-}
-.range-danger::-ms-thumb:active {
-  background-color: rgb(219, 51, 0);
 }
 
 .range-disabled::-webkit-slider-runnable-track {
@@ -4884,83 +4511,6 @@ svg:not(:root) {
   border: 0.078rem solid rgb(237, 237, 237);
 }
 
-.toggle-button-default.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(222, 222, 222);
-  background-color: rgb(255, 255, 255);
-  color: rgb(222, 222, 222);
-}
-
-.toggle-button-light.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-}
-
-.toggle-button-dark.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-.toggle-button-accent-1.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(108, 122, 198);
-  background-color: rgb(255, 255, 255);
-  color: rgb(108, 122, 198);
-}
-
-.toggle-button-accent-2.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(139, 106, 200);
-  background-color: rgb(255, 255, 255);
-  color: rgb(139, 106, 200);
-}
-
-.toggle-button-accent-3.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(186, 106, 200);
-  background-color: rgb(255, 255, 255);
-  color: rgb(186, 106, 200);
-}
-
-.toggle-button-accent-4.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(153, 153, 153);
-  background-color: rgb(255, 255, 255);
-  color: rgb(153, 153, 153);
-}
-
-.toggle-button-accent-5.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(102, 102, 102);
-  background-color: rgb(255, 255, 255);
-  color: rgb(102, 102, 102);
-}
-
-.toggle-button-success.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(77, 179, 80);
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 179, 80);
-}
-
-.toggle-button-info.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(14, 143, 241);
-  background-color: rgb(255, 255, 255);
-  color: rgb(14, 143, 241);
-}
-
-.toggle-button-warning.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(255, 140, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 140, 0);
-}
-
-.toggle-button-danger.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(255, 60, 0);
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 60, 0);
-}
-
-.toggle-button-transparent.accessibility:focus label {
-  box-shadow: 0 0 0 0.063rem rgb(189, 189, 189);
-  color: rgb(189, 189, 189);
-}
-
 *[class*=toggle-switch-] {
   position: relative;
   display: flex;
@@ -4995,7 +4545,6 @@ svg:not(:root) {
 *[class*=toggle-switch-] label {
   position: absolute;
   top: 10%;
-  left: 0.2rem;
   height: 80%;
   z-index: 1;
   border-radius: inherit;
@@ -5054,22 +4603,27 @@ svg:not(:root) {
 }
 
 .toggle-switch-xs label {
+  left: 0.2rem;
   width: 2rem;
 }
 
 .toggle-switch-sm label {
+  left: 0.2rem;
   width: 2.2rem;
 }
 
 .toggle-switch-md label {
+  left: 0.2rem;
   width: 2.4rem;
 }
 
 .toggle-switch-lg label {
+  left: 0.3rem;
   width: 2.6rem;
 }
 
 .toggle-switch-xl label {
+  left: 0.3rem;
   width: 2.8rem;
 }
 
@@ -5232,19 +4786,6 @@ svg:not(:root) {
   border: 0.078rem solid rgb(255, 60, 0);
 }
 
-a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-button-link]):not(.control-disabled).accessibility:focus,
-.accessibility a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-button-link]):not(.control-disabled):focus {
-  box-shadow: 0 0 0 0.125rem rgb(64, 64, 64);
-}
-
-.control:not(.control-disabled).accessibility:focus,
-*[class*=input]:not(.control-disabled).accessibility:focus,
-.accessibility .control:not(.control-disabled):focus,
-.accessibility *[class*=input]:not(.control-disabled):focus {
-  box-shadow: 0 0 0 0.063rem rgb(64, 64, 64);
-  border-color: rgb(64, 64, 64);
-}
-
 .control-group-success label:not(.control-disabled),
 .control-group-success *[class*=text]:not(.control-disabled),
 .control-group-success *[class*=control-label]:not(.control-disabled) {
@@ -5280,20 +4821,6 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
 .control-group-success :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
 .control-group-success .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
-}
-
-.control-success:not(.control-disabled).accessibility:focus,
-.control-group-success .control:not(.control-disabled).accessibility:focus,
-.control-group-success *[class*=input]:not(.control-disabled).accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(77, 179, 80);
-  border-color: rgb(77, 179, 80);
-}
-
-*[class*=checkbox].control-success.accessibility label:focus,
-*[class*=radio].control-success.accessibility label:focus,
-.control-group-success *[class*=checkbox].accessibility label:focus,
-.control-group-success *[class*=radio].accessibility label:focus {
-  border: 0.125rem solid rgb(77, 179, 80);
 }
 
 .control-group-info label:not(.control-disabled),
@@ -5333,20 +4860,6 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-info:not(.control-disabled).accessibility:focus,
-.control-group-info .control:not(.control-disabled).accessibility:focus,
-.control-group-info *[class*=input]:not(.control-disabled).accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(14, 143, 241);
-  border-color: rgb(14, 143, 241);
-}
-
-*[class*=checkbox].control-info.accessibility label:focus,
-*[class*=radio].control-info.accessibility label:focus,
-.control-group-info *[class*=checkbox].accessibility label:focus,
-.control-group-info *[class*=radio].accessibility label:focus {
-  border: 0.125rem solid rgb(14, 143, 241);
-}
-
 .control-group-warning label:not(.control-disabled),
 .control-group-warning *[class*=text]:not(.control-disabled),
 .control-group-warning *[class*=control-label]:not(.control-disabled) {
@@ -5382,20 +4895,6 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
 .control-group-warning :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
 .control-group-warning .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
-}
-
-.control-warning:not(.control-disabled).accessibility:focus,
-.control-group-warning .control:not(.control-disabled).accessibility:focus,
-.control-group-warning *[class*=input]:not(.control-disabled).accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(255, 140, 0);
-  border-color: rgb(255, 140, 0);
-}
-
-*[class*=checkbox].control-warning.accessibility label:focus,
-*[class*=radio].control-warning.accessibility label:focus,
-.control-group-warning *[class*=checkbox].accessibility label:focus,
-.control-group-warning *[class*=radio].accessibility label:focus {
-  border: 0.125rem solid rgb(255, 140, 0);
 }
 
 .control-group-danger label:not(.control-disabled),
@@ -5435,25 +4934,6 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-danger:not(.control-disabled).accessibility:focus,
-.control-group-danger .control:not(.control-disabled).accessibility:focus,
-.control-group-danger *[class*=input]:not(.control-disabled).accessibility:focus {
-  box-shadow: 0 0 0 0.063rem rgb(255, 60, 0);
-  border-color: rgb(255, 60, 0);
-}
-
-*[class*=checkbox].control-danger.accessibility label:focus,
-*[class*=radio].control-danger.accessibility label:focus,
-.control-group-danger *[class*=checkbox].accessibility label:focus,
-.control-group-danger *[class*=radio].accessibility label:focus {
-  border: 0.125rem solid rgb(255, 60, 0);
-}
-
-.accessibility *[class*=checkbox] label:focus,
-.accessibility *[class*=radio] label:focus {
-  border: 0.125rem solid rgb(64, 64, 64);
-}
-
 .control-disabled:not([class*=checkbox]):not([class*=radio]),
 .control-group-disabled .control,
 .control-group-disabled *[class*=input] {
@@ -5479,16 +4959,6 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
   background-image: none !important;
   background-color: rgb(237, 237, 237) !important;
   border-color: rgb(237, 237, 237) !important;
-}
-
-.control-disabled.accessibility:focus,
-.control-group-disabled .control.accessibility:focus,
-.control-group-disabled *[class*=input].accessibility:focus,
-*[class*=checkbox].control-disabled.accessibility label:focus,
-*[class*=radio].control-disabled.accessibility label:focus,
-.control-group-disabled *[class*=checkbox].accessibility label:focus,
-.control-group-disabled *[class*=radio].accessibility label:focus {
-  box-shadow: none !important;
 }
 
 .control-block {
@@ -5522,13 +4992,24 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
   position: relative;
 }
 
-.control-hint > label {
+.control-hint > input + label {
   position: absolute;
   left: 0.7rem;
   top: 50%;
   opacity: 0.4;
   transform-origin: 0 0;
   transform: translate(0, -50%);
+  transition: transform 0.5s ease-in-out;
+  pointer-events: none;
+  border: none;
+}
+
+.control-hint > textarea + label {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.5rem;
+  opacity: 0.4;
+  transform-origin: 0 0;
   transition: transform 0.5s ease-in-out;
   pointer-events: none;
   border: none;
@@ -5544,6 +5025,176 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
 
 .control-hint > input::placeholder {
   color: transparent;
+}
+
+.accessibility a:not([disabled]):focus,
+.accessibility *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility *[class*=input]:not([disabled]):focus,
+.accessibility *[class*=button]:not([disabled]):focus,
+.accessibility *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility .control:not([disabled]):focus,
+.accessibility .upload:not([disabled]):focus + label {
+  box-shadow: 0 0 0 0.125rem rgb(199, 199, 199);
+  border-color: rgb(199, 199, 199);
+}
+.accessibility a:not([disabled]):focus.group-item,
+.accessibility *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility *[class*=input]:not([disabled]):focus.group-item,
+.accessibility *[class*=button]:not([disabled]):focus.group-item,
+.accessibility *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility .control:not([disabled]):focus.group-item,
+.accessibility .upload:not([disabled]):focus + label.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-light a:not([disabled]):focus,
+.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-light *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-light *[class*=input]:not([disabled]):focus,
+.accessibility-light *[class*=button]:not([disabled]):focus,
+.accessibility-light *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-light .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(222, 222, 222);
+  border-color: rgb(222, 222, 222);
+}
+.accessibility-light a:not([disabled]):focus.group-item,
+.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-light *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-light *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-light *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-light *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-light .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-dark a:not([disabled]):focus,
+.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*=input]:not([disabled]):focus,
+.accessibility-dark *[class*=button]:not([disabled]):focus,
+.accessibility-dark *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-dark .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(77, 77, 77);
+  border-color: rgb(77, 77, 77);
+}
+.accessibility-dark a:not([disabled]):focus.group-item,
+.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-dark *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-dark *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-accent-1 a:not([disabled]):focus,
+.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*=input]:not([disabled]):focus,
+.accessibility-accent-1 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-1 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-1 .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(108, 122, 198);
+  border-color: rgb(108, 122, 198);
+}
+.accessibility-accent-1 a:not([disabled]):focus.group-item,
+.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-accent-1 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-1 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-accent-2 a:not([disabled]):focus,
+.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*=input]:not([disabled]):focus,
+.accessibility-accent-2 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-2 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-2 .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(139, 106, 200);
+  border-color: rgb(139, 106, 200);
+}
+.accessibility-accent-2 a:not([disabled]):focus.group-item,
+.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-accent-2 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-2 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-accent-3 a:not([disabled]):focus,
+.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*=input]:not([disabled]):focus,
+.accessibility-accent-3 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-3 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-3 .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(186, 106, 200);
+  border-color: rgb(186, 106, 200);
+}
+.accessibility-accent-3 a:not([disabled]):focus.group-item,
+.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-accent-3 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-3 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-accent-4 a:not([disabled]):focus,
+.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*=input]:not([disabled]):focus,
+.accessibility-accent-4 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-4 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-4 .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(153, 153, 153);
+  border-color: rgb(153, 153, 153);
+}
+.accessibility-accent-4 a:not([disabled]):focus.group-item,
+.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-accent-4 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-4 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+.accessibility-accent-5 a:not([disabled]):focus,
+.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*=input]:not([disabled]):focus,
+.accessibility-accent-5 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-5 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-5 .control:not([disabled]):focus {
+  box-shadow: 0 0 0 0.125rem rgb(102, 102, 102);
+  border-color: rgb(102, 102, 102);
+}
+.accessibility-accent-5 a:not([disabled]):focus.group-item,
+.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 *[class*=input]:not([disabled]):focus.group-item,
+.accessibility-accent-5 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-5 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
 }
 
 .width-auto {
@@ -7583,6 +7234,10 @@ a:not([class*=button-link]):not([class*=view-button-link]):not([class*=menu-butt
   overflow: scroll;
   position: absolute;
   top: -9999px;
+}
+
+[disabled] {
+  cursor: not-allowed;
 }
 
 .translucent {

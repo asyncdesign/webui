@@ -232,7 +232,7 @@
 				smallDeviceExpansion: "overlay"
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new NavbarInstance(this.first(), settings);
 

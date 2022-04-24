@@ -3,11 +3,6 @@
 
 	/* PRIVATE */
 
-	var 
-	
-		zoomFactor = 1.05,
-		trigger = "hover",
-		transitionDuration = 500;
 
 
 	/* PUBLIC */
@@ -21,9 +16,6 @@
 				transitionDuration: 500
 			}, options);
 
-			zoomFactor = settings.zoomFactor;
-			trigger = settings.trigger;
-			transitionDuration = settings.transitionDuration;
 
 			var controls = this;
 
@@ -31,19 +23,19 @@
 
 				var control = webui(controls[i]);
 				
-				control.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+				control.css("transition", "all " + settings.transitionDuration / 1e3 + "s ease-in");
 
-				if (trigger === "hover") {
+				if (settings.trigger === "hover") {
 					control.hoverIn(function (e) {
-						webui(this).css("transform", "scale(" + zoomFactor + ")");
+						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
 					});
 					control.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
-				else if (trigger === "focus") {
+				else if (settings.trigger === "focus") {
 					control.focus(function (e) {
-						webui(this).css("transform", "scale(" + zoomFactor + ")");
+						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
 					});
 					control.blur(function (e) {
 						webui(this).css("transform", "scale(1)");

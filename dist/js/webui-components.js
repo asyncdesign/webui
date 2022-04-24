@@ -494,7 +494,7 @@
 			return new fn.o(selector);
 		},
 
-		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:]{1,255})$/,
+		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:\"\']{1,255})$/,
 		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 		fn = webui.fn = webui.prototype = {
@@ -1351,6 +1351,10 @@
 				}
 		}
 		return this;
+	};
+
+	fn.setFocus = function() {
+		this.first()[0].focus();
 	};
 
 	fn.setState = function (currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
@@ -2330,14 +2334,24 @@
 		}
 	});
 
-	webui(".control-hint > input").focusOut(function() {
+	webui(".control-hint > input").focusIn(function() {
+		ui(this).css("padding-top", "0.7rem");
+		ui(this).siblings("label").css("transform", "scale(0.7) translateY(-135%)");
+	}).focusOut(function() {
 		if (!this.value || !this.value.length) {
 			ui(this).css("padding-top", "0");
 			ui(this).siblings("label").css("transform", "scale(1) translateY(-50%)");
 		}		
-	}).focusIn(function() {
-			ui(this).css("padding-top", "0.6rem");
-			ui(this).siblings("label").css("transform", "scale(0.7) translateY(-125%)");
+	});
+
+	webui(".control-hint > textarea").focusIn(function() {	
+		ui(this).css("padding-top", "1rem");
+		ui(this).siblings("label").css("transform", "scale(0.7)").css("top", "0.5rem").slideVertical("up", "0.3rem", 300);
+	}).focusOut(function() {
+		if (!this.value || !this.value.length) {
+			ui(this).css("padding-top", "0");
+			ui(this).siblings("label").css("transform", "scale(1)").slideVertical("down", "0.3rem", 300);
+		}
 	});
 
 	webui(".toggle-activator").click(function (e) {
@@ -2444,17 +2458,22 @@
 	/* RUN */
 
 	webui.ready (function() {
+
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
+		webui("[class*='toggle-button'] label").attr("tabindex", "0").attr("role", "button");
 		
 		webui(".checkbox.control-disabled label").attr("tabindex", "-1");
 		webui(".radio.control-disabled label").attr("tabindex", "-1");
+		webui("[class*='toggle-button'].control-disabled label").attr("tabindex", "-1");
 		
 		webui(".control-group-disabled .checkbox label").attr("tabindex", "-1");
 		webui(".control-group-disabled .radio label").attr("tabindex", "-1");
+		webui(".control-group-disabled [class*='toggle-button'] label").attr("tabindex", "-1");
 		
 		webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
 		webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");
+		
 	});
 
 
@@ -2658,7 +2677,7 @@
 				showClose: true
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new AlertInstance(this.first(), settings);
 
@@ -2771,12 +2790,15 @@
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
       distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px";
 
+    if (distanceUnit === "rem") {
+      distanceValue = ui.remToPx(distanceValue);
+      distanceUnit = "px";
+    }
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiElement.css("display", "block");
       uiPosition = parseFloat(uiElement.css("top"));
-
       uiDeltaPosition = uiDirection === 1 ? uiPosition : uiPosition - distanceValue;
 
       uiElement.animate("top", uiDirection, distanceValue + distanceUnit, uiDeltaPosition, duration, function (el) {
@@ -2795,6 +2817,11 @@
       uiDirection = direction.toLowerCase() === "right" ? 1 : 0,
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
       distanceUnit = args.length > 1 ? ui.getUnitFromCssSize(distance) : "px";
+
+    if (distanceUnit === "rem") {
+      distanceValue = ui.remToPx(distanceValue);
+      distanceUnit = "px";
+    }
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
@@ -3460,7 +3487,7 @@
 				height: "400px"
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI carousel component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI carousel component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new CarouselInstance(this.first(), settings);
 
@@ -3492,6 +3519,66 @@
 
 })(window);
 		
+
+(function (win) {
+
+	/* PRIVATE */
+
+
+
+	/* PUBLIC */
+
+	Object.defineProperty(webui.prototype, "focusTrapControl", {
+		value: function (options) {
+
+			var settings = ui.extend({
+				firstFocusElement: null,
+				lastFocusElement: null
+			}, options);
+
+
+			if (this.length > 1) { console.warn("WebUI focusTrap component does not support initialising multiple controls. Initialize a new component instead.") }
+
+			var context = this.first();
+							
+			var firstFocusEl = context.find(settings.firstFocusElement).first();
+			var lastFocusEl = context.find(settings.lastFocusElement).first();
+
+			if (firstFocusEl.length && lastFocusEl.length) {
+
+				var focusStart = context.find("[data-webui-focus-start]").first();
+				var focusEnd = context.find("[data-webui-focus-end]").first();
+
+				if (!focusStart.length) {
+					context.append("<div tabindex='0' data-webui-focus-start></div>", true);
+				}
+				if (!focusEnd.length) {
+					context.append("<div tabindex='0' data-webui-focus-end></div>");
+				}
+
+				focusStart = context.find("[data-webui-focus-start]").first();
+				if (focusStart.length) {
+					focusStart.focusIn(function() {
+						lastFocusEl.setFocus();
+					});
+					focusEnd = context.find("[data-webui-focus-end]").first();
+					if (focusEnd.length) {
+						focusEnd.focusIn(function() {
+							firstFocusEl.setFocus();
+						});
+					}
+				}
+
+			}
+
+
+			return this;
+		},
+		enumerable: false
+
+	});
+
+})(window);
 
 (function (win) {
 	
@@ -3703,7 +3790,7 @@
 				transitionType: "fade"
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI menu component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI menu component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new MenuInstance(this.first(), settings);
 
@@ -3728,6 +3815,9 @@
 
 		transitionDuration = settings.transitionDuration,
 		closeFromBackdrop = settings.closeFromBackdrop,
+		disablePageScrolling = settings.disablePageScrolling,
+		focusElement = settings.focusElement,
+		focusReturnElement = settings.focusReturnElement,
 
 		showModal = function () {
 	
@@ -3741,23 +3831,31 @@
 				else {
 					modal.show().trigger("ui.modal.show.after");
 				}
-								
-				var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
-				
-				if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-					webui("body").css("padding-right", scrollShift);
-					webui("body").css("overflow", "hidden");
+					
+				if (disablePageScrolling) {
+					var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+					
+					if (parseFloat(webui("body").css("height")) > win.innerHeight) {
+						webui("body").css("padding-right", scrollShift);
+						webui("body").css("overflow", "hidden");
+					}
 				}
 				
-				var focusEl = modal.find("input:not([type=hidden]), input:not([type=button]), input:not([type=submit]), input:not([type=reset]), input:not([type=image]), textarea, select");
-	
-				if (focusEl.length && !focusEl.hasClass("disabled")) {
-					focusEl[0].focus();
-				}	
+				if (focusElement) {
+					var focusEl = modal.find(focusElement).first();
+		
+					if (focusEl && !focusEl.hasClass("disabled")) {
+						focusEl[0].focus();
+					}	
+					else {
+						modal.attr("tabindex", "-1");
+						modal[0].focus();
+					}	
+				}
 				else {
 					modal.attr("tabindex", "-1");
 					modal[0].focus();
-				}	
+				}
 			}
 			return this;
 		},
@@ -3770,17 +3868,29 @@
 				
 				if (transitionDuration) {
 					modal.fadeOut(transitionDuration, 0, function() {
-						webui("body").css("padding-right", "");
-						webui("body").css("overflow", "");
+						if (disablePageScrolling) {
+							webui("body").css("padding-right", "");
+							webui("body").css("overflow", "");
+						}
 
 						modal.trigger("ui.modal.hide.after");
 					});					
 				}
 				else {
-					webui("body").css("padding-right", "");
-					webui("body").css("overflow", "");
+					if (disablePageScrolling) {
+						webui("body").css("padding-right", "");
+						webui("body").css("overflow", "");
+					}
 					
 					modal.hide().trigger("ui.modal.hide.after");
+				}
+
+				if (focusReturnElement) {
+					var returnEl = webui(focusReturnElement).first();
+
+					if (returnEl && !returnEl.hasClass("disabled")) {
+						returnEl[0].focus();
+					}
 				}
 			}
 			return this;
@@ -3816,7 +3926,7 @@
 			}
 		});	
 
-		webui(".modal-sm, .modal-md, .modal-lg, .modal-full, .modal-unsized").find(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
+		modal.find(".modal-scroll-body").css("margin-right", -(ui.getScrollbarWidth() + 1) + "px");
 			
 	};
 
@@ -3827,10 +3937,13 @@
 
 			var settings = ui.extend({			
 				transitionDuration: 300,
-				closeFromBackdrop: false
+				closeFromBackdrop: false,
+				disablePageScrolling: true,
+				focusElement: null,
+				focusReturnElement: null
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ModalInstance(this.first(), settings);
 
@@ -4084,7 +4197,7 @@
 				smallDeviceExpansion: "overlay"
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new NavbarInstance(this.first(), settings);
 
@@ -4102,11 +4215,6 @@
 	
 	/* PRIVATE */
 
-	var
-
-		transitionDuration = 300, 
-		backgroundColor = "#BDBDBD", 
-		color = "#000000";
 
 	
 	/* PUBLIC */
@@ -4120,10 +4228,6 @@
 				color: "#000000"
 			}, options);
 
-			transitionDuration = settings.transitionDuration;
-			backgroundColor = settings.backgroundColor;
-			color = settings.color;
-
 			var controls = this;
 
 			for (var i = 0; i < controls.length; i++) {
@@ -4131,10 +4235,10 @@
 				var control = webui(controls[i]);
 
 				control.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
-				control.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
+				control.find(".nav-button-item").css("display", "block").css("transition-duration", settings.transitionDuration / 1000 + "s");
 
-				control.css("background-color", backgroundColor);
-				control.find(".nav-button-item").css("background-color", color);	
+				control.css("background-color", settings.backgroundColor);
+				control.find(".nav-button-item").css("background-color", settings.color);	
 			}	
 			
 			return this;
@@ -4154,11 +4258,7 @@
 	/* PRIVATE */
 
 	var
-		zoomFactor = 1,
-		mode = "full",
-		responsive = true,
-		transitionDuration = 1000,
-		
+
 		resetRadial = function(el, params) {
 
 			var radialWidth = el.offsetWidth;
@@ -4210,12 +4310,6 @@
 				transitionDuration: 300
 			}, options);
 
-			zoomFactor = settings.zoomFactor;
-			mode = settings.mode;
-			responsive = settings.responsive;
-			transitionDuration = settings.transitionDuration;
-
-
 			var controls = webui(this);
 
 			for (var i = 0; i < controls.length; i++) {
@@ -4223,7 +4317,7 @@
 				var radialWidth = controls[i].offsetWidth;
 				var radialHeight = controls[i].offsetHeight;
 
-				var radialContent = webui(controls[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1000 + "s ease-out");
+				var radialContent = webui(controls[i]).find(".radial-content").css("transition", "all " + settings.transitionDuration / 1000 + "s ease-out");
 						
 				var radialItems = radialContent.find(".radial-item");
 
@@ -4241,7 +4335,7 @@
 					default: if (radialItems.length > 11) { sliceFactor = 1.833 + ((radialItems.length - 12) * 0.008); } else { sliceFactor = 1; } break;
 				}
 
-				var radialSlice = mode === "top" ? -sliceFactor : mode === "bottom" ? sliceFactor : 1;
+				var radialSlice = settings.mode === "top" ? -sliceFactor : settings.mode === "bottom" ? sliceFactor : 1;
 		
 
 				for (var j = 0; j < radialItems.length; j++) {
@@ -4250,14 +4344,14 @@
 					var radialItemWidth = parseFloat(radialItem.css("width"));
 					var radialItemHeight = parseFloat(radialItem.css("height"));
 				
-					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
-					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
+					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / settings.zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
+					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / settings.zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
 					radialItem.css("left", radialLeft);
 					radialItem.css("top", radialTop);
 				}
 				
-				if (responsive) {
-					webui(controls[i]).resizeElement(resetRadial, {zoomFactor: zoomFactor, mode: mode, transitionDuration: transitionDuration});
+				if (settings.responsive) {
+					webui(controls[i]).resizeElement(resetRadial, {zoomFactor: settings.zoomFactor, mode: settings.mode, transitionDuration: settings.transitionDuration});
 				}
 			}
 
@@ -4765,87 +4859,136 @@
 		
 	/* PRIVATE */
 
-	var 
-		transitionDuration,
-		transitionType,
+	var TabsInstance = function(tabs, settings) {
 
-		selectTab = function (tabAcivator) {
+		var 
+			transitionDuration = settings.transitionDuration,
+			transitionType = settings.transitionType,
 
-			var tabId = tabAcivator.attr("href");
-			if (!tabId) {
-				tabId = tabAcivator.data("target");
-			}
-			var prevTabId = tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
-			var curTabId = tabId.replace("#", "");
+			selectTab = function (tabAcivator) {
 
-			tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
+				var tabId = tabAcivator.data("target");
 
-			tabAcivator.trigger("ui.tabs.change.before", [ "#" + prevTabId, "#" + curTabId ]);
+				if (tabId) {
 
-			var activeTab = tabAcivator.parents(".tabs").find(tabId);
-			
-			if (transitionType === "fade") {
-				activeTab.show().children().fadeIn(transitionDuration);
-			}
-			else if (transitionType === "collapse") {
-				activeTab.expandVertical(transitionDuration, "auto");
-			}
-			else {
-				activeTab.show();
-			}
+					var prevTabId = "#" + tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
 
-			
-			activeTab.addClass("selected");
+					tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
 
-			if (transitionType === "fade") {
-				activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-				
-				activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
-			}
-			else if (transitionType === "collapse") {
-				activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
-				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+					tabAcivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
 
-				activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");						
-			}
-			else {
-				activeTab.siblings(".tab-item").hide();			
-				activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
-				activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
-				activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
-				
-				activeTab.find(".tabs").find(".tab-item").first().show();									
-			}
-			
-			tabAcivator.trigger("ui.tabs.change.after", [ "#" + prevTabId, "#" + curTabId ]);
-		},
+					var activeTab = tabAcivator.parents(".tabs").find(tabId).first();
+					
+					if (transitionType === "fade") {
+						activeTab.show().children().fadeIn(transitionDuration);
+					}
+					else if (transitionType === "collapse") {
+						activeTab.expandVertical(transitionDuration, "auto");
+					}
+					else {
+						activeTab.show();
+					}
 
-		initialiseTabEvents = function (control) {
+					
+					activeTab.addClass("selected");
 
-			control.find(".tab-activator").click(function (e) {
-				e.preventDefault();
-				var activators = webui(this);
+					if (transitionType === "fade") {
+						activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+						activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+						activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
+						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+						
+						activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
+					}
+					else if (transitionType === "collapse") {
+						activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
+						activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+						activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
+						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
 
-				if (activators.length) {
-					selectTab(activators.first());
+						activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");			
+					}
+					else {
+						activeTab.siblings(".tab-item").hide();			
+						activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+						activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
+						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
+						
+						activeTab.find(".tabs").find(".tab-item").first().show();									
+					}
+					
+					tabAcivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
 				}
-			});
-		
-			control.find(".tab-activator-focus").focus(function (e) {
-				e.preventDefault();
-				var activators = webui(this);
+			},
 
-				if (activators.length) {
-					selectTab(activators.first());
-				}	
-			});
-		};
+			initializeTabEvents = function (callback) {
 
+				tabs.find(".tab-activator").click(function (e) {
+					e.preventDefault();
+					var activators = webui(this);
+
+					if (activators.length) {
+						selectTab(activators.first());
+					}
+				});
+			
+				tabs.find(".tab-activator-focus").focus(function (e) {
+					e.preventDefault();
+					var activators = webui(this);
+
+					if (activators.length) {
+						selectTab(activators.first());
+					}	
+				});
+				callback();
+			},
+
+			setActiveTab = function () {
+
+				if (settings.activeTabId) {
+					var dataTarget = tabs.find("[data-target='" + settings.activeTabId + "']").first();
+					if (dataTarget) {
+						dataTarget[0].click();
+						dataTarget.addClass("selected");
+						if (settings.activeTabFocused) {
+							dataTarget[0].focus();
+						}
+					}
+					else {
+						var href = tabs.find("[href='" + settings.activeTabId + "']").first();
+						if (href) {
+							href[0].click();
+							href.addClass("selected");
+							if (settings.activeTabFocused) {
+								href[0].focus();
+							}
+						}							
+					}
+				}
+				else {
+					var tab = tabs.find(".tab-activator").last().siblings().last();
+					if (tab.length) {
+						tab[0].click();
+					}
+					else {
+						tab = tabs.find(".tab-activator-focus").last().siblings().last();
+						if (tab.length) {
+							tab[0].click();
+						}
+					}
+				}		
+	
+			};
+
+			this.initializeTabs = function () {
+
+				initializeTabEvents(function() {
+					setActiveTab();
+				});
+				
+			};
+
+	};
 
 	/* PUBLIC */
 
@@ -4859,58 +5002,12 @@
 				transitionType: "fade"
 			}, options);
 
-			transitionDuration = settings.transitionDuration;
-			transitionType = settings.transitionType;
+			if (this.length > 1) { console.warn("WebUI tabs component does not support initialising multiple controls. Initialize a new component instead.") }
 
-			if (this.length > 1) { console.warn("WebUI tabs component does not support initialising multiple controls.") }
+			var control = new TabsInstance(this.first(), settings);
 
-			var control = this.first();
+			control.initializeTabs();
 
-			initialiseTabEvents(control);
-
-
-			if (settings.activeTabId) {
-				var href = control.find("[href='" + settings.activeTabId + "']");
-				if (href.length) {
-					href[0].click();
-					href.addClass("selected");
-					if (settings.activeTabFocused) {
-						href[0].focus();
-					}
-				}
-				else {
-					var dataTarget = control.find("[data-target='" + settings.activeTabId + "']");
-					if (dataTarget.length) {
-						dataTarget[0].click();
-						dataTarget.addClass("selected");
-						if (settings.activeTabFocused) {
-							dataTarget[0].focus();
-						}
-					}
-					else {
-						var activeTab = control.find(settings.activeTabId);
-						if (activeTab.length) {
-							activeTab.addClass("selected");
-							activeTab[0].click();
-							if (settings.activeTabFocused) {
-								activeTab[0].focus();
-							}	
-						}							
-					}
-				}
-			}
-			else {
-				var tab = control.find(".tab-activator").last().siblings().last();
-				if (tab.length) {
-					tab[0].click();
-				}
-				else {
-					tab = control.find(".tab-activator-focus").last().siblings().last();
-					if (tab.length) {
-						tab[0].click();
-					}
-				}
-			}		
 	
 			return this;
 		},
@@ -5025,7 +5122,7 @@
 				autoHide: false
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ToastInstance(this.first(), settings);
 
@@ -5484,6 +5581,7 @@
 				transitionDuration: 300
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI tooltips component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new TooltipInstance(this, settings);
 
@@ -5588,8 +5686,9 @@
 				scrollY: false
 			}, options);
 
+			if (this.length > 1) { console.warn("WebUI upload component does not support initialising multiple controls. Initialize a new component instead.") }
 
-			var control = new UploadInstance(this, settings);
+			var control = new UploadInstance(this.first(), settings);
 			
 			return this;
 		},
@@ -6134,11 +6233,6 @@
 
 	/* PRIVATE */
 
-	var 
-	
-		zoomFactor = 1.05,
-		trigger = "hover",
-		transitionDuration = 500;
 
 
 	/* PUBLIC */
@@ -6152,9 +6246,6 @@
 				transitionDuration: 500
 			}, options);
 
-			zoomFactor = settings.zoomFactor;
-			trigger = settings.trigger;
-			transitionDuration = settings.transitionDuration;
 
 			var controls = this;
 
@@ -6162,19 +6253,19 @@
 
 				var control = webui(controls[i]);
 				
-				control.css("transition", "all " + transitionDuration / 1e3 + "s ease-in");
+				control.css("transition", "all " + settings.transitionDuration / 1e3 + "s ease-in");
 
-				if (trigger === "hover") {
+				if (settings.trigger === "hover") {
 					control.hoverIn(function (e) {
-						webui(this).css("transform", "scale(" + zoomFactor + ")");
+						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
 					});
 					control.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
 					});
 				}
-				else if (trigger === "focus") {
+				else if (settings.trigger === "focus") {
 					control.focus(function (e) {
-						webui(this).css("transform", "scale(" + zoomFactor + ")");
+						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
 					});
 					control.blur(function (e) {
 						webui(this).css("transform", "scale(1)");

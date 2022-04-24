@@ -104,7 +104,7 @@
 				autoHide: false
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ToastInstance(this.first(), settings);
 

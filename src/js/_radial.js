@@ -5,11 +5,7 @@
 	/* PRIVATE */
 
 	var
-		zoomFactor = 1,
-		mode = "full",
-		responsive = true,
-		transitionDuration = 1000,
-		
+
 		resetRadial = function(el, params) {
 
 			var radialWidth = el.offsetWidth;
@@ -61,12 +57,6 @@
 				transitionDuration: 300
 			}, options);
 
-			zoomFactor = settings.zoomFactor;
-			mode = settings.mode;
-			responsive = settings.responsive;
-			transitionDuration = settings.transitionDuration;
-
-
 			var controls = webui(this);
 
 			for (var i = 0; i < controls.length; i++) {
@@ -74,7 +64,7 @@
 				var radialWidth = controls[i].offsetWidth;
 				var radialHeight = controls[i].offsetHeight;
 
-				var radialContent = webui(controls[i]).find(".radial-content").css("transition", "all " + transitionDuration / 1000 + "s ease-out");
+				var radialContent = webui(controls[i]).find(".radial-content").css("transition", "all " + settings.transitionDuration / 1000 + "s ease-out");
 						
 				var radialItems = radialContent.find(".radial-item");
 
@@ -92,7 +82,7 @@
 					default: if (radialItems.length > 11) { sliceFactor = 1.833 + ((radialItems.length - 12) * 0.008); } else { sliceFactor = 1; } break;
 				}
 
-				var radialSlice = mode === "top" ? -sliceFactor : mode === "bottom" ? sliceFactor : 1;
+				var radialSlice = settings.mode === "top" ? -sliceFactor : settings.mode === "bottom" ? sliceFactor : 1;
 		
 
 				for (var j = 0; j < radialItems.length; j++) {
@@ -101,14 +91,14 @@
 					var radialItemWidth = parseFloat(radialItem.css("width"));
 					var radialItemHeight = parseFloat(radialItem.css("height"));
 				
-					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
-					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
+					var radialLeft = ((radialWidth/2 * Math.cos(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / settings.zoomFactor)) - radialItemWidth/2) + (radialWidth/2) + "px";
+					var radialTop = ((radialHeight/2 * Math.sin(2 * Math.PI * j / radialItems.length / radialSlice)) / (1 * (1 / settings.zoomFactor)) - radialItemHeight/2) + (radialHeight/2) + "px";
 					radialItem.css("left", radialLeft);
 					radialItem.css("top", radialTop);
 				}
 				
-				if (responsive) {
-					webui(controls[i]).resizeElement(resetRadial, {zoomFactor: zoomFactor, mode: mode, transitionDuration: transitionDuration});
+				if (settings.responsive) {
+					webui(controls[i]).resizeElement(resetRadial, {zoomFactor: settings.zoomFactor, mode: settings.mode, transitionDuration: settings.transitionDuration});
 				}
 			}
 

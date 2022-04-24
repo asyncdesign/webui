@@ -3,11 +3,6 @@
 	
 	/* PRIVATE */
 
-	var
-
-		transitionDuration = 300, 
-		backgroundColor = "#BDBDBD", 
-		color = "#000000";
 
 	
 	/* PUBLIC */
@@ -21,10 +16,6 @@
 				color: "#000000"
 			}, options);
 
-			transitionDuration = settings.transitionDuration;
-			backgroundColor = settings.backgroundColor;
-			color = settings.color;
-
 			var controls = this;
 
 			for (var i = 0; i < controls.length; i++) {
@@ -32,10 +23,10 @@
 				var control = webui(controls[i]);
 
 				control.append("<span class='nav-button-item'></span><span class='nav-button-item'></span><span class='nav-button-item'></span>");
-				control.find(".nav-button-item").css("display", "block").css("transition-duration", transitionDuration / 1000 + "s");
+				control.find(".nav-button-item").css("display", "block").css("transition-duration", settings.transitionDuration / 1000 + "s");
 
-				control.css("background-color", backgroundColor);
-				control.find(".nav-button-item").css("background-color", color);	
+				control.css("background-color", settings.backgroundColor);
+				control.find(".nav-button-item").css("background-color", settings.color);	
 			}	
 			
 			return this;

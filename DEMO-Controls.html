@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="text-sm color-accent-5">
+<body class="text-sm color-accent-5 accessibility-dark">
 
 
 	<div class="responsive-gutter-xs area">
@@ -193,11 +193,11 @@
 					<div class="form-col-10 respond-bp-2-under">
 						<div class="panel secondary height-sm-md text-center">
 							<div class="control-group place-middle-center">
-								<button class="button-xl menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-								<button class="button-xl menu-button-success">1</button>
-								<button class="button-xl menu-button-success">2</button>
-								<button class="button-xl menu-button-success">3</button>
-								<button class="button-xl menu-button-success rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
+								<button class="group-item button-xl menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
+								<button class="group-item button-xl menu-button-success">1</button>
+								<button class="group-item button-xl menu-button-success">2</button>
+								<button class="group-item button-xl menu-button-success">3</button>
+								<button class="group-item button-xl menu-button-success rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
 							</div>
 						</div>
 					</div>
@@ -230,13 +230,13 @@
 					<div class="form-col-10 respond-bp-2-under">
 						<div class="panel secondary height-sm-md">
 							<div class="control-group place-middle-center">
-								<button class="menu-button-disabled rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-								<button class="menu-button-disabled"><i class="fa fa-angle-left"></i></button>
-								<button class="menu-button-disabled">1</button>
-								<button class="menu-button-disabled">2</button>
-								<button class="menu-button-disabled">3</button>
-								<button class="menu-button-disabled"><i class="fa fa-angle-right"></i></button>
-								<button class="menu-button-disabled rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
+								<button class="menu-button-disabled rounded-left-sm" disabled><i class="fa fa-angle-double-left"></i></button>
+								<button class="menu-button-disabled" disabled><i class="fa fa-angle-left"></i></button>
+								<button class="menu-button-disabled" disabled>1</button>
+								<button class="menu-button-disabled" disabled>2</button>
+								<button class="menu-button-disabled" disabled>3</button>
+								<button class="menu-button-disabled" disabled><i class="fa fa-angle-right"></i></button>
+								<button class="menu-button-disabled rounded-right-sm" disabled><i class="fa fa-angle-double-right"></i></button>
 							</div>
 						</div>
 					</div>
@@ -373,7 +373,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="checkbox accessibility width-control-md height-control-md">
+									<div class="checkbox width-control-md height-control-md">
 										<input type="checkbox" value="" id="checkbox2" />
 										<label for="checkbox2"></label>
 									</div>
@@ -383,7 +383,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="checkbox accessibility width-control-sm height-control-sm">
+									<div class="checkbox width-control-sm height-control-sm">
 										<input type="checkbox" value="" id="checkbox3" />
 										<label for="checkbox3"></label>
 									</div>
@@ -393,7 +393,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="checkbox accessibility">
+									<div class="checkbox">
 										<input type="checkbox" value="" id="checkbox4" />
 										<label for="checkbox4"></label>
 									</div>
@@ -627,7 +627,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="radio control-group-info accessibility width-control-md height-control-md">
+									<div class="radio control-group-info width-control-md height-control-md">
 										<input type="radio" value="" name="radiogroup1" id="radio2" />
 										<label for="radio2"></label>
 									</div>
@@ -637,7 +637,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="radio control-group-success accessibility width-control-sm height-control-sm">
+									<div class="radio control-group-success width-control-sm height-control-sm">
 										<input type="radio" value="" name="radiogroup1" id="radio3" />
 										<label for="radio3"></label>
 									</div>
@@ -647,7 +647,7 @@
 						<div class="form-col-5 respond-bp-1-under">
 							<div class="panel secondary height-sm-md text-center">
 								<div class="place-middle-center">
-									<div class="radio control-group-warning accessibility">
+									<div class="radio control-group-warning">
 										<input type="radio" value="" name="radiogroup1" id="radio4" />
 										<label for="radio4"></label>
 									</div>
@@ -862,143 +862,165 @@
 				Range controls
 			</div>
 	
-			<div class="row-spacing-lg"></div>
-			<div class="pad-xs">
-				<div class="range-series margin-bottom-xxs width-full color-accent-5">
-					<span>0</span>
-					<span>25</span>
-					<span>50</span>
-					<span>75</span>
-					<span>100</span>
-				</div>
-				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-default width-full" />
-			</div>
+			<div class="background-secondary">
 
+				<div class="row-spacing-lg"></div>
+				<div class="pad-xs">
+					<div class="range-series margin-bottom-xxs width-full color-accent-5">
+						<span>0</span>
+						<span>25</span>
+						<span>50</span>
+						<span>75</span>
+						<span>100</span>
+					</div>
+					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-default width-full" />
+				</div>
 
-			<div class="row-spacing-xl"></div>
+				<div class="row-spacing-xl"></div>
 
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-success width-full margin-bottom-xxs" />
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-light width-full margin-bottom-xxs" />
+					</div>
 				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
-							
-			<div class="row-spacing-xl"></div>
-		
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xs range-rounded range-info width-full margin-bottom-xxs" />
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
 				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
-		
-			<div class="row-spacing-xl"></div>
-		
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-sm range-warning width-full margin-bottom-xxs" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
-		
-			<div class="row-spacing-xl"></div>
-		
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-md range-rounded range-danger width-full margin-bottom-xxs" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
-				
-			<div class="row-spacing-xl"></div>
-		
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xl range-accent-5 width-full margin-bottom-xxs" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
-		
-			<div class="row-spacing-xl"></div>
-		
-			<div class="form-row">
-				<div class="form-col-20">
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-disabled range-rounded width-full margin-bottom-xxs" disabled />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-col-20">
-					<ul class="range-series list-inline margin-initial width-full color-accent-5">
-						<li>0</li>
-						<li>25</li>
-						<li>50</li>
-						<li>75</li>
-						<li>100</li>
-					</ul>
-				</div>	
-			</div>
 
-			<div class="row-spacing-xl"></div>
-		
-			<div class="progress progress-accent-2 width-full rounded-sm">
-				
-				<progress value="25" max="100" id="progressbar"></progress>
-				<div class="progress-label color-dark">25%</div>
-				
-			</div>
+				<div class="row-spacing-xl"></div>
 
-			<div class="row-spacing-xl"></div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-dark width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+								
+				<div class="row-spacing-xl"></div>
+			
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xs range-rounded range-accent-1 width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+			
+				<div class="row-spacing-xl"></div>
+			
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-sm range-accent-2 width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+			
+				<div class="row-spacing-xl"></div>
+			
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-md range-rounded range-accent-3 width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+					
+				<div class="row-spacing-xl"></div>
+			
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xl range-accent-4 width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+			
+				<div class="row-spacing-xl"></div>
+			
+				<div class="form-row">
+					<div class="form-col-20">
+						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-accent-5 range-rounded width-full margin-bottom-xxs" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-col-20">
+						<ul class="range-series list-inline margin-initial width-full color-accent-5">
+							<li>0</li>
+							<li>25</li>
+							<li>50</li>
+							<li>75</li>
+							<li>100</li>
+						</ul>
+					</div>	
+				</div>
+
+				<div class="row-spacing-xl"></div>
+			
+				<div class="progress progress-accent-2 width-full rounded-sm">
+					
+					<progress value="25" max="100" id="progressbar"></progress>
+					<div class="progress-label color-dark">25%</div>
+					
+				</div>
+
+				<div class="row-spacing-xl"></div>
+
+			</div>
 	
 		</div>
 

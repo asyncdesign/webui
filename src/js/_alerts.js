@@ -179,7 +179,7 @@
 				showClose: true
 			}, options);
 
-			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls.") }
+			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new AlertInstance(this.first(), settings);
 
