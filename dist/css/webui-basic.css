@@ -46,6 +46,8 @@ progress {
 }
 
 table {
+  table-layout: fixed;
+  width: 100%;
   border-collapse: collapse;
 }
 
@@ -662,12 +664,6 @@ svg:not(:root) {
   border-color: rgb(222, 222, 222);
 }
 
-.button-disabled {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
-  border: 0.078rem solid rgb(237, 237, 237);
-}
-
 .menu-button,
 .menu-button-sm,
 .menu-button-lg {
@@ -836,12 +832,6 @@ svg:not(:root) {
   border-color: rgb(219, 51, 0);
 }
 
-.menu-button-disabled {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
-  border: 0.078rem solid rgb(237, 237, 237);
-}
-
 .view-button,
 .view-button-sm,
 .view-button-lg {
@@ -1003,14 +993,6 @@ svg:not(:root) {
 .view-button-danger:focus {
   color: rgb(219, 51, 0);
   border-color: rgb(219, 51, 0);
-}
-
-.view-button-disabled {
-  color: rgb(189, 189, 189);
-  background-color: transparent;
-  text-decoration: line-through;
-  border: none;
-  border-bottom: 0.125rem solid transparent;
 }
 
 .view-button-top {
@@ -1266,26 +1248,6 @@ svg:not(:root) {
 
 .progress-accent-5 > progress::-ms-fill {
   background-color: rgb(102, 102, 102);
-}
-
-.progress-disabled > progress {
-  border: 1px solid rgb(237, 237, 237);
-}
-
-.progress-disabled > progress::-webkit-progress-bar {
-  background-color: rgb(237, 237, 237);
-}
-
-.progress-disabled > progress::-webkit-progress-value {
-  background-color: rgb(237, 237, 237);
-}
-
-.progress-disabled > progress::-moz-progress-bar {
-  background-color: rgb(237, 237, 237);
-}
-
-.progress-disabled > progress::-ms-fill {
-  background-color: rgb(237, 237, 237);
 }
 
 .progress.rounded-sm > progress {
@@ -1778,31 +1740,6 @@ svg:not(:root) {
   background-color: rgb(51, 51, 51);
 }
 
-.range-disabled::-webkit-slider-runnable-track {
-  background: rgb(237, 237, 237);
-}
-
-.range-disabled::-webkit-slider-thumb {
-  background: rgb(237, 237, 237);
-}
-
-.range-disabled::-moz-range-track {
-  background: rgb(237, 237, 237);
-}
-
-.range-disabled::-moz-range-thumb {
-  background: rgb(237, 237, 237);
-}
-
-.range-disabled::-ms-fill-lower,
-.range-disabled::-ms-fill-upper {
-  background: rgb(237, 237, 237);
-}
-
-.range-disabled::-ms-thumb {
-  background: rgb(237, 237, 237);
-}
-
 .range.range-rounded::-webkit-slider-runnable-track {
   border-radius: 0.188rem;
 }
@@ -1852,10 +1789,7 @@ svg:not(:root) {
   background-color: rgb(222, 222, 222);
   border: 0.078rem solid rgb(222, 222, 222);
 }
-.toggle-button-default:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(237, 237, 237);
-}
-.toggle-button-default:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-default input:checked + label {
   background-color: rgb(237, 237, 237);
 }
 
@@ -1864,10 +1798,7 @@ svg:not(:root) {
   background-color: rgb(255, 255, 255);
   border: 0.078rem solid rgb(255, 255, 255);
 }
-.toggle-button-light:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(237, 237, 237);
-}
-.toggle-button-light:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-light input:checked + label {
   background-color: rgb(237, 237, 237);
 }
 
@@ -1876,10 +1807,7 @@ svg:not(:root) {
   background-color: rgb(0, 0, 0);
   border: 0.078rem solid rgb(0, 0, 0);
 }
-.toggle-button-dark:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(115, 115, 115);
-}
-.toggle-button-dark:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-dark input:checked + label {
   background-color: rgb(115, 115, 115);
 }
 
@@ -1888,10 +1816,7 @@ svg:not(:root) {
   background-color: rgb(108, 122, 198);
   border: 0.078rem solid rgb(108, 122, 198);
 }
-.toggle-button-accent-1:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(57, 71, 147);
-}
-.toggle-button-accent-1:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-accent-1 input:checked + label {
   background-color: rgb(57, 71, 147);
 }
 
@@ -1900,10 +1825,7 @@ svg:not(:root) {
   background-color: rgb(139, 106, 200);
   border: 0.078rem solid rgb(139, 106, 200);
 }
-.toggle-button-accent-2:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(88, 55, 149);
-}
-.toggle-button-accent-2:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-accent-2 input:checked + label {
   background-color: rgb(88, 55, 149);
 }
 
@@ -1912,10 +1834,7 @@ svg:not(:root) {
   background-color: rgb(186, 106, 200);
   border: 0.078rem solid rgb(186, 106, 200);
 }
-.toggle-button-accent-3:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(135, 55, 149);
-}
-.toggle-button-accent-3:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-accent-3 input:checked + label {
   background-color: rgb(135, 55, 149);
 }
 
@@ -1924,10 +1843,7 @@ svg:not(:root) {
   background-color: rgb(153, 153, 153);
   border: 0.078rem solid rgb(153, 153, 153);
 }
-.toggle-button-accent-4:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(102, 102, 102);
-}
-.toggle-button-accent-4:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-accent-4 input:checked + label {
   background-color: rgb(102, 102, 102);
 }
 
@@ -1936,10 +1852,7 @@ svg:not(:root) {
   background-color: rgb(102, 102, 102);
   border: 0.078rem solid rgb(102, 102, 102);
 }
-.toggle-button-accent-5:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(51, 51, 51);
-}
-.toggle-button-accent-5:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-accent-5 input:checked + label {
   background-color: rgb(51, 51, 51);
 }
 
@@ -1948,10 +1861,7 @@ svg:not(:root) {
   background-color: rgb(77, 179, 80);
   border: 0.078rem solid rgb(77, 179, 80);
 }
-.toggle-button-success:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(61, 143, 64);
-}
-.toggle-button-success:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-success input:checked + label {
   background-color: rgb(61, 143, 64);
 }
 
@@ -1960,10 +1870,7 @@ svg:not(:root) {
   background-color: rgb(14, 143, 241);
   border: 0.078rem solid rgb(14, 143, 241);
 }
-.toggle-button-info:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(11, 114, 193);
-}
-.toggle-button-info:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-info input:checked + label {
   background-color: rgb(11, 114, 193);
 }
 
@@ -1972,10 +1879,7 @@ svg:not(:root) {
   background-color: rgb(255, 140, 0);
   border: 0.078rem solid rgb(255, 140, 0);
 }
-.toggle-button-warning:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(204, 112, 0);
-}
-.toggle-button-warning:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-warning input:checked + label {
   background-color: rgb(204, 112, 0);
 }
 
@@ -1984,10 +1888,7 @@ svg:not(:root) {
   background-color: rgb(255, 60, 0);
   border: 0.078rem solid rgb(255, 60, 0);
 }
-.toggle-button-danger:not(.control-disabled) input[type=checkbox]:checked + label {
-  background-color: rgb(219, 51, 0);
-}
-.toggle-button-danger:not(.control-disabled) input[type=radio]:checked + label {
+.toggle-button-danger input:checked + label {
   background-color: rgb(219, 51, 0);
 }
 
@@ -1996,75 +1897,74 @@ svg:not(:root) {
   background-color: transparent;
   border: 0.078rem solid rgb(189, 189, 189);
 }
-.toggle-button-transparent:not(.control-disabled) input[type=checkbox]:checked + label {
+.toggle-button-transparent input:checked + label {
   background-color: rgb(222, 222, 222);
-}
-.toggle-button-transparent:not(.control-disabled) input[type=radio]:checked + label {
-  background-color: rgb(222, 222, 222);
-}
-
-.toggle-button-disabled label {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
-  border: 0.078rem solid rgb(237, 237, 237);
 }
 
 *[class*=toggle-switch-] {
   position: relative;
+}
+
+*[class*=toggle-switch-] label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   font-size: 1rem;
   text-decoration: none;
   white-space: nowrap;
   outline: none;
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
   border: 0.078rem solid rgb(222, 222, 222);
   cursor: default;
 }
-*[class*=toggle-switch-]::before {
+
+*[class*=toggle-switch-] label::before {
   content: "✓";
   font-size: 1rem;
   color: inherit;
   left: 0;
   width: 50%;
   text-align: center;
-  z-index: 0;
 }
-*[class*=toggle-switch-]::after {
+
+*[class*=toggle-switch-] label::after {
   content: "✕";
   font-size: 1rem;
   color: inherit;
   right: 0;
   width: 50%;
   text-align: center;
-  z-index: 0;
-}
-*[class*=toggle-switch-] label {
-  position: absolute;
-  top: 10%;
-  height: 80%;
-  z-index: 1;
-  border-radius: inherit;
 }
 
-*[class*=toggle-switch-].onoff::before {
+*[class*=toggle-switch-] label .toggle-switch-button {
+  position: absolute;
+  top: 10%;
+  left: 0.2rem;
+  height: 80%;
+  border-radius: inherit;
+  box-shadow: none !important;
+}
+
+*[class*=toggle-switch-].onoff label::before {
   content: "ON";
   font-size: 0.8rem;
   width: 45%;
 }
-*[class*=toggle-switch-].onoff::after {
+
+*[class*=toggle-switch-].onoff label::after {
   content: "OFF";
   font-size: 0.8rem;
   width: 55%;
 }
 
-*[class*=toggle-switch-].yesno::before {
+*[class*=toggle-switch-].yesno label::before {
   content: "YES";
   font-size: 0.8rem;
   width: 55%;
 }
-*[class*=toggle-switch-].yesno::after {
+
+*[class*=toggle-switch-].yesno label::after {
   content: "NO";
   font-size: 0.8rem;
   width: 45%;
@@ -2100,54 +2000,52 @@ svg:not(:root) {
   line-height: 2.825rem;
 }
 
-.toggle-switch-xs label {
-  left: 0.2rem;
+.toggle-switch-xs label .toggle-switch-button {
   width: 2rem;
 }
 
-.toggle-switch-sm label {
-  left: 0.2rem;
+.toggle-switch-sm label .toggle-switch-button {
   width: 2.2rem;
 }
 
-.toggle-switch-md label {
-  left: 0.2rem;
+.toggle-switch-md label .toggle-switch-button {
   width: 2.4rem;
 }
 
-.toggle-switch-lg label {
-  left: 0.3rem;
+.toggle-switch-lg label .toggle-switch-button {
   width: 2.6rem;
 }
 
-.toggle-switch-xl label {
-  left: 0.3rem;
+.toggle-switch-xl label .toggle-switch-button {
   width: 2.8rem;
 }
 
-.toggle-switch-xs input[type=checkbox]:checked + label,
-.toggle-switch-xs input[type=radio]:checked + label {
+.toggle-switch-xs input:checked + label .toggle-switch-button {
   left: 2.35rem;
 }
 
-.toggle-switch-sm input[type=checkbox]:checked + label,
-.toggle-switch-sm input[type=radio]:checked + label {
+.toggle-switch-sm input:checked + label .toggle-switch-button {
   left: 2.4rem;
 }
 
-.toggle-switch-md input[type=checkbox]:checked + label,
-.toggle-switch-md input[type=radio]:checked + label {
+.toggle-switch-md input:checked + label .toggle-switch-button {
   left: 2.7rem;
 }
 
-.toggle-switch-lg input[type=checkbox]:checked + label,
-.toggle-switch-lg input[type=radio]:checked + label {
+.toggle-switch-lg input:checked + label .toggle-switch-button {
   left: 3rem;
 }
 
-.toggle-switch-xl input[type=checkbox]:checked + label,
-.toggle-switch-xl input[type=radio]:checked + label {
+.toggle-switch-xl input:checked + label .toggle-switch-button {
   left: 3.3rem;
+}
+
+*[class*=toggle-switch-] input:not(:checked) + label {
+  background-color: rgb(222, 222, 222);
+}
+
+*[class*=toggle-switch-] input:not(:checked) + label .toggle-switch-button {
+  background-color: rgb(199, 199, 199);
 }
 
 .image {
@@ -2284,179 +2182,152 @@ svg:not(:root) {
   border: 0.078rem solid rgb(255, 60, 0);
 }
 
-.control-group-success label:not(.control-disabled),
-.control-group-success *[class*=text]:not(.control-disabled),
-.control-group-success *[class*=control-label]:not(.control-disabled) {
+.control-group-success label,
+.control-group-success *[class*=text],
+.control-group-success *[class*=control-label] {
   color: rgb(77, 179, 80);
 }
 
-.control-group-success *[class*=radio]:not(.control-disabled) label,
-.control-group-success *[class*=checkbox]:not(.control-disabled) label {
+.control-group-success *[class*=radio] label,
+.control-group-success *[class*=checkbox] label {
   border-color: rgb(77, 179, 80);
 }
 
-.control-success:not(.control-disabled),
-.control-group-success :not(.control-disabled),
-.control-group-success .control:not(.control-disabled) {
+.control-success,
+.control-group-success,
+.control-group-success .control {
   border-color: rgb(77, 179, 80);
 }
-.control-success:not(.control-disabled)[type=text], .control-success:not(.control-disabled)[type=button], .control-success:not(.control-disabled)[class*=button], .control-success:not(.control-disabled).instrumentation,
-.control-group-success :not(.control-disabled)[type=text],
-.control-group-success :not(.control-disabled)[type=button],
-.control-group-success :not(.control-disabled)[class*=button],
-.control-group-success :not(.control-disabled).instrumentation,
-.control-group-success .control:not(.control-disabled)[type=text],
-.control-group-success .control:not(.control-disabled)[type=button],
-.control-group-success .control:not(.control-disabled)[class*=button],
-.control-group-success .control:not(.control-disabled).instrumentation {
+.control-success[type=text], .control-success[type=button], .control-success[class*=button], .control-success.instrumentation,
+.control-group-success[type=text],
+.control-group-success[type=button],
+.control-group-success[class*=button],
+.control-group-success.instrumentation,
+.control-group-success .control[type=text],
+.control-group-success .control[type=button],
+.control-group-success .control[class*=button],
+.control-group-success .control.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%232DB200%27 d=%27M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
   background-size: 1.25em 1.25em;
   padding-right: 2.5rem;
 }
-.control-success:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-success .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-group-info label:not(.control-disabled),
-.control-group-info *[class*=text]:not(.control-disabled),
-.control-group-info *[class*=control-label]:not(.control-disabled) {
+.control-group-info label,
+.control-group-info *[class*=text],
+.control-group-info *[class*=control-label] {
   color: rgb(14, 143, 241);
 }
 
-.control-group-info *[class*=radio]:not(.control-disabled) label,
-.control-group-info *[class*=checkbox]:not(.control-disabled) label {
+.control-group-info *[class*=radio] label,
+.control-group-info *[class*=checkbox] label {
   border-color: rgb(14, 143, 241);
 }
 
-.control-info:not(.control-disabled),
-.control-group-info :not(.control-disabled),
-.control-group-info .control:not(.control-disabled) {
+.control-info,
+.control-group-info,
+.control-group-info .control {
   border-color: rgb(14, 143, 241);
 }
-.control-info:not(.control-disabled)[type=text], .control-info:not(.control-disabled)[type=button], .control-info:not(.control-disabled)[class*=button], .control-info:not(.control-disabled).instrumentation,
-.control-group-info :not(.control-disabled)[type=text],
-.control-group-info :not(.control-disabled)[type=button],
-.control-group-info :not(.control-disabled)[class*=button],
-.control-group-info :not(.control-disabled).instrumentation,
-.control-group-info .control:not(.control-disabled)[type=text],
-.control-group-info .control:not(.control-disabled)[type=button],
-.control-group-info .control:not(.control-disabled)[class*=button],
-.control-group-info .control:not(.control-disabled).instrumentation {
+.control-info[type=text], .control-info[type=button], .control-info[class*=button], .control-info.instrumentation,
+.control-group-info[type=text],
+.control-group-info[type=button],
+.control-group-info[class*=button],
+.control-group-info.instrumentation,
+.control-group-info .control[type=text],
+.control-group-info .control[type=button],
+.control-group-info .control[class*=button],
+.control-group-info .control.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%230072FF%27 d=%27M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
   background-size: 1.25em 1.25em;
   padding-right: 2.5rem;
 }
-.control-info:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-info .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-group-warning label:not(.control-disabled),
-.control-group-warning *[class*=text]:not(.control-disabled),
-.control-group-warning *[class*=control-label]:not(.control-disabled) {
+.control-group-warning label,
+.control-group-warning *[class*=text],
+.control-group-warning *[class*=control-label] {
   color: rgb(255, 140, 0);
 }
 
-.control-group-warning *[class*=radio]:not(.control-disabled) label,
-.control-group-warning *[class*=checkbox]:not(.control-disabled) label {
+.control-group-warning *[class*=radio] label,
+.control-group-warning *[class*=checkbox] label {
   border-color: rgb(255, 140, 0);
 }
 
-.control-warning:not(.control-disabled),
-.control-group-warning :not(.control-disabled),
-.control-group-warning .control:not(.control-disabled) {
+.control-warning,
+.control-group-warning,
+.control-group-warning .control {
   border-color: rgb(255, 140, 0);
 }
-.control-warning:not(.control-disabled)[type=text], .control-warning:not(.control-disabled)[type=button], .control-warning:not(.control-disabled)[class*=button], .control-warning:not(.control-disabled).instrumentation,
-.control-group-warning :not(.control-disabled)[type=text],
-.control-group-warning :not(.control-disabled)[type=button],
-.control-group-warning :not(.control-disabled)[class*=button],
-.control-group-warning :not(.control-disabled).instrumentation,
-.control-group-warning .control:not(.control-disabled)[type=text],
-.control-group-warning .control:not(.control-disabled)[type=button],
-.control-group-warning .control:not(.control-disabled)[class*=button],
-.control-group-warning .control:not(.control-disabled).instrumentation {
+.control-warning[type=text], .control-warning[type=button], .control-warning[class*=button], .control-warning.instrumentation,
+.control-group-warning[type=text],
+.control-group-warning[type=button],
+.control-group-warning[class*=button],
+.control-group-warning.instrumentation,
+.control-group-warning .control[type=text],
+.control-group-warning .control[type=button],
+.control-group-warning .control[class*=button],
+.control-group-warning .control.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF9300%27 d=%27M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
   background-size: 1.25em 1.25em;
   padding-right: 2.5rem;
 }
-.control-warning:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-warning .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-group-danger label:not(.control-disabled),
-.control-group-danger *[class*=text]:not(.control-disabled),
-.control-group-danger *[class*=control-label]:not(.control-disabled) {
+.control-group-danger label,
+.control-group-danger *[class*=text],
+.control-group-danger *[class*=control-label] {
   color: rgb(255, 60, 0);
 }
 
-.control-group-danger *[class*=radio]:not(.control-disabled) label,
-.control-group-danger *[class*=checkbox]:not(.control-disabled) label {
+.control-group-danger *[class*=radio] label,
+.control-group-danger *[class*=checkbox] label {
   border-color: rgb(255, 60, 0);
 }
 
-.control-danger:not(.control-disabled),
-.control-group-danger :not(.control-disabled),
-.control-group-danger .control:not(.control-disabled) {
+.control-danger,
+.control-group-danger,
+.control-group-danger .control {
   border-color: rgb(255, 60, 0);
 }
-.control-danger:not(.control-disabled)[type=text], .control-danger:not(.control-disabled)[type=button], .control-danger:not(.control-disabled)[class*=button], .control-danger:not(.control-disabled).instrumentation,
-.control-group-danger :not(.control-disabled)[type=text],
-.control-group-danger :not(.control-disabled)[type=button],
-.control-group-danger :not(.control-disabled)[class*=button],
-.control-group-danger :not(.control-disabled).instrumentation,
-.control-group-danger .control:not(.control-disabled)[type=text],
-.control-group-danger .control:not(.control-disabled)[type=button],
-.control-group-danger .control:not(.control-disabled)[class*=button],
-.control-group-danger .control:not(.control-disabled).instrumentation {
+.control-danger[type=text], .control-danger[type=button], .control-danger[class*=button], .control-danger.instrumentation,
+.control-group-danger[type=text],
+.control-group-danger[type=button],
+.control-group-danger[class*=button],
+.control-group-danger.instrumentation,
+.control-group-danger .control[type=text],
+.control-group-danger .control[type=button],
+.control-group-danger .control[class*=button],
+.control-group-danger .control.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF0000%27 d=%27M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
   background-size: 1.25em 1.25em;
   padding-right: 2.5rem;
 }
-.control-danger:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger :not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger .control:not(.control-disabled):not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
+.control-group-danger .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
-}
-
-.control-disabled:not([class*=checkbox]):not([class*=radio]),
-.control-group-disabled .control,
-.control-group-disabled *[class*=input] {
-  color: rgb(189, 189, 189) !important;
-  background-color: rgb(237, 237, 237) !important;
-  border: 0.078rem solid rgb(237, 237, 237) !important;
-}
-
-.control-group-disabled label,
-.control-group-disabled *[class*=text],
-.control-group-disabled *[class*=control-label] {
-  color: rgb(189, 189, 189) !important;
-}
-
-*[class*=checkbox].control-disabled label,
-*[class*=radio].control-disabled label,
-*[class*=checkbox].control-disabled input[type=checkbox]:checked + label,
-*[class*=radio].control-disabled input[type=radio]:checked + label,
-.control-group-disabled *[class*=checkbox] label,
-.control-group-disabled *[class*=radio] label,
-.control-group-disabled *[class*=checkbox] input[type=checkbox]:checked + label,
-.control-group-disabled *[class*=radio] input[type=radio]:checked + label {
-  background-image: none !important;
-  background-color: rgb(237, 237, 237) !important;
-  border-color: rgb(237, 237, 237) !important;
 }
 
 .control-block {
@@ -2525,172 +2396,194 @@ svg:not(:root) {
   color: transparent;
 }
 
-.accessibility a:not([disabled]):focus,
-.accessibility *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility a:focus,
 .accessibility *[class*=input]:not([disabled]):focus,
 .accessibility *[class*=button]:not([disabled]):focus,
+.accessibility *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility *[class*=toggle-button] input:not([disabled]) + label:focus,
-.accessibility .control:not([disabled]):focus,
-.accessibility .upload:not([disabled]):focus + label {
+.accessibility *[class*=toggle-switch] input:not([disabled]) + label:focus,
+.accessibility .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(199, 199, 199);
   border-color: rgb(199, 199, 199);
 }
-.accessibility a:not([disabled]):focus.group-item,
-.accessibility *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility a:focus.group-item,
 .accessibility *[class*=input]:not([disabled]):focus.group-item,
 .accessibility *[class*=button]:not([disabled]):focus.group-item,
+.accessibility *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
-.accessibility .control:not([disabled]):focus.group-item,
-.accessibility .upload:not([disabled]):focus + label.group-item {
+.accessibility *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
+.accessibility .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-light a:not([disabled]):focus,
-.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-light *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-light a:focus,
 .accessibility-light *[class*=input]:not([disabled]):focus,
 .accessibility-light *[class*=button]:not([disabled]):focus,
+.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-light *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-light *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-light *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-light .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(222, 222, 222);
   border-color: rgb(222, 222, 222);
 }
-.accessibility-light a:not([disabled]):focus.group-item,
-.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-light *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-light a:focus.group-item,
 .accessibility-light *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-light *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-light *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-light *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-light *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-light *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-light .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-dark a:not([disabled]):focus,
-.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-dark a:focus,
 .accessibility-dark *[class*=input]:not([disabled]):focus,
 .accessibility-dark *[class*=button]:not([disabled]):focus,
+.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-dark *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-dark .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(77, 77, 77);
   border-color: rgb(77, 77, 77);
 }
-.accessibility-dark a:not([disabled]):focus.group-item,
-.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark a:focus.group-item,
 .accessibility-dark *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-dark *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-dark *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-dark *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-dark *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-dark .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-accent-1 a:not([disabled]):focus,
-.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-1 a:focus,
 .accessibility-accent-1 *[class*=input]:not([disabled]):focus,
 .accessibility-accent-1 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-accent-1 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-1 .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(108, 122, 198);
   border-color: rgb(108, 122, 198);
 }
-.accessibility-accent-1 a:not([disabled]):focus.group-item,
-.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 a:focus.group-item,
 .accessibility-accent-1 *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-accent-1 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-1 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-1 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-1 *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-1 .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-accent-2 a:not([disabled]):focus,
-.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-2 a:focus,
 .accessibility-accent-2 *[class*=input]:not([disabled]):focus,
 .accessibility-accent-2 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-accent-2 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-2 .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(139, 106, 200);
   border-color: rgb(139, 106, 200);
 }
-.accessibility-accent-2 a:not([disabled]):focus.group-item,
-.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 a:focus.group-item,
 .accessibility-accent-2 *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-accent-2 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-2 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-2 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-2 *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-2 .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-accent-3 a:not([disabled]):focus,
-.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-3 a:focus,
 .accessibility-accent-3 *[class*=input]:not([disabled]):focus,
 .accessibility-accent-3 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-accent-3 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-3 .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(186, 106, 200);
   border-color: rgb(186, 106, 200);
 }
-.accessibility-accent-3 a:not([disabled]):focus.group-item,
-.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 a:focus.group-item,
 .accessibility-accent-3 *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-accent-3 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-3 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-3 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-3 *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-3 .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-accent-4 a:not([disabled]):focus,
-.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-4 a:focus,
 .accessibility-accent-4 *[class*=input]:not([disabled]):focus,
 .accessibility-accent-4 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-accent-4 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-4 .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(153, 153, 153);
   border-color: rgb(153, 153, 153);
 }
-.accessibility-accent-4 a:not([disabled]):focus.group-item,
-.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 a:focus.group-item,
 .accessibility-accent-4 *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-accent-4 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-4 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-4 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-4 *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-4 .control:not([disabled]):focus.group-item {
   position: relative;
   z-index: 1;
 }
 
-.accessibility-accent-5 a:not([disabled]):focus,
-.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus,
-.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus,
+.accessibility-accent-5 a:focus,
 .accessibility-accent-5 *[class*=input]:not([disabled]):focus,
 .accessibility-accent-5 *[class*=button]:not([disabled]):focus,
+.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus,
 .accessibility-accent-5 *[class*=toggle-button] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-5 .control:not([disabled]):focus {
   box-shadow: 0 0 0 0.125rem rgb(102, 102, 102);
   border-color: rgb(102, 102, 102);
 }
-.accessibility-accent-5 a:not([disabled]):focus.group-item,
-.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
-.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 a:focus.group-item,
 .accessibility-accent-5 *[class*=input]:not([disabled]):focus.group-item,
 .accessibility-accent-5 *[class*=button]:not([disabled]):focus.group-item,
+.accessibility-accent-5 *[class*=checkbox] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 *[class*=radio] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-5 *[class*=toggle-button] input:not([disabled]) + label:focus.group-item,
+.accessibility-accent-5 *[class*=toggle-switch] input:not([disabled]) + label:focus.group-item,
 .accessibility-accent-5 .control:not([disabled]):focus.group-item {
+  position: relative;
+  z-index: 1;
+}
+
+*[class*=accessibility] [class*=checkbox].group-item input:not([disabled]) + label:focus,
+*[class*=accessibility] [class*=radio].group-item input:not([disabled]) + label:focus,
+*[class*=accessibility] [class*=toggle-button].group-item input:not([disabled]) + label:focus,
+*[class*=accessibility] [class*=toggle-switch].group-item input:not([disabled]) + label:focus {
   position: relative;
   z-index: 1;
 }
@@ -4343,16 +4236,110 @@ svg:not(:root) {
   border-bottom-right-radius: 0.563rem;
 }
 
-.raised-sm {
+.shadow-sm {
   box-shadow: 0.078rem 0.078rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
 }
 
-.raised-md {
+.shadow-md {
   box-shadow: 0.125rem 0.125rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
 }
 
-.raised-lg {
+.shadow-lg {
   box-shadow: 0.25rem 0.25rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
+}
+
+.control-group-disabled label,
+.control-group-disabled *[class*=text],
+.control-group-disabled *[class*=control-label] {
+  color: rgb(189, 189, 189) !important;
+  cursor: not-allowed !important;
+}
+
+*[class*=input][disabled],
+*[class*=button][disabled],
+*[class*=checkbox] input[disabled] + label,
+*[class*=radio] input[disabled] + label,
+*[class*=toggle-button] input[disabled] + label,
+*[class*=toggle-switch] input[disabled] + label,
+.control[disabled],
+*[class*=input].control-disabled,
+*[class*=button].control-disabled,
+*[class*=checkbox].control-disabled label,
+*[class*=radio].control-disabled label,
+*[class*=toggle-button].control-disabled label,
+*[class*=toggle-switch].control-disabled label,
+.control-group-disabled .control,
+.control-group-disabled *[class*=input],
+.control-group-disabled *[class*=button],
+.control-group-disabled *[class*=checkbox] label,
+.control-group-disabled *[class*=radio] label,
+.control-group-disabled *[class*=toggle-button] label,
+.control-group-disabled *[class*=toggle-switch] label {
+  color: rgb(189, 189, 189) !important;
+  background-color: rgb(237, 237, 237) !important;
+  border-color: rgb(237, 237, 237) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}
+
+*[class*=view-button][disabled],
+*[class*=view-button].control-disabled,
+.control-group-disabled *[class*=view-button] {
+  text-decoration: line-through !important;
+  color: rgb(189, 189, 189) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.range[disabled]::-webkit-slider-runnable-track,
+.range.control-disabled::-webkit-slider-runnable-track,
+.control-group-disabled .range::-webkit-slider-runnable-track {
+  background-color: rgb(237, 237, 237) !important;
+  cursor: not-allowed !important;
+}
+
+.range[disabled]::-webkit-slider-thumb,
+.range.control-disabled::-webkit-slider-thumb,
+.control-group-disabled .range::-webkit-slider-thumb {
+  background-color: rgb(237, 237, 237) !important;
+}
+
+.range[disabled]::-moz-range-track,
+.range.control-disabled::-moz-range-track,
+.control-group-disabled .range::-moz-range-track {
+  background-color: rgb(237, 237, 237) !important;
+  cursor: not-allowed !important;
+}
+
+.range[disabled]::-moz-range-thumb,
+.range.control-disabled::-moz-range-thumb,
+.control-group-disabled .range::-moz-range-thumb {
+  background-color: rgb(237, 237, 237) !important;
+}
+
+.range[disabled]::-ms-fill-lower,
+.range.control-disabled::-ms-fill-lower,
+.control-group-disabled .range::-ms-fill-lower {
+  background-color: rgb(237, 237, 237) !important;
+}
+
+.range[disabled]::-ms-fill-upper,
+.range.control-disabled::-ms-fill-upper,
+.control-group-disabled .range::-ms-fill-upper {
+  background-color: rgb(237, 237, 237) !important;
+}
+
+.range[disabled]::-ms-thumb,
+.range.control-disabled::-ms-thumb,
+.control-group-disabled .range::-ms-thumb {
+  background-color: rgb(237, 237, 237) !important;
+}
+
+.range-series.control-disabled,
+.control-group-disabled .range-series {
+  color: rgb(189, 189, 189) !important;
 }
 
 .show-bp-1-under,

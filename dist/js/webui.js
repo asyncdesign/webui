@@ -2462,14 +2462,22 @@
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
 		webui("[class*='toggle-button'] label").attr("tabindex", "0").attr("role", "button");
+		webui("[class*='toggle-switch'] label").attr("tabindex", "0").attr("role", "button");
 		
+		webui(".checkbox input[disabled] + label").attr("tabindex", "-1");
+		webui(".radio input[disabled] + label").attr("tabindex", "-1");
+		webui("[class*='toggle-button'] input[disabled] + label").attr("tabindex", "-1");
+		webui("[class*='toggle-switch'] input[disabled] + label").attr("tabindex", "-1");
+
 		webui(".checkbox.control-disabled label").attr("tabindex", "-1");
 		webui(".radio.control-disabled label").attr("tabindex", "-1");
 		webui("[class*='toggle-button'].control-disabled label").attr("tabindex", "-1");
+		webui("[class*='toggle-switch'].control-disabled label").attr("tabindex", "-1");
 		
 		webui(".control-group-disabled .checkbox label").attr("tabindex", "-1");
 		webui(".control-group-disabled .radio label").attr("tabindex", "-1");
 		webui(".control-group-disabled [class*='toggle-button'] label").attr("tabindex", "-1");
+		webui(".control-group-disabled [class*='toggle-switch'] label").attr("tabindex", "-1");
 		
 		webui(".off-canvas-left, .off-canvas-right").addClass("off-canvas-closed");
 		webui(".off-canvas-body").parents("body").css("overflow-x", "hidden");

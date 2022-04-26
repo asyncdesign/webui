@@ -31,6 +31,8 @@ progress {
 	min-height: 1.25rem;	
 }
 table {
+	table-layout: fixed;
+	width: 100%;
 	border-collapse: collapse;
 }
 th.resize-y, td.resize-y {
@@ -537,11 +539,6 @@ svg:not(:root) {
 		border-color: $theme_transparent_active;
 	}
 }
-.button-disabled {
-	color: $theme_disabled_foreground;
-	background-color: $theme_disabled;
-	border: 0.078rem solid $theme_disabled_border;
-}
 .menu-button,
 .menu-button-sm,
 .menu-button-lg {
@@ -696,11 +693,6 @@ svg:not(:root) {
 		border-color: $theme_danger_active;
 	}
 }
-.menu-button-disabled {
-	color: $theme_disabled_foreground;
-	background-color: $theme_disabled;
-	border: 0.078rem solid $theme_disabled;
-}
 .view-button,
 .view-button-sm,
 .view-button-lg {
@@ -847,13 +839,6 @@ svg:not(:root) {
 		color: $theme_danger_active;
 		border-color: $theme_danger_active;
 	}
-}
-.view-button-disabled {
-	color: $theme_disabled_foreground;
-	background-color: $theme_transparent;
-	text-decoration: line-through;
-	border: none;
-	border-bottom: 0.125rem solid $theme_transparent;
 }
 .view-button-top {
 	border: none;
@@ -1063,21 +1048,6 @@ svg:not(:root) {
 }
 .progress-accent-5 > progress::-ms-fill {
 	background-color: $theme_accent_5;
-}
-.progress-disabled > progress {
-	border: 1px solid $theme_disabled;
-}
-.progress-disabled > progress::-webkit-progress-bar {
-	background-color: $theme_disabled;
-}
-.progress-disabled > progress::-webkit-progress-value {
-	background-color: $theme_disabled;
-}
-.progress-disabled > progress::-moz-progress-bar {
-	background-color: $theme_disabled;
-}
-.progress-disabled > progress::-ms-fill {
-	background-color: $theme_disabled;
 }
 .progress.rounded-sm > progress {
 	border-radius: 0.188rem;
@@ -1475,25 +1445,6 @@ svg:not(:root) {
 		background-color: $theme_accent_5_hover;
 	}
 }
-.range-disabled::-webkit-slider-runnable-track {
-	background: $theme_disabled;
-}
-.range-disabled::-webkit-slider-thumb {
-	background: $theme_disabled;
-}
-.range-disabled::-moz-range-track {
-	background: $theme_disabled;
-}
-.range-disabled::-moz-range-thumb {
-	background: $theme_disabled;
-}
-.range-disabled::-ms-fill-lower,
-.range-disabled::-ms-fill-upper {
-	background: $theme_disabled;
-}
-.range-disabled::-ms-thumb {
-	background: $theme_disabled;
-}
 .range.range-rounded::-webkit-slider-runnable-track {
 	border-radius: 0.188rem;
 } 
@@ -1539,16 +1490,9 @@ svg:not(:root) {
 		background-color: $theme_default;
 		border: 0.078rem solid $theme_default_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_default_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_default_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_default_hover;
+	}   
 }
 .toggle-button-light {
 	label {
@@ -1556,16 +1500,9 @@ svg:not(:root) {
 		background-color: $theme_light;
 		border: 0.078rem solid $theme_light_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_light_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_light_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_light_hover;
+	}   
 }
 .toggle-button-dark {
 	label {
@@ -1573,16 +1510,9 @@ svg:not(:root) {
 		background-color: $theme_dark;
 		border: 0.078rem solid $theme_dark_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_dark_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_dark_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_dark_hover;
+	}   
 }
 .toggle-button-accent-1 {
 	label {
@@ -1590,16 +1520,9 @@ svg:not(:root) {
 		background-color: $theme_accent_1;
 		border: 0.078rem solid $theme_accent_1_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_accent_1_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_accent_1_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_accent_1_hover;
+	}   
 }
 .toggle-button-accent-2 {
 	label {
@@ -1607,16 +1530,9 @@ svg:not(:root) {
 		background-color: $theme_accent_2;
 		border: 0.078rem solid $theme_accent_2_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_accent_2_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_accent_2_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_accent_2_hover;
+	}   
 }
 .toggle-button-accent-3 {
 	label {
@@ -1624,16 +1540,9 @@ svg:not(:root) {
 		background-color: $theme_accent_3;
 		border: 0.078rem solid $theme_accent_3_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_accent_3_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_accent_3_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_accent_3_hover;
+	}   
 }
 .toggle-button-accent-4 {
 	label {
@@ -1641,16 +1550,9 @@ svg:not(:root) {
 		background-color: $theme_accent_4;
 		border: 0.078rem solid $theme_accent_4_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_accent_4_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_accent_4_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_accent_4_hover;
+	}   
 }
 .toggle-button-accent-5 {
 	label {
@@ -1658,16 +1560,9 @@ svg:not(:root) {
 		background-color: $theme_accent_5;
 		border: 0.078rem solid $theme_accent_5_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_accent_5_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_accent_5_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_accent_5_hover;
+	}   
 }
 .toggle-button-success {
 	label {
@@ -1675,16 +1570,9 @@ svg:not(:root) {
 		background-color: $theme_success;
 		border: 0.078rem solid $theme_success_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_success_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_success_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_success_hover;
+	}   
 }
 .toggle-button-info {
 	label {
@@ -1692,16 +1580,9 @@ svg:not(:root) {
 		background-color: $theme_info;
 		border: 0.078rem solid $theme_info_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_info_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_info_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_info_hover;
+	}   
 }
 .toggle-button-warning {
 	label {
@@ -1709,16 +1590,9 @@ svg:not(:root) {
 		background-color: $theme_warning;
 		border: 0.078rem solid $theme_warning_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_warning_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_warning_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_warning_hover;
+	}   
 }
 .toggle-button-danger {
 	label {
@@ -1726,16 +1600,9 @@ svg:not(:root) {
 		background-color: $theme_danger;
 		border: 0.078rem solid $theme_danger_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_danger_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_danger_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_danger_hover;
+	}   
 }
 .toggle-button-transparent {
 	label {
@@ -1743,151 +1610,133 @@ svg:not(:root) {
 		background-color: $theme_transparent;
 		border: 0.078rem solid $theme_transparent_border;
 	}
-	&:not(.control-disabled) input[type=checkbox] {		
-		&:checked + label {
-			background-color: $theme_transparent_hover;
-		}   
-	}
-	&:not(.control-disabled) input[type=radio] {		
-		&:checked + label {
-			background-color: $theme_transparent_hover;
-		}   
-	}
+	& input:checked + label {
+		background-color: $theme_transparent_hover;
+	}   
 }
-.toggle-button-disabled {
-	label {
-		color: $theme_disabled_foreground;
-		background-color: $theme_disabled;
-		border: 0.078rem solid $theme_disabled_border;
-	}
+
+*[class*=toggle-switch-] {
+  position: relative;
 }
-*[class*="toggle-switch-"] {
-	position: relative;
-	display: flex;
-	align-items: center;
-	font-size: 1rem;
-	text-decoration: none;
-	white-space: nowrap;
-	outline: none;
-	color: $theme_default_foreground;
-	background-color: $theme_default;
-	border: 0.078rem solid $theme_default_border;
-	cursor: default;
-	&::before {
-		content: '\2713';
-		font-size: 1rem;
-		color: inherit;	
-		left: 0;
-		width: 50%;
-		text-align: center;
-		z-index: 0;	
-	}
-	&::after {
-		content: '\2715';
-		font-size: 1rem;
-		color: inherit;		
-		right: 0;
-		width: 50%;
-		text-align: center;
-		z-index: 0;	
-	}
-	label {
-		position: absolute;
-		top: 10%;
-		height: 80%;
-		z-index: 1;
-		border-radius: inherit;			
-	}
+*[class*=toggle-switch-] label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  outline: none;
+  border: 0.078rem solid $theme_default_border;
+  cursor: default;
 }
-*[class*="toggle-switch-"].onoff {
-	&::before {
-		content: 'ON';
-		font-size: 0.8rem;
-		width: 45%;
-	}
-	&::after {
-		content: 'OFF';
-		font-size: 0.8rem;
-		width: 55%;
-	}
+*[class*=toggle-switch-] label::before {
+  content: "✓";
+  font-size: 1rem;
+  color: inherit;
+  left: 0;
+  width: 50%;
+  text-align: center;
 }
-*[class*="toggle-switch-"].yesno {
-	&::before {
-		content: 'YES';
-		font-size: 0.8rem;
-		width: 55%;
-	}
-	&::after {
-		content: 'NO';
-		font-size: 0.8rem;
-		width: 45%;
-	}
+*[class*=toggle-switch-] label::after {
+  content: "✕";
+  font-size: 1rem;
+  color: inherit;
+  right: 0;
+  width: 50%;
+  text-align: center;
+}
+*[class*=toggle-switch-] label .toggle-switch-button {
+  position: absolute;
+  top: 10%;
+  left: 0.2rem;
+  height: 80%;
+  border-radius: inherit;
+	box-shadow: none !important;
+}
+*[class*=toggle-switch-].onoff label::before {
+  content: "ON";
+  font-size: 0.8rem;
+  width: 45%;
+}
+*[class*=toggle-switch-].onoff label::after {
+  content: "OFF";
+  font-size: 0.8rem;
+  width: 55%;
+}
+*[class*=toggle-switch-].yesno label::before {
+  content: "YES";
+  font-size: 0.8rem;
+  width: 55%;
+}
+*[class*=toggle-switch-].yesno label::after {
+  content: "NO";
+  font-size: 0.8rem;
+  width: 45%;
 }
 .toggle-switch-xs {
-	width: 4.75rem;
-	height: 1.5rem;
-	line-height: 1.5rem;	
+  width: 4.75rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
 }
 .toggle-switch-sm {
-	width: 5rem;
-	height: 1.75rem;
-	line-height: 1.75rem;
+  width: 5rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
 }
 .toggle-switch-md {
-	width: 5.5rem;
-	height: 2.125rem;
-	line-height: 2.125rem;
+  width: 5.5rem;
+  height: 2.125rem;
+  line-height: 2.125rem;
 }
 .toggle-switch-lg {
-	width: 6rem;
-	height: 2.475rem;
-	line-height: 2.475rem;
+  width: 6rem;
+  height: 2.475rem;
+  line-height: 2.475rem;
 }
 .toggle-switch-xl {
-	width: 6.5rem;
-	height: 2.825rem;
-	line-height: 2.825rem;
+  width: 6.5rem;
+  height: 2.825rem;
+  line-height: 2.825rem;
 }
-.toggle-switch-xs label {
-	left: 0.2rem;
-	width: 2rem;
+.toggle-switch-xs label .toggle-switch-button {
+  width: 2rem;
 }
-.toggle-switch-sm label {
-	left: 0.2rem;
-	width: 2.2rem;
+.toggle-switch-sm label .toggle-switch-button {
+  width: 2.2rem;
 }
-.toggle-switch-md label {
-	left: 0.2rem;
-	width: 2.4rem;
+.toggle-switch-md label .toggle-switch-button {
+  width: 2.4rem;
 }
-.toggle-switch-lg label {
-	left: 0.3rem;
-	width: 2.6rem;
+.toggle-switch-lg label .toggle-switch-button {
+  width: 2.6rem;
 }
-.toggle-switch-xl label {
-	left: 0.3rem;
-	width: 2.8rem;
+.toggle-switch-xl label .toggle-switch-button {
+  width: 2.8rem;
 }
-.toggle-switch-xs input[type=checkbox]:checked + label,
-.toggle-switch-xs input[type=radio]:checked + label {
-	left: 2.35rem;
+.toggle-switch-xs input:checked + label .toggle-switch-button {
+  left: 2.35rem;
 }
-.toggle-switch-sm input[type=checkbox]:checked + label,
-.toggle-switch-sm input[type=radio]:checked + label {
-	left: 2.4rem;
+.toggle-switch-sm input:checked + label .toggle-switch-button {
+  left: 2.4rem;
 }
-.toggle-switch-md input[type=checkbox]:checked + label,
-.toggle-switch-md input[type=radio]:checked + label {
-	left: 2.7rem;
+.toggle-switch-md input:checked + label .toggle-switch-button {
+  left: 2.7rem;
 }
-.toggle-switch-lg input[type=checkbox]:checked + label,
-.toggle-switch-lg input[type=radio]:checked + label {
-	left: 3rem;
+.toggle-switch-lg input:checked + label .toggle-switch-button {
+  left: 3rem;
 }
-.toggle-switch-xl input[type=checkbox]:checked + label,
-.toggle-switch-xl input[type=radio]:checked + label {
-	left: 3.3rem;
+.toggle-switch-xl input:checked + label .toggle-switch-button {
+  left: 3.3rem;
 }
+*[class*=toggle-switch-] input:not(:checked) + label {
+  background-color: $theme_default;
+}
+*[class*=toggle-switch-] input:not(:checked) + label .toggle-switch-button {
+  background-color: $theme_default_highlight;
+}
+
 .image {
 	display: block;
 	max-width: 100%;
@@ -1994,18 +1843,18 @@ svg:not(:root) {
 	background-color: $theme_highlight;
 	border: 0.078rem solid $theme_danger_border;
 }
-.control-group-success label:not(.control-disabled),
-.control-group-success *[class*="text"]:not(.control-disabled),
-.control-group-success *[class*="control-label"]:not(.control-disabled) {
+.control-group-success label,
+.control-group-success *[class*="text"],
+.control-group-success *[class*="control-label"] {
 	color: $theme_success;
 }
-.control-group-success *[class*="radio"]:not(.control-disabled) label,
-.control-group-success *[class*="checkbox"]:not(.control-disabled) label {
+.control-group-success *[class*="radio"] label,
+.control-group-success *[class*="checkbox"] label {
 	border-color: $theme_success;
 }
-.control-success:not(.control-disabled),
-.control-group-success :not(.control-disabled),
-.control-group-success .control:not(.control-disabled) {
+.control-success,
+.control-group-success,
+.control-group-success .control {
 	border-color: $theme_success;
 	&[type="text"], &[type="button"], &[class*="button"], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232DB200' d='M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z'/%3E%3C/svg%3E");
@@ -2018,18 +1867,18 @@ svg:not(:root) {
 		background-position: right 0.625rem top 0.5rem;
 	}
 }
-.control-group-info label:not(.control-disabled),
-.control-group-info *[class*="text"]:not(.control-disabled),
-.control-group-info *[class*="control-label"]:not(.control-disabled) {
+.control-group-info label,
+.control-group-info *[class*="text"],
+.control-group-info *[class*="control-label"] {
 	color: $theme_info;
 }
-.control-group-info *[class*="radio"]:not(.control-disabled) label,
-.control-group-info *[class*="checkbox"]:not(.control-disabled) label {
+.control-group-info *[class*="radio"] label,
+.control-group-info *[class*="checkbox"] label {
 	border-color: $theme_info;
 }
-.control-info:not(.control-disabled),
-.control-group-info :not(.control-disabled), 
-.control-group-info .control:not(.control-disabled) {
+.control-info,
+.control-group-info, 
+.control-group-info .control {
 	border-color: $theme_info;
 	&[type="text"], &[type="button"], &[class*="button"], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230072FF' d='M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z'/%3E%3C/svg%3E");
@@ -2042,18 +1891,18 @@ svg:not(:root) {
 		background-position: right 0.625rem top 0.5rem;
 	}
 }
-.control-group-warning label:not(.control-disabled),
-.control-group-warning *[class*="text"]:not(.control-disabled),
-.control-group-warning *[class*="control-label"]:not(.control-disabled) {
+.control-group-warning label,
+.control-group-warning *[class*="text"],
+.control-group-warning *[class*="control-label"] {
 	color: $theme_warning;
 }
-.control-group-warning *[class*="radio"]:not(.control-disabled) label,
-.control-group-warning *[class*="checkbox"]:not(.control-disabled) label {
+.control-group-warning *[class*="radio"] label,
+.control-group-warning *[class*="checkbox"] label {
 	border-color: $theme_warning;
 }
-.control-warning:not(.control-disabled),
-.control-group-warning :not(.control-disabled), 
-.control-group-warning .control:not(.control-disabled) {
+.control-warning,
+.control-group-warning, 
+.control-group-warning .control {
 	border-color: $theme_warning;
 	&[type="text"], &[type="button"], &[class*="button"], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF9300' d='M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16'/%3E%3C/svg%3E");
@@ -2066,18 +1915,18 @@ svg:not(:root) {
 		background-position: right 0.625rem top 0.5rem;
 	}
 }
-.control-group-danger label:not(.control-disabled),
-.control-group-danger *[class*="text"]:not(.control-disabled),
-.control-group-danger *[class*="control-label"]:not(.control-disabled) {
+.control-group-danger label,
+.control-group-danger *[class*="text"],
+.control-group-danger *[class*="control-label"] {
 	color: $theme_danger;
 }
-.control-group-danger *[class*="radio"]:not(.control-disabled) label,
-.control-group-danger *[class*="checkbox"]:not(.control-disabled) label {
+.control-group-danger *[class*="radio"] label,
+.control-group-danger *[class*="checkbox"] label {
 	border-color: $theme_danger;
 }
-.control-danger:not(.control-disabled),
-.control-group-danger :not(.control-disabled), 
-.control-group-danger .control:not(.control-disabled) {
+.control-danger,
+.control-group-danger, 
+.control-group-danger .control {
 	border-color: $theme_danger;
 	&[type="text"], &[type="button"], &[class*="button"], &.instrumentation {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF0000' d='M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z'/%3E%3C/svg%3E");
@@ -2089,30 +1938,6 @@ svg:not(:root) {
 	&:not(a):not([type="text"]):not([type="button"]):not([class*="button"]).instrumentation {
 		background-position: right 0.625rem top 0.5rem;
 	}
-}
-.control-disabled:not([class*="checkbox"]):not([class*="radio"]),
-.control-group-disabled .control,
-.control-group-disabled *[class*="input"] {
-	color: $theme_disabled_foreground !important;
-	background-color: $theme_disabled !important;
-	border: 0.078rem solid $theme_disabled_border !important;
-}
-.control-group-disabled label,
-.control-group-disabled *[class*="text"],
-.control-group-disabled *[class*="control-label"] {
-	color: $theme_disabled_foreground !important;
-}
-*[class*="checkbox"].control-disabled label,
-*[class*="radio"].control-disabled label,
-*[class*="checkbox"].control-disabled input[type=checkbox]:checked + label,
-*[class*="radio"].control-disabled input[type=radio]:checked + label,
-.control-group-disabled *[class*="checkbox"] label, 
-.control-group-disabled *[class*="radio"] label,
-.control-group-disabled *[class*="checkbox"] input[type=checkbox]:checked + label,
-.control-group-disabled *[class*="radio"] input[type=radio]:checked + label {
-  background-image: none !important;
-	background-color: $theme_disabled !important;
-	border-color: $theme_disabled_border !important;
 }
 .control-block {	
 	letter-spacing: normal;
@@ -2171,14 +1996,14 @@ svg:not(:root) {
 .control-hint > input::placeholder {
 	color: transparent;
 }
-.accessibility a:not([disabled]):focus,
-.accessibility *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility a:focus,
 .accessibility *[class*="input"]:not([disabled]):focus,
 .accessibility *[class*="button"]:not([disabled]):focus,
+.accessibility *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility *[class*="toggle-button"] input:not([disabled]) + label:focus,
-.accessibility .control:not([disabled]):focus,
-.accessibility .upload:not([disabled]):focus + label {
+.accessibility *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
 		z-index: 1;
@@ -2186,12 +2011,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_default;
 	border-color: $theme_accessibility_default;
 }
-.accessibility-light a:not([disabled]):focus,
-.accessibility-light *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-light *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-light a:focus,
 .accessibility-light *[class*="input"]:not([disabled]):focus,
 .accessibility-light *[class*="button"]:not([disabled]):focus,
+.accessibility-light *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-light *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-light *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-light *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-light .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2200,12 +2026,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_light;
 	border-color: $theme_accessibility_light;
 }
-.accessibility-dark a:not([disabled]):focus,
-.accessibility-dark *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-dark *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-dark a:focus,
 .accessibility-dark *[class*="input"]:not([disabled]):focus,
 .accessibility-dark *[class*="button"]:not([disabled]):focus,
+.accessibility-dark *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-dark *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-dark *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-dark .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2214,12 +2041,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_dark;
 	border-color: $theme_accessibility_dark;
 }
-.accessibility-accent-1 a:not([disabled]):focus,
-.accessibility-accent-1 *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-accent-1 *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-accent-1 a:focus,
 .accessibility-accent-1 *[class*="input"]:not([disabled]):focus,
 .accessibility-accent-1 *[class*="button"]:not([disabled]):focus,
+.accessibility-accent-1 *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-1 *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-accent-1 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-accent-1 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2228,12 +2056,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_accent_1;
 	border-color: $theme_accessibility_accent_1;
 }
-.accessibility-accent-2 a:not([disabled]):focus,
-.accessibility-accent-2 *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-accent-2 *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-accent-2 a:focus,
 .accessibility-accent-2 *[class*="input"]:not([disabled]):focus,
 .accessibility-accent-2 *[class*="button"]:not([disabled]):focus,
+.accessibility-accent-2 *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-2 *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-accent-2 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-accent-2 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2242,12 +2071,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_accent_2;
 	border-color: $theme_accessibility_accent_2;
 }
-.accessibility-accent-3 a:not([disabled]):focus,
-.accessibility-accent-3 *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-accent-3 *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-accent-3 a:focus,
 .accessibility-accent-3 *[class*="input"]:not([disabled]):focus,
 .accessibility-accent-3 *[class*="button"]:not([disabled]):focus,
+.accessibility-accent-3 *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-3 *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-accent-3 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-accent-3 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2256,12 +2086,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_accent_3;
 	border-color: $theme_accessibility_accent_3;
 }
-.accessibility-accent-4 a:not([disabled]):focus,
-.accessibility-accent-4 *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-accent-4 *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-accent-4 a:focus,
 .accessibility-accent-4 *[class*="input"]:not([disabled]):focus,
 .accessibility-accent-4 *[class*="button"]:not([disabled]):focus,
+.accessibility-accent-4 *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-4 *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-accent-4 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-accent-4 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2270,12 +2101,13 @@ svg:not(:root) {
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_accent_4;
 	border-color: $theme_accessibility_accent_4;
 }
-.accessibility-accent-5 a:not([disabled]):focus,
-.accessibility-accent-5 *[class*="checkbox"] input:not([disabled]) + label:focus,
-.accessibility-accent-5 *[class*="radio"] input:not([disabled]) + label:focus,
+.accessibility-accent-5 a:focus,
 .accessibility-accent-5 *[class*="input"]:not([disabled]):focus,
 .accessibility-accent-5 *[class*="button"]:not([disabled]):focus,
+.accessibility-accent-5 *[class*="checkbox"] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-5 *[class*="toggle-button"] input:not([disabled]) + label:focus,
+.accessibility-accent-5 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
 .accessibility-accent-5 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2283,6 +2115,13 @@ svg:not(:root) {
 	}
 	box-shadow: 0 0 0 0.125rem $theme_accessibility_accent_5;
 	border-color: $theme_accessibility_accent_5;
+}
+*[class*="accessibility"] [class*="checkbox"].group-item input:not([disabled]) + label:focus,
+*[class*="accessibility"] [class*="radio"].group-item input:not([disabled]) + label:focus,
+*[class*="accessibility"] [class*="toggle-button"].group-item input:not([disabled]) + label:focus,
+*[class*="accessibility"] [class*="toggle-switch"].group-item input:not([disabled]) + label:focus {
+	position: relative;
+	z-index: 1;
 }
 .width-auto {
 	width: auto;
@@ -3496,14 +3335,97 @@ svg:not(:root) {
 	border-bottom-left-radius: 0.563rem;
 	border-bottom-right-radius: 0.563rem;
 }
-.raised-sm {
+.shadow-sm {
 	box-shadow: 0.078rem 0.078rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
 }
-.raised-md {
+.shadow-md {
 	box-shadow: 0.125rem 0.125rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
 }
-.raised-lg {
+.shadow-lg {
 	box-shadow: 0.25rem 0.25rem 0.625rem 0.078rem rgba(102, 102, 102, 0.5);
+}
+.control-group-disabled label,
+.control-group-disabled *[class*="text"],
+.control-group-disabled *[class*="control-label"] {
+	color: $theme_disabled_foreground !important;
+	cursor: not-allowed !important;
+}
+*[class*="input"][disabled],
+*[class*="button"][disabled],
+*[class*="checkbox"] input[disabled] + label,
+*[class*="radio"] input[disabled] + label,
+*[class*="toggle-button"] input[disabled] + label,
+*[class*="toggle-switch"] input[disabled] + label,
+.control[disabled],
+*[class*="input"].control-disabled,
+*[class*="button"].control-disabled,
+*[class*="checkbox"].control-disabled label,
+*[class*="radio"].control-disabled label,
+*[class*="toggle-button"].control-disabled label,
+*[class*="toggle-switch"].control-disabled label,
+.control-group-disabled .control,
+.control-group-disabled *[class*="input"],
+.control-group-disabled *[class*="button"],
+.control-group-disabled *[class*="checkbox"] label, 
+.control-group-disabled *[class*="radio"] label,
+.control-group-disabled *[class*="toggle-button"] label,
+.control-group-disabled *[class*="toggle-switch"] label {
+	color: $theme_disabled_foreground !important;
+	background-color: $theme_disabled !important;
+	border-color: $theme_disabled_border !important;
+	background-image: none !important;
+	box-shadow: none !important;
+	cursor: not-allowed !important;
+}
+*[class*="view-button"][disabled],
+*[class*="view-button"].control-disabled,
+.control-group-disabled *[class*="view-button"] {
+	text-decoration: line-through !important;
+	color: $theme_disabled_foreground !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+	cursor: not-allowed !important;
+}
+.range[disabled]::-webkit-slider-runnable-track,
+.range.control-disabled::-webkit-slider-runnable-track,
+.control-group-disabled .range::-webkit-slider-runnable-track {
+	background-color: $theme_disabled !important;
+	cursor: not-allowed !important;
+}
+.range[disabled]::-webkit-slider-thumb,
+.range.control-disabled::-webkit-slider-thumb,
+.control-group-disabled .range::-webkit-slider-thumb {
+	background-color: $theme_disabled !important;
+}
+.range[disabled]::-moz-range-track,
+.range.control-disabled::-moz-range-track,
+.control-group-disabled .range::-moz-range-track {
+	background-color: $theme_disabled !important;
+	cursor: not-allowed !important;
+}
+.range[disabled]::-moz-range-thumb,
+.range.control-disabled::-moz-range-thumb,
+.control-group-disabled .range::-moz-range-thumb {
+	background-color: $theme_disabled !important;
+}
+.range[disabled]::-ms-fill-lower,
+.range.control-disabled::-ms-fill-lower,
+.control-group-disabled .range::-ms-fill-lower {
+	background-color: $theme_disabled !important;
+}
+.range[disabled]::-ms-fill-upper,
+.range.control-disabled::-ms-fill-upper,
+.control-group-disabled .range::-ms-fill-upper {
+	background-color: $theme_disabled !important;
+}
+.range[disabled]::-ms-thumb,
+.range.control-disabled::-ms-thumb,
+.control-group-disabled .range::-ms-thumb {
+	background-color: $theme_disabled !important;
+}
+.range-series.control-disabled,
+.control-group-disabled .range-series {
+	color: $theme_disabled_foreground !important;
 }
 .show-bp-1-under,
 .show-bp-1-over,
