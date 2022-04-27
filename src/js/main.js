@@ -2320,14 +2320,28 @@
 
 	/* EVENT HANDLERS */
 
-	webui(".checkbox:not(.control-disabled) label").keyDown(function (e) {		
+	webui(".checkbox input:not([disabled]) + label").keyDown(function (e) {		
 		if (e.which == 13 || e.which == 32) {
 			e.preventDefault();
 			this.click();
 		}
 	});
 
-	webui(".radio:not(.control-disabled) label").keyDown(function (e) {	
+	webui(".radio input:not([disabled]) + label").keyDown(function (e) {	
+		if (e.which == 13 || e.which == 32) {
+			e.preventDefault();
+			this.click();
+		}
+	});
+
+	webui("[class*='toggle-button'] input:not([disabled]) + label").keyDown(function (e) {	
+		if (e.which == 13 || e.which == 32) {
+			e.preventDefault();
+			this.click();
+		}
+	});
+
+	webui("[class*='toggle-switch'] input:not([disabled]) + label").keyDown(function (e) {	
 		if (e.which == 13 || e.which == 32) {
 			e.preventDefault();
 			this.click();

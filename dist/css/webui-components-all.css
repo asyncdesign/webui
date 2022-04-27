@@ -9263,12 +9263,10 @@ svg:not(:root) {
   padding: 0 0.313rem 0 0;
 }
 
-*[class*=checkbox] input[type=checkbox],
-*[class*=radio] input[type=radio],
-*[class*=toggle-button] input[type=checkbox],
-*[class*=toggle-button] input[type=radio],
-*[class*=toggle-switch-] input[type=checkbox],
-*[class*=toggle-switch-] input[type=radio] {
+*[class*=checkbox] input,
+*[class*=radio] input,
+*[class*=toggle-button] input,
+*[class*=toggle-switch] input {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -10144,11 +10142,14 @@ svg:not(:root) {
   background-color: rgb(222, 222, 222);
 }
 
-*[class*=toggle-switch-] {
+*[class*=toggle-switch] {
   position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
 }
 
-*[class*=toggle-switch-] label {
+*[class*=toggle-switch] label {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -10162,25 +10163,7 @@ svg:not(:root) {
   cursor: default;
 }
 
-*[class*=toggle-switch-] label::before {
-  content: "✓";
-  font-size: 1rem;
-  color: inherit;
-  left: 0;
-  width: 50%;
-  text-align: center;
-}
-
-*[class*=toggle-switch-] label::after {
-  content: "✕";
-  font-size: 1rem;
-  color: inherit;
-  right: 0;
-  width: 50%;
-  text-align: center;
-}
-
-*[class*=toggle-switch-] label .toggle-switch-button {
+*[class*=toggle-switch] label .toggle-switch-button {
   position: absolute;
   top: 10%;
   left: 0.2rem;
@@ -10189,25 +10172,49 @@ svg:not(:root) {
   box-shadow: none !important;
 }
 
-*[class*=toggle-switch-].onoff label::before {
+*[class*=toggle-switch] label::before {
+  text-align: center;
+  color: inherit;
+  left: 0;
+}
+
+*[class*=toggle-switch] label::after {
+  text-align: center;
+  color: inherit;
+  right: 0;
+}
+
+*[class*=toggle-switch].check label::before {
+  content: "✓";
+  font-size: 1rem;
+  width: 50%;
+}
+
+*[class*=toggle-switch].check label::after {
+  content: "✕";
+  font-size: 1rem;
+  width: 50%;
+}
+
+*[class*=toggle-switch].onoff label::before {
   content: "ON";
   font-size: 0.8rem;
   width: 45%;
 }
 
-*[class*=toggle-switch-].onoff label::after {
+*[class*=toggle-switch].onoff label::after {
   content: "OFF";
   font-size: 0.8rem;
   width: 55%;
 }
 
-*[class*=toggle-switch-].yesno label::before {
+*[class*=toggle-switch].yesno label::before {
   content: "YES";
   font-size: 0.8rem;
   width: 55%;
 }
 
-*[class*=toggle-switch-].yesno label::after {
+*[class*=toggle-switch].yesno label::after {
   content: "NO";
   font-size: 0.8rem;
   width: 45%;
@@ -10243,6 +10250,10 @@ svg:not(:root) {
   line-height: 2.825rem;
 }
 
+.toggle-switch label .toggle-switch-button {
+  width: 1.15rem;
+}
+
 .toggle-switch-xs label .toggle-switch-button {
   width: 2rem;
 }
@@ -10261,6 +10272,10 @@ svg:not(:root) {
 
 .toggle-switch-xl label .toggle-switch-button {
   width: 2.8rem;
+}
+
+.toggle-switch input:checked + label .toggle-switch-button {
+  left: 1rem;
 }
 
 .toggle-switch-xs input:checked + label .toggle-switch-button {
@@ -10283,11 +10298,11 @@ svg:not(:root) {
   left: 3.3rem;
 }
 
-*[class*=toggle-switch-] input:not(:checked) + label {
+*[class*=toggle-switch] input:not(:checked) + label {
   background-color: rgb(222, 222, 222);
 }
 
-*[class*=toggle-switch-] input:not(:checked) + label .toggle-switch-button {
+*[class*=toggle-switch] input:not(:checked) + label .toggle-switch-button {
   background-color: rgb(199, 199, 199);
 }
 
@@ -12408,11 +12423,11 @@ svg:not(:root) {
 }
 
 .rounded-md, .checkbox.rounded-md label {
-  border-radius: 0.375rem;
+  border-radius: 0.388rem;
 }
 
 .rounded-lg, .checkbox.rounded-lg label {
-  border-radius: 0.563rem;
+  border-radius: 0.588rem;
 }
 
 .rounded-full, .checkbox.rounded-full label {
