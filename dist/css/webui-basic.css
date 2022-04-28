@@ -2372,42 +2372,55 @@ svg:not(:root) {
   word-spacing: normal;
 }
 
-.control-hint {
+.control-hint,
+.control-hint-border {
   position: relative;
 }
 
-.control-hint > input + label {
+.control-hint > input,
+.control-hint > textarea,
+.control-hint-border > input,
+.control-hint-border > textarea {
+  min-height: 2.475rem;
+}
+
+.control-hint > input + label,
+.control-hint-border > input + label {
   position: absolute;
-  left: 0.7rem;
+  left: 0.3rem;
   top: 50%;
-  opacity: 0.4;
+  padding: 0.1rem 0.5rem;
+  border: none;
+  pointer-events: none;
   transform-origin: 0 0;
   transform: translate(0, -50%);
-  transition: transform 0.5s ease-in-out;
-  pointer-events: none;
-  border: none;
+  transition: transform 0.5s ease-out;
 }
 
-.control-hint > textarea + label {
+.control-hint > textarea + label,
+.control-hint-border > textarea + label {
   position: absolute;
-  left: 0.7rem;
-  top: 0.5rem;
-  opacity: 0.4;
-  transform-origin: 0 0;
-  transition: transform 0.5s ease-in-out;
-  pointer-events: none;
+  left: 0.3rem;
+  top: 0.7rem;
+  padding: 0.1rem 0.5rem;
   border: none;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: transform 0.5s ease-out;
 }
 
-.control-hint > input::-moz-placeholder {
+.control-hint > input::-moz-placeholder,
+.control-hint-border > input::-moz-placeholder {
   color: transparent;
 }
 
-.control-hint > input:-ms-input-placeholder {
+.control-hint > input:-ms-input-placeholder,
+.control-hint-border > input:-ms-input-placeholder {
   color: transparent;
 }
 
-.control-hint > input::placeholder {
+.control-hint > input::placeholder,
+.control-hint-border > input::placeholder {
   color: transparent;
 }
 

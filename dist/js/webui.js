@@ -2349,22 +2349,81 @@
 	});
 
 	webui(".control-hint > input").focusIn(function() {
-		ui(this).css("padding-top", "0.7rem");
-		ui(this).siblings("label").css("transform", "scale(0.7) translateY(-135%)");
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			if (hintControl.hasClass("input-xl")) {
+				hintControl.css("padding-top", "0.7rem");
+				hintControl.siblings("label").css("transform", "scale(0.8) translateY(-125%)");
+			}
+			else {
+				hintControl.css("padding-top", "0.75rem");
+				hintControl.siblings("label").css("transform", "scale(0.8) translateY(-120%)");
+			}
+		}
 	}).focusOut(function() {
-		if (!this.value || !this.value.length) {
-			ui(this).css("padding-top", "0");
-			ui(this).siblings("label").css("transform", "scale(1) translateY(-50%)");
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.css("padding-top", "0");
+			hintControl.siblings("label").css("transform", "scale(1) translateY(-50%)");
 		}		
 	});
 
-	webui(".control-hint > textarea").focusIn(function() {	
-		ui(this).css("padding-top", "1rem");
-		ui(this).siblings("label").css("transform", "scale(0.7)").css("top", "0.5rem").slideVertical("up", "0.3rem", 300);
+	webui(".control-hint-border > input").focusIn(function() {
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			if (hintControl.siblings("label").css("background-color") === "transparent" || hintControl.siblings("label").css("background-color") === "rgba(0, 0, 0, 0)") {
+				hintControl.siblings("label").css("background-color", hintControl.css("background-color"));
+			}
+			if (hintControl.hasClass("input-xl")) {
+				hintControl.siblings("label").css("transform", "translateY(-155%)  scale(0.8)");
+			}
+			else {
+				hintControl.siblings("label").css("transform", "translateY(-140%)  scale(0.8)");
+			}
+		}
 	}).focusOut(function() {
-		if (!this.value || !this.value.length) {
-			ui(this).css("padding-top", "0");
-			ui(this).siblings("label").css("transform", "scale(1)").slideVertical("down", "0.3rem", 300);
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.siblings("label").css("transform", "translateY(-50%) scale(1)");
+		}	
+	});
+
+	webui(".control-hint > textarea").focusIn(function() {	
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.css("padding-top", "1.2rem");
+			hintControl.siblings("label").css("top", "0.5rem").css("transform", "scale(0.8)").slideVertical("up", "0.3rem", 500);
+		}
+	}).focusOut(function() {
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.css("padding-top", "0.313rem");
+			hintControl.siblings("label").css("transform", "scale(1)").slideVertical("down", "0.3rem", 500);
+		}
+	});
+
+	webui(".control-hint-border > textarea").focusIn(function() {	
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.css("padding-top", "0.6rem");
+			if (hintControl.siblings("label").css("background-color") === "transparent" || hintControl.siblings("label").css("background-color") === "rgba(0, 0, 0, 0)") {
+				hintControl.siblings("label").css("background-color", hintControl.css("background-color"));
+			}
+			hintControl.siblings("label").css("top", "0.5rem").css("transform", "scale(0.8)").slideVertical("up", "1rem", 500);
+		}
+	}).focusOut(function() {
+		var hintControl = ui(this);
+
+		if (!hintControl.val().length) {
+			hintControl.css("padding-top", "0.313rem");
+			hintControl.siblings("label").css("transform", "scale(1)").slideVertical("down", "1rem", 500);
 		}
 	});
 
