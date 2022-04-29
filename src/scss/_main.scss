@@ -1977,45 +1977,121 @@ svg:not(:root) {
 	position: relative;
 }
 .control-hint > input,
-.control-hint > textarea,
-.control-hint-border > input,
-.control-hint-border > textarea {
+.control-hint > textarea {
 	min-height: 2.475rem;
 }
-.control-hint > input + label,
-.control-hint-border > input + label {
+.control-hint > input ~ label,
+.control-hint-border > input ~ label {
 	position: absolute;
 	left: 0.3rem;
 	top: 50%;
-	padding: 0.1rem 0.5rem;
+	min-height: 1rem;
+	padding: 0.2rem 0.5rem;
 	border: none;
 	pointer-events: none;
 	transform-origin: 0 0;			
 	transform: translate(0, -50%);
-	transition: transform 0.5s ease-out;
+	transition: transform 0.3s ease-out;
 }	
-.control-hint > textarea + label,
-.control-hint-border > textarea + label {
+.control-hint > textarea ~ label,
+.control-hint-border > textarea ~ label {
 	position: absolute;
 	left: 0.3rem;
 	top: 0.7rem;
-	padding: 0.1rem 0.5rem;
+	min-height: 1rem;
+	padding: 0.2rem 0.5rem;
 	border: none;
 	pointer-events: none;
 	transform-origin: 0 0;
-	transition: transform 0.5s ease-out;	
-}	
+	transition: transform 0.3s ease-out;	
+}
 .control-hint > input::-moz-placeholder,
 .control-hint-border > input::-moz-placeholder {
-	color: transparent;
-}
-.control-hint > input:-ms-input-placeholder,
-.control-hint-border > input:-ms-input-placeholder {
-	color: transparent;
+	color: transparent !important;
 }
 .control-hint > input::placeholder,
 .control-hint-border > input::placeholder {
-	color: transparent;
+	color: transparent !important;
+}
+.control-hint > textarea::-moz-placeholder,
+.control-hint-border > textarea::-moz-placeholder {
+	color: transparent !important;
+}
+.control-hint > textarea::placeholder,
+.control-hint-border > textarea::placeholder {
+	color: transparent !important;
+}
+.control-hint > input:not(.input-xl):not(:-moz-placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-105%);
+	}
+}
+.control-hint > input.input-xl:not(:-moz-placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-115%);
+	}
+}
+.control-hint-border > input:not(.input-xl):not(:-moz-placeholder-shown) ~ label {
+	transform: scale(0.8) translateY(-150%);
+}
+.control-hint-border > input.input-xl:not(:-moz-placeholder-shown) ~ label {
+	transform: scale(0.8) translateY(-165%);
+}
+.control-hint > textarea:not(:-moz-placeholder-shown) {
+	padding-top: 1.2rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-55%);
+	}
+}
+.control-hint-border > textarea:not(:-moz-placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		transform: scale(0.8) translateY(-110%);
+	}
+}
+.control-hint > input:not(.input-xl):focus,
+.control-hint > input:not(.input-xl):not(:placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-105%);
+	}
+}
+.control-hint > input.input-xl:focus,
+.control-hint > input.input-xl:not(:placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-115%);
+	}
+}
+.control-hint-border > input:not(.input-xl):focus ~ label,
+.control-hint-border > input:not(.input-xl):not(:placeholder-shown) ~ label {
+	transform: scale(0.8) translateY(-150%);
+}
+.control-hint-border > input.input-xl:focus ~ label,
+.control-hint-border > input.input-xl:not(:placeholder-shown) ~ label {
+	transform: scale(0.8) translateY(-165%);
+}
+.control-hint > textarea:focus,
+.control-hint > textarea:not(:placeholder-shown) {
+	padding-top: 1.2rem;
+	& ~ label {
+		background-color: transparent;
+  	transform: scale(0.8) translateY(-55%);
+	}
+}
+.control-hint-border > textarea:focus,
+.control-hint-border > textarea:not(:placeholder-shown) {
+	padding-top: 0.7rem;
+	& ~ label {
+		transform: scale(0.8) translateY(-110%);
+	}
 }
 .accessibility a:focus,
 .accessibility *[class*="input"]:not([disabled]):focus,

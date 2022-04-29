@@ -341,6 +341,7 @@
 						</div>
 
 						<div class="form-col-10 respond-bp-4-under">
+							<form method="post" action="">
 							<div class="form-row">
 								<div class="form-col-5 control-label-sm respond-bp-3-under">
 									GP name
@@ -371,9 +372,9 @@
 								</div>
 								<div class="form-col-10 respond-bp-3-under">
 
-									<div class="control-hint">
-										<textarea id="GpAddress" class="control width-full height-md rounded-sm"></textarea>
-										<label for="GpAddress" class="color-accent-2"> GP Address</label>
+									<div class="control-hint-border">
+										<textarea id="GpAddress" class="control width-full height-md rounded-sm" placeholder="test"></textarea>
+										<label for="GpAddress" class="color-accent-2 background-light"> GP Address</label>
 									</div>
 
 								</div>
@@ -394,16 +395,26 @@
 									<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />
 								</div>
 							</div>
+							<div class="form-row">
+								<div class="form-col-5 control-label-sm respond-bp-3-under">
+									Email
+								</div>
+								<div class="form-col-10 respond-bp3-under">	
+									<div class="control-hint-border">
+										<input id="GPEmail" type="email" class="input-sm rounded-sm width-full" autocomplete="email" placeholder="test" />
+										<label for="GPEmail" class="color-accent-2 background-light">Enter email</label>
+									</div>
+								</div>
+							</div>
 							<div class="row-spacing-lg"></div>
 							<div class="form-row">
 								<div class="form-col-5 respond-bp-3-under">
-									<button id="FindGP" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Find GP</button>
+									<button id="FindGP" type="submit" class="button-sm button-accent-1 rounded-sm transition-medium">Find GP</button>
 								</div>
 								<div class="form-col respond-bp-3-under">
 
 								</div>
 							</div>
-							<div class="row-spacing-lg"></div>
 							<div class="row-spacing-lg"></div>
 							<div class="form-row">
 								<div class="form-col text-lg form-col-align-xl respond-bp-3-under">
@@ -417,13 +428,13 @@
 								<div class="form-col-10 respond-bp-3-under">
 									<div class="tooltip width-full" id="tooltipEnterValues">
 
-										<div class="control-hint">
-											<input id="textURL" type="text" class="input-xl rounded-sm width-full" />
-											<label for="textURL" class="color-accent-2">Enter a valid URL</label>
+										<div class="control-hint-border">
+											<input id="textURL" type="text" class="input-lg rounded-sm width-full" placeholder="test" />
+											<label for="textURL" class="color-accent-2 background-light">Enter a valid URL</label>
 										</div>
 	
 										
-										<div class="tooltip-focus tooltip-top tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-lg">
+										<div class="tooltip-focus tooltip-right tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-lg">
 											<div class="primary border-sm border-accent-4 rounded-md">
 												<div class="panel accent-4 text-bold rounded-top-md place-top-center width-full">
 													Heading
@@ -515,7 +526,7 @@
 								</div>
 							</div>
 					
-		
+							</form>
 						</div>
 					</div>
 					<div class="row-spacing-md"></div>
