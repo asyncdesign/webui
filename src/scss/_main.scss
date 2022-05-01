@@ -96,21 +96,10 @@ audio:not([controls]) {
 svg:not(:root) {
 	overflow: hidden; 
 }
-.container, .box {
-	padding: 0;
-}
-.body, .panel {
-	padding: 0.625rem;
-}
-.area {
-	padding: 1.875rem;
-}
-.container, .body, .box, .panel, .area {
+.container {
 	display: block;
 	position: relative;
-}
-.box, .panel, .area {
-	overflow: hidden;
+	padding: 0;
 }
 .container::after, .body::after {
 	content: "";
@@ -3129,11 +3118,23 @@ svg:not(:root) {
 .margin-right-minus-xxl {
 	margin-right: -40rem;
 }
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.scroll {
+  overflow: auto;
+}
 .scroll-x {
 	overflow-x: auto;
 }
 .scroll-y {
 	overflow-y: auto;
+}
+.scroll-always {
+  overflow: scroll;
 }
 .scroll-x-always {
 	overflow-x: scroll;
