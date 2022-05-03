@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>title</title>
+
+	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dist/css/webui-components-all.css">
+
+	<link rel="stylesheet" href="site.css">
+
+	<style>
+		.row > *[class*="col"] {
+			*border: 1px solid rgba(189, 189, 189, 0.7);
+		}
+
+	</style>
+
+</head>
+
+<body class="text-sm background-accent-2-light color-accent-5 pad-xs">
+
+
+	<div class="off-canvas-body" data-transition-duration="1500">
+
+		<div class="responsive-gutter-sm">
+
+			<div class="row-spacing-lg"></div>
+
+			<div id="MainTitle">
+				<div class="row flex-items-center">
+					<div class="col-12 text-mega">
+						WebUI
+					</div>
+					<div class="col-12">
+
+						<div class="row">
+							<div class="col flex-justify-end">
+								<img src="images/webui_blue_64x64.png" alt="Media" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col flex-justify-end text-sm text-italic">
+								The Swiss Army Knife of CSS frameworks
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-sm">Menu component</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+
+							<div class="row toolbar-sm dark text-sm" id="menuControl1">
+
+								<div class="col-2 pad-left-md pad-top-sm-md">
+									<i class="fa fa-photo fa-lg"></i>
+								</div>
+
+								<div class="col-fixed">
+									<div class="dropdown">
+										<button id="menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 1 <i class="fa fa-caret-down"></i></button>
+										<div class="dropdown-content menu-close width-xl dark">
+											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Typography</button>
+											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Colours</button>
+											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Forms</button>
+											<div class="row-spacing-sm"></div>
+											<div class="row border-sm border-accent-5"></div>
+											<div class="row-spacing-sm"></div>
+											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Boxes and columns</button>
+											<button type="button" class="menu-button-sm menu-button-dark color-muted text-italic text-left" disabled>Disabled</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-fixed">
+									<button id="menu2" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 2 <i class="fa fa-caret-down"></i></button>
+									<div class="dropdown-sheet menu-close">
+										<div class="col">
+											<div class="container light responsive-gutter-sm pad-lg">
+												<div class="row">
+													<div class="col">
+														<div class="container">
+															<span class="text-lg">Heading 1</span>
+															<div class="row-spacing-md"></div>
+															<ul class="list list-spacing-md text" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col">
+														<div class="container">
+															<span class="text-lg">Heading 2</span>
+															<div class="row-spacing-md"></div>
+															<ul class="list list-spacing-md text" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col">
+														<div class="container">
+															<span class="text-lg">Heading 3</span>
+															<div class="row-spacing-md"></div>
+															<ul class="list list-spacing-md text" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
+														</div>
+													</div>
+		
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-fixed">
+									<button id="menu3" type="button" class="menu-button-sm menu-button-dark text-left width-md">Menu 3</button>
+								</div>
+								<div class="col-fixed">
+									<button id="menu4" type="button" class="menu-button-sm menu-button-dark text-left width-md">Menu 4</button>
+								</div>
+								<div class="col flex-nowrap flex-justify-end pad-xs pad-right-md">
+									<input type="text" class="input-sm rounded-sm accessibility" />
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-sm">Menu component (Small device)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+
+							<div class="row toolbar-sm dark" id="menuControl2">
+
+								<div class="col-12">
+									<div class="row">
+										<div class="col pad-xs pad-left-sm">
+											<input type="text" class="input-sm rounded-sm width-full accessibility" />
+										</div>
+									</div>
+								</div>
+		
+								<div class="col dark text-right">
+									<div class="dropdown width-full">
+										<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-dark width-control-xl"><i class="fa fa-bars"></i></button>
+										<div class="dropdown-content menu-inclusive dark width-full raised-md">
+											<div class="row">
+												<div class="col width-full">
+													<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+													<div class="dropdown-content-expand menu-close dark width-full">
+														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Getting Started</button>
+														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Creating Components</button>
+														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Binding</button>
+														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Templating</button>
+														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Routing</button>
+													</div>
+													<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+													<div class="dropdown-content-expand menu-close width-full background-primary">
+														<div class="container light text-left pad-lg">
+															<div class="row">
+																<div class="col">
+																	<span class="text-lg">Heading 1</span>
+																	<ul class="list" role="menu">
+																		<li role="menuitem">Item 1</li>
+																		<li role="menuitem">Item 2</li>
+																		<li role="menuitem">Item 3</li>
+																		<li role="menuitem">Item 4</li>
+																		<li role="menuitem">Item 5</li>
+																		<li role="menuitem">Item 6</li>
+																		<li role="menuitem">Item 7</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col">
+																	<hr />
+																	<span class="text-lg">Heading 2</span>
+																	<ul class="list" role="menu">
+																		<li role="menuitem">Item 1</li>
+																		<li role="menuitem">Item 2</li>
+																		<li role="menuitem">Item 3</li>
+																		<li role="menuitem">Item 4</li>
+																		<li role="menuitem">Item 5</li>
+																		<li role="menuitem">Item 6</li>
+																		<li role="menuitem">Item 7</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col">
+																	<hr />
+																	<span class="text-lg">Heading 3</span>
+																	<ul class="list" role="menu">
+																		<li role="menuitem">Item 1</li>
+																		<li role="menuitem">Item 2</li>
+																		<li role="menuitem">Item 3</li>
+																		<li role="menuitem">Item 4</li>
+																		<li role="menuitem">Item 5</li>
+																		<li role="menuitem">Item 6</li>
+																		<li role="menuitem">Item 7</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 3</button>
+													<div class="dropdown-content-expand menu-close width-full text-left">
+														<div class="panel dark text-left border-secondary height-md">
+															<span class="place-middle-center">
+																Another menu
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Navbar (Overlay)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+
+							
+							<nav class="nav-sm dark" id="navbar1">
+								<div class="nav-logo accent-5 pad-left-md pad-right-md">Your Logo</div>
+								<div class="nav-menu dark">
+									<div><a href="#0">Menu 1</a></div>
+									<div>
+										<div class="nav-menu light text-sm">
+											<div class="pad-md">
+												<div class="pad-md-lg-bp-4-under pad-top-sm-bp-4-over margin-bottom-xs">
+													<div class="row">
+														<div class="col flex-items-center">
+															<span class="pad-right-xs">Label</span>
+														</div>
+														<div class="col flex-items-center flex-justify-end pad-right-lg-bp-4-over">
+															<div class="toggle-switch">	
+																<input type="checkbox" value="4" id="check-switch-4" />
+																<label for="check-switch-4" class="accent-1-light rounded-lg">
+																	<div class="toggle-switch-button background-info left-transition-medium"></div>
+																</label>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div><a href="#0">Sub Menu Item 2</a></div>
+												<div><a href="#0">Sub Menu Item 3</a></div>
+												<div><a href="#0">Sub Menu Item 4</a></div>
+												<div><a href="#0">Sub Menu Item 5</a></div>
+											</div>
+										</div>
+									</div>
+									<div><a href="#0">Menu 2</a></div>
+									<div>
+										<div class="nav-menu light text-sm">
+											<div class="pad-md">
+												<div><a href="#0">Sub Menu Item 1</a></div>
+												<div><a href="#0">Sub Menu Item 2</a></div>
+												<div><a href="#0">Sub Menu Item 3</a></div>
+												<div><a href="#0">Sub Menu Item 4</a></div>
+												<div><a href="#0">Sub Menu Item 5</a></div>
+											</div>
+										</div>
+									</div>
+									<div><a href="#0">Menu 3</a></div>
+									<div>
+										<div class="nav-menu light text-sm">
+											<div class="pad-md">
+												<div><a href="#0">Sub Menu Item 1</a></div>
+												<div><a href="#0">Sub Menu Item 2</a></div>
+												<div><a href="#0">Sub Menu Item 3</a></div>
+												<div><a href="#0">Sub Menu Item 4</a></div>
+												<div><a href="#0">Sub Menu Item 5</a></div>
+											</div>
+										</div>
+									</div>
+									<div><a href="#0">Menu 4</a></div>
+									<div>
+										<div class="nav-menu light text-sm">
+											<div class="pad-md">
+												<div><a href="#0">Sub Menu Item 1</a></div>
+												<div><a href="#0">Sub Menu Item 2</a></div>
+												<div><a href="#0">Sub Menu Item 3</a></div>
+												<div><a href="#0">Sub Menu Item 4</a></div>
+												<div><a href="#0">Sub Menu Item 5</a></div>
+											</div>
+										</div>
+									</div>
+			
+									<div class="pad-bottom-sm-bp-4-under"></div>
+			
+									<div class="nav-component width-full-bp-4-under move-right-bp-4-over pad-right-md-lg-bp-4-under pad-right-md-lg-bp-4-over">
+										<span class="pad-left-lg pad-right-xs">Notifications</span>
+										<div class="toggle-switch move-right-bp-4-under">	
+											<input type="checkbox" value="1" id="check-switch-1" />
+											<label for="check-switch-1" class="accent-1-light rounded-lg">
+												<div class="toggle-switch-button background-info left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+									<div class="nav-component width-full-bp-4-under move-right-bp-4-over pad-right-md-lg-bp-4-under">
+										<span class="pad-left-lg pad-right-xs">Dark theme</span>
+										<div class="toggle-switch move-right-bp-4-under">	
+											<input type="checkbox" value="3" id="check-switch-3" />
+											<label for="check-switch-3" class="accent-1-light rounded-lg">
+												<div class="toggle-switch-button background-info left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+						
+								</div>
+								<div class="nav-button-sm" id="navToggle1"></div>
+								
+							</nav>
+										
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Navbar (Expand page content and aligned right)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+
+							
+							<nav class="nav-lg dark nav-reverse" id="navbar2">
+								<div class="nav-logo accent-5 pad-left-md pad-right-md">Your Logo</div>
+								<ul class="nav-menu dark">
+									<li><a href="#0">Menu 1</a></li>
+									<li>
+										<ul class="nav-menu light text-sm pad-md-bp-4-over">
+											<div class="nav-component pad-md-lg-bp-4-under pad-top-sm-bp-4-over">
+												<div class="toggle-switch-sm move-right-bp-4-under">	
+													<input type="checkbox" value="4" id="check-switch-8" />
+													<label for="check-switch-8" class="accent-1-light rounded-sm">
+														<div class="toggle-switch-button background-dark left-transition-medium"></div>
+													</label>
+												</div>
+											</div>
+											<li><a href="#0">Sub Menu Item 2</a></li>
+											<li><a href="#0">Sub Menu Item 3</a></li>
+											<li><a href="#0">Sub Menu Item 4</a></li>
+											<li><a href="#0">Sub Menu Item 5</a></li>
+										</ul>
+									</li>
+									<li><a href="#0">Menu 2</a></li>
+									<li>
+										<ul class="nav-menu light text-sm pad-md-bp-4-over">
+											<li><a href="#0">Sub Menu Item 1</a></li>
+											<li><a href="#0">Sub Menu Item 2</a></li>
+											<li><a href="#0">Sub Menu Item 3</a></li>
+											<li><a href="#0">Sub Menu Item 4</a></li>
+											<li><a href="#0">Sub Menu Item 5</a></li>
+										</ul>
+									</li>
+									<li><a href="#0">Menu 3</a></li>
+									<li>
+										<ul class="nav-menu light text-sm pad-md-bp-4-over">
+											<li><a href="#0">Sub Menu Item 1</a></li>
+											<li><a href="#0">Sub Menu Item 2</a></li>
+											<li><a href="#0">Sub Menu Item 3</a></li>
+											<li><a href="#0">Sub Menu Item 4</a></li>
+											<li><a href="#0">Sub Menu Item 5</a></li>
+										</ul>
+									</li>
+									<li><a href="#0">Menu 4</a></li>
+									<li>
+										<ul class="nav-menu light text-sm pad-md-bp-4-over">
+											<li><a href="#0">Sub Menu Item 1</a></li>
+											<li><a href="#0">Sub Menu Item 2</a></li>
+											<li><a href="#0">Sub Menu Item 3</a></li>
+											<li><a href="#0">Sub Menu Item 4</a></li>
+											<li><a href="#0">Sub Menu Item 5</a></li>
+										</ul>
+									</li>
+			
+									<div class="pad-bottom-sm-bp-4-under"></div>
+								
+									<div class="nav-component width-full-bp-4-under move-right-bp-4-over pad-right-md-lg-bp-4-under pad-right-md-lg-bp-4-over">
+										<div class="toggle-switch-sm move-right-bp-4-under">	
+											<input type="checkbox" value="1" id="check-switch-5" />
+											<label for="check-switch-5" class="accent-1-light rounded-sm">
+												<div class="toggle-switch-button background-dark left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+									<div class="nav-component width-full-bp-4-under move-right-bp-4-over pad-right-md-lg-bp-4-under">
+										<div class="toggle-switch-sm move-right-bp-4-under">	
+											<input type="checkbox" value="2" id="check-switch-6" />
+											<label for="check-switch-6" class="accent-1-light rounded-sm">
+												<div class="toggle-switch-button background-dark left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+									<div class="nav-component width-full-bp-4-under move-right-bp-4-over pad-right-md-lg-bp-4-under">
+										<div class="toggle-switch-sm move-right-bp-4-under">	
+											<input type="checkbox" value="3" id="check-switch-7" />
+											<label for="check-switch-7" class="accent-1-light rounded-sm">
+												<div class="toggle-switch-button background-dark left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+									
+								</ul>
+								<div class="nav-button-lg" id="navToggle2"></div>
+							</nav>
+										
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Inclusive and exclusive menu behaviour</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col">
+
+										<div class="dropdown text" id="menuControl3">
+											<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Inclusive mode)</a>
+											<div class="dropdown-content-expand menu-inclusive pad-left-sm">
+												<div class="content-row">
+													<div class="content-col">
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
+														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+															<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
+															<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
+															<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
+														</div>
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
+														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+															<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
+															<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
+														</div>
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
+														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+															<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
+															<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
+														</div>
+		
+													</div>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="dropdown text" id="menuControl4">
+											<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Exclusive mode)</a>
+											<div class="dropdown-content-expand pad-left-sm">
+												<div class="content-row">
+													<div class="content-col">
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
+														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+															<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
+															<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
+															<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
+														</div>
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
+														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+															<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
+															<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
+														</div>
+														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
+														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+															<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
+															<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
+														</div>
+		
+													</div>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+										</div>
+
+								</div>
+							</div>		
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Accordions using toggle container</div>
+						</div>
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Accordions using toggle container (Nested)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col pad-right-lg">
+
+									<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
+
+										<div class="container">
+			
+											<button data-target="#panel1" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 1 (Tap to open)</button>
+											<div id="panel1" class="toggle-item hidden">
+												<div class="border-sm border-accent-2 width-full pad-sm">
+													Panel 1 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+											<div class="row-spacing-xs"></div>
+											
+											<button data-target="#panel2" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 2 (Tap to open)</button>
+											<div id="panel2" class="toggle-item hidden">
+												<div class="border-sm border-accent-2 width-full pad-sm">
+													Panel 2 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+											<div class="row-spacing-xs"></div>
+			
+											<button data-target="#panel3" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 3 (Tap to open)</button>
+											<div id="panel3" class="toggle-item hidden">
+												<div class="border-sm border-accent-2 width-full pad-sm">
+													Panel 3 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+										</div>
+									</div>
+
+								</div>
+								<div class="col">
+
+									<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
+
+										<div class="container">
+			
+											<button data-target="#panel1" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1 (Tap to open)</button>
+											<div id="panel1" class="toggle-item hidden">
+												<div class="width-full border-sm border-accent-4 pad-sm">
+			
+													<button data-target="#panel1a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1a (Tap to open)</button>
+													<div id="panel1a" class="toggle-item hidden">
+														<div class="width-full border-sm border-accent-4 pad-sm">
+															Panel 1a content
+															<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+														</div>
+														<div class="row-spacing-xs"></div>
+													</div>
+			
+													<div class="row-spacing-xs"></div>
+			
+													<button data-target="#panel2a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2a (Tap to open)</button>
+													<div id="panel2a" class="toggle-item hidden">
+														<div class="width-full border-sm border-accent-4 pad-sm">
+															Panel 2a content
+															<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+														</div>
+														<div class="row-spacing-xs"></div>
+													</div>
+			
+													<div class="row-spacing-xs"></div>
+			
+													<button data-target="#panel3a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3a (Tap to open)</button>
+													<div id="panel3a" class="toggle-item hidden">
+														<div class="width-full border-sm border-accent-4 pad-sm">
+															Panel 3a content
+															<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+														</div>
+														<div class="row-spacing-xs"></div>
+													</div>
+			
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+											<div class="row-spacing-xs"></div>
+			
+											<button data-target="#panel2" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2 (Tap to open)</button>
+											<div id="panel2" class="toggle-item hidden">
+												<div class="width-full border-sm border-accent-4 pad-sm">
+													Panel 2 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+											<div class="row-spacing-xs"></div>
+			
+											<button data-target="#panel3" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3 (Tap to open)</button>
+											<div id="panel3" class="toggle-item hidden">
+												<div class="width-full border-sm border-accent-4 pad-sm">
+													Panel 3 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+											<div class="row-spacing-xs"></div>
+			
+											<button data-target="#panel4" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 4 (Tap to open)</button>
+											<div id="panel4" class="toggle-item hidden">
+												<div class="width-full border-sm border-accent-4 pad-sm">
+													Panel 4 content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+												</div>
+												<div class="row-spacing-xs"></div>
+											</div>
+			
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<div class="text-sm pad-bottom-md">Tabs using tabs component</div>
+						</div>
+						<div class="col">
+							Heading
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col pad-right-lg">
+
+									<div id="tabs1" class="tabs">
+
+										<div class="content-row control-group">
+											<button type="button" data-target="#tabs1Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
+											<button type="button" data-target="#tabs1Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
+											<button type="button" data-target="#tabs1Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
+										</div>
+			
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab1">
+											Tab 1 content
+											<p>Pellentesque.</p>
+										</div>
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab2">
+											<div class="area height-xl">
+												Tab 2 content
+												<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+											</div>
+										</div>
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab3">
+											<div class="area height-xl">
+												Tab 3 content
+												<p>Pellentesque habitant morbi tristique senectus.</p>
+											</div>
+										</div>
+			
+									</div>
+			
+								</div>
+								<div class="col">
+
+									<div id="tabs2" class="tabs">
+
+										<div class="control-group">
+											<button type="button" data-target="#tabs2Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
+											<button type="button" data-target="#tabs2Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
+											<button type="button" data-target="#tabs2Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
+										</div>
+			
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab1">
+											<div class="panel height-xl">
+			
+												<div id="tabs2Tabs1a" class="tabs">
+			
+													<div class="control-group">
+														<button type="button" data-target="#tabs2Tab1a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1a</button>
+														<button type="button" data-target="#tabs2Tab2a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2a</button>
+														<button type="button" data-target="#tabs2Tab3a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3a</button>
+													</div>
+			
+													<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab1a">
+														<div class="panel height-lg-xl">
+			
+															<div id="tabs2Tabs1b" class="tabs">
+			
+																<div class="control-group">
+																	<button type="button" data-target="#tabs2Tab1b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1b</button>
+																	<button type="button" data-target="#tabs2Tab2b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2b</button>
+																	<button type="button" data-target="#tabs2Tab3b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3b</button>
+																</div>
+			
+																<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab1b">
+																	Tab 1b content
+																	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+																</div>
+																<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab2b">
+																	Tab 2b content
+																	<p>Pellentesque habitant morbi tristique senectus.</p>
+																</div>
+																<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab3b">
+																	Tab 3b content
+																	<p>Pellentesque habitant morbi tristique senectus.</p>
+																</div>
+															</div>
+			
+														</div>
+													</div>
+													<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab2a">
+														Tab 2a content
+														<p>Pellentesque habitant morbi tristique senectus.</p>
+													</div>
+													<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab3a">
+														Tab 3a content
+														<p>Pellentesque habitant morbi tristique senectus.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab2">
+											Tab 2 content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+										</div>
+										<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab3">
+											Tab 3 content
+											<p>Pellentesque habitant morbi tristique senectus.</p>
+										</div>
+			
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!--
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							Heading
+						</div>
+						<div class="col">
+							Heading
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col">
+
+									Content
+								</div>
+								<div class="col">
+
+									Content
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			-->
+
+		</div>
+
+
+	</div>
+
+
+	<!-- HIDDEN -->
+
+	<div class="toggle-container snap-target-context" data-transition-duration="1200">	
+		<div id="oc1" class="toggle-item off-canvas-left dock-top-left accent-1-dark width-lg-xl height-viewport">		
+			<h2 class="place-middle-center">Menu</h2>
+		</div>
+		<div id="ocButton1" data-target="#oc1" class="nav-button-sm toggle-activator transparent"></div>
+	</div>		
+
+	<div class="toggle-container snap-target-context" data-transition-duration="1200" data-close-external="#oc2">	
+		<div id="oc2" class="toggle-item off-canvas-right dock-top-right accent-1-dark width-lg-xl height-viewport">		
+			<h2 class="place-middle-center">Menu</h2>
+		</div>
+		<div id="ocButton2" data-target="#oc2" class="nav-button-sm toggle-activator transparent"></div>
+	</div>		
+
+	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="horizontal" data-transition-type="collapse" data-transition-distance="25%" data-close-external="#panel1">
+		<div class="toggle-item hidden dock-top-left light boundary-right-muted width-lg-xl height-viewport layer-top" id="panel1">
+			<div class="width-lg-xl height-sm">
+				<p class="place-middle-center">Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
+					nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
+					qui, ridens impedit persecuti sit eu, vidit diceret nam eu.</p>
+			</div>
+		</div>
+		<div class="dock-bottom-left layer-top">
+			<div id="slideButton1" data-target="#panel1" class="nav-button-sm toggle-activator dark"></div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="600">
+		<div class="toggle-item off-canvas-drawer off-canvas-right width-xl-xxl dock-top-right light boundary-left-muted height-viewport layer-top" id="panel2">
+
+				<div class="width-xl place-middle-center"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+					quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+					ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+					erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+					eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+					Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+					erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p></div>
+
+		</div>
+		<div class="dock-bottom-right layer-top">
+			<div id="slideButton2" data-target="#panel2" class="nav-button-sm toggle-activator dark"></div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="vertical" data-transition-type="collapse" data-transition-distance="100px">
+		<div class="toggle-item hidden dock-top-center light boundary-bottom-muted width-full height-lg-xl layer-top" id="panel3">
+			<div class="height-lg-xl">
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+		<div class="dock-top-center layer-top">
+			<div id="slideButton3" data-target="#panel3" class="nav-button-sm toggle-activator dark"></div>
+		</div>
+	</div>
+
+	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="vertical" data-transition-type="collapse">
+		<div class="toggle-item hidden dock-bottom-center light boundary-top-muted width-full height-lg-xl layer-top" id="panel4">
+			<div class="height-lg-xl">
+				<h2 class="place-middle-center">Menu</h2>
+			</div>
+		</div>
+		<div class="dock-bottom-center layer-top">
+			<div id="slideButton4" data-target="#panel4" class="nav-button-sm toggle-activator dark"></div>
+		</div>
+	</div>
+
+	<div class="row-spacing-xl"></div>
+
+
+	<script type="text/javascript" src="dist/js/webui-components.js"></script>
+
+	<script>
+
+		webui.ready(function() {
+			
+			// Menus
+			ui("#menuControl1").menuControl({ 
+				transitionDuration: 300,
+				transitionType: "fade"
+			});
+
+			ui("#menuControl2").menuControl({ 
+				transitionDuration: 300,
+				transitionType: "collapse"
+			});
+
+			ui("#menuControl3").menuControl({ 
+				transitionDuration: 300,
+				transitionType: "collapse"
+			});
+
+			ui("#menuControl4").menuControl({ 
+				transitionDuration: 300,
+				transitionType: "collapse"
+			});
+
+			ui("#navbar1").navbarControl({ 
+				transitionDuration: 600,
+				largeDeviceOffset: 0,
+				largeDeviceMenuOffset: -40,
+				smallDeviceAlignment: "left",		
+				smallDeviceBreakpoint: 4,
+				smallDeviceExpansion: "overlay"			
+			});
+
+			ui("#navbar2").navbarControl({ 
+				transitionDuration: 600,
+				largeDeviceOffset: 50,
+				largeDeviceMenuOffset: -70,
+				smallDeviceAlignment: "right",
+				smallDeviceBreakpoint: 4,
+				smallDeviceExpansion: "expand"
+			});
+
+
+			ui("#navToggle1, #navToggle2").navButtonControl({ 
+				transitionDuration: 300, 
+				backgroundColor: "rgb(92, 107, 192)", 
+				color: "#FFF"
+			});
+
+/*
+			ui("#fileUpload1").uploadControl({
+				scrollY: true
+			});
+			ui("#fileUpload2").uploadControl({
+				scrollY: true
+			});
+*/
+			// Tabs
+			ui("#tabs1").tabControl({ 
+				activeTabId: "#tabs1Tab2", 
+				activeTabFocused: true,
+				transitionDuration: 600,
+				transitionType: "fade"
+			});
+
+			ui("#tabs2").tabControl({ 
+				activeTabId: "#tabs2Tab1a", 
+				activeTabFocused: true,
+				transitionDuration: 600,
+				transitionType: "fade"
+			});
+
+
+
+			ui("#ocButton1, #ocButton2").navButtonControl({ 
+				transitionDuration: 300,
+				backgroundColor: "transparent", 
+				color: "#000"
+			});
+
+			ui("#slideButton1, #slideButton2, #slideButton3, #slideButton4").navButtonControl({ 
+				transitionDuration: 300
+			});
+
+			// Positioning for left off-canvas menu button
+			ui("#ocButton1").snapPosition("#oc1", [1.1, 1.1], "rem", "top-right");
+
+			// Toggle left off-canvas button
+			ui( "#oc1" ).on("ui.toggleItem.show.after", function(e) {		
+				ui("#ocButton1").addClass("active");			
+			});
+			ui( "#oc1" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#ocButton1").removeClass("active");	
+			});
+
+			// Positioning for right off-canvas menu button
+			ui("#ocButton2").snapPosition("#oc2", [-1.1, 1.1], "rem", "top-left");
+
+			// Toggle right off-canvas button icon
+			ui( "#oc2" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#ocButton2").addClass("active");
+			});
+			ui( "#oc2" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#ocButton2").removeClass("active");
+			});
+
+			// Toggle slide-out button icon
+			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {		
+				ui("#slideButton1").addClass("active");
+			});
+			ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton1").removeClass("active");	
+			});
+
+			ui( "#panel2" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton2").addClass("active");
+			});
+			ui( "#panel2" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton2").removeClass("active");
+			});
+
+			ui( "#panel3" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton3").addClass("active");
+			});
+			ui( "#panel3" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton3").removeClass("active");
+			});
+
+			ui( "#panel4" ).on("ui.toggleItem.show.after", function(e) {
+				ui("#slideButton4").addClass("active");
+			});
+			ui( "#panel4" ).on("ui.toggleItem.hide.after", function(e) {
+				ui("#slideButton4").removeClass("active");
+			});
+			
+/*
+			ui("#tabs1").on("ui.tabs.change.after", function(e) {
+				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
+			});
+*/
+
+		});
+			
+	</script>
+
+</body>
+
+</html>
