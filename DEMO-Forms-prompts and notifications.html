@@ -16,7 +16,7 @@
 
 	<style>
 		.row > *[class*="col"] {
-			border: 1px solid rgba(189, 189, 189, 0.7);
+			*border: 1px solid rgba(189, 189, 189, 0.7);
 		}
 
 	</style>
@@ -58,157 +58,171 @@
 	
 			<div class="row-spacing-lg"></div>
 
-			<div class="row">
-				<div class="col">
-					<div class="row">
-						<div class="col">
-							Heading
-						</div>
-						<div class="col">
-							Heading
-						</div>
+			<div class="responsive-gutter-sm col-padding-xs">
+
+				<div class="row">
+					<div class="col">
+						<p>
+							Forms - Controls can be either fixed or full width for mobile devices. Visual accessibility cues can be applied to focusable controls by adding the accessibility class.
+						</p>
 					</div>
-					<div class="row">
-						<div class="col">
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-								<div class="col-3">
-
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-
-							</div>
-						</div>
-					</div>
-
 				</div>
-			</div>
 
+				<div class="row-spacing-lg"></div>
+
+				<div class="row">
+					<div class="col-bp-4-over">
+
+						<div class="row">
+							<div class="col-8 control-label-sm">
+								First name *
+							</div>
+							<div class="col">
+								<div class="tooltip width-full" id="tooltipFirstName">
+									<input id="FirstName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
+									<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
+										First name is required.
+									</div>		
+								</div>
+								<label class="text-sm text-italic">Sample control text</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8 control-label-sm">
+								Last name *
+							</div>
+							<div class="col">
+								<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8 control-label-sm">
+								Company
+							</div>
+							<div class="col">
+								<input id="Company" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8 control-label-sm">
+								Address
+							</div>
+							<div class="col">
+								<textarea id="Address" rows="3" class="control width-full rounded-sm"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+
+
+					</div>
+					<div class="col-3-bp-4-over">
+
+					</div>
+					<div class="col-bp-4-over">
+
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+				<!--
+				<div class="row">
+					<div class="col-bp-4-over">
+
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+
+					</div>
+					<div class="col-3-bp-4-over">
+
+					</div>
+					<div class="col-bp-4-over">
+
+						<div class="row">
+							<div class="col-8">
+
+								Content
+							</div>
+							<div class="col">
+
+								Content
+							</div>
+						</div>
+
+					</div>
+				</div>
+				-->
+
+			</div>
 
 		</div>
 

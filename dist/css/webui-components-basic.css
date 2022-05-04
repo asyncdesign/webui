@@ -1625,8 +1625,8 @@
   height: 2.1rem;
 }
 
-.breadcrumb-line-muted::after {
-  box-shadow: inset -0.125rem 0 0 0 rgb(189, 189, 189), inset 0 0.125rem rgb(189, 189, 189);
+.breadcrumb-line-default::after {
+  box-shadow: inset -0.125rem 0 0 0 rgb(222, 222, 222), inset 0 0.125rem rgb(222, 222, 222);
 }
 
 .breadcrumb-line-light::after {
@@ -1694,6 +1694,9 @@
   z-index: 1;
 }
 
+/* TODO - Review razor classes and whether there are alternatives such as a positioned filled shape */
+/*
+*/
 .razor-top-left-sm {
   width: 25vw;
 }
@@ -2509,6 +2512,10 @@
   border-color: transparent rgb(153, 36, 0) transparent transparent;
 }
 
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -2525,7 +2532,7 @@
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -4832,14 +4839,6 @@ svg:not(:root) {
   background-position: right 0.625rem top 0.5rem;
 }
 
-.control-block {
-  letter-spacing: normal;
-  white-space: nowrap;
-}
-.control-block * :not([class*=text]) {
-  display: block;
-}
-
 .control-group {
   letter-spacing: normal;
   white-space: nowrap;
@@ -4852,8 +4851,8 @@ svg:not(:root) {
 
 .control-group-append {
   letter-spacing: normal;
-  word-spacing: -0.43rem;
   white-space: nowrap;
+  word-spacing: -0.43rem;
 }
 .control-group-append > :not([class*=text]) {
   word-spacing: normal;
@@ -7419,11 +7418,6 @@ svg:not(:root) {
   background-color: rgb(189, 189, 189);
 }
 
-.disabled {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
-}
-
 .default {
   color: rgb(0, 0, 0);
   background-color: rgb(222, 222, 222);
@@ -7579,6 +7573,11 @@ svg:not(:root) {
   background-color: transparent;
 }
 
+.disabled {
+  color: rgb(189, 189, 189);
+  background-color: rgb(237, 237, 237);
+}
+
 .color-translucent {
   color: rgba(255, 255, 255, 0);
 }
@@ -7633,10 +7632,6 @@ svg:not(:root) {
 
 .color-muted {
   color: rgb(189, 189, 189);
-}
-
-.color-disabled {
-  color: rgb(237, 237, 237);
 }
 
 .color-default {
@@ -7763,6 +7758,10 @@ svg:not(:root) {
   color: transparent;
 }
 
+.color-disabled {
+  color: rgb(189, 189, 189);
+}
+
 .background-translucent {
   background: rgba(255, 255, 255, 0);
 }
@@ -7817,10 +7816,6 @@ svg:not(:root) {
 
 .background-muted {
   background-color: rgb(189, 189, 189);
-}
-
-.background-disabled {
-  background-color: rgb(237, 237, 237);
 }
 
 .background-default {
@@ -7947,6 +7942,10 @@ svg:not(:root) {
   background-color: transparent;
 }
 
+.background-disabled {
+  background-color: rgb(237, 237, 237);
+}
+
 .focus-primary:focus {
   color: rgb(0, 0, 0);
   background-color: rgb(250, 250, 250);
@@ -7965,11 +7964,6 @@ svg:not(:root) {
 .focus-muted:focus {
   color: rgb(97, 97, 97);
   background-color: rgb(189, 189, 189);
-}
-
-.focus-disabled:focus {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
 }
 
 .focus-default:focus {
@@ -8147,11 +8141,6 @@ svg:not(:root) {
   background-color: rgb(189, 189, 189);
 }
 
-.hover-disabled:hover {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
-}
-
 .hover-default:hover {
   color: rgb(0, 0, 0);
   background-color: rgb(222, 222, 222);
@@ -8323,10 +8312,6 @@ svg:not(:root) {
   color: rgb(189, 189, 189);
 }
 
-.color-focus-disabled:focus {
-  color: rgb(237, 237, 237);
-}
-
 .color-focus-default:focus {
   color: rgb(222, 222, 222);
 }
@@ -8465,10 +8450,6 @@ svg:not(:root) {
 
 .color-hover-muted:hover {
   color: rgb(189, 189, 189);
-}
-
-.color-hover-disabled:hover {
-  color: rgb(237, 237, 237);
 }
 
 .color-hover-default:hover {
@@ -8611,10 +8592,6 @@ svg:not(:root) {
   background-color: rgb(189, 189, 189);
 }
 
-.background-focus-disabled:focus {
-  background-color: rgb(237, 237, 237);
-}
-
 .background-focus-default:focus {
   background-color: rgb(222, 222, 222);
 }
@@ -8753,10 +8730,6 @@ svg:not(:root) {
 
 .background-hover-muted:hover {
   background-color: rgb(189, 189, 189);
-}
-
-.background-hover-disabled:hover {
-  background-color: rgb(237, 237, 237);
 }
 
 .background-hover-default:hover {

@@ -5,19 +5,13 @@
 
     var fn = webui.fn;
     
-    var getGuid = function() {
-        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-            var r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
-            return v.toString(16);
-        });
-    };
     
     var rhombusClipShapes = webui(".rhombus-clip-shape");
     for (var i = 0; i < rhombusClipShapes.length; i++ ) {
         var rhombusClipShape = webui(rhombusClipShapes[i]);
         var svgChildren = rhombusClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             rhombusClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.5, 0.5 1, 0 0.5' /></clipPath></defs></svg>").appendTo(rhombusClipShape);
         }
@@ -28,7 +22,7 @@
         var rhomboidClipShape = webui(rhomboidClipShapes[i]);
         var svgChildren = rhomboidClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             rhomboidClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 1 0, 0.7 1' /></clipPath></defs></svg>").appendTo(rhomboidClipShape);
         }
@@ -39,7 +33,7 @@
         var kiteClipShape = webui(kiteClipShapes[i]);
         var svgChildren = kiteClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             kiteClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.3, 0.5 1, 0 0.3' /></clipPath></defs></svg>").appendTo(kiteClipShape);
         }
@@ -50,7 +44,7 @@
         var trapezoidIsoscelesClipShape = webui(trapezoidIsoscelesClipShapes[i]);
         var svgChildren = trapezoidIsoscelesClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             trapezoidIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.3 0, 0.7 0, 1 1' /></clipPath></defs></svg>").appendTo(trapezoidIsoscelesClipShape);
         }
@@ -61,7 +55,7 @@
         var triangleIsoscelesClipShape = webui(triangleIsoscelesClipShapes[i]);
         var svgChildren = triangleIsoscelesClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             triangleIsoscelesClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0 1, 0.5 0, 0.5 0, 1 1' /></clipPath></defs></svg>").appendTo(triangleIsoscelesClipShape);
         }
@@ -72,7 +66,7 @@
         var pentagonClipShape = webui(pentagonClipShapes[i]);
         var svgChildren = pentagonClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             pentagonClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 1 0.4, 0.8 1, 0.2 1, 0 0.4' /></clipPath></defs></svg>").appendTo(pentagonClipShape);
         }
@@ -83,7 +77,7 @@
         var starClipShape = webui(starClipShapes[i]);
         var svgChildren = starClipShape.children("svg");
         if (!svgChildren.length) {
-            var id = getGuid();
+            var id = ui.getGuid();
             starClipShape.attr("style", "clip-path: url('#" + id + "')");
             webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='0.5 0, 0.63 0.38, 1 0.38, 0.69 0.59, 0.82 1, 0.5 0.75, 0.18 1, 0.31 0.59, 0 0.38, 0.37 0.38' /></clipPath></defs></svg>").appendTo(starClipShape);
         }
@@ -393,7 +387,7 @@
 		var shape, id;
 		for (var i = 0; i < this.length; i++ ) {
 			shape = webui(this[i]);
-			id = getGuid();
+			id = ui.getGuid();
 			shape.attr("style", "clip-path: url('#" + id + "')");
 			webui("<svg width='0' height='0'><defs><clipPath id='" + id + "' clipPathUnits='objectBoundingBox'><polygon points='" + polygonPoints + "' /></clipPath></defs></svg>").appendTo(shape);
 		}
