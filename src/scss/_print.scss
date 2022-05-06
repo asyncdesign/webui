@@ -1,38 +1,73 @@
 
 @media print {
+    body {
+      font-size: 12pt;
+    }
+    h1 {
+      font-size: 24pt;
+    }
+    h2 {
+      font-size: 20pt;
+    }
+    h3 {
+      font-size: 16pt;
+    }
+    h4 {
+      font-size: 14pt;
+    }
+    h1, h2, h3, h4 {
+      break-after: avoid;
+    }
     a {
       text-decoration: underline;
     }
-    h1, h2, h3 {
-      page-break-after: avoid;
+    a[href^="http://"]::after {
+      content: " <" attr(href) ">";
     }
-    p a[href^="http://"]::after {
-      content: " (" attr(href) ")";
+    table,
+    article,
+    meter,
+    progress,
+    blockquote {
+      break-inside: avoid;
+    }
+    figure,
+    caption {
+      break-inside: avoid;
+      break-before: avoid;
+      break-after: avoid;
     }
     img,
     pre,
-    code,
-    blockquote {
+    code {
       border: 0.078rem solid $theme_muted;
-      page-break-inside: avoid;
+      break-inside: avoid;
     }
-    meter,
-    progress {
-      page-break-inside: avoid;
+    img {
+      max-width: 18cm;
     }
+    video, 
+    audio, 
+    object, 
+    embed,
+    iframe,
+    aside,
+    nav,
     button,
     input[type=button], 
     input[type=submit],
     *[class*="button-link"],
     *[class*="view-button-link"],
-    *[class*="menu-button-link"] {
+    *[class*="menu-button-link"],
+    *[class*="menu"], 
+    *[class*="dropdown-"] {
       display: none;
     }
-    img {
-        max-width: 37.5rem;
+    *[class*="columns-"] {
+      perspective: 1;
     }
-    *[class*="menu-"], *[class*="dropdown-"] {
-      display: none;
-    }
+}
 
+@page {
+  margin: 1cm;
 }

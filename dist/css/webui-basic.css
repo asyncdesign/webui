@@ -107,6 +107,10 @@ h4 {
   font-size: 1.1em;
 }
 
+label {
+  display: inline-block;
+}
+
 details,
 summary,
 main {
@@ -2370,6 +2374,9 @@ svg:not(:root) {
   top: 50%;
   min-height: 1rem;
   padding: 0.2rem 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   border: none;
   pointer-events: none;
   transform-origin: 0 0;
@@ -2384,6 +2391,9 @@ svg:not(:root) {
   top: 0.7rem;
   min-height: 1rem;
   padding: 0.2rem 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   border: none;
   pointer-events: none;
   transform-origin: 0 0;
@@ -4763,9 +4773,30 @@ svg:not(:root) {
   display: block;
 }
 
-.nobreak {
-  page-break-inside: avoid;
+.no-break {
   break-inside: avoid;
+  break-after: avoid;
+  break-before: avoid;
+}
+
+.no-break-inside {
+  break-inside: avoid;
+}
+
+.no-break-after {
+  break-after: avoid;
+}
+
+.no-break-before {
+  break-before: avoid;
+}
+
+.no-page-break {
+  break-inside: avoid-page;
+}
+
+.no-column-break {
+  break-inside: avoid-column;
 }
 
 .relative {
@@ -6352,45 +6383,86 @@ svg:not(:root) {
 }
 
 @media print {
+  body {
+    font-size: 12pt;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2 {
+    font-size: 20pt;
+  }
+
+  h3 {
+    font-size: 16pt;
+  }
+
+  h4 {
+    font-size: 14pt;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
+  }
+
   a {
     text-decoration: underline;
   }
 
-  h1, h2, h3 {
-    page-break-after: avoid;
+  a[href^="http://"]::after {
+    content: " <" attr(href) ">";
   }
 
-  p a[href^="http://"]::after {
-    content: " (" attr(href) ")";
+  table,
+article,
+meter,
+progress,
+blockquote {
+    break-inside: avoid;
+  }
+
+  figure,
+caption {
+    break-inside: avoid;
+    break-before: avoid;
+    break-after: avoid;
   }
 
   img,
 pre,
-code,
-blockquote {
+code {
     border: 0.078rem solid rgb(189, 189, 189);
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
-  meter,
-progress {
-    page-break-inside: avoid;
+  img {
+    max-width: 18cm;
   }
 
-  button,
+  video,
+audio,
+object,
+embed,
+iframe,
+aside,
+nav,
+button,
 input[type=button],
 input[type=submit],
 *[class*=button-link],
 *[class*=view-button-link],
-*[class*=menu-button-link] {
+*[class*=menu-button-link],
+*[class*=menu],
+*[class*=dropdown-] {
     display: none;
   }
 
-  img {
-    max-width: 37.5rem;
+  *[class*=columns-] {
+    perspective: 1;
   }
-
-  *[class*=menu-], *[class*=dropdown-] {
-    display: none;
-  }
+}
+@page {
+  margin: 1cm;
 }

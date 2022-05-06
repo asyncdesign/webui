@@ -79,6 +79,9 @@ h3 {
 h4 {
 	font-size: 1.1em;
 }
+label {
+	display: inline-block;
+}
 details,
 summary,
 main {
@@ -1972,6 +1975,9 @@ svg:not(:root) {
 	top: 50%;
 	min-height: 1rem;
 	padding: 0.2rem 0.5rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	border: none;
 	pointer-events: none;
 	transform-origin: 0 0;			
@@ -1985,6 +1991,9 @@ svg:not(:root) {
 	top: 0.7rem;
 	min-height: 1rem;
 	padding: 0.2rem 0.5rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	border: none;
 	pointer-events: none;
 	transform-origin: 0 0;
@@ -3771,9 +3780,25 @@ svg:not(:root) {
 .toggle-parent-dynamic:hover .toggle-child {
 	display: block;
 }
-.nobreak {
-	page-break-inside: avoid;
+.no-break {
 	break-inside: avoid;
+	break-after: avoid;
+	break-before: avoid;
+}
+.no-break-inside {
+	break-inside: avoid;
+}
+.no-break-after {
+	break-after: avoid;
+}
+.no-break-before {
+	break-before: avoid;
+}
+.no-page-break {
+	break-inside: avoid-page;
+}
+.no-column-break {
+	break-inside: avoid-column;
 }
 .relative {
 	position: relative;
