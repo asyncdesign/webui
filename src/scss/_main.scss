@@ -115,6 +115,12 @@ svg:not(:root) {
 .table th, .table td {
   text-align: left;
 }
+.table-layout-auto {
+	table-layout: auto;
+}
+.table-layout-fixed {
+	table-layout: fixed;
+}
 .table.table-default {
   color: $theme_default_foreground;
   background-color: $theme_default;
@@ -243,10 +249,7 @@ svg:not(:root) {
 .table.table-accent-5.table-hover tr:not(thead tr, tfoot tr):hover {
   background-color: $theme_accent_5_highlight;
 }
-.list-inline > * {
-	float: left;
-}
-.list, .list-inline {
+.list {
 	padding: 0;
 	margin: 0 0 0 1rem;
 	list-style-type: none;
@@ -1760,27 +1763,6 @@ svg:not(:root) {
 .media-none {
 	object-fit: none;
 }
-.media-block {
-	padding: 0.313rem;
-	overflow: hidden;
-	white-space: normal;
-	zoom: 1;
-}		
-.media-block .media-left {
-	float: left;
-	margin-right: 0.625rem;
-}
-.media-block .media-left img, 
-.media-block .media-right img {
-	display: block;
-}
-.media-block .media-right {
-	float: right;
-	margin-left: 0.625rem;
-}
-.media-nowrap {
-	display: table-cell;
-}
 .media-container-21x9::before {
 	padding-top: 42.8%;
 }
@@ -2311,45 +2293,6 @@ svg:not(:root) {
 .width-viewport {
 	width: 100vw;
 }
-.width-adjacent-xxs {
-	width: calc(100% - 0.625rem);
-}
-.width-adjacent-xxs-xs {
-	width: calc(100% - 0.938rem);
-}
-.width-adjacent-xs {
-	width: calc(100% - 1.25rem);
-}
-.width-adjacent-xs-sm {
-	width: calc(100% - 1.875rem);
-}
-.width-adjacent-sm {
-	width: calc(100% - 2.5rem);
-}
-.width-adjacent-sm-md {
-	width: calc(100% - 3.75rem);
-}
-.width-adjacent-md {
-	width: calc(100% - 5rem);
-}
-.width-adjacent-md-lg {
-	width: calc(100% - 7.5rem);
-}
-.width-adjacent-lg {
-	width: calc(100% - 10rem);
-}
-.width-adjacent-lg-xl {
-	width: calc(100% - 15rem);
-}
-.width-adjacent-xl {
-	width: calc(100% - 20rem);
-}
-.width-adjacent-xl-xxl {
-	width: calc(100% - 30rem);
-}
-.width-adjacent-xxl {
-	width: calc(100% - 40rem);
-}
 .height-auto {
 	height: auto;
 	min-height: 0;
@@ -2697,36 +2640,6 @@ svg:not(:root) {
 .pad-bottom-xxl {
 	padding-bottom: 1.876rem;
 }
-.gap-horizontal-xs > :not(:first-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-left: 0.313rem;
-}
-.gap-horizontal-sm > :not(:first-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-left: 0.625rem;
-}
-.gap-horizontal-md > :not(:first-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-left: 0.938rem;
-}
-.gap-horizontal-lg > :not(:first-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-left: 1.25rem;
-}
-.gap-horizontal-xl > :not(:first-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-left: 1.563rem;
-}
-.gap-vertical-xs > :not(:last-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-bottom: 0.313rem;
-}
-.gap-vertical-sm > :not(:last-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-bottom: 0.625rem;
-}
-.gap-vertical-md > :not(:last-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-bottom: 0.938rem;
-}
-.gap-vertical-lg > :not(:last-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-bottom: 1.25rem;
-}
-.gap-vertical-xl > :not(:last-child):not([class*="-row"]):not([class*="-col"]) {
-	margin-bottom: 1.563rem;
-}
 .text-left {
 	text-align: left;
 }
@@ -2780,20 +2693,6 @@ svg:not(:root) {
 .align-media-right {
 	display: table;
   margin: 0 0 0 auto;	
-}
-.move-left {
-	float: left;
-}
-.move-left-stacked {
-	float: left;
-	clear: left;
-}
-.move-right {
-	float: right;
-}
-.move-right-stacked {
-	float: right;
-	clear: right;
 }
 .margin-initial {
 	margin: 0;
@@ -3201,6 +3100,12 @@ svg:not(:root) {
 .text-line-through {
 	text-decoration: line-through;
 }
+.text-overflow-ellipsis {
+	text-overflow: ellipsis;
+}
+.text-overflow-clip {
+	text-overflow: clip;
+}
 .text-direction-ltr {
 	direction: ltr;
 	unicode-bidi: bidi-override;
@@ -3563,10 +3468,6 @@ svg:not(:root) {
 }
 @media all and (min-width: $settings_bp_1_over) {
 	.respond-bp-1-over {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-1-over {
 		width: 100%;
 	}
 	.show-bp-1-over {
@@ -3584,10 +3485,6 @@ svg:not(:root) {
 }
 @media all and (min-width: $settings_bp_2_over) {
 	.respond-bp-2-over {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-2-over {
 		width: 100%;
 	}
 	.show-bp-2-over {
@@ -3605,10 +3502,6 @@ svg:not(:root) {
 }
 @media all and (min-width: $settings_bp_3_over) {
 	.respond-bp-3-over {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-3-over {
 		width: 100%;
 	}
 	.show-bp-3-over {
@@ -3626,10 +3519,6 @@ svg:not(:root) {
 }
 @media all and (min-width: $settings_bp_4_over) {
 	.respond-bp-4-over {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-4-over {
 		width: 100%;
 	}
 	.show-bp-4-over {
@@ -3647,10 +3536,6 @@ svg:not(:root) {
 }
 @media all and (min-width: $settings_bp_5_over) {
 	.respond-bp-5-over {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-5-over {
 		width: 100%;
 	}
 	.show-bp-5-over {
@@ -3668,10 +3553,6 @@ svg:not(:root) {
 }
 @media all and (max-width: $settings_bp_5_under) {
 	.respond-bp-5-under {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-5-under {
 		width: 100%;
 	}
 	.show-bp-5-under {
@@ -3689,10 +3570,6 @@ svg:not(:root) {
 }
 @media all and (max-width: $settings_bp_4_under) {
 	.respond-bp-4-under {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-4-under {
 		width: 100%;
 	}
 	.show-bp-4-under {
@@ -3710,10 +3587,6 @@ svg:not(:root) {
 }
 @media all and (max-width: $settings_bp_3_under) {
 	.respond-bp-3-under {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-3-under {
 		width: 100%;
 	}
 	.show-bp-3-under {
@@ -3731,10 +3604,6 @@ svg:not(:root) {
 }
 @media all and (max-width: $settings_bp_2_under) {
 	.respond-bp-2-under {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-2-under {
 		width: 100%;
 	}
 	.show-bp-2-under {
@@ -3752,10 +3621,6 @@ svg:not(:root) {
 }
 @media all and (max-width: $settings_bp_1_under) {
 	.respond-bp-1-under {
-		float: none;
-		width: 100%;
-	}
-	.width-respond-bp-1-under {
 		width: 100%;
 	}
 	.show-bp-1-under {

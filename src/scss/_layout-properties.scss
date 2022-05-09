@@ -144,8 +144,190 @@
 	column-gap: 3.125rem;
 }
 @include css-order();
-
+.gap-horizontal-xs > :not(:first-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-left: 0.313rem;
+}
+.gap-horizontal-sm > :not(:first-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-left: 0.625rem;
+}
+.gap-horizontal-md > :not(:first-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-left: 0.938rem;
+}
+.gap-horizontal-lg > :not(:first-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-left: 1.25rem;
+}
+.gap-horizontal-xl > :not(:first-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-left: 1.563rem;
+}
+.gap-vertical-xs > :not(:last-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-bottom: 0.313rem;
+}
+.gap-vertical-sm > :not(:last-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-bottom: 0.625rem;
+}
+.gap-vertical-md > :not(:last-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-bottom: 0.938rem;
+}
+.gap-vertical-lg > :not(:last-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-bottom: 1.25rem;
+}
+.gap-vertical-xl > :not(:last-child):not(.row):not(.col):not([class^="row-"]):not([class^="col-"]):not([class^="flex-row"]):not([class^="flex-col"]) {
+	margin-bottom: 1.563rem;
+}
+.col-padding-initial > *[class*="col"]:not([class*="pad-"]),
+.col-padding-initial > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-initial > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-initial > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-initial > *,
+.col-padding-initial th:not([class*="pad-"]),
+.col-padding-initial td:not([class*="pad-"]) {
+	padding: 0;
+}
+.col-padding-xs > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xs > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xs > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xs > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-xs > *,
+.col-padding-xs th:not([class*="pad-"]),
+.col-padding-xs td:not([class*="pad-"]) {
+	padding: 0.313rem;
+}
+.col-padding-sm > *[class*="col"]:not([class*="pad-"]),
+.col-padding-sm > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-sm > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-sm > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-sm > *,
+.col-padding-sm th:not([class*="pad-"]),
+.col-padding-sm td:not([class*="pad-"]) {
+	padding: 0.625rem;
+}
+.col-padding-md > *[class*="col"]:not([class*="pad-"]),
+.col-padding-md > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-md > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-md > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-md > *,
+.col-padding-md th:not([class*="pad-"]),
+.col-padding-md td:not([class*="pad-"]) {
+	padding: 0.938rem;
+}
+.col-padding-lg > *[class*="col"]:not([class*="pad-"]),
+.col-padding-lg > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-lg > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-lg > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-lg > *,
+.col-padding-lg th:not([class*="pad-"]),
+.col-padding-lg td:not([class*="pad-"]) {
+	padding: 1.25rem;
+}
+.col-padding-xl > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xl > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xl > *[class*="col"]:not([class*="pad-"]) *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+.col-padding-xl > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]) > *[class*="row"]:not([class*="col-padding-"]) > *[class*="col"]:not([class*="pad-"]),
+*[class*="columns"].col-padding-xl > *,
+.col-padding-xl th:not([class*="pad-"]),
+.col-padding-xl td:not([class*="pad-"]) {
+	padding: 1.563rem;
+}
 @media all and (min-width: $settings_bp_1_over) {
+	.align-self-start-bp-1-over {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-1-over {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-1-over {
+		align-self: center;
+	}
+	.align-self-end-bp-1-over {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-1-over {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-1-over {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-1-over {
+		align-self: baseline;
+	}
+	.align-items-start-bp-1-over {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-1-over {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-1-over {
+		align-items: center;
+	}
+	.align-items-end-bp-1-over {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-1-over {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-1-over {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-1-over {
+		align-items: baseline;
+	}
+	.align-content-start-bp-1-over {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-1-over {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-1-over {
+		align-content: center;
+	}
+	.align-content-end-bp-1-over {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-1-over {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-1-over {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-1-over {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-1-over {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-1-over {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-1-over {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-1-over {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-1-over {
+		justify-content: left;
+	}
+	.justify-content-center-bp-1-over {
+		justify-content: center;
+	}
+	.justify-content-end-bp-1-over {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-1-over {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-1-over {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-1-over {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-1-over {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-1-over {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-1-over {
 		gap: 0.313rem;
 	}
@@ -194,6 +376,105 @@
 	@include css-order-bp-1-over();	
 }
 @media all and (min-width: $settings_bp_2_over) {
+	.align-self-start-bp-2-over {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-2-over {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-2-over {
+		align-self: center;
+	}
+	.align-self-end-bp-2-over {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-2-over {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-2-over {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-2-over {
+		align-self: baseline;
+	}
+	.align-items-start-bp-2-over {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-2-over {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-2-over {
+		align-items: center;
+	}
+	.align-items-end-bp-2-over {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-2-over {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-2-over {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-2-over {
+		align-items: baseline;
+	}
+	.align-content-start-bp-2-over {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-2-over {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-2-over {
+		align-content: center;
+	}
+	.align-content-end-bp-2-over {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-2-over {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-2-over {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-2-over {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-2-over {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-2-over {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-2-over {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-2-over {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-2-over {
+		justify-content: left;
+	}
+	.justify-content-center-bp-2-over {
+		justify-content: center;
+	}
+	.justify-content-end-bp-2-over {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-2-over {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-2-over {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-2-over {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-2-over {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-2-over {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-2-over {
 		gap: 0.313rem;
 	}
@@ -242,6 +523,105 @@
 	@include css-order-bp-2-over();
 }
 @media all and (min-width: $settings_bp_3_over) {
+	.align-self-start-bp-3-over {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-3-over {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-3-over {
+		align-self: center;
+	}
+	.align-self-end-bp-3-over {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-3-over {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-3-over {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-3-over {
+		align-self: baseline;
+	}
+	.align-items-start-bp-3-over {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-3-over {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-3-over {
+		align-items: center;
+	}
+	.align-items-end-bp-3-over {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-3-over {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-3-over {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-3-over {
+		align-items: baseline;
+	}
+	.align-content-start-bp-3-over {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-3-over {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-3-over {
+		align-content: center;
+	}
+	.align-content-end-bp-3-over {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-3-over {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-3-over {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-3-over {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-3-over {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-3-over {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-3-over {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-3-over {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-3-over {
+		justify-content: left;
+	}
+	.justify-content-center-bp-3-over {
+		justify-content: center;
+	}
+	.justify-content-end-bp-3-over {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-3-over {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-3-over {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-3-over {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-3-over {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-3-over {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-3-over {
 		gap: 0.313rem;
 	}
@@ -290,6 +670,105 @@
 	@include css-order-bp-3-over();	
 }
 @media all and (min-width: $settings_bp_4_over) {
+	.align-self-start-bp-4-over {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-4-over {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-4-over {
+		align-self: center;
+	}
+	.align-self-end-bp-4-over {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-4-over {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-4-over {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-4-over {
+		align-self: baseline;
+	}
+	.align-items-start-bp-4-over {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-4-over {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-4-over {
+		align-items: center;
+	}
+	.align-items-end-bp-4-over {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-4-over {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-4-over {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-4-over {
+		align-items: baseline;
+	}
+	.align-content-start-bp-4-over {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-4-over {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-4-over {
+		align-content: center;
+	}
+	.align-content-end-bp-4-over {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-4-over {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-4-over {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-4-over {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-4-over {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-4-over {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-4-over {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-4-over {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-4-over {
+		justify-content: left;
+	}
+	.justify-content-center-bp-4-over {
+		justify-content: center;
+	}
+	.justify-content-end-bp-4-over {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-4-over {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-4-over {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-4-over {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-4-over {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-4-over {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-4-over {
 		gap: 0.313rem;
 	}
@@ -338,6 +817,105 @@
 	@include css-order-bp-4-over();
 }
 @media all and (min-width: $settings_bp_5_over) {
+	.align-self-start-bp-5-over {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-5-over {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-5-over {
+		align-self: center;
+	}
+	.align-self-end-bp-5-over {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-5-over {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-5-over {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-5-over {
+		align-self: baseline;
+	}
+	.align-items-start-bp-5-over {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-5-over {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-5-over {
+		align-items: center;
+	}
+	.align-items-end-bp-5-over {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-5-over {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-5-over {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-5-over {
+		align-items: baseline;
+	}
+	.align-content-start-bp-5-over {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-5-over {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-5-over {
+		align-content: center;
+	}
+	.align-content-end-bp-5-over {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-5-over {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-5-over {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-5-over {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-5-over {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-5-over {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-5-over {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-5-over {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-5-over {
+		justify-content: left;
+	}
+	.justify-content-center-bp-5-over {
+		justify-content: center;
+	}
+	.justify-content-end-bp-5-over {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-5-over {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-5-over {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-5-over {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-5-over {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-5-over {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-5-over {
 		gap: 0.313rem;
 	}
@@ -386,6 +964,105 @@
 	@include css-order-bp-5-over();
 }
 @media all and (min-width: $settings_bp_5_under) {
+	.align-self-start-bp-5-under {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-5-under {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-5-under {
+		align-self: center;
+	}
+	.align-self-end-bp-5-under {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-5-under {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-5-under {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-5-under {
+		align-self: baseline;
+	}
+	.align-items-start-bp-5-under {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-5-under {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-5-under {
+		align-items: center;
+	}
+	.align-items-end-bp-5-under {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-5-under {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-5-under {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-5-under {
+		align-items: baseline;
+	}
+	.align-content-start-bp-5-under {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-5-under {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-5-under {
+		align-content: center;
+	}
+	.align-content-end-bp-5-under {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-5-under {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-5-under {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-5-under {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-5-under {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-5-under {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-5-under {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-5-under {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-5-under {
+		justify-content: left;
+	}
+	.justify-content-center-bp-5-under {
+		justify-content: center;
+	}
+	.justify-content-end-bp-5-under {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-5-under {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-5-under {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-5-under {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-5-under {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-5-under {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-5-under {
 		gap: 0.313rem;
 	}
@@ -434,6 +1111,105 @@
 	@include css-order-bp-5-under();
 }
 @media all and (min-width: $settings_bp_4_under) {
+	.align-self-start-bp-4-under {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-4-under {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-4-under {
+		align-self: center;
+	}
+	.align-self-end-bp-4-under {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-4-under {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-4-under {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-4-under {
+		align-self: baseline;
+	}
+	.align-items-start-bp-4-under {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-4-under {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-4-under {
+		align-items: center;
+	}
+	.align-items-end-bp-4-under {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-4-under {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-4-under {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-4-under {
+		align-items: baseline;
+	}
+	.align-content-start-bp-4-under {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-4-under {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-4-under {
+		align-content: center;
+	}
+	.align-content-end-bp-4-under {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-4-under {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-4-under {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-4-under {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-4-under {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-4-under {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-4-under {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-4-under {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-4-under {
+		justify-content: left;
+	}
+	.justify-content-center-bp-4-under {
+		justify-content: center;
+	}
+	.justify-content-end-bp-4-under {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-4-under {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-4-under {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-4-under {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-4-under {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-4-under {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-4-under {
 		gap: 0.313rem;
 	}
@@ -482,6 +1258,105 @@
 	@include css-order-bp-4-under();
 }
 @media all and (min-width: $settings_bp_3_under) {
+	.align-self-start-bp-3-under {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-3-under {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-3-under {
+		align-self: center;
+	}
+	.align-self-end-bp-3-under {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-3-under {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-3-under {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-3-under {
+		align-self: baseline;
+	}
+	.align-items-start-bp-3-under {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-3-under {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-3-under {
+		align-items: center;
+	}
+	.align-items-end-bp-3-under {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-3-under {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-3-under {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-3-under {
+		align-items: baseline;
+	}
+	.align-content-start-bp-3-under {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-3-under {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-3-under {
+		align-content: center;
+	}
+	.align-content-end-bp-3-under {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-3-under {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-3-under {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-3-under {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-3-under {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-3-under {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-3-under {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-3-under {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-3-under {
+		justify-content: left;
+	}
+	.justify-content-center-bp-3-under {
+		justify-content: center;
+	}
+	.justify-content-end-bp-3-under {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-3-under {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-3-under {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-3-under {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-3-under {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-3-under {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-3-under {
 		gap: 0.313rem;
 	}
@@ -530,6 +1405,105 @@
 	@include css-order-bp-3-under();
 }
 @media all and (min-width: $settings_bp_2_under) {
+	.align-self-start-bp-2-under {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-2-under {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-2-under {
+		align-self: center;
+	}
+	.align-self-end-bp-2-under {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-2-under {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-2-under {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-2-under {
+		align-self: baseline;
+	}
+	.align-items-start-bp-2-under {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-2-under {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-2-under {
+		align-items: center;
+	}
+	.align-items-end-bp-2-under {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-2-under {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-2-under {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-2-under {
+		align-items: baseline;
+	}
+	.align-content-start-bp-2-under {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-2-under {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-2-under {
+		align-content: center;
+	}
+	.align-content-end-bp-2-under {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-2-under {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-2-under {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-2-under {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-2-under {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-2-under {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-2-under {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-2-under {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-2-under {
+		justify-content: left;
+	}
+	.justify-content-center-bp-2-under {
+		justify-content: center;
+	}
+	.justify-content-end-bp-2-under {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-2-under {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-2-under {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-2-under {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-2-under {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-2-under {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-2-under {
 		gap: 0.313rem;
 	}
@@ -578,6 +1552,105 @@
 	@include css-order-bp-2-under();
 }
 @media all and (min-width: $settings_bp_1_under) {
+	.align-self-start-bp-1-under {
+		align-self: start;
+	}
+	.align-self-flex-start-bp-1-under {
+		align-self: flex-start;
+	}
+	.align-self-center-bp-1-under {
+		align-self: center;
+	}
+	.align-self-end-bp-1-under {
+		align-self: end;
+	}
+	.align-self-flex-end-bp-1-under {
+		align-self: flex-end;
+	}
+	.align-self-stretch-bp-1-under {
+		align-self: stretch;
+	}
+	.align-self-baseline-bp-1-under {
+		align-self: baseline;
+	}
+	.align-items-start-bp-1-under {
+		align-items: start;
+	}
+	.align-items-flex-start-bp-1-under {
+		align-items: flex-start;
+	}
+	.align-items-center-bp-1-under {
+		align-items: center;
+	}
+	.align-items-end-bp-1-under {
+		align-items: end;
+	}
+	.align-items-flex-end-bp-1-under {
+		align-items: flex-end;
+	}
+	.align-items-stretch-bp-1-under {
+		align-items: stretch;
+	}
+	.align-items-baseline-bp-1-under {
+		align-items: baseline;
+	}
+	.align-content-start-bp-1-under {
+		align-content: start;
+	}
+	.align-content-flex-start-bp-1-under {
+		align-content: flex-start;
+	}
+	.align-content-center-bp-1-under {
+		align-content: center;
+	}
+	.align-content-end-bp-1-under {
+		align-content: end;
+	}
+	.align-content-flex-end-bp-1-under {
+		align-content: flex-end;
+	}
+	.align-content-stretch-bp-1-under {
+		align-content: stretch;
+	}
+	.align-content-baseline-bp-1-under {
+		align-content: baseline;
+	}
+	.align-content-space-between-bp-1-under {
+		align-content: space-between;
+	}
+	.align-content-space-around-bp-1-under {
+		align-content: space-around;
+	}
+	.justify-content-start-bp-1-under {
+		justify-content: start;
+	}
+	.justify-content-flex-start-bp-1-under {
+		justify-content: flex-start;
+	}
+	.justify-content-left-bp-1-under {
+		justify-content: left;
+	}
+	.justify-content-center-bp-1-under {
+		justify-content: center;
+	}
+	.justify-content-end-bp-1-under {
+		justify-content: end;
+	}
+	.justify-content-flex-end-bp-1-under {
+		justify-content: flex-end;
+	}
+	.justify-content-right-bp-1-under {
+		justify-content: right;
+	}
+	.justify-content-space-between-bp-1-under {
+		justify-content: space-between;
+	}
+	.justify-content-space-around-bp-1-under {
+		justify-content: space-around;
+	}
+	.justify-content-space-evenly-bp-1-under {
+		justify-content: space-evenly;
+	}
 	.gap-xs-bp-1-under {
 		gap: 0.313rem;
 	}
