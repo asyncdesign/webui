@@ -1591,36 +1591,36 @@
 }
 
 .breadcrumb-xs::after {
-  top: calc(50% - 0.6rem);
-  right: -0.5rem;
-  width: 1.2rem;
-  height: 1.2rem;
+  top: calc(50% - 0.55rem);
+  right: -0.56rem;
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .breadcrumb-sm::after {
-  top: calc(50% - 0.68rem);
-  right: -0.61rem;
-  width: 1.38rem;
-  height: 1.38rem;
+  top: calc(50% - 0.64rem);
+  right: -0.65rem;
+  width: 1.28rem;
+  height: 1.28rem;
 }
 
 .breadcrumb-md::after {
-  top: calc(50% - 0.825rem);
-  right: -0.735rem;
-  width: 1.65rem;
-  height: 1.65rem;
+  top: calc(50% - 0.8rem);
+  right: -0.8rem;
+  width: 1.55rem;
+  height: 1.55rem;
 }
 
 .breadcrumb-lg::after {
   top: calc(50% - 0.9rem);
-  right: -0.825rem;
+  right: -0.88rem;
   width: 1.82rem;
   height: 1.82rem;
 }
 
 .breadcrumb-xl::after {
   top: calc(50% - 1.05rem);
-  right: -0.95rem;
+  right: -1rem;
   width: 2.1rem;
   height: 2.1rem;
 }
@@ -1677,14 +1677,17 @@
   border-top-right-radius: 50%;
 }
 
-*[class*=breadcrumb-],
-*[class*=breadcrumb-]::after {
+.breadcrumb > *[class*=breadcrumb-] {
   display: block;
   position: relative;
-  backface-visibility: hidden;
 }
 
-*[class*=breadcrumb-]:not(.breadcrumb-last)::after {
+.breadcrumb > *[class*=breadcrumb-]:first-of-type {
+  z-index: 1;
+}
+
+.breadcrumb > *[class*=breadcrumb-]:not(.breadcrumb-last)::after {
+  display: block;
   position: absolute;
   content: " ";
   border: transparent;
@@ -1692,6 +1695,14 @@
   border-bottom-left-radius: 100%;
   transform: rotate(45deg);
   z-index: 1;
+}
+
+.breadcrumb > .breadcrumb-nodivider::after {
+  box-shadow: none;
+}
+
+.breadcrumb > .breadcrumb-nopointer::after {
+  visibility: hidden;
 }
 
 :root {
