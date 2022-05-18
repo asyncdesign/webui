@@ -1878,14 +1878,35 @@
 		return parseFloat(win.getComputedStyle(el)["fontSize"]) * parseFloat(remValue);
 	};
 
-	webui.getValueFromCssSize = function(size) {
-		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9.]+/gi, "")) : !isNaN(size) ? size : 0;
-		return parseFloat(sizeValue);
+	webui.getValueFromCssSize = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length ? parseFloat(parts[0].replace(/[^0-9.]+/gi, "")) : 0;	
+			return !isNaN(value) ? value : 0;	
+		}
+		else if (valueSeries && !isNaN(valueSeries)) {
+			var value = parseFloat(valueSeries);
+			return !isNaN(value) ? value : 0;	
+		}
+		return 0;
 	};
 
-	webui.getUnitFromCssSize = function(size) {
-		var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z%]+/gi, "") : "px";
-		return sizeUnit.length > 0 ? sizeUnit : "px";
+	webui.getUnitFromCssSize = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length ? parts[0].replace(/[^a-z%]+/gi, "") : "px";	
+			return value.length ? value : "px";		
+		}
+		return "px";
+	};
+
+	webui.getvalueFromCssDisplayType = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length > 1 ? parts[1] : "block";
+			return value.length ? value : "block";				
+		}
+		return "block";
 	};
 
 	webui.getAvgWidth = function (elements) {
@@ -2044,19 +2065,19 @@
 		var max = 0;
 		if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
 			switch (breakPointRange[0]) {
-				case 1: min = parseFloat(ui.breakpoint1) + 0.01; break;
-				case 2: min = parseFloat(ui.breakpoint2) + 0.01; break;
-				case 3: min = parseFloat(ui.breakpoint3) + 0.01; break;
-				case 4: min = parseFloat(ui.breakpoint4) + 0.01; break;
-				case 5: min = parseFloat(ui.breakpoint5) + 0.01; break;
+				case 1: min = parseFloat(ui.bp_1_under) + 0.01; break;
+				case 2: min = parseFloat(ui.bp_2_under) + 0.01; break;
+				case 3: min = parseFloat(ui.bp_3_under) + 0.01; break;
+				case 4: min = parseFloat(ui.bp_4_under) + 0.01; break;
+				case 5: min = parseFloat(ui.bp_5_under) + 0.01; break;
 				default: min = 0; break;
 			}
 			switch (breakPointRange[1]) {
-				case 1: max = parseFloat(ui.breakpoint1); break;
-				case 2: max = parseFloat(ui.breakpoint2); break;
-				case 3: max = parseFloat(ui.breakpoint3); break;
-				case 4: max = parseFloat(ui.breakpoint4); break;
-				case 5: max = parseFloat(ui.breakpoint5); break;
+				case 1: max = parseFloat(ui.bp_1_under); break;
+				case 2: max = parseFloat(ui.bp_2_under); break;
+				case 3: max = parseFloat(ui.bp_3_under); break;
+				case 4: max = parseFloat(ui.bp_4_under); break;
+				case 5: max = parseFloat(ui.bp_5_under); break;
 				default: max = 0; break;
 			}
 		}
@@ -2302,6 +2323,29 @@
 		root.removeEventListener(name, callback);
 	};
 
+	webui.breakpointChange = function (callback) {
+
+			var mlq1 = window.matchMedia("(max-width: " + ui.bp_1_under + ")");
+			mlq1.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq2 = window.matchMedia("(min-width: " + ui.bp_1_over + ") and (max-width: " + ui.bp_2_under + ")");
+			mlq2.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq3 = window.matchMedia("(min-width: " + ui.bp_2_over + ") and (max-width: " + ui.bp_3_under + ")");
+			mlq3.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq4 = window.matchMedia("(min-width: " + ui.bp_3_over + ") and (max-width: " + ui.bp_4_under + ")");
+			mlq4.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq5 = window.matchMedia("(min-width: " + ui.bp_4_over + ") and (max-width: " + ui.bp_5_under + ")");
+			mlq5.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq6 = window.matchMedia("(min-width: " + ui.bp_5_over + ")");
+			mlq6.onchange = (e) => { if (e.matches) { callback(); }}
+
+			return;
+	};
+
 	webui.ready = function (callback, waitForComplete) { 
 
 		if (waitForComplete) {
@@ -2458,7 +2502,7 @@
 
 	/* RUN */
 
-	webui.ready (function() {
+	webui.ready(function() {
 
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");
@@ -2588,9 +2632,9 @@
 					}
 					if (showHeader && !inline) {
 						if (showAlertIcon || showAlertClose) {
-							var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
-							var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
-							var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
+							var alertItemHeader = webui("<div></div>").addClass("flex pad-sm justify-content-space-between").appendTo(alertItemInner);
+							var alertItemHeaderLeft = webui("<div></div>").appendTo(alertItemHeader);
+							var alertItemHeaderRight = webui("<div></div>").appendTo(alertItemHeader);
 							if (showAlertIcon) {
 								webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 							}
@@ -2602,21 +2646,21 @@
 							}
 						}
 					}
-					var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
+					var alertItemBody = webui("<div></div>").addClass("flex pad-sm align-items-center").appendTo(alertItemInner);
 					if (showHeader && inline) {
 						if (showAlertIcon && showAlertClose) {
-							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-							webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+							webui("<div></div>").addClass("width-sm alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container flex-auto pad-xs").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm alert-cancel-button").appendTo(alertItemBody)
 								.click(function () {
 									hideAlert(alertItemInner, false);
 								});
 						} else if (showAlertIcon) {
-							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+							webui("<div></div>").addClass("width-sm alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container flex-auto pad-xs").css("padding-right", "0").appendTo(alertItemBody).html(message);
 						} else if (showAlertClose) {
-							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+							webui("<div></div>").addClass("container flex-auto pad-xs").css("padding-left", "0").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm alert-cancel-button").appendTo(alertItemBody)
 								.click(function () {
 									hideAlert(alertItemInner, false);
 								});
@@ -2853,12 +2897,13 @@
       els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiCurrentHeight,
       targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
       targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
+      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetHeight) : "block",
       isAuto = targetHeightUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0");
+      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-height", "0");
       uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
       uiOriginalHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
       if (isAuto) {
@@ -2901,12 +2946,13 @@
       els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiCurrentWidth,
       targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
       targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
+      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetWidth) : "block",
       isAuto = targetWidthUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0");
+      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-width", "0");
       uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
       uiOriginalWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
       if (isAuto) {
@@ -3982,213 +4028,250 @@
 		var
 
 		transitionDuration = settings.transitionDuration,
-		largeDeviceOffset = settings.largeDeviceOffset,
+
+		smallDeviceSubMenuPadding = settings.smallDeviceSubMenuPadding,
+		mediumDeviceSubMenuPadding = settings.mediumDeviceSubMenuPadding,
+
+		largeDeviceMenuReverse = settings.largeDeviceMenuReverse,
+		largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
 		largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
-		smallDeviceBreakpoint = settings.smallDeviceBreakpoint,
-		smallDeviceAlignment = settings.smallDeviceAlignment,
-		smallDeviceExpansion = settings.smallDeviceExpansion,
-		
-		resetNavbar = function() {
+		largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
+		largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
 
-			var mq = null;
-			var mqClassName = null;
-			
-			switch (smallDeviceBreakpoint) {
-				case 1: mq = window.matchMedia("(max-width: " + ui.breakpoint1 + ")"); mqClassName = "mq-1"; break;
-				case 2: mq = window.matchMedia("(max-width: " + ui.breakpoint2 + ")"); mqClassName = "mq-2"; break;
-				case 3: mq = window.matchMedia("(max-width: " + ui.breakpoint3 + ")"); mqClassName = "mq-3"; break;
-				case 4: mq = window.matchMedia("(max-width: " + ui.breakpoint4 + ")"); mqClassName = "mq-4"; break;
-				case 5: mq = window.matchMedia("(max-width: " + ui.breakpoint5 + ")"); mqClassName = "mq-5"; break;
-				default: mqClassName = "mq-2"; break;
+		smallDeviceLogoColor = settings.smallDeviceLogoColor,
+		smallDeviceLogoBackground = settings.smallDeviceLogoBackground,
+		smallDeviceMenuColor = settings.smallDeviceMenuColor,
+		smallDeviceMenuBackground = settings.smallDeviceMenuBackground,
+		smallDeviceSubMenuColor = settings.smallDeviceSubMenuColor,
+		smallDeviceSubMenuBackground = settings.smallDeviceSubMenuBackground,
+
+		mediumDeviceLogoColor = settings.mediumDeviceLogoColor,
+		mediumDeviceLogoBackground = settings.mediumDeviceLogoBackground,
+		mediumDeviceMenuColor = settings.mediumDeviceMenuColor,
+		mediumDeviceMenuBackground = settings.mediumDeviceMenuBackground,
+		mediumDeviceSubMenuColor = settings.mediumDeviceSubMenuColor,
+		mediumDeviceSubMenuBackground = settings.mediumDeviceSubMenuBackground,
+
+		largeDeviceLogoColor = settings.largeDeviceLogoColor,
+		largeDeviceLogoBackground = settings.largeDeviceLogoBackground,
+		largeDeviceMenuColor = settings.largeDeviceMenuColor,
+		largeDeviceMenuBackground = settings.largeDeviceMenuBackground,
+		largeDeviceSubMenuColor = settings.largeDeviceSubMenuColor,
+		largeDeviceSubMenuBackground = settings.largeDeviceSubMenuBackground,
+
+		navButton = navbar.find("[class*='nav-button']").first(),
+		navActivators = navbar.find(".nav-activator"),	
+
+		navLogo = navbar.find(".nav-logo").first(),
+		navMenu = navbar.children(".nav-menu").first(),
+		navItems = navMenu.children(".nav-item"),
+		navComponents = navMenu.children(".nav-component"),
+		navSubMenus = navbar.find(".nav-sub-menu"),
+		navSubMenuItems = navSubMenus.children(".nav-item"),
+		navSubMenuComponents = navSubMenus.children(".nav-component"),
+
+		setSmallDeviceProperties = function() {
+
+			navSubMenus.css("padding", smallDeviceSubMenuPadding);
+
+			navLogo.css("color", smallDeviceLogoColor);
+			if (smallDeviceLogoBackground) {
+				navLogo.css("background", smallDeviceLogoBackground);
 			}
+			navMenu.css("color", smallDeviceMenuColor);
+			if (smallDeviceMenuBackground) {
+				navMenu.css("background", smallDeviceMenuBackground);
+			}
+			navSubMenus.css("color", smallDeviceSubMenuColor);
+			if (smallDeviceSubMenuBackground) {
+				navSubMenus.css("background", smallDeviceSubMenuBackground);
+			}
+		},
 
-			var rootMenus = navbar.children(".nav-menu");
-			var childMenus = navbar.children(".nav-menu").find(".nav-menu");
-			var components = rootMenus.children(".nav-component");	
+		setMediumDeviceProperties = function() {
 
-			if (!mq.matches) {
+			navSubMenus.css("padding", mediumDeviceSubMenuPadding);
+
+			navLogo.css("color", mediumDeviceLogoColor);
+			if (mediumDeviceLogoBackground) {
+				navLogo.css("background", mediumDeviceLogoBackground);
+			}
+			navMenu.css("color", mediumDeviceMenuColor);
+			if (mediumDeviceMenuBackground) {
+				navMenu.css("background", mediumDeviceMenuBackground);		
+			}
+			navSubMenus.css("color", mediumDeviceSubMenuColor);
+			if (mediumDeviceSubMenuBackground) {
+				navSubMenus.css("background", mediumDeviceSubMenuBackground);
+			}
+		},
+
+		setLargeDeviceProperties = function() {
+
+			if (largeDeviceMenuReverse) {
+				navMenu.css("flex-direction","row-reverse");
+				navLogo.css("text-align", "right");
 				
-				navbar.removeClass(mqClassName);
-				navbar.find("[class*='nav-button']").css("display", "none");
-
-				rootMenus.css("position", "static").css("top", "auto");
-				rootMenus.first().css("padding-left", largeDeviceOffset + "px");
-				rootMenus.find("a").css("padding-left", "0").css("padding-right", "1.25rem");
-				rootMenus.css("display", "block").css("height", navbar.hasClass("nav-sm") ? "2.475rem" : "2.825rem").addClass("active");
-				
-				childMenus.css("margin-left", "-" + (parseFloat(ui(this).css("width")) + largeDeviceMenuOffset) + "px");	
-				childMenus.css("top", navbar.css("height"));	
-				childMenus.parent().siblings().children(".nav-menu").hide();
-				childMenus.hide();
-
-				components.css("display", "flex").css("height", navbar.css("height"));
+				if (navItems.last().css("margin-right")) {
+					navItems.last().css("margin-left", largeDeviceMenuOffset);
+				}
 			}
 			else {
-				navbar.addClass(mqClassName);
-				navbar.find("[class*='nav-button']").css("display", "block").removeClass("active");
-
-				rootMenus.css("display", "none").removeClass("active");
-
-				if (smallDeviceExpansion === "expand") {
-					rootMenus.css("position", "static").css("top", "auto");				
-				}
-				else {
-					rootMenus.css("position", "absolute").css("top", navbar.css("height"));
-				}
-				
-				rootMenus.first().css("padding-left", "0");
-				rootMenus.find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");
-
-				if (smallDeviceAlignment === "center") {
-					rootMenus.find("a").css("text-align", "center");
-				}
-				else if (smallDeviceAlignment === "right") {
-					rootMenus.find("a").css("text-align", "right");
-				}
-				else {
-					rootMenus.find("a").css("text-align", "left");
-				}
-
-				childMenus.css("margin-left", "0").css("top", "0").removeClass("active");
-				childMenus.parent().siblings().children(".nav-menu").hide();
-				childMenus.hide();
+				navItems.last().css("margin-right", largeDeviceMenuOffset);
 			}
+			
+			navItems.css("margin-left", largeDeviceMenuSpacing);
+			navSubMenus.css("margin-left", largeDeviceSubMenuOffset);
+			navSubMenus.css("padding", largeDeviceSubMenuPadding);
+			
+			navLogo.css("color", largeDeviceLogoColor);
+			if (largeDeviceLogoBackground) {
+				navLogo.css("background", largeDeviceLogoBackground);
+			}
+			navMenu.css("color", largeDeviceMenuColor);
+			if (largeDeviceMenuBackground) {
+				navMenu.css("background", largeDeviceMenuBackground);
+			}
+			navSubMenus.css("color", largeDeviceSubMenuColor);
+			if (largeDeviceSubMenuBackground) {
+				navSubMenus.css("background", largeDeviceSubMenuBackground);
+			}
+		},
 
+		setNavbarProperties = function() {
+
+			if (webui.isWindowInBreakPointRange([0, 3])) {
+				setSmallDeviceProperties();
+			}
+			else if (webui.isWindowInBreakPointRange([3, 4])) {
+				setMediumDeviceProperties();
+			}
+			else {
+				setLargeDeviceProperties();
+			}
+		},
+
+		resetNavbar = function() {	
+
+			navLogo.attr("style", "");
+			navMenu.attr("style","");
+			navItems.attr("style", "");
+			navComponents.attr("style", "");
+			navSubMenus.attr("style", "");
+
+	
+			if (webui.isWindowInBreakPointRange([0, 3])) {
+
+				navButton.parent().siblings(".nav-item, .nav-component").hide();
+				navButton.removeClass("active");
+				navSubMenus.hide();
+				navActivators.removeClass("active");
+
+				setSmallDeviceProperties();	
+			}
+			else if (webui.isWindowInBreakPointRange([3, 4])) {
+
+				navButton.parent().siblings(".nav-item").hide();
+				navButton.removeClass("active");
+				navSubMenus.hide();
+				navActivators.removeClass("active");
+	
+				navButton.parent().siblings(".nav-component").show();
+
+				setMediumDeviceProperties();
+			}
+			else {
+
+				navSubMenus.hide();
+				
+				navButton.parent().siblings(".nav-item, .nav-component").show();
+				navSubMenus.children(".nav-item").show();
+
+				setLargeDeviceProperties();
+			}
+	
 		};
 
-
-		var mq = null;
-		var mqClassName = null;
-		
-		switch (smallDeviceBreakpoint) {
-			case 1: mq = window.matchMedia("(max-width: " + ui.breakpoint1 + ")"); mqClassName = "mq-1"; break;
-			case 2: mq = window.matchMedia("(max-width: " + ui.breakpoint2 + ")"); mqClassName = "mq-2"; break;
-			case 3: mq = window.matchMedia("(max-width: " + ui.breakpoint3 + ")"); mqClassName = "mq-3"; break;
-			case 4: mq = window.matchMedia("(max-width: " + ui.breakpoint4 + ")"); mqClassName = "mq-4"; break;
-			case 5: mq = window.matchMedia("(max-width: " + ui.breakpoint5 + ")"); mqClassName = "mq-5"; break;
-			default: mqClassName = "mq-2"; break;
-		}
-
-		var navItems = navbar.children(".nav-menu").children();
-		var navButtons = navbar.find("[class*='nav-button']");
-
-		if (!mq.matches) {
-			navbar.removeClass(mqClassName);
-			navbar.children(".nav-menu").first().css("padding-left", largeDeviceOffset + "px");
-			navbar.children(".nav-menu").css("position", "static").css("top", "auto");
-			navbar.children(".nav-menu").find("a").css("padding-left", "0").css("padding-right", "1.25rem");
-
-			navItems.children(".nav-menu").css("top", navbar.css("height"));				
-		}
-		else {
-			navbar.addClass(mqClassName);
-
-			if (smallDeviceExpansion === "expand") {
-				navbar.children(".nav-menu").css("position", "static").css("top", "auto");				
-			}
-			else {
-				navbar.children(".nav-menu").css("position", "absolute").css("top", navbar.css("height"));
-			}
-
-			navbar.children(".nav-menu").first().css("padding-left", "0");
-			navbar.children(".nav-menu").find("a").css("padding-left", "1.25rem").css("padding-right", "1.25rem");		
-
-			if (smallDeviceAlignment === "center") {
-				navbar.children(".nav-menu").find("a").css("text-align", "center");
-			}
-			else if (smallDeviceAlignment === "right") {
-				navbar.children(".nav-menu").find("a").css("text-align", "right");
-			}
-			else {
-				navbar.children(".nav-menu").find("a").css("text-align", "left");
-			}
-
-			navItems.children(".nav-menu").css("height", "0").css("top", "0");	
-			
-			navButtons.css("display", "block");
-		}
+		setNavbarProperties();
 		
 
 		/* EVENTS */
 
-		navButtons.click(function(e) {
-			e.preventDefault();
-			
-			ui(this).toggleClass("active");
-
-			if (ui(this).hasClass("active")) {
-				navbar.trigger("ui.navmenu.show.before");
-				ui(this).parent().children(".nav-menu").children().css("display", "block");
-				ui(this).parent().children(".nav-menu").expandVertical(transitionDuration, "auto", function() {
-					navbar.trigger("ui.navmenu.show.after");
-				});	
-			}
-			else {
-				navbar.trigger("ui.navmenu.hide.before");
-				ui(this).parent().children(".nav-menu").collapseVertical(transitionDuration, 0, function() {
-					navbar.trigger("ui.navmenu.hide.after");
-				});	
-			}		
+		webui.breakpointChange(function() {
+			resetNavbar();
 		});
 		
-		navItems.click(function(e) {
 
-			if (ui(this).nextSibling().length) {
+		navActivators.click(function(e) {
+			e.preventDefault();
 
-				var activeMenus = ui(this).nextSibling().children(".nav-menu");
-									
-				activeMenus.toggleClass("active").parent().siblings().children(".nav-menu").removeClass("active");
+			var navActivator = ui(this);
+			var subMenu = navActivator.nextSibling(".nav-sub-menu");
 
-				if (!mq.matches) {
-					navbar.removeClass(mqClassName);
-					activeMenus.css("margin-left", "-" + ((parseFloat(ui(this).css("width"))) - largeDeviceMenuOffset) + "px");
+			if (navActivator) {
+				navActivator.toggleClass("active");
 
-					if (activeMenus.css("display") === "none") {
-						navbar.trigger("ui.navitem.show.before");
-						activeMenus.children().css("display", "block");
+				if (navActivator.hasClass("active")) {
 
-						activeMenus.parent().siblings().children(".nav-menu").hide();
-						activeMenus.children().css("float", "none");
-						activeMenus.expandVertical(transitionDuration, "auto", function() {
-							navbar.trigger("ui.navitem.show.after");
-						});
-					}
-					else {
-						navbar.trigger("ui.navitem.hide.before");
-						activeMenus.collapseVertical(transitionDuration, 0, function() {
-							navbar.trigger("ui.navitem.hide.after");
-						});
-					}
-	
+					navActivator.parent().siblings().children(".nav-activator").removeClass("active");
+
+					subMenu.parent().siblings().children(".nav-sub-menu").collapseVertical(transitionDuration, 0, function() { 
+						// After event 
+					});
+					
+					subMenu.expandVertical(transitionDuration, "auto", function() {
+						// After event
+					});
+					
 				}
 				else {
-					navbar.addClass(mqClassName);
-					activeMenus.css("height", "auto");
-					activeMenus.children().css("height", "auto");
+					subMenu.collapseVertical(transitionDuration, 0, function() {
+						// After event
+					});
+
+				}
+			}
+		
+		});
+		
+		navButton.click(function(e) {
+			e.preventDefault();
+
+			var toggleButton = ui(this);
+			var rootItems = toggleButton.parent().siblings(".nav-item");
+			var rootComponents = toggleButton.parent().siblings(".nav-component");
+
 			
-					if (activeMenus.hasClass("active")) {	
-						navbar.trigger("ui.navitem.show.before");	
-						activeMenus.parent().siblings().children(".nav-menu").collapseVertical(transitionDuration);
-						activeMenus.children().css("display", "block");
-						activeMenus.expandVertical(transitionDuration, "auto", function() {
-							navbar.trigger("ui.navitem.show.after");
-						});
-					}
-					else {
-						navbar.trigger("ui.navitem.hide.before");
-						activeMenus.collapseVertical(transitionDuration, 0, function() {
-							navbar.trigger("ui.navitem.hide.after");
-						});
-					}
-				
+			toggleButton.toggleClass("active");
+
+			if (toggleButton.hasClass("active")) {
+
+				rootItems.expandVertical(transitionDuration, "auto", function() {
+					// After event
+				});
+
+				if (webui.isWindowInBreakPointRange([0, 3])) {
+					rootComponents.expandVertical(transitionDuration, "2.475rem", function() {
+						// After event					
+					});
+				}
+			}
+			else {
+				rootItems.collapseVertical(transitionDuration, 0, function() {
+					// After event
+					rootItems.attr("style", "");
+				});
+
+				if (webui.isWindowInBreakPointRange([0, 3])) {
+					rootComponents.collapseVertical(transitionDuration, 0, function() {
+						// After event
+						rootComponents.attr("style", "");
+					});
+	
 				}
 			}
 
-		});
-
-		win.addEventListener("resize", function () {
-			resetNavbar();
-		});	
+		});		
 
 	};
 
@@ -4198,12 +4281,37 @@
 		value: function (options) {
 
 			var settings = ui.extend({
+
 				transitionDuration: 300,
-				largeDeviceOffset: 0,
-				largeDeviceMenuOffset: -40,
-				smallDeviceBreakpoint: 2,
-				smallDeviceAlignment: "left",
-				smallDeviceExpansion: "overlay"
+				smallDeviceSubMenuPadding: "0 1rem",
+				mediumDeviceSubMenuPadding: "0 1rem",
+				largeDeviceMenuReverse: false,
+				largeDeviceMenuSpacing: 0,
+				largeDeviceMenuOffset: 0,
+				largeDeviceSubMenuPadding: "0 2rem",
+				largeDeviceSubMenuOffset: 0,
+
+				smallDeviceLogoColor: "inherit",
+				smallDeviceLogoBackground: "",
+				smallDeviceMenuColor: "inherit",
+				smallDeviceMenuBackground: "",
+				smallDeviceSubMenuColor: "inherit",
+				smallDeviceSubMenuBackground: "rgba(255, 255, 255, 0.2)",
+		
+				mediumDeviceLogoColor: "inherit",
+				mediumDeviceLogoBackground: "",
+				mediumDeviceMenuColor: "inherit",
+				mediumDeviceMenuBackground: "",
+				mediumDeviceSubMenuColor: "inherit",
+				mediumDeviceSubMenuBackground: "rgba(255, 255, 255, 0.2)",
+		
+				largeDeviceLogoColor: "inherit",
+				largeDeviceLogoBackground: "",
+				largeDeviceMenuColor: "inherit",
+				largeDeviceMenuBackground: "",
+				largeDeviceSubMenuColor: "inherit",
+				largeDeviceSubMenuBackground: "inherit"
+
 			}, options);
 
 			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls. Initialize a new component instead.") }
@@ -4216,9 +4324,6 @@
 	});
 
 })(window);
-	
-
-
 
 (function (win) {
 	
@@ -4451,11 +4556,18 @@
 	/* PUBLIC */
 
 	// Breakpoint values must be defined as rem value strings, e.g. "29.99rem".
-	webui.breakpoint1 = "29.99rem";
-	webui.breakpoint2 = "39.99rem";
-	webui.breakpoint3 = "49.99rem";
-	webui.breakpoint4 = "69.99rem";
-	webui.breakpoint5 = "89.99rem";
+	// NOTE: Please make sure that the converging values have a 0.01 em/rem difference.
+
+	webui.bp_1_under = "29.99rem";
+	webui.bp_1_over = "30rem";
+	webui.bp_2_under = "39.99rem";
+	webui.bp_2_over = "40rem";
+	webui.bp_3_under = "49.99rem";
+	webui.bp_3_over = "50rem";
+	webui.bp_4_under = "69.99rem";
+	webui.bp_4_over = "70rem";
+	webui.bp_5_under = "89.99rem";
+	webui.bp_5_over = "90rem";
 
 })(window);
 
@@ -5160,9 +5272,9 @@
 		context.find(".tooltip").hoverIn(function () {
 			var tooltipWrapper = webui(this);
 
-			var disabledTarget = tooltipWrapper.children(".control-disabled");
+			var disabledTarget = tooltipWrapper.find(".control-disabled").first();
 			if (!disabledTarget.length) {
-				var disabledParent = tooltipWrapper.parents(".control-group-disabled");
+				var disabledParent = tooltipWrapper.parents(".control-group-disabled").first();
 				if (!disabledParent.length) {
 					var tooltip = tooltipWrapper.children(".tooltip-dynamic").first();
 					if (tooltip.length) {
@@ -5181,14 +5293,14 @@
 			}
 		});
 
-		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
-			var tooltipWrapper = webui(this).parent(".tooltip");
+		context.find(".tooltip").find("input, button, select, textarea, [tabindex]").focus(function () {
+			var tooltipWrapper = webui(this).parents(".tooltip").first();
 
 			var disabledTarget = webui(this).hasClass("control-disabled");
 			if (!disabledTarget) {
-				var disabledParent = webui(this).parents(".control-group-disabled");
+				var disabledParent = webui(this).parents(".control-group-disabled").first();
 				if (!disabledParent.length) {
-					var el = tooltipWrapper.children(".tooltip-focus").first();
+					var el = tooltipWrapper.find(".tooltip-focus").first();
 					if (el.length) {
 						showTooltip(tooltipWrapper);
 						resetTooltips();
@@ -5197,10 +5309,10 @@
 			}
 		});
 
-		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
-			var tooltipWrapper = webui(this).parent(".tooltip");
+		context.find(".tooltip").find("input, button, select, textarea, [tabindex]").blur(function () {
+			var tooltipWrapper = webui(this).parents(".tooltip").first();
 
-			var el = tooltipWrapper.children(".tooltip-focus").first();
+			var el = tooltipWrapper.find(".tooltip-focus").first();
 			if (el.length && !el.hasClass("tooltip-noautohide")) {
 				hideTooltip(tooltipWrapper);
 			}

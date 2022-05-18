@@ -6484,10 +6484,12 @@
 
 .toolbar-sm {
   height: 2.475rem;
+  min-width: min-content;
 }
 
 .toolbar-lg {
   height: 2.825rem;
+  min-width: min-content;
 }
 
 .dropdown {
@@ -6522,207 +6524,172 @@
 }
 
 .nav-sm {
-  position: relative;
+  width: 100%;
+  height: 2.475rem;
+  z-index: 130;
+}
+.nav-sm > .nav-logo {
   height: 2.475rem;
 }
-.nav-sm .nav-logo {
+.nav-sm .nav-item {
   height: 2.475rem;
+}
+.nav-sm *:not(.nav-component) * {
   line-height: 2.475rem;
-  float: left;
 }
-.nav-sm .nav-menu {
+.nav-sm .nav-sub-menu > .nav-component {
   height: 2.475rem;
-}
-.nav-sm .nav-menu *:not(.nav-component) > *:not([class*=text]) {
-  line-height: 2.475rem;
-}
-.nav-sm .nav-menu .nav-component {
-  height: 2.475rem;
-}
-.nav-sm .nav-button-sm {
-  position: absolute;
-  display: none;
-  right: 0;
 }
 
 .nav-lg {
-  position: relative;
+  width: 100%;
+  height: 2.825rem;
+  z-index: 130;
+}
+.nav-lg > .nav-logo {
   height: 2.825rem;
 }
-.nav-lg .nav-logo {
+.nav-lg .nav-item {
   height: 2.825rem;
+}
+.nav-lg *:not(.nav-component) * {
   line-height: 2.825rem;
-  float: left;
 }
-.nav-lg .nav-menu {
+.nav-lg .nav-sub-menu > .nav-component {
   height: 2.825rem;
-}
-.nav-lg .nav-menu *:not(.nav-component) > *:not([class*=text]) {
-  line-height: 2.825rem;
-}
-.nav-lg .nav-menu .nav-component {
-  height: 2.825rem;
-}
-.nav-lg .nav-button-lg {
-  position: absolute;
-  display: none;
-  right: 0;
 }
 
 .nav-menu {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  z-index: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: inherit;
+  color: inherit;
+  z-index: inherit;
 }
-.nav-menu > * {
-  float: left;
-  margin-left: 1.25rem;
+.nav-menu > .nav-logo {
+  background-color: inherit;
+  color: inherit;
+  z-index: inherit;
 }
-.nav-menu > * > .nav-menu {
-  position: absolute;
+.nav-menu > .nav-toggle {
+  order: 1;
+  z-index: inherit;
+}
+.nav-menu > .nav-component {
+  order: 2;
+  width: 100%;
   display: none;
-  z-index: 130;
+  padding: 0 1rem;
+  z-index: inherit;
 }
-.nav-menu a {
-  text-decoration: none;
+.nav-menu > .nav-component:not(.nav-sub-menu > .nav-component) {
   background-color: inherit;
   color: inherit;
 }
-
-.nav-menu > .nav-component {
+.nav-menu > .nav-component.active {
+  display: block;
+}
+.nav-menu > .nav-item {
+  order: 3;
+  width: 100%;
+  display: none;
+  position: relative;
+  height: auto;
+  padding: 0 1rem;
+  z-index: inherit;
+}
+.nav-menu > .nav-item:not(.nav-sub-menu > .nav-item) {
+  background-color: inherit;
+  color: inherit;
+}
+.nav-menu > .nav-item.active {
+  display: block;
+}
+.nav-menu > .nav-item > a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.nav-menu > .nav-item > .nav-sub-menu {
+  position: relative;
+  list-style-type: none;
+  border-radius: 0.188rem;
+  padding: 0 1rem;
+  background-color: inherit;
+  color: inherit;
+  display: none;
+}
+.nav-menu > .nav-item > .nav-sub-menu > .nav-component {
   display: flex;
   align-items: center;
 }
-
-.nav-sm.nav-reverse .nav-logo {
-  float: right;
+.nav-menu > .nav-item > .nav-sub-menu > .nav-item {
+  display: block;
 }
-.nav-sm.nav-reverse .nav-button-sm {
-  left: 0;
+.nav-menu > .nav-item > .nav-sub-menu > .nav-item > a {
+  color: inherit;
+  text-decoration: none;
 }
-
-.nav-lg.nav-reverse .nav-logo {
-  float: right;
-}
-.nav-lg.nav-reverse .nav-button-lg {
-  left: 0;
+.nav-menu > .nav-item > .nav-sub-menu:last-of-type {
+  margin-bottom: 0.5rem;
 }
 
-@media screen and (max-width: 29.99rem) {
-  .mq-1 .nav-menu {
-    position: absolute;
-    left: 0;
-    display: none;
-    z-index: 130;
+@media screen and (min-width: 50rem) {
+  .nav-menu {
+    justify-content: center;
   }
-  .mq-1 .nav-menu > * {
-    display: none;
-    margin-left: 0;
+  .nav-menu > .nav-logo {
+    flex: 1;
   }
-  .mq-1 .nav-menu > * > .nav-menu {
-    position: static;
-    display: initial;
+  .nav-menu > .nav-item {
+    padding: 0 1rem;
   }
-  .mq-1 .nav-menu, .mq-1 .nav-menu > *, .mq-1 .nav-menu > * a {
-    float: left;
-    width: 100%;
+  .nav-menu > .nav-component {
+    order: 1;
+    width: auto;
+    padding: 0 0.5rem;
+    display: block;
   }
-  .mq-1 .nav-menu > * a {
-    padding: 0;
+  .nav-menu > .nav-toggle {
+    order: 2;
   }
 }
-@media screen and (max-width: 39.99rem) {
-  .mq-2 .nav-menu {
+@media screen and (min-width: 70rem) {
+  .nav-menu {
+    justify-content: center;
+  }
+  .nav-menu > .nav-logo {
+    order: 0;
+  }
+  .nav-menu > .nav-item {
+    order: 1;
+    width: auto;
+    display: block;
+    position: unset;
+    padding: 0 1rem;
+  }
+  .nav-menu > .nav-item > .nav-sub-menu {
     position: absolute;
-    left: 0;
+    padding: 0 2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .nav-menu > .nav-item > .nav-sub-menu > .nav-item:first-of-type {
+    margin-top: 0.5rem;
+  }
+  .nav-menu > .nav-component {
+    order: 2;
+    width: auto;
+    display: block;
+  }
+  .nav-menu > .nav-toggle {
     display: none;
-    z-index: 130;
-  }
-  .mq-2 .nav-menu > * {
-    display: none;
-    margin-left: 0;
-  }
-  .mq-2 .nav-menu > * > .nav-menu {
-    position: static;
-    display: initial;
-  }
-  .mq-2 .nav-menu, .mq-2 .nav-menu > *, .mq-2 .nav-menu > * a {
-    float: left;
-    width: 100%;
-  }
-  .mq-2 .nav-menu > * a {
-    padding: 0;
-  }
-}
-@media screen and (max-width: 49.99rem) {
-  .mq-3 .nav-menu {
-    position: absolute;
-    left: 0;
-    display: none;
-    z-index: 130;
-  }
-  .mq-3 .nav-menu > * {
-    display: none;
-    margin-left: 0;
-  }
-  .mq-3 .nav-menu > * > .nav-menu {
-    position: static;
-    display: initial;
-  }
-  .mq-3 .nav-menu, .mq-3 .nav-menu > *, .mq-3 .nav-menu > * a {
-    float: left;
-    width: 100%;
-  }
-  .mq-3 .nav-menu > * a {
-    padding: 0;
-  }
-}
-@media screen and (max-width: 69.99rem) {
-  .mq-4 .nav-menu {
-    position: absolute;
-    left: 0;
-    display: none;
-    z-index: 130;
-  }
-  .mq-4 .nav-menu > * {
-    display: none;
-    margin-left: 0;
-  }
-  .mq-4 .nav-menu > * > .nav-menu {
-    position: static;
-    display: initial;
-  }
-  .mq-4 .nav-menu, .mq-4 .nav-menu > *, .mq-4 .nav-menu > * a {
-    float: left;
-    width: 100%;
-  }
-  .mq-4 .nav-menu > * a {
-    padding: 0;
-  }
-}
-@media screen and (max-width: 89.99rem) {
-  .mq-5 .nav-menu {
-    position: absolute;
-    left: 0;
-    display: none;
-    z-index: 130;
-  }
-  .mq-5 .nav-menu > * {
-    display: none;
-    margin-left: 0;
-  }
-  .mq-5 .nav-menu > * > .nav-menu {
-    position: static;
-    display: initial;
-  }
-  .mq-5 .nav-menu, .mq-5 .nav-menu > *, .mq-5 .nav-menu > * a {
-    float: left;
-    width: 100%;
-  }
-  .mq-5 .nav-menu > * a {
-    padding: 0;
   }
 }
 .nav-button-sm {
@@ -10576,9 +10543,9 @@ svg:not(:root) {
 
 *[class*=toggle-switch] label .toggle-switch-button {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 0.2rem;
-  height: 80%;
+  height: 84%;
   border-radius: inherit;
   box-shadow: none !important;
 }
@@ -10609,30 +10576,34 @@ svg:not(:root) {
 
 *[class*=toggle-switch].onoff label::before {
   content: "ON";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   width: 45%;
 }
 
 *[class*=toggle-switch].onoff label::after {
   content: "OFF";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   width: 55%;
 }
 
 *[class*=toggle-switch].yesno label::before {
   content: "YES";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   width: 55%;
 }
 
 *[class*=toggle-switch].yesno label::after {
   content: "NO";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   width: 45%;
 }
 
 .toggle-switch-xs {
-  width: 4.75rem;
+  width: 4rem;
   height: 1.5rem;
   line-height: 1.5rem;
 }
@@ -10666,7 +10637,7 @@ svg:not(:root) {
 }
 
 .toggle-switch-xs label .toggle-switch-button {
-  width: 2rem;
+  width: 1.7rem;
 }
 
 .toggle-switch-sm label .toggle-switch-button {
@@ -10690,7 +10661,7 @@ svg:not(:root) {
 }
 
 .toggle-switch-xs input:checked + label .toggle-switch-button {
-  left: 2.35rem;
+  left: 2rem;
 }
 
 .toggle-switch-sm input:checked + label .toggle-switch-button {
@@ -13321,6 +13292,18 @@ svg:not(:root) {
 
 .layer-top {
   z-index: 200;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
 }
 
 .hidden {

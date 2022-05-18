@@ -70,12 +70,13 @@
       els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiCurrentHeight,
       targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
       targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
+      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetHeight) : "block",
       isAuto = targetHeightUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", "block").css("overflow", "hidden").css("min-height", "0");
+      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-height", "0");
       uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
       uiOriginalHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
       if (isAuto) {
@@ -118,12 +119,13 @@
       els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiCurrentWidth,
       targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
       targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
+      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetWidth) : "block",
       isAuto = targetWidthUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", "block").css("overflow", "hidden").css("min-width", "0");
+      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-width", "0");
       uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
       uiOriginalWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
       if (isAuto) {

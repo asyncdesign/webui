@@ -1,114 +1,169 @@
 .nav-sm {
-	position: relative;
+	width: 100%;
 	height: 2.475rem;
-	& .nav-logo {
+	@include layer-3();
+	& > .nav-logo {
 		height: 2.475rem;
-		line-height: 2.475rem;
-		float: left;
 	}
-	& .nav-menu {
+	& .nav-item {
 		height: 2.475rem;
-		& *:not(.nav-component) > *:not([class*="text"]) {
-			line-height: 2.475rem;
-		}		
-		& .nav-component {
-			height: 2.475rem;
-		}
-	}	
-	& .nav-button-sm {
-		position: absolute;
-		display: none;
-		right: 0;
-	}	
+	}
+	& *:not(.nav-component) * {
+		line-height: 2.475rem;
+	}
+	& .nav-sub-menu > .nav-component {
+    height: 2.475rem;
+	}
 }
 .nav-lg {
-	position: relative;
+	width: 100%;
 	height: 2.825rem;
-	& .nav-logo {
+	@include layer-3();
+	& > .nav-logo {
 		height: 2.825rem;
+	}
+	& .nav-item {
+		height: 2.825rem;
+	}
+	& *:not(.nav-component) * {
 		line-height: 2.825rem;
-		float: left;
 	}
-	& .nav-menu {
-		height: 2.825rem;
-		& *:not(.nav-component) > *:not([class*="text"]) {
-			line-height: 2.825rem;
-		}	
-		& .nav-component {
-			height: 2.825rem;
-		}
+	& .nav-sub-menu > .nav-component {
+    height: 2.825rem;
 	}
-	& .nav-button-lg {
-		position: absolute;
-		display: none;
-		right: 0;
-	}	
 }
 .nav-menu {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	overflow: hidden;
-	@include layer-initial();
-  & > * {
-		float: left;	
-		margin-left: 1.25rem;
-		& > .nav-menu {
-			position: absolute;
-			display: none;
-			@include layer-3();
-		}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	background-color: inherit;
+	color: inherit;
+	z-index: inherit;
+
+	& > .nav-logo {
+		background-color: inherit;
+		color: inherit;	
+		z-index: inherit;
 	}
-	& a {
+	& > .nav-toggle {
+		order: 1;
+		z-index: inherit;
+	}
+	& > .nav-component {
+		order: 2;
+		width: 100%;
+		display: none;
+		padding: 0 1rem;
+		z-index: inherit;
+	}
+	& > .nav-component:not(.nav-sub-menu > .nav-component) {
+		background-color: inherit;
+		color: inherit;
+	}
+	& > .nav-component.active {
+		display: block;
+	}
+	& > .nav-item {
+		order: 3;
+		width: 100%;
+		display: none;
+		position: relative;
+		height: auto;
+		padding: 0 1rem;
+		z-index: inherit;
+	}
+	& > .nav-item:not(.nav-sub-menu > .nav-item) {
+		background-color: inherit;
+		color: inherit;
+	}
+	& > .nav-item.active {
+		display: block;
+	}
+	& > .nav-item > a {
+		color: inherit;
 		text-decoration: none;
+		display: block;	
+	}
+	& > .nav-item > .nav-sub-menu {
+		position: relative;
+		list-style-type: none;
+		border-radius: 0.188rem;
+		padding: 0 1rem;
 		background-color: inherit;
 		color: inherit;		
+		display: none;
+		& > .nav-component {
+			display: flex;
+			align-items: center;	
+		}
+		& > .nav-item {
+			display: block;
+		}
+		& > .nav-item > a {
+			color: inherit;
+			text-decoration: none;
+		}
 	}
+	& > .nav-item > .nav-sub-menu:last-of-type {
+		margin-bottom: 0.5rem;
+	}  
 }
-.nav-menu > .nav-component {
-	display: flex;
-	align-items: center;
-}
-.nav-sm.nav-reverse {
-	& .nav-logo {
-		float: right;
-	}
-	& .nav-button-sm {
-		left: 0;
-	}
-}
-.nav-lg.nav-reverse {
-	& .nav-logo {
-		float: right;
-	}
-	& .nav-button-lg {
-		left: 0;
-	}
-}
+@media screen and (min-width: $settings_bp_3_over) {
+	.nav-menu {
+		justify-content: center;
 
-@media screen and (max-width: $settings_bp_1_under) {
-	.mq-1 {
-		@include navbar-mq-styles();
+		& > .nav-logo {
+			flex: 1;
+		}
+		& > .nav-item {
+			padding: 0 1rem;
+		}
+		& > .nav-component {
+			order: 1;
+			width: auto;
+			padding: 0 0.5rem;
+			display: block;
+		}
+		& > .nav-toggle {
+			order: 2;
+		}
 	}
 }
-@media screen and (max-width: $settings_bp_2_under) {
-	.mq-2 {
-		@include navbar-mq-styles();
-	}
-}
-@media screen and (max-width: $settings_bp_3_under) {
-	.mq-3 {
-		@include navbar-mq-styles();
-	}
-}
-@media screen and (max-width: $settings_bp_4_under) {
-	.mq-4 {
-		@include navbar-mq-styles();
-	}
-}
-@media screen and (max-width: $settings_bp_5_under) {
-	.mq-5 {
-		@include navbar-mq-styles();
-	}
-}
+@media screen and (min-width: $settings_bp_4_over) {
+	.nav-menu {
+		justify-content: center;
 
+		& > .nav-logo {
+			order: 0;
+		}
+		& > .nav-item {
+			order: 1;
+			width: auto;
+			display: block;	
+			position: unset;
+			padding: 0 1rem;
+		}
+		& > .nav-item > .nav-sub-menu {
+			position: absolute;
+			padding: 0 2rem;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		} 
+		& > .nav-item > .nav-sub-menu > .nav-item:first-of-type {
+			margin-top: 0.5rem;
+		} 
+		& > .nav-component {
+			order: 2;
+			width: auto;
+			display: block;			
+		}
+		& > .nav-toggle {
+			display: none;
+		}
+	}
+}

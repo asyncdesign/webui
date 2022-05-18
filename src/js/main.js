@@ -1878,14 +1878,35 @@
 		return parseFloat(win.getComputedStyle(el)["fontSize"]) * parseFloat(remValue);
 	};
 
-	webui.getValueFromCssSize = function(size) {
-		var sizeValue = size && isNaN(size) ? parseFloat(size.replace(/[^0-9.]+/gi, "")) : !isNaN(size) ? size : 0;
-		return parseFloat(sizeValue);
+	webui.getValueFromCssSize = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length ? parseFloat(parts[0].replace(/[^0-9.]+/gi, "")) : 0;	
+			return !isNaN(value) ? value : 0;	
+		}
+		else if (valueSeries && !isNaN(valueSeries)) {
+			var value = parseFloat(valueSeries);
+			return !isNaN(value) ? value : 0;	
+		}
+		return 0;
 	};
 
-	webui.getUnitFromCssSize = function(size) {
-		var sizeUnit = size && isNaN(size) ? size.replace(/[^a-z%]+/gi, "") : "px";
-		return sizeUnit.length > 0 ? sizeUnit : "px";
+	webui.getUnitFromCssSize = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length ? parts[0].replace(/[^a-z%]+/gi, "") : "px";	
+			return value.length ? value : "px";		
+		}
+		return "px";
+	};
+
+	webui.getvalueFromCssDisplayType = function(valueSeries) {
+		if (valueSeries && isString(valueSeries)) {
+			var parts = valueSeries.split(":");
+			var value = parts.length > 1 ? parts[1] : "block";
+			return value.length ? value : "block";				
+		}
+		return "block";
 	};
 
 	webui.getAvgWidth = function (elements) {
@@ -2044,19 +2065,19 @@
 		var max = 0;
 		if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
 			switch (breakPointRange[0]) {
-				case 1: min = parseFloat(ui.breakpoint1) + 0.01; break;
-				case 2: min = parseFloat(ui.breakpoint2) + 0.01; break;
-				case 3: min = parseFloat(ui.breakpoint3) + 0.01; break;
-				case 4: min = parseFloat(ui.breakpoint4) + 0.01; break;
-				case 5: min = parseFloat(ui.breakpoint5) + 0.01; break;
+				case 1: min = parseFloat(ui.bp_1_under) + 0.01; break;
+				case 2: min = parseFloat(ui.bp_2_under) + 0.01; break;
+				case 3: min = parseFloat(ui.bp_3_under) + 0.01; break;
+				case 4: min = parseFloat(ui.bp_4_under) + 0.01; break;
+				case 5: min = parseFloat(ui.bp_5_under) + 0.01; break;
 				default: min = 0; break;
 			}
 			switch (breakPointRange[1]) {
-				case 1: max = parseFloat(ui.breakpoint1); break;
-				case 2: max = parseFloat(ui.breakpoint2); break;
-				case 3: max = parseFloat(ui.breakpoint3); break;
-				case 4: max = parseFloat(ui.breakpoint4); break;
-				case 5: max = parseFloat(ui.breakpoint5); break;
+				case 1: max = parseFloat(ui.bp_1_under); break;
+				case 2: max = parseFloat(ui.bp_2_under); break;
+				case 3: max = parseFloat(ui.bp_3_under); break;
+				case 4: max = parseFloat(ui.bp_4_under); break;
+				case 5: max = parseFloat(ui.bp_5_under); break;
 				default: max = 0; break;
 			}
 		}
@@ -2302,6 +2323,29 @@
 		root.removeEventListener(name, callback);
 	};
 
+	webui.breakpointChange = function (callback) {
+
+			var mlq1 = window.matchMedia("(max-width: " + ui.bp_1_under + ")");
+			mlq1.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq2 = window.matchMedia("(min-width: " + ui.bp_1_over + ") and (max-width: " + ui.bp_2_under + ")");
+			mlq2.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq3 = window.matchMedia("(min-width: " + ui.bp_2_over + ") and (max-width: " + ui.bp_3_under + ")");
+			mlq3.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq4 = window.matchMedia("(min-width: " + ui.bp_3_over + ") and (max-width: " + ui.bp_4_under + ")");
+			mlq4.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq5 = window.matchMedia("(min-width: " + ui.bp_4_over + ") and (max-width: " + ui.bp_5_under + ")");
+			mlq5.onchange = (e) => { if (e.matches) { callback(); }}
+
+			var mlq6 = window.matchMedia("(min-width: " + ui.bp_5_over + ")");
+			mlq6.onchange = (e) => { if (e.matches) { callback(); }}
+
+			return;
+	};
+
 	webui.ready = function (callback, waitForComplete) { 
 
 		if (waitForComplete) {
@@ -2458,7 +2502,7 @@
 
 	/* RUN */
 
-	webui.ready (function() {
+	webui.ready(function() {
 
 		webui(".checkbox label").attr("tabindex", "0").attr("role", "checkbox");
 		webui(".radio label").attr("tabindex", "0").attr("role", "radio");

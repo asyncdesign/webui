@@ -81,9 +81,9 @@
 					}
 					if (showHeader && !inline) {
 						if (showAlertIcon || showAlertClose) {
-							var alertItemHeader = webui("<div></div>").addClass("panel").appendTo(alertItemInner);
-							var alertItemHeaderLeft = webui("<div></div>").addClass("move-left").appendTo(alertItemHeader);
-							var alertItemHeaderRight = webui("<div></div>").addClass("move-right").appendTo(alertItemHeader);
+							var alertItemHeader = webui("<div></div>").addClass("flex pad-sm justify-content-space-between").appendTo(alertItemInner);
+							var alertItemHeaderLeft = webui("<div></div>").appendTo(alertItemHeader);
+							var alertItemHeaderRight = webui("<div></div>").appendTo(alertItemHeader);
 							if (showAlertIcon) {
 								webui("<div></div>").addClass("alert-" + type + "-icon").appendTo(alertItemHeaderLeft);
 							}
@@ -95,21 +95,21 @@
 							}
 						}
 					}
-					var alertItemBody = webui("<div></div>").addClass("panel flex-items-center").appendTo(alertItemInner);
+					var alertItemBody = webui("<div></div>").addClass("flex pad-sm align-items-center").appendTo(alertItemInner);
 					if (showHeader && inline) {
 						if (showAlertIcon && showAlertClose) {
-							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-							webui("<div></div>").addClass("container width-adjacent-md pad-xs move-left").appendTo(alertItemBody).html(message);
-							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+							webui("<div></div>").addClass("width-sm alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container flex-auto pad-xs").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm alert-cancel-button").appendTo(alertItemBody)
 								.click(function () {
 									hideAlert(alertItemInner, false);
 								});
 						} else if (showAlertIcon) {
-							webui("<div></div>").addClass("width-sm move-left alert-" + type + "-icon").appendTo(alertItemBody);
-							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-right", "0").appendTo(alertItemBody).html(message);
+							webui("<div></div>").addClass("width-sm alert-" + type + "-icon").appendTo(alertItemBody);
+							webui("<div></div>").addClass("container flex-auto pad-xs").css("padding-right", "0").appendTo(alertItemBody).html(message);
 						} else if (showAlertClose) {
-							webui("<div></div>").addClass("container width-adjacent-sm pad-xs move-left").css("padding-left", "0").appendTo(alertItemBody).html(message);
-							webui("<div role='button'></div>").addClass("width-sm move-right alert-cancel-button").appendTo(alertItemBody)
+							webui("<div></div>").addClass("container flex-auto pad-xs").css("padding-left", "0").appendTo(alertItemBody).html(message);
+							webui("<div role='button'></div>").addClass("width-sm alert-cancel-button").appendTo(alertItemBody)
 								.click(function () {
 									hideAlert(alertItemInner, false);
 								});

@@ -358,9 +358,9 @@
 		context.find(".tooltip").hoverIn(function () {
 			var tooltipWrapper = webui(this);
 
-			var disabledTarget = tooltipWrapper.children(".control-disabled");
+			var disabledTarget = tooltipWrapper.find(".control-disabled").first();
 			if (!disabledTarget.length) {
-				var disabledParent = tooltipWrapper.parents(".control-group-disabled");
+				var disabledParent = tooltipWrapper.parents(".control-group-disabled").first();
 				if (!disabledParent.length) {
 					var tooltip = tooltipWrapper.children(".tooltip-dynamic").first();
 					if (tooltip.length) {
@@ -379,14 +379,14 @@
 			}
 		});
 
-		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").focus(function () {
-			var tooltipWrapper = webui(this).parent(".tooltip");
+		context.find(".tooltip").find("input, button, select, textarea, [tabindex]").focus(function () {
+			var tooltipWrapper = webui(this).parents(".tooltip").first();
 
 			var disabledTarget = webui(this).hasClass("control-disabled");
 			if (!disabledTarget) {
-				var disabledParent = webui(this).parents(".control-group-disabled");
+				var disabledParent = webui(this).parents(".control-group-disabled").first();
 				if (!disabledParent.length) {
-					var el = tooltipWrapper.children(".tooltip-focus").first();
+					var el = tooltipWrapper.find(".tooltip-focus").first();
 					if (el.length) {
 						showTooltip(tooltipWrapper);
 						resetTooltips();
@@ -395,10 +395,10 @@
 			}
 		});
 
-		context.find(".tooltip").children("input, button, select, textarea, [tabindex]").blur(function () {
-			var tooltipWrapper = webui(this).parent(".tooltip");
+		context.find(".tooltip").find("input, button, select, textarea, [tabindex]").blur(function () {
+			var tooltipWrapper = webui(this).parents(".tooltip").first();
 
-			var el = tooltipWrapper.children(".tooltip-focus").first();
+			var el = tooltipWrapper.find(".tooltip-focus").first();
 			if (el.length && !el.hasClass("tooltip-noautohide")) {
 				hideTooltip(tooltipWrapper);
 			}
