@@ -2065,11 +2065,11 @@
 		var max = 0;
 		if (arguments.length === 1 && breakPointRange && breakPointRange.length === 2) {
 			switch (breakPointRange[0]) {
-				case 1: min = parseFloat(ui.bp_1_under) + 0.01; break;
-				case 2: min = parseFloat(ui.bp_2_under) + 0.01; break;
-				case 3: min = parseFloat(ui.bp_3_under) + 0.01; break;
-				case 4: min = parseFloat(ui.bp_4_under) + 0.01; break;
-				case 5: min = parseFloat(ui.bp_5_under) + 0.01; break;
+				case 1: min = parseFloat(ui.bp_1_over); break;
+				case 2: min = parseFloat(ui.bp_2_over); break;
+				case 3: min = parseFloat(ui.bp_3_over); break;
+				case 4: min = parseFloat(ui.bp_4_over); break;
+				case 5: min = parseFloat(ui.bp_5_over); break;
 				default: min = 0; break;
 			}
 			switch (breakPointRange[1]) {
@@ -2081,7 +2081,7 @@
 				default: max = 0; break;
 			}
 		}
-		if (mediaWidth > min && mediaWidth <= max || mediaWidth > min && max == 0) {
+		if (mediaWidth >= min && mediaWidth <= max || mediaWidth >= min && max === 0) {
 			return true;
 		}
 		return false;
