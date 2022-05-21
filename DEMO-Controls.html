@@ -5,44 +5,47 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>title</title>
+	<title>DEMO-Controls</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-all.css">
 
 	<link rel="stylesheet" href="site.css">
 
+	<style>
+		.row > *[class*="col"] {
+			*border: 1px solid rgba(189, 189, 189, 0.7);
+		}
+
+	</style>
+
 </head>
 
-<body class="text-sm color-accent-5 accessibility-accent-1">
+<body class="text-sm background-accent-2-light color-accent-5 pad-xs accessibility-dark">
 
-
-	<div class="responsive-gutter-xs area">
+	<div class="responsive-gutter-sm pad-sm">
 
 		<div class="row-spacing-lg"></div>
 
-		<div id="MainTitle" class="panel">
-			<div class="content-row">
-				<div class="content-col-15 text-xl text-bold color-accent-1 respond-bp-3-under">
-					<div class="row-spacing-lg"></div>
-					WebUI. CSS Framework
+		<div id="MainTitle">
+			<div class="row align-items-center">
+				<div class="col-8 text-mega">
+					WebUI
 				</div>
-				<div class="content-col-5 respond-bp-3-under">
-					<div class="row-spacing-sm"></div>
-					<div class="content-row move-right respond-bp-3-under">
-						<div class="content-col-5">
+				<div class="col-16">
+
+					<div class="row">
+						<div class="col flex justify-content-end">
 							<img src="images/webui_blue_64x64.png" alt="Media" />
 						</div>
 					</div>
-					<div class="content-row move-right respond-bp-3-under">
-						<div class="content-row">
-							<div class="content-col-20 text-sm text-italic">
-								Built with SASS
-							</div>
+					<div class="row">
+						<div class="col flex justify-content-end text-sm text-italic">
+							The Swiss Army Knife of CSS frameworks
 						</div>
 					</div>
+
 				</div>
 			</div>
 
@@ -50,409 +53,373 @@
 
 		<div class="row-spacing-lg"></div>
 
-		<div class="panel text-lg color-accent-5-dark">
-			Custom form controls
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Custom buttons</div>
+			</div>
 		</div>
 
-		<div class="row-spacing-md"></div>
-
-		<div class="container">
-
-			<div class="panel text-sm">
-				Buttons
+		<div class="row">
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-xs button-accent-3 rounded-md place-middle-center">Accent 3</button>
+				</div>
 			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-lg button-success place-middle-center" disabled>Success</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-sm button-info place-middle-center">Info</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-xs button-warning place-middle-center">Warning</button>
-						</div>
-					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-lg button-accent-1 rounded-md place-middle-center">Accent 1</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-sm button-accent-2 rounded-md place-middle-center">Accent 2</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-xs button-accent-3 rounded-md place-middle-center">Accent 3</button>
-						</div>
-					</div>
-				</div>
-
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-sm button-info place-middle-center">Info</button>
+				</div>		
 			</div>
-
-			<div class="form-row">
-
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-lg button-danger rounded-top-md place-middle-center">Danger</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-sm button-light rounded-top-md place-middle-center">Light</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-xs button-dark rounded-top-md place-middle-center">Dark</button>
-						</div>
-					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-lg button-accent-4 rounded-bottom-md place-middle-center">Accent 4</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-sm button-accent-5 rounded-bottom-md place-middle-center">Accent 5</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="button-xs button-default rounded-bottom-md place-middle-center">Default</button>
-						</div>
-					</div>
-				</div>
-
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-xs button-warning place-middle-center">Warning</button>
+				</div>		
 			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="view-button-sm view-button-accent-1 view-button-top width-md place-middle-center" disabled>Accent 1</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="view-button-sm view-button-accent-3 view-button-left width-md place-middle-center">Accent 3</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="view-button-sm view-button-accent-4 view-button-bottom width-md place-middle-center">Accent 4</button>
-						</div>
-					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-							<button class="view-button-sm view-button-dark view-button-right width-md place-middle-center">Dark</button>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-1-under">
-						<div class="panel secondary height-sm-md">
-
-						</div>
-					</div>
-				</div>
-
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-lg button-accent-1 rounded-md place-middle-center">Accent 1</button>
+				</div>		
 			</div>
-
-			<div class="row-spacing-sm"></div>
-
-			<div class="panel text-sm">
-				Grouped controls
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-sm button-accent-2 rounded-md place-middle-center">Accent 2</button>
+				</div>		
 			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-lg button-success place-middle-center" disabled>Success</button>
+				</div>
+			</div>
+		</div>
 
-			<div class="form-row">
-				
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
+		<div class="row">
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-lg button-danger rounded-top-md place-middle-center">Danger</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-sm button-light rounded-top-md place-middle-center">Light</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-xs button-dark rounded-top-md place-middle-center">Dark</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-lg button-accent-4 rounded-bottom-md place-middle-center">Accent 4</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-sm button-accent-5 rounded-bottom-md place-middle-center">Accent 5</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="button-xs button-default rounded-bottom-md place-middle-center">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-accent-1 view-button-top width-md place-middle-center" disabled>Accent 1</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-accent-3 view-button-left width-md place-middle-center">Accent 3</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-accent-4 view-button-bottom width-md place-middle-center">Accent 4</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-dark view-button-right width-md place-middle-center">Dark</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-success view-button-bottom width-md place-middle-center">Success</button>
+				</div>
+			</div>
+			<div class="col-8 col-bp-3-over">
+				<div class="container height-sm-md">
+					<button class="view-button-sm view-button-info view-button-top width-md place-middle-center">Info</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Grouped controls</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
 							<div class="control-group place-middle-center">
 								<button class="group-item button-xl menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
 								<button class="group-item button-xl menu-button-success">1</button>
-								<button class="group-item button-xl menu-button-success" disabled>2</button>
-								<button type="submit" class="group-item button-xl menu-button-success">3</button>
+								<button class="group-item button-xl menu-button-success">2</button>
+								<button class="group-item button-xl menu-button-success">3</button>
+								<button class="group-item button-xl menu-button-success">4</button>
+								<button class="group-item button-xl menu-button-success">5</button>
 								<button class="group-item button-xl menu-button-success rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
 							</div>
 						</div>
 					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
 							<div class="control-group place-middle-center">
 								<button class="group-item button-lg menu-button-success rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
 								<button class="group-item button-lg menu-button-success">1</button>
 								<button class="group-item button-lg menu-button-success">2</button>
 								<button class="group-item button-lg menu-button-success">3</button>
+								<button class="group-item button-lg menu-button-success">4</button>
+								<button class="group-item button-lg menu-button-success">5</button>
 								<button class="group-item button-lg menu-button-success rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
 							</div>
-						</div>
+						</div>		
 					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
 							<div class="control-group place-middle-center">
-								<button class="group-item menu-button-accent-3 rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-								<button class="group-item menu-button-accent-3"><i class="fa fa-angle-left"></i></button>
-								<button class="group-item menu-button-accent-3">1</button>
-								<button class="group-item menu-button-accent-3">2</button>
-								<button class="group-item menu-button-accent-3">3</button>
-								<button class="group-item menu-button-accent-3"><i class="fa fa-angle-right"></i></button>
-								<button class="group-item menu-button-accent-3 rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
+								<button class="group-item button-sm menu-button-accent-3 rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
+								<button class="group-item button-sm menu-button-accent-3"><i class="fa fa-angle-left"></i></button>
+								<button class="group-item button-sm menu-button-accent-3">1</button>
+								<button class="group-item button-sm menu-button-accent-3">2</button>
+								<button class="group-item button-sm menu-button-accent-3">3</button>
+								<button class="group-item button-sm menu-button-accent-3"><i class="fa fa-angle-right"></i></button>
+								<button class="group-item button-sm menu-button-accent-3 rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
 							<div class="control-group place-middle-center">
-								<button class="group-item menu-button-dark rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
-								<button class="group-item menu-button-dark"><i class="fa fa-angle-left"></i></button>
-								<button class="group-item menu-button-dark">1</button>
-								<button class="group-item menu-button-dark">2</button>
-								<button class="group-item menu-button-dark">3</button>
-								<button class="group-item menu-button-dark"><i class="fa fa-angle-right"></i></button>
-								<button class="group-item menu-button-dark rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
+								<button class="group-item button-xs menu-button-dark rounded-left-sm"><i class="fa fa-angle-double-left"></i></button>
+								<button class="group-item button-xs menu-button-dark"><i class="fa fa-angle-left"></i></button>
+								<button class="group-item button-xs menu-button-dark">1</button>
+								<button class="group-item button-xs menu-button-dark">2</button>
+								<button class="group-item button-xs menu-button-dark">3</button>
+								<button class="group-item button-xs menu-button-dark"><i class="fa fa-angle-right"></i></button>
+								<button class="group-item button-xs menu-button-dark rounded-right-sm"><i class="fa fa-angle-double-right"></i></button>
 							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<input type="text" class="group-item input-xl border-accent-1 rounded-left-sm width-two-thirds" disabled/>
-									<button class="group-item button-xl button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<input type="text" class="group-item input-lg border-accent-1 rounded-left-sm width-two-thirds" />
-									<button class="group-item button-lg button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<input type="text" class="group-item input-md border-warning rounded-left-sm width-two-thirds" />
-									<button class="group-item button-md button-warning rounded-right-sm"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<input type="text" class="group-item input-sm border-accent-4 rounded-left-sm width-two-thirds" />
-									<button class="group-item button-sm button-accent-4 rounded-right-sm"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<button class="group-item button-xl default rounded-left-sm">£</button>
-									<input type="text" class="group-item input-xl width-one-half" disabled />
-									<button class="group-item button-xl default rounded-right-sm">.00</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<button class="group-item button-lg muted rounded-left-sm">£</button>
-									<input type="text" class="group-item input-lg border-muted width-one-half" />
-									<button class="group-item button-lg muted rounded-right-sm">.00</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="content-col-10 respond-bp-4-under">
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<button class="group-item button-sm button-info rounded-left-sm">£</button>
-									<input type="text" class="group-item input-sm border-info width-one-half" />
-									<button class="group-item button-sm button-info rounded-right-sm">.00</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-10 respond-bp-2-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center width-full">
-								<div class="flex flex-justify-center">
-									<button class="group-item button-xs button-default rounded-left-sm">£</button>
-									<input type="text" class="group-item input-xs secondary border-default width-one-half" />
-									<button class="group-item button-xs button-default rounded-right-sm">.00</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="row-spacing-xl"></div>
-
-			<div class="panel text-sm">
-				Checkboxes
-			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-20 respond-bp-4-under">
-					<div class="content-col-10 respond-bp-3-under">
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="checkbox1" disabled />
-										<label for="checkbox1"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox width-control-md height-control-md">
-										<input type="checkbox" value="" id="checkbox2" />
-										<label for="checkbox2"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox width-control-sm height-control-sm">
-										<input type="checkbox" value="" id="checkbox3" />
-										<label for="checkbox3"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox">
-										<input type="checkbox" value="" id="checkbox4" />
-										<label for="checkbox4"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="content-col-10 respond-bp-3-under">
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox rounded-sm">
-										<input type="checkbox" value="" id="checkbox5" />
-										<label for="checkbox5"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox rounded-sm">
-										<input type="checkbox" value="" id="checkbox6" />
-										<label for="checkbox6"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox rounded-sm">
-										<input type="checkbox" value="" id="checkbox7" />
-										<label for="checkbox7"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="checkbox rounded-sm">
-										<input type="checkbox" value="" id="checkbox8" />
-										<label for="checkbox8"></label>
-									</div>
-								</div>
-							</div>
-						</div>
+						</div>		
 					</div>
 
 				</div>
 			</div>
+		</div>
 
-			<div class="form-row">
+		<div class="row-spacing-lg"></div>
 
-				<div class="content-col-20 respond-bp-4-under">
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group control-group-disabled place-middle-center">
+								<input type="text" class="group-item input-xl border-accent-1 rounded-left-sm width-two-thirds" disabled />
+								<button class="group-item button-xl button-accent-1 rounded-right-sm" disabled><i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<input type="text" class="group-item input-lg border-accent-1 rounded-left-sm width-two-thirds" />
+								<button class="group-item button-lg button-accent-1 rounded-right-sm"><i class="fa fa-search"></i></button>
+							</div>
+						</div>		
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<input type="text" class="group-item input-md border-warning rounded-left-sm width-two-thirds" />
+								<button class="group-item button-md button-warning rounded-right-sm"><i class="fa fa-search"></i></button>
+							</div>
+						</div>		
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<input type="text" class="group-item input-sm border-accent-4 rounded-left-sm width-two-thirds" />
+								<button class="group-item button-sm button-accent-4 rounded-right-sm"><i class="fa fa-search"></i></button>
+							</div>
+						</div>		
+					</div>
 
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+				</div>
+			</div>
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<button class="group-item button-xs button-dark rounded-left-sm">£</button>
+								<input type="text" class="group-item input-xs secondary border-dark width-one-half" />
+								<button class="group-item button-xs button-dark rounded-right-sm">.00</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<button class="group-item button-lg muted rounded-left-sm">£</button>
+								<input type="text" class="group-item input-lg border-muted width-one-half" />
+								<button class="group-item button-lg muted rounded-right-sm">.00</button>
+							</div>
+						</div>		
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<button class="group-item button-sm button-info rounded-left-sm">£</button>
+								<input type="text" class="group-item input-sm border-info width-one-half" />
+								<button class="group-item button-sm button-info rounded-right-sm">.00</button>
+							</div>
+						</div>		
+					</div>
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
+								<button class="group-item button-xl default rounded-left-sm" disabled>£</button>
+								<input type="text" class="group-item input-xl width-one-half" disabled />
+								<button class="group-item button-xl default rounded-right-sm" disabled>.00</button>
+							</div>
+						</div>		
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Checkboxes</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-warning place-middle-center">
+								<div class="checkbox width-control-lg height-control-lg">
+									<input type="checkbox" value="" id="checkbox1" />
+									<label for="checkbox1"></label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-info place-middle-center">
+								<div class="checkbox width-control-md height-control-md">
+									<input type="checkbox" value="" id="checkbox2" />
+									<label for="checkbox2"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-success place-middle-center">
+								<div class="checkbox width-control-sm height-control-sm">
+									<input type="checkbox" value="" id="checkbox3" />
+									<label for="checkbox3"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="checkbox">
+									<input type="checkbox" value="" id="checkbox4" />
+									<label for="checkbox4"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="checkbox rounded-sm">
+									<input type="checkbox" value="" id="checkbox5" />
+									<label for="checkbox5"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="checkbox rounded-sm">
+									<input type="checkbox" value="" id="checkbox6" />
+									<label for="checkbox6"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="checkbox rounded-sm">
+									<input type="checkbox" value="" id="checkbox7" />
+									<label for="checkbox7"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="checkbox rounded-sm">
+									<input type="checkbox" value="" id="checkbox8" disabled />
+									<label for="checkbox8"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Checkbox toggle switches</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch">	
 									<input type="checkbox" value="1" id="check-switch-1" />
@@ -463,8 +430,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch-sm">	
 									<input type="checkbox" value="2" id="check-switch-2" />
@@ -473,10 +440,10 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch-md">	
 									<input type="checkbox" value="3" id="check-switch-3" disabled />
@@ -485,10 +452,10 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch-lg yesno">	
 									<input type="checkbox" value="4" id="check-switch-4" />
@@ -497,10 +464,10 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch-xl onoff">	
 									<input type="checkbox" value="5" id="check-switch-5" />
@@ -509,21 +476,28 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
 
 				</div>
 			</div>
+		</div>
 
-			<div class="form-row">
+		<div class="row-spacing-lg"></div>
 
-				<div class="content-col-20 respond-bp-4-under">
-
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Checkbox toggle buttons</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-info">	
-									<input type="checkbox" value="1" name="checkbox-label-1" id="checkbox-label-1" disabled />
+									<input type="checkbox" value="1" name="checkbox-label-1" id="checkbox-label-1" />
 									<label for="checkbox-label-1">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-info">	
@@ -537,9 +511,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-2">	
 									<input type="checkbox" value="1" name="checkbox-label-2" id="checkbox-label-4" />
 									<label for="checkbox-label-4">Button</label>
@@ -553,11 +527,11 @@
 									<label for="checkbox-label-6">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-3">	
 									<input type="checkbox" value="1" name="checkbox-label-3" id="checkbox-label-7" />
 									<label for="checkbox-label-7">Button</label>
@@ -571,11 +545,11 @@
 									<label for="checkbox-label-9">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-warning">	
 									<input type="checkbox" value="1" name="checkbox-label-4" id="checkbox-label-10" />
 									<label for="checkbox-label-10">Button</label>
@@ -589,145 +563,150 @@
 									<label for="checkbox-label-12">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-success">	
-									<input type="checkbox" value="1" name="checkbox-label-5" id="checkbox-label-13" />
+									<input type="checkbox" value="1" name="checkbox-label-5" id="checkbox-label-13" disabled />
 									<label for="checkbox-label-13">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-success">	
-									<input type="checkbox" value="2" name="checkbox-label-5" id="checkbox-label-14" />
+									<input type="checkbox" value="2" name="checkbox-label-5" id="checkbox-label-14" disabled />
 									<label for="checkbox-label-14">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-success">	
-									<input type="checkbox" value="3" name="checkbox-label-5" id="checkbox-label-15" />
+									<input type="checkbox" value="3" name="checkbox-label-5" id="checkbox-label-15" disabled />
 									<label for="checkbox-label-15">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
 
 				</div>
 			</div>
+		</div>
 
-			<div class="row-spacing-sm"></div>
+		<div class="row-spacing-lg"></div>
 
-			<div class="panel text-sm">
-				Radio Buttons
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Radio buttons</div>
 			</div>
-
-
-			<div class="form-row">
-
-				<div class="content-col-20 respond-bp-4-under">
-					<div class="content-col-10 respond-bp-3-under">
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio">
-										<input type="radio" value="" name="radiogroup1" id="radio1" disabled />
-										<label for="radio1"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio control-group-info width-control-md height-control-md">
-										<input type="radio" value="" name="radiogroup1" id="radio2" />
-										<label for="radio2"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio control-group-success width-control-sm height-control-sm">
-										<input type="radio" value="" name="radiogroup1" id="radio3" />
-										<label for="radio3"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio control-group-warning">
-										<input type="radio" value="" name="radiogroup1" id="radio4" />
-										<label for="radio4"></label>
-									</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-warning place-middle-center">
+								<div class="radio width-control-lg height-control-lg">
+									<input type="radio" value="" name="radiogroup1" id="radio1" />
+									<label for="radio1"></label>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="content-col-10 respond-bp-3-under">
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio">
-										<input type="radio" value="" name="radiogroup2" id="radio5" />
-										<label for="radio5"></label>
-									</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-info place-middle-center">
+								<div class="radio width-control-md height-control-md">
+									<input type="radio" value="" name="radiogroup1" id="radio2" />
+									<label for="radio2"></label>
 								</div>
 							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio">
-										<input type="radio" value="" name="radiogroup2" id="radio6" />
-										<label for="radio6"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio">
-										<input type="radio" value="" name="radiogroup2" id="radio7" />
-										<label for="radio7"></label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-col-5 respond-bp-1-under">
-							<div class="panel secondary height-sm-md">
-								<div class="place-middle-center">
-									<div class="radio">
-										<input type="radio" value="" name="radiogroup2" id="radio8" />
-										<label for="radio8"></label>
-									</div>
-								</div>
-							</div>
-						</div>
+						</div>		
 					</div>
-				</div>
-			</div>
-
-			<div class="form-row">
-
-				<div class="content-col-20 respond-bp-4-under">
-
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="control-group-success place-middle-center">
+								<div class="radio width-control-sm height-control-sm">
+									<input type="radio" value="" name="radiogroup1" id="radio3" />
+									<label for="radio3"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
-								<div class="toggle-switch-xs yesno">	
+								<div class="radio control-group-warning">
+									<input type="radio" value="" name="radiogroup1" id="radio4" />
+									<label for="radio4"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="radio">
+									<input type="radio" value="" name="radiogroup2" id="radio5" />
+									<label for="radio5"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="radio">
+									<input type="radio" value="" name="radiogroup2" id="radio6" />
+									<label for="radio6"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="radio">
+									<input type="radio" value="" name="radiogroup2" id="radio7" />
+									<label for="radio7"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="radio">
+									<input type="radio" value="" name="radiogroup2" id="radio8" disabled />
+									<label for="radio8"></label>
+								</div>
+							</div>
+						</div>		
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Radio toggle switches</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
+							<div class="place-middle-center">
+								<div class="toggle-switch">	
 									<input type="radio" value="1" id="radio-switch-1" name="radio-switch-1" />
-									<label for="radio-switch-1" class="accent-1-light rounded-sm">
+									<label for="radio-switch-1" class="accent-1-light rounded-lg">
 										<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
 								<div class="toggle-switch-sm yesno">	
 									<input type="radio" value="2" id="radio-switch-2" name="radio-switch-1" />
@@ -736,57 +715,64 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
-								<div class="toggle-switch-md yesno">	
+								<div class="toggle-switch-md onoff">	
 									<input type="radio" value="3" id="radio-switch-3" name="radio-switch-1" />
 									<label for="radio-switch-3" class="accent-3-light rounded-sm text-lg">
 										<div class="toggle-switch-button background-accent-3 left-transition-medium"></div>
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
-								<div class="toggle-switch-lg yesno">	
+								<div class="toggle-switch-lg">	
 									<input type="radio" value="4" id="radio-switch-4" name="radio-switch-1" />
 									<label for="radio-switch-4" class="accent-4-light rounded-sm text-xl">
 										<div class="toggle-switch-button background-accent-4 left-transition-medium"></div>
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
+					<div class="col-8-bp-1-over col-bp-4-over">
+						<div class="container height-sm-md">
 							<div class="place-middle-center">
-								<div class="toggle-switch-xl yesno">	
-									<input type="radio" value="5" id="radio-switch-5" name="radio-switch-1" />
+								<div class="toggle-switch-xl">	
+									<input type="radio" value="5" id="radio-switch-5" name="radio-switch-1" disabled />
 									<label for="radio-switch-5" class="info-light rounded-sm text-xl">
 										<div class="toggle-switch-button background-info left-transition-medium"></div>
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
 
 				</div>
 			</div>
+		</div>
 
-			<div class="form-row">
+		<div class="row-spacing-lg"></div>
 
-				<div class="content-col-20 respond-bp-4-under">
-
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Radio toggle buttons</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-1">	
-									<input type="radio" value="1" name="radio-label-1" id="radio-label-1" disabled />
+									<input type="radio" value="1" name="radio-label-1" id="radio-label-1" />
 									<label for="radio-label-1">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-accent-1">	
@@ -800,9 +786,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-2">	
 									<input type="radio" value="1" name="radio-label-2" id="radio-label-4" />
 									<label for="radio-label-4">Button</label>
@@ -816,11 +802,11 @@
 									<label for="radio-label-6">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-3">	
 									<input type="radio" value="1" name="radio-label-3" id="radio-label-7" />
 									<label for="radio-label-7">Button</label>
@@ -834,11 +820,11 @@
 									<label for="radio-label-9">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-accent-4">	
 									<input type="radio" value="1" name="radio-label-4" id="radio-label-10" />
 									<label for="radio-label-10">Button</label>
@@ -852,201 +838,165 @@
 									<label for="radio-label-12">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
-					<div class="form-col-4 respond-bp-3-under">
-						<div class="panel secondary height-sm-md">
-							<div class="place-middle-center control-group">
+					<div class="col-12-bp-2-over col-8-bp-4-over col-bp-5-over">
+						<div class="container height-sm-md">
+							<div class="control-group place-middle-center">
 								<div class="group-item toggle-button-sm toggle-button-info">	
-									<input type="radio" value="1" name="radio-label-5" id="radio-label-13" />
+									<input type="radio" value="1" name="radio-label-5" id="radio-label-13" disabled />
 									<label for="radio-label-13">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-info">	
-									<input type="radio" value="2" name="radio-label-5" id="radio-label-14" />
+									<input type="radio" value="2" name="radio-label-5" id="radio-label-14" disabled />
 									<label for="radio-label-14">Button</label>
 								</div>
 								<div class="group-item toggle-button-sm toggle-button-info">	
-									<input type="radio" value="3" name="radio-label-5" id="radio-label-15" />
+									<input type="radio" value="3" name="radio-label-5" id="radio-label-15" disabled />
 									<label for="radio-label-15">Button</label>
 								</div>
 							</div>
-						</div>
+						</div>		
 					</div>
 
 				</div>
 			</div>
-
-			<div class="row-spacing-sm"></div>
-
-			<div class="panel text-sm">
-				Range controls
-			</div>
-	
-			<div class="background-secondary">
-
-				<div class="row-spacing-lg"></div>
-				<div class="pad-xs">
-					<div class="range-series margin-bottom-xxs width-full color-accent-5">
-						<span>0</span>
-						<span>25</span>
-						<span>50</span>
-						<span>75</span>
-						<span>100</span>
-					</div>
-					<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-default width-full" />
-				</div>
-
-				<div class="row-spacing-xl"></div>
-
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-light width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-
-				<div class="row-spacing-xl"></div>
-
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-dark width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-								
-				<div class="row-spacing-xl"></div>
-			
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xs range-rounded range-accent-1 width-full margin-bottom-xxs" disabled />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-			
-				<div class="row-spacing-xl"></div>
-			
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-sm range-accent-2 width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-			
-				<div class="row-spacing-xl"></div>
-			
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-md range-rounded range-accent-3 width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-					
-				<div class="row-spacing-xl"></div>
-			
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xl range-accent-4 width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-			
-				<div class="row-spacing-xl"></div>
-			
-				<div class="form-row">
-					<div class="form-col-20">
-						<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-accent-5 range-rounded width-full margin-bottom-xxs" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-col-20">
-						<ul class="range-series list-inline margin-initial width-full color-accent-5">
-							<li>0</li>
-							<li>25</li>
-							<li>50</li>
-							<li>75</li>
-							<li>100</li>
-						</ul>
-					</div>	
-				</div>
-
-				<div class="row-spacing-xl"></div>
-			
-				<div>
-					<div class="progress progress-accent-2 width-full rounded-sm">
-						
-						<progress value="25" max="100" id="progressbar"></progress>
-						<div class="progress-label color-dark">25%</div>
-						
-					</div>
-				</div>
-
-				<div class="row-spacing-xl"></div>
-
-			</div>
-	
 		</div>
 
+		<div class="row-spacing-lg"></div>
+
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Custom range controls</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<div class="range-series margin-bottom-xxs width-full color-accent-5">
+					<span>0</span>
+					<span>25</span>
+					<span>50</span>
+					<span>75</span>
+					<span>100</span>
+				</div>
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-default width-full" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-light width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-lg range-dark width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xs range-rounded range-accent-1 width-full margin-bottom-xxs" disabled />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-sm range-accent-2 width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-md range-rounded range-accent-3 width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-xl range-accent-4 width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pad-bottom-lg">
+				<input type="range" value="25" min="0" max="100" id="RangeSlider" class="range range-accent-5 range-rounded width-full margin-bottom-xxs" />
+				<ul class="range-series list margin-initial width-full color-accent-5">
+					<li>0</li>
+					<li>25</li>
+					<li>50</li>
+					<li>75</li>
+					<li>100</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<!--
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Heading</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col">
+
+						Content
+					</div>
+					<div class="col">
+
+						Content
+					</div>
+				</div>
+			</div>
+		</div>
+
+		-->
+
+
 	</div>
+
 
 	<script type="text/javascript" src="dist/js/webui.js"></script>
 

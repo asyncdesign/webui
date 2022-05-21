@@ -5,9 +5,8 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>title</title>
+	<title>DEMO-Forms-prompts and notifications</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-components-all.css">
@@ -15,9 +14,6 @@
 	<link rel="stylesheet" href="site.css">
 
 	<style>
-		.row > *[class*="col"] {
-			*border: 1px solid rgba(189, 189, 189, 0.7);
-		}
 
 	</style>
 
@@ -26,650 +22,647 @@
 <body class="text-sm background-accent-2-light color-accent-5 pad-xs accessibility-accent-1">
 
 
-	<div class="off-canvas-body" data-transition-duration="1500">
+	<div class="responsive-gutter-sm">
+
+		<div class="row-spacing-lg"></div>
+
+		<div id="MainTitle">
+			<div class="row align-items-center pad-sm">
+				<div class="col-8 text-mega">
+					WebUI
+				</div>
+				<div class="col-16">
+
+					<div class="row">
+						<div class="col flex justify-content-end">
+							<img src="images/webui_blue_64x64.png" alt="Media" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col flex justify-content-end text-sm text-italic">
+							The Swiss Army Knife of CSS frameworks
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="row-spacing-lg"></div>
 
 		<div class="responsive-gutter-sm">
 
-			<div class="row-spacing-lg"></div>
-
-			<div id="MainTitle">
-				<div class="row align-items-center pad-sm">
-					<div class="col-8 text-mega">
-						WebUI
-					</div>
-					<div class="col-16">
-
-						<div class="row">
-							<div class="col flex justify-content-end">
-								<img src="images/webui_blue_64x64.png" alt="Media" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="col flex justify-content-end text-sm text-italic">
-								The Swiss Army Knife of CSS frameworks
-							</div>
-						</div>
-
-					</div>
+			<div class="row">
+				<div class="col pad-sm">
+					<p>
+						Forms - Controls can be either fixed or full width for mobile devices. Visual accessibility cues can be applied to focusable controls by adding the accessibility class.
+					</p>
 				</div>
-
 			</div>
 
-	
 			<div class="row-spacing-lg"></div>
 
-			<div class="responsive-gutter-sm">
+			<div class="row">
+				<div class="col-bp-4-over">
 
-				<div class="row">
-					<div class="col pad-sm">
-						<p>
-							Forms - Controls can be either fixed or full width for mobile devices. Visual accessibility cues can be applied to focusable controls by adding the accessibility class.
-						</p>
-					</div>
-				</div>
-
-				<div class="row-spacing-lg"></div>
-
-				<div class="row">
-					<div class="col-bp-4-over">
-
-						<div class="col-padding-sm">
-							
-							<div class="row control-group-success">
-								<div class="col-7 control-label-sm">
-									First name *
-								</div>
-								<div class="col">
-									<div class="tooltip width-full" id="tooltipFirstName">
-										<input id="FirstName" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
-										<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
-											First name is required.
-										</div>		
-									</div>
-									<label class="text-sm text-italic">Sample control text</label>
-								</div>
+					<div class="col-padding-sm">
+						
+						<div class="row control-group-success">
+							<div class="col-7 control-label-sm">
+								First name *
 							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Last name *
+							<div class="col">
+								<div class="tooltip width-full" id="tooltipFirstName">
+									<input id="FirstName" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
+									<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
+										First name is required.
+									</div>		
 								</div>
-								<div class="col">
-									<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
-								</div>
+								<label class="text-sm text-italic">Sample control text</label>
 							</div>
-							<div class="row control-group-warning">
-								<div class="col-7 control-label-sm">
-									Company
-								</div>
-								<div class="col">
-									<input id="Company" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Address
-								</div>
-								<div class="col">
-									<textarea id="Address" rows="3" class="control width-full rounded-sm"></textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Town / City
-								</div>
-								<div class="col">
-									<input id="TownCity" type="text" class="input-sm width-full rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Postcode
-								</div>
-								<div class="col">
-									<input id="Postcode" type="text" class="input-sm width-md rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Telephone
-								</div>
-								<div class="col">
-									<input id="Telephone" type="text" class="input-sm width-full rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Date of birth
-								</div>
-								<div class="col">
-									<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Gender
-								</div>
-								<div class="col">
-									<select id="Gender" class="input-sm width-md-lg rounded-sm">
-										<option value="1">Male</option>
-										<option value="3">Female</option>
-										<option value="4">Other</option>
-									</select>
-								</div>
-							</div>
-							<div class="row-spacing-lg"></div>
-							<div class="row">
-								<div class="col-7">
-									<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Find Patient</button>
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row-spacing-xl"></div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Questionnaire
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row-spacing-lg"></div>
-							<div class="row">
-
-								<div class="col-7">
-									<label class="control-label-xs">Vaccinations</label>
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial">
-										<div class="col">
-											<div class="checkbox rounded-sm">
-												<input type="checkbox" value="" id="checkboxHepatitis" />
-												<label for="checkboxHepatitis"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">Hep</label>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial control-group-disabled">
-										<div class="col">
-											<div class="checkbox rounded-sm">
-												<input type="checkbox" value="" id="checkboxTetanus" disabled />
-												<label for="checkboxTetanus"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">Tet</label>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial">
-										<div class="col">
-											<div class="checkbox rounded-sm">
-												<input type="checkbox" value="" id="checkboxTyphoid" />
-												<label for="checkboxTyphoid"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">Typ</label>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div class="row control-group-danger">
-								<div class="col-7 control-label-sm">
-									Alcohol
-								</div>
-								<div class="col">
-									<input id="Alcohol" type="number" class="input-sm control width-md rounded-sm" /> <label>(units per week)</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Smoking
-								</div>
-								<div class="col">
-									<input id="Smoking" type="number" class="input-sm width-md rounded-sm" /> (cigarettes per day)
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Time exercising
-								</div>
-								<div class="col">
-									<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm" /> (per week)
-								</div>
-							</div>
-							<div class="row">
-
-								<div class="col-7">
-									<label class="control-label-xxs">Sleep (Hours)</label>
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial">
-										<div class="col">
-											<div class="radio">
-												<input type="radio" value="1" name="sleep" id="radio4" />
-												<label for="radio4"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">4</label>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial">
-										<div class="col">
-											<div class="radio">
-												<input type="radio" value="2" name="sleep" id="radio6" />
-												<label for="radio6"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">6</label>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-								</div>
-								<div class="col width-md respond-bp-3-under">
-									<div class="row col-padding-initial control-group-disabled">
-										<div class="col">
-											<div class="radio">
-												<input type="radio" value="3" name="sleep" id="radio8" disabled />
-												<label for="radio8"></label>
-											</div>
-										</div>
-										<div class="col">
-											<label class="control-label-xxs">8</label>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-7">
-
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-
 						</div>
-
-					</div>
-					<div class="col-2-bp-4-over">
-
-					</div>
-					<div class="col-bp-4-over">
-
-						<div class="col-padding-sm">
-
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									GP name
-								</div>
-								<div class="col">
-									<input id="GpName" type="text" class="input-sm width-full rounded-sm" />
-								</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Last name *
 							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									GP code
-								</div>
-								<div class="col">
-									<input id="GpCode" type="text" class="input-sm width-full rounded-sm" />
-								</div>
+							<div class="col">
+								<input id="LastName" type="text" autocomplete="off" class="input-sm width-full rounded-sm" />
 							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Surgery
-								</div>
-								<div class="col">
-									<input id="Surgery" type="text" class="input-sm width-full rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Address
-								</div>
-								<div class="col">
-									<div class="control-hint-border">
-										<textarea id="GpAddress" class="control width-full height-md rounded-sm" placeholder="test"></textarea>
-										<label for="GpAddress" class="color-accent-1 background-light">Example control hint label</label>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Town / City
-								</div>
-								<div class="col">
-									<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Postcode
-								</div>
-								<div class="col">
-									<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Email
-								</div>
-								<div class="col">
-									<div class="control-hint-border">
-										<input id="GPEmail" type="email" class="input-sm rounded-sm width-full" autocomplete="email" placeholder="test" />
-										<label for="GPEmail" class="color-accent-1 background-light">Example control hint label</label>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7">
-									<button id="FindGP" type="submit" class="button-sm button-accent-1 rounded-sm transition-medium">Find GP</button>
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Validation
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									URL
-								</div>
-								<div class="col">
-									<div class="tooltip width-full" id="tooltipEnterValues">
-
-										<div class="control-hint-border">
-											<input id="textURL" type="text" class="input-lg rounded-sm width-full" placeholder="test" />
-											<label for="textURL" class="color-accent-1 background-light">Enter a valid URL</label>
-										</div>
-	
-										<div class="tooltip-focus tooltip-left tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
-											<div class="flex flex-direction-column primary rounded-md">
-												<div class="accent-4 text-bold rounded-top-md width-full pad-md">
-													Heading
-												</div>
-												<div class="text-sm rounded-bottom-md pad-md">
-													Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
-													nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
-													qui, ridens impedit persecuti sit eu, vidit diceret nam eu.
-												</div>
-											</div>
-										</div>
-										
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									Start Date
-								</div>
-								<div class="col">
-									<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7 control-label-sm">
-									End Date
-								</div>
-								<div class="col">
-									<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm" />
-									<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Validate</button>
-								</div>
-							</div>
-							<div class="row-spacing-xl"></div>
-							<div class="row">
-								<div class="col-7">
-									
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7">
-									Alerts and modals
-								</div>
-								<div class="col">
-									<div class="row col-padding-initial">
-										<div class="col">
-											<div class="tooltip text-sm" id="tooltipAboutModals1">
-												<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Modal</button>
-												<div class="tooltip-static tooltip-top tooltip-md tooltip-light rounded-md"></div>							
-											</div>
-											<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Dialog</button>		
-										</div>
-									</div>
-									<div class="row">
-										<div class="col pad-top-sm">
-											<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium">Show Alert</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7">
-
-								</div>
-								<div class="col">
-									<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm transition-medium">Show Toast</button>
-									<select id="SelectToastPosition" class="control">
-										<option value="">Select Toast Position</option>
-										<option value="toast-top-left">toast-top-left</option>
-										<option value="toast-top-center">toast-top-center</option>
-										<option value="toast-top-right">toast-top-right</option>
-										<option value="toast-bottom-left">toast-bottom-left</option>
-										<option value="toast-bottom-center">toast-bottom-center</option>
-										<option value="toast-bottom-right">toast-bottom-right</option>
-									</select>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									This demonstrates an <a href="#0" class="color-info transition-medium">Accessible Hyperlink</a>, improving visibility when focused.
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7">
-									
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-7">
-									<button id="Save" type="button" class="button-sm control-disabled rounded-sm" disabled>Save</button>
-								</div>
-								<div class="col">
-
-								</div>
-							</div>
-
-
 						</div>
-
-					</div>
-				</div>
-
-
-
-
-				<!--
-				<div class="row">
-					<div class="col-bp-4-over">
-
+						<div class="row control-group-warning">
+							<div class="col-7 control-label-sm">
+								Company
+							</div>
+							<div class="col">
+								<input id="Company" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Address
+							</div>
+							<div class="col">
+								<textarea id="Address" rows="3" class="control width-full rounded-sm"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Town / City
+							</div>
+							<div class="col">
+								<input id="TownCity" type="text" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Postcode
+							</div>
+							<div class="col">
+								<input id="Postcode" type="text" class="input-sm width-md rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Telephone
+							</div>
+							<div class="col">
+								<input id="Telephone" type="text" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Date of birth
+							</div>
+							<div class="col">
+								<input id="DateOfBirth" type="text" class="input-sm width-md-lg rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Gender
+							</div>
+							<div class="col">
+								<select id="Gender" class="input-sm width-md-lg rounded-sm">
+									<option value="1">Male</option>
+									<option value="3">Female</option>
+									<option value="4">Other</option>
+								</select>
+							</div>
+						</div>
+						<div class="row-spacing-sm"></div>
 						<div class="row">
 							<div class="col-7">
-
-								Content
+								<button id="SearchPatient" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Find Patient</button>
 							</div>
 							<div class="col">
 
-								Content
 							</div>
 						</div>
+						<div class="row-spacing-xl"></div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Upload
+							</div>
+							<div class="col">
+								<input id="fileUpload1" type="file" multiple class="upload upload-icon-right upload-icon-dark" />
+								<label for="fileUpload1" class="control height-md">
+									Click or tap to upload file (s)
+								</label>	
+							</div>
+						</div>
+						<div class="row-spacing-lg"></div>
+						<div class="row">
 
-					</div>
-					<div class="col-3-bp-4-over">
+							<div class="col-7">
+								<label class="control-label-xs">Vaccinations</label>
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial">
+									<div class="col">
+										<div class="checkbox rounded-sm">
+											<input type="checkbox" value="" id="checkboxHepatitis" />
+											<label for="checkboxHepatitis"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">Hep</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial control-group-disabled">
+									<div class="col">
+										<div class="checkbox rounded-sm">
+											<input type="checkbox" value="" id="checkboxTetanus" disabled />
+											<label for="checkboxTetanus"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">Tet</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial">
+									<div class="col">
+										<div class="checkbox rounded-sm">
+											<input type="checkbox" value="" id="checkboxTyphoid" />
+											<label for="checkboxTyphoid"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">Typ</label>
+									</div>
+								</div>
+							</div>
 
-					</div>
-					<div class="col-bp-4-over">
+						</div>
+						<div class="row control-group-danger">
+							<div class="col-7 control-label-sm">
+								Alcohol
+							</div>
+							<div class="col">
+								<input id="Alcohol" type="number" class="input-sm control width-md rounded-sm" /> <label>(units per week)</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Smoking
+							</div>
+							<div class="col">
+								<input id="Smoking" type="number" class="input-sm width-md rounded-sm" /> (cigarettes per day)
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Time exercising
+							</div>
+							<div class="col">
+								<input id="TimeExcercising" type="text" class="input-sm width-md rounded-sm" /> (per week)
+							</div>
+						</div>
+						<div class="row">
 
+							<div class="col-7">
+								<label class="control-label-xxs">Sleep (Hours)</label>
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial">
+									<div class="col">
+										<div class="radio">
+											<input type="radio" value="1" name="sleep" id="radio4" />
+											<label for="radio4"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">4</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial">
+									<div class="col">
+										<div class="radio">
+											<input type="radio" value="2" name="sleep" id="radio6" />
+											<label for="radio6"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">6</label>
+									</div>
+									<div class="row-spacing-xs"></div>
+								</div>
+							</div>
+							<div class="col width-md respond-bp-3-under">
+								<div class="row col-padding-initial control-group-disabled">
+									<div class="col">
+										<div class="radio">
+											<input type="radio" value="3" name="sleep" id="radio8" disabled />
+											<label for="radio8"></label>
+										</div>
+									</div>
+									<div class="col">
+										<label class="control-label-xxs">8</label>
+									</div>
+								</div>
+							</div>
+
+						</div>
 						<div class="row">
 							<div class="col-7">
 
-								Content
 							</div>
 							<div class="col">
 
-								Content
 							</div>
 						</div>
 
 					</div>
+
 				</div>
-				-->
+				<div class="col-2-bp-4-over">
 
-			</div>
-
-		</div>
-
-
-
-		<!-- HIDDEN -->
-
-		<div id="modal1" class="modal">
-			<div class="modal-md modal-auto-stretch accent-1-light">
-
-				<div class="text-mega place-top-right">
-					<!-- Use absolute positioning for thethered modal buttons if the modal is not sized, otherwise use fixed positioning -->
-					<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
 				</div>
-				
-	
-				<!--<div><img src="images/pears.jpg" alt="picture" class="image"></div>-->
+				<div class="col-bp-4-over">
 
-				<div class="modal-scroll-body">
-					<div class="form-row">
-						<div class="form-col-20 pad-left-md pad-top-md">
-								<span class="text-xl text-bold">Modal Example</span>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="content-col-20 pad-md">
-							<div class="box pad-left-md pad-right-md border-sm border-muted text">
-								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-									quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-									ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
-									erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
-									eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-									Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
-									erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-									quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-									ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
-									erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
-									eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-									Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
-									erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+					<div class="col-padding-sm">
+
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								GP name
+							</div>
+							<div class="col">
+								<input id="GpName" type="text" class="input-sm width-full rounded-sm" />
 							</div>
 						</div>
-					</div>
-					<div class="form-row">
-						<div class="flex justify-content-end gap-horizontal-sm pad-md-lg">
-							<div><button type="button" class="button-sm button-success rounded-md" id="modal1OkButton">OK</button></div>
-							<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="modal1CancelButton">Cancel</button></div>
-						</div>						
-					</div>
-				</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								GP code
+							</div>
+							<div class="col">
+								<input id="GpCode" type="text" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Surgery
+							</div>
+							<div class="col">
+								<input id="Surgery" type="text" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Address
+							</div>
+							<div class="col">
+								<div class="control-hint-border">
+									<textarea id="GpAddress" class="control width-full height-md rounded-sm" placeholder="test"></textarea>
+									<label for="GpAddress" class="color-accent-1 background-light">Example control hint label</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Town / City
+							</div>
+							<div class="col">
+								<input id="GpTownCity" type="text" class="input-sm width-full rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Postcode
+							</div>
+							<div class="col">
+								<input id="GpPostcode" type="text" class="input-sm width-md rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Email
+							</div>
+							<div class="col">
+								<div class="control-hint-border">
+									<input id="GPEmail" type="email" class="input-sm rounded-sm width-full" autocomplete="email" placeholder="test" />
+									<label for="GPEmail" class="color-accent-1 background-light">Example control hint label</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7">
+								<button id="FindGP" type="submit" class="button-sm button-accent-1 rounded-sm transition-medium">Find GP</button>
+							</div>
+							<div class="col">
 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Validation
+							</div>
+							<div class="col">
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								URL
+							</div>
+							<div class="col">
+								<div class="tooltip width-full" id="tooltipEnterValues">
+
+									<div class="control-hint-border">
+										<input id="textURL" type="text" class="input-lg rounded-sm width-full" placeholder="test" />
+										<label for="textURL" class="color-accent-1 background-light">Enter a valid URL</label>
+									</div>
+
+									<div class="tooltip-focus tooltip-left tooltip-lg tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
+										<div class="flex flex-direction-column primary rounded-md">
+											<div class="accent-4 text-bold rounded-top-md width-full pad-md">
+												Heading
+											</div>
+											<div class="text-sm rounded-bottom-md pad-md">
+												Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
+												nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
+												qui, ridens impedit persecuti sit eu, vidit diceret nam eu.
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								Start Date
+							</div>
+							<div class="col">
+								<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 control-label-sm">
+								End Date
+							</div>
+							<div class="col">
+								<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm" />
+								<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Validate</button>
+							</div>
+						</div>
+						<div class="row-spacing-xl"></div>
+						<div class="row">
+							<div class="col-7">
+								
+							</div>
+							<div class="col">
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7">
+								Alerts and modals
+							</div>
+							<div class="col">
+								<div class="row col-padding-initial">
+									<div class="col">
+										<div class="tooltip text-sm" id="tooltipAboutModals1">
+											<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Modal</button>
+											<div class="tooltip-static tooltip-top tooltip-md tooltip-light rounded-md"></div>							
+										</div>
+										<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Dialog</button>		
+									</div>
+								</div>
+								<div class="row">
+									<div class="col pad-top-sm">
+										<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium">Show Alert</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7">
+
+							</div>
+							<div class="col">
+								<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm transition-medium">Show Toast</button>
+								<select id="SelectToastPosition" class="control">
+									<option value="">Select Toast Position</option>
+									<option value="top-left">toast-top-left</option>
+									<option value="top-center">toast-top-center</option>
+									<option value="top-right">toast-top-right</option>
+									<option value="bottom-left">toast-bottom-left</option>
+									<option value="bottom-center">toast-bottom-center</option>
+									<option value="bottom-right">toast-bottom-right</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								This demonstrates an <a href="#0" class="color-info transition-medium">Accessible Hyperlink</a>, improving visibility when focused.
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7">
+								
+							</div>
+							<div class="col">
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7">
+								<button id="Save" type="button" class="button-sm control-disabled rounded-sm" disabled>Save</button>
+							</div>
+							<div class="col">
+
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
 			</div>
+
+
+			<!--
+			<div class="row">
+				<div class="col-bp-4-over">
+
+					<div class="row">
+						<div class="col-7">
+
+							Content
+						</div>
+						<div class="col">
+
+							Content
+						</div>
+					</div>
+
+				</div>
+				<div class="col-3-bp-4-over">
+
+				</div>
+				<div class="col-bp-4-over">
+
+					<div class="row">
+						<div class="col-7">
+
+							Content
+						</div>
+						<div class="col">
+
+							Content
+						</div>
+					</div>
+
+				</div>
+			</div>
+			-->
+
 		</div>
 
+	</div>
 
-		<!-- The .modal wrapper should not be used for normal dialog windows -->
-		<div class="modal-unsized modal-bottom-right light hidden border-sm" id="dialog1">
 
-			<div class="modal-close cursor-pointer color-dark color-hover-info text-xl place-top-right margin-top-xxs margin-right-xs">&cross;</div>
 
-			<!--<div class="text-mega place-top-right">
+	<!-- HIDDEN -->
+
+	<div id="modal1" class="modal">
+		<div class="modal-md modal-auto-stretch accent-1-light">
+
+			<div class="text-mega place-top-right">
+				<!-- Use absolute positioning for thethered modal buttons if the modal is not sized, otherwise use fixed positioning -->
 				<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
-			</div>-->
+			</div>
+			
 
 			<!--<div><img src="images/pears.jpg" alt="picture" class="image"></div>-->
 
 			<div class="modal-scroll-body">
 				<div class="form-row">
 					<div class="form-col-20 pad-left-md pad-top-md">
-							<span class="text-xl text-bold">Dialog Example</span>
+							<span class="text-xl text-bold">Modal Example</span>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="content-col-20 pad-md">
 						<div class="box pad-left-md pad-right-md border-sm border-muted text">
 							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-								quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+								quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+								ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+								erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+								eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+								Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+								erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+								quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+								ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+								erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+								eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+								Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
+								erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
 						</div>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="flex justify-content-end gap-horizontal-sm pad-md-lg">
-						<div><button type="button" class="button-sm button-success rounded-md">OK</button></div>
-						<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="dialog1CancelButton">Cancel</button></div>
+						<div><button type="button" class="button-sm button-success rounded-md" id="modal1OkButton">OK</button></div>
+						<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="modal1CancelButton">Cancel</button></div>
 					</div>						
 				</div>
 			</div>
 
 		</div>
+	</div>
 
 
-		<div class="toast-item color-accent-4-dark text-sm background-light rounded-sm shadow-md hidden" role="alert" id="toastItem1">
-			<div class="flex-row flex-nowrap align-items-center pad-sm">
-				<div class="flex-auto gap-horizontal-sm text-xl">
-					<span class="text-bold text-lg color-accent-3">&asymp;</span><span class="text-bold text-sm">Notification</span>
-				</div>
-				<div class="flex-size-5 text-xl">
-					<div class="text-bold text-xs time-element"></div>
-				</div>
-				<div class="flex-fit justify-content-end text-xl">
-					<div class="toast-close button-link width-xs-sm text-lg text-bold color-hover-info">&cross;</div>
+	<!-- The .modal wrapper should not be used for normal dialog windows -->
+	<div class="modal-unsized modal-bottom-right light hidden border-sm" id="dialog1">
+
+		<div class="modal-close cursor-pointer color-dark color-hover-info text-xl place-top-right margin-top-xxs margin-right-xs">&cross;</div>
+
+		<!--<div class="text-mega place-top-right">
+			<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
+		</div>-->
+
+		<!--<div><img src="images/pears.jpg" alt="picture" class="image"></div>-->
+
+		<div class="modal-scroll-body">
+			<div class="form-row">
+				<div class="form-col-20 pad-left-md pad-top-md">
+						<span class="text-xl text-bold">Dialog Example</span>
 				</div>
 			</div>
-			<div class="flex-row flex-nowrap background-accent-5-light pad-sm">
-				<div class="flex-auto height-xs">
-					<div class="text">Your files have been received.</div>
+			<div class="form-row">
+				<div class="content-col-20 pad-md">
+					<div class="box pad-left-md pad-right-md border-sm border-muted text">
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+							quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+					</div>
 				</div>
+			</div>
+			<div class="form-row">
+				<div class="flex justify-content-end gap-horizontal-sm pad-md-lg">
+					<div><button type="button" class="button-sm button-success rounded-md">OK</button></div>
+					<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="dialog1CancelButton">Cancel</button></div>
+				</div>						
 			</div>
 		</div>
 
-
-		<div id="alertContainer1"></div>
-		<div id="toastContainer1"></div>
-		
-
 	</div>
+
+
+	<div class="toast-item color-accent-4-dark text-sm background-light rounded-sm shadow-md hidden" role="alert" id="toastItem1">
+		<div class="flex-row flex-nowrap align-items-center pad-sm">
+			<div class="flex-auto gap-horizontal-sm text-xl">
+				<span class="text-bold text-lg color-accent-3">&asymp;</span><span class="text-bold text-sm">Notification</span>
+			</div>
+			<div class="flex-size-5 text-xl">
+				<div class="text-bold text-xs time-element"></div>
+			</div>
+			<div class="flex-fit justify-content-end text-xl">
+				<div class="toast-close button-link width-xs-sm text-lg text-bold color-hover-info">&cross;</div>
+			</div>
+		</div>
+		<div class="flex-row flex-nowrap background-accent-5-light pad-sm">
+			<div class="flex-auto height-xs">
+				<div class="text">Your files have been received.</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="alertContainer1"></div>
+	<div id="toastContainer1"></div>
+
 
 
 	<div class="row-spacing-xl"></div>
@@ -695,12 +688,11 @@
 
 			//tooltipContext1.showTooltip(ui("#tooltipEnterValues"));
 			tooltipContext1.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
-			tooltipContext1.showTooltip(ui("#tooltipAboutModals2"), "Try various sized modals that scale to screen size...");	
 
 
 			// Toast notifications
 			var toastContainer1 = ui("#toastContainer1").toastControl({
-				position: "bottom-right",
+				position: "top-right",
 				width: "25rem",
 				duration: 15000,
 				transitionDuration: 600,
@@ -718,7 +710,9 @@
 				var position = ui(this).getOptionValues(true)[0];
 
 				ui("#toastContainer1").removeClass("*");
-				ui("#toastContainer1").addClass("toast-container " + position);
+				ui("#toastContainer1").addClass("toast-container toast-" + position);
+
+				toastContainer1.update({ position: position });
 
 			});
 
@@ -781,6 +775,11 @@
 
 			ui("#commandShowModal2").click( function() {
 				dialog1.open();
+			});
+
+			// File uploads
+			ui("#fileUpload1").uploadControl({
+				scrollY: true
 			});
 
 			

@@ -5,9 +5,8 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>title</title>
+	<title>DEMO-Navigation and content selection</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-components-all.css">
@@ -15,9 +14,6 @@
 	<link rel="stylesheet" href="site.css">
 
 	<style>
-		.row > *[class*="col"] {
-			*border: 1px solid rgba(189, 189, 189, 0.7);
-		}
 
 	</style>
 
@@ -59,665 +55,628 @@
 
 			<div class="row">
 				<div class="col">
-					<div class="row">
-						<div class="col">
-							<div class="text-sm pad-bottom-md">Navbar (Overlay)</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
+					<div class="text-sm pad-bottom-md">Navbar (Overlay)</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+			
+					<!--<nav class="nav-sm accent-5 height-auto" id="navbar1">-->
+					<nav class="nav-sm info-dark layer-top" id="navbar1">
 
-							
-							<!--<nav class="nav-sm accent-5 height-auto layer-top" id="navbar1">-->
-							<nav class="nav-sm info-dark layer-top" id="navbar1">
+						<ul class="nav-menu text-sm">
 
-								<ul class="nav-menu text-sm">
+							<li class="nav-logo text-xl pad-left-md pad-right-md">Your Logo</li>
 
-									<li class="nav-logo text-xl pad-left-md pad-right-md">Your Logo</li>
-
-									<li class="nav-item">
-										<a class="nav-activator" href="#0">Menu 1</a>
-										<ul class="nav-sub-menu">
-											<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
-											<li class="nav-component">
-												<div class="toggle-switch-sm">	
-													<input type="checkbox" value="4" id="check-switch-1" />
-													<label for="check-switch-1" class="accent-1-light rounded-sm">
-														<div class="toggle-switch-button background-dark left-transition-medium"></div>
-													</label>
-												</div>
-											</li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-activator" href="#0">Menu 2</a>
-										<ul class="nav-sub-menu">
-											<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-activator" href="#0">Menu 3</a>
-										<ul class="nav-sub-menu">
-											<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-activator" href="#0">Menu 4</a>
-										<ul class="nav-sub-menu">
-											<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
-											<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
-										</ul>
-									</li>
+							<li class="nav-item">
+								<a class="nav-activator" href="#0">Menu 1</a>
+								<ul class="nav-sub-menu">
+									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
 									<li class="nav-component">
-										<div class="flex align-items-center height-full">
-											<div class="toggle-switch-xs onoff">	
-												<input type="checkbox" value="1" id="check-switch-2" />
-												<label for="check-switch-2" class="accent-1-light rounded-lg">
-													<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
-												</label>
-											</div>
+										<div class="toggle-switch-sm">	
+											<input type="checkbox" value="4" id="check-switch-1" />
+											<label for="check-switch-1" class="accent-1-light rounded-sm">
+												<div class="toggle-switch-button background-dark left-transition-medium"></div>
+											</label>
 										</div>
 									</li>
-									<li class="nav-component">
-										<div class="flex align-items-center height-full">
-											<div class="toggle-switch">	
-												<input type="checkbox" value="2" id="check-switch-3" />
-												<label for="check-switch-3" class="accent-1-light rounded-lg">
-													<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
-												</label>
-											</div>
-										</div>
-									</li>
-									<li class="nav-component">
-										<div class="flex align-items-center height-full">
-											<div class="toggle-switch">	
-												<input type="checkbox" value="3" id="check-switch-4" />
-												<label for="check-switch-4" class="accent-1-light rounded-lg">
-													<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
-												</label>
-											</div>
-										</div>
-									</li>
-
-									<li class="nav-toggle">
-										<div class="nav-button-sm" id="navToggle1"></div>
-									</li>
-									
+									<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
 								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-activator" href="#0">Menu 2</a>
+								<ul class="nav-sub-menu">
+									<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-activator" href="#0">Menu 3</a>
+								<ul class="nav-sub-menu">
+									<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-activator" href="#0">Menu 4</a>
+								<ul class="nav-sub-menu">
+									<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
+								</ul>
+							</li>
+							<li class="nav-component">
+								<div class="flex align-items-center height-full">
+									<div class="toggle-switch-xs onoff">	
+										<input type="checkbox" value="1" id="check-switch-2" />
+										<label for="check-switch-2" class="accent-1-light rounded-lg">
+											<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
+										</label>
+									</div>
+								</div>
+							</li>
+							<li class="nav-component">
+								<div class="flex align-items-center height-full">
+									<div class="toggle-switch">	
+										<input type="checkbox" value="2" id="check-switch-3" />
+										<label for="check-switch-3" class="accent-1-light rounded-lg">
+											<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
+										</label>
+									</div>
+								</div>
+							</li>
+							<li class="nav-component">
+								<div class="flex align-items-center height-full">
+									<div class="toggle-switch">	
+										<input type="checkbox" value="3" id="check-switch-4" />
+										<label for="check-switch-4" class="accent-1-light rounded-lg">
+											<div class="toggle-switch-button background-accent-1 left-transition-medium"></div>
+										</label>
+									</div>
+								</div>
+							</li>
 
+							<li class="nav-toggle">
+								<div class="nav-button-sm" id="navToggle1"></div>
+							</li>
+							
+						</ul>
+						
+					</nav>
 								
-							</nav>
-										
-						</div>
-					</div>
-
 				</div>
 			</div>
 
 			<div class="row-spacing-lg"></div>
-
-			
+		
 			<div class="row">
 				<div class="col">
-					<div class="row">
-						<div class="col">
-							<div class="text-sm pad-bottom-md">Navbar (Expand page content and aligned right)</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<!--<nav class="nav-lg dark" id="navbar2">-->
-								<nav class="nav-lg dark height-auto" id="navbar2">
-								
-									<div class="nav-menu text-sm">
-	
-										<div class="nav-logo text-xl"><div class="width-md-lg accent-5 pad-left-md">Your Logo</div></div>
-	
-										<div class="nav-item">
-											<a class="nav-activator" href="#0">Menu 1</a>
-											<div class="nav-sub-menu">
-												<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
-												<div class="nav-component">
-													<div class="toggle-switch-sm">	
-														<input type="checkbox" value="4" id="check-switch-5" />
-														<label for="check-switch-5" class="accent-1-light rounded-sm">
-															<div class="toggle-switch-button background-dark left-transition-medium"></div>
-														</label>
-													</div>
-												</div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
-											</div>
-										</div>
-										<div class="nav-item">
-											<a class="nav-activator" href="#0">Menu 2</a>
-											<div class="nav-sub-menu">
-												<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
-											</div>
-										</div>
-										<div class="nav-item">
-											<a class="nav-activator" href="#0">Menu 3</a>
-											<div class="nav-sub-menu">
-												<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
-											</div>
-										</div>
-										<div class="nav-item">
-											<a class="nav-activator" href="#0">Menu 4</a>
-											<div class="nav-sub-menu">
-												<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
-												<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
-											</div>
-										</div>
-
-										<div class="nav-component">
-											<div class="flex align-items-center justify-content-end gap-horizontal-md">
-												<label>Notifications</label>
-												<div class="toggle-switch">	
-													<input type="checkbox" value="1" id="check-switch-6" />
-													<label for="check-switch-6" class="secondary rounded-lg">
-														<div class="toggle-switch-button background-accent-5 left-transition-medium"></div>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="nav-component">
-											<div class="flex align-items-center justify-content-end gap-horizontal-md">
-												<label>Dark theme</label>
-												<div class="toggle-switch">	
-													<input type="checkbox" value="3" id="check-switch-7" />
-													<label for="check-switch-7" class="secondary rounded-lg">
-														<div class="toggle-switch-button background-accent-5 left-transition-medium"></div>
-													</label>
-												</div>
-											</div>
-										</div>
-
-										<div class="nav-toggle pad-right-xs-sm">
-											<div class="nav-button-lg" id="navToggle2"></div>
-										</div>
-										
-									</div>							
-									
-								</nav>
-										
-						</div>
-					</div>
-
+					<div class="text-sm pad-bottom-md">Navbar (Expand page content and aligned right)</div>
 				</div>
 			</div>
-			
+			<div class="row">
+				<div class="col">
+
+					<!--<nav class="nav-lg dark" id="navbar2">-->
+						<nav class="nav-lg dark height-auto" id="navbar2">
+						
+							<div class="nav-menu text-sm">
+
+								<div class="nav-logo text-xl"><div class="width-md-lg accent-5 pad-left-md">Your Logo</div></div>
+
+								<div class="nav-item">
+									<a class="nav-activator" href="#0">Menu 1</a>
+									<div class="nav-sub-menu">
+										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
+										<div class="nav-component">
+											<div class="toggle-switch-sm">	
+												<input type="checkbox" value="4" id="check-switch-5" />
+												<label for="check-switch-5" class="accent-1-light rounded-sm">
+													<div class="toggle-switch-button background-dark left-transition-medium"></div>
+												</label>
+											</div>
+										</div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<a class="nav-activator" href="#0">Menu 2</a>
+									<div class="nav-sub-menu">
+										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<a class="nav-activator" href="#0">Menu 3</a>
+									<div class="nav-sub-menu">
+										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<a class="nav-activator" href="#0">Menu 4</a>
+									<div class="nav-sub-menu">
+										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
+									</div>
+								</div>
+
+								<div class="nav-component">
+									<div class="flex align-items-center justify-content-end gap-horizontal-md">
+										<label>Notifications</label>
+										<div class="toggle-switch">	
+											<input type="checkbox" value="1" id="check-switch-6" />
+											<label for="check-switch-6" class="secondary rounded-lg">
+												<div class="toggle-switch-button background-accent-5 left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="nav-component">
+									<div class="flex align-items-center justify-content-end gap-horizontal-md">
+										<label>Dark theme</label>
+										<div class="toggle-switch">	
+											<input type="checkbox" value="3" id="check-switch-7" />
+											<label for="check-switch-7" class="secondary rounded-lg">
+												<div class="toggle-switch-button background-accent-5 left-transition-medium"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="nav-toggle pad-right-xs-sm">
+									<div class="nav-button-lg" id="navToggle2"></div>
+								</div>
+								
+							</div>							
+							
+						</nav>
+								
+				</div>
+			</div>
 
 			<div class="row-spacing-xl"></div>
 
 			<div class="row">
 				<div class="col">
-					<div class="row">
-						<div class="col">
-							<div class="text-sm pad-bottom-sm">Menu component</div>
+					<div class="text-sm pad-bottom-sm">Menu component</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+
+					<div class="row flex-nowrap toolbar-sm dark text-sm" id="menuControl1">
+
+						<div class="col-2 pad-left-md pad-top-sm-md">
+							<i class="fa fa-photo fa-lg"></i>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col">
 
-							<div class="row flex-nowrap toolbar-sm dark text-sm" id="menuControl1">
-
-								<div class="col-2 pad-left-md pad-top-sm-md">
-									<i class="fa fa-photo fa-lg"></i>
+						<div class="col-fixed">
+							<div class="dropdown">
+								<button id="menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 1 <i class="fa fa-caret-down"></i></button>
+								<div class="dropdown-content menu-close width-xl dark">
+									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Typography</button>
+									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Colours</button>
+									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Forms</button>
+									<div class="row-spacing-sm"></div>
+									<div class="row border-sm border-accent-5"></div>
+									<div class="row-spacing-sm"></div>
+									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Boxes and columns</button>
+									<button type="button" class="menu-button-sm menu-button-dark color-muted text-italic text-left" disabled>Disabled</button>
 								</div>
-
-								<div class="col-fixed">
-									<div class="dropdown">
-										<button id="menu1" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 1 <i class="fa fa-caret-down"></i></button>
-										<div class="dropdown-content menu-close width-xl dark">
-											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Typography</button>
-											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Colours</button>
-											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Forms</button>
-											<div class="row-spacing-sm"></div>
-											<div class="row border-sm border-accent-5"></div>
-											<div class="row-spacing-sm"></div>
-											<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Boxes and columns</button>
-											<button type="button" class="menu-button-sm menu-button-dark color-muted text-italic text-left" disabled>Disabled</button>
+							</div>
+						</div>
+						<div class="col-fixed">
+							<button id="menu2" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 2 <i class="fa fa-caret-down"></i></button>
+							<div class="dropdown-sheet menu-close">
+								<div class="row">
+									<div class="col">
+										<div class="container light responsive-gutter-md pad-lg">
+											<div class="row">
+												<div class="col">
+													<div class="container">
+														<span class="text-lg">Heading 1</span>
+														<div class="row-spacing-md"></div>
+														<ul class="list list-spacing-md text" role="menu">
+															<li role="menuitem">Item 1</li>
+															<li role="menuitem">Item 2</li>
+															<li role="menuitem">Item 3</li>
+															<li role="menuitem">Item 4</li>
+															<li role="menuitem">Item 5</li>
+															<li role="menuitem">Item 6</li>
+															<li role="menuitem">Item 7</li>
+														</ul>
+													</div>
+												</div>
+												<div class="col">
+													<div class="container">
+														<span class="text-lg">Heading 2</span>
+														<div class="row-spacing-md"></div>
+														<ul class="list list-spacing-md text" role="menu">
+															<li role="menuitem">Item 1</li>
+															<li role="menuitem">Item 2</li>
+															<li role="menuitem">Item 3</li>
+															<li role="menuitem">Item 4</li>
+															<li role="menuitem">Item 5</li>
+															<li role="menuitem">Item 6</li>
+															<li role="menuitem">Item 7</li>
+														</ul>
+													</div>
+												</div>
+												<div class="col">
+													<div class="container">
+														<span class="text-lg">Heading 3</span>
+														<div class="row-spacing-md"></div>
+														<ul class="list list-spacing-md text" role="menu">
+															<li role="menuitem">Item 1</li>
+															<li role="menuitem">Item 2</li>
+															<li role="menuitem">Item 3</li>
+															<li role="menuitem">Item 4</li>
+															<li role="menuitem">Item 5</li>
+															<li role="menuitem">Item 6</li>
+															<li role="menuitem">Item 7</li>
+														</ul>
+													</div>
+												</div>
+	
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-fixed">
-									<button id="menu2" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 2 <i class="fa fa-caret-down"></i></button>
-									<div class="dropdown-sheet menu-close">
-										<div class="row">
-											<div class="col">
-												<div class="container light responsive-gutter-md pad-lg">
+							</div>
+						</div>
+						<div class="col-fixed">
+							<div class="dropdown">
+								<button id="menu3" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 3 <i class="fa fa-caret-down"></i></button>
+								<div class="dropdown-content menu-close width-lg-xl light rounded-bottom-lg overflow-hidden">
+									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Typography</button>
+									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Colours</button>
+									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Forms</button>
+									<div class="row-spacing-sm"></div>
+									<hr class="border-sm border-bottom-accent-5">
+									<div class="row-spacing-sm"></div>
+									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Boxes and columns</button>
+									<button type="button" class="menu-button-sm menu-button-light color-muted text-italic text-left" disabled>Disabled</button>
+								</div>
+							</div>
+						</div>
+						<div class="col flex justify-content-end pad-xs pad-right-md">
+							<input type="text" class="input-sm rounded-sm accessibility" />
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="text-sm pad-bottom-sm">Menu component (Small device)</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+
+					<div class="row toolbar-sm dark" id="menuControl2">
+
+						<div class="col-12">
+							<div class="row">
+								<div class="col pad-xs pad-left-sm">
+									<input type="text" class="input-sm rounded-sm width-full accessibility" />
+								</div>
+							</div>
+						</div>
+
+						<div class="col dark text-right">
+							<div class="dropdown width-full">
+								<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-dark width-control-xl"><i class="fa fa-bars"></i></button>
+								<div class="dropdown-content menu-inclusive dark width-full raised-md">
+									<div class="row">
+										<div class="col width-full">
+											<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+											<div class="dropdown-content-expand menu-close dark width-full">
+												<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Getting Started</button>
+												<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Creating Components</button>
+												<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Binding</button>
+												<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Templating</button>
+												<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Routing</button>
+											</div>
+											<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+											<div class="dropdown-content-expand menu-close width-full background-primary">
+												<div class="container light text-left pad-lg">
 													<div class="row">
 														<div class="col">
-															<div class="container">
-																<span class="text-lg">Heading 1</span>
-																<div class="row-spacing-md"></div>
-																<ul class="list list-spacing-md text" role="menu">
-																	<li role="menuitem">Item 1</li>
-																	<li role="menuitem">Item 2</li>
-																	<li role="menuitem">Item 3</li>
-																	<li role="menuitem">Item 4</li>
-																	<li role="menuitem">Item 5</li>
-																	<li role="menuitem">Item 6</li>
-																	<li role="menuitem">Item 7</li>
-																</ul>
-															</div>
+															<span class="text-lg">Heading 1</span>
+															<ul class="list" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
 														</div>
+													</div>
+													<div class="row">
 														<div class="col">
-															<div class="container">
-																<span class="text-lg">Heading 2</span>
-																<div class="row-spacing-md"></div>
-																<ul class="list list-spacing-md text" role="menu">
-																	<li role="menuitem">Item 1</li>
-																	<li role="menuitem">Item 2</li>
-																	<li role="menuitem">Item 3</li>
-																	<li role="menuitem">Item 4</li>
-																	<li role="menuitem">Item 5</li>
-																	<li role="menuitem">Item 6</li>
-																	<li role="menuitem">Item 7</li>
-																</ul>
-															</div>
+															<hr />
+															<span class="text-lg">Heading 2</span>
+															<ul class="list" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
 														</div>
+													</div>
+													<div class="row">
 														<div class="col">
-															<div class="container">
-																<span class="text-lg">Heading 3</span>
-																<div class="row-spacing-md"></div>
-																<ul class="list list-spacing-md text" role="menu">
-																	<li role="menuitem">Item 1</li>
-																	<li role="menuitem">Item 2</li>
-																	<li role="menuitem">Item 3</li>
-																	<li role="menuitem">Item 4</li>
-																	<li role="menuitem">Item 5</li>
-																	<li role="menuitem">Item 6</li>
-																	<li role="menuitem">Item 7</li>
-																</ul>
-															</div>
+															<hr />
+															<span class="text-lg">Heading 3</span>
+															<ul class="list" role="menu">
+																<li role="menuitem">Item 1</li>
+																<li role="menuitem">Item 2</li>
+																<li role="menuitem">Item 3</li>
+																<li role="menuitem">Item 4</li>
+																<li role="menuitem">Item 5</li>
+																<li role="menuitem">Item 6</li>
+																<li role="menuitem">Item 7</li>
+															</ul>
 														</div>
-			
 													</div>
+												</div>
+											</div>
+											<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 3</button>
+											<div class="dropdown-content-expand menu-close width-full text-left">
+												<div class="panel dark text-left border-secondary height-md">
+													<span class="place-middle-center">
+														Another menu
+													</span>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-fixed">
-									<div class="dropdown">
-										<button id="menu3" type="button" class="menu-activator-dynamic menu-button-sm menu-button-dark text-left width-md">Menu 3 <i class="fa fa-caret-down"></i></button>
-										<div class="dropdown-content menu-close width-lg-xl light rounded-bottom-lg overflow-hidden">
-											<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Typography</button>
-											<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Colours</button>
-											<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Forms</button>
-											<div class="row-spacing-sm"></div>
-											<hr class="border-sm border-bottom-accent-5">
-											<div class="row-spacing-sm"></div>
-											<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Boxes and columns</button>
-											<button type="button" class="menu-button-sm menu-button-light color-muted text-italic text-left" disabled>Disabled</button>
+							</div>
+						</div>
+					</div>
+						
+					
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+					<div class="text-sm pad-bottom-md">Inclusive and exclusive menu behaviour</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+
+								<div class="dropdown text" id="menuControl3">
+									<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Inclusive mode)</a>
+									<div class="dropdown-content-expand menu-inclusive pad-left-sm">
+										<div class="content-row">
+											<div class="content-col">
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
+												<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+													<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
+													<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
+													<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
+												</div>
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
+												<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+													<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
+													<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
+												</div>
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
+												<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
+													<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
+													<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
+												</div>
+
+											</div>
 										</div>
+										<div class="row-spacing-xs"></div>
 									</div>
 								</div>
-								<div class="col flex justify-content-end pad-xs pad-right-md">
-									<input type="text" class="input-sm rounded-sm accessibility" />
+
+						</div>
+						<div class="col">
+
+								<div class="dropdown text" id="menuControl4">
+									<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Exclusive mode)</a>
+									<div class="dropdown-content-expand pad-left-sm">
+										<div class="content-row">
+											<div class="content-col">
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
+												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+													<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
+													<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
+													<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
+												</div>
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
+												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+													<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
+													<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
+												</div>
+												<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
+												<div class="dropdown-content-expand menu-close pad-left-lg-xl">
+													<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
+													<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
+												</div>
+
+											</div>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
 								</div>
+
+						</div>
+					</div>		
+				</div>
+			</div>
+
+			<div class="row-spacing-lg"></div>
+
+			<div class="row">
+				<div class="col">
+
+					<div class="text-sm pad-bottom-md">Accordions using toggle container</div>
+
+					<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
+
+						<div class="container">
+
+							<button data-target="#panel1" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 1 (Tap to open)</button>
+							<div id="panel1" class="toggle-item hidden">
+								<div class="border-sm border-accent-2 width-full pad-sm">
+									Panel 1 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
 							</div>
+
+							<div class="row-spacing-xs"></div>
 							
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="row-spacing-lg"></div>
-
-			<div class="row">
-				<div class="col">
-					<div class="row">
-						<div class="col">
-							<div class="text-sm pad-bottom-sm">Menu component (Small device)</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row toolbar-sm dark" id="menuControl2">
-
-								<div class="col-12">
-									<div class="row">
-										<div class="col pad-xs pad-left-sm">
-											<input type="text" class="input-sm rounded-sm width-full accessibility" />
-										</div>
-									</div>
+							<button data-target="#panel2" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 2 (Tap to open)</button>
+							<div id="panel2" class="toggle-item hidden">
+								<div class="border-sm border-accent-2 width-full pad-sm">
+									Panel 2 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 								</div>
-		
-								<div class="col dark text-right">
-									<div class="dropdown width-full">
-										<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-dark width-control-xl"><i class="fa fa-bars"></i></button>
-										<div class="dropdown-content menu-inclusive dark width-full raised-md">
-											<div class="row">
-												<div class="col width-full">
-													<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
-													<div class="dropdown-content-expand menu-close dark width-full">
-														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Getting Started</button>
-														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Creating Components</button>
-														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Binding</button>
-														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Templating</button>
-														<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Routing</button>
-													</div>
-													<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
-													<div class="dropdown-content-expand menu-close width-full background-primary">
-														<div class="container light text-left pad-lg">
-															<div class="row">
-																<div class="col">
-																	<span class="text-lg">Heading 1</span>
-																	<ul class="list" role="menu">
-																		<li role="menuitem">Item 1</li>
-																		<li role="menuitem">Item 2</li>
-																		<li role="menuitem">Item 3</li>
-																		<li role="menuitem">Item 4</li>
-																		<li role="menuitem">Item 5</li>
-																		<li role="menuitem">Item 6</li>
-																		<li role="menuitem">Item 7</li>
-																	</ul>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col">
-																	<hr />
-																	<span class="text-lg">Heading 2</span>
-																	<ul class="list" role="menu">
-																		<li role="menuitem">Item 1</li>
-																		<li role="menuitem">Item 2</li>
-																		<li role="menuitem">Item 3</li>
-																		<li role="menuitem">Item 4</li>
-																		<li role="menuitem">Item 5</li>
-																		<li role="menuitem">Item 6</li>
-																		<li role="menuitem">Item 7</li>
-																	</ul>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col">
-																	<hr />
-																	<span class="text-lg">Heading 3</span>
-																	<ul class="list" role="menu">
-																		<li role="menuitem">Item 1</li>
-																		<li role="menuitem">Item 2</li>
-																		<li role="menuitem">Item 3</li>
-																		<li role="menuitem">Item 4</li>
-																		<li role="menuitem">Item 5</li>
-																		<li role="menuitem">Item 6</li>
-																		<li role="menuitem">Item 7</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-													<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-2 text-left">Menu 3</button>
-													<div class="dropdown-content-expand menu-close width-full text-left">
-														<div class="panel dark text-left border-secondary height-md">
-															<span class="place-middle-center">
-																Another menu
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-								
-							
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-
-			<div class="row-spacing-lg"></div>
-
-			<div class="row">
-				<div class="col">
-					<div class="row">
-						<div class="col">
-							<div class="text-sm pad-bottom-md">Inclusive and exclusive menu behaviour</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="row">
-								<div class="col">
-
-										<div class="dropdown text" id="menuControl3">
-											<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Inclusive mode)</a>
-											<div class="dropdown-content-expand menu-inclusive pad-left-sm">
-												<div class="content-row">
-													<div class="content-col">
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
-														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
-															<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
-															<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
-															<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
-														</div>
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
-														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
-															<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
-															<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
-														</div>
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
-														<div class="dropdown-content-expand menu-inclusive menu-close pad-left-lg-xl">
-															<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
-															<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
-														</div>
-		
-													</div>
-												</div>
-												<div class="row-spacing-xs"></div>
-											</div>
-										</div>
-
-								</div>
-								<div class="col">
-
-										<div class="dropdown text" id="menuControl4">
-											<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Menu (Exclusive mode)</a>
-											<div class="dropdown-content-expand pad-left-sm">
-												<div class="content-row">
-													<div class="content-col">
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Javascript Frameworks</a>
-														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-															<a href="https://angular.io/" class="button-link-sm text-left width-full text-underline">Angular</a>
-															<a href="https://reactjs.org/" class="button-link-sm text-left width-full">React</a>
-															<a href="https://vuejs.org/" class="button-link-sm text-left width-full">Vue</a>
-														</div>
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">CSS Frameworks</a>
-														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-															<a href="https://asyncdesign.github.io/webui/" class="button-link-sm text-left width-full">WebUI</a>
-															<a href="https://foundation.zurb.com/" class="button-link-sm text-left width-full">Foundation</a>
-														</div>
-														<a href="javascript:void 0" class="menu-activator button-link-sm text-left">Server Frameworks</a>
-														<div class="dropdown-content-expand menu-close pad-left-lg-xl">
-															<a href="http://expressjs.com/" class="button-link-sm text-left width-full">Express</a>
-															<a href="https://rubyonrails.org/" class="button-link-sm text-left width-full">Ruby on Rails</a>
-														</div>
-		
-													</div>
-												</div>
-												<div class="row-spacing-xs"></div>
-											</div>
-										</div>
-
-								</div>
-							</div>		
-						</div>
-					</div>
-
-				</div>
-
-
-			</div>
-
-
-			<div class="row-spacing-lg"></div>
-
-			<div class="row">
-				<div class="col">
-					<div class="row">
-						<div class="col">
-
-							<div class="text-sm pad-bottom-md">Accordions using toggle container</div>
-
-							<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
-
-								<div class="container">
-	
-									<button data-target="#panel1" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 1 (Tap to open)</button>
-									<div id="panel1" class="toggle-item hidden">
-										<div class="border-sm border-accent-2 width-full pad-sm">
-											Panel 1 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-									<div class="row-spacing-xs"></div>
-									
-									<button data-target="#panel2" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 2 (Tap to open)</button>
-									<div id="panel2" class="toggle-item hidden">
-										<div class="border-sm border-accent-2 width-full pad-sm">
-											Panel 2 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-									<div class="row-spacing-xs"></div>
-	
-									<button data-target="#panel3" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 3 (Tap to open)</button>
-									<div id="panel3" class="toggle-item hidden">
-										<div class="border-sm border-accent-2 width-full pad-sm">
-											Panel 3 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-								</div>
+								<div class="row-spacing-xs"></div>
 							</div>
 
-						</div>
-						<div class="col-1"></div>
-						<div class="col">
+							<div class="row-spacing-xs"></div>
 
-							<div class="text-sm pad-bottom-md">Accordions using toggle container (Nested)</div>
-
-							<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
-
-								<div class="container">
-	
-									<button data-target="#panel1" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1 (Tap to open)</button>
-									<div id="panel1" class="toggle-item hidden">
-										<div class="width-full border-sm border-accent-4 pad-sm">
-	
-											<button data-target="#panel1a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1a (Tap to open)</button>
-											<div id="panel1a" class="toggle-item hidden">
-												<div class="width-full border-sm border-accent-4 pad-sm">
-													Panel 1a content
-													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-												</div>
-												<div class="row-spacing-xs"></div>
-											</div>
-	
-											<div class="row-spacing-xs"></div>
-	
-											<button data-target="#panel2a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2a (Tap to open)</button>
-											<div id="panel2a" class="toggle-item hidden">
-												<div class="width-full border-sm border-accent-4 pad-sm">
-													Panel 2a content
-													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-												</div>
-												<div class="row-spacing-xs"></div>
-											</div>
-	
-											<div class="row-spacing-xs"></div>
-	
-											<button data-target="#panel3a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3a (Tap to open)</button>
-											<div id="panel3a" class="toggle-item hidden">
-												<div class="width-full border-sm border-accent-4 pad-sm">
-													Panel 3a content
-													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-												</div>
-												<div class="row-spacing-xs"></div>
-											</div>
-	
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-									<div class="row-spacing-xs"></div>
-	
-									<button data-target="#panel2" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2 (Tap to open)</button>
-									<div id="panel2" class="toggle-item hidden">
-										<div class="width-full border-sm border-accent-4 pad-sm">
-											Panel 2 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-									<div class="row-spacing-xs"></div>
-	
-									<button data-target="#panel3" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3 (Tap to open)</button>
-									<div id="panel3" class="toggle-item hidden">
-										<div class="width-full border-sm border-accent-4 pad-sm">
-											Panel 3 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
-									<div class="row-spacing-xs"></div>
-	
-									<button data-target="#panel4" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 4 (Tap to open)</button>
-									<div id="panel4" class="toggle-item hidden">
-										<div class="width-full border-sm border-accent-4 pad-sm">
-											Panel 4 content
-											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-										</div>
-										<div class="row-spacing-xs"></div>
-									</div>
-	
+							<button data-target="#panel3" class="toggle-activator menu-button-sm menu-button-accent-2 transition-long">Heading 3 (Tap to open)</button>
+							<div id="panel3" class="toggle-item hidden">
+								<div class="border-sm border-accent-2 width-full pad-sm">
+									Panel 3 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 								</div>
+								<div class="row-spacing-xs"></div>
 							</div>
 
 						</div>
 					</div>
+
+				</div>
+				<div class="col-1"></div>
+				<div class="col">
+
+					<div class="text-sm pad-bottom-md">Accordions using toggle container (Nested)</div>
+
+					<div class="toggle-container" data-transition-duration="300" data-transition-type="collapse" id="toggle1">
+
+						<div class="container">
+
+							<button data-target="#panel1" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1 (Tap to open)</button>
+							<div id="panel1" class="toggle-item hidden">
+								<div class="width-full border-sm border-accent-4 pad-sm">
+
+									<button data-target="#panel1a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 1a (Tap to open)</button>
+									<div id="panel1a" class="toggle-item hidden">
+										<div class="width-full border-sm border-accent-4 pad-sm">
+											Panel 1a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="row-spacing-xs"></div>
+
+									<button data-target="#panel2a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2a (Tap to open)</button>
+									<div id="panel2a" class="toggle-item hidden">
+										<div class="width-full border-sm border-accent-4 pad-sm">
+											Panel 2a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+									<div class="row-spacing-xs"></div>
+
+									<button data-target="#panel3a" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3a (Tap to open)</button>
+									<div id="panel3a" class="toggle-item hidden">
+										<div class="width-full border-sm border-accent-4 pad-sm">
+											Panel 3a content
+											<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										</div>
+										<div class="row-spacing-xs"></div>
+									</div>
+
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel2" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 2 (Tap to open)</button>
+							<div id="panel2" class="toggle-item hidden">
+								<div class="width-full border-sm border-accent-4 pad-sm">
+									Panel 2 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel3" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 3 (Tap to open)</button>
+							<div id="panel3" class="toggle-item hidden">
+								<div class="width-full border-sm border-accent-4 pad-sm">
+									Panel 3 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+							<div class="row-spacing-xs"></div>
+
+							<button data-target="#panel4" class="toggle-activator button-xs menu-button-accent-4 width-full transition-long">Heading 4 (Tap to open)</button>
+							<div id="panel4" class="toggle-item hidden">
+								<div class="width-full border-sm border-accent-4 pad-sm">
+									Panel 4 content
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								</div>
+								<div class="row-spacing-xs"></div>
+							</div>
+
+						</div>
+					</div>
+
 				</div>
 			</div>
 
@@ -725,117 +684,112 @@
 
 			<div class="row">
 				<div class="col">
-					<div class="row">
-						<div class="col">
 
-							<div class="text-sm pad-bottom-sm">Tabs using tabs component</div>
-							<div id="tabs1" class="tabs">
+					<div class="text-sm pad-bottom-sm">Tabs using tabs component</div>
+					<div id="tabs1" class="tabs">
 
-								<div class="content-row control-group">
-									<button type="button" data-target="#tabs1Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
-									<button type="button" data-target="#tabs1Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
-									<button type="button" data-target="#tabs1Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
-								</div>
-	
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab1">
-									Tab 1 content
-									<p>Pellentesque.</p>
-								</div>
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab2">
-									<div class="area height-xl">
-										Tab 2 content
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+						<div class="content-row control-group">
+							<button type="button" data-target="#tabs1Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
+							<button type="button" data-target="#tabs1Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
+							<button type="button" data-target="#tabs1Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
+						</div>
+
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab1">
+							Tab 1 content
+							<p>Pellentesque.</p>
+						</div>
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab2">
+							<div class="area height-xl">
+								Tab 2 content
+								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+							</div>
+						</div>
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab3">
+							<div class="area height-xl">
+								Tab 3 content
+								<p>Pellentesque habitant morbi tristique senectus.</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row-spacing-md"></div>
+
+				</div>
+				<div class="col-1 flex-respond-bp-2-under"></div>
+				<div class="col">
+
+					<div class="text-sm pad-bottom-sm">Nested tabs</div>
+					<div id="tabs2" class="tabs">
+
+						<div class="control-group">
+							<button type="button" data-target="#tabs2Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
+							<button type="button" data-target="#tabs2Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
+							<button type="button" data-target="#tabs2Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
+						</div>
+
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab1">
+							<div class="panel height-xl">
+
+								<div id="tabs2Tabs1a" class="tabs">
+
+									<div class="control-group">
+										<button type="button" data-target="#tabs2Tab1a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1a</button>
+										<button type="button" data-target="#tabs2Tab2a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2a</button>
+										<button type="button" data-target="#tabs2Tab3a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3a</button>
 									</div>
-								</div>
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-lg" id="tabs1Tab3">
-									<div class="area height-xl">
-										Tab 3 content
+
+									<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab1a">
+										<div class="panel height-lg-xl">
+
+											<div id="tabs2Tabs1b" class="tabs">
+
+												<div class="control-group">
+													<button type="button" data-target="#tabs2Tab1b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1b</button>
+													<button type="button" data-target="#tabs2Tab2b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2b</button>
+													<button type="button" data-target="#tabs2Tab3b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3b</button>
+												</div>
+
+												<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab1b">
+													Tab 1b content
+													<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+												</div>
+												<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab2b">
+													Tab 2b content
+													<p>Pellentesque habitant morbi tristique senectus.</p>
+												</div>
+												<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab3b">
+													Tab 3b content
+													<p>Pellentesque habitant morbi tristique senectus.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab2a">
+										Tab 2a content
+										<p>Pellentesque habitant morbi tristique senectus.</p>
+									</div>
+									<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab3a">
+										Tab 3a content
 										<p>Pellentesque habitant morbi tristique senectus.</p>
 									</div>
 								</div>
-	
 							</div>
-
-							<div class="row-spacing-md"></div>
-	
 						</div>
-						<div class="col-1 flex-respond-bp-2-under"></div>
-						<div class="col">
-
-							<div class="text-sm pad-bottom-sm">Nested tabs</div>
-							<div id="tabs2" class="tabs">
-
-								<div class="control-group">
-									<button type="button" data-target="#tabs2Tab1" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1</button>
-									<button type="button" data-target="#tabs2Tab2" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2</button>
-									<button type="button" data-target="#tabs2Tab3" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3</button>
-								</div>
-	
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab1">
-									<div class="panel height-xl">
-	
-										<div id="tabs2Tabs1a" class="tabs">
-	
-											<div class="control-group">
-												<button type="button" data-target="#tabs2Tab1a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1a</button>
-												<button type="button" data-target="#tabs2Tab2a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2a</button>
-												<button type="button" data-target="#tabs2Tab3a" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3a</button>
-											</div>
-	
-											<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab1a">
-												<div class="panel height-lg-xl">
-	
-													<div id="tabs2Tabs1b" class="tabs">
-	
-														<div class="control-group">
-															<button type="button" data-target="#tabs2Tab1b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 1b</button>
-															<button type="button" data-target="#tabs2Tab2b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 2b</button>
-															<button type="button" data-target="#tabs2Tab3b" class="tab-activator menu-button menu-button-accent-4 transition-long rounded-top-sm width-md">Tab 3b</button>
-														</div>
-	
-														<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab1b">
-															Tab 1b content
-															<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
-														</div>
-														<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab2b">
-															Tab 2b content
-															<p>Pellentesque habitant morbi tristique senectus.</p>
-														</div>
-														<div class="tab-item primary border-sm border-accent-4 height-lg pad-md" id="tabs2Tab3b">
-															Tab 3b content
-															<p>Pellentesque habitant morbi tristique senectus.</p>
-														</div>
-													</div>
-	
-												</div>
-											</div>
-											<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab2a">
-												Tab 2a content
-												<p>Pellentesque habitant morbi tristique senectus.</p>
-											</div>
-											<div class="tab-item primary border-sm border-accent-4 height-lg-xl pad-md" id="tabs2Tab3a">
-												Tab 3a content
-												<p>Pellentesque habitant morbi tristique senectus.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab2">
-									Tab 2 content
-									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
-								</div>
-								<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab3">
-									Tab 3 content
-									<p>Pellentesque habitant morbi tristique senectus.</p>
-								</div>
-	
-							</div>
-
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab2">
+							Tab 2 content
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
 						</div>
+						<div class="tab-item primary border-sm border-accent-4 height-xl pad-md" id="tabs2Tab3">
+							Tab 3 content
+							<p>Pellentesque habitant morbi tristique senectus.</p>
+						</div>
+
 					</div>
+
 				</div>
 			</div>
-
 
 
 			<!--
@@ -843,26 +797,21 @@
 
 			<div class="row">
 				<div class="col">
+					Heading
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
 					<div class="row">
 						<div class="col">
-							Heading
+
+							Content
 						</div>
-					</div>
-					<div class="row">
 						<div class="col">
-							<div class="row">
-								<div class="col">
 
-									Content
-								</div>
-								<div class="col">
-
-									Content
-								</div>
-							</div>
+							Content
 						</div>
 					</div>
-
 				</div>
 			</div>
 			-->
@@ -1006,14 +955,6 @@
 				color: "#FFF"
 			});
 
-/*
-			ui("#fileUpload1").uploadControl({
-				scrollY: true
-			});
-			ui("#fileUpload2").uploadControl({
-				scrollY: true
-			});
-*/
 			// Tabs
 			ui("#tabs1").tabControl({ 
 				activeTabId: "#tabs1Tab2", 
@@ -1028,8 +969,6 @@
 				transitionDuration: 600,
 				transitionType: "fade"
 			});
-
-
 
 			ui("#ocButton1, #ocButton2").navButtonControl({ 
 				transitionDuration: 300,

@@ -183,6 +183,22 @@
 
 			var control = new AlertInstance(this.first(), settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.position) { settings.position = newSettings.position; }
+				if (newSettings.duration) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.width) { settings.width = newSettings.width; }
+				if (newSettings.showHeader) { settings.showHeader = newSettings.showHeader; }
+				if (newSettings.inline) { settings.inline = newSettings.inline; }
+				if (newSettings.style) { settings.style = newSettings.style; }	
+				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
+				if (newSettings.showIcon) { settings.showIcon = newSettings.showIcon; }
+				if (newSettings.showClose) { settings.showClose = newSettings.showClose; }
+				control = new AlertInstance(this.first(), settings);	
+			};
+
+
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {
 					case 2:

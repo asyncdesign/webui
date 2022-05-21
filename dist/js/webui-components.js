@@ -2734,6 +2734,22 @@
 
 			var control = new AlertInstance(this.first(), settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.position) { settings.position = newSettings.position; }
+				if (newSettings.duration) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.width) { settings.width = newSettings.width; }
+				if (newSettings.showHeader) { settings.showHeader = newSettings.showHeader; }
+				if (newSettings.inline) { settings.inline = newSettings.inline; }
+				if (newSettings.style) { settings.style = newSettings.style; }	
+				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
+				if (newSettings.showIcon) { settings.showIcon = newSettings.showIcon; }
+				if (newSettings.showClose) { settings.showClose = newSettings.showClose; }
+				control = new AlertInstance(this.first(), settings);	
+			};
+
+
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {
 					case 2:
@@ -3546,6 +3562,20 @@
 
 			var control = new CarouselInstance(this.first(), settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.interval) { settings.interval = newSettings.interval; }
+				if (newSettings.autoPlay) { settings.autoPlay = newSettings.autoPlay; }
+				if (newSettings.autoScale) { settings.autoScale = newSettings.autoScale; }
+				if (newSettings.playDirection) { settings.playDirection = newSettings.playDirection; }
+				if (newSettings.stopOnHover) { settings.stopOnHover = newSettings.stopOnHover; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				if (newSettings.transitionOrientation) { settings.transitionOrientation = newSettings.transitionOrientation; }	
+				if (newSettings.width) { settings.width = newSettings.width; }
+				if (newSettings.height) { settings.height = newSettings.height; }
+				control = new CarouselInstance(this.first(), settings);	
+			};
+
 			this.prev = function () {
 				control.prev();	
 			};
@@ -3643,97 +3673,97 @@
 
 		var
 
-		transitionDuration = settings.transitionDuration,
-		transitionType = settings.transitionType,
+			transitionDuration = settings.transitionDuration,
+			transitionType = settings.transitionType,
 
-		navigateTo = function(url) {
-			if (url) {
-				location.href = url;
-			}
-		},
-
-		toggleDropdown = function (menuActivator) {
-	
-			if (menuActivator) {
-	
-				var dropdown = menuActivator.nextSibling("[class*='dropdown-']");
-	
-				if (dropdown) {
-	
-					if (dropdown.length) {
-	
-						if (dropdown.css("display") === "block") {
-	
-							dropdown.trigger("ui.dropdown.hide.before");
-	
-							if (transitionType === "fade") {
-								dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
-							}
-							else if (transitionType === "collapse") {
-								dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
-							}
-							else {
-								dropdown.hide().trigger("ui.dropdown.hide.after");
-							}
-	
-							if (dropdown.parent(".dropdown").length) {
-								var siblingDropdowns = dropdown.find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide();
-								if (transitionType === "fade") {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
-								}
-								else if (transitionType === "collapse") {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
-								}
-								else {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
-								}
-							}
-						}
-						else {
-							
-							dropdown.trigger("ui.dropdown.show.before");
-	
-							if (transitionType === "fade") {
-								dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
-							}
-							else if (transitionType === "collapse") {
-								dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
-							}
-							else {
-								dropdown.show().trigger("ui.dropdown.show.after");
-							}
-	
-							if (dropdown.hasClass("menu-inclusive") === false) {
-	
-								if (transitionType === "fade") {
-									dropdown.prevSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
-									dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
-								}
-								else if (transitionType === "collapse") {
-									dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-									dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-								}
-								else {
-									dropdown.prevSiblings("[class*='dropdown-']").hide();
-									dropdown.nextSiblings("[class*='dropdown-']").hide();
-								}
-							}
-						}
-					}
-					dropdown.select(".menu-close").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
-						menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
-						navigateTo(webui(this).data("url"));
-					});
-					dropdown.select(".menu-close").find("a:not(.menu-activator):not(.menu-activator-focus)").click(function (e) {
-						menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
-					});
-					dropdown.select(":not(.menu-close)").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
-						navigateTo(webui(this).data("url"));
-					});
+			navigateTo = function(url) {
+				if (url) {
+					location.href = url;
 				}
-			}
+			},
 
-		};
+			toggleDropdown = function (menuActivator) {
+		
+				if (menuActivator) {
+		
+					var dropdown = menuActivator.nextSibling("[class*='dropdown-']");
+		
+					if (dropdown) {
+		
+						if (dropdown.length) {
+		
+							if (dropdown.css("display") === "block") {
+		
+								dropdown.trigger("ui.dropdown.hide.before");
+		
+								if (transitionType === "fade") {
+									dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
+								}
+								else if (transitionType === "collapse") {
+									dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+								}
+								else {
+									dropdown.hide().trigger("ui.dropdown.hide.after");
+								}
+		
+								if (dropdown.parent(".dropdown").length) {
+									var siblingDropdowns = dropdown.find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide();
+									if (transitionType === "fade") {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
+									}
+									else if (transitionType === "collapse") {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
+									}
+									else {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
+									}
+								}
+							}
+							else {
+								
+								dropdown.trigger("ui.dropdown.show.before");
+		
+								if (transitionType === "fade") {
+									dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
+								}
+								else if (transitionType === "collapse") {
+									dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+								}
+								else {
+									dropdown.show().trigger("ui.dropdown.show.after");
+								}
+		
+								if (dropdown.hasClass("menu-inclusive") === false) {
+		
+									if (transitionType === "fade") {
+										dropdown.prevSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
+										dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
+									}
+									else if (transitionType === "collapse") {
+										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+									}
+									else {
+										dropdown.prevSiblings("[class*='dropdown-']").hide();
+										dropdown.nextSiblings("[class*='dropdown-']").hide();
+									}
+								}
+							}
+						}
+						dropdown.select(".menu-close").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
+							menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
+							navigateTo(webui(this).data("url"));
+						});
+						dropdown.select(".menu-close").find("a:not(.menu-activator):not(.menu-activator-focus)").click(function (e) {
+							menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
+						});
+						dropdown.select(":not(.menu-close)").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
+							navigateTo(webui(this).data("url"));
+						});
+					}
+				}
+
+			};
 	
 		/* EVENTS */
 	
@@ -3849,6 +3879,13 @@
 
 			var control = new MenuInstance(this.first(), settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				control = new MenuInstance(this.first(), settings);	
+			};
+
+
 			return this;
 
 		},
@@ -3866,90 +3903,90 @@
 
 	var ModalInstance = function(modal, settings) {
 
-	var
+		var
 
-		transitionDuration = settings.transitionDuration,
-		closeFromBackdrop = settings.closeFromBackdrop,
-		disablePageScrolling = settings.disablePageScrolling,
-		focusElement = settings.focusElement,
-		focusReturnElement = settings.focusReturnElement,
+			transitionDuration = settings.transitionDuration,
+			closeFromBackdrop = settings.closeFromBackdrop,
+			disablePageScrolling = settings.disablePageScrolling,
+			focusElement = settings.focusElement,
+			focusReturnElement = settings.focusReturnElement,
 
-		showModal = function () {
-	
-			if (modal) {
-	
-				modal.trigger("ui.modal.show.before");
-				
-				if (transitionDuration) {
-					modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
-				}
-				else {
-					modal.show().trigger("ui.modal.show.after");
-				}
-					
-				if (disablePageScrolling) {
-					var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
-					
-					if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-						webui("body").css("padding-right", scrollShift);
-						webui("body").css("overflow", "hidden");
-					}
-				}
-				
-				if (focusElement) {
-					var focusEl = modal.find(focusElement).first();
+			showModal = function () {
 		
-					if (focusEl && !focusEl.hasClass("disabled")) {
-						focusEl[0].focus();
-					}	
+				if (modal) {
+		
+					modal.trigger("ui.modal.show.before");
+					
+					if (transitionDuration) {
+						modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
+					}
+					else {
+						modal.show().trigger("ui.modal.show.after");
+					}
+						
+					if (disablePageScrolling) {
+						var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+						
+						if (parseFloat(webui("body").css("height")) > win.innerHeight) {
+							webui("body").css("padding-right", scrollShift);
+							webui("body").css("overflow", "hidden");
+						}
+					}
+					
+					if (focusElement) {
+						var focusEl = modal.find(focusElement).first();
+			
+						if (focusEl && !focusEl.hasClass("disabled")) {
+							focusEl[0].focus();
+						}	
+						else {
+							modal.attr("tabindex", "-1");
+							modal[0].focus();
+						}	
+					}
 					else {
 						modal.attr("tabindex", "-1");
 						modal[0].focus();
-					}	
+					}
 				}
-				else {
-					modal.attr("tabindex", "-1");
-					modal[0].focus();
-				}
-			}
-			return this;
-		},
-	
-		hideModal = function () {
-	
-			if (modal) {
-	
-				modal.trigger("ui.modal.hide.before");
-				
-				if (transitionDuration) {
-					modal.fadeOut(transitionDuration, 0, function() {
+				return this;
+			},
+		
+			hideModal = function () {
+		
+				if (modal) {
+		
+					modal.trigger("ui.modal.hide.before");
+					
+					if (transitionDuration) {
+						modal.fadeOut(transitionDuration, 0, function() {
+							if (disablePageScrolling) {
+								webui("body").css("padding-right", "");
+								webui("body").css("overflow", "");
+							}
+
+							modal.trigger("ui.modal.hide.after");
+						});					
+					}
+					else {
 						if (disablePageScrolling) {
 							webui("body").css("padding-right", "");
 							webui("body").css("overflow", "");
 						}
-
-						modal.trigger("ui.modal.hide.after");
-					});					
-				}
-				else {
-					if (disablePageScrolling) {
-						webui("body").css("padding-right", "");
-						webui("body").css("overflow", "");
+						
+						modal.hide().trigger("ui.modal.hide.after");
 					}
-					
-					modal.hide().trigger("ui.modal.hide.after");
-				}
 
-				if (focusReturnElement) {
-					var returnEl = webui(focusReturnElement).first();
+					if (focusReturnElement) {
+						var returnEl = webui(focusReturnElement).first();
 
-					if (returnEl && !returnEl.hasClass("disabled")) {
-						returnEl[0].focus();
+						if (returnEl && !returnEl.hasClass("disabled")) {
+							returnEl[0].focus();
+						}
 					}
 				}
-			}
-			return this;
-		};
+				return this;
+			};
 
 		this.openModal = function () {
 			showModal();
@@ -4002,6 +4039,16 @@
 
 			var control = new ModalInstance(this.first(), settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.closeFromBackdrop) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
+				if (newSettings.disablePageScrolling) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
+				if (newSettings.focusElement) { settings.focusElement = newSettings.focusElement; }
+				if (newSettings.focusReturnElement) { settings.focusReturnElement = newSettings.focusReturnElement; }
+				control = new ModalInstance(this.first(), settings);	
+			};
+
+
 			this.open = function () {
 				control.openModal();	
 			};
@@ -4026,171 +4073,170 @@
 	var NavbarInstance = function(navbar, settings) {
 
 		var
+			transitionDuration = settings.transitionDuration,
 
-		transitionDuration = settings.transitionDuration,
+			smallDeviceSubMenuPadding = settings.smallDeviceSubMenuPadding,
+			mediumDeviceSubMenuPadding = settings.mediumDeviceSubMenuPadding,
 
-		smallDeviceSubMenuPadding = settings.smallDeviceSubMenuPadding,
-		mediumDeviceSubMenuPadding = settings.mediumDeviceSubMenuPadding,
+			largeDeviceMenuReverse = settings.largeDeviceMenuReverse,
+			largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
+			largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
+			largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
+			largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
 
-		largeDeviceMenuReverse = settings.largeDeviceMenuReverse,
-		largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
-		largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
-		largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
-		largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
+			smallDeviceLogoColor = settings.smallDeviceLogoColor,
+			smallDeviceLogoBackground = settings.smallDeviceLogoBackground,
+			smallDeviceMenuColor = settings.smallDeviceMenuColor,
+			smallDeviceMenuBackground = settings.smallDeviceMenuBackground,
+			smallDeviceSubMenuColor = settings.smallDeviceSubMenuColor,
+			smallDeviceSubMenuBackground = settings.smallDeviceSubMenuBackground,
 
-		smallDeviceLogoColor = settings.smallDeviceLogoColor,
-		smallDeviceLogoBackground = settings.smallDeviceLogoBackground,
-		smallDeviceMenuColor = settings.smallDeviceMenuColor,
-		smallDeviceMenuBackground = settings.smallDeviceMenuBackground,
-		smallDeviceSubMenuColor = settings.smallDeviceSubMenuColor,
-		smallDeviceSubMenuBackground = settings.smallDeviceSubMenuBackground,
+			mediumDeviceLogoColor = settings.mediumDeviceLogoColor,
+			mediumDeviceLogoBackground = settings.mediumDeviceLogoBackground,
+			mediumDeviceMenuColor = settings.mediumDeviceMenuColor,
+			mediumDeviceMenuBackground = settings.mediumDeviceMenuBackground,
+			mediumDeviceSubMenuColor = settings.mediumDeviceSubMenuColor,
+			mediumDeviceSubMenuBackground = settings.mediumDeviceSubMenuBackground,
 
-		mediumDeviceLogoColor = settings.mediumDeviceLogoColor,
-		mediumDeviceLogoBackground = settings.mediumDeviceLogoBackground,
-		mediumDeviceMenuColor = settings.mediumDeviceMenuColor,
-		mediumDeviceMenuBackground = settings.mediumDeviceMenuBackground,
-		mediumDeviceSubMenuColor = settings.mediumDeviceSubMenuColor,
-		mediumDeviceSubMenuBackground = settings.mediumDeviceSubMenuBackground,
+			largeDeviceLogoColor = settings.largeDeviceLogoColor,
+			largeDeviceLogoBackground = settings.largeDeviceLogoBackground,
+			largeDeviceMenuColor = settings.largeDeviceMenuColor,
+			largeDeviceMenuBackground = settings.largeDeviceMenuBackground,
+			largeDeviceSubMenuColor = settings.largeDeviceSubMenuColor,
+			largeDeviceSubMenuBackground = settings.largeDeviceSubMenuBackground,
 
-		largeDeviceLogoColor = settings.largeDeviceLogoColor,
-		largeDeviceLogoBackground = settings.largeDeviceLogoBackground,
-		largeDeviceMenuColor = settings.largeDeviceMenuColor,
-		largeDeviceMenuBackground = settings.largeDeviceMenuBackground,
-		largeDeviceSubMenuColor = settings.largeDeviceSubMenuColor,
-		largeDeviceSubMenuBackground = settings.largeDeviceSubMenuBackground,
+			navButton = navbar.find("[class*='nav-button']").first(),
+			navActivators = navbar.find(".nav-activator"),	
 
-		navButton = navbar.find("[class*='nav-button']").first(),
-		navActivators = navbar.find(".nav-activator"),	
+			navLogo = navbar.find(".nav-logo").first(),
+			navMenu = navbar.children(".nav-menu").first(),
+			navItems = navMenu.children(".nav-item"),
+			navComponents = navMenu.children(".nav-component"),
+			navSubMenus = navbar.find(".nav-sub-menu"),
+			navSubMenuItems = navSubMenus.children(".nav-item"),
+			navSubMenuComponents = navSubMenus.children(".nav-component"),
 
-		navLogo = navbar.find(".nav-logo").first(),
-		navMenu = navbar.children(".nav-menu").first(),
-		navItems = navMenu.children(".nav-item"),
-		navComponents = navMenu.children(".nav-component"),
-		navSubMenus = navbar.find(".nav-sub-menu"),
-		navSubMenuItems = navSubMenus.children(".nav-item"),
-		navSubMenuComponents = navSubMenus.children(".nav-component"),
+			setSmallDeviceProperties = function() {
 
-		setSmallDeviceProperties = function() {
+				navSubMenus.css("padding", smallDeviceSubMenuPadding);
 
-			navSubMenus.css("padding", smallDeviceSubMenuPadding);
-
-			navLogo.css("color", smallDeviceLogoColor);
-			if (smallDeviceLogoBackground) {
-				navLogo.css("background", smallDeviceLogoBackground);
-			}
-			navMenu.css("color", smallDeviceMenuColor);
-			if (smallDeviceMenuBackground) {
-				navMenu.css("background", smallDeviceMenuBackground);
-			}
-			navSubMenus.css("color", smallDeviceSubMenuColor);
-			if (smallDeviceSubMenuBackground) {
-				navSubMenus.css("background", smallDeviceSubMenuBackground);
-			}
-		},
-
-		setMediumDeviceProperties = function() {
-
-			navSubMenus.css("padding", mediumDeviceSubMenuPadding);
-
-			navLogo.css("color", mediumDeviceLogoColor);
-			if (mediumDeviceLogoBackground) {
-				navLogo.css("background", mediumDeviceLogoBackground);
-			}
-			navMenu.css("color", mediumDeviceMenuColor);
-			if (mediumDeviceMenuBackground) {
-				navMenu.css("background", mediumDeviceMenuBackground);		
-			}
-			navSubMenus.css("color", mediumDeviceSubMenuColor);
-			if (mediumDeviceSubMenuBackground) {
-				navSubMenus.css("background", mediumDeviceSubMenuBackground);
-			}
-		},
-
-		setLargeDeviceProperties = function() {
-
-			if (largeDeviceMenuReverse) {
-				navMenu.css("flex-direction","row-reverse");
-				navLogo.css("text-align", "right");
-				
-				if (navItems.last().css("margin-right")) {
-					navItems.last().css("margin-left", largeDeviceMenuOffset);
+				navLogo.css("color", smallDeviceLogoColor);
+				if (smallDeviceLogoBackground) {
+					navLogo.css("background", smallDeviceLogoBackground);
 				}
-			}
-			else {
-				navItems.last().css("margin-right", largeDeviceMenuOffset);
-			}
-			
-			navItems.css("margin-left", largeDeviceMenuSpacing);
-			navSubMenus.css("margin-left", largeDeviceSubMenuOffset);
-			navSubMenus.css("padding", largeDeviceSubMenuPadding);
-			
-			navLogo.css("color", largeDeviceLogoColor);
-			if (largeDeviceLogoBackground) {
-				navLogo.css("background", largeDeviceLogoBackground);
-			}
-			navMenu.css("color", largeDeviceMenuColor);
-			if (largeDeviceMenuBackground) {
-				navMenu.css("background", largeDeviceMenuBackground);
-			}
-			navSubMenus.css("color", largeDeviceSubMenuColor);
-			if (largeDeviceSubMenuBackground) {
-				navSubMenus.css("background", largeDeviceSubMenuBackground);
-			}
-		},
+				navMenu.css("color", smallDeviceMenuColor);
+				if (smallDeviceMenuBackground) {
+					navMenu.css("background", smallDeviceMenuBackground);
+				}
+				navSubMenus.css("color", smallDeviceSubMenuColor);
+				if (smallDeviceSubMenuBackground) {
+					navSubMenus.css("background", smallDeviceSubMenuBackground);
+				}
+			},
 
-		setNavbarProperties = function() {
+			setMediumDeviceProperties = function() {
 
-			if (webui.isWindowInBreakPointRange([0, 3])) {
-				setSmallDeviceProperties();
-			}
-			else if (webui.isWindowInBreakPointRange([3, 4])) {
-				setMediumDeviceProperties();
-			}
-			else {
-				setLargeDeviceProperties();
-			}
-		},
+				navSubMenus.css("padding", mediumDeviceSubMenuPadding);
 
-		resetNavbar = function() {	
+				navLogo.css("color", mediumDeviceLogoColor);
+				if (mediumDeviceLogoBackground) {
+					navLogo.css("background", mediumDeviceLogoBackground);
+				}
+				navMenu.css("color", mediumDeviceMenuColor);
+				if (mediumDeviceMenuBackground) {
+					navMenu.css("background", mediumDeviceMenuBackground);		
+				}
+				navSubMenus.css("color", mediumDeviceSubMenuColor);
+				if (mediumDeviceSubMenuBackground) {
+					navSubMenus.css("background", mediumDeviceSubMenuBackground);
+				}
+			},
 
-			navLogo.attr("style", "");
-			navMenu.attr("style","");
-			navItems.attr("style", "");
-			navComponents.attr("style", "");
-			navSubMenus.attr("style", "");
+			setLargeDeviceProperties = function() {
 
-	
-			if (webui.isWindowInBreakPointRange([0, 3])) {
-
-				navButton.parent().siblings(".nav-item, .nav-component").hide();
-				navButton.removeClass("active");
-				navSubMenus.hide();
-				navActivators.removeClass("active");
-
-				setSmallDeviceProperties();	
-			}
-			else if (webui.isWindowInBreakPointRange([3, 4])) {
-
-				navButton.parent().siblings(".nav-item").hide();
-				navButton.removeClass("active");
-				navSubMenus.hide();
-				navActivators.removeClass("active");
-	
-				navButton.parent().siblings(".nav-component").show();
-
-				setMediumDeviceProperties();
-			}
-			else {
-
-				navSubMenus.hide();
+				if (largeDeviceMenuReverse) {
+					navMenu.css("flex-direction","row-reverse");
+					navLogo.css("text-align", "right");
+					
+					if (navItems.last().css("margin-right")) {
+						navItems.last().css("margin-left", largeDeviceMenuOffset);
+					}
+				}
+				else {
+					navItems.last().css("margin-right", largeDeviceMenuOffset);
+				}
 				
-				navButton.parent().siblings(".nav-item, .nav-component").show();
-				navSubMenus.children(".nav-item").show();
+				navItems.css("margin-left", largeDeviceMenuSpacing);
+				navSubMenus.css("margin-left", largeDeviceSubMenuOffset);
+				navSubMenus.css("padding", largeDeviceSubMenuPadding);
+				
+				navLogo.css("color", largeDeviceLogoColor);
+				if (largeDeviceLogoBackground) {
+					navLogo.css("background", largeDeviceLogoBackground);
+				}
+				navMenu.css("color", largeDeviceMenuColor);
+				if (largeDeviceMenuBackground) {
+					navMenu.css("background", largeDeviceMenuBackground);
+				}
+				navSubMenus.css("color", largeDeviceSubMenuColor);
+				if (largeDeviceSubMenuBackground) {
+					navSubMenus.css("background", largeDeviceSubMenuBackground);
+				}
+			},
 
-				setLargeDeviceProperties();
-			}
-	
-		};
+			setNavbarProperties = function() {
+
+				if (webui.isWindowInBreakPointRange([0, 3])) {
+					setSmallDeviceProperties();
+				}
+				else if (webui.isWindowInBreakPointRange([3, 4])) {
+					setMediumDeviceProperties();
+				}
+				else {
+					setLargeDeviceProperties();
+				}
+			},
+
+			resetNavbar = function() {	
+
+				navLogo.attr("style", "");
+				navMenu.attr("style","");
+				navItems.attr("style", "");
+				navComponents.attr("style", "");
+				navSubMenus.attr("style", "");
+
+		
+				if (webui.isWindowInBreakPointRange([0, 3])) {
+
+					navButton.parent().siblings(".nav-item, .nav-component").hide();
+					navButton.removeClass("active");
+					navSubMenus.hide();
+					navActivators.removeClass("active");
+
+					setSmallDeviceProperties();	
+				}
+				else if (webui.isWindowInBreakPointRange([3, 4])) {
+
+					navButton.parent().siblings(".nav-item").hide();
+					navButton.removeClass("active");
+					navSubMenus.hide();
+					navActivators.removeClass("active");
+		
+					navButton.parent().siblings(".nav-component").show();
+
+					setMediumDeviceProperties();
+				}
+				else {
+
+					navSubMenus.hide();
+					
+					navButton.parent().siblings(".nav-item, .nav-component").show();
+					navSubMenus.children(".nav-item").show();
+
+					setLargeDeviceProperties();
+				}
+		
+			};
 
 		setNavbarProperties();
 		
@@ -4317,6 +4363,40 @@
 			if (this.length > 1) { console.warn("WebUI navbar component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new NavbarInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.smallDeviceSubMenuPadding) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+				if (newSettings.mediumDeviceSubMenuPadding) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+				if (newSettings.largeDeviceMenuReverse) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
+				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }	
+				if (newSettings.largeDeviceSubMenuPadding) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+				if (newSettings.largeDeviceSubMenuOffset) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+
+				if (newSettings.smallDeviceLogoColor) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
+				if (newSettings.smallDeviceLogoBackground) { settings.smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
+				if (newSettings.smallDeviceMenuColor) { settings.smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
+				if (newSettings.smallDeviceMenuBackground) { settings.smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
+				if (newSettings.smallDeviceSubMenuColor) { settings.smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
+				if (newSettings.smallDeviceSubMenuBackground) { settings.smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
+
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				control = new NavbarInstance(this.first(), settings);	
+			};
+
 
 			return this;
 		},
@@ -4637,131 +4717,127 @@
 	var TabsInstance = function(tabs, settings) {
 
 		var 
-			transitionDuration = settings.transitionDuration,
-			transitionType = settings.transitionType,
+		transitionDuration = settings.transitionDuration,
+		transitionType = settings.transitionType,
 
-			selectTab = function (tabAcivator) {
+		selectTab = function (tabAcivator) {
 
-				var tabId = tabAcivator.data("target");
+			var tabId = tabAcivator.data("target");
 
-				if (tabId) {
+			if (tabId) {
 
-					var prevTabId = "#" + tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
+				var prevTabId = "#" + tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
 
-					tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
+				tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
 
-					tabAcivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
+				tabAcivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
 
-					var activeTab = tabAcivator.parents(".tabs").find(tabId).first();
-					
-					if (transitionType === "fade") {
-						activeTab.show().children().fadeIn(transitionDuration);
-					}
-					else if (transitionType === "collapse") {
-						activeTab.expandVertical(transitionDuration, "auto");
-					}
-					else {
-						activeTab.show();
-					}
-
-					
-					activeTab.addClass("selected");
-
-					if (transitionType === "fade") {
-						activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-						activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-						activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
-						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
-						
-						activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
-					}
-					else if (transitionType === "collapse") {
-						activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
-						activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-						activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
-						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-
-						activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");			
-					}
-					else {
-						activeTab.siblings(".tab-item").hide();			
-						activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
-						activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
-						activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
-						
-						activeTab.find(".tabs").find(".tab-item").first().show();									
-					}
-					
-					tabAcivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
+				var activeTab = tabAcivator.parents(".tabs").find(tabId).first();
+				
+				if (transitionType === "fade") {
+					activeTab.show().children().fadeIn(transitionDuration);
 				}
-			},
+				else if (transitionType === "collapse") {
+					activeTab.expandVertical(transitionDuration, "auto");
+				}
+				else {
+					activeTab.show();
+				}
 
-			initializeTabEvents = function (callback) {
+				
+				activeTab.addClass("selected");
 
-				tabs.find(".tab-activator").click(function (e) {
-					e.preventDefault();
-					var activators = webui(this);
+				if (transitionType === "fade") {
+					activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					activeTab.parent(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					activeTab.parent(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().fadeOut(transitionDuration);
+					
+					activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
+				}
+				else if (transitionType === "collapse") {
+					activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
+					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
 
-					if (activators.length) {
-						selectTab(activators.first());
-					}
-				});
-			
-				tabs.find(".tab-activator-focus").focus(function (e) {
-					e.preventDefault();
-					var activators = webui(this);
+					activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");			
+				}
+				else {
+					activeTab.siblings(".tab-item").hide();			
+					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide();
+					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide();			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide();
+					
+					activeTab.find(".tabs").find(".tab-item").first().show();									
+				}
+				
+				tabAcivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
+			}
+		},
 
-					if (activators.length) {
-						selectTab(activators.first());
-					}	
-				});
-				callback();
-			},
+		initializeTabEvents = function (callback) {
 
-			setActiveTab = function () {
+			tabs.find(".tab-activator").click(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
 
-				if (settings.activeTabId) {
-					var dataTarget = tabs.find("[data-target='" + settings.activeTabId + "']").first();
-					if (dataTarget) {
-						dataTarget[0].click();
-						dataTarget.addClass("selected");
-						if (settings.activeTabFocused) {
-							dataTarget[0].focus();
-						}
-					}
-					else {
-						var href = tabs.find("[href='" + settings.activeTabId + "']").first();
-						if (href) {
-							href[0].click();
-							href.addClass("selected");
-							if (settings.activeTabFocused) {
-								href[0].focus();
-							}
-						}							
+				if (activators.length) {
+					selectTab(activators.first());
+				}
+			});
+		
+			tabs.find(".tab-activator-focus").focus(function (e) {
+				e.preventDefault();
+				var activators = webui(this);
+
+				if (activators.length) {
+					selectTab(activators.first());
+				}	
+			});
+			callback();
+		},
+
+		setActiveTab = function () {
+
+			if (settings.activeTabId) {
+				var dataTarget = tabs.find("[data-target='" + settings.activeTabId + "']").first();
+				if (dataTarget) {
+					dataTarget[0].click();
+					dataTarget.addClass("selected");
+					if (settings.activeTabFocused) {
+						dataTarget[0].focus();
 					}
 				}
 				else {
-					var tab = tabs.find(".tab-activator").last().siblings().last();
+					var href = tabs.find("[href='" + settings.activeTabId + "']").first();
+					if (href) {
+						href[0].click();
+						href.addClass("selected");
+						if (settings.activeTabFocused) {
+							href[0].focus();
+						}
+					}							
+				}
+			}
+			else {
+				var tab = tabs.find(".tab-activator").last().siblings().last();
+				if (tab.length) {
+					tab[0].click();
+				}
+				else {
+					tab = tabs.find(".tab-activator-focus").last().siblings().last();
 					if (tab.length) {
 						tab[0].click();
 					}
-					else {
-						tab = tabs.find(".tab-activator-focus").last().siblings().last();
-						if (tab.length) {
-							tab[0].click();
-						}
-					}
-				}		
-	
-			};
+				}
+			}		
 
-			this.initializeTabs = function () {
+		};
 
-				initializeTabEvents(function() {
-					setActiveTab();
-				});
-				
-			};
+		initializeTabEvents(function() {
+			setActiveTab();
+		});			
 
 	};
 
@@ -4781,7 +4857,13 @@
 
 			var control = new TabsInstance(this.first(), settings);
 
-			control.initializeTabs();
+			this.update = function (newSettings) {
+				if (newSettings.activeTabId) { settings.activeTabId = newSettings.activeTabId; }
+				if (newSettings.activeTabFocused) { settings.activeTabFocused = newSettings.activeTabFocused; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				control = new TabsInstance(this.first(), settings);	
+			};
 
 	
 			return this;
@@ -4804,7 +4886,7 @@
 			duration = settings.duration,
 			transitionDuration = settings.transitionDuration,
 			toastItemTemplate = settings.toastItemTemplate,
-			toastItemOrder = settings.toastItemOrder,
+			displayOrder = settings.displayOrder,
 			autoHide = settings.autoHide,
 
 			showToastItem = function() {
@@ -4816,7 +4898,7 @@
 
 					var toastItem = webui(itemTemplate[0].cloneNode(true));
 
-					if (toastItemOrder.toLowerCase() === "descending") {
+					if (displayOrder.toLowerCase() === "descending") {
 						toastItem.appendTo(toastContainer);
 					}
 					else {
@@ -4893,13 +4975,24 @@
 				duration: 3000,
 				transitionDuration: 300,
 				toastItemTemplate: null,
-				toastItemOrder: "ascending",
+				displayOrder: "ascending",
 				autoHide: false
 			}, options);
 
 			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ToastInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.position) { settings.position = newSettings.position; }
+				if (newSettings.width) { settings.width = newSettings.width; }
+				if (newSettings.duration) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.toastItemTemplate) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
+				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
+				control = new ToastInstance(this.first(), settings);	
+			};
 
 			this.showToastItem = function () {
 				control.showToastItem();	
@@ -4918,7 +5011,6 @@
 	/* PRIVATE */
 
 	var TooltipInstance = function(context, settings) {
-
 
 		var
 			autoPositioning = settings.autoPositioning,
@@ -5245,13 +5337,13 @@
 			};
 
 
-			this.showTooltip = function (tooltipWrapper, message) {
-				showTooltip(tooltipWrapper, message);
-			};
+		this.showTooltip = function (tooltipWrapper, message) {
+			showTooltip(tooltipWrapper, message);
+		};
 
-			this.hideTooltip = function (tooltipWrapper) {
-				hideTooltip(tooltipWrapper);
-			};
+		this.hideTooltip = function (tooltipWrapper) {
+			hideTooltip(tooltipWrapper);
+		};
 
 	
 
@@ -5360,6 +5452,14 @@
 
 			var control = new TooltipInstance(this, settings);
 
+			this.update = function (newSettings) {
+				if (newSettings.autoPositioning) { settings.autoPositioning = newSettings.autoPositioning; }
+				if (newSettings.autoResizing) { settings.autoResizing = newSettings.autoResizing; }
+				if (newSettings.autoPositioningMargin) { settings.autoPositioningMargin = newSettings.autoPositioningMargin; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				control = new TooltipInstance(this.first(), settings);	
+			};
+
 
 			this.showTooltip = function (tooltipWrapper, message) {
 				control.showTooltip(tooltipWrapper, message);	
@@ -5390,62 +5490,62 @@
 			scrollY = settings.scrollY;
 
 
-			if (showFiles === false) {
-				control.siblings().first("label").addClass("hide-files");
-			}
-			if (showCount === false) {
-				control.siblings().first("label").addClass("hide-count");
-			}
-			if (scrollX) {
-				control.siblings().first("label").css("overflow-x", "scroll");
-				control.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
-			}
-			if (scrollY) {
-				control.siblings().first("label").css("overflow-y", "scroll");
-				control.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
-				control.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
-			}
+		if (showFiles === false) {
+			control.siblings().first("label").addClass("hide-files");
+		}
+		if (showCount === false) {
+			control.siblings().first("label").addClass("hide-count");
+		}
+		if (scrollX) {
+			control.siblings().first("label").css("overflow-x", "scroll");
+			control.select(".upload-icon-bottom").siblings().first("label").css("background-position", "center calc(96% - 15px)");
+		}
+		if (scrollY) {
+			control.siblings().first("label").css("overflow-y", "scroll");
+			control.select(".upload.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 5px");
+			control.select(".upload-sm.upload-icon-right").siblings().first("label").css("background-position", "calc(97% - 15px) 2px");
+		}
 
-			control.change(function() {
-				
-				var upload = webui(this);
-		
-				if (upload) {
-		
-					upload.trigger("ui.upload.change.before");				
-					var label = upload.siblings("label").first();
-					if (upload.length > 0) {
-						var files = upload[0].files;
-						if (files != null && files.length > 0) {
-							if (label) {
-								var textValue = "";
-								if (label.hasClass("hide-files") === false) {
-									for (var i = 0; i < files.length; i++) {
-										textValue += files[i].name + "<br />";
-									}
+		control.change(function() {
+			
+			var upload = webui(this);
+	
+			if (upload) {
+	
+				upload.trigger("ui.upload.change.before");				
+				var label = upload.siblings("label").first();
+				if (upload.length > 0) {
+					var files = upload[0].files;
+					if (files != null && files.length > 0) {
+						if (label) {
+							var textValue = "";
+							if (label.hasClass("hide-files") === false) {
+								for (var i = 0; i < files.length; i++) {
+									textValue += files[i].name + "<br />";
 								}
-								if (label.hasClass("hide-count") === false) {
-									if (files.length > 1) {
-										textValue += "<br />(" + files.length + ") files.";
-									}
-								}
-								if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-									textValue += "<br />Files ready.";
-								}
-								label.html(textValue);
-								upload.trigger("ui.upload.change.after");
 							}
-						} else {
-							if (upload.val() !== null && upload.val().length > 0) {
-								if (label) {
-									label.text(upload.val().replace("C:\\fakepath\\", ""));
-									upload.trigger("ui.upload.change.after");
+							if (label.hasClass("hide-count") === false) {
+								if (files.length > 1) {
+									textValue += "<br />(" + files.length + ") files.";
 								}
+							}
+							if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
+								textValue += "<br />Files ready.";
+							}
+							label.html(textValue);
+							upload.trigger("ui.upload.change.after");
+						}
+					} else {
+						if (upload.val() !== null && upload.val().length > 0) {
+							if (label) {
+								label.text(upload.val().replace("C:\\fakepath\\", ""));
+								upload.trigger("ui.upload.change.after");
 							}
 						}
 					}
 				}
-			});	
+			}
+		});	
 
 	};
 
@@ -5464,6 +5564,15 @@
 			if (this.length > 1) { console.warn("WebUI upload component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new UploadInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.showFiles) { settings.showFiles = newSettings.showFiles; }
+				if (newSettings.showCount) { settings.showCount = newSettings.showCount; }
+				if (newSettings.scrollX) { settings.scrollX = newSettings.scrollX; }
+				if (newSettings.scrollY) { settings.scrollY = newSettings.scrollY; }
+				control = new UploadInstance(this.first(), settings);	
+			};
+
 			
 			return this;
 		},

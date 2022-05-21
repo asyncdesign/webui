@@ -11,7 +11,7 @@
 			duration = settings.duration,
 			transitionDuration = settings.transitionDuration,
 			toastItemTemplate = settings.toastItemTemplate,
-			toastItemOrder = settings.toastItemOrder,
+			displayOrder = settings.displayOrder,
 			autoHide = settings.autoHide,
 
 			showToastItem = function() {
@@ -23,7 +23,7 @@
 
 					var toastItem = webui(itemTemplate[0].cloneNode(true));
 
-					if (toastItemOrder.toLowerCase() === "descending") {
+					if (displayOrder.toLowerCase() === "descending") {
 						toastItem.appendTo(toastContainer);
 					}
 					else {
@@ -100,13 +100,24 @@
 				duration: 3000,
 				transitionDuration: 300,
 				toastItemTemplate: null,
-				toastItemOrder: "ascending",
+				displayOrder: "ascending",
 				autoHide: false
 			}, options);
 
 			if (this.length > 1) { console.warn("WebUI toast component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ToastInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.position) { settings.position = newSettings.position; }
+				if (newSettings.width) { settings.width = newSettings.width; }
+				if (newSettings.duration) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.toastItemTemplate) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
+				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
+				control = new ToastInstance(this.first(), settings);	
+			};
 
 			this.showToastItem = function () {
 				control.showToastItem();	

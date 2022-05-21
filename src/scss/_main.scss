@@ -1,5 +1,5 @@
 :root {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 *,
 *::before,
@@ -14,7 +14,7 @@
 	outline: none;
 }
 html {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%;
 }
 body {
@@ -936,9 +936,6 @@ svg:not(:root) {
 	background-color: $theme_default;
 	border-radius: 0;
 }
-.progress > progress::-ms-fill {
-	background-color: $theme_default;
-}
 .progress > .progress-label {
 		display: block;
 		position: absolute;
@@ -957,9 +954,6 @@ svg:not(:root) {
 .progress-default > progress::-moz-progress-bar {
 	background-color: $theme_default;
 }
-.progress-default > progress::-ms-fill {
-	background-color: $theme_default;
-}
 .progress-light > progress {
 	border: 1px solid $theme_light;
 }
@@ -967,9 +961,6 @@ svg:not(:root) {
 	background-color: $theme_light;
 }
 .progress-light > progress::-moz-progress-bar {
-	background-color: $theme_light;
-}
-.progress-light > progress::-ms-fill {
 	background-color: $theme_light;
 }
 .progress-dark > progress {
@@ -981,9 +972,6 @@ svg:not(:root) {
 .progress-dark > progress::-moz-progress-bar {
 	background-color: $theme_dark;
 }
-.progress-dark > progress::-ms-fill {
-	background-color: $theme_dark;
-}
 .progress-accent-1 > progress {
 	border: 1px solid $theme_accent_1;
 }
@@ -991,9 +979,6 @@ svg:not(:root) {
 	background-color: $theme_accent_1;
 }
 .progress-accent-1 > progress::-moz-progress-bar {
-	background-color: $theme_accent_1;
-}
-.progress-accent-1 > progress::-ms-fill {
 	background-color: $theme_accent_1;
 }
 .progress-accent-2 > progress {
@@ -1005,9 +990,6 @@ svg:not(:root) {
 .progress-accent-2 > progress::-moz-progress-bar {
 	background-color: $theme_accent_2;
 }
-.progress-accent-2 > progress::-ms-fill {
-	background-color: $theme_accent_2;
-}
 .progress-accent-3 > progress {
 	border: 1px solid $theme_accent_3;
 }
@@ -1015,9 +997,6 @@ svg:not(:root) {
 	background-color: $theme_accent_3;
 }
 .progress-accent-3 > progress::-moz-progress-bar {
-	background-color: $theme_accent_3;
-}
-.progress-accent-3 > progress::-ms-fill {
 	background-color: $theme_accent_3;
 }
 .progress-accent-4 > progress {
@@ -1029,9 +1008,6 @@ svg:not(:root) {
 .progress-accent-4 > progress::-moz-progress-bar {
 	background-color: $theme_accent_4;
 }
-.progress-accent-4 > progress::-ms-fill {
-	background-color: $theme_accent_4;
-}
 .progress-accent-5 > progress {
 	border: 1px solid $theme_accent_5;
 }
@@ -1039,9 +1015,6 @@ svg:not(:root) {
 	background-color: $theme_accent_5;
 }
 .progress-accent-5 > progress::-moz-progress-bar {
-	background-color: $theme_accent_5;
-}
-.progress-accent-5 > progress::-ms-fill {
 	background-color: $theme_accent_5;
 }
 .progress.rounded-sm > progress {
@@ -1108,26 +1081,6 @@ svg:not(:root) {
 	border-radius: 0;
 	margin-top: -0.45rem;
 }
-.range::-ms-track {
-	height: 0.35rem;
-	color: transparent;
-	border: none;
-}
-.range::-ms-thumb {
-	width: 0.85rem;
-	height: 1.45rem;
-	background: $theme_default;
-	border: none;
-	margin-top: 0;
-}
-.range::-ms-fill-lower,
-.range::-ms-fill-upper {
-	background: $theme_default_active;
-}
-.range:focus::-ms-fill-lower,
-.range:focus::-ms-fill-upper {
-	background: $theme_default_highlight;
-}
 .range-series {
 		display: flex;
 		justify-content: space-between;
@@ -1160,20 +1113,6 @@ svg:not(:root) {
 		background-color: $theme_default_hover;
 	}
 }
-.range-default::-ms-fill-lower,
-.range-default::-ms-fill-upper {
-	background: $theme_default_active;
-}
-.range-default:focus::-ms-fill-lower,
-.range-default:focus::-ms-fill-upper {
-	background: $theme_default_highlight;
-}
-.range-default::-ms-thumb {
-	background: $theme_default;
-	&:hover {
-		background-color: $theme_default_hover;
-	}
-}
 .range-light::-webkit-slider-runnable-track {
 	background: $theme_light;
 }
@@ -1193,20 +1132,6 @@ svg:not(:root) {
 	background: $theme_light_highlight;
 }
 .range-light::-moz-range-thumb {
-	background: $theme_light;
-	&:hover {
-		background-color: $theme_light_hover;
-	}
-}
-.range-light::-ms-fill-lower,
-.range-light::-ms-fill-upper {
-	background: $theme_light;
-}
-.range-light:focus::-ms-fill-lower,
-.range-light:focus::-ms-fill-upper {
-	background: $theme_light_highlight;
-}
-.range-light::-ms-thumb {
 	background: $theme_light;
 	&:hover {
 		background-color: $theme_light_hover;
@@ -1236,20 +1161,6 @@ svg:not(:root) {
 		background-color: $theme_dark;
 	}
 }
-.range-dark::-ms-fill-lower,
-.range-dark::-ms-fill-upper {
-	background: $theme_dark;
-}
-.range-dark:focus::-ms-fill-lower,
-.range-dark:focus::-ms-fill-upper {
-	background: $theme_dark_active;
-}
-.range-dark::-ms-thumb {
-	background: $theme_dark_active;
-	&:hover {
-		background-color: $theme_dark;
-	}
-}
 .range-accent-1::-webkit-slider-runnable-track {
 	background: $theme_accent_1;
 }
@@ -1269,20 +1180,6 @@ svg:not(:root) {
 	background: $theme_accent_1_active;
 }
 .range-accent-1::-moz-range-thumb {
-	background: $theme_accent_1_active;
-	&:hover {
-		background-color: $theme_accent_1;
-	}
-}
-.range-accent-1::-ms-fill-lower,
-.range-accent-1::-ms-fill-upper {
-	background: $theme_accent_1;
-}
-.range-accent-1:focus::-ms-fill-lower,
-.range-accent-1:focus::-ms-fill-upper {
-	background: $theme_accent_1_active;
-}
-.range-accent-1::-ms-thumb {
 	background: $theme_accent_1_active;
 	&:hover {
 		background-color: $theme_accent_1;
@@ -1312,20 +1209,6 @@ svg:not(:root) {
 		background-color: $theme_accent_2;
 	}
 }
-.range-accent-2::-ms-fill-lower,
-.range-accent-2::-ms-fill-upper {
-	background: $theme_accent_2;
-}
-.range-accent-2:focus::-ms-fill-lower,
-.range-accent-2:focus::-ms-fill-upper {
-	background: $theme_accent_2_active;
-}
-.range-accent-2::-ms-thumb {
-	background: $theme_accent_2_active;
-	&:hover {
-		background-color: $theme_accent_2;
-	}
-}
 .range-accent-3::-webkit-slider-runnable-track {
 	background: $theme_accent_3;
 }
@@ -1345,20 +1228,6 @@ svg:not(:root) {
 	background: $theme_accent_3_active;
 }
 .range-accent-3::-moz-range-thumb {
-	background: $theme_accent_3_active;
-	&:hover {
-		background-color: $theme_accent_3;
-	}
-}
-.range-accent-3::-ms-fill-lower,
-.range-accent-3::-ms-fill-upper {
-	background: $theme_accent_3;
-}
-.range-accent-3:focus::-ms-fill-lower,
-.range-accent-3:focus::-ms-fill-upper {
-	background: $theme_accent_3_active;
-}
-.range-accent-3::-ms-thumb {
 	background: $theme_accent_3_active;
 	&:hover {
 		background-color: $theme_accent_3;
@@ -1388,20 +1257,6 @@ svg:not(:root) {
 		background-color: $theme_accent_4;
 	}
 }
-.range-accent-4::-ms-fill-lower,
-.range-accent-4::-ms-fill-upper {
-	background: $theme_accent_4;
-}
-.range-accent-4:focus::-ms-fill-lower,
-.range-accent-4:focus::-ms-fill-upper {
-	background: $theme_accent_4_active;
-}
-.range-accent-4::-ms-thumb {
-	background: $theme_accent_4_active;
-	&:hover {
-		background-color: $theme_accent_4;
-	}
-}
 .range-accent-5::-webkit-slider-runnable-track {
 	background: $theme_accent_5;
 }
@@ -1426,20 +1281,6 @@ svg:not(:root) {
 		background-color: $theme_accent_5;
 	}
 }
-.range-accent-5::-ms-fill-lower,
-.range-accent-5::-ms-fill-upper {
-	background: $theme_accent_5_active;
-}
-.range-accent-5:focus::-ms-fill-lower,
-.range-accent-5:focus::-ms-fill-upper {
-	background: $theme_accent_5_dark;
-}
-.range-accent-5::-ms-thumb {
-	background: $theme_accent_5;
-	&:hover {
-		background-color: $theme_accent_5_hover;
-	}
-}
 .range.range-rounded::-webkit-slider-runnable-track {
 	border-radius: 0.188rem;
 } 
@@ -1457,16 +1298,6 @@ svg:not(:root) {
 	height: 1.08rem;
 	border-radius: 50%;
 	margin-top: -0.35rem;
-}
-.range.range-rounded::-ms-thumb {
-	width: 1.23rem;
-	height: 1.23rem;
-	border-radius: 50%;
-	margin: 0.25rem;
-}
-.range.range-rounded::-ms-fill-lower,
-.range.range-rounded::-ms-fill-upper {
-	border-radius: 0.188rem;
 }
 *[class*="toggle-button"] {
 	label {
@@ -2079,6 +1910,8 @@ svg:not(:root) {
 .accessibility *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility .range:focus::-webkit-slider-thumb,
+.accessibility .range:focus::-moz-range-thumb,
 .accessibility .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2094,6 +1927,8 @@ svg:not(:root) {
 .accessibility-light *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-light *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-light *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-light .range:focus::-webkit-slider-thumb,
+.accessibility-light .range:focus::-moz-range-thumb,
 .accessibility-light .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2109,6 +1944,8 @@ svg:not(:root) {
 .accessibility-dark *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-dark *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-dark *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-dark .range:focus::-webkit-slider-thumb,
+.accessibility-dark .range:focus::-moz-range-thumb,
 .accessibility-dark .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2124,6 +1961,8 @@ svg:not(:root) {
 .accessibility-accent-1 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-1 *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-accent-1 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-accent-1 .range:focus::-webkit-slider-thumb,
+.accessibility-accent-1 .range:focus::-moz-range-thumb,
 .accessibility-accent-1 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2139,6 +1978,8 @@ svg:not(:root) {
 .accessibility-accent-2 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-2 *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-accent-2 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-accent-2 .range:focus::-webkit-slider-thumb,
+.accessibility-accent-2 .range:focus::-moz-range-thumb,
 .accessibility-accent-2 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2154,6 +1995,8 @@ svg:not(:root) {
 .accessibility-accent-3 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-3 *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-accent-3 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-accent-3 .range:focus::-webkit-slider-thumb,
+.accessibility-accent-3 .range:focus::-moz-range-thumb,
 .accessibility-accent-3 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2169,6 +2012,8 @@ svg:not(:root) {
 .accessibility-accent-4 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-4 *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-accent-4 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-accent-4 .range:focus::-webkit-slider-thumb,
+.accessibility-accent-4 .range:focus::-moz-range-thumb,
 .accessibility-accent-4 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -2184,6 +2029,8 @@ svg:not(:root) {
 .accessibility-accent-5 *[class*="radio"] input:not([disabled]) + label:focus,
 .accessibility-accent-5 *[class*="toggle-button"] input:not([disabled]) + label:focus,
 .accessibility-accent-5 *[class*="toggle-switch"] input:not([disabled]) + label:focus,
+.accessibility-accent-5 .range:focus::-webkit-slider-thumb,
+.accessibility-accent-5 .range:focus::-moz-range-thumb,
 .accessibility-accent-5 .control:not([disabled]):focus {
 	&.group-item {
 		position: relative;
@@ -3417,21 +3264,6 @@ svg:not(:root) {
 .range[disabled]::-moz-range-thumb,
 .range.control-disabled::-moz-range-thumb,
 .control-group-disabled .range::-moz-range-thumb {
-	background-color: $theme_disabled !important;
-}
-.range[disabled]::-ms-fill-lower,
-.range.control-disabled::-ms-fill-lower,
-.control-group-disabled .range::-ms-fill-lower {
-	background-color: $theme_disabled !important;
-}
-.range[disabled]::-ms-fill-upper,
-.range.control-disabled::-ms-fill-upper,
-.control-group-disabled .range::-ms-fill-upper {
-	background-color: $theme_disabled !important;
-}
-.range[disabled]::-ms-thumb,
-.range.control-disabled::-ms-thumb,
-.control-group-disabled .range::-ms-thumb {
 	background-color: $theme_disabled !important;
 }
 .range-series.control-disabled,

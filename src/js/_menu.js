@@ -7,97 +7,97 @@
 
 		var
 
-		transitionDuration = settings.transitionDuration,
-		transitionType = settings.transitionType,
+			transitionDuration = settings.transitionDuration,
+			transitionType = settings.transitionType,
 
-		navigateTo = function(url) {
-			if (url) {
-				location.href = url;
-			}
-		},
-
-		toggleDropdown = function (menuActivator) {
-	
-			if (menuActivator) {
-	
-				var dropdown = menuActivator.nextSibling("[class*='dropdown-']");
-	
-				if (dropdown) {
-	
-					if (dropdown.length) {
-	
-						if (dropdown.css("display") === "block") {
-	
-							dropdown.trigger("ui.dropdown.hide.before");
-	
-							if (transitionType === "fade") {
-								dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
-							}
-							else if (transitionType === "collapse") {
-								dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
-							}
-							else {
-								dropdown.hide().trigger("ui.dropdown.hide.after");
-							}
-	
-							if (dropdown.parent(".dropdown").length) {
-								var siblingDropdowns = dropdown.find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide();
-								if (transitionType === "fade") {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
-								}
-								else if (transitionType === "collapse") {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
-								}
-								else {
-									siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
-								}
-							}
-						}
-						else {
-							
-							dropdown.trigger("ui.dropdown.show.before");
-	
-							if (transitionType === "fade") {
-								dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
-							}
-							else if (transitionType === "collapse") {
-								dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
-							}
-							else {
-								dropdown.show().trigger("ui.dropdown.show.after");
-							}
-	
-							if (dropdown.hasClass("menu-inclusive") === false) {
-	
-								if (transitionType === "fade") {
-									dropdown.prevSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
-									dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
-								}
-								else if (transitionType === "collapse") {
-									dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-									dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-								}
-								else {
-									dropdown.prevSiblings("[class*='dropdown-']").hide();
-									dropdown.nextSiblings("[class*='dropdown-']").hide();
-								}
-							}
-						}
-					}
-					dropdown.select(".menu-close").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
-						menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
-						navigateTo(webui(this).data("url"));
-					});
-					dropdown.select(".menu-close").find("a:not(.menu-activator):not(.menu-activator-focus)").click(function (e) {
-						menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
-					});
-					dropdown.select(":not(.menu-close)").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
-						navigateTo(webui(this).data("url"));
-					});
+			navigateTo = function(url) {
+				if (url) {
+					location.href = url;
 				}
-			}
+			},
 
-		};
+			toggleDropdown = function (menuActivator) {
+		
+				if (menuActivator) {
+		
+					var dropdown = menuActivator.nextSibling("[class*='dropdown-']");
+		
+					if (dropdown) {
+		
+						if (dropdown.length) {
+		
+							if (dropdown.css("display") === "block") {
+		
+								dropdown.trigger("ui.dropdown.hide.before");
+		
+								if (transitionType === "fade") {
+									dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
+								}
+								else if (transitionType === "collapse") {
+									dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+								}
+								else {
+									dropdown.hide().trigger("ui.dropdown.hide.after");
+								}
+		
+								if (dropdown.parent(".dropdown").length) {
+									var siblingDropdowns = dropdown.find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide();
+									if (transitionType === "fade") {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
+									}
+									else if (transitionType === "collapse") {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
+									}
+									else {
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
+									}
+								}
+							}
+							else {
+								
+								dropdown.trigger("ui.dropdown.show.before");
+		
+								if (transitionType === "fade") {
+									dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
+								}
+								else if (transitionType === "collapse") {
+									dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+								}
+								else {
+									dropdown.show().trigger("ui.dropdown.show.after");
+								}
+		
+								if (dropdown.hasClass("menu-inclusive") === false) {
+		
+									if (transitionType === "fade") {
+										dropdown.prevSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
+										dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
+									}
+									else if (transitionType === "collapse") {
+										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+									}
+									else {
+										dropdown.prevSiblings("[class*='dropdown-']").hide();
+										dropdown.nextSiblings("[class*='dropdown-']").hide();
+									}
+								}
+							}
+						}
+						dropdown.select(".menu-close").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
+							menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
+							navigateTo(webui(this).data("url"));
+						});
+						dropdown.select(".menu-close").find("a:not(.menu-activator):not(.menu-activator-focus)").click(function (e) {
+							menuActivator.parents("[class*='dropdown-']").find("[class*='menu-activator']").siblings("[class*='dropdown-']").hide().first().parents("[class*='dropdown-']").first().hide();
+						});
+						dropdown.select(":not(.menu-close)").find("[class*='menu-button']:not(.menu-activator):not(.menu-activator-focus)").click(function () {
+							navigateTo(webui(this).data("url"));
+						});
+					}
+				}
+
+			};
 	
 		/* EVENTS */
 	
@@ -212,6 +212,13 @@
 			if (this.length > 1) { console.warn("WebUI menu component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new MenuInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				control = new MenuInstance(this.first(), settings);	
+			};
+
 
 			return this;
 

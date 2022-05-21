@@ -5,90 +5,90 @@
 
 	var ModalInstance = function(modal, settings) {
 
-	var
+		var
 
-		transitionDuration = settings.transitionDuration,
-		closeFromBackdrop = settings.closeFromBackdrop,
-		disablePageScrolling = settings.disablePageScrolling,
-		focusElement = settings.focusElement,
-		focusReturnElement = settings.focusReturnElement,
+			transitionDuration = settings.transitionDuration,
+			closeFromBackdrop = settings.closeFromBackdrop,
+			disablePageScrolling = settings.disablePageScrolling,
+			focusElement = settings.focusElement,
+			focusReturnElement = settings.focusReturnElement,
 
-		showModal = function () {
-	
-			if (modal) {
-	
-				modal.trigger("ui.modal.show.before");
-				
-				if (transitionDuration) {
-					modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
-				}
-				else {
-					modal.show().trigger("ui.modal.show.after");
-				}
-					
-				if (disablePageScrolling) {
-					var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
-					
-					if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-						webui("body").css("padding-right", scrollShift);
-						webui("body").css("overflow", "hidden");
-					}
-				}
-				
-				if (focusElement) {
-					var focusEl = modal.find(focusElement).first();
+			showModal = function () {
 		
-					if (focusEl && !focusEl.hasClass("disabled")) {
-						focusEl[0].focus();
-					}	
+				if (modal) {
+		
+					modal.trigger("ui.modal.show.before");
+					
+					if (transitionDuration) {
+						modal.fadeIn(transitionDuration).trigger("ui.modal.show.after");
+					}
+					else {
+						modal.show().trigger("ui.modal.show.after");
+					}
+						
+					if (disablePageScrolling) {
+						var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+						
+						if (parseFloat(webui("body").css("height")) > win.innerHeight) {
+							webui("body").css("padding-right", scrollShift);
+							webui("body").css("overflow", "hidden");
+						}
+					}
+					
+					if (focusElement) {
+						var focusEl = modal.find(focusElement).first();
+			
+						if (focusEl && !focusEl.hasClass("disabled")) {
+							focusEl[0].focus();
+						}	
+						else {
+							modal.attr("tabindex", "-1");
+							modal[0].focus();
+						}	
+					}
 					else {
 						modal.attr("tabindex", "-1");
 						modal[0].focus();
-					}	
+					}
 				}
-				else {
-					modal.attr("tabindex", "-1");
-					modal[0].focus();
-				}
-			}
-			return this;
-		},
-	
-		hideModal = function () {
-	
-			if (modal) {
-	
-				modal.trigger("ui.modal.hide.before");
-				
-				if (transitionDuration) {
-					modal.fadeOut(transitionDuration, 0, function() {
+				return this;
+			},
+		
+			hideModal = function () {
+		
+				if (modal) {
+		
+					modal.trigger("ui.modal.hide.before");
+					
+					if (transitionDuration) {
+						modal.fadeOut(transitionDuration, 0, function() {
+							if (disablePageScrolling) {
+								webui("body").css("padding-right", "");
+								webui("body").css("overflow", "");
+							}
+
+							modal.trigger("ui.modal.hide.after");
+						});					
+					}
+					else {
 						if (disablePageScrolling) {
 							webui("body").css("padding-right", "");
 							webui("body").css("overflow", "");
 						}
-
-						modal.trigger("ui.modal.hide.after");
-					});					
-				}
-				else {
-					if (disablePageScrolling) {
-						webui("body").css("padding-right", "");
-						webui("body").css("overflow", "");
+						
+						modal.hide().trigger("ui.modal.hide.after");
 					}
-					
-					modal.hide().trigger("ui.modal.hide.after");
-				}
 
-				if (focusReturnElement) {
-					var returnEl = webui(focusReturnElement).first();
+					if (focusReturnElement) {
+						var returnEl = webui(focusReturnElement).first();
 
-					if (returnEl && !returnEl.hasClass("disabled")) {
-						returnEl[0].focus();
+						if (returnEl && !returnEl.hasClass("disabled")) {
+							returnEl[0].focus();
+						}
 					}
 				}
-			}
-			return this;
-		};
+				return this;
+			};
 
 		this.openModal = function () {
 			showModal();
@@ -140,6 +140,16 @@
 			if (this.length > 1) { console.warn("WebUI modals component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new ModalInstance(this.first(), settings);
+
+			this.update = function (newSettings) {
+				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.closeFromBackdrop) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
+				if (newSettings.disablePageScrolling) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
+				if (newSettings.focusElement) { settings.focusElement = newSettings.focusElement; }
+				if (newSettings.focusReturnElement) { settings.focusReturnElement = newSettings.focusReturnElement; }
+				control = new ModalInstance(this.first(), settings);	
+			};
+
 
 			this.open = function () {
 				control.openModal();	
