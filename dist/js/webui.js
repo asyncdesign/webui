@@ -162,7 +162,7 @@
 									toggleItem.css("transform", "translate(0, 0)");
 									toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 								}
-								toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.show.after"); });
 							});				
 						} 
 						else {
@@ -179,7 +179,7 @@
 									toggleBody.css("transform", "translate(0, 0)");
 								}
 								toggleItem.addClass("off-canvas-closed");
-								toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.hide.after"); });
 							});				
 						}
 					}
@@ -200,7 +200,7 @@
 								else {
 									toggleItem.css("transform", "translate(0, 0)");
 								}
-								toggleItem.trigger("ui.toggleItem.show.after");
+								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.show.after"); });
 							});			
 						} 
 						else {
@@ -215,7 +215,7 @@
 									toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
 								}
 								toggleItem.addClass("off-canvas-closed");
-								toggleItem.trigger("ui.toggleItem.hide.after");
+								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.hide.after"); });
 							});						
 						}
 					}
