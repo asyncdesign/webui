@@ -503,8 +503,8 @@
 }
 
 .alert {
-  color: rgb(0, 0, 0);
-  background: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background: hsl(0deg, 0%, 87%);
   height: auto;
   opacity: 1;
   border: none;
@@ -524,8 +524,8 @@
 }
 
 .alert-success {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .alert-success-icon {
@@ -538,9 +538,9 @@
 }
 
 .alert-success-outline {
-  color: rgb(46, 107, 48);
-  background-color: rgb(234, 246, 234);
-  border: 0.078rem solid rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 30%);
+  background-color: hsl(122deg, 40%, 94%);
+  border: 0.078rem solid hsl(122deg, 40%, 30%);
 }
 
 .alert-success-outline .alert-success-icon {
@@ -552,8 +552,8 @@
 }
 
 .alert-info {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .alert-info-icon {
@@ -566,9 +566,9 @@
 }
 
 .alert-info-outline {
-  color: rgb(8, 86, 145);
-  background-color: rgb(226, 242, 253);
-  border: 0.078rem solid rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 30%);
+  background-color: hsl(206deg, 89%, 94%);
+  border: 0.078rem solid hsl(206deg, 89%, 30%);
 }
 
 .alert-info-outline .alert-info-icon {
@@ -580,8 +580,8 @@
 }
 
 .alert-warning {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .alert-warning-icon {
@@ -594,9 +594,9 @@
 }
 
 .alert-warning-outline {
-  color: rgb(153, 84, 0);
-  background-color: rgb(255, 241, 224);
-  border: 0.078rem solid rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 30%);
+  background-color: hsl(33deg, 100%, 94%);
+  border: 0.078rem solid hsl(33deg, 100%, 30%);
 }
 
 .alert-warning-outline .alert-warning-icon {
@@ -608,8 +608,8 @@
 }
 
 .alert-danger {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .alert-danger-icon {
@@ -622,9 +622,9 @@
 }
 
 .alert-danger-outline {
-  color: rgb(153, 36, 0);
-  background-color: rgb(255, 232, 224);
-  border: 0.078rem solid rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 30%);
+  background-color: hsl(14deg, 100%, 94%);
+  border: 0.078rem solid hsl(14deg, 100%, 30%);
 }
 
 .alert-danger-outline .alert-danger-icon {
@@ -682,8 +682,8 @@
 .tooltip .tooltip-focus,
 .tooltip .tooltip-static {
   display: none;
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
   border: none;
   text-align: left;
   padding: 0.625rem 0.938rem;
@@ -691,288 +691,282 @@
   white-space: normal;
   z-index: 120;
 }
-.tooltip .tooltip-dynamic.tooltip-nopadding,
-.tooltip .tooltip-focus.tooltip-nopadding,
-.tooltip .tooltip-static.tooltip-nopadding {
-  padding: 0;
-}
-
-.tooltip-dynamic::after,
-.tooltip-focus::after,
-.tooltip-static::after {
+.tooltip .tooltip-dynamic::after,
+.tooltip .tooltip-focus::after,
+.tooltip .tooltip-static::after {
   content: "";
   position: absolute;
   border-width: 0.313rem;
   border-style: solid;
 }
-
-.tooltip-left::after {
-  border-color: transparent transparent transparent rgb(222, 222, 222);
+.tooltip .tooltip-dynamic.tooltip-nopadding,
+.tooltip .tooltip-focus.tooltip-nopadding,
+.tooltip .tooltip-static.tooltip-nopadding {
+  padding: 0;
+}
+.tooltip .tooltip-dynamic.tooltip-nopointer::after,
+.tooltip .tooltip-focus.tooltip-nopointer::after,
+.tooltip .tooltip-static.tooltip-nopointer::after {
+  border-style: none;
 }
 
-.tooltip-left.tooltip-sm::after,
-.tooltip-left.tooltip-md::after,
-.tooltip-left.tooltip-lg::after {
+.tooltip-left::after {
   top: calc(50% - 0.313rem);
   right: -0.625rem;
+  border-color: transparent transparent transparent hsl(0deg, 0%, 87%);
 }
 
 .tooltip-top::after {
   top: 100%;
   left: calc(50% - 0.313rem);
-  border-color: rgb(222, 222, 222) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 87%) transparent transparent transparent;
 }
 
 .tooltip-right::after {
-  border-color: transparent rgb(222, 222, 222) transparent transparent;
-}
-
-.tooltip-right.tooltip-sm::after,
-.tooltip-right.tooltip-md::after,
-.tooltip-right.tooltip-lg::after {
   top: calc(50% - 0.313rem);
   left: -0.625rem;
+  border-color: transparent hsl(0deg, 0%, 87%) transparent transparent;
 }
 
 .tooltip-bottom::after {
   bottom: 100%;
   left: calc(50% - 0.313rem);
-  border-color: transparent transparent rgb(222, 222, 222) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 87%) transparent;
 }
 
 .tooltip .tooltip-light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .tooltip-light.tooltip-top::after {
-  border-top-color: rgb(255, 255, 255);
+  border-top-color: hsl(0deg, 0%, 100%);
 }
 
 .tooltip-light.tooltip-left::after {
-  border-left-color: rgb(255, 255, 255);
+  border-left-color: hsl(0deg, 0%, 100%);
 }
 
 .tooltip-light.tooltip-bottom::after {
-  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-color: hsl(0deg, 0%, 100%);
 }
 
 .tooltip-light.tooltip-right::after {
-  border-right-color: rgb(255, 255, 255);
+  border-right-color: hsl(0deg, 0%, 100%);
 }
 
 .tooltip .tooltip-dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .tooltip-dark.tooltip-top::after {
-  border-top-color: rgb(0, 0, 0);
+  border-top-color: hsl(0deg, 0%, 0%);
 }
 
 .tooltip-dark.tooltip-left::after {
-  border-left-color: rgb(0, 0, 0);
+  border-left-color: hsl(0deg, 0%, 0%);
 }
 
 .tooltip-dark.tooltip-bottom::after {
-  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-color: hsl(0deg, 0%, 0%);
 }
 
 .tooltip-dark.tooltip-right::after {
-  border-right-color: rgb(0, 0, 0);
+  border-right-color: hsl(0deg, 0%, 0%);
 }
 
 .tooltip .tooltip-accent-1 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .tooltip-accent-1.tooltip-top::after {
-  border-top-color: rgb(108, 122, 198);
+  border-top-color: hsl(231deg, 44%, 60%);
 }
 
 .tooltip-accent-1.tooltip-left::after {
-  border-left-color: rgb(108, 122, 198);
+  border-left-color: hsl(231deg, 44%, 60%);
 }
 
 .tooltip-accent-1.tooltip-bottom::after {
-  border-bottom-color: rgb(108, 122, 198);
+  border-bottom-color: hsl(231deg, 44%, 60%);
 }
 
 .tooltip-accent-1.tooltip-right::after {
-  border-right-color: rgb(108, 122, 198);
+  border-right-color: hsl(231deg, 44%, 60%);
 }
 
 .tooltip .tooltip-accent-2 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .tooltip-accent-2.tooltip-top::after {
-  border-top-color: rgb(139, 106, 200);
+  border-top-color: hsl(261deg, 46%, 60%);
 }
 
 .tooltip-accent-2.tooltip-left::after {
-  border-left-color: rgb(139, 106, 200);
+  border-left-color: hsl(261deg, 46%, 60%);
 }
 
 .tooltip-accent-2.tooltip-bottom::after {
-  border-bottom-color: rgb(139, 106, 200);
+  border-bottom-color: hsl(261deg, 46%, 60%);
 }
 
 .tooltip-accent-2.tooltip-right::after {
-  border-right-color: rgb(139, 106, 200);
+  border-right-color: hsl(261deg, 46%, 60%);
 }
 
 .tooltip .tooltip-accent-3 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .tooltip-accent-3.tooltip-top::after {
-  border-top-color: rgb(186, 106, 200);
+  border-top-color: hsl(291deg, 46%, 60%);
 }
 
 .tooltip-accent-3.tooltip-left::after {
-  border-left-color: rgb(186, 106, 200);
+  border-left-color: hsl(291deg, 46%, 60%);
 }
 
 .tooltip-accent-3.tooltip-bottom::after {
-  border-bottom-color: rgb(186, 106, 200);
+  border-bottom-color: hsl(291deg, 46%, 60%);
 }
 
 .tooltip-accent-3.tooltip-right::after {
-  border-right-color: rgb(186, 106, 200);
+  border-right-color: hsl(291deg, 46%, 60%);
 }
 
 .tooltip .tooltip-accent-4 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .tooltip-accent-4.tooltip-top::after {
-  border-top-color: rgb(153, 153, 153);
+  border-top-color: hsl(0deg, 0%, 60%);
 }
 
 .tooltip-accent-4.tooltip-left::after {
-  border-left-color: rgb(153, 153, 153);
+  border-left-color: hsl(0deg, 0%, 60%);
 }
 
 .tooltip-accent-4.tooltip-bottom::after {
-  border-bottom-color: rgb(153, 153, 153);
+  border-bottom-color: hsl(0deg, 0%, 60%);
 }
 
 .tooltip-accent-4.tooltip-right::after {
-  border-right-color: rgb(153, 153, 153);
+  border-right-color: hsl(0deg, 0%, 60%);
 }
 
 .tooltip .tooltip-accent-5 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .tooltip-accent-5.tooltip-top::after {
-  border-top-color: rgb(102, 102, 102);
+  border-top-color: hsl(0deg, 0%, 40%);
 }
 
 .tooltip-accent-5.tooltip-left::after {
-  border-left-color: rgb(102, 102, 102);
+  border-left-color: hsl(0deg, 0%, 40%);
 }
 
 .tooltip-accent-5.tooltip-bottom::after {
-  border-bottom-color: rgb(102, 102, 102);
+  border-bottom-color: hsl(0deg, 0%, 40%);
 }
 
 .tooltip-accent-5.tooltip-right::after {
-  border-right-color: rgb(102, 102, 102);
+  border-right-color: hsl(0deg, 0%, 40%);
 }
 
 .tooltip .tooltip-success {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .tooltip-success.tooltip-top::after {
-  border-top-color: rgb(77, 179, 80);
+  border-top-color: hsl(122deg, 40%, 50%);
 }
 
 .tooltip-success.tooltip-left::after {
-  border-left-color: rgb(77, 179, 80);
+  border-left-color: hsl(122deg, 40%, 50%);
 }
 
 .tooltip-success.tooltip-bottom::after {
-  border-bottom-color: rgb(77, 179, 80);
+  border-bottom-color: hsl(122deg, 40%, 50%);
 }
 
 .tooltip-success.tooltip-right::after {
-  border-right-color: rgb(77, 179, 80);
+  border-right-color: hsl(122deg, 40%, 50%);
 }
 
 .tooltip .tooltip-info {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .tooltip-info.tooltip-top::after {
-  border-top-color: rgb(14, 143, 241);
+  border-top-color: hsl(206deg, 89%, 50%);
 }
 
 .tooltip-info.tooltip-left::after {
-  border-left-color: rgb(14, 143, 241);
+  border-left-color: hsl(206deg, 89%, 50%);
 }
 
 .tooltip-info.tooltip-bottom::after {
-  border-bottom-color: rgb(14, 143, 241);
+  border-bottom-color: hsl(206deg, 89%, 50%);
 }
 
 .tooltip-info.tooltip-right::after {
-  border-right-color: rgb(14, 143, 241);
+  border-right-color: hsl(206deg, 89%, 50%);
 }
 
 .tooltip .tooltip-warning {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .tooltip-warning.tooltip-top::after {
-  border-top-color: rgb(255, 140, 0);
+  border-top-color: hsl(33deg, 100%, 50%);
 }
 
 .tooltip-warning.tooltip-left::after {
-  border-left-color: rgb(255, 140, 0);
+  border-left-color: hsl(33deg, 100%, 50%);
 }
 
 .tooltip-warning.tooltip-bottom::after {
-  border-bottom-color: rgb(255, 140, 0);
+  border-bottom-color: hsl(33deg, 100%, 50%);
 }
 
 .tooltip-warning.tooltip-right::after {
-  border-right-color: rgb(255, 140, 0);
+  border-right-color: hsl(33deg, 100%, 50%);
 }
 
 .tooltip .tooltip-danger {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .tooltip-danger.tooltip-top::after {
-  border-top-color: rgb(255, 60, 0);
+  border-top-color: hsl(14deg, 100%, 50%);
 }
 
 .tooltip-danger.tooltip-left::after {
-  border-left-color: rgb(255, 60, 0);
+  border-left-color: hsl(14deg, 100%, 50%);
 }
 
 .tooltip-danger.tooltip-bottom::after {
-  border-bottom-color: rgb(255, 60, 0);
+  border-bottom-color: hsl(14deg, 100%, 50%);
 }
 
 .tooltip-danger.tooltip-right::after {
-  border-right-color: rgb(255, 60, 0);
+  border-right-color: hsl(14deg, 100%, 50%);
 }
 
 .tooltip .tooltip-transparent {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
 }
 
@@ -1207,195 +1201,195 @@
 }
 
 .pointer-top-default {
-  border-color: transparent transparent rgb(222, 222, 222) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 87%) transparent;
 }
 
 .pointer-right-default {
-  border-color: transparent transparent transparent rgb(222, 222, 222);
+  border-color: transparent transparent transparent hsl(0deg, 0%, 87%);
 }
 
 .pointer-bottom-default {
-  border-color: rgb(222, 222, 222) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 87%) transparent transparent transparent;
 }
 
 .pointer-left-default {
-  border-color: transparent rgb(222, 222, 222) transparent transparent;
+  border-color: transparent hsl(0deg, 0%, 87%) transparent transparent;
 }
 
 .pointer-top-light {
-  border-color: transparent transparent rgb(255, 255, 255) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 100%) transparent;
 }
 
 .pointer-right-light {
-  border-color: transparent transparent transparent rgb(255, 255, 255);
+  border-color: transparent transparent transparent hsl(0deg, 0%, 100%);
 }
 
 .pointer-bottom-light {
-  border-color: rgb(255, 255, 255) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 100%) transparent transparent transparent;
 }
 
 .pointer-left-light {
-  border-color: transparent rgb(255, 255, 255) transparent transparent;
+  border-color: transparent hsl(0deg, 0%, 100%) transparent transparent;
 }
 
 .pointer-top-dark {
-  border-color: transparent transparent rgb(0, 0, 0) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 0%) transparent;
 }
 
 .pointer-right-dark {
-  border-color: transparent transparent transparent rgb(0, 0, 0);
+  border-color: transparent transparent transparent hsl(0deg, 0%, 0%);
 }
 
 .pointer-bottom-dark {
-  border-color: rgb(0, 0, 0) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 0%) transparent transparent transparent;
 }
 
 .pointer-left-dark {
-  border-color: transparent rgb(0, 0, 0) transparent transparent;
+  border-color: transparent hsl(0deg, 0%, 0%) transparent transparent;
 }
 
 .pointer-top-accent-1 {
-  border-color: transparent transparent rgb(108, 122, 198) transparent;
+  border-color: transparent transparent hsl(231deg, 44%, 60%) transparent;
 }
 
 .pointer-right-accent-1 {
-  border-color: transparent transparent transparent rgb(108, 122, 198);
+  border-color: transparent transparent transparent hsl(231deg, 44%, 60%);
 }
 
 .pointer-bottom-accent-1 {
-  border-color: rgb(108, 122, 198) transparent transparent transparent;
+  border-color: hsl(231deg, 44%, 60%) transparent transparent transparent;
 }
 
 .pointer-left-accent-1 {
-  border-color: transparent rgb(108, 122, 198) transparent transparent;
+  border-color: transparent hsl(231deg, 44%, 60%) transparent transparent;
 }
 
 .pointer-top-accent-2 {
-  border-color: transparent transparent rgb(139, 106, 200) transparent;
+  border-color: transparent transparent hsl(261deg, 46%, 60%) transparent;
 }
 
 .pointer-right-accent-2 {
-  border-color: transparent transparent transparent rgb(139, 106, 200);
+  border-color: transparent transparent transparent hsl(261deg, 46%, 60%);
 }
 
 .pointer-bottom-accent-2 {
-  border-color: rgb(139, 106, 200) transparent transparent transparent;
+  border-color: hsl(261deg, 46%, 60%) transparent transparent transparent;
 }
 
 .pointer-left-accent-2 {
-  border-color: transparent rgb(139, 106, 200) transparent transparent;
+  border-color: transparent hsl(261deg, 46%, 60%) transparent transparent;
 }
 
 .pointer-top-accent-3 {
-  border-color: transparent transparent rgb(186, 106, 200) transparent;
+  border-color: transparent transparent hsl(291deg, 46%, 60%) transparent;
 }
 
 .pointer-right-accent-3 {
-  border-color: transparent transparent transparent rgb(186, 106, 200);
+  border-color: transparent transparent transparent hsl(291deg, 46%, 60%);
 }
 
 .pointer-bottom-accent-3 {
-  border-color: rgb(186, 106, 200) transparent transparent transparent;
+  border-color: hsl(291deg, 46%, 60%) transparent transparent transparent;
 }
 
 .pointer-left-accent-3 {
-  border-color: transparent rgb(186, 106, 200) transparent transparent;
+  border-color: transparent hsl(291deg, 46%, 60%) transparent transparent;
 }
 
 .pointer-top-accent-4 {
-  border-color: transparent transparent rgb(153, 153, 153) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 60%) transparent;
 }
 
 .pointer-right-accent-4 {
-  border-color: transparent transparent transparent rgb(153, 153, 153);
+  border-color: transparent transparent transparent hsl(0deg, 0%, 60%);
 }
 
 .pointer-bottom-accent-4 {
-  border-color: rgb(153, 153, 153) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 60%) transparent transparent transparent;
 }
 
 .pointer-left-accent-4 {
-  border-color: transparent rgb(153, 153, 153) transparent transparent;
+  border-color: transparent hsl(0deg, 0%, 60%) transparent transparent;
 }
 
 .pointer-top-accent-5 {
-  border-color: transparent transparent rgb(102, 102, 102) transparent;
+  border-color: transparent transparent hsl(0deg, 0%, 40%) transparent;
 }
 
 .pointer-right-accent-5 {
-  border-color: transparent transparent transparent rgb(102, 102, 102);
+  border-color: transparent transparent transparent hsl(0deg, 0%, 40%);
 }
 
 .pointer-bottom-accent-5 {
-  border-color: rgb(102, 102, 102) transparent transparent transparent;
+  border-color: hsl(0deg, 0%, 40%) transparent transparent transparent;
 }
 
 .pointer-left-accent-5 {
-  border-color: transparent rgb(102, 102, 102) transparent transparent;
+  border-color: transparent hsl(0deg, 0%, 40%) transparent transparent;
 }
 
 .pointer-top-success {
-  border-color: transparent transparent rgb(77, 179, 80) transparent;
+  border-color: transparent transparent hsl(122deg, 40%, 50%) transparent;
 }
 
 .pointer-right-success {
-  border-color: transparent transparent transparent rgb(77, 179, 80);
+  border-color: transparent transparent transparent hsl(122deg, 40%, 50%);
 }
 
 .pointer-bottom-success {
-  border-color: rgb(77, 179, 80) transparent transparent transparent;
+  border-color: hsl(122deg, 40%, 50%) transparent transparent transparent;
 }
 
 .pointer-left-success {
-  border-color: transparent rgb(77, 179, 80) transparent transparent;
+  border-color: transparent hsl(122deg, 40%, 50%) transparent transparent;
 }
 
 .pointer-top-info {
-  border-color: transparent transparent rgb(14, 143, 241) transparent;
+  border-color: transparent transparent hsl(206deg, 89%, 50%) transparent;
 }
 
 .pointer-right-info {
-  border-color: transparent transparent transparent rgb(14, 143, 241);
+  border-color: transparent transparent transparent hsl(206deg, 89%, 50%);
 }
 
 .pointer-bottom-info {
-  border-color: rgb(14, 143, 241) transparent transparent transparent;
+  border-color: hsl(206deg, 89%, 50%) transparent transparent transparent;
 }
 
 .pointer-left-info {
-  border-color: transparent rgb(14, 143, 241) transparent transparent;
+  border-color: transparent hsl(206deg, 89%, 50%) transparent transparent;
 }
 
 .pointer-top-warning {
-  border-color: transparent transparent rgb(255, 140, 0) transparent;
+  border-color: transparent transparent hsl(33deg, 100%, 50%) transparent;
 }
 
 .pointer-right-warning {
-  border-color: transparent transparent transparent rgb(255, 140, 0);
+  border-color: transparent transparent transparent hsl(33deg, 100%, 50%);
 }
 
 .pointer-bottom-warning {
-  border-color: rgb(255, 140, 0) transparent transparent transparent;
+  border-color: hsl(33deg, 100%, 50%) transparent transparent transparent;
 }
 
 .pointer-left-warning {
-  border-color: transparent rgb(255, 140, 0) transparent transparent;
+  border-color: transparent hsl(33deg, 100%, 50%) transparent transparent;
 }
 
 .pointer-top-danger {
-  border-color: transparent transparent rgb(255, 60, 0) transparent;
+  border-color: transparent transparent hsl(14deg, 100%, 50%) transparent;
 }
 
 .pointer-right-danger {
-  border-color: transparent transparent transparent rgb(255, 60, 0);
+  border-color: transparent transparent transparent hsl(14deg, 100%, 50%);
 }
 
 .pointer-bottom-danger {
-  border-color: rgb(255, 60, 0) transparent transparent transparent;
+  border-color: hsl(14deg, 100%, 50%) transparent transparent transparent;
 }
 
 .pointer-left-danger {
-  border-color: transparent rgb(255, 60, 0) transparent transparent;
+  border-color: transparent hsl(14deg, 100%, 50%) transparent transparent;
 }
 
 .pointer-top-transparent {
@@ -1698,8 +1692,8 @@ html {
 
 body {
   margin: 0;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 input,
@@ -1783,7 +1777,7 @@ main {
 }
 
 blockquote {
-  border-left: 0.438rem solid rgb(222, 222, 222);
+  border-left: 0.438rem solid hsl(0deg, 0%, 87%);
   margin: 0.938rem 0 0.938rem 0;
   padding: 0.625rem 0 0.625rem 1.25rem;
 }
@@ -1826,171 +1820,171 @@ svg:not(:root) {
 }
 
 .table.table-default {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .table.table-default thead tr {
-  border-bottom: 0.05rem solid rgb(199, 199, 199);
+  border-bottom: 0.05rem solid hsl(0deg, 0%, 78%);
 }
 
 .table.table-default.table-bordered td {
-  border: 0.05rem solid rgb(199, 199, 199);
+  border: 0.05rem solid hsl(0deg, 0%, 78%);
 }
 
 .table.table-default.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(232, 232, 232);
+  background-color: hsl(0deg, 0%, 91%);
 }
 
 .table.table-default.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(199, 199, 199);
+  background-color: hsl(0deg, 0%, 78%);
 }
 
 .table.table-light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .table.table-light thead tr {
-  border-bottom: 0.05rem solid rgb(230, 230, 230);
+  border-bottom: 0.05rem solid hsl(0deg, 0%, 90%);
 }
 
 .table.table-light.table-bordered td {
-  border: 0.05rem solid rgb(230, 230, 230);
+  border: 0.05rem solid hsl(0deg, 0%, 90%);
 }
 
 .table.table-light.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(245, 245, 245);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .table.table-light.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(230, 230, 230);
+  background-color: hsl(0deg, 0%, 90%);
 }
 
 .table.table-dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .table.table-dark thead tr {
-  border-bottom: 0.05rem solid rgb(77, 77, 77);
+  border-bottom: 0.05rem solid hsl(0deg, 0%, 30%);
 }
 
 .table.table-dark.table-bordered td {
-  border: 0.05rem solid rgb(77, 77, 77);
+  border: 0.05rem solid hsl(0deg, 0%, 30%);
 }
 
 .table.table-dark.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(51, 51, 51);
+  background-color: hsl(0deg, 0%, 20%);
 }
 
 .table.table-dark.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(77, 77, 77);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .table.table-accent-1 {
-  color: rgb(0, 0, 0);
-  background-color: rgb(229, 232, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .table.table-accent-1 thead tr {
-  border-bottom: 0.05rem solid rgb(189, 195, 229);
+  border-bottom: 0.05rem solid hsl(231deg, 44%, 82%);
 }
 
 .table.table-accent-1.table-bordered td {
-  border: 0.05rem solid rgb(189, 195, 229);
+  border: 0.05rem solid hsl(231deg, 44%, 82%);
 }
 
 .table.table-accent-1.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(218, 222, 241);
+  background-color: hsl(231deg, 44%, 90%);
 }
 
 .table.table-accent-1.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(189, 195, 229);
+  background-color: hsl(231deg, 44%, 82%);
 }
 
 .table.table-accent-2 {
-  color: rgb(0, 0, 0);
-  background-color: rgb(235, 229, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .table.table-accent-2 thead tr {
-  border-bottom: 0.05rem solid rgb(203, 188, 230);
+  border-bottom: 0.05rem solid hsl(261deg, 46%, 82%);
 }
 
 .table.table-accent-2.table-bordered td {
-  border: 0.05rem solid rgb(203, 188, 230);
+  border: 0.05rem solid hsl(261deg, 46%, 82%);
 }
 
 .table.table-accent-2.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(226, 218, 241);
+  background-color: hsl(261deg, 45%, 90%);
 }
 
 .table.table-accent-2.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(203, 188, 230);
+  background-color: hsl(261deg, 46%, 82%);
 }
 
 .table.table-accent-3 {
-  color: rgb(0, 0, 0);
-  background-color: rgb(243, 229, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .table.table-accent-3 thead tr {
-  border-bottom: 0.05rem solid rgb(220, 181, 227);
+  border-bottom: 0.05rem solid hsl(291deg, 46%, 80%);
 }
 
 .table.table-accent-3.table-bordered td {
-  border: 0.05rem solid rgb(220, 181, 227);
+  border: 0.05rem solid hsl(291deg, 46%, 80%);
 }
 
 .table.table-accent-3.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(234, 210, 238);
+  background-color: hsl(291deg, 46%, 88%);
 }
 
 .table.table-accent-3.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(220, 181, 227);
+  background-color: hsl(291deg, 46%, 80%);
 }
 
 .table.table-accent-4 {
-  color: rgb(0, 0, 0);
-  background-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .table.table-accent-4 thead tr {
-  border-bottom: 0.05rem solid rgb(194, 194, 194);
+  border-bottom: 0.05rem solid hsl(0deg, 0%, 76%);
 }
 
 .table.table-accent-4.table-bordered td {
-  border: 0.05rem solid rgb(194, 194, 194);
+  border: 0.05rem solid hsl(0deg, 0%, 76%);
 }
 
 .table.table-accent-4.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .table.table-accent-4.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(194, 194, 194);
+  background-color: hsl(0deg, 0%, 76%);
 }
 
 .table.table-accent-5 {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .table.table-accent-5 thead tr {
-  border-bottom: 0.05rem solid rgb(184, 184, 184);
+  border-bottom: 0.05rem solid hsl(0deg, 0%, 72%);
 }
 
 .table.table-accent-5.table-bordered td {
-  border: 0.05rem solid rgb(184, 184, 184);
+  border: 0.05rem solid hsl(0deg, 0%, 72%);
 }
 
 .table.table-accent-5.table-striped tr:nth-child(odd):not(thead tr, tfoot tr) {
-  background-color: rgb(212, 212, 212);
+  background-color: hsl(0deg, 0%, 83%);
 }
 
 .table.table-accent-5.table-hover tr:not(thead tr, tfoot tr):hover {
-  background-color: rgb(184, 184, 184);
+  background-color: hsl(0deg, 0%, 72%);
 }
 
 .list {
@@ -2056,60 +2050,60 @@ svg:not(:root) {
   content: "/";
   padding-left: 0.625rem;
   padding-right: 0.625rem;
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .nav-links > a:last-child {
   cursor: default;
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .nav-links-default > :not(:last-child) a {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .nav-links-light > :not(:last-child) a {
-  color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 100%);
 }
 
 .nav-links-dark > :not(:last-child) a {
-  color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 0%);
 }
 
 .nav-links-accent-1 > :not(:last-child) a {
-  color: rgb(108, 122, 198);
+  color: hsl(231deg, 44%, 60%);
 }
 
 .nav-links-accent-2 > :not(:last-child) a {
-  color: rgb(139, 106, 200);
+  color: hsl(261deg, 46%, 60%);
 }
 
 .nav-links-accent-3 > :not(:last-child) a {
-  color: rgb(186, 106, 200);
+  color: hsl(291deg, 46%, 60%);
 }
 
 .nav-links-accent-4 > :not(:last-child) a {
-  color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 60%);
 }
 
 .nav-links-accent-5 > :not(:last-child) a {
-  color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
 }
 
 .nav-links-success > :not(:last-child) a {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
 }
 
 .nav-links-info > :not(:last-child) a {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
 }
 
 .nav-links-warning > :not(:last-child) a {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
 }
 
 .nav-links-danger > :not(:last-child) a {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
 }
 
 .nav-links-transparent > :not(:last-child) a {
@@ -2122,9 +2116,9 @@ svg:not(:root) {
 .input-md,
 .input-lg,
 .input-xl {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   padding: 0 0.625rem 0 0.625rem;
 }
 
@@ -2137,9 +2131,9 @@ svg:not(:root) {
   text-decoration: none;
   white-space: nowrap;
   outline: none;
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   cursor: default;
   padding: 0 0.75rem 0 0.75rem;
 }
@@ -2162,167 +2156,167 @@ svg:not(:root) {
   white-space: normal;
   outline: none;
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
 }
 
 .button-default {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
 }
 .button-default:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 .button-default:focus {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .button-light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 100%);
 }
 .button-light:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 .button-light:focus {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .button-dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border: 0.078rem solid rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
+  border: 0.078rem solid hsl(0deg, 0%, 0%);
 }
 .button-dark:hover {
-  background-color: rgb(115, 115, 115);
+  background-color: hsl(0deg, 0%, 45%);
 }
 .button-dark:focus {
-  background-color: rgb(115, 115, 115);
+  background-color: hsl(0deg, 0%, 45%);
 }
 
 .button-accent-1 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
-  border: 0.078rem solid rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
+  border: 0.078rem solid hsl(231deg, 44%, 60%);
 }
 .button-accent-1:hover {
-  background-color: rgb(57, 71, 147);
+  background-color: hsl(231deg, 44%, 40%);
 }
 .button-accent-1:focus {
-  background-color: rgb(57, 71, 147);
+  background-color: hsl(231deg, 44%, 40%);
 }
 
 .button-accent-2 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
-  border: 0.078rem solid rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
+  border: 0.078rem solid hsl(261deg, 46%, 60%);
 }
 .button-accent-2:hover {
-  background-color: rgb(88, 55, 149);
+  background-color: hsl(261deg, 46%, 40%);
 }
 .button-accent-2:focus {
-  background-color: rgb(88, 55, 149);
+  background-color: hsl(261deg, 46%, 40%);
 }
 
 .button-accent-3 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
-  border: 0.078rem solid rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
+  border: 0.078rem solid hsl(291deg, 46%, 60%);
 }
 .button-accent-3:hover {
-  background-color: rgb(135, 55, 149);
+  background-color: hsl(291deg, 46%, 40%);
 }
 .button-accent-3:focus {
-  background-color: rgb(135, 55, 149);
+  background-color: hsl(291deg, 46%, 40%);
 }
 
 .button-accent-4 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
-  border: 0.078rem solid rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
+  border: 0.078rem solid hsl(0deg, 0%, 60%);
 }
 .button-accent-4:hover {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 .button-accent-4:focus {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .button-accent-5 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
-  border: 0.078rem solid rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
+  border: 0.078rem solid hsl(0deg, 0%, 40%);
 }
 .button-accent-5:hover {
-  background-color: rgb(51, 51, 51);
+  background-color: hsl(0deg, 0%, 20%);
 }
 .button-accent-5:focus {
-  background-color: rgb(51, 51, 51);
+  background-color: hsl(0deg, 0%, 20%);
 }
 
 .button-success {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
-  border: 0.078rem solid rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
+  border: 0.078rem solid hsl(122deg, 40%, 50%);
 }
 .button-success:hover {
-  background-color: rgb(61, 143, 64);
+  background-color: hsl(122deg, 40%, 40%);
 }
 .button-success:focus {
-  background-color: rgb(61, 143, 64);
+  background-color: hsl(122deg, 40%, 40%);
 }
 
 .button-info {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
-  border: 0.078rem solid rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
+  border: 0.078rem solid hsl(206deg, 89%, 50%);
 }
 .button-info:hover {
-  background-color: rgb(11, 114, 193);
+  background-color: hsl(206deg, 89%, 40%);
 }
 .button-info:focus {
-  background-color: rgb(11, 114, 193);
+  background-color: hsl(206deg, 89%, 40%);
 }
 
 .button-warning {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
-  border: 0.078rem solid rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
+  border: 0.078rem solid hsl(33deg, 100%, 50%);
 }
 .button-warning:hover {
-  background-color: rgb(204, 112, 0);
+  background-color: hsl(33deg, 100%, 40%);
 }
 .button-warning:focus {
-  background-color: rgb(204, 112, 0);
+  background-color: hsl(33deg, 100%, 40%);
 }
 
 .button-danger {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
-  border: 0.078rem solid rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
+  border: 0.078rem solid hsl(14deg, 100%, 50%);
 }
 .button-danger:hover {
-  background-color: rgb(219, 51, 0);
+  background-color: hsl(14deg, 100%, 43%);
 }
 .button-danger:focus {
-  background-color: rgb(219, 51, 0);
+  background-color: hsl(14deg, 100%, 43%);
 }
 
 .button-transparent {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
-  border: 0.078rem solid rgb(189, 189, 189);
+  border: 0.078rem solid hsl(0deg, 0%, 74%);
 }
 .button-transparent:hover {
-  color: rgb(222, 222, 222);
-  border-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
+  border-color: hsl(0deg, 0%, 87%);
 }
 .button-transparent:focus {
-  color: rgb(222, 222, 222);
-  border-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
+  border-color: hsl(0deg, 0%, 87%);
 }
 
 .menu-button,
@@ -2332,9 +2326,9 @@ svg:not(:root) {
   white-space: nowrap;
   outline: none;
   width: 100%;
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   cursor: default;
   padding: 0 1rem 0 1rem;
 }
@@ -2350,147 +2344,147 @@ svg:not(:root) {
 }
 
 .menu-button-default {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
 }
 .menu-button-default:focus {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 .menu-button-default:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(237, 237, 237);
+  border-color: hsl(0deg, 0%, 93%);
 }
 
 .menu-button-light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 100%);
 }
 .menu-button-light:focus {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 .menu-button-light:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(237, 237, 237);
+  border-color: hsl(0deg, 0%, 93%);
 }
 
 .menu-button-dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border: 0.078rem solid rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
+  border: 0.078rem solid hsl(0deg, 0%, 0%);
 }
 .menu-button-dark:focus {
-  background-color: rgb(115, 115, 115);
+  background-color: hsl(0deg, 0%, 45%);
 }
 .menu-button-dark:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(115, 115, 115);
+  border-color: hsl(0deg, 0%, 45%);
 }
 
 .menu-button-accent-1 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
-  border: 0.078rem solid rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
+  border: 0.078rem solid hsl(231deg, 44%, 60%);
 }
 .menu-button-accent-1:focus {
-  background-color: rgb(57, 71, 147);
+  background-color: hsl(231deg, 44%, 40%);
 }
 .menu-button-accent-1:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(57, 71, 147);
+  border-color: hsl(231deg, 44%, 40%);
 }
 
 .menu-button-accent-2 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
-  border: 0.078rem solid rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
+  border: 0.078rem solid hsl(261deg, 46%, 60%);
 }
 .menu-button-accent-2:focus {
-  background-color: rgb(88, 55, 149);
+  background-color: hsl(261deg, 46%, 40%);
 }
 .menu-button-accent-2:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(88, 55, 149);
+  border-color: hsl(261deg, 46%, 40%);
 }
 
 .menu-button-accent-3 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
-  border: 0.078rem solid rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
+  border: 0.078rem solid hsl(291deg, 46%, 60%);
 }
 .menu-button-accent-3:focus {
-  background-color: rgb(135, 55, 149);
+  background-color: hsl(291deg, 46%, 40%);
 }
 .menu-button-accent-3:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(135, 55, 149);
+  border-color: hsl(291deg, 46%, 40%);
 }
 
 .menu-button-accent-4 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
-  border: 0.078rem solid rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
+  border: 0.078rem solid hsl(0deg, 0%, 60%);
 }
 .menu-button-accent-4:focus {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 .menu-button-accent-4:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(102, 102, 102);
+  border-color: hsl(0deg, 0%, 40%);
 }
 
 .menu-button-accent-5 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
-  border: 0.078rem solid rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
+  border: 0.078rem solid hsl(0deg, 0%, 40%);
 }
 .menu-button-accent-5:focus {
-  background-color: rgb(51, 51, 51);
+  background-color: hsl(0deg, 0%, 20%);
 }
 .menu-button-accent-5:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(51, 51, 51);
+  border-color: hsl(0deg, 0%, 20%);
 }
 
 .menu-button-success {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
-  border: 0.078rem solid rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
+  border: 0.078rem solid hsl(122deg, 40%, 50%);
 }
 .menu-button-success:focus {
-  background-color: rgb(61, 143, 64);
+  background-color: hsl(122deg, 40%, 40%);
 }
 .menu-button-success:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(61, 143, 64);
+  border-color: hsl(122deg, 40%, 40%);
 }
 
 .menu-button-info {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
-  border: 0.078rem solid rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
+  border: 0.078rem solid hsl(206deg, 89%, 50%);
 }
 .menu-button-info:focus {
-  background-color: rgb(11, 114, 193);
+  background-color: hsl(206deg, 89%, 40%);
 }
 .menu-button-info:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(11, 114, 193);
+  border-color: hsl(206deg, 89%, 40%);
 }
 
 .menu-button-warning {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
-  border: 0.078rem solid rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
+  border: 0.078rem solid hsl(33deg, 100%, 50%);
 }
 .menu-button-warning:focus {
-  background-color: rgb(204, 112, 0);
+  background-color: hsl(33deg, 100%, 40%);
 }
 .menu-button-warning:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(204, 112, 0);
+  border-color: hsl(33deg, 100%, 40%);
 }
 
 .menu-button-danger {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
-  border: 0.078rem solid rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
+  border: 0.078rem solid hsl(14deg, 100%, 50%);
 }
 .menu-button-danger:focus {
-  background-color: rgb(219, 51, 0);
+  background-color: hsl(14deg, 100%, 43%);
 }
 .menu-button-danger:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
-  border-color: rgb(219, 51, 0);
+  border-color: hsl(14deg, 100%, 43%);
 }
 
 .view-button,
@@ -2500,10 +2494,10 @@ svg:not(:root) {
   white-space: nowrap;
   outline: none;
   width: 100%;
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
   background-color: transparent;
   border: none;
-  border-bottom: 0.125rem solid rgb(222, 222, 222);
+  border-bottom: 0.125rem solid hsl(0deg, 0%, 87%);
   cursor: default;
 }
 
@@ -2525,135 +2519,135 @@ svg:not(:root) {
 }
 
 .view-button-default {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-default:focus {
-  color: rgb(237, 237, 237);
-  border-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 93%);
+  border-color: hsl(0deg, 0%, 93%);
 }
 
 .view-button-light {
-  color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 100%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-light:focus {
-  color: rgb(237, 237, 237);
-  border-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 93%);
+  border-color: hsl(0deg, 0%, 93%);
 }
 
 .view-button-dark {
-  color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 0%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-dark:focus {
-  color: rgb(115, 115, 115);
-  border-color: rgb(115, 115, 115);
+  color: hsl(0deg, 0%, 45%);
+  border-color: hsl(0deg, 0%, 45%);
 }
 
 .view-button-accent-1 {
-  color: rgb(108, 122, 198);
+  color: hsl(231deg, 44%, 60%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-accent-1:focus {
-  color: rgb(57, 71, 147);
-  border-color: rgb(57, 71, 147);
+  color: hsl(231deg, 44%, 40%);
+  border-color: hsl(231deg, 44%, 40%);
 }
 
 .view-button-accent-2 {
-  color: rgb(139, 106, 200);
+  color: hsl(261deg, 46%, 60%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-accent-2:focus {
-  color: rgb(88, 55, 149);
-  border-color: rgb(88, 55, 149);
+  color: hsl(261deg, 46%, 40%);
+  border-color: hsl(261deg, 46%, 40%);
 }
 
 .view-button-accent-3 {
-  color: rgb(186, 106, 200);
+  color: hsl(291deg, 46%, 60%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-accent-3:focus {
-  color: rgb(135, 55, 149);
-  border-color: rgb(135, 55, 149);
+  color: hsl(291deg, 46%, 40%);
+  border-color: hsl(291deg, 46%, 40%);
 }
 
 .view-button-accent-4 {
-  color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 60%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-accent-4:focus {
-  color: rgb(102, 102, 102);
-  border-color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
+  border-color: hsl(0deg, 0%, 40%);
 }
 
 .view-button-accent-5 {
-  color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-accent-5:focus {
-  color: rgb(51, 51, 51);
-  border-color: rgb(51, 51, 51);
+  color: hsl(0deg, 0%, 20%);
+  border-color: hsl(0deg, 0%, 20%);
 }
 
 .view-button-success {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-success:focus {
-  color: rgb(61, 143, 64);
-  border-color: rgb(61, 143, 64);
+  color: hsl(122deg, 40%, 40%);
+  border-color: hsl(122deg, 40%, 40%);
 }
 
 .view-button-info {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-info:focus {
-  color: rgb(11, 114, 193);
-  border-color: rgb(11, 114, 193);
+  color: hsl(206deg, 89%, 40%);
+  border-color: hsl(206deg, 89%, 40%);
 }
 
 .view-button-warning {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-warning:focus {
-  color: rgb(204, 112, 0);
-  border-color: rgb(204, 112, 0);
+  color: hsl(33deg, 100%, 40%);
+  border-color: hsl(33deg, 100%, 40%);
 }
 
 .view-button-danger {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
   background-color: transparent;
   border: none;
   border-bottom: 0.125rem solid transparent;
 }
 .view-button-danger:focus {
-  color: rgb(219, 51, 0);
-  border-color: rgb(219, 51, 0);
+  color: hsl(14deg, 100%, 43%);
+  border-color: hsl(14deg, 100%, 43%);
 }
 
 .view-button-top {
@@ -2704,8 +2698,8 @@ svg:not(:root) {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   backface-visibility: hidden;
 }
 .checkbox input[type=checkbox]:checked + label {
@@ -2728,8 +2722,8 @@ svg:not(:root) {
   bottom: 0;
   right: 0;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   backface-visibility: hidden;
 }
 .radio input[type=radio]:checked + label {
@@ -2745,25 +2739,25 @@ svg:not(:root) {
 }
 
 .progress > progress {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 1px solid hsl(0deg, 0%, 87%);
   height: 1.25rem;
   width: 100%;
   border-radius: 0;
 }
 
 .progress > progress::-webkit-progress-bar {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
   border-radius: 0;
 }
 
 .progress > progress::-webkit-progress-value {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
   border-radius: 0;
 }
 
 .progress > progress::-moz-progress-bar {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
   border-radius: 0;
 }
 
@@ -2778,99 +2772,99 @@ svg:not(:root) {
 }
 
 .progress-default > progress {
-  border: 1px solid rgb(222, 222, 222);
+  border: 1px solid hsl(0deg, 0%, 87%);
 }
 
 .progress-default > progress::-webkit-progress-value {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .progress-default > progress::-moz-progress-bar {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .progress-light > progress {
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid hsl(0deg, 0%, 100%);
 }
 
 .progress-light > progress::-webkit-progress-value {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .progress-light > progress::-moz-progress-bar {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .progress-dark > progress {
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid hsl(0deg, 0%, 0%);
 }
 
 .progress-dark > progress::-webkit-progress-value {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .progress-dark > progress::-moz-progress-bar {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .progress-accent-1 > progress {
-  border: 1px solid rgb(108, 122, 198);
+  border: 1px solid hsl(231deg, 44%, 60%);
 }
 
 .progress-accent-1 > progress::-webkit-progress-value {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .progress-accent-1 > progress::-moz-progress-bar {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .progress-accent-2 > progress {
-  border: 1px solid rgb(139, 106, 200);
+  border: 1px solid hsl(261deg, 46%, 60%);
 }
 
 .progress-accent-2 > progress::-webkit-progress-value {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .progress-accent-2 > progress::-moz-progress-bar {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .progress-accent-3 > progress {
-  border: 1px solid rgb(186, 106, 200);
+  border: 1px solid hsl(291deg, 46%, 60%);
 }
 
 .progress-accent-3 > progress::-webkit-progress-value {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .progress-accent-3 > progress::-moz-progress-bar {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .progress-accent-4 > progress {
-  border: 1px solid rgb(153, 153, 153);
+  border: 1px solid hsl(0deg, 0%, 60%);
 }
 
 .progress-accent-4 > progress::-webkit-progress-value {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .progress-accent-4 > progress::-moz-progress-bar {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .progress-accent-5 > progress {
-  border: 1px solid rgb(102, 102, 102);
+  border: 1px solid hsl(0deg, 0%, 40%);
 }
 
 .progress-accent-5 > progress::-webkit-progress-value {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .progress-accent-5 > progress::-moz-progress-bar {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .progress.rounded-sm > progress {
@@ -2914,40 +2908,40 @@ svg:not(:root) {
   padding: 0;
   height: 1.25rem;
   background: transparent;
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
   -webkit-appearance: none;
 }
 
 .range::-webkit-slider-runnable-track {
   height: 0.3rem;
-  background: rgb(237, 237, 237);
+  background: hsl(0deg, 0%, 93%);
 }
 
 .range:focus::-webkit-slider-runnable-track {
-  background: rgb(199, 199, 199);
+  background: hsl(0deg, 0%, 78%);
 }
 
 .range::-webkit-slider-thumb {
   width: 0.75rem;
   height: 1.25rem;
-  background: rgb(222, 222, 222);
+  background: hsl(0deg, 0%, 87%);
   margin-top: -0.45rem;
   -webkit-appearance: none;
 }
 
 .range::-moz-range-track {
   height: 0.3rem;
-  background: rgb(237, 237, 237);
+  background: hsl(0deg, 0%, 93%);
 }
 
 .range:focus::-moz-range-track {
-  background: rgb(199, 199, 199);
+  background: hsl(0deg, 0%, 78%);
 }
 
 .range::-moz-range-thumb {
   width: 0.75rem;
   height: 1.25rem;
-  background: rgb(222, 222, 222);
+  background: hsl(0deg, 0%, 87%);
   border: none;
   border-radius: 0;
   margin-top: -0.45rem;
@@ -2964,243 +2958,243 @@ svg:not(:root) {
 }
 
 .range-default::-webkit-slider-runnable-track {
-  background: rgb(237, 237, 237);
+  background: hsl(0deg, 0%, 93%);
 }
 
 .range-default:focus::-webkit-slider-runnable-track {
-  background: rgb(199, 199, 199);
+  background: hsl(0deg, 0%, 78%);
 }
 
 .range-default::-webkit-slider-thumb {
-  background: rgb(222, 222, 222);
+  background: hsl(0deg, 0%, 87%);
 }
 .range-default::-webkit-slider-thumb:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .range-default::-moz-range-track {
-  background: rgb(237, 237, 237);
+  background: hsl(0deg, 0%, 93%);
 }
 
 .range-default:focus::-moz-range-track {
-  background: rgb(199, 199, 199);
+  background: hsl(0deg, 0%, 78%);
 }
 
 .range-default::-moz-range-thumb {
-  background: rgb(222, 222, 222);
+  background: hsl(0deg, 0%, 87%);
 }
 .range-default::-moz-range-thumb:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .range-light::-webkit-slider-runnable-track {
-  background: rgb(255, 255, 255);
+  background: hsl(0deg, 0%, 100%);
 }
 
 .range-light:focus::-webkit-slider-runnable-track {
-  background: rgb(230, 230, 230);
+  background: hsl(0deg, 0%, 90%);
 }
 
 .range-light::-webkit-slider-thumb {
-  background: rgb(255, 255, 255);
+  background: hsl(0deg, 0%, 100%);
 }
 .range-light::-webkit-slider-thumb:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .range-light::-moz-range-track {
-  background: rgb(255, 255, 255);
+  background: hsl(0deg, 0%, 100%);
 }
 
 .range-light:focus::-moz-range-track {
-  background: rgb(230, 230, 230);
+  background: hsl(0deg, 0%, 90%);
 }
 
 .range-light::-moz-range-thumb {
-  background: rgb(255, 255, 255);
+  background: hsl(0deg, 0%, 100%);
 }
 .range-light::-moz-range-thumb:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .range-dark::-webkit-slider-runnable-track {
-  background: rgb(0, 0, 0);
+  background: hsl(0deg, 0%, 0%);
 }
 
 .range-dark:focus::-webkit-slider-runnable-track {
-  background: rgb(115, 115, 115);
+  background: hsl(0deg, 0%, 45%);
 }
 
 .range-dark::-webkit-slider-thumb {
-  background: rgb(115, 115, 115);
+  background: hsl(0deg, 0%, 45%);
 }
 .range-dark::-webkit-slider-thumb:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .range-dark::-moz-range-track {
-  background: rgb(0, 0, 0);
+  background: hsl(0deg, 0%, 0%);
 }
 
 .range-dark:focus::-moz-range-track {
-  background: rgb(115, 115, 115);
+  background: hsl(0deg, 0%, 45%);
 }
 
 .range-dark::-moz-range-thumb {
-  background: rgb(115, 115, 115);
+  background: hsl(0deg, 0%, 45%);
 }
 .range-dark::-moz-range-thumb:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .range-accent-1::-webkit-slider-runnable-track {
-  background: rgb(108, 122, 198);
+  background: hsl(231deg, 44%, 60%);
 }
 
 .range-accent-1:focus::-webkit-slider-runnable-track {
-  background: rgb(57, 71, 147);
+  background: hsl(231deg, 44%, 40%);
 }
 
 .range-accent-1::-webkit-slider-thumb {
-  background: rgb(57, 71, 147);
+  background: hsl(231deg, 44%, 40%);
 }
 .range-accent-1::-webkit-slider-thumb:hover {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .range-accent-1::-moz-range-track {
-  background: rgb(108, 122, 198);
+  background: hsl(231deg, 44%, 60%);
 }
 
 .range-accent-1:focus::-moz-range-track {
-  background: rgb(57, 71, 147);
+  background: hsl(231deg, 44%, 40%);
 }
 
 .range-accent-1::-moz-range-thumb {
-  background: rgb(57, 71, 147);
+  background: hsl(231deg, 44%, 40%);
 }
 .range-accent-1::-moz-range-thumb:hover {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .range-accent-2::-webkit-slider-runnable-track {
-  background: rgb(139, 106, 200);
+  background: hsl(261deg, 46%, 60%);
 }
 
 .range-accent-2:focus::-webkit-slider-runnable-track {
-  background: rgb(88, 55, 149);
+  background: hsl(261deg, 46%, 40%);
 }
 
 .range-accent-2::-webkit-slider-thumb {
-  background: rgb(88, 55, 149);
+  background: hsl(261deg, 46%, 40%);
 }
 .range-accent-2::-webkit-slider-thumb:hover {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .range-accent-2::-moz-range-track {
-  background: rgb(139, 106, 200);
+  background: hsl(261deg, 46%, 60%);
 }
 
 .range-accent-2:focus::-moz-range-track {
-  background: rgb(88, 55, 149);
+  background: hsl(261deg, 46%, 40%);
 }
 
 .range-accent-2::-moz-range-thumb {
-  background: rgb(88, 55, 149);
+  background: hsl(261deg, 46%, 40%);
 }
 .range-accent-2::-moz-range-thumb:hover {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .range-accent-3::-webkit-slider-runnable-track {
-  background: rgb(186, 106, 200);
+  background: hsl(291deg, 46%, 60%);
 }
 
 .range-accent-3:focus::-webkit-slider-runnable-track {
-  background: rgb(135, 55, 149);
+  background: hsl(291deg, 46%, 40%);
 }
 
 .range-accent-3::-webkit-slider-thumb {
-  background: rgb(135, 55, 149);
+  background: hsl(291deg, 46%, 40%);
 }
 .range-accent-3::-webkit-slider-thumb:hover {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .range-accent-3::-moz-range-track {
-  background: rgb(186, 106, 200);
+  background: hsl(291deg, 46%, 60%);
 }
 
 .range-accent-3:focus::-moz-range-track {
-  background: rgb(135, 55, 149);
+  background: hsl(291deg, 46%, 40%);
 }
 
 .range-accent-3::-moz-range-thumb {
-  background: rgb(135, 55, 149);
+  background: hsl(291deg, 46%, 40%);
 }
 .range-accent-3::-moz-range-thumb:hover {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .range-accent-4::-webkit-slider-runnable-track {
-  background: rgb(153, 153, 153);
+  background: hsl(0deg, 0%, 60%);
 }
 
 .range-accent-4:focus::-webkit-slider-runnable-track {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 
 .range-accent-4::-webkit-slider-thumb {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 .range-accent-4::-webkit-slider-thumb:hover {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .range-accent-4::-moz-range-track {
-  background: rgb(153, 153, 153);
+  background: hsl(0deg, 0%, 60%);
 }
 
 .range-accent-4:focus::-moz-range-track {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 
 .range-accent-4::-moz-range-thumb {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 .range-accent-4::-moz-range-thumb:hover {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .range-accent-5::-webkit-slider-runnable-track {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 
 .range-accent-5:focus::-webkit-slider-runnable-track {
-  background: rgb(51, 51, 51);
+  background: hsl(0deg, 0%, 20%);
 }
 
 .range-accent-5::-webkit-slider-thumb {
-  background: rgb(51, 51, 51);
+  background: hsl(0deg, 0%, 20%);
 }
 .range-accent-5::-webkit-slider-thumb:hover {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .range-accent-5::-moz-range-track {
-  background: rgb(102, 102, 102);
+  background: hsl(0deg, 0%, 40%);
 }
 
 .range-accent-5:focus::-moz-range-track {
-  background: rgb(51, 51, 51);
+  background: hsl(0deg, 0%, 20%);
 }
 
 .range-accent-5::-moz-range-thumb {
-  background: rgb(51, 51, 51);
+  background: hsl(0deg, 0%, 20%);
 }
 .range-accent-5::-moz-range-thumb:hover {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .range.range-rounded::-webkit-slider-runnable-track {
@@ -3236,120 +3230,120 @@ svg:not(:root) {
 }
 
 .toggle-button-default label {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
 }
 .toggle-button-default input:checked + label {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .toggle-button-light label {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 100%);
 }
 .toggle-button-light input:checked + label {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .toggle-button-dark label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border: 0.078rem solid rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
+  border: 0.078rem solid hsl(0deg, 0%, 0%);
 }
 .toggle-button-dark input:checked + label {
-  background-color: rgb(115, 115, 115);
+  background-color: hsl(0deg, 0%, 45%);
 }
 
 .toggle-button-accent-1 label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
-  border: 0.078rem solid rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
+  border: 0.078rem solid hsl(231deg, 44%, 60%);
 }
 .toggle-button-accent-1 input:checked + label {
-  background-color: rgb(57, 71, 147);
+  background-color: hsl(231deg, 44%, 40%);
 }
 
 .toggle-button-accent-2 label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
-  border: 0.078rem solid rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
+  border: 0.078rem solid hsl(261deg, 46%, 60%);
 }
 .toggle-button-accent-2 input:checked + label {
-  background-color: rgb(88, 55, 149);
+  background-color: hsl(261deg, 46%, 40%);
 }
 
 .toggle-button-accent-3 label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
-  border: 0.078rem solid rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
+  border: 0.078rem solid hsl(291deg, 46%, 60%);
 }
 .toggle-button-accent-3 input:checked + label {
-  background-color: rgb(135, 55, 149);
+  background-color: hsl(291deg, 46%, 40%);
 }
 
 .toggle-button-accent-4 label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
-  border: 0.078rem solid rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
+  border: 0.078rem solid hsl(0deg, 0%, 60%);
 }
 .toggle-button-accent-4 input:checked + label {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .toggle-button-accent-5 label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
-  border: 0.078rem solid rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
+  border: 0.078rem solid hsl(0deg, 0%, 40%);
 }
 .toggle-button-accent-5 input:checked + label {
-  background-color: rgb(51, 51, 51);
+  background-color: hsl(0deg, 0%, 20%);
 }
 
 .toggle-button-success label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
-  border: 0.078rem solid rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
+  border: 0.078rem solid hsl(122deg, 40%, 50%);
 }
 .toggle-button-success input:checked + label {
-  background-color: rgb(61, 143, 64);
+  background-color: hsl(122deg, 40%, 40%);
 }
 
 .toggle-button-info label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
-  border: 0.078rem solid rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
+  border: 0.078rem solid hsl(206deg, 89%, 50%);
 }
 .toggle-button-info input:checked + label {
-  background-color: rgb(11, 114, 193);
+  background-color: hsl(206deg, 89%, 40%);
 }
 
 .toggle-button-warning label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
-  border: 0.078rem solid rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
+  border: 0.078rem solid hsl(33deg, 100%, 50%);
 }
 .toggle-button-warning input:checked + label {
-  background-color: rgb(204, 112, 0);
+  background-color: hsl(33deg, 100%, 40%);
 }
 
 .toggle-button-danger label {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
-  border: 0.078rem solid rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
+  border: 0.078rem solid hsl(14deg, 100%, 50%);
 }
 .toggle-button-danger input:checked + label {
-  background-color: rgb(219, 51, 0);
+  background-color: hsl(14deg, 100%, 43%);
 }
 
 .toggle-button-transparent label {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
-  border: 0.078rem solid rgb(189, 189, 189);
+  border: 0.078rem solid hsl(0deg, 0%, 74%);
 }
 .toggle-button-transparent input:checked + label {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 *[class*=toggle-switch] {
@@ -3369,7 +3363,7 @@ svg:not(:root) {
   text-decoration: none;
   white-space: nowrap;
   outline: none;
-  border: 0.078rem solid rgb(222, 222, 222);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   cursor: default;
 }
 
@@ -3513,11 +3507,11 @@ svg:not(:root) {
 }
 
 *[class*=toggle-switch] input:not(:checked) + label {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 *[class*=toggle-switch] input:not(:checked) + label .toggle-switch-button {
-  background-color: rgb(199, 199, 199);
+  background-color: hsl(0deg, 0%, 78%);
 }
 
 .image {
@@ -3616,33 +3610,33 @@ svg:not(:root) {
 }
 
 .control {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border: 0.078rem solid rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
+  border: 0.078rem solid hsl(0deg, 0%, 87%);
   padding: 0.313rem 0.625rem;
 }
 
 .control-highlight {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 241, 219);
-  border: 0.078rem solid rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(36deg, 100%, 93%);
+  border: 0.078rem solid hsl(14deg, 100%, 50%);
 }
 
 .control-group-success label,
 .control-group-success *[class*=text],
 .control-group-success *[class*=control-label] {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
 }
 
 .control-group-success *[class*=radio] label,
 .control-group-success *[class*=checkbox] label {
-  border-color: rgb(77, 179, 80);
+  border-color: hsl(122deg, 40%, 50%);
 }
 
 .control-success,
 .control-group-success,
 .control-group-success .control {
-  border-color: rgb(77, 179, 80);
+  border-color: hsl(122deg, 40%, 50%);
 }
 .control-success[type=text], .control-success[type=button], .control-success[class*=button], .control-success.instrumentation,
 .control-group-success[type=text],
@@ -3668,18 +3662,18 @@ svg:not(:root) {
 .control-group-info label,
 .control-group-info *[class*=text],
 .control-group-info *[class*=control-label] {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
 }
 
 .control-group-info *[class*=radio] label,
 .control-group-info *[class*=checkbox] label {
-  border-color: rgb(14, 143, 241);
+  border-color: hsl(206deg, 89%, 50%);
 }
 
 .control-info,
 .control-group-info,
 .control-group-info .control {
-  border-color: rgb(14, 143, 241);
+  border-color: hsl(206deg, 89%, 50%);
 }
 .control-info[type=text], .control-info[type=button], .control-info[class*=button], .control-info.instrumentation,
 .control-group-info[type=text],
@@ -3705,18 +3699,18 @@ svg:not(:root) {
 .control-group-warning label,
 .control-group-warning *[class*=text],
 .control-group-warning *[class*=control-label] {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
 }
 
 .control-group-warning *[class*=radio] label,
 .control-group-warning *[class*=checkbox] label {
-  border-color: rgb(255, 140, 0);
+  border-color: hsl(33deg, 100%, 50%);
 }
 
 .control-warning,
 .control-group-warning,
 .control-group-warning .control {
-  border-color: rgb(255, 140, 0);
+  border-color: hsl(33deg, 100%, 50%);
 }
 .control-warning[type=text], .control-warning[type=button], .control-warning[class*=button], .control-warning.instrumentation,
 .control-group-warning[type=text],
@@ -3742,18 +3736,18 @@ svg:not(:root) {
 .control-group-danger label,
 .control-group-danger *[class*=text],
 .control-group-danger *[class*=control-label] {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
 }
 
 .control-group-danger *[class*=radio] label,
 .control-group-danger *[class*=checkbox] label {
-  border-color: rgb(255, 60, 0);
+  border-color: hsl(14deg, 100%, 50%);
 }
 
 .control-danger,
 .control-group-danger,
 .control-group-danger .control {
-  border-color: rgb(255, 60, 0);
+  border-color: hsl(14deg, 100%, 50%);
 }
 .control-danger[type=text], .control-danger[type=button], .control-danger[class*=button], .control-danger.instrumentation,
 .control-group-danger[type=text],
@@ -3985,8 +3979,8 @@ svg:not(:root) {
 .accessibility-light *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-light *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-light .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(222, 222, 222);
-  border-color: rgb(222, 222, 222);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 87%);
+  border-color: hsl(0deg, 0%, 87%);
 }
 .accessibility-light a:focus.group-item,
 .accessibility-light *[class*=input]:not([disabled]):focus.group-item,
@@ -4001,11 +3995,11 @@ svg:not(:root) {
 }
 
 .accessibility-light .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(222, 222, 222);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 87%);
 }
 
 .accessibility-light .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(222, 222, 222);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 87%);
 }
 
 .accessibility-dark a:focus,
@@ -4016,8 +4010,8 @@ svg:not(:root) {
 .accessibility-dark *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-dark *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-dark .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(77, 77, 77);
-  border-color: rgb(77, 77, 77);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 30%);
+  border-color: hsl(0deg, 0%, 30%);
 }
 .accessibility-dark a:focus.group-item,
 .accessibility-dark *[class*=input]:not([disabled]):focus.group-item,
@@ -4032,11 +4026,11 @@ svg:not(:root) {
 }
 
 .accessibility-dark .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(77, 77, 77);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 30%);
 }
 
 .accessibility-dark .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(77, 77, 77);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 30%);
 }
 
 .accessibility-accent-1 a:focus,
@@ -4047,8 +4041,8 @@ svg:not(:root) {
 .accessibility-accent-1 *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-accent-1 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-1 .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(108, 122, 198);
-  border-color: rgb(108, 122, 198);
+  box-shadow: 0 0 0 0.125rem hsl(231deg, 44%, 60%);
+  border-color: hsl(231deg, 44%, 60%);
 }
 .accessibility-accent-1 a:focus.group-item,
 .accessibility-accent-1 *[class*=input]:not([disabled]):focus.group-item,
@@ -4063,11 +4057,11 @@ svg:not(:root) {
 }
 
 .accessibility-accent-1 .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(108, 122, 198);
+  box-shadow: 0 0 0 0.125rem hsl(231deg, 44%, 60%);
 }
 
 .accessibility-accent-1 .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(108, 122, 198);
+  box-shadow: 0 0 0 0.125rem hsl(231deg, 44%, 60%);
 }
 
 .accessibility-accent-2 a:focus,
@@ -4078,8 +4072,8 @@ svg:not(:root) {
 .accessibility-accent-2 *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-accent-2 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-2 .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(139, 106, 200);
-  border-color: rgb(139, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(261deg, 46%, 60%);
+  border-color: hsl(261deg, 46%, 60%);
 }
 .accessibility-accent-2 a:focus.group-item,
 .accessibility-accent-2 *[class*=input]:not([disabled]):focus.group-item,
@@ -4094,11 +4088,11 @@ svg:not(:root) {
 }
 
 .accessibility-accent-2 .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(139, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(261deg, 46%, 60%);
 }
 
 .accessibility-accent-2 .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(139, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(261deg, 46%, 60%);
 }
 
 .accessibility-accent-3 a:focus,
@@ -4109,8 +4103,8 @@ svg:not(:root) {
 .accessibility-accent-3 *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-accent-3 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-3 .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(186, 106, 200);
-  border-color: rgb(186, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(291deg, 46%, 60%);
+  border-color: hsl(291deg, 46%, 60%);
 }
 .accessibility-accent-3 a:focus.group-item,
 .accessibility-accent-3 *[class*=input]:not([disabled]):focus.group-item,
@@ -4125,11 +4119,11 @@ svg:not(:root) {
 }
 
 .accessibility-accent-3 .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(186, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(291deg, 46%, 60%);
 }
 
 .accessibility-accent-3 .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(186, 106, 200);
+  box-shadow: 0 0 0 0.125rem hsl(291deg, 46%, 60%);
 }
 
 .accessibility-accent-4 a:focus,
@@ -4140,8 +4134,8 @@ svg:not(:root) {
 .accessibility-accent-4 *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-accent-4 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-4 .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(153, 153, 153);
-  border-color: rgb(153, 153, 153);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 60%);
+  border-color: hsl(0deg, 0%, 60%);
 }
 .accessibility-accent-4 a:focus.group-item,
 .accessibility-accent-4 *[class*=input]:not([disabled]):focus.group-item,
@@ -4156,11 +4150,11 @@ svg:not(:root) {
 }
 
 .accessibility-accent-4 .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(153, 153, 153);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 60%);
 }
 
 .accessibility-accent-4 .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(153, 153, 153);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 60%);
 }
 
 .accessibility-accent-5 a:focus,
@@ -4171,8 +4165,8 @@ svg:not(:root) {
 .accessibility-accent-5 *[class*=toggle-button] input:not([disabled]) + label:focus,
 .accessibility-accent-5 *[class*=toggle-switch] input:not([disabled]) + label:focus,
 .accessibility-accent-5 .control:not([disabled]):focus {
-  box-shadow: 0 0 0 0.125rem rgb(102, 102, 102);
-  border-color: rgb(102, 102, 102);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 40%);
+  border-color: hsl(0deg, 0%, 40%);
 }
 .accessibility-accent-5 a:focus.group-item,
 .accessibility-accent-5 *[class*=input]:not([disabled]):focus.group-item,
@@ -4187,11 +4181,11 @@ svg:not(:root) {
 }
 
 .accessibility-accent-5 .range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(102, 102, 102);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 40%);
 }
 
 .accessibility-accent-5 .range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 0.125rem rgb(102, 102, 102);
+  box-shadow: 0 0 0 0.125rem hsl(0deg, 0%, 40%);
 }
 
 *[class*=accessibility] [class*=checkbox].group-item input:not([disabled]) + label:focus,
@@ -5719,6 +5713,18 @@ svg:not(:root) {
   font-size: 2.5em;
 }
 
+.text-width-50 {
+  width: 50ch;
+}
+
+.text-width-75 {
+  width: 75ch;
+}
+
+.text-width-100 {
+  width: 100ch;
+}
+
 .text-scalable-xs {
   font-size: 0.56rem;
 }
@@ -5908,7 +5914,7 @@ svg:not(:root) {
 
 .outline-sm, .outline-md, .outline-lg {
   outline-style: solid;
-  outline-color: rgb(222, 222, 222);
+  outline-color: hsl(0deg, 0%, 87%);
 }
 
 .border-initial {
@@ -5937,7 +5943,7 @@ svg:not(:root) {
 
 .border-xs, .border-sm, .border-md, .border-lg, .border-xl {
   border-style: solid;
-  border-color: rgb(222, 222, 222);
+  border-color: hsl(0deg, 0%, 87%);
 }
 
 .rounded-sm, .checkbox.rounded-sm label {
@@ -6031,7 +6037,7 @@ svg:not(:root) {
 .control-group-disabled label,
 .control-group-disabled *[class*=text],
 .control-group-disabled *[class*=control-label] {
-  color: rgb(189, 189, 189) !important;
+  color: hsl(0deg, 0%, 74%) !important;
   cursor: not-allowed !important;
 }
 
@@ -6055,9 +6061,9 @@ svg:not(:root) {
 .control-group-disabled *[class*=radio] label,
 .control-group-disabled *[class*=toggle-button] label,
 .control-group-disabled *[class*=toggle-switch] label {
-  color: rgb(189, 189, 189) !important;
-  background-color: rgb(237, 237, 237) !important;
-  border-color: rgb(237, 237, 237) !important;
+  color: hsl(0deg, 0%, 74%) !important;
+  background-color: hsl(0deg, 0%, 93%) !important;
+  border-color: hsl(0deg, 0%, 93%) !important;
   background-image: none !important;
   box-shadow: none !important;
   cursor: not-allowed !important;
@@ -6067,7 +6073,7 @@ svg:not(:root) {
 *[class*=view-button].control-disabled,
 .control-group-disabled *[class*=view-button] {
   text-decoration: line-through !important;
-  color: rgb(189, 189, 189) !important;
+  color: hsl(0deg, 0%, 74%) !important;
   background-color: transparent !important;
   border-color: transparent !important;
   cursor: not-allowed !important;
@@ -6076,32 +6082,32 @@ svg:not(:root) {
 .range[disabled]::-webkit-slider-runnable-track,
 .range.control-disabled::-webkit-slider-runnable-track,
 .control-group-disabled .range::-webkit-slider-runnable-track {
-  background-color: rgb(237, 237, 237) !important;
+  background-color: hsl(0deg, 0%, 93%) !important;
   cursor: not-allowed !important;
 }
 
 .range[disabled]::-webkit-slider-thumb,
 .range.control-disabled::-webkit-slider-thumb,
 .control-group-disabled .range::-webkit-slider-thumb {
-  background-color: rgb(237, 237, 237) !important;
+  background-color: hsl(0deg, 0%, 93%) !important;
 }
 
 .range[disabled]::-moz-range-track,
 .range.control-disabled::-moz-range-track,
 .control-group-disabled .range::-moz-range-track {
-  background-color: rgb(237, 237, 237) !important;
+  background-color: hsl(0deg, 0%, 93%) !important;
   cursor: not-allowed !important;
 }
 
 .range[disabled]::-moz-range-thumb,
 .range.control-disabled::-moz-range-thumb,
 .control-group-disabled .range::-moz-range-thumb {
-  background-color: rgb(237, 237, 237) !important;
+  background-color: hsl(0deg, 0%, 93%) !important;
 }
 
 .range-series.control-disabled,
 .control-group-disabled .range-series {
-  color: rgb(189, 189, 189) !important;
+  color: hsl(0deg, 0%, 74%) !important;
 }
 
 .show-bp-1-under,
@@ -6521,183 +6527,183 @@ svg:not(:root) {
 }
 
 .primary {
-  color: rgb(0, 0, 0);
-  background-color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .secondary {
-  color: rgb(0, 0, 0);
-  background-color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .highlight {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 241, 219);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .muted {
-  color: rgb(97, 97, 97);
-  background-color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 38%);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .default {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .accent-1 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .accent-1-light {
-  color: rgb(43, 53, 110);
-  background-color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 30%);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .accent-1-dark {
-  color: rgb(229, 232, 245);
-  background-color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 93%);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .accent-2 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .accent-2-light {
-  color: rgb(66, 41, 112);
-  background-color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 30%);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .accent-2-dark {
-  color: rgb(235, 229, 245);
-  background-color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 93%);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .accent-3 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .accent-3-light {
-  color: rgb(101, 41, 112);
-  background-color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 30%);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .accent-3-dark {
-  color: rgb(243, 229, 245);
-  background-color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 93%);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .accent-4 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .accent-4-light {
-  color: rgb(77, 77, 77);
-  background-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 30%);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .accent-4-dark {
-  color: rgb(237, 237, 237);
-  background-color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 93%);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .accent-5 {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .accent-5-light {
-  color: rgb(26, 26, 26);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 10%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .accent-5-dark {
-  color: rgb(222, 222, 222);
-  background-color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 87%);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .success {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .success-light {
-  color: rgb(46, 107, 48);
-  background-color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 30%);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .success-dark {
-  color: rgb(234, 246, 234);
-  background-color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 94%);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .info {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .info-light {
-  color: rgb(8, 86, 145);
-  background-color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 30%);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .info-dark {
-  color: rgb(226, 242, 253);
-  background-color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 94%);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .warning {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .warning-light {
-  color: rgb(153, 84, 0);
-  background-color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 30%);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .warning-dark {
-  color: rgb(255, 241, 224);
-  background-color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 94%);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .danger {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .danger-light {
-  color: rgb(153, 36, 0);
-  background-color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 30%);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .danger-dark {
-  color: rgb(255, 232, 224);
-  background-color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 94%);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .transparent {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
 }
 
 .disabled {
-  color: rgb(189, 189, 189);
-  background-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 74%);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .color-translucent {
@@ -6741,139 +6747,139 @@ svg:not(:root) {
 }
 
 .color-primary {
-  color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 98%);
 }
 
 .color-secondary {
-  color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 96%);
 }
 
 .color-highlight {
-  color: rgb(255, 241, 219);
+  color: hsl(36deg, 100%, 93%);
 }
 
 .color-muted {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .color-default {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-light {
-  color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 100%);
 }
 
 .color-dark {
-  color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 0%);
 }
 
 .color-accent-1 {
-  color: rgb(108, 122, 198);
+  color: hsl(231deg, 44%, 60%);
 }
 
 .color-accent-1-light {
-  color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 93%);
 }
 
 .color-accent-1-dark {
-  color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 30%);
 }
 
 .color-accent-2 {
-  color: rgb(139, 106, 200);
+  color: hsl(261deg, 46%, 60%);
 }
 
 .color-accent-2-light {
-  color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 93%);
 }
 
 .color-accent-2-dark {
-  color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 30%);
 }
 
 .color-accent-3 {
-  color: rgb(186, 106, 200);
+  color: hsl(291deg, 46%, 60%);
 }
 
 .color-accent-3-light {
-  color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 93%);
 }
 
 .color-accent-3-dark {
-  color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 30%);
 }
 
 .color-accent-4 {
-  color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 60%);
 }
 
 .color-accent-4-light {
-  color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 93%);
 }
 
 .color-accent-4-dark {
-  color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 30%);
 }
 
 .color-accent-5 {
-  color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
 }
 
 .color-accent-5-light {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-accent-5-dark {
-  color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 10%);
 }
 
 .color-success {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
 }
 
 .color-success-light {
-  color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 94%);
 }
 
 .color-success-dark {
-  color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 30%);
 }
 
 .color-info {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
 }
 
 .color-info-light {
-  color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 94%);
 }
 
 .color-info-dark {
-  color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 30%);
 }
 
 .color-warning {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
 }
 
 .color-warning-light {
-  color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 94%);
 }
 
 .color-warning-dark {
-  color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 30%);
 }
 
 .color-danger {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
 }
 
 .color-danger-light {
-  color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 94%);
 }
 
 .color-danger-dark {
-  color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 30%);
 }
 
 .color-transparent {
@@ -6881,7 +6887,7 @@ svg:not(:root) {
 }
 
 .color-disabled {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .background-translucent {
@@ -6925,139 +6931,139 @@ svg:not(:root) {
 }
 
 .background-primary {
-  background-color: rgb(250, 250, 250);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .background-secondary {
-  background-color: rgb(245, 245, 245);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .background-highlight {
-  background-color: rgb(255, 241, 219);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .background-muted {
-  background-color: rgb(189, 189, 189);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .background-default {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-light {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .background-dark {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .background-accent-1 {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .background-accent-1-light {
-  background-color: rgb(229, 232, 245);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .background-accent-1-dark {
-  background-color: rgb(43, 53, 110);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .background-accent-2 {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .background-accent-2-light {
-  background-color: rgb(235, 229, 245);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .background-accent-2-dark {
-  background-color: rgb(66, 41, 112);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .background-accent-3 {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .background-accent-3-light {
-  background-color: rgb(243, 229, 245);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .background-accent-3-dark {
-  background-color: rgb(101, 41, 112);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .background-accent-4 {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .background-accent-4-light {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .background-accent-4-dark {
-  background-color: rgb(77, 77, 77);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .background-accent-5 {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .background-accent-5-light {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-accent-5-dark {
-  background-color: rgb(26, 26, 26);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .background-success {
-  background-color: rgb(77, 179, 80);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .background-success-light {
-  background-color: rgb(234, 246, 234);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .background-success-dark {
-  background-color: rgb(46, 107, 48);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .background-info {
-  background-color: rgb(14, 143, 241);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .background-info-light {
-  background-color: rgb(226, 242, 253);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .background-info-dark {
-  background-color: rgb(8, 86, 145);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .background-warning {
-  background-color: rgb(255, 140, 0);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .background-warning-light {
-  background-color: rgb(255, 241, 224);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .background-warning-dark {
-  background-color: rgb(153, 84, 0);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .background-danger {
-  background-color: rgb(255, 60, 0);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .background-danger-light {
-  background-color: rgb(255, 232, 224);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .background-danger-dark {
-  background-color: rgb(153, 36, 0);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .background-transparent {
@@ -7065,493 +7071,493 @@ svg:not(:root) {
 }
 
 .background-disabled {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .focus-primary:focus {
-  color: rgb(0, 0, 0);
-  background-color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .focus-secondary:focus {
-  color: rgb(0, 0, 0);
-  background-color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .focus-highlight:focus {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 241, 219);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .focus-muted:focus {
-  color: rgb(97, 97, 97);
-  background-color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 38%);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .focus-default:focus {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .focus-light:focus {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .focus-dark:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .focus-accent-1:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .focus-accent-1-light:focus {
-  color: rgb(43, 53, 110);
-  background-color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 30%);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .focus-accent-1-dark:focus {
-  color: rgb(229, 232, 245);
-  background-color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 93%);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .focus-accent-2:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .focus-accent-2-light:focus {
-  color: rgb(66, 41, 112);
-  background-color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 30%);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .focus-accent-2-dark:focus {
-  color: rgb(235, 229, 245);
-  background-color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 93%);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .focus-accent-3:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .focus-accent-3-light:focus {
-  color: rgb(101, 41, 112);
-  background-color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 30%);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .focus-accent-3-dark:focus {
-  color: rgb(243, 229, 245);
-  background-color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 93%);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .focus-accent-4:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .focus-accent-4-light:focus {
-  color: rgb(77, 77, 77);
-  background-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 30%);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .focus-accent-4-dark:focus {
-  color: rgb(237, 237, 237);
-  background-color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 93%);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .focus-accent-5:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .focus-accent-5-light:focus {
-  color: rgb(26, 26, 26);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 10%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .focus-accent-5-dark:focus {
-  color: rgb(222, 222, 222);
-  background-color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 87%);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .focus-success:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .focus-success-light:focus {
-  color: rgb(46, 107, 48);
-  background-color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 30%);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .focus-success-dark:focus {
-  color: rgb(234, 246, 234);
-  background-color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 94%);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .focus-info:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .focus-info-light:focus {
-  color: rgb(8, 86, 145);
-  background-color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 30%);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .focus-info-dark:focus {
-  color: rgb(226, 242, 253);
-  background-color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 94%);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .focus-warning:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .focus-warning-light:focus {
-  color: rgb(153, 84, 0);
-  background-color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 30%);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .focus-warning-dark:focus {
-  color: rgb(255, 241, 224);
-  background-color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 94%);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .focus-danger:focus {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .focus-danger-light:focus {
-  color: rgb(153, 36, 0);
-  background-color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 30%);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .focus-danger-dark:focus {
-  color: rgb(255, 232, 224);
-  background-color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 94%);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .focus-transparent:focus {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
 }
 
 .hover-primary:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .hover-secondary:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .hover-highlight:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 241, 219);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .hover-muted:hover {
-  color: rgb(97, 97, 97);
-  background-color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 38%);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .hover-default:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .hover-light:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 0%);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .hover-dark:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .hover-accent-1:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(108, 122, 198);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .hover-accent-1-light:hover {
-  color: rgb(43, 53, 110);
-  background-color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 30%);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .hover-accent-1-dark:hover {
-  color: rgb(229, 232, 245);
-  background-color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 93%);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .hover-accent-2:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(139, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .hover-accent-2-light:hover {
-  color: rgb(66, 41, 112);
-  background-color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 30%);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .hover-accent-2-dark:hover {
-  color: rgb(235, 229, 245);
-  background-color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 93%);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .hover-accent-3:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(186, 106, 200);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .hover-accent-3-light:hover {
-  color: rgb(101, 41, 112);
-  background-color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 30%);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .hover-accent-3-dark:hover {
-  color: rgb(243, 229, 245);
-  background-color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 93%);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .hover-accent-4:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .hover-accent-4-light:hover {
-  color: rgb(77, 77, 77);
-  background-color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 30%);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .hover-accent-4-dark:hover {
-  color: rgb(237, 237, 237);
-  background-color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 93%);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .hover-accent-5:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .hover-accent-5-light:hover {
-  color: rgb(26, 26, 26);
-  background-color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 10%);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .hover-accent-5-dark:hover {
-  color: rgb(222, 222, 222);
-  background-color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 87%);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .hover-success:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(77, 179, 80);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .hover-success-light:hover {
-  color: rgb(46, 107, 48);
-  background-color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 30%);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .hover-success-dark:hover {
-  color: rgb(234, 246, 234);
-  background-color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 94%);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .hover-info:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 143, 241);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .hover-info-light:hover {
-  color: rgb(8, 86, 145);
-  background-color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 30%);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .hover-info-dark:hover {
-  color: rgb(226, 242, 253);
-  background-color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 94%);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .hover-warning:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 140, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .hover-warning-light:hover {
-  color: rgb(153, 84, 0);
-  background-color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 30%);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .hover-warning-dark:hover {
-  color: rgb(255, 241, 224);
-  background-color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 94%);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .hover-danger:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 60, 0);
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .hover-danger-light:hover {
-  color: rgb(153, 36, 0);
-  background-color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 30%);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .hover-danger-dark:hover {
-  color: rgb(255, 232, 224);
-  background-color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 94%);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .hover-transparent:hover {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
   background-color: transparent;
 }
 
 .color-focus-primary:focus {
-  color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 98%);
 }
 
 .color-focus-secondary:focus {
-  color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 96%);
 }
 
 .color-focus-highlight:focus {
-  color: rgb(255, 241, 219);
+  color: hsl(36deg, 100%, 93%);
 }
 
 .color-focus-muted:focus {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .color-focus-default:focus {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-focus-light:focus {
-  color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 100%);
 }
 
 .color-focus-dark:focus {
-  color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 0%);
 }
 
 .color-focus-accent-1:focus {
-  color: rgb(108, 122, 198);
+  color: hsl(231deg, 44%, 60%);
 }
 
 .color-focus-accent-1-light:focus {
-  color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 93%);
 }
 
 .color-focus-accent-1-dark:focus {
-  color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 30%);
 }
 
 .color-focus-accent-2:focus {
-  color: rgb(139, 106, 200);
+  color: hsl(261deg, 46%, 60%);
 }
 
 .color-focus-accent-2-light:focus {
-  color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 93%);
 }
 
 .color-focus-accent-2-dark:focus {
-  color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 30%);
 }
 
 .color-focus-accent-3:focus {
-  color: rgb(186, 106, 200);
+  color: hsl(291deg, 46%, 60%);
 }
 
 .color-focus-accent-3-light:focus {
-  color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 93%);
 }
 
 .color-focus-accent-3-dark:focus {
-  color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 30%);
 }
 
 .color-focus-accent-4:focus {
-  color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 60%);
 }
 
 .color-focus-accent-4-light:focus {
-  color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 93%);
 }
 
 .color-focus-accent-4-dark:focus {
-  color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 30%);
 }
 
 .color-focus-accent-5:focus {
-  color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
 }
 
 .color-focus-accent-5-light:focus {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-focus-accent-5-dark:focus {
-  color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 10%);
 }
 
 .color-focus-success:focus {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
 }
 
 .color-focus-success-light:focus {
-  color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 94%);
 }
 
 .color-focus-success-dark:focus {
-  color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 30%);
 }
 
 .color-focus-info:focus {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
 }
 
 .color-focus-info-light:focus {
-  color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 94%);
 }
 
 .color-focus-info-dark:focus {
-  color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 30%);
 }
 
 .color-focus-warning:focus {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
 }
 
 .color-focus-warning-light:focus {
-  color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 94%);
 }
 
 .color-focus-warning-dark:focus {
-  color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 30%);
 }
 
 .color-focus-danger:focus {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
 }
 
 .color-focus-danger-light:focus {
-  color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 94%);
 }
 
 .color-focus-danger-dark:focus {
-  color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 30%);
 }
 
 .color-focus-transparent:focus {
@@ -7559,139 +7565,139 @@ svg:not(:root) {
 }
 
 .color-hover-primary:hover {
-  color: rgb(250, 250, 250);
+  color: hsl(0deg, 0%, 98%);
 }
 
 .color-hover-secondary:hover {
-  color: rgb(245, 245, 245);
+  color: hsl(0deg, 0%, 96%);
 }
 
 .color-hover-highlight:hover {
-  color: rgb(255, 241, 219);
+  color: hsl(36deg, 100%, 93%);
 }
 
 .color-hover-muted:hover {
-  color: rgb(189, 189, 189);
+  color: hsl(0deg, 0%, 74%);
 }
 
 .color-hover-default:hover {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-hover-light:hover {
-  color: rgb(255, 255, 255);
+  color: hsl(0deg, 0%, 100%);
 }
 
 .color-hover-dark:hover {
-  color: rgb(0, 0, 0);
+  color: hsl(0deg, 0%, 0%);
 }
 
 .color-hover-accent-1:hover {
-  color: rgb(108, 122, 198);
+  color: hsl(231deg, 44%, 60%);
 }
 
 .color-hover-accent-1-light:hover {
-  color: rgb(229, 232, 245);
+  color: hsl(231deg, 44%, 93%);
 }
 
 .color-hover-accent-1-dark:hover {
-  color: rgb(43, 53, 110);
+  color: hsl(231deg, 44%, 30%);
 }
 
 .color-hover-accent-2:hover {
-  color: rgb(139, 106, 200);
+  color: hsl(261deg, 46%, 60%);
 }
 
 .color-hover-accent-2-light:hover {
-  color: rgb(235, 229, 245);
+  color: hsl(261deg, 46%, 93%);
 }
 
 .color-hover-accent-2-dark:hover {
-  color: rgb(66, 41, 112);
+  color: hsl(261deg, 46%, 30%);
 }
 
 .color-hover-accent-3:hover {
-  color: rgb(186, 106, 200);
+  color: hsl(291deg, 46%, 60%);
 }
 
 .color-hover-accent-3-light:hover {
-  color: rgb(243, 229, 245);
+  color: hsl(291deg, 46%, 93%);
 }
 
 .color-hover-accent-3-dark:hover {
-  color: rgb(101, 41, 112);
+  color: hsl(291deg, 46%, 30%);
 }
 
 .color-hover-accent-4:hover {
-  color: rgb(153, 153, 153);
+  color: hsl(0deg, 0%, 60%);
 }
 
 .color-hover-accent-4-light:hover {
-  color: rgb(237, 237, 237);
+  color: hsl(0deg, 0%, 93%);
 }
 
 .color-hover-accent-4-dark:hover {
-  color: rgb(77, 77, 77);
+  color: hsl(0deg, 0%, 30%);
 }
 
 .color-hover-accent-5:hover {
-  color: rgb(102, 102, 102);
+  color: hsl(0deg, 0%, 40%);
 }
 
 .color-hover-accent-5-light:hover {
-  color: rgb(222, 222, 222);
+  color: hsl(0deg, 0%, 87%);
 }
 
 .color-hover-accent-5-dark:hover {
-  color: rgb(26, 26, 26);
+  color: hsl(0deg, 0%, 10%);
 }
 
 .color-hover-success:hover {
-  color: rgb(77, 179, 80);
+  color: hsl(122deg, 40%, 50%);
 }
 
 .color-hover-success-light:hover {
-  color: rgb(234, 246, 234);
+  color: hsl(122deg, 40%, 94%);
 }
 
 .color-hover-success-dark:hover {
-  color: rgb(46, 107, 48);
+  color: hsl(122deg, 40%, 30%);
 }
 
 .color-hover-info:hover {
-  color: rgb(14, 143, 241);
+  color: hsl(206deg, 89%, 50%);
 }
 
 .color-hover-info-light:hover {
-  color: rgb(226, 242, 253);
+  color: hsl(206deg, 89%, 94%);
 }
 
 .color-hover-info-dark:hover {
-  color: rgb(8, 86, 145);
+  color: hsl(206deg, 89%, 30%);
 }
 
 .color-hover-warning:hover {
-  color: rgb(255, 140, 0);
+  color: hsl(33deg, 100%, 50%);
 }
 
 .color-hover-warning-light:hover {
-  color: rgb(255, 241, 224);
+  color: hsl(33deg, 100%, 94%);
 }
 
 .color-hover-warning-dark:hover {
-  color: rgb(153, 84, 0);
+  color: hsl(33deg, 100%, 30%);
 }
 
 .color-hover-danger:hover {
-  color: rgb(255, 60, 0);
+  color: hsl(14deg, 100%, 50%);
 }
 
 .color-hover-danger-light:hover {
-  color: rgb(255, 232, 224);
+  color: hsl(14deg, 100%, 94%);
 }
 
 .color-hover-danger-dark:hover {
-  color: rgb(153, 36, 0);
+  color: hsl(14deg, 100%, 30%);
 }
 
 .color-hover-transparent:hover {
@@ -7699,139 +7705,139 @@ svg:not(:root) {
 }
 
 .background-focus-primary:focus {
-  background-color: rgb(250, 250, 250);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .background-focus-secondary:focus {
-  background-color: rgb(245, 245, 245);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .background-focus-highlight:focus {
-  background-color: rgb(255, 241, 219);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .background-focus-muted:focus {
-  background-color: rgb(189, 189, 189);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .background-focus-default:focus {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-focus-light:focus {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .background-focus-dark:focus {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .background-focus-accent-1:focus {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .background-focus-accent-1-light:focus {
-  background-color: rgb(229, 232, 245);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .background-focus-accent-1-dark:focus {
-  background-color: rgb(43, 53, 110);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .background-focus-accent-2:focus {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .background-focus-accent-2-light:focus {
-  background-color: rgb(235, 229, 245);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .background-focus-accent-2-dark:focus {
-  background-color: rgb(66, 41, 112);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .background-focus-accent-3:focus {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .background-focus-accent-3-light:focus {
-  background-color: rgb(243, 229, 245);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .background-focus-accent-3-dark:focus {
-  background-color: rgb(101, 41, 112);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .background-focus-accent-4:focus {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .background-focus-accent-4-light:focus {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .background-focus-accent-4-dark:focus {
-  background-color: rgb(77, 77, 77);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .background-focus-accent-5:focus {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .background-focus-accent-5-light:focus {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-focus-accent-5-dark:focus {
-  background-color: rgb(26, 26, 26);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .background-focus-success:focus {
-  background-color: rgb(77, 179, 80);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .background-focus-success-light:focus {
-  background-color: rgb(234, 246, 234);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .background-focus-success-dark:focus {
-  background-color: rgb(46, 107, 48);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .background-focus-info:focus {
-  background-color: rgb(14, 143, 241);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .background-focus-info-light:focus {
-  background-color: rgb(226, 242, 253);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .background-focus-info-dark:focus {
-  background-color: rgb(8, 86, 145);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .background-focus-warning:focus {
-  background-color: rgb(255, 140, 0);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .background-focus-warning-light:focus {
-  background-color: rgb(255, 241, 224);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .background-focus-warning-dark:focus {
-  background-color: rgb(153, 84, 0);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .background-focus-danger:focus {
-  background-color: rgb(255, 60, 0);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .background-focus-danger-light:focus {
-  background-color: rgb(255, 232, 224);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .background-focus-danger-dark:focus {
-  background-color: rgb(153, 36, 0);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .background-focus-transparent:focus {
@@ -7839,139 +7845,139 @@ svg:not(:root) {
 }
 
 .background-hover-primary:hover {
-  background-color: rgb(250, 250, 250);
+  background-color: hsl(0deg, 0%, 98%);
 }
 
 .background-hover-secondary:hover {
-  background-color: rgb(245, 245, 245);
+  background-color: hsl(0deg, 0%, 96%);
 }
 
 .background-hover-highlight:hover {
-  background-color: rgb(255, 241, 219);
+  background-color: hsl(36deg, 100%, 93%);
 }
 
 .background-hover-muted:hover {
-  background-color: rgb(189, 189, 189);
+  background-color: hsl(0deg, 0%, 74%);
 }
 
 .background-hover-default:hover {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-hover-light:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 .background-hover-dark:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: hsl(0deg, 0%, 0%);
 }
 
 .background-hover-accent-1:hover {
-  background-color: rgb(108, 122, 198);
+  background-color: hsl(231deg, 44%, 60%);
 }
 
 .background-hover-accent-1-light:hover {
-  background-color: rgb(229, 232, 245);
+  background-color: hsl(231deg, 44%, 93%);
 }
 
 .background-hover-accent-1-dark:hover {
-  background-color: rgb(43, 53, 110);
+  background-color: hsl(231deg, 44%, 30%);
 }
 
 .background-hover-accent-2:hover {
-  background-color: rgb(139, 106, 200);
+  background-color: hsl(261deg, 46%, 60%);
 }
 
 .background-hover-accent-2-light:hover {
-  background-color: rgb(235, 229, 245);
+  background-color: hsl(261deg, 46%, 93%);
 }
 
 .background-hover-accent-2-dark:hover {
-  background-color: rgb(66, 41, 112);
+  background-color: hsl(261deg, 46%, 30%);
 }
 
 .background-hover-accent-3:hover {
-  background-color: rgb(186, 106, 200);
+  background-color: hsl(291deg, 46%, 60%);
 }
 
 .background-hover-accent-3-light:hover {
-  background-color: rgb(243, 229, 245);
+  background-color: hsl(291deg, 46%, 93%);
 }
 
 .background-hover-accent-3-dark:hover {
-  background-color: rgb(101, 41, 112);
+  background-color: hsl(291deg, 46%, 30%);
 }
 
 .background-hover-accent-4:hover {
-  background-color: rgb(153, 153, 153);
+  background-color: hsl(0deg, 0%, 60%);
 }
 
 .background-hover-accent-4-light:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: hsl(0deg, 0%, 93%);
 }
 
 .background-hover-accent-4-dark:hover {
-  background-color: rgb(77, 77, 77);
+  background-color: hsl(0deg, 0%, 30%);
 }
 
 .background-hover-accent-5:hover {
-  background-color: rgb(102, 102, 102);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .background-hover-accent-5-light:hover {
-  background-color: rgb(222, 222, 222);
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 .background-hover-accent-5-dark:hover {
-  background-color: rgb(26, 26, 26);
+  background-color: hsl(0deg, 0%, 10%);
 }
 
 .background-hover-success:hover {
-  background-color: rgb(77, 179, 80);
+  background-color: hsl(122deg, 40%, 50%);
 }
 
 .background-hover-success-light:hover {
-  background-color: rgb(234, 246, 234);
+  background-color: hsl(122deg, 40%, 94%);
 }
 
 .background-hover-success-dark:hover {
-  background-color: rgb(46, 107, 48);
+  background-color: hsl(122deg, 40%, 30%);
 }
 
 .background-hover-info:hover {
-  background-color: rgb(14, 143, 241);
+  background-color: hsl(206deg, 89%, 50%);
 }
 
 .background-hover-info-light:hover {
-  background-color: rgb(226, 242, 253);
+  background-color: hsl(206deg, 89%, 94%);
 }
 
 .background-hover-info-dark:hover {
-  background-color: rgb(8, 86, 145);
+  background-color: hsl(206deg, 89%, 30%);
 }
 
 .background-hover-warning:hover {
-  background-color: rgb(255, 140, 0);
+  background-color: hsl(33deg, 100%, 50%);
 }
 
 .background-hover-warning-light:hover {
-  background-color: rgb(255, 241, 224);
+  background-color: hsl(33deg, 100%, 94%);
 }
 
 .background-hover-warning-dark:hover {
-  background-color: rgb(153, 84, 0);
+  background-color: hsl(33deg, 100%, 30%);
 }
 
 .background-hover-danger:hover {
-  background-color: rgb(255, 60, 0);
+  background-color: hsl(14deg, 100%, 50%);
 }
 
 .background-hover-danger-light:hover {
-  background-color: rgb(255, 232, 224);
+  background-color: hsl(14deg, 100%, 94%);
 }
 
 .background-hover-danger-dark:hover {
-  background-color: rgb(153, 36, 0);
+  background-color: hsl(14deg, 100%, 30%);
 }
 
 .background-hover-transparent:hover {
@@ -8029,7 +8035,7 @@ caption {
   img,
 pre,
 code {
-    border: 0.078rem solid rgb(189, 189, 189);
+    border: 0.078rem solid hsl(0deg, 0%, 74%);
     break-inside: avoid;
   }
 

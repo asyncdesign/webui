@@ -15,45 +15,38 @@
 	position: absolute;
 	white-space: normal;
 	@include layer-2();
+	&::after {
+		content: "";
+		position: absolute;
+		border-width: 0.313rem;
+		border-style: solid;	
+	}
 	&.tooltip-nopadding {
 		padding: 0;
 	}
-}
-.tooltip-dynamic::after,
-.tooltip-focus::after,
-.tooltip-static::after {
-	content: "";
-	position: absolute;
-	border-width: 0.313rem;
-	border-style: solid;	
+	&.tooltip-nopointer::after {
+		border-style: none;
+	}
 }
 .tooltip-left::after {
-	@include pointer-right($theme_default);	
-}
-.tooltip-left.tooltip-sm::after,
-.tooltip-left.tooltip-md::after,
-.tooltip-left.tooltip-lg::after {
 	top: calc(50% - 0.313rem);
 	right: -0.625rem;	
+	@include pointer-right($theme_default);
 }
 .tooltip-top::after {
 	top: 100%;
 	left: calc(50% - 0.313rem);
-	@include pointer-bottom($theme_default);	
+	@include pointer-bottom($theme_default);		
 }
 .tooltip-right::after {
-	@include pointer-left($theme_default);	
-}
-.tooltip-right.tooltip-sm::after,
-.tooltip-right.tooltip-md::after,
-.tooltip-right.tooltip-lg::after {
 	top: calc(50% - 0.313rem);
 	left: -0.625rem;
+	@include pointer-left($theme_default);
 }
 .tooltip-bottom::after {
 	bottom: 100%;
 	left: calc(50% - 0.313rem);
-	@include pointer-top($theme_default);
+	@include pointer-top($theme_default);	
 }
 .tooltip .tooltip-light {
 	color: $theme_light_foreground;
