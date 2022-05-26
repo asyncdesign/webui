@@ -16,33 +16,30 @@
 
 </head>
 
-<body class="text-sm color-accent-5-dark">
+<body class="text-sm background-accent-2-light color-accent-5">
 
-	<div class="content-col-2"></div>
-	<div class="content-col-15">
+	<div class="responsive-gutter-sm">
 
 		<div class="row-spacing-lg"></div>
 
 		<div id="MainTitle">
-			<div class="content-row">
-				<div class="content-col-15 text-xl text-bold color-accent-1 respond-bp-3-under">
-					<div class="row-spacing-lg"></div>
-					WebUI. CSS Framework
+			<div class="row align-items-center">
+				<div class="col-8 text-mega">
+					WebUI
 				</div>
-				<div class="content-col-5 respond-bp-3-under">
-					<div class="row-spacing-sm"></div>
-					<div class="content-row move-right respond-bp-3-under">
-						<div class="content-col-5">
+				<div class="col-16">
+
+					<div class="row">
+						<div class="col flex justify-content-end">
 							<img src="images/webui_blue_64x64.png" alt="Media" />
 						</div>
 					</div>
-					<div class="content-row move-right respond-bp-3-under">
-						<div class="content-row">
-							<div class="content-col-20 text-sm text-italic">
-								Built with SASS
-							</div>
+					<div class="row">
+						<div class="col flex justify-content-end text-sm text-italic">
+							The Swiss Army Knife of CSS frameworks
 						</div>
 					</div>
+
 				</div>
 			</div>
 
@@ -50,324 +47,150 @@
 
 		<div class="row-spacing-lg"></div>
 
-		<div class="text-lg">
-			Shapes (Some shapes use the CSS clip-path candidate specification and the SVG element, and will not work in Internet Explorer
-			- WebUI javascript is required for these shapes. Pointers, arrows, and razor-blade styles do not use this
-			technique, are cross browser compatible, and do not require javascript.)
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Shapes using clip-path</div>
+			</div>
 		</div>
-
-		<div class="height-md"></div>
-
-		<div class="background-accent-2-light razor razor-bottom-left-lg razor-angle-sm razor-accent-2-light">
-
-			<div class="area">
-
-				<div class="panel">
-					Shapes using transforms (Cross browser)
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="isosceles-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="rhombus-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="parallelogram-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="diamond-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="hexagon-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="octagon-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="diamond-flat-shape align-center" data-size="5rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="scalene-left-shape align-center" data-size="7rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="scalene-right-shape align-center" data-size="7.923rem" data-rotation="0" data-class="custom-image"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="panel">
-						Custom shapes using transforms with transform modifier data (Cross browser)
-					</div>
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="custom-shape align-center" data-size="5rem" data-rotation="0" data-modifiers="0.9,0.8,-110,-.05,0,0.8,0.9,110,.1,.12,1,1,0,-0.1,-0.1"
-									data-class="custom-image"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="row-spacing-sm"></div>
-
+		<div class="row">
+			<div class="col">
+				<div id="rhombusShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="rhomboidShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="kiteShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="trapezoidIsoscelesShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+		</div>
+		<div class="row-spacing-md"></div>
+		<div class="row">
+			<div class="col">
+				<div id="triangleIsoscelesShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="pentagonShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="starShape" class="width-md height-md background-accent-1-dark"></div>
+			</div>
+			<div class="col">
+				<div id="customShape" class="width-md height-md background-accent-1-dark"></div>
 			</div>
 		</div>
 
+		<div class="row-spacing-lg"></div>
 
-		<div class="height-md"></div>
-
-
-		<div class="background-accent-4-light razor razor-top-right-lg razor-angle-sm razor-accent-4-light">
-
-			<div class="area">
-
-				<div class="panel">
-					Shapes using clip-path (Not supported by Internet Explorer)
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 rhombus-clip-shape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 rhomboid-clip-shape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 kite-clip-shape"></div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 trapezoid-isosceles-clip-shape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 triangle-isosceles-clip-shape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 pentagon-clip-shape"></div>
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2 star-clip-shape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row-spacing-xl"></div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="panel">
-						Custom shapes using clip-path with path data (Not supported by Internet Explorer)
-					</div>
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col-eq-3 respond-bp-1-under">
-								<div class="width-md height-md align-center custom-image-2" id="customClipShape"></div>
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-							<div class="form-col-eq-3 respond-bp-1-under">
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row-spacing-sm"></div>
-
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Breadcrumb navigation shapes</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col gap-vertical-md">
 
-
-		<div class="row-spacing-xl"></div>
-
-
-		<div class="background-secondary razor razor-bottom-left-lg razor-angle-sm razor-accent-1-light">
-
-			<div class="area">
-
-				<div class="panel">
-					Breadcrumb shapes
-					<div class="rotated-square"></div>
-				</div>
-
-				<div class="form-row">
-					<div class="panel responsive-gutter-md">
-						<div class="row-spacing-xl"></div>
-
-						<div class="breadcrumb">
-							<a href="#1" class="breadcrumb-xs breadcrumb-line-light breadcrumb-first accent-5-dark hover-dark width-sm">
-								<i class="fa fa-home text-md place-middle-center"></i>
-							</a>
-							<a href="#2" class="breadcrumb-xs breadcrumb-line-light text-xs accent-5 hover-dark width-one-quarter"><span class="place-middle-center">Link 2</span></a>
-							<a href="#3" class="breadcrumb-xs breadcrumb-line-light text-xs accent-5-light hover-dark width-one-quarter"><span class="place-middle-center">Link 3</span></a>
-							<a href="javascript:void 0" class="breadcrumb-xs breadcrumb-last text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
-						</div>
-					
-						<div class="row-spacing-md"></div>
-					
-						<div class="breadcrumb">
-							<a href="#1" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded breadcrumb-first accent-2-dark hover-accent-1 width-sm">
-								<i class="fa fa-home text-md place-middle-center"></i>
-							</a>
-							<a href="#2" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded text-xs accent-2 hover-accent-1 width-one-quarter"><span class="place-middle-center">Link 2</span></a>
-							<a href="#3" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded text-xs accent-2-light hover-accent-1 width-one-quarter"><span class="place-middle-center">Link 3</span></a>
-							<a href="javascript:void 0" class="breadcrumb-sm breadcrumb-last text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
-						</div>
-				
-						<div class="row-spacing-md"></div>
-					
-						<div class="breadcrumb">
-							<a href="#1" class="breadcrumb-md breadcrumb-first success-dark hover-muted width-sm">
-								<i class="fa fa-home text-md place-middle-center"></i>
-							</a>
-							<a href="#2" class="breadcrumb-md text-xs success hover-muted width-one-quarter"><span class="place-middle-center">Link 2</span></a>
-							<a href="#3" class="breadcrumb-md text-xs success-light hover-muted width-one-quarter"><span class="place-middle-center">Link 3</span></a>
-							<a href="javascript:void 0" class="breadcrumb-md breadcrumb-last text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
-						</div>
-				
-						<div class="row-spacing-md"></div>
-					
-						<div class="breadcrumb">
-							<a href="#1" class="breadcrumb-lg breadcrumb-rounded breadcrumb-first rounded-left-md accent-3-dark hover-accent-2 width-sm">
-								<i class="fa fa-home text-md place-middle-center"></i>
-							</a>
-							<a href="#2" class="breadcrumb-lg breadcrumb-rounded text-xs accent-3 hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 2</span></a>
-							<a href="#3" class="breadcrumb-lg breadcrumb-rounded text-xs accent-3-light hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 3</span></a>
-							<a href="javascript:void 0" class="breadcrumb-lg breadcrumb-last rounded-right-md text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
-						</div>
-				
-						<div class="row-spacing-md"></div>
-					
-						<div class="breadcrumb">
-							<a href="#1" class="breadcrumb-xl breadcrumb-line-muted breadcrumb-first rounded-left-md accent-1-dark hover-accent-2 width-sm">
-								<i class="fa fa-home text-md place-middle-center"></i>
-							</a>
-							<a href="#2" class="breadcrumb-xl breadcrumb-line-muted text-xs accent-1 hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 2</span></a>
-							<a href="#3" class="breadcrumb-xl breadcrumb-line-muted text-xs accent-1-light hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 3</span></a>
-							<a href="javascript:void 0" class="breadcrumb-xl breadcrumb-last rounded-right-md text-xs disabled color-accent-5 cursor-default width-one-quarter"><span class="place-middle-center">Link 4</span></a>	
-						</div>
-					
-						<div class="row-spacing-xl"></div>
-					</div>			
+				<div class="breadcrumb">
+					<a href="#1" class="breadcrumb-xs breadcrumb-line-light breadcrumb-first accent-5-dark hover-dark width-sm">
+						<i class="fa fa-home text-md place-middle-center"></i>
+					</a>
+					<a href="#2" class="breadcrumb-xs breadcrumb-line-light text-xs accent-5 hover-dark width-one-quarter"><span class="place-middle-center">Link 2</span></a>
+					<a href="#3" class="breadcrumb-xs breadcrumb-line-light text-xs accent-4 hover-accent-4-dark width-one-quarter"><span class="place-middle-center">Link 3</span></a>
+					<a href="#0" class="breadcrumb-xs breadcrumb-last text-xs disabled cursor-default width-one-quarter" disabled><span class="place-middle-center">Link 4</span></a>	
 				</div>
 			
+				<div class="breadcrumb">
+					<a href="#1" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded breadcrumb-first accent-2-dark hover-accent-2 width-sm">
+						<i class="fa fa-home text-md place-middle-center"></i>
+					</a>
+					<a href="#2" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded text-xs accent-2-dark hover-accent-2 width-one-quarter"><span class="place-middle-center">Link 2</span></a>
+					<a href="#3" class="breadcrumb-sm breadcrumb-line-light breadcrumb-rounded text-xs accent-2 hover-accent-4 width-one-quarter"><span class="place-middle-center">Link 3</span></a>
+					<a href="#0" class="breadcrumb-sm breadcrumb-last text-xs disabled cursor-default width-one-quarter" disabled><span class="place-middle-center">Link 4</span></a>	
+				</div>
+			
+				<div class="breadcrumb">
+					<a href="#1" class="breadcrumb-md breadcrumb-first success-dark hover-muted width-sm">
+						<i class="fa fa-home text-md place-middle-center"></i>
+					</a>
+					<a href="#2" class="breadcrumb-md text-xs success-dark hover-muted width-one-quarter"><span class="place-middle-center">Link 2</span></a>
+					<a href="#3" class="breadcrumb-md text-xs success hover-muted width-one-quarter"><span class="place-middle-center">Link 3</span></a>
+					<a href="#0" class="breadcrumb-md breadcrumb-last text-xs disabled cursor-default width-one-quarter" disabled><span class="place-middle-center">Link 4</span></a>	
+				</div>
+			
+				<div class="breadcrumb">
+					<a href="#1" class="breadcrumb-lg breadcrumb-rounded breadcrumb-first rounded-left-md accent-3-dark hover-accent-2 width-sm">
+						<i class="fa fa-home text-md place-middle-center"></i>
+					</a>
+					<a href="#2" class="breadcrumb-lg breadcrumb-rounded text-xs accent-3-dark hover-dark width-one-quarter"><span class="place-middle-center">Link 2</span></a>
+					<a href="#3" class="breadcrumb-lg breadcrumb-rounded text-xs accent-3 hover-dark width-one-quarter"><span class="place-middle-center">Link 3</span></a>
+					<a href="#0" class="breadcrumb-lg breadcrumb-last rounded-right-md text-xs disabled cursor-default width-one-quarter" disabled><span class="place-middle-center">Link 4</span></a>	
+				</div>
+			
+				<div class="breadcrumb">
+					<a href="#1" class="breadcrumb-xl breadcrumb-nopointer rounded-left-md accent-1-dark hover-accent-2 width-sm">
+						<i class="fa fa-home text-md place-middle-center"></i>
+					</a>
+					<a href="#2" class="breadcrumb-xl breadcrumb-nopointer text-xs accent-1-dark hover-accent-1-light width-one-quarter"><span class="place-middle-center">Link 2</span></a>
+					<a href="#3" class="breadcrumb-xl breadcrumb-nopointer text-xs accent-1 hover-accent-1-light width-one-quarter"><span class="place-middle-center">Link 3</span></a>
+					<a href="#0" class="breadcrumb-xl breadcrumb-nopointer breadcrumb-last rounded-right-md text-xs disabled cursor-default width-one-quarter" disabled><span class="place-middle-center">Link 4</span></a>	
+				</div>
+
 			</div>
 		</div>
 
+		<div class="row-spacing-lg"></div>
 
-		<div class="dark razor razor-top-right-lg razor-angle-sm razor-dark">
-
-			<div class="area">
-
-				<div class="panel">
-					Arrow extend and bulge extend
-				</div>
-
-				<div class="form-row grid-padding-sm">
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col">
-								<div class="container align-center">
-									<div class="flex-items-center flex-justify-center border-sm border-accent-4 light width-xs height-xs rounded-sm arrow-extend-sm arrow-extend-right">
-										<span>8</span>
-									</div>
-								</div>
-							</div>
-							<div class="form-col">
-								<div class="container align-center">
-									<div class="flex-items-center flex-justify-center border-sm border-accent-4 accent-2-light width-xs height-xs rounded-sm bulge-extend-sm bulge-extend-top">
-										<span>8</span>
-									</div>
-								</div>
-							</div>
-							<div class="form-col respond-bp-1-under">
-
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col">
-
-							</div>
-							<div class="form-col">
-
-							</div>
-							<div class="form-col">
-
-							</div>
-						</div>
-					</div>
-					<div class="form-col-eq-3 respond-bp-4-under">
-						<div class="form-row">
-							<div class="form-col">
-
-							</div>
-							<div class="form-col">
-
-							</div>
-							<div class="form-col">
-
-							</div>
-						</div>
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Arrow extend and bulge extend</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4">
+				<div class="container"> <!-- Use the container for a relative context -->
+					<div class="arrow-extend-md arrow-extend-right light width-sm height-sm border-sm border-accent-4 rounded-sm">
+						<span class="place-middle-center">8</span>
 					</div>
 				</div>
-
-
-				<div class="row-spacing-xl"></div>
-
+			</div>
+			<div class="col">
+				<div class="container"> <!-- Use the container for a relative context -->
+					<div class="bulge-extend-md bulge-extend-top light width-sm height-sm border-sm border-accent-4 rounded-sm">
+						<span class="place-middle-center">8</span>
+					</div>
+				</div>
 			</div>
 
 		</div>
 
+		<!--
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Heading</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col">
+
+						Content
+					</div>
+					<div class="col">
+
+						Content
+					</div>
+				</div>
+			</div>
+		</div>
+		-->
 
 		<div class="row-spacing-xl"></div>
-
 	</div>
-	<div class="content-col-3"></div>
 
 
 	<script type="text/javascript" src="dist/js/webui-components.js"></script>
@@ -377,7 +200,15 @@
 		webui.ready(function() {
 				
 			// Shapes
-			ui("#customClipShape").renderPolygonShape("0.2 0.7, 0.5 0, 0.5 0, 1 1");
+			ui("#rhombusShape").createRhombusShape();
+			ui("#rhomboidShape").createRhomboidShape();
+			ui("#kiteShape").createKiteShape();
+			ui("#trapezoidIsoscelesShape").createTrapezoidIsoscelesShape();
+			ui("#triangleIsoscelesShape").createTriangleIsoscelesShape();
+			ui("#pentagonShape").createPentagonShape();
+			ui("#starShape").createStarShape();
+
+			ui("#customShape").renderPolygonShape("0.2 0.7, 0.5 0, 0.5 0, 1 1");
 
 				
 		});

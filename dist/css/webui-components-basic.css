@@ -1459,8 +1459,12 @@
   transform: rotate(-225deg);
 }
 
-*[class*=arrow-extend-]::after {
+*[class*=arrow-extend-] {
   position: absolute;
+}
+
+*[class*=arrow-extend-]::after {
+  position: inherit;
   content: "";
   background: inherit;
   border-top: 0 inherit inherit;
@@ -1514,8 +1518,12 @@
   transform: rotate(-225deg);
 }
 
-*[class*=bulge-extend-]::after {
+*[class*=bulge-extend-] {
   position: absolute;
+}
+
+*[class*=bulge-extend-]::after {
+  position: inherit;
   content: "";
   background: inherit;
   border-top: 0 inherit inherit;
