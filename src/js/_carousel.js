@@ -77,8 +77,8 @@
 
 					carousel.css("width", "100%");
 					
-					carouselHolder = carousel.find(".carousel-item-holder");
-					carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].offsetWidth + "px").css("height", "auto");
+					carouselHolder = carousel.children(".carousel-item-holder").first();
+					carouselItems = carouselHolder.children(".carousel-item").css("width", carousel[0].offsetWidth + "px").css("height", "auto");
 	
 					carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
 					carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
@@ -101,8 +101,8 @@
 				}
 				else {
 					
-					carouselHolder = carousel.find(".carousel-item-holder");
-					carouselItems = carouselHolder.find(".carousel-item").css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
+					carouselHolder = carousel.children(".carousel-item-holder").first();
+					carouselItems = carouselHolder.children(".carousel-item").css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
 
 					carouselItemWidth = parseFloat(ui(carouselItems[current - 1]).css("width"));
 					carouselItemHeight = parseFloat(ui(carouselItems[current - 1]).css("height"));
@@ -290,8 +290,8 @@
 			carousel.css("width", width).css("height", height);
 		}
 
-		carouselHolder = carousel.find(".carousel-item-holder").css("display", "block");     
-		carouselItems = carouselHolder.find(".carousel-item");
+		carouselHolder = carousel.children(".carousel-item-holder").first().css("display", "block");     
+		carouselItems = carouselHolder.children(".carousel-item");
 		carouselItemCount = carouselItems.length;
 
 		if (carouselItemCount) {
