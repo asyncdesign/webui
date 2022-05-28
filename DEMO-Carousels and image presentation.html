@@ -5,9 +5,8 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>title</title>
+	<title>DEMO-Carousels and image presentation</title>
 
 	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-components-all.css">
@@ -79,7 +78,7 @@
 			
 				<div class="row-spacing-md"></div>
 
-				<div class="flex justify-content-space-between">
+				<div class="flex align-items-center gap-horizontal-sm">
 					<div>
 						<select id="c1_selectSlide" class="control width-lg">
 							<option value="">Select slide</option>
@@ -88,7 +87,7 @@
 							<option value="2">3</option>
 						</select>
 					</div>	
-					<div>
+					<div class="pad-right-xs-sm gap-horizontal-xs">
 						<button id="c1_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
 						<button id="c1_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
 					</div>
@@ -110,13 +109,13 @@
 
 				<div class="carousel" id="carousel2">
 					<div class="carousel-item-holder">		
-						<div class="carousel-item">
+						<div class="carousel-item border-md border-dark">
 							<img src="images/landscape_1.jpg" />
 						</div>
-						<div class="carousel-item">
+						<div class="carousel-item border-md border-dark">
 							<img src="images/landscape_2.jpg" />
 						</div>
-						<div class="carousel-item">
+						<div class="carousel-item border-md border-dark">
 							<img src="images/landscape_3.jpg" />
 						</div>
 					</div>
@@ -333,8 +332,8 @@
 								transitionDuration: 1000, 
 								transitionType: "slide", 
 								transitionOrientation: "horizontal",
-								width: "440px",
-								height: "145px"
+								width: "464px",
+								height: "136px"
 							});
 
 
@@ -390,7 +389,7 @@
 				carousel2.stop();
 			});
 
-			carousel2.select(2);
+			carousel2.select(1);
 
 			
 			ui(".zoom-image").zoomControl({ 

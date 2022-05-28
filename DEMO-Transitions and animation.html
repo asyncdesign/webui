@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>DEMO-Transitions and animation</title>
+
+	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dist/css/webui-components-all.css">
+
+	<link rel="stylesheet" href="site.css">
+
+</head>
+
+<body class="text-sm background-accent-2-light color-accent-5">
+
+	<div class="responsive-gutter-sm">
+
+		<div class="row-spacing-lg"></div>
+
+		<div id="MainTitle">
+			<div class="row align-items-center">
+				<div class="col-8 text-mega">
+					WebUI
+				</div>
+				<div class="col-16">
+
+					<div class="row">
+						<div class="col flex justify-content-end">
+							<img src="images/webui_blue_64x64.png" alt="Media" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col flex justify-content-end text-sm text-italic">
+							The Swiss Army Knife of CSS frameworks
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Color transitions</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="container height-sm-md">
+					<button class="button-sm button-dark rounded-md place-middle-center">Dark</button>
+				</div>
+			</div>
+			<div class="col">
+				<div class="container height-sm-md">
+					<button class="button-sm button-info rounded-md place-middle-center">Info</button>
+				</div>		
+			</div>
+			<div class="col">
+				<div class="container height-sm-md">
+					<button class="button-sm button-warning rounded-md place-middle-center">Warning</button>
+				</div>		
+			</div>
+		</div>
+
+		<!--
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Heading</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col">
+
+						Content
+					</div>
+					<div class="col">
+
+						Content
+					</div>
+				</div>
+			</div>
+		</div>
+
+		-->
+
+	</div>
+
+
+	<script type="text/javascript" src="dist/js/webui-components.js"></script>
+
+	<script>
+
+		webui.ready(function() {
+			
+
+			/*
+			ui(".expand").focus(function(e) {
+				ui(this).css("width", "20rem");
+			}).blur(function(e) {
+				ui(this).css("width", "10rem");
+			});
+			*/
+			
+			ui(".expand").focus(function(e) {
+				ui(this).expandHorizontal(1000, "20rem");
+			}).blur(function(e) {
+				ui(this).collapseHorizontal(1000, "10rem");
+			});
+			
+				
+		});
+			
+	</script>
+
+</body>
+
+</html>

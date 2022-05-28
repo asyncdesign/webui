@@ -3280,6 +3280,8 @@
 					carousel.css("width", carouselItemWidth + "px").css("height", carouselItemHeight + "px");
 				}
 				else {
+
+					carousel.css("width", width).css("height", height);
 					
 					carouselHolder = carousel.children(".carousel-item-holder").first();
 					carouselItems = carouselHolder.children(".carousel-item").css("width", carousel[0].clientWidth + "px").css("height", carousel[0].clientHeight + "px");
@@ -3459,9 +3461,9 @@
 		
 			stopCarousel = function () {		
 				clearInterval(run);
-			};		
+			};
 
-		carousel.css("display", "block");
+
 
 		if (autoScale) {
 			carousel.css("width", "100%");
@@ -3469,17 +3471,18 @@
 		else {
 			carousel.css("width", width).css("height", height);
 		}
-
-		carouselHolder = carousel.children(".carousel-item-holder").first().css("display", "block");     
+	
+		carouselHolder = carousel.children(".carousel-item-holder").first();     
 		carouselItems = carouselHolder.children(".carousel-item");
 		carouselItemCount = carouselItems.length;
 
 		if (carouselItemCount) {
+
 			if (transitionType === "crossfade") {
-				carouselItems.css("position", "absolute").css("float", "left").children().css("display", "block").css("width", "100%").css("margin", "0");               
+				carouselItems.css("position", "absolute").children().css("width", "100%");               
 			}
 			else {
-				carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%").css("display", "block").css("margin", "0");
+				carouselItems.css("display", transitionOrientation === "vertical" && transitionType === "slide" ? "block" : "inline-block").css("float", "left").children().css("width", "100%");
 			}
 
 			if (!autoScale) {
@@ -3487,15 +3490,18 @@
 				itemBorderHeight = parseFloat(carouselItems.first().css("borderTopWidth")) + parseFloat(carouselItems.first().css("borderBottomWidth"));
 			}
 
-			resetCarousel(carousel, carouselItemCount);
-
 			if (typeof win !== void 0 && typeof win.addEventListener !== void 0) {
-					win.addEventListener("resize", carouselResize);
+				win.addEventListener("resize", carouselResize);
 
-					function carouselResize() {
-						resetCarousel(carousel, carouselItemCount);
-					};		
+				function carouselResize() {
+					resetCarousel(carousel, carouselItemCount);
+				};		
 			}
+
+			win.setTimeout(function() {
+				resetCarousel(carousel, carouselItemCount);
+			}, 100);
+
 
 			if (transitionType !== "crossfade") {
 				webui(carouselItems.last()[0].cloneNode(true)).prependTo(carouselHolder);
@@ -4687,6 +4693,11 @@
     return this;
   };
 
+  fn.createEquilateralTriangleShape = function () {
+    this.renderPolygonShape("0.5 0.15, 1 1, 0 1");
+    return this;
+  };
+
   fn.createTrapezoidIsoscelesShape = function () {
     this.renderPolygonShape("0 1, 0.3 0, 0.7 0, 1 1");
     return this;
@@ -4701,6 +4712,16 @@
     this.renderPolygonShape("0.5 0, 1 0.4, 0.8 1, 0.2 1, 0 0.4");
     return this;
   };
+
+  fn.createHeptagonShape = function () {
+    this.renderPolygonShape("0.5 0, 0.9 0.2, 1 0.6, 0.75 1, 0.25 1, 0 0.6, 0.1 0.2");
+    return this;
+  };
+
+  fn.createOctagonShape = function () {
+    this.renderPolygonShape("0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3");
+    return this;
+  }
 
   fn.createStarShape = function () {
     this.renderPolygonShape("0.5 0, 0.63 0.38, 1 0.38, 0.69 0.59, 0.82 1, 0.5 0.75, 0.18 1, 0.31 0.59, 0 0.38, 0.37 0.38");

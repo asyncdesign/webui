@@ -34,6 +34,11 @@
     return this;
   };
 
+  fn.createEquilateralTriangleShape = function () {
+    this.renderPolygonShape("0.5 0.15, 1 1, 0 1");
+    return this;
+  };
+
   fn.createTrapezoidIsoscelesShape = function () {
     this.renderPolygonShape("0 1, 0.3 0, 0.7 0, 1 1");
     return this;
@@ -48,6 +53,16 @@
     this.renderPolygonShape("0.5 0, 1 0.4, 0.8 1, 0.2 1, 0 0.4");
     return this;
   };
+
+  fn.createHeptagonShape = function () {
+    this.renderPolygonShape("0.5 0, 0.9 0.2, 1 0.6, 0.75 1, 0.25 1, 0 0.6, 0.1 0.2");
+    return this;
+  };
+
+  fn.createOctagonShape = function () {
+    this.renderPolygonShape("0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3");
+    return this;
+  }
 
   fn.createStarShape = function () {
     this.renderPolygonShape("0.5 0, 0.63 0.38, 1 0.38, 0.69 0.59, 0.82 1, 0.5 0.75, 0.18 1, 0.31 0.59, 0 0.38, 0.37 0.38");
