@@ -52,23 +52,61 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col">
-				<div class="container height-sm-md">
-					<button class="button-sm button-dark rounded-md place-middle-center">Dark</button>
+		<div class="row col-padding-sm">
+			<div class="col col-12-bp-3-under">
+				<div class="container width-lg height-lg border-lg border-accent-4 border-focus-info border-color-transition-short place-middle-center" tabindex="0">
+					<span class="place-middle-center">Short border focus transition</span>
 				</div>
 			</div>
-			<div class="col">
-				<div class="container height-sm-md">
-					<button class="button-sm button-info rounded-md place-middle-center">Info</button>
-				</div>		
+			<div class="col col-12-bp-3-under">
+				<div class="container width-lg height-lg border-lg border-accent-4 boundary-focus-success boundary-transition-medium place-middle-center" tabindex="0">
+					<span class="place-middle-center">Medium boundary focus transition</span>
+				</div>
 			</div>
-			<div class="col">
-				<div class="container height-sm-md">
-					<button class="button-sm button-warning rounded-md place-middle-center">Warning</button>
-				</div>		
+			<div class="col col-12-bp-3-under">
+				<div class="container width-lg height-lg border-lg border-accent-4 outline-focus-accent-2 outline-transition-long place-middle-center" tabindex="0">
+					<span class="place-middle-center">Long outline focus transition</span>
+				</div>
+			</div>
+			<div class="col col-12-bp-3-under">
+				<div class="container width-lg height-lg border-lg border-accent-4 background-focus-success-light background-color-transition-long place-middle-center" tabindex="0">
+					<span class="place-middle-center">Long background color focus transition</span>
+				</div>
 			</div>
 		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Slide animation</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+
+				<div class="row">
+					<div class="col gap-vertical-xs">
+						<button type="button" id="commandTransitionDown" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Down</button>
+						<button type="button" id="commandTransitionUp" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Up</button>
+						<button type="button" id="commandTransitionRight" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Right</button>
+						<button type="button" id="commandTransitionLeft" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Left</button>
+					</div>
+				</div>
+				<div class="row-spacing-lg"></div>
+				<div class="row">
+					<div class="col container height-lg-xl border-sm border-accent-4 background-light">
+						<div class="container success width-md height-md text-xs text-center top-initial left-initial" id="transitionPanel">
+							<span class="place-middle-center">Use buttons above to move this</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
 
 		<!--
 		<div class="row-spacing-lg"></div>
@@ -95,6 +133,7 @@
 
 		-->
 
+		<div class="row-spacing-lg"></div>
 	</div>
 
 
@@ -104,6 +143,24 @@
 
 		webui.ready(function() {
 			
+
+			// Slide transitions
+			ui("#commandTransitionDown").click( function() {
+				ui("#transitionPanel").slideVertical("down", 100, 2000);
+			});
+
+			ui("#commandTransitionUp").click( function() { 
+				ui("#transitionPanel").slideVertical("up", 100, 2000);
+			});
+
+			ui("#commandTransitionRight").click( function() { 
+				ui("#transitionPanel").slideHorizontal("right", 100, 2000);
+			});
+
+			ui("#commandTransitionLeft").click( function() { 
+				ui("#transitionPanel").slideHorizontal("left", 100, 2000);
+			});
+
 
 			/*
 			ui(".expand").focus(function(e) {
