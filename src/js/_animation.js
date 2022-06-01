@@ -67,7 +67,7 @@
 
   fn.expandVertical = function (duration, targetHeight, callback) {
     var args = arguments,
-      els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalHeight, uiTargetHeight, uiCurrentHeight,
+      els = this, uiElement, uiOverflow, uiOriginalHeight, uiTargetHeight,
       targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
       targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
       targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetHeight) : "block",
@@ -77,10 +77,10 @@
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-height", "0");
-      uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
-      uiOriginalHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
+      uiOriginalHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) : els[i].scrollHeight;
+
       if (isAuto) {
-        uiTargetHeight = els[i].scrollHeight + uiBorderSize;
+        uiTargetHeight = els[i].scrollHeight;        
         targetHeightUnit = "px";
       } else {
         if (targetHeightValue) {
@@ -95,10 +95,17 @@
         }
       }
 
-      uiElement.css("height", "0");
-      uiCurrentHeight = 0;
+      if (isAuto) {
+        uiElement.css("height", "0");
+        uiOriginalHeight = 0;  
+      }
+      else {
+        if (targetHeightUnit === "rem") {
+          uiOriginalHeight = ui.pxToRem(uiOriginalHeight);
+        }
+      }
 
-      uiElement.animate("height", 1, uiTargetHeight + targetHeightUnit, uiCurrentHeight, duration, function (el) {
+      uiElement.animate("height", 1, (uiTargetHeight - uiOriginalHeight) + targetHeightUnit, uiOriginalHeight, duration, function (el) {
         
         if (isAuto) {
           el.css("height", "auto");
@@ -116,7 +123,7 @@
 
   fn.expandHorizontal = function (duration, targetWidth, callback) {
     var args = arguments,
-      els = this, uiElement, uiOverflow, uiBorderSize, uiOriginalWidth, uiTargetWidth, uiCurrentWidth,
+      els = this, uiElement, uiOverflow, uiOriginalWidth, uiTargetWidth,
       targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
       targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
       targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetWidth) : "block",
@@ -126,10 +133,10 @@
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-width", "0");
-      uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
-      uiOriginalWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
+      uiOriginalWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) : els[i].scrollWidth;
+
       if (isAuto) {
-        uiTargetWidth = els[i].scrollWidth + uiBorderSize;
+        uiTargetWidth = els[i].scrollWidth;
         targetWidthUnit = "px";
       } else {
         if (targetWidthValue) {
@@ -144,10 +151,17 @@
         }
       }
 
-      uiElement.css("width", "0");
-      uiCurrentWidth = 0;
+      if (isAuto) {
+        uiElement.css("width", "0");
+        uiOriginalWidth = 0;  
+      }
+      else {
+        if (targetWidthUnit === "rem") {
+          uiOriginalWidth = ui.pxToRem(uiOriginalWidth);
+        }
+      }
 
-      uiElement.animate("width", 1, uiTargetWidth + targetWidthUnit, uiCurrentWidth, duration, function (el) {
+      uiElement.animate("width", 1, (uiTargetWidth - uiOriginalWidth) + targetWidthUnit, uiOriginalWidth, duration, function (el) {
         
         if (isAuto) {
           el.css("width", "auto");
@@ -165,7 +179,7 @@
 
   fn.collapseVertical = function (duration, targetHeight, callback) {
     var args = arguments,
-      els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentHeight, uiTargetHeight,
+      els = this, uiElement, uiOverflow, uiCurrentHeight, uiTargetHeight,
       targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
       targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
 
@@ -173,10 +187,10 @@
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("overflow", "hidden").css("min-height", "0");
-      uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-top-width")) + parseFloat(uiElement.css("border-bottom-width")) : 0;
-      uiCurrentHeight = parseFloat(uiElement.css("height")) > uiBorderSize ? parseFloat(uiElement.css("height")) + uiBorderSize : els[i].scrollHeight + uiBorderSize;
+      uiCurrentHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) : els[i].scrollHeight;
+
       if (targetHeightUnit === "auto") {
-        uiTargetHeight = els[i].scrollHeight + uiBorderSize;
+        uiTargetHeight = 0;
         targetHeightUnit = "px";
       } else {
         if (targetHeightUnit === "%") {
@@ -186,11 +200,12 @@
           uiTargetHeight = targetHeightValue;
         }
       }
+
       if (targetHeightUnit === "rem") {
         uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
       }
     
-      uiElement.animate("height", 0, uiCurrentHeight + targetHeightUnit, uiTargetHeight, duration, function (el) {
+      uiElement.animate("height", 0, (uiCurrentHeight - uiTargetHeight) + targetHeightUnit, uiTargetHeight, duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetHeightValue) {
@@ -207,7 +222,7 @@
 
   fn.collapseHorizontal = function (duration, targetWidth, callback) {
     var args = arguments,
-      els = this, uiElement, uiOverflow, uiBorderSize, uiCurrentWidth, uiTargetWidth,
+      els = this, uiElement, uiOverflow, uiCurrentWidth, uiTargetWidth,
       targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
       targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
 
@@ -215,10 +230,10 @@
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("overflow", "hidden").css("min-width", "0");
-      uiBorderSize = uiElement.css("box-sizing") === "content-box" ? parseFloat(uiElement.css("border-left-width")) + parseFloat(uiElement.css("border-right-width")) : 0;
-      uiCurrentWidth = parseFloat(uiElement.css("width")) > uiBorderSize ? parseFloat(uiElement.css("width")) + uiBorderSize : els[i].scrollWidth + uiBorderSize;
+      uiCurrentWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) : els[i].scrollWidth;
+
       if (targetWidthUnit === "auto") {
-        uiTargetWidth = els[i].scrollWidth + uiBorderSize;
+        uiTargetWidth = 0;
         targetWidthUnit = "px";
       } else {
         if (targetWidthUnit === "%") {
@@ -228,11 +243,12 @@
           uiTargetWidth = targetWidthValue;
         }
       }
+      
       if (targetWidthUnit === "rem") {
         uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
       }
 
-      uiElement.animate("width", 0, uiCurrentWidth + targetWidthUnit, uiTargetWidth, duration, function (el) {
+      uiElement.animate("width", 0, (uiCurrentWidth - uiTargetWidth) + targetWidthUnit, uiTargetWidth, duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetWidthValue) {

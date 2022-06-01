@@ -1357,42 +1357,77 @@
 		this.first()[0].focus();
 	};
 
-	fn.setState = function (currentCssClass, newCssClass, revertOnClick, placeholder, resetData) {
-		var args = arguments;
+	fn.setState = function (currentCssClass, newCssClass, controlMessage, revertOnClick, resetData) {
+		var args = arguments, messageId, messageEl;
 
 		if (args.length > 1) {
-			switchClasses(this, currentCssClass, newCssClass);
-		}
-		if (args.length > 2 && revertOnClick) {
-			var els = this;
-			this.click(function () {
-				switchClasses(els, newCssClass, currentCssClass);
+			var el;
+			for (var i = 0; i < this.length; i++) {
+				el = this[i];
 
-				var el;
-				for (var i = 0; i < els.length; i++) {
-					el = els[i];
-					if ((isTextbox(el) || isPassword(el) || isTextarea(el)) && el.value.length === 0) {
-						if (placeholder) {
-							el.removeAttribute("placeholder");
+				switchClasses(el, currentCssClass, newCssClass);
+
+				if (isTextbox(el) || isPassword(el) || isTextarea(el)) {
+					if (!controlMessage) {
+						messageId = ui(el).data("validation-text");
+						if (messageId) {
+							messageEl = ui("#" + messageId);
+							if (messageEl) {
+								messageEl.text("");
+							}
+						}
+					}
+				}
+			}
+		}
+		if (args.length > 2 && controlMessage) {
+			var el;
+
+			for (var i = 0; i < this.length; i++) {
+				el = this[i];
+
+				if (isTextbox(el) || isPassword(el) || isTextarea(el)) {
+					if (controlMessage) {
+						messageId = ui(el).data("validation-text");
+						if (messageId) {
+							messageEl = ui("#" + messageId);
+							if (messageEl) {
+								messageEl.css("visibility", "visible");
+								messageEl.text(controlMessage);
+								if (newCssClass === "control-danger") {
+									switchClasses(messageEl, "color-success", "color-danger");
+								}
+								else {
+									switchClasses(messageEl, "color-danger", "color-success");
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if (args.length > 3 && revertOnClick) {
+
+			this.click(function () {
+				var el = this;
+
+				switchClasses(el, newCssClass, currentCssClass);
+
+				if ((isTextbox(el) || isPassword(el) || isTextarea(el)) && el.value.length === 0) {
+					if (controlMessage) {
+						messageId = ui(el).data("validation-text");
+						if (messageId) {
+							messageEl = ui("#" + messageId);
+							if (messageEl) {
+								messageEl.text("");
+							}
 						}
 					}
 				}
 			});
 		}
-		if (args.length > 3 && placeholder) {
-			var el;
-			for (var i = 0; i < this.length; i++) {
-				el = this[i];
-				if ((isTextbox(el) || isPassword(el) || isTextarea(el)) && el.value.length === 0) {
-					el.setAttribute("placeholder", placeholder);
-				}
-			}
-		}
 		if (args.length === 5 && resetData) {
 			this.reset(resetData);
-			if ((isTextbox(el) || isPassword(el) || isTextarea(el))) {
-				el.setAttribute("placeholder", placeholder);
-			}
 		}
 		return this;
 	};

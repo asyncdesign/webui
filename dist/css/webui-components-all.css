@@ -10788,6 +10788,10 @@ svg:not(:root) {
   border: 0.078rem solid hsl(14deg, 100%, 50%);
 }
 
+.control-message {
+  visibility: hidden;
+}
+
 .control-group-success label,
 .control-group-success *[class*=text],
 .control-group-success *[class*=control-label] {
@@ -10998,6 +11002,11 @@ svg:not(:root) {
   transition: transform 0.3s ease-out;
 }
 
+.control-hint > input ~ label,
+.control-hint > textarea ~ label {
+  background-color: transparent;
+}
+
 .control-hint > input::-moz-placeholder,
 .control-hint-border > input::-moz-placeholder {
   color: transparent !important;
@@ -11022,7 +11031,6 @@ svg:not(:root) {
   padding-top: 0.7rem;
 }
 .control-hint > input:not(.input-xl):not(:-moz-placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-105%);
 }
 
@@ -11030,7 +11038,6 @@ svg:not(:root) {
   padding-top: 0.7rem;
 }
 .control-hint > input.input-xl:not(:-moz-placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-115%);
 }
 
@@ -11046,7 +11053,6 @@ svg:not(:root) {
   padding-top: 1.2rem;
 }
 .control-hint > textarea:not(:-moz-placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-55%);
 }
 
@@ -11063,7 +11069,6 @@ svg:not(:root) {
 }
 .control-hint > input:not(.input-xl):focus ~ label,
 .control-hint > input:not(.input-xl):not(:placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-105%);
 }
 
@@ -11073,7 +11078,6 @@ svg:not(:root) {
 }
 .control-hint > input.input-xl:focus ~ label,
 .control-hint > input.input-xl:not(:placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-115%);
 }
 
@@ -11093,7 +11097,6 @@ svg:not(:root) {
 }
 .control-hint > textarea:focus ~ label,
 .control-hint > textarea:not(:placeholder-shown) ~ label {
-  background-color: transparent;
   transform: scale(0.8) translateY(-55%);
 }
 

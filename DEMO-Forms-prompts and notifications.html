@@ -70,10 +70,9 @@
 							<div class="tooltip width-full" id="tooltipFirstName">
 								<input id="FirstName" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
 								<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
-									First name is required.
+									Hover tooltip.
 								</div>		
 							</div>
-							<label class="text-sm text-italic">Sample control text</label>
 						</div>
 					</div>
 					<div class="row">
@@ -384,18 +383,18 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-7 control-label-sm">
+						<div class="col-7 control-label-lg">
 							URL
 						</div>
 						<div class="col">
 							<div class="tooltip width-full" id="tooltipEnterValues">
 
 								<div class="control-hint-border">
-									<input id="textURL" type="text" class="input-lg rounded-sm width-full" placeholder="test" />
+									<input id="textURL" type="text" class="input-lg rounded-sm width-full" data-validation-text="textURLMessage" placeholder="default" />
 									<label for="textURL" class="color-accent-1 background-light">Click here for custom tooltip</label>
 								</div>
-
-								<div class="tooltip-focus tooltip-left tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md tooltip-lg">
+								
+								<div class="tooltip-focus tooltip-left tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md tooltip-md">
 									<div class="flex flex-direction-column rounded-md">
 										<div class="accent-4-dark text-bold rounded-top-md width-full pad-md">
 											Heading
@@ -409,6 +408,7 @@
 								</div>
 								
 							</div>
+							<label id="textURLMessage" class="text-sm text-italic"></label>
 						</div>
 					</div>
 					<div class="row">
@@ -416,7 +416,8 @@
 							Start Date
 						</div>
 						<div class="col">
-							<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm" />
+							<input id="textStartDate" type="text" class="input-sm width-md-lg rounded-sm" data-validation-text="textStartDateMessage" />
+							<label id="textStartDateMessage" class="text-sm text-italic"></label>
 						</div>
 					</div>
 					<div class="row">
@@ -424,19 +425,19 @@
 							End Date
 						</div>
 						<div class="col">
-							<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm" />
-							<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Validate</button>
+							<input id="textEndDate" type="text" class="input-sm width-md-lg rounded-sm" data-validation-text="textEndDateMessage" />
+							<label id="textEndDateMessage" class="text-sm text-italic"></label>			
 						</div>
 					</div>
-					<div class="row-spacing-xl"></div>
 					<div class="row">
 						<div class="col-7">
-							
+							<button id="commandValidate" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Validate</button>
 						</div>
 						<div class="col">
 
 						</div>
 					</div>
+					<div class="row-spacing-xl"></div>
 					<div class="row">
 						<div class="col-7">
 							Alerts and modals
@@ -478,22 +479,6 @@
 					<div class="row">
 						<div class="col">
 							This demonstrates an <a href="#0" class="color-info transition-medium">Accessible Hyperlink</a>, improving visibility when focused.
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-7">
-							
-						</div>
-						<div class="col">
-
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-7">
-							<button id="Save" type="button" class="button-sm control-disabled rounded-sm" disabled>Save</button>
-						</div>
-						<div class="col">
-
 						</div>
 					</div>
 
@@ -552,7 +537,7 @@
 		<div class="modal-md modal-auto-stretch accent-1-light">
 
 			<div class="text-mega place-top-right">
-				<!-- Use absolute positioning for thethered modal buttons if the modal is not sized, otherwise use fixed positioning -->
+				<!-- Use absolute positioning for "thethered" modal buttons if the modal is not sized, otherwise use fixed positioning -->
 				<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
 			</div>
 			
@@ -641,7 +626,7 @@
 			<div class="flex-size-5 text-xl">
 				<div class="text-bold text-xs time-element"></div>
 			</div>
-			<div class="flex-fit justify-content-end text-xl">
+			<div class="flex-initial justify-content-end text-xl">
 				<div class="toast-close button-link width-xs-sm text-lg text-bold color-hover-info">&cross;</div>
 			</div>
 		</div>
@@ -776,29 +761,36 @@
 			ui("#commandValidate").click( function() {
 
 				if (!ui("#textURL").hasConformingString(ui.URL, false)) {
-					ui("#textURL").setState("input-sm", "input-sm control-highlight", true, "Please enter a valid URL", false);
+					ui("#textURL").setState("", "control-danger", "Please enter a valid URL", false, false);
 				}
 				else {
-					ui("#textURL").setState("input-sm control-highlight", "input-sm");
+					ui("#textURL").setState("control-danger", "control-success");
 				}
 				
 				if (!ui("#textStartDate").hasValidDateTime("DD/MM/YYYY", true)) {
-					ui("#textStartDate").setState("input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
-					return;
+					ui("#textStartDate").setState("", "control-danger", "DD/MM/YYYY", false, false);
+				}
+				else {
+					ui("#textStartDate").setState("control-danger", "", "Valid (allowEnpty is true)");
 				}
 				
-				if (!ui("#textEndDate").hasValidDateTime("DD/MM/YYYY", true)) {
-					ui("#textEndDate").setState("input-sm", "input-sm control-highlight", true, "DD/MM/YYYY", true);
-					return;
+				if (!ui("#textEndDate").hasValidDateTime("DD/MM/YYYY", false)) {
+					ui("#textEndDate").setState("", "control-danger", "DD/MM/YYYY", false, false);
+				}
+				else {
+					ui("#textEndDate").setState("control-danger", "", "Valid (Value is present and valid)");
+
+					var startDate = ui.convertToDate(ui("#textStartDate").val(), "DD/MM/YYYY");
+					var endDate = ui.convertToDate(ui("#textEndDate").val(), "DD/MM/YYYY");
+						
+					if (startDate > endDate) {
+						ui("#textStartDate").setState("", "control-danger", "Start date greater than end date", true);
+						ui("#textEndDate").setState("", "control-danger", "Start date greater than end date", true);
+					}
+
 				}
 				
-				var startDate = ui.convertToDate(ui("#textStartDate").val(), "DD/MM/YYYY");
-				var endDate = ui.convertToDate(ui("#textEndDate").val(), "DD/MM/YYYY");
-					
-				if (startDate > endDate) {
-					ui("#textStartDate").setState("input-sm", "input-sm control-highlight", true);
-					ui("#textEndDate").setState("input-sm", "input-sm control-highlight", true);
-				}
+				
 					
 			});
 

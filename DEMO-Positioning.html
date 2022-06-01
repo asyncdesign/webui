@@ -48,26 +48,58 @@
 
 		<div class="row">
 			<div class="col">
-				<div class="text-sm pad-bottom-md">Positioning</div>
+				<div class="text-sm pad-bottom-md">Positioning (Set positions within containers or relative to the browser window. 9 positions available for each positioning type.)</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col">
 
-
+				<select id="SelectPosition" class="control width-lg-xl">
+					<option value="">Select Position Class</option>
+					<option value="place-top-left">place-top-left</option>
+					<option value="place-top-center">place-top-center</option>
+					<option value="place-top-right">place-top-right</option>
+					<option value="place-middle-left">place-middle-left</option>
+					<option value="place-middle-center">place-middle-center</option>
+					<option value="place-middle-right">place-middle-right</option>
+					<option value="place-bottom-left">place-bottom-left</option>
+					<option value="place-bottom-center">place-bottom-center</option>
+					<option value="place-bottom-right">place-bottom-right</option>
+					<option value="dock-top-left">dock-top-left</option>
+					<option value="dock-top-center">dock-top-center</option>
+					<option value="dock-top-right">dock-top-right</option>
+					<option value="dock-middle-left">dock-middle-left</option>
+					<option value="dock-middle-center">dock-middle-center</option>
+					<option value="dock-middle-right">dock-middle-right</option>
+					<option value="dock-bottom-left">dock-bottom-left</option>
+					<option value="dock-bottom-center">dock-bottom-center</option>
+					<option value="dock-bottom-right">dock-bottom-right</option>
+				</select>
+	
 			</div>
 			<div class="col">
-				<div class="container height-sm-md">
-					
-				</div>		
+		
 			</div>
 			<div class="col">
-				<div class="container height-sm-md">
-					
-				</div>		
+		
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col">
+
+				<div class="container background-success-light height-xl">
+					
+					<div class="width-md height-md success place-middle-center" id="PositioningBlock">
+						<span class="place-middle-center">Element</span>
+					</div>
+		
+				</div>		
+	
+			</div>
+		</div>
+
 
 		<!--
 		<div class="row-spacing-lg"></div>
@@ -94,6 +126,7 @@
 
 		-->
 
+		<div class="row-spacing-xl"></div>
 	</div>
 
 
@@ -103,6 +136,13 @@
 
 		webui.ready(function() {
 			
+			ui("#SelectPosition").change( function() { 
+				var position = ui(this).getOptionValues(true)[0];
+
+				ui("#PositioningBlock").removeClass("*");
+				ui("#PositioningBlock").addClass("width-md height-md success " + position);
+
+			});
 			
 				
 		});

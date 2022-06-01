@@ -88,18 +88,48 @@
 
 				<div class="row">
 					<div class="col gap-vertical-xs">
-						<button type="button" id="commandTransitionDown" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Down</button>
-						<button type="button" id="commandTransitionUp" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Up</button>
-						<button type="button" id="commandTransitionRight" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Right</button>
-						<button type="button" id="commandTransitionLeft" class="button-sm button-info rounded-sm col-spacing-right-xs">Move Left</button>
+						<button type="button" id="commandSlideDown" class="button-sm button-info rounded-sm col-spacing-right-xs">Slide Down</button>
+						<button type="button" id="commandSlideUp" class="button-sm button-info rounded-sm col-spacing-right-xs">Slide Up</button>
+						<button type="button" id="commandSlideRight" class="button-sm button-info rounded-sm col-spacing-right-xs">Slide Right</button>
+						<button type="button" id="commandSlideLeft" class="button-sm button-info rounded-sm col-spacing-right-xs">Slide Left</button>
+					</div>
+				</div>
+				<div class="row-spacing-lg"></div>
+				<div class="row">
+					<div class="col container height-lg-xl border-sm border-accent-4 background-light">				
+						<div class="relative width-md-lg height-md-lg success" id="slideContainer"></div>
+						<span class="place-middle-center">Use buttons above to move the green box.</span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Expand /collapse animation</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+
+				<div class="row">
+					<div class="col gap-vertical-xs">
+						<button type="button" id="commandExpandVertical" class="button-sm button-info rounded-sm col-spacing-right-xs">Expand Vertical</button>
+						<button type="button" id="commandCollapseVertical" class="button-sm button-info rounded-sm col-spacing-right-xs">Collapse Vertical</button>
+						<button type="button" id="commandExpandHorizontal" class="button-sm button-info rounded-sm col-spacing-right-xs">Expand Horizontal</button>
+						<button type="button" id="commandCollapseHorizontal" class="button-sm button-info rounded-sm col-spacing-right-xs">Collapse Horizontal</button>
 					</div>
 				</div>
 				<div class="row-spacing-lg"></div>
 				<div class="row">
 					<div class="col container height-lg-xl border-sm border-accent-4 background-light">
-						<div class="container success width-md height-md text-xs text-center top-initial left-initial" id="transitionPanel">
-							<span class="place-middle-center">Use buttons above to move this</span>
-						</div>
+						<div class="width-md-lg height-md-lg success" id="expandCollapseContainer"></div>
+						<span class="place-middle-center">Use buttons above to collapse /expand the green box.</span>					
 					</div>
 				</div>
 
@@ -145,22 +175,39 @@
 			
 
 			// Slide transitions
-			ui("#commandTransitionDown").click( function() {
-				ui("#transitionPanel").slideVertical("down", 100, 2000);
+			ui("#commandSlideDown").click( function() {
+				ui("#slideContainer").slideVertical("down", "7.36rem", 1000);
 			});
 
-			ui("#commandTransitionUp").click( function() { 
-				ui("#transitionPanel").slideVertical("up", 100, 2000);
+			ui("#commandSlideUp").click( function() { 
+				ui("#slideContainer").slideVertical("up", "7.36rem", 1000);
 			});
 
-			ui("#commandTransitionRight").click( function() { 
-				ui("#transitionPanel").slideHorizontal("right", 100, 2000);
+			ui("#commandSlideRight").click( function() { 
+				ui("#slideContainer").slideHorizontal("right", "7.36rem", 1000);
 			});
 
-			ui("#commandTransitionLeft").click( function() { 
-				ui("#transitionPanel").slideHorizontal("left", 100, 2000);
+			ui("#commandSlideLeft").click( function() { 
+				ui("#slideContainer").slideHorizontal("left", "7.36rem", 1000);
 			});
 
+
+			// Expand /collapse transitions
+			ui("#commandExpandVertical").click( function() {
+				ui("#expandCollapseContainer").expandVertical(1000, "7.5rem");
+			});
+
+			ui("#commandCollapseVertical").click( function() { 
+				ui("#expandCollapseContainer").collapseVertical(1000, "1rem");
+			});
+
+			ui("#commandExpandHorizontal").click( function() { 
+				ui("#expandCollapseContainer").expandHorizontal(1000, "7.5rem");
+			});
+
+			ui("#commandCollapseHorizontal").click( function() { 
+				ui("#expandCollapseContainer").collapseHorizontal(1000, "1rem");
+			});
 
 			/*
 			ui(".expand").focus(function(e) {
