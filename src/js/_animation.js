@@ -65,12 +65,13 @@
     return els;
   };
 
-  fn.expandVertical = function (duration, targetHeight, callback) {
+  fn.expandVertical = function (duration, targetHeight, callback, initialHeight) {
     var args = arguments,
       els = this, uiElement, uiOverflow, uiOriginalHeight, uiTargetHeight,
       targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
       targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
       targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetHeight) : "block",
+      initialHeightValue = args.length > 3 ? ui.getValueFromCssSize(initialHeight) : -1,
       isAuto = targetHeightUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
@@ -99,6 +100,10 @@
         uiElement.css("height", "0");
         uiOriginalHeight = 0;  
       }
+      else if (initialHeightValue > -1) {
+        uiElement.css("height", initialHeight + targetHeightUnit);
+        uiOriginalHeight = initialHeight;
+      }
       else {
         if (targetHeightUnit === "rem") {
           uiOriginalHeight = ui.pxToRem(uiOriginalHeight);
@@ -121,12 +126,13 @@
     return els;
   };
 
-  fn.expandHorizontal = function (duration, targetWidth, callback) {
+  fn.expandHorizontal = function (duration, targetWidth, callback, initialWidth) {
     var args = arguments,
       els = this, uiElement, uiOverflow, uiOriginalWidth, uiTargetWidth,
       targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
       targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
       targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetWidth) : "block",
+      initialWidthValue = args.length > 3 ? ui.getValueFromCssSize(initialWidth) : -1,
       isAuto = targetWidthUnit === "auto";
 
     for (var i = 0; i < els.length; i++) {
@@ -154,6 +160,10 @@
       if (isAuto) {
         uiElement.css("width", "0");
         uiOriginalWidth = 0;  
+      }
+      else if (initialWidthValue > -1) {
+        uiElement.css("width", initialWidth + targetWidthUnit);
+        uiOriginalWidth = initialWidth;
       }
       else {
         if (targetWidthUnit === "rem") {

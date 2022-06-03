@@ -67,7 +67,7 @@
 							<li class="nav-item">
 								<a class="nav-activator" href="#0">Menu 1</a>
 								<ul class="nav-sub-menu">
-									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
 									<li class="nav-component">
 										<div class="toggle-switch-sm">	
 											<input type="checkbox" value="4" id="check-switch-1" />
@@ -76,9 +76,9 @@
 											</label>
 										</div>
 									</li>
+									<li class="nav-item"><a href="#0">Sub Menu Item 2</a></li>
 									<li class="nav-item"><a href="#0">Sub Menu Item 3</a></li>
 									<li class="nav-item"><a href="#0">Sub Menu Item 4</a></li>
-									<li class="nav-item"><a href="#0">Sub Menu Item 5</a></li>
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -112,7 +112,7 @@
 								</ul>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-full">
+								<div class="flex align-items-center height-control-md">
 									<div class="toggle-switch-xs onoff">	
 										<input type="checkbox" value="1" id="check-switch-2" />
 										<label for="check-switch-2" class="accent-1-light rounded-lg">
@@ -122,7 +122,7 @@
 								</div>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-full">
+								<div class="flex align-items-center height-control-md">
 									<div class="toggle-switch">	
 										<input type="checkbox" value="2" id="check-switch-3" />
 										<label for="check-switch-3" class="accent-1-light rounded-lg">
@@ -132,7 +132,7 @@
 								</div>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-full">
+								<div class="flex align-items-center height-control-md">
 									<div class="toggle-switch">	
 										<input type="checkbox" value="3" id="check-switch-4" />
 										<label for="check-switch-4" class="accent-1-light rounded-lg">
@@ -171,9 +171,10 @@
 								<div class="nav-logo text-xl"><div class="width-md-lg accent-5 pad-left-md">Your Logo</div></div>
 
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 1</a>
+									<a class="nav-activator" href="#0">Menu 1<span class="nav-indicator margin-left-xxs"></span></a>
+									
 									<div class="nav-sub-menu">
-										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
 										<div class="nav-component">
 											<div class="toggle-switch-sm">	
 												<input type="checkbox" value="4" id="check-switch-5" />
@@ -182,13 +183,13 @@
 												</label>
 											</div>
 										</div>
+										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
 										<div class="nav-item"><a href="#0">Sub Menu Item 3</a></div>
 										<div class="nav-item"><a href="#0">Sub Menu Item 4</a></div>
-										<div class="nav-item"><a href="#0">Sub Menu Item 5</a></div>
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 2</a>
+									<a class="nav-activator" href="#0">Menu 2<span class="nav-indicator margin-left-xxs"></span></a>
 									<div class="nav-sub-menu">
 										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
 										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
@@ -198,7 +199,7 @@
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 3</a>
+									<a class="nav-activator" href="#0">Menu 3<span class="nav-indicator margin-left-xxs"></span></a>
 									<div class="nav-sub-menu">
 										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
 										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
@@ -208,7 +209,7 @@
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 4</a>
+									<a class="nav-activator" href="#0">Menu 4<span class="nav-indicator margin-left-xxs"></span></a>
 									<div class="nav-sub-menu">
 										<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
 										<div class="nav-item"><a href="#0">Sub Menu Item 2</a></div>
@@ -936,7 +937,7 @@
 		</div>
 	</div>
 
-	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="vertical" data-transition-type="collapse" data-transition-distance="100px">
+	<div class="toggle-container" data-transition-duration="1000" data-transition-orientation="vertical" data-transition-type="collapse" data-transition-distance="100px">
 		<div class="toggle-item hidden dock-top-center light boundary-bottom-muted width-full layer-top" id="panel3">
 			<h2 class="place-middle-center">Menu</h2>
 		</div>
@@ -986,6 +987,7 @@
 			});
 
 			
+			// Navbars
 			ui("#navbar1").navbarControl({ 
 				transitionDuration: 300,
 				largeDeviceSubMenuPadding: "0 2rem",
@@ -1010,6 +1012,9 @@
 				//smallDeviceSubMenuBackground: "url(images/scotland_banner_1_dark.jpg) no-repeat center/cover",
 				largeDeviceLogoBackground: "url(images/scotland_banner_1_dark.jpg) no-repeat center/cover",
 				largeDeviceSubMenuBackground: "url(images/scotland_banner_1_dark.jpg) no-repeat center/cover",
+				largeDeviceMenuSpacing: "0.5rem",
+				largeDeviceMenuOffset: "1rem",
+				largeDeviceSubMenuOffset: "-1rem"
 			});
 			
 
@@ -1018,6 +1023,28 @@
 				backgroundColor: "transparent", 
 				color: "#FFF"
 			});
+
+			ui("[class*=nav-indicator]").navIndicatorControl({ 
+				indicatorType: "chevron",
+				indicatorSize: "medium",
+				backgroundColor: "transparent", 
+				color: "rgb(14, 143, 241)",
+				transitionDuration: 300
+			});
+
+			/*
+			ui(".nav-activator").click( function () { 
+				var activator = ui(this);
+				if (activator.hasClass("active")) {
+					activator.children("[class*=nav-indicator]").first().addClass("active");
+				}
+				else {
+					activator.children("[class*=nav-indicator]").first().removeClass("active");
+				}
+			});
+			*/
+
+
 
 			// Tabs
 			ui("#tabs1").tabControl({ 
@@ -1034,11 +1061,17 @@
 				transitionType: "fade"
 			});
 
-			ui("#radial1 .radial-item").createHeptagonShape();
-			ui("#radial2 .radial-item").createOctagonShape();
+/*
+			ui("#tabs1").on("ui.tabs.change.after", function(e) {
+				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
+			});
+*/
 
 
 			// Radial navigation
+			ui("#radial1 .radial-item").createHeptagonShape();
+			ui("#radial2 .radial-item").createOctagonShape();
+			
 			ui("#radial1").radialControl({
 				zoomFactor: 0.75,
 				mode: "top",
@@ -1062,16 +1095,12 @@
 			ui("#toggleRadial1, #toggleRadial2").click( function () { 
 				ui(this).toggleClass("active");
 			});
-
+			
 
 			ui("#ocButton1, #ocButton2").navButtonControl({ 
 				transitionDuration: 300,
 				backgroundColor: "transparent", 
 				color: "#000"
-			});
-
-			ui("#slideButton1, #slideButton2, #slideButton3, #slideButton4").navButtonControl({ 
-				transitionDuration: 300
 			});
 
 
@@ -1097,6 +1126,9 @@
 				ui("#ocButton2").removeClass("active");
 			});
 
+			ui("#slideButton1, #slideButton2, #slideButton3, #slideButton4").navButtonControl({ 
+				transitionDuration: 300
+			});
 			// Toggle slide-out button icon
 			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {		
 				ui("#slideButton1").addClass("active");
@@ -1126,12 +1158,6 @@
 				ui("#slideButton4").removeClass("active");
 			});
 			
-/*
-			ui("#tabs1").on("ui.tabs.change.after", function(e) {
-				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
-			});
-*/
-
 		});
 			
 	</script>

@@ -145,6 +145,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
+					navActivators.find("[class*='nav-indicator']").removeClass("active");
 
 					setSmallDeviceProperties();	
 				}
@@ -154,6 +155,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
+					navActivators.find("[class*='nav-indicator']").removeClass("active");
 		
 					navButton.parent().siblings(".nav-component").show();
 
@@ -162,6 +164,8 @@
 				else {
 
 					navSubMenus.hide();
+					navActivators.removeClass("active");
+					navActivators.find("[class*='nav-indicator']").removeClass("active");
 					
 					navButton.parent().siblings(".nav-item, .nav-component").show();
 					navSubMenus.children(".nav-item").show();
@@ -187,29 +191,31 @@
 			var navActivator = ui(this);
 			var subMenu = navActivator.nextSibling(".nav-sub-menu");
 
-			if (navActivator) {
-				navActivator.toggleClass("active");
+			navActivator.toggleClass("active");
+			navActivator.find("[class*='nav-indicator']").toggleClass("active");
 
-				if (navActivator.hasClass("active")) {
+			if (navActivator.hasClass("active")) {
 
-					navActivator.parent().siblings().children(".nav-activator").removeClass("active");
+				navActivator.parent().siblings().children(".nav-activator").removeClass("active");
+				navActivator.parent().siblings().children(".nav-activator").find("[class*='nav-indicator']").removeClass("active");
 
-					subMenu.parent().siblings().children(".nav-sub-menu").collapseVertical(transitionDuration, 0, function() { 
-						// After event 
-					});
-					
-					subMenu.expandVertical(transitionDuration, "auto", function() {
-						// After event
-					});
-					
-				}
-				else {
-					subMenu.collapseVertical(transitionDuration, 0, function() {
-						// After event
-					});
+				subMenu.parent().siblings().children(".nav-sub-menu").collapseVertical(transitionDuration, 0);
+				
+				navActivator.trigger("ui.navbar.submenu.show.before");
 
-				}
+				subMenu.expandVertical(transitionDuration, "auto", function() {
+					navActivator.trigger("ui.navbar.submenu.show.after");
+				});
+				
 			}
+			else {
+				navActivator.trigger("ui.navbar.submenu.hide.before");
+
+				subMenu.collapseVertical(transitionDuration, 0, function() {
+					navActivator.trigger("ui.navbar.submenu.hide.after");
+				});
+
+			}		
 		
 		});
 		
@@ -220,30 +226,30 @@
 			var rootItems = toggleButton.parent().siblings(".nav-item");
 			var rootComponents = toggleButton.parent().siblings(".nav-component");
 
-			
 			toggleButton.toggleClass("active");
 
 			if (toggleButton.hasClass("active")) {
 
+				toggleButton.trigger("ui.navbar.menu.show.before");
+				
 				rootItems.expandVertical(transitionDuration, "auto", function() {
-					// After event
+					toggleButton.trigger("ui.navbar.menu.show.after");
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
-					rootComponents.expandVertical(transitionDuration, "2.475rem", function() {
-						// After event					
-					});
+					rootComponents.expandVertical(transitionDuration, "auto");
 				}
 			}
 			else {
+				toggleButton.trigger("ui.navbar.menu.hide.before");
+
 				rootItems.collapseVertical(transitionDuration, 0, function() {
-					// After event
 					rootItems.attr("style", "");
+					toggleButton.trigger("ui.navbar.menu.hide.after");
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
 					rootComponents.collapseVertical(transitionDuration, 0, function() {
-						// After event
 						rootComponents.attr("style", "");
 					});
 	

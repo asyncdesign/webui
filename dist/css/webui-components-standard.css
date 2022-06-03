@@ -6958,6 +6958,24 @@
   transform: rotate(-45deg);
 }
 
+.nav-indicator {
+  position: relative;
+}
+.nav-indicator .nav-indicator-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  transform-origin: center 40%;
+  background-repeat: no-repeat;
+  background-position: 40% center;
+}
+
+.nav-indicator.active .nav-indicator-item {
+  transform: rotate(180deg);
+}
+
 .modal {
   position: fixed;
   left: 0;

@@ -270,7 +270,7 @@
 											if (transitionDistance) {
 												el.expandHorizontal(transitionDuration, transitionDistance, function() {
 													el.trigger("ui.toggleItem.show.after");
-												});											
+												}, 0);											
 											}
 											else {
 												el.expandHorizontal(transitionDuration, "auto", function() {
@@ -282,7 +282,7 @@
 											if (transitionDistance) {
 												el.expandVertical(transitionDuration, transitionDistance, function() {
 													el.trigger("ui.toggleItem.show.after");
-												});
+												}, 0);
 											}
 											else {
 												el.expandVertical(transitionDuration, "auto", function() {

@@ -12,7 +12,7 @@
 
 			var settings = ui.extend({
 				transitionDuration: 300, 
-				backgroundColor: "#BDBDBD", 
+				backgroundColor: "transparent", 
 				color: "#000000"
 			}, options);
 
