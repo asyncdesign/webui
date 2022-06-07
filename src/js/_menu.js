@@ -34,7 +34,9 @@
 									dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
 								}
 								else if (transitionType === "collapse") {
-									dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+									dropdown.collapseVertical({ duration: transitionDuration }, function() {
+										dropdown.trigger("ui.dropdown.hide.after");
+									});
 								}
 								else {
 									dropdown.hide().trigger("ui.dropdown.hide.after");
@@ -46,7 +48,7 @@
 										siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
 									}
 									else if (transitionType === "collapse") {
-										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical({ duration: transitionDuration });
 									}
 									else {
 										siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
@@ -61,7 +63,9 @@
 									dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 								}
 								else if (transitionType === "collapse") {
-									dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+									dropdown.expandVertical({ duration: transitionDuration }, function() {
+										dropdown.trigger("ui.dropdown.show.after");
+									});
 								}
 								else {
 									dropdown.show().trigger("ui.dropdown.show.after");
@@ -74,8 +78,8 @@
 										dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
 									}
 									else if (transitionType === "collapse") {
-										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration });
+										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration });
 									}
 									else {
 										dropdown.prevSiblings("[class*='dropdown-']").hide();
@@ -118,7 +122,9 @@
 					menuActivator.siblings("[class*='dropdown-']").fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 				}
 				else if (transitionType === "collapse") {
-					menuActivator.siblings("[class*='dropdown-']").expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+					menuActivator.siblings("[class*='dropdown-']").expandVertical({ duration: transitionDuration }, function() {
+						menuActivator.trigger("ui.dropdown.show.after");
+					});
 				}
 				else {
 					menuActivator.siblings("[class*='dropdown-']").show().trigger("ui.dropdown.show.after");
@@ -143,7 +149,9 @@
 					menuActivator.siblings("[class*='dropdown-']").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
 				}
 				else if (transitionType === "collapse") {
-					menuActivator.siblings("[class*='dropdown-']").collapseVertical(transitionDuration).trigger("ui.dropdown.show.after");
+					menuActivator.siblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration }, function() {
+						menuActivator.trigger("ui.dropdown.show.after");
+					});
 				}
 				else {
 					menuActivator.siblings("[class*='dropdown-']").hide().trigger("ui.dropdown.show.after");
@@ -189,7 +197,9 @@
 					dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
 				}
 				else if (transitionType === "collapse") {
-					dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+					dropdown.collapseVertical({ duration: transitionDuration }, function() {
+						dropdown.trigger("ui.dropdown.hide.after");
+					});
 				}
 				else {
 					dropdown.hide().trigger("ui.dropdown.hide.after");

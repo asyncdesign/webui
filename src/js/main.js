@@ -120,9 +120,10 @@
 				callback();
 			}
 		},
-		runToggleAction = function (selector, toggleContainer) {
+		runToggleAction = function (selector, toggleContainer, toggleActivator) {
 			
 			if (toggleContainer.length) {
+
 				var toggleBody = webui(".off-canvas-body");
 				var toggleItem = toggleContainer.find(selector);
 
@@ -135,7 +136,9 @@
 
 				var offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer");
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
-				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");				
+				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");	
+
+				var activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;			
 
 
 				if (toggleItem.length) {
@@ -234,23 +237,39 @@
 									if (transitionDuration && transitionType === "fade") {
 										el.fadeOut(transitionDuration, 0, function() {
 											el.trigger("ui.toggleItem.hide.after");
+
+											if (activator) {
+												activator.find(".nav-indicator").removeClass("active");				
+											}			
 										});
 									}
 									else if (transitionDuration && transitionType === "collapse") {
 										if (transitionOrientation === "horizontal") {
-											el.collapseHorizontal(transitionDuration, 0, function() {
+											el.collapseHorizontal({ duration: transitionDuration }, function() {
 												el.trigger("ui.toggleItem.hide.after");
+					
+												if (activator) {
+													activator.find(".nav-indicator").removeClass("active");				
+												}
 											});
 										}
 										else {
-											el.collapseVertical(transitionDuration, 0, function() {
+											el.collapseVertical({ duration: transitionDuration }, function() {
 												el.trigger("ui.toggleItem.hide.after");
+
+												if (activator) {
+													activator.find(".nav-indicator").removeClass("active");				
+												}
 											});
 										}
 									}
 									else {
 										el.hide();
 										el.trigger("ui.toggleItem.hide.after");
+
+										if (activator) {
+											activator.find(".nav-indicator").removeClass("active");				
+										}
 									}	
 								});	
 							} 
@@ -261,6 +280,10 @@
 									delay(transitionInDelay, function () {
 										el.fadeIn(transitionDuration, 0, function() {
 											el.trigger("ui.toggleItem.show.after");
+
+											if (activator) {
+												activator.find(".nav-indicator").addClass("active");
+											}
 										});
 									});
 								}
@@ -268,25 +291,41 @@
 									delay(transitionInDelay, function () {
 										if (transitionOrientation === "horizontal") {
 											if (transitionDistance) {
-												el.expandHorizontal(transitionDuration, transitionDistance, function() {
+												el.expandHorizontal({ duration: transitionDuration, targetWidth: transitionDistance }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												}, 0);											
 											}
 											else {
-												el.expandHorizontal(transitionDuration, "auto", function() {
+												el.expandHorizontal({ duration: transitionDuration }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												});
 											}
 										}
 										else {
 											if (transitionDistance) {
-												el.expandVertical(transitionDuration, transitionDistance, function() {
+												el.expandVertical({ duration: transitionDuration, targetHeight: transitionDistance }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												}, 0);
 											}
 											else {
-												el.expandVertical(transitionDuration, "auto", function() {
+												el.expandVertical({ duration: transitionDuration }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												});										
 											}
 										}
@@ -296,25 +335,45 @@
 									delay(transitionInDelay, function () {
 										el.show();
 										el.trigger("ui.toggleItem.show.after");
+
+										if (activator) {
+											activator.find(".nav-indicator").addClass("active");
+										}
 									});
 								}
 								
-								if (toggleContainer.hasClass("toggle-inclusive") === false) {
+								if (!toggleContainer.hasClass("toggle-inclusive")) {
 
 									delay(transitionOutDelay, function () {
 										if (transitionDuration && transitionType === "fade") {
 											el.siblings(".toggle-item").fadeOut(transitionDuration);
+
+											if (activator) {
+												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+											}
 										}
 										else if (transitionDuration && transitionType === "collapse") {
 											if (transitionOrientation === "horizontal") {
-												el.siblings(".toggle-item").collapseHorizontal(transitionDuration);
+												el.siblings(".toggle-item").collapseHorizontal({ duration: transitionDuration });	
+
+												if (activator) {
+													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												}
 											}
 											else {
-												el.siblings(".toggle-item").collapseVertical(transitionDuration);
+												el.siblings(".toggle-item").collapseVertical({ duration: transitionDuration });	
+
+												if (activator) {
+													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												}
 											}
 										}
 										else {
 											el.siblings(".toggle-item").hide();
+
+											if (activator) {
+												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+											}
 										}
 									});
 								}
@@ -1036,9 +1095,10 @@
 		return this;
 	};
 
-	fn.show = function () {
+	fn.show = function (displayType) {
+		var dt = arguments.length > 0 && displayType ? displayType : "block";
 		for (var i = 0; i < this.length; i++) {
-			this[i].style["display"] = "block";
+			this[i].style["display"] = dt;
 		}
 		return this;
 	};
@@ -1913,35 +1973,32 @@
 		return parseFloat(win.getComputedStyle(el)["fontSize"]) * parseFloat(remValue);
 	};
 
-	webui.getValueFromCssSize = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length ? parseFloat(parts[0].replace(/[^0-9.]+/gi, "")) : 0;	
+  webui.percentHeightToPx = function (element, percentValue) {
+    return parseFloat(element.parent().css("height")) / 100 * percentValue;
+  };
+
+  webui.percentWidthToPx = function (element, percentValue) {
+    return parseFloat(element.parent().css("width")) / 100 * percentValue;
+  };
+
+	webui.getValueFromCssSize = function(cssSize) {
+		if (cssSize && isString(cssSize)) {
+			var value = parseFloat(cssSize.replace(/[^0-9.]+/gi, ""));	
 			return !isNaN(value) ? value : 0;	
 		}
-		else if (valueSeries && !isNaN(valueSeries)) {
-			var value = parseFloat(valueSeries);
+		else if (cssSize && !isNaN(cssSize)) {
+			var value = parseFloat(cssSize);
 			return !isNaN(value) ? value : 0;	
 		}
 		return 0;
 	};
 
-	webui.getUnitFromCssSize = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length ? parts[0].replace(/[^a-z%]+/gi, "") : "px";	
+	webui.getUnitFromCssSize = function(cssSize) {
+		if (cssSize && isString(cssSize)) {
+			var value = cssSize.replace(/[^a-z%]+/gi, "");	
 			return value.length ? value : "px";		
 		}
 		return "px";
-	};
-
-	webui.getvalueFromCssDisplayType = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length > 1 ? parts[1] : "block";
-			return value.length ? value : "block";				
-		}
-		return "block";
 	};
 
 	webui.getAvgWidth = function (elements) {
@@ -2443,7 +2500,7 @@
 
 		if (selector && selector.length) {
 			var toggleContainer = webui(this).closest(".toggle-container");
-			runToggleAction(selector, toggleContainer);
+			runToggleAction(selector, toggleContainer, this);
 		}
 	});
 

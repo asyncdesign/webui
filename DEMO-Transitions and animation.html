@@ -128,7 +128,9 @@
 				<div class="row-spacing-lg"></div>
 				<div class="row">
 					<div class="col container height-lg-xl border-sm border-accent-4 background-light">
-						<div class="width-md-lg height-md-lg success" id="expandCollapseContainer"></div>
+						<div class="success width-md-lg height-md-lg pad-lg border-xl border-dark" id="expandCollapseContainer">
+							<div class="accent-3 width-full height-full relative"><label class="place-middle-center text-xl">Test</label></div>
+						</div>
 						<span class="place-middle-center">Use buttons above to collapse /expand the green box.</span>					
 					</div>
 				</div>
@@ -193,34 +195,63 @@
 
 
 			// Expand /collapse transitions
+
 			ui("#commandExpandVertical").click( function() {
-				ui("#expandCollapseContainer").expandVertical(1000, "7.5rem");
+
+				ui("#expandCollapseContainer").expandVertical({ 
+						duration: 1000, 
+						targetHeight: "7.5rem",
+						initialHeight: "2.5rem",
+						paddingTop: "1.25rem",
+						paddingBottom: "1.25rem",
+						borderTopWidth: "0.25rem",
+						borderBottomWidth: "0.25rem"
+					}, function() {
+				});	
+
 			});
 
 			ui("#commandCollapseVertical").click( function() { 
-				ui("#expandCollapseContainer").collapseVertical(1000, "1rem");
+
+				ui("#expandCollapseContainer").collapseVertical({ 
+						duration: 1000, 
+						targetHeight: "2.5rem",
+						paddingTop: "1.25rem",
+						paddingBottom: "1.25rem",
+						borderTopWidth: "0.25rem",
+						borderBottomWidth: "0.25rem"
+					}, function() {
+				});
+
 			});
 
 			ui("#commandExpandHorizontal").click( function() { 
-				ui("#expandCollapseContainer").expandHorizontal(1000, "7.5rem");
+
+				ui("#expandCollapseContainer").expandHorizontal({ 
+						duration: 1000, 
+						targetWidth: "7.5rem",
+						initialWidth: "2.5rem",
+						paddingLeft: "1.25rem",
+						paddingRight: "1.25rem",
+						borderLeftWidth: "0.25rem",
+						borderRightWidth: "0.25rem"
+					}, function() {
+				});	
+
 			});
 
 			ui("#commandCollapseHorizontal").click( function() { 
-				ui("#expandCollapseContainer").collapseHorizontal(1000, "1rem");
-			});
 
-			/*
-			ui(".expand").focus(function(e) {
-				ui(this).css("width", "20rem");
-			}).blur(function(e) {
-				ui(this).css("width", "10rem");
-			});
-			*/
-			
-			ui(".expand").focus(function(e) {
-				ui(this).expandHorizontal(1000, "20rem");
-			}).blur(function(e) {
-				ui(this).collapseHorizontal(1000, "10rem");
+				ui("#expandCollapseContainer").collapseHorizontal({ 
+						duration: 1000, 
+						targetWidth: "2.5rem",
+						paddingLeft: "1.25rem",
+						paddingRight: "1.25rem",
+						borderLeftWidth: "0.25rem",
+						borderRightWidth: "0.25rem"
+					}, function() {
+				});
+
 			});
 			
 				

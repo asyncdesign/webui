@@ -120,9 +120,10 @@
 				callback();
 			}
 		},
-		runToggleAction = function (selector, toggleContainer) {
+		runToggleAction = function (selector, toggleContainer, toggleActivator) {
 			
 			if (toggleContainer.length) {
+
 				var toggleBody = webui(".off-canvas-body");
 				var toggleItem = toggleContainer.find(selector);
 
@@ -135,7 +136,9 @@
 
 				var offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer");
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
-				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");				
+				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");	
+
+				var activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;			
 
 
 				if (toggleItem.length) {
@@ -234,23 +237,39 @@
 									if (transitionDuration && transitionType === "fade") {
 										el.fadeOut(transitionDuration, 0, function() {
 											el.trigger("ui.toggleItem.hide.after");
+
+											if (activator) {
+												activator.find(".nav-indicator").removeClass("active");				
+											}			
 										});
 									}
 									else if (transitionDuration && transitionType === "collapse") {
 										if (transitionOrientation === "horizontal") {
-											el.collapseHorizontal(transitionDuration, 0, function() {
+											el.collapseHorizontal({ duration: transitionDuration }, function() {
 												el.trigger("ui.toggleItem.hide.after");
+					
+												if (activator) {
+													activator.find(".nav-indicator").removeClass("active");				
+												}
 											});
 										}
 										else {
-											el.collapseVertical(transitionDuration, 0, function() {
+											el.collapseVertical({ duration: transitionDuration }, function() {
 												el.trigger("ui.toggleItem.hide.after");
+
+												if (activator) {
+													activator.find(".nav-indicator").removeClass("active");				
+												}
 											});
 										}
 									}
 									else {
 										el.hide();
 										el.trigger("ui.toggleItem.hide.after");
+
+										if (activator) {
+											activator.find(".nav-indicator").removeClass("active");				
+										}
 									}	
 								});	
 							} 
@@ -261,6 +280,10 @@
 									delay(transitionInDelay, function () {
 										el.fadeIn(transitionDuration, 0, function() {
 											el.trigger("ui.toggleItem.show.after");
+
+											if (activator) {
+												activator.find(".nav-indicator").addClass("active");
+											}
 										});
 									});
 								}
@@ -268,25 +291,41 @@
 									delay(transitionInDelay, function () {
 										if (transitionOrientation === "horizontal") {
 											if (transitionDistance) {
-												el.expandHorizontal(transitionDuration, transitionDistance, function() {
+												el.expandHorizontal({ duration: transitionDuration, targetWidth: transitionDistance }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												}, 0);											
 											}
 											else {
-												el.expandHorizontal(transitionDuration, "auto", function() {
+												el.expandHorizontal({ duration: transitionDuration }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												});
 											}
 										}
 										else {
 											if (transitionDistance) {
-												el.expandVertical(transitionDuration, transitionDistance, function() {
+												el.expandVertical({ duration: transitionDuration, targetHeight: transitionDistance }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												}, 0);
 											}
 											else {
-												el.expandVertical(transitionDuration, "auto", function() {
+												el.expandVertical({ duration: transitionDuration }, function() {
 													el.trigger("ui.toggleItem.show.after");
+
+													if (activator) {
+														activator.find(".nav-indicator").addClass("active");
+													}
 												});										
 											}
 										}
@@ -296,25 +335,45 @@
 									delay(transitionInDelay, function () {
 										el.show();
 										el.trigger("ui.toggleItem.show.after");
+
+										if (activator) {
+											activator.find(".nav-indicator").addClass("active");
+										}
 									});
 								}
 								
-								if (toggleContainer.hasClass("toggle-inclusive") === false) {
+								if (!toggleContainer.hasClass("toggle-inclusive")) {
 
 									delay(transitionOutDelay, function () {
 										if (transitionDuration && transitionType === "fade") {
 											el.siblings(".toggle-item").fadeOut(transitionDuration);
+
+											if (activator) {
+												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+											}
 										}
 										else if (transitionDuration && transitionType === "collapse") {
 											if (transitionOrientation === "horizontal") {
-												el.siblings(".toggle-item").collapseHorizontal(transitionDuration);
+												el.siblings(".toggle-item").collapseHorizontal({ duration: transitionDuration });	
+
+												if (activator) {
+													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												}
 											}
 											else {
-												el.siblings(".toggle-item").collapseVertical(transitionDuration);
+												el.siblings(".toggle-item").collapseVertical({ duration: transitionDuration });	
+
+												if (activator) {
+													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												}
 											}
 										}
 										else {
 											el.siblings(".toggle-item").hide();
+
+											if (activator) {
+												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+											}
 										}
 									});
 								}
@@ -1036,9 +1095,10 @@
 		return this;
 	};
 
-	fn.show = function () {
+	fn.show = function (displayType) {
+		var dt = arguments.length > 0 && displayType ? displayType : "block";
 		for (var i = 0; i < this.length; i++) {
-			this[i].style["display"] = "block";
+			this[i].style["display"] = dt;
 		}
 		return this;
 	};
@@ -1913,35 +1973,32 @@
 		return parseFloat(win.getComputedStyle(el)["fontSize"]) * parseFloat(remValue);
 	};
 
-	webui.getValueFromCssSize = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length ? parseFloat(parts[0].replace(/[^0-9.]+/gi, "")) : 0;	
+  webui.percentHeightToPx = function (element, percentValue) {
+    return parseFloat(element.parent().css("height")) / 100 * percentValue;
+  };
+
+  webui.percentWidthToPx = function (element, percentValue) {
+    return parseFloat(element.parent().css("width")) / 100 * percentValue;
+  };
+
+	webui.getValueFromCssSize = function(cssSize) {
+		if (cssSize && isString(cssSize)) {
+			var value = parseFloat(cssSize.replace(/[^0-9.]+/gi, ""));	
 			return !isNaN(value) ? value : 0;	
 		}
-		else if (valueSeries && !isNaN(valueSeries)) {
-			var value = parseFloat(valueSeries);
+		else if (cssSize && !isNaN(cssSize)) {
+			var value = parseFloat(cssSize);
 			return !isNaN(value) ? value : 0;	
 		}
 		return 0;
 	};
 
-	webui.getUnitFromCssSize = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length ? parts[0].replace(/[^a-z%]+/gi, "") : "px";	
+	webui.getUnitFromCssSize = function(cssSize) {
+		if (cssSize && isString(cssSize)) {
+			var value = cssSize.replace(/[^a-z%]+/gi, "");	
 			return value.length ? value : "px";		
 		}
 		return "px";
-	};
-
-	webui.getvalueFromCssDisplayType = function(valueSeries) {
-		if (valueSeries && isString(valueSeries)) {
-			var parts = valueSeries.split(":");
-			var value = parts.length > 1 ? parts[1] : "block";
-			return value.length ? value : "block";				
-		}
-		return "block";
 	};
 
 	webui.getAvgWidth = function (elements) {
@@ -2443,7 +2500,7 @@
 
 		if (selector && selector.length) {
 			var toggleContainer = webui(this).closest(".toggle-container");
-			runToggleAction(selector, toggleContainer);
+			runToggleAction(selector, toggleContainer, this);
 		}
 	});
 
@@ -2943,120 +3000,188 @@
     return els;
   };
 
-  fn.expandVertical = function (duration, targetHeight, callback, initialHeight) {
-    var args = arguments,
-      els = this, uiElement, uiOverflow, uiOriginalHeight, uiTargetHeight,
-      targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
-      targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "",
-      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetHeight) : "block",
-      initialHeightValue = args.length > 3 ? ui.getValueFromCssSize(initialHeight) : -1,
-      isAuto = targetHeightUnit === "auto";
+  fn.expandVertical = function (options, callback) {
+    var settings = ui.extend({
+      duration: 300,
+      targetHeight: "auto",
+      initialHeight: null,
+      displayType: "block",
+      paddingTop: 0,
+      paddingBottom: 0,
+      borderTopWidth: 0,
+      borderBottomWidth: 0
+    }, options),
+    
+    els = this, 
+    uiElement, 
+    uiOverflow, 
+    uiOriginalHeight, 
+    uiTargetHeight,
+
+    targetHeightValue = ui.getValueFromCssSize(settings.targetHeight),
+    targetHeightUnit = ui.getUnitFromCssSize(settings.targetHeight),
+    initialHeightValue = ui.getValueFromCssSize(settings.initialHeight),
+    initialHeightUnit = ui.getUnitFromCssSize(settings.initialHeight);
+
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-height", "0");
-      uiOriginalHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) : els[i].scrollHeight;
+      uiElement.css("display", settings.displayType).css("overflow", "hidden").css("min-height", "0");
+      uiOriginalHeight = parseFloat(uiElement.css("height"));
+      uiOriginalHeight = uiOriginalHeight > 0 ? uiOriginalHeight : els[i].scrollHeight;
 
-      if (isAuto) {
-        uiTargetHeight = els[i].scrollHeight;        
-        targetHeightUnit = "px";
-      } else {
-        if (targetHeightValue) {
-          if (targetHeightUnit === "%") {
-            uiTargetHeight = parseFloat(uiElement.parent().css("height")) / 100 * targetHeightValue;
-            targetHeightUnit = "px";
-          } else {
-            uiTargetHeight = targetHeightValue;
-          }
-        } else {
-          uiTargetHeight = targetHeightUnit === "rem" ? ui.pxToRem(uiOriginalHeight) : uiOriginalHeight;
-        }
-      }
 
-      if (isAuto) {
+      if (settings.targetHeight === "auto" || !targetHeightValue) {
+        uiTargetHeight = els[i].scrollHeight + parseFloat(settings.borderTopWidth) + parseFloat(settings.borderBottomWidth);  
         uiElement.css("height", "0");
-        uiOriginalHeight = 0;  
+        uiOriginalHeight = 0;
+
+        var paddingTopValue = ui.getValueFromCssSize(settings.paddingTop);    
+        if (parseFloat(uiElement.css("padding-top")) < paddingTopValue) {
+          uiTargetHeight = uiTargetHeight + paddingTopValue;
+        }
+        var paddingBottomValue = ui.getValueFromCssSize(settings.paddingBottom);
+        if (parseFloat(uiElement.css("padding-bottom")) < paddingBottomValue) {
+          uiTargetHeight = uiTargetHeight + paddingBottomValue;
+        }
+      } 
+      else if (targetHeightValue) {
+        uiTargetHeight = targetHeightValue;
+
+        if (targetHeightUnit === "%") {
+          uiTargetHeight = ui.percentHeightToPx(uiElement, uiTargetHeight)
+        }
+        else if (targetHeightUnit === "rem") {
+          uiTargetHeight = ui.remToPx(uiTargetHeight);
+        }
+        uiElement.css("height", "0");
+        uiOriginalHeight = 0;
       }
-      else if (initialHeightValue > -1) {
-        uiElement.css("height", initialHeight + targetHeightUnit);
-        uiOriginalHeight = initialHeight;
-      }
-      else {
-        if (targetHeightUnit === "rem") {
-          uiOriginalHeight = ui.pxToRem(uiOriginalHeight);
+
+      if (settings.initialHeight !== null) {
+        uiElement.css("height", initialHeightValue + initialHeightUnit);
+        uiOriginalHeight = initialHeightValue;
+      
+        if (initialHeightUnit === "%") {
+          uiOriginalHeight = ui.percentHeightToPx(uiElement, uiOriginalHeight)
+        }
+        else if (initialHeightUnit === "rem") {
+          uiOriginalHeight = ui.remToPx(uiOriginalHeight);
         }
       }
 
-      uiElement.animate("height", 1, (uiTargetHeight - uiOriginalHeight) + targetHeightUnit, uiOriginalHeight, duration, function (el) {
+      targetHeightUnit = "px";
+
+      if (settings.paddingTop) { uiElement.animate("padding-top", 1, settings.paddingTop, 0, settings.duration); }
+      if (settings.paddingBottom) { uiElement.animate("padding-bottom", 1, settings.paddingBottom, 0, settings.duration); }
+      if (settings.borderTopWidth) { uiElement.animate("border-top-width", 1, settings.borderTopWidth, 0, settings.duration); }
+      if (settings.borderBottomWidth) { uiElement.animate("border-bottom-width", 1, settings.borderBottomWidth, 0, settings.duration); }
+
+      uiElement.animate("height", 1, (uiTargetHeight - uiOriginalHeight) + targetHeightUnit, uiOriginalHeight, settings.duration, function (el) {
         
-        if (isAuto) {
+        if (settings.targetHeight === "auto") {
           el.css("height", "auto");
         }
+
         el.css("overflow", uiOverflow);
 
-        if (args.length === 3 && callback) {
+        if (callback) {
           callback(el);
         }
       });
 
     }
     return els;
-  };
+  };  
 
-  fn.expandHorizontal = function (duration, targetWidth, callback, initialWidth) {
-    var args = arguments,
-      els = this, uiElement, uiOverflow, uiOriginalWidth, uiTargetWidth,
-      targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
-      targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "",
-      targetDisplayType = args.length > 1 ? ui.getvalueFromCssDisplayType(targetWidth) : "block",
-      initialWidthValue = args.length > 3 ? ui.getValueFromCssSize(initialWidth) : -1,
-      isAuto = targetWidthUnit === "auto";
+  fn.expandHorizontal = function (options, callback) {
+    var settings = ui.extend({
+      duration: 300,
+      targetWidth: "auto",
+      initialWidth: null,
+      displayType: "block",
+      paddingLeft: 0,
+      paddingRight: 0,
+      borderLeftWidth: 0,
+      borderRightWidth: 0
+    }, options),
+    
+    els = this, 
+    uiElement, 
+    uiOverflow, 
+    uiOriginalWidth, 
+    uiTargetWidth,
+
+    targetWidthValue = ui.getValueFromCssSize(settings.targetWidth),
+    targetWidthUnit = ui.getUnitFromCssSize(settings.targetWidth),
+    initialWidthValue = ui.getValueFromCssSize(settings.initialWidth),
+    initialWidthUnit = ui.getUnitFromCssSize(settings.initialWidth);
+
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
-      uiElement.css("display", targetDisplayType).css("overflow", "hidden").css("min-width", "0");
-      uiOriginalWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) : els[i].scrollWidth;
+      uiElement.css("display", settings.displayType).css("overflow", "hidden").css("min-width", "0");
+      uiOriginalWidth = parseFloat(uiElement.css("width"));
+      uiOriginalWidth = uiOriginalWidth > 0 ? uiOriginalWidth : els[i].scrollWidth;
 
-      if (isAuto) {
-        uiTargetWidth = els[i].scrollWidth;
-        targetWidthUnit = "px";
-      } else {
-        if (targetWidthValue) {
-          if (targetWidthUnit === "%") {
-            uiTargetWidth = parseFloat(uiElement.parent().css("width")) / 100 * targetWidthValue;
-            targetWidthUnit = "px";
-          } else {
-            uiTargetWidth = targetWidthValue;
-          }
-        } else {
-          uiTargetWidth = targetWidthUnit === "rem" ? ui.pxToRem(uiOriginalWidth) : uiOriginalWidth;
-        }
-      }
 
-      if (isAuto) {
+      if (settings.targetWidth === "auto" || !targetWidthValue) {
+        uiTargetWidth = els[i].scrollWidth + parseFloat(settings.borderTopWidth) + parseFloat(settings.borderBottomWidth);  
         uiElement.css("width", "0");
-        uiOriginalWidth = 0;  
+        uiOriginalWidth = 0;
+     
+        var paddingLeftValue = ui.getValueFromCssSize(settings.paddingLeft);
+        if (parseFloat(uiElement.css("padding-left")) < paddingLeftValue) {
+          uiTargetWidth = uiTargetWidth + paddingLeftValue;
+        }
+        var paddingRightValue = ui.getValueFromCssSize(settings.paddingRight);
+        if (parseFloat(uiElement.css("padding-right")) < paddingRightValue) {
+          uiTargetWidth = uiTargetWidth + paddingRightValue;
+        }
+      } 
+      else if (targetWidthValue) {
+        uiTargetWidth = targetWidthValue;
+
+        if (targetWidthUnit === "%") {
+          uiTargetWidth = ui.percentWidthToPx(uiElement, uiTargetWidth)
+        }
+        else if (targetWidthUnit === "rem") {
+          uiTargetWidth = ui.remToPx(uiTargetWidth);
+        }
+        uiElement.css("width", "0");
+        uiOriginalWidth = 0;
       }
-      else if (initialWidthValue > -1) {
-        uiElement.css("width", initialWidth + targetWidthUnit);
-        uiOriginalWidth = initialWidth;
-      }
-      else {
-        if (targetWidthUnit === "rem") {
-          uiOriginalWidth = ui.pxToRem(uiOriginalWidth);
+
+      if (settings.initialWidth !== null) {
+        uiElement.css("width", initialWidthValue + initialWidthUnit);
+        uiOriginalWidth = initialWidthValue;
+      
+        if (initialWidthUnit === "%") {
+          uiOriginalWidth = ui.percentWidthToPx(uiElement, uiOriginalWidth)
+        }
+        else if (initialWidthUnit === "rem") {
+          uiOriginalWidth = ui.remToPx(uiOriginalWidth);
         }
       }
 
-      uiElement.animate("width", 1, (uiTargetWidth - uiOriginalWidth) + targetWidthUnit, uiOriginalWidth, duration, function (el) {
+      targetWidthUnit = "px";
+
+      if (settings.paddingLeft) { uiElement.animate("padding-left", 1, settings.paddingLeft, 0, settings.duration); }
+      if (settings.paddingRight) { uiElement.animate("padding-right", 1, settings.paddingRight, 0, settings.duration); }
+      if (settings.borderLeftWidth) { uiElement.animate("border-left-width", 1, settings.borderLeftWidth, 0, settings.duration); }
+      if (settings.borderRightWidth) { uiElement.animate("border-right-width", 1, settings.borderRightWidth, 0, settings.duration); }
+
+      uiElement.animate("width", 1, (uiTargetWidth - uiOriginalWidth) + targetWidthUnit, uiOriginalWidth, settings.duration, function (el) {
         
-        if (isAuto) {
+        if (settings.targetWidth === "auto") {
           el.css("width", "auto");
         }
+
         el.css("overflow", uiOverflow);
-        
-        if (args.length === 3 && callback) {
+
+        if (callback) {
           callback(el);
         }
       });
@@ -3065,41 +3190,62 @@
     return els;
   };
 
-  fn.collapseVertical = function (duration, targetHeight, callback) {
-    var args = arguments,
-      els = this, uiElement, uiOverflow, uiCurrentHeight, uiTargetHeight,
-      targetHeightUnit = args.length > 1 ? ui.getUnitFromCssSize(targetHeight) : "px",
-      targetHeightValue = args.length > 1 ? ui.getValueFromCssSize(targetHeight) : targetHeightUnit !== "auto" ? 0 : "";
+  fn.collapseVertical = function (options, callback) {
+    var settings = ui.extend({
+      duration: 300,
+      targetHeight: "auto",
+      paddingTop: 0,
+      paddingBottom: 0,
+      borderTopWidth: 0,
+      borderBottomWidth: 0
+    }, options),
+    
+    els = this, 
+    uiElement, 
+    uiOverflow, 
+    uiCurrentHeight, 
+    uiTargetHeight,
+
+    targetHeightValue = ui.getValueFromCssSize(settings.targetHeight),
+    targetHeightUnit = ui.getUnitFromCssSize(settings.targetHeight);
+
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("overflow", "hidden").css("min-height", "0");
-      uiCurrentHeight = parseFloat(uiElement.css("height")) > 0 ? parseFloat(uiElement.css("height")) : els[i].scrollHeight;
+      uiCurrentHeight = parseFloat(uiElement.css("height"));
+      uiCurrentHeight = uiCurrentHeight > 0 ? uiCurrentHeight : els[i].scrollHeight;
 
-      if (targetHeightUnit === "auto") {
+
+      if (settings.targetHeight === "auto") {
         uiTargetHeight = 0;
-        targetHeightUnit = "px";
-      } else {
+      } 
+      else if (targetHeightValue) {
+        uiTargetHeight = targetHeightValue;
+
         if (targetHeightUnit === "%") {
-          uiTargetHeight = parseFloat(uiElement.parent().css("height")) / 100 * targetHeightValue;
-          targetHeightUnit = "px";
-        } else {
-          uiTargetHeight = targetHeightValue;
+          uiTargetHeight = ui.percentHeightToPx(uiElement, uiTargetHeight)
+        }
+        else if (targetHeightUnit === "rem") {
+          uiTargetHeight = ui.remToPx(uiTargetHeight);
         }
       }
 
-      if (targetHeightUnit === "rem") {
-        uiCurrentHeight = ui.pxToRem(uiCurrentHeight);
-      }
-    
-      uiElement.animate("height", 0, (uiCurrentHeight - uiTargetHeight) + targetHeightUnit, uiTargetHeight, duration, function (el) {
+      targetHeightUnit = "px";
+
+      if (settings.paddingTop) { uiElement.animate("padding-top", 0, settings.paddingTop, 0, settings.duration); }
+      if (settings.paddingBottom) { uiElement.animate("padding-bottom", 0, settings.paddingBottom, 0, settings.duration); }
+      if (settings.borderTopWidth) { uiElement.animate("border-top-width", 0, settings.borderTopWidth, 0, settings.duration); }
+      if (settings.borderBottomWidth) { uiElement.animate("border-bottom-width", 0, settings.borderBottomWidth, 0, settings.duration); }
+ 
+      uiElement.animate("height", 0, (uiCurrentHeight - uiTargetHeight) + targetHeightUnit, uiTargetHeight, settings.duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetHeightValue) {
           el.css("display", "none");
         }
-        if (args.length === 3 && callback) {
+        if (callback) {
           callback(el);
         }
       });
@@ -3108,45 +3254,66 @@
     return els;
   };
 
-  fn.collapseHorizontal = function (duration, targetWidth, callback) {
-    var args = arguments,
-      els = this, uiElement, uiOverflow, uiCurrentWidth, uiTargetWidth,
-      targetWidthUnit = args.length > 1 ? ui.getUnitFromCssSize(targetWidth) : "px",
-      targetWidthValue = args.length > 1 ? ui.getValueFromCssSize(targetWidth) : targetWidthUnit !== "auto" ? 0 : "";
+  fn.collapseHorizontal = function (options, callback) {
+    var settings = ui.extend({
+      duration: 300,
+      targetWidth: "auto",
+      paddingLeft: 0,
+      paddingRight: 0,
+      borderLeftWidth: 0,
+      borderRightWidth: 0
+    }, options),
+    
+    els = this, 
+    uiElement, 
+    uiOverflow, 
+    uiCurrentWidth, 
+    uiTargetWidth,
+
+    targetWidthValue = ui.getValueFromCssSize(settings.targetWidth),
+    targetWidthUnit = ui.getUnitFromCssSize(settings.targetWidth);
+
 
     for (var i = 0; i < els.length; i++) {
       uiElement = webui(els[i]);
       uiOverflow = uiElement.css("overflow");
       uiElement.css("overflow", "hidden").css("min-width", "0");
-      uiCurrentWidth = parseFloat(uiElement.css("width")) > 0 ? parseFloat(uiElement.css("width")) : els[i].scrollWidth;
+      uiCurrentWidth = parseFloat(uiElement.css("width"));
+      uiCurrentWidth = uiCurrentWidth > 0 ? uiCurrentWidth : els[i].scrollWidth;
 
-      if (targetWidthUnit === "auto") {
+
+      if (settings.targetWidth === "auto") {
         uiTargetWidth = 0;
-        targetWidthUnit = "px";
-      } else {
+      } 
+      else if (targetWidthValue) {
+        uiTargetWidth = targetWidthValue;
+
         if (targetWidthUnit === "%") {
-          uiTargetWidth = parseFloat(uiElement.parent().css("width")) / 100 * targetWidthValue;
-          targetWidthUnit = "px";
-        } else {
-          uiTargetWidth = targetWidthValue;
+          uiTargetWidth = ui.percentWidthToPx(uiElement, uiTargetWidth)
+        }
+        else if (targetWidthUnit === "rem") {
+          uiTargetWidth = ui.remToPx(uiTargetWidth);
         }
       }
-      
-      if (targetWidthUnit === "rem") {
-        uiCurrentWidth = ui.pxToRem(uiCurrentWidth);
-      }
 
-      uiElement.animate("width", 0, (uiCurrentWidth - uiTargetWidth) + targetWidthUnit, uiTargetWidth, duration, function (el) {
+      targetWidthUnit = "px";
+
+      if (settings.paddingLeft) { uiElement.animate("padding-left", 0, settings.paddingLeft, 0, settings.duration); }
+      if (settings.paddingRight) { uiElement.animate("padding-right", 0, settings.paddingRight, 0, settings.duration); }
+      if (settings.borderLeftWidth) { uiElement.animate("border-left-width", 0, settings.borderLeftWidth, 0, settings.duration); }
+      if (settings.borderRightWidth) { uiElement.animate("border-right-width", 0, settings.borderRightWidth, 0, settings.duration); }
+ 
+      uiElement.animate("width", 0, (uiCurrentWidth - uiTargetWidth) + targetWidthUnit, uiTargetWidth, settings.duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetWidthValue) {
           el.css("display", "none");
         }
-        if (args.length === 3 && callback) {
+        if (callback) {
           callback(el);
         }
       });
-
+      
     }
     return els;
   };
@@ -3225,13 +3392,13 @@
         if (timeFraction < 1) {
           requestAnimationFrame(animate);
         } else {
-          callback(els);
+          if (callback) { callback(els); }
         }
       } else {
         if (timeFraction > 0) {
           requestAnimationFrame(animate);
         } else {
-          callback(els);
+          if (callback) { callback(els); }
         }
       }
     });
@@ -3767,7 +3934,9 @@
 									dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
 								}
 								else if (transitionType === "collapse") {
-									dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+									dropdown.collapseVertical({ duration: transitionDuration }, function() {
+										dropdown.trigger("ui.dropdown.hide.after");
+									});
 								}
 								else {
 									dropdown.hide().trigger("ui.dropdown.hide.after");
@@ -3779,7 +3948,7 @@
 										siblingDropdowns.first().parents("[class*='dropdown-']").first().fadeOut(transitionDuration);
 									}
 									else if (transitionType === "collapse") {
-										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical(transitionDuration);
+										siblingDropdowns.first().parents("[class*='dropdown-']").first().collapseVertical({ duration: transitionDuration });
 									}
 									else {
 										siblingDropdowns.first().parents("[class*='dropdown-']").first().hide();
@@ -3794,7 +3963,9 @@
 									dropdown.fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 								}
 								else if (transitionType === "collapse") {
-									dropdown.expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+									dropdown.expandVertical({ duration: transitionDuration }, function() {
+										dropdown.trigger("ui.dropdown.show.after");
+									});
 								}
 								else {
 									dropdown.show().trigger("ui.dropdown.show.after");
@@ -3807,8 +3978,8 @@
 										dropdown.nextSiblings("[class*='dropdown-']").fadeOut(transitionDuration);
 									}
 									else if (transitionType === "collapse") {
-										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
-										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical(transitionDuration);
+										dropdown.prevSiblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration });
+										dropdown.nextSiblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration });
 									}
 									else {
 										dropdown.prevSiblings("[class*='dropdown-']").hide();
@@ -3851,7 +4022,9 @@
 					menuActivator.siblings("[class*='dropdown-']").fadeIn(transitionDuration).trigger("ui.dropdown.show.after");
 				}
 				else if (transitionType === "collapse") {
-					menuActivator.siblings("[class*='dropdown-']").expandVertical(transitionDuration, "auto").trigger("ui.dropdown.show.after");
+					menuActivator.siblings("[class*='dropdown-']").expandVertical({ duration: transitionDuration }, function() {
+						menuActivator.trigger("ui.dropdown.show.after");
+					});
 				}
 				else {
 					menuActivator.siblings("[class*='dropdown-']").show().trigger("ui.dropdown.show.after");
@@ -3876,7 +4049,9 @@
 					menuActivator.siblings("[class*='dropdown-']").fadeOut(transitionDuration).trigger("ui.dropdown.show.after");
 				}
 				else if (transitionType === "collapse") {
-					menuActivator.siblings("[class*='dropdown-']").collapseVertical(transitionDuration).trigger("ui.dropdown.show.after");
+					menuActivator.siblings("[class*='dropdown-']").collapseVertical({ duration: transitionDuration }, function() {
+						menuActivator.trigger("ui.dropdown.show.after");
+					});
 				}
 				else {
 					menuActivator.siblings("[class*='dropdown-']").hide().trigger("ui.dropdown.show.after");
@@ -3922,7 +4097,9 @@
 					dropdown.fadeOut(transitionDuration).trigger("ui.dropdown.hide.after");
 				}
 				else if (transitionType === "collapse") {
-					dropdown.collapseVertical(transitionDuration).trigger("ui.dropdown.hide.after");
+					dropdown.collapseVertical({ duration: transitionDuration }, function() {
+						dropdown.trigger("ui.dropdown.hide.after");
+					});
 				}
 				else {
 					dropdown.hide().trigger("ui.dropdown.hide.after");
@@ -4142,13 +4319,17 @@
 		var
 			transitionDuration = settings.transitionDuration,
 
+			smallDeviceMenuReverse = settings.smallDeviceMenuReverse,
 			smallDeviceSubMenuPadding = settings.smallDeviceSubMenuPadding,
+
+			mediumDeviceMenuReverse = settings.mediumDeviceMenuReverse,
 			mediumDeviceSubMenuPadding = settings.mediumDeviceSubMenuPadding,
 
 			largeDeviceMenuReverse = settings.largeDeviceMenuReverse,
+			largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
+
 			largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
 			largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
-			largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
 			largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
 
 			smallDeviceLogoColor = settings.smallDeviceLogoColor,
@@ -4180,10 +4361,13 @@
 			navItems = navMenu.children(".nav-item"),
 			navComponents = navMenu.children(".nav-component"),
 			navSubMenus = navbar.find(".nav-sub-menu"),
-			navSubMenuItems = navSubMenus.children(".nav-item"),
-			navSubMenuComponents = navSubMenus.children(".nav-component"),
+
 
 			setSmallDeviceProperties = function() {
+
+				if (smallDeviceMenuReverse) {
+					navMenu.css("flex-direction", "row-reverse");	
+				}
 
 				navSubMenus.css("padding", smallDeviceSubMenuPadding);
 
@@ -4199,9 +4383,20 @@
 				if (smallDeviceSubMenuBackground) {
 					navSubMenus.css("background", smallDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "1rem");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setMediumDeviceProperties = function() {
+
+				navLogo.css("display", "flex");
+
+				if (mediumDeviceMenuReverse) {
+					navMenu.css("flex-direction", "row-reverse");
+					navLogo.css("justify-content", "end").css("text-align", "right");
+					navLogo.children().css("flex", "none");	
+				}
 
 				navSubMenus.css("padding", mediumDeviceSubMenuPadding);
 
@@ -4217,13 +4412,19 @@
 				if (mediumDeviceSubMenuBackground) {
 					navSubMenus.css("background", mediumDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "1rem");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setLargeDeviceProperties = function() {
 
+				navLogo.css("display", "flex");
+
 				if (largeDeviceMenuReverse) {
-					navMenu.css("flex-direction","row-reverse");
-					navLogo.css("text-align", "right");
+					navMenu.css("flex-direction", "row-reverse");
+					navLogo.css("justify-content", "end").css("text-align", "right");
+					navLogo.children().css("flex", "none");
 					
 					if (navItems.last().css("margin-right")) {
 						navItems.last().css("margin-left", largeDeviceMenuOffset);
@@ -4249,6 +4450,9 @@
 				if (largeDeviceSubMenuBackground) {
 					navSubMenus.css("background", largeDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "0");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setNavbarProperties = function() {
@@ -4279,7 +4483,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 
 					setSmallDeviceProperties();	
 				}
@@ -4289,7 +4493,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 		
 					navButton.parent().siblings(".nav-component").show();
 
@@ -4299,7 +4503,7 @@
 
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 					
 					navButton.parent().siblings(".nav-item, .nav-component").show();
 					navSubMenus.children(".nav-item").show();
@@ -4322,31 +4526,61 @@
 		navActivators.click(function(e) {
 			e.preventDefault();
 
-			var navActivator = ui(this);
-			var subMenu = navActivator.nextSibling(".nav-sub-menu");
+			var navActivator = ui(this),
+				subMenu = navActivator.nextSibling(".nav-sub-menu");
 
 			navActivator.toggleClass("active");
-			navActivator.find("[class*='nav-indicator']").toggleClass("active");
+			navActivator.find(".nav-indicator").toggleClass("active");
+
+
+			if (webui.isWindowInBreakPointRange([0, 3])) {
+				subMenu.css("padding", smallDeviceSubMenuPadding);
+			}
+			else if (webui.isWindowInBreakPointRange([3, 4])) {
+				subMenu.css("padding", mediumDeviceSubMenuPadding);
+			}
+			else {
+				subMenu.css("padding", largeDeviceSubMenuPadding);
+			}
+
+			var navSubMenuPaddingTop = parseFloat(subMenu.css("padding-top"));
+			var navSubMenuPaddingBottom = parseFloat(subMenu.css("padding-bottom"));
+
 
 			if (navActivator.hasClass("active")) {
 
-				navActivator.parent().siblings().children(".nav-activator").removeClass("active");
-				navActivator.parent().siblings().children(".nav-activator").find("[class*='nav-indicator']").removeClass("active");
+				var siblingActivators = navActivator.parent().siblings().children(".nav-activator");
 
-				subMenu.parent().siblings().children(".nav-sub-menu").collapseVertical(transitionDuration, 0);
+				for (var i = 0; i < siblingActivators.length; i++) {
+
+					var siblingActivator = ui(siblingActivators[i]);
+
+					if (siblingActivator.hasClass("active")) {
+
+						navbar.trigger("ui.navbar.submenu.hide.before");
+
+						siblingActivator.removeClass("active");
+						siblingActivator.find(".nav-indicator").removeClass("active");
+		
+						siblingActivator.nextSibling(".nav-sub-menu")
+						.collapseVertical({ duration: transitionDuration, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+							navbar.trigger("ui.navbar.submenu.hide.after");
+						});
+					}
+				}
 				
-				navActivator.trigger("ui.navbar.submenu.show.before");
+				navbar.trigger("ui.navbar.submenu.show.before");
 
-				subMenu.expandVertical(transitionDuration, "auto", function() {
-					navActivator.trigger("ui.navbar.submenu.show.after");
+				subMenu.expandVertical({ duration: transitionDuration, targetHeight: 0, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+					navbar.trigger("ui.navbar.submenu.show.after");
 				});
 				
 			}
 			else {
-				navActivator.trigger("ui.navbar.submenu.hide.before");
+				navbar.trigger("ui.navbar.submenu.hide.before");
 
-				subMenu.collapseVertical(transitionDuration, 0, function() {
-					navActivator.trigger("ui.navbar.submenu.hide.after");
+				subMenu.collapseVertical({ duration: transitionDuration, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+					navbar.trigger("ui.navbar.submenu.hide.after");
 				});
 
 			}		
@@ -4359,32 +4593,50 @@
 			var toggleButton = ui(this);
 			var rootItems = toggleButton.parent().siblings(".nav-item");
 			var rootComponents = toggleButton.parent().siblings(".nav-component");
+			var triggered = false;
 
 			toggleButton.toggleClass("active");
 
 			if (toggleButton.hasClass("active")) {
 
-				toggleButton.trigger("ui.navbar.menu.show.before");
+				navbar.trigger("ui.navbar.menu.show.before");
 				
-				rootItems.expandVertical(transitionDuration, "auto", function() {
-					toggleButton.trigger("ui.navbar.menu.show.after");
+				rootItems.expandVertical({ duration: transitionDuration }, function() {
+					if (!triggered) { 
+						triggered = true;
+						navbar.trigger("ui.navbar.menu.show.after");
+					}
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
-					rootComponents.expandVertical(transitionDuration, "auto");
+					rootComponents.expandVertical({ duration: transitionDuration }, function() {
+						if (!triggered) { 
+							triggered = true;
+							navbar.trigger("ui.navbar.menu.show.after");
+						}	
+					});
 				}
 			}
 			else {
-				toggleButton.trigger("ui.navbar.menu.hide.before");
+				navbar.trigger("ui.navbar.menu.hide.before");
 
-				rootItems.collapseVertical(transitionDuration, 0, function() {
+				rootItems.collapseVertical({ duration: transitionDuration }, function() {
 					rootItems.attr("style", "");
-					toggleButton.trigger("ui.navbar.menu.hide.after");
+
+					if (!triggered) { 
+						triggered = true;		
+						navbar.trigger("ui.navbar.menu.hide.after");
+					}
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
-					rootComponents.collapseVertical(transitionDuration, 0, function() {
+					rootComponents.collapseVertical({ duration: transitionDuration }, function() {
 						rootComponents.attr("style", "");
+
+						if (!triggered) { 
+							triggered = true;	
+							navbar.trigger("ui.navbar.menu.hide.after");
+						}
 					});
 	
 				}
@@ -4402,12 +4654,18 @@
 			var settings = ui.extend({
 
 				transitionDuration: 300,
+
+				smallDeviceMenuReverse: false,
 				smallDeviceSubMenuPadding: "0 1rem",
+
+				mediumDeviceMenuReverse: false,
 				mediumDeviceSubMenuPadding: "0 1rem",
+
 				largeDeviceMenuReverse: false,
-				largeDeviceMenuSpacing: 0,
-				largeDeviceMenuOffset: 0,
 				largeDeviceSubMenuPadding: "0 2rem",
+
+				largeDeviceMenuSpacing: 0,
+				largeDeviceMenuOffset: 0,				
 				largeDeviceSubMenuOffset: 0,
 
 				smallDeviceLogoColor: "inherit",
@@ -4439,12 +4697,18 @@
 
 			this.update = function (newSettings) {
 				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+
+				if (newSettings.smallDeviceMenuReverse) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
 				if (newSettings.smallDeviceSubMenuPadding) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+
+				if (newSettings.mediumDeviceMenuReverse) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
 				if (newSettings.mediumDeviceSubMenuPadding) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+
 				if (newSettings.largeDeviceMenuReverse) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
-				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
-				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }	
 				if (newSettings.largeDeviceSubMenuPadding) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+
+				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
 				if (newSettings.largeDeviceSubMenuOffset) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
 
 				if (newSettings.smallDeviceLogoColor) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }

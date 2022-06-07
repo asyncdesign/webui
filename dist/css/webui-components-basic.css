@@ -111,6 +111,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -184,9 +185,6 @@
   color: inherit;
   text-decoration: none;
 }
-.nav-menu > .nav-item > .nav-sub-menu:last-of-type {
-  margin-bottom: 0.5rem;
-}
 
 @media screen and (min-width: 50rem) {
   .nav-menu {
@@ -211,6 +209,11 @@
 @media screen and (min-width: 70rem) {
   .nav-menu {
     justify-content: center;
+    /*
+    & > .nav-item > .nav-sub-menu {
+    	margin-bottom: 1.5rem;
+    }
+    */
   }
   .nav-menu > .nav-logo {
     order: 0;

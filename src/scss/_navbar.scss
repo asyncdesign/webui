@@ -36,6 +36,7 @@
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+	margin-bottom: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -109,9 +110,6 @@
 			text-decoration: none;
 		}
 	}
-	& > .nav-item > .nav-sub-menu:last-of-type {
-		margin-bottom: 0.5rem;
-	}  
 }
 @media screen and (min-width: $settings_bp_3_over) {
 	.nav-menu {
@@ -165,5 +163,10 @@
 		& > .nav-toggle {
 			display: none;
 		}
+		/*
+		& > .nav-item > .nav-sub-menu {
+			margin-bottom: 1.5rem;
+		}
+		*/
 	}
 }

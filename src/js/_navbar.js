@@ -8,13 +8,17 @@
 		var
 			transitionDuration = settings.transitionDuration,
 
+			smallDeviceMenuReverse = settings.smallDeviceMenuReverse,
 			smallDeviceSubMenuPadding = settings.smallDeviceSubMenuPadding,
+
+			mediumDeviceMenuReverse = settings.mediumDeviceMenuReverse,
 			mediumDeviceSubMenuPadding = settings.mediumDeviceSubMenuPadding,
 
 			largeDeviceMenuReverse = settings.largeDeviceMenuReverse,
+			largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
+
 			largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
 			largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
-			largeDeviceSubMenuPadding = settings.largeDeviceSubMenuPadding,
 			largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
 
 			smallDeviceLogoColor = settings.smallDeviceLogoColor,
@@ -46,10 +50,13 @@
 			navItems = navMenu.children(".nav-item"),
 			navComponents = navMenu.children(".nav-component"),
 			navSubMenus = navbar.find(".nav-sub-menu"),
-			navSubMenuItems = navSubMenus.children(".nav-item"),
-			navSubMenuComponents = navSubMenus.children(".nav-component"),
+
 
 			setSmallDeviceProperties = function() {
+
+				if (smallDeviceMenuReverse) {
+					navMenu.css("flex-direction", "row-reverse");	
+				}
 
 				navSubMenus.css("padding", smallDeviceSubMenuPadding);
 
@@ -65,9 +72,20 @@
 				if (smallDeviceSubMenuBackground) {
 					navSubMenus.css("background", smallDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "1rem");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setMediumDeviceProperties = function() {
+
+				navLogo.css("display", "flex");
+
+				if (mediumDeviceMenuReverse) {
+					navMenu.css("flex-direction", "row-reverse");
+					navLogo.css("justify-content", "end").css("text-align", "right");
+					navLogo.children().css("flex", "none");	
+				}
 
 				navSubMenus.css("padding", mediumDeviceSubMenuPadding);
 
@@ -83,13 +101,19 @@
 				if (mediumDeviceSubMenuBackground) {
 					navSubMenus.css("background", mediumDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "1rem");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setLargeDeviceProperties = function() {
 
+				navLogo.css("display", "flex");
+
 				if (largeDeviceMenuReverse) {
-					navMenu.css("flex-direction","row-reverse");
-					navLogo.css("text-align", "right");
+					navMenu.css("flex-direction", "row-reverse");
+					navLogo.css("justify-content", "end").css("text-align", "right");
+					navLogo.children().css("flex", "none");
 					
 					if (navItems.last().css("margin-right")) {
 						navItems.last().css("margin-left", largeDeviceMenuOffset);
@@ -115,6 +139,9 @@
 				if (largeDeviceSubMenuBackground) {
 					navSubMenus.css("background", largeDeviceSubMenuBackground);
 				}
+
+				navMenu.children(".nav-item").last().css("margin-bottom", "0");
+				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
 			},
 
 			setNavbarProperties = function() {
@@ -145,7 +172,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 
 					setSmallDeviceProperties();	
 				}
@@ -155,7 +182,7 @@
 					navButton.removeClass("active");
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 		
 					navButton.parent().siblings(".nav-component").show();
 
@@ -165,7 +192,7 @@
 
 					navSubMenus.hide();
 					navActivators.removeClass("active");
-					navActivators.find("[class*='nav-indicator']").removeClass("active");
+					navActivators.find(".nav-indicator").removeClass("active");
 					
 					navButton.parent().siblings(".nav-item, .nav-component").show();
 					navSubMenus.children(".nav-item").show();
@@ -188,31 +215,61 @@
 		navActivators.click(function(e) {
 			e.preventDefault();
 
-			var navActivator = ui(this);
-			var subMenu = navActivator.nextSibling(".nav-sub-menu");
+			var navActivator = ui(this),
+				subMenu = navActivator.nextSibling(".nav-sub-menu");
 
 			navActivator.toggleClass("active");
-			navActivator.find("[class*='nav-indicator']").toggleClass("active");
+			navActivator.find(".nav-indicator").toggleClass("active");
+
+
+			if (webui.isWindowInBreakPointRange([0, 3])) {
+				subMenu.css("padding", smallDeviceSubMenuPadding);
+			}
+			else if (webui.isWindowInBreakPointRange([3, 4])) {
+				subMenu.css("padding", mediumDeviceSubMenuPadding);
+			}
+			else {
+				subMenu.css("padding", largeDeviceSubMenuPadding);
+			}
+
+			var navSubMenuPaddingTop = parseFloat(subMenu.css("padding-top"));
+			var navSubMenuPaddingBottom = parseFloat(subMenu.css("padding-bottom"));
+
 
 			if (navActivator.hasClass("active")) {
 
-				navActivator.parent().siblings().children(".nav-activator").removeClass("active");
-				navActivator.parent().siblings().children(".nav-activator").find("[class*='nav-indicator']").removeClass("active");
+				var siblingActivators = navActivator.parent().siblings().children(".nav-activator");
 
-				subMenu.parent().siblings().children(".nav-sub-menu").collapseVertical(transitionDuration, 0);
+				for (var i = 0; i < siblingActivators.length; i++) {
+
+					var siblingActivator = ui(siblingActivators[i]);
+
+					if (siblingActivator.hasClass("active")) {
+
+						navbar.trigger("ui.navbar.submenu.hide.before");
+
+						siblingActivator.removeClass("active");
+						siblingActivator.find(".nav-indicator").removeClass("active");
+		
+						siblingActivator.nextSibling(".nav-sub-menu")
+						.collapseVertical({ duration: transitionDuration, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+							navbar.trigger("ui.navbar.submenu.hide.after");
+						});
+					}
+				}
 				
-				navActivator.trigger("ui.navbar.submenu.show.before");
+				navbar.trigger("ui.navbar.submenu.show.before");
 
-				subMenu.expandVertical(transitionDuration, "auto", function() {
-					navActivator.trigger("ui.navbar.submenu.show.after");
+				subMenu.expandVertical({ duration: transitionDuration, targetHeight: 0, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+					navbar.trigger("ui.navbar.submenu.show.after");
 				});
 				
 			}
 			else {
-				navActivator.trigger("ui.navbar.submenu.hide.before");
+				navbar.trigger("ui.navbar.submenu.hide.before");
 
-				subMenu.collapseVertical(transitionDuration, 0, function() {
-					navActivator.trigger("ui.navbar.submenu.hide.after");
+				subMenu.collapseVertical({ duration: transitionDuration, paddingTop: navSubMenuPaddingTop, paddingBottom: navSubMenuPaddingBottom }, function() {
+					navbar.trigger("ui.navbar.submenu.hide.after");
 				});
 
 			}		
@@ -225,32 +282,50 @@
 			var toggleButton = ui(this);
 			var rootItems = toggleButton.parent().siblings(".nav-item");
 			var rootComponents = toggleButton.parent().siblings(".nav-component");
+			var triggered = false;
 
 			toggleButton.toggleClass("active");
 
 			if (toggleButton.hasClass("active")) {
 
-				toggleButton.trigger("ui.navbar.menu.show.before");
+				navbar.trigger("ui.navbar.menu.show.before");
 				
-				rootItems.expandVertical(transitionDuration, "auto", function() {
-					toggleButton.trigger("ui.navbar.menu.show.after");
+				rootItems.expandVertical({ duration: transitionDuration }, function() {
+					if (!triggered) { 
+						triggered = true;
+						navbar.trigger("ui.navbar.menu.show.after");
+					}
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
-					rootComponents.expandVertical(transitionDuration, "auto");
+					rootComponents.expandVertical({ duration: transitionDuration }, function() {
+						if (!triggered) { 
+							triggered = true;
+							navbar.trigger("ui.navbar.menu.show.after");
+						}	
+					});
 				}
 			}
 			else {
-				toggleButton.trigger("ui.navbar.menu.hide.before");
+				navbar.trigger("ui.navbar.menu.hide.before");
 
-				rootItems.collapseVertical(transitionDuration, 0, function() {
+				rootItems.collapseVertical({ duration: transitionDuration }, function() {
 					rootItems.attr("style", "");
-					toggleButton.trigger("ui.navbar.menu.hide.after");
+
+					if (!triggered) { 
+						triggered = true;		
+						navbar.trigger("ui.navbar.menu.hide.after");
+					}
 				});
 
 				if (webui.isWindowInBreakPointRange([0, 3])) {
-					rootComponents.collapseVertical(transitionDuration, 0, function() {
+					rootComponents.collapseVertical({ duration: transitionDuration }, function() {
 						rootComponents.attr("style", "");
+
+						if (!triggered) { 
+							triggered = true;	
+							navbar.trigger("ui.navbar.menu.hide.after");
+						}
 					});
 	
 				}
@@ -268,12 +343,18 @@
 			var settings = ui.extend({
 
 				transitionDuration: 300,
+
+				smallDeviceMenuReverse: false,
 				smallDeviceSubMenuPadding: "0 1rem",
+
+				mediumDeviceMenuReverse: false,
 				mediumDeviceSubMenuPadding: "0 1rem",
+
 				largeDeviceMenuReverse: false,
-				largeDeviceMenuSpacing: 0,
-				largeDeviceMenuOffset: 0,
 				largeDeviceSubMenuPadding: "0 2rem",
+
+				largeDeviceMenuSpacing: 0,
+				largeDeviceMenuOffset: 0,				
 				largeDeviceSubMenuOffset: 0,
 
 				smallDeviceLogoColor: "inherit",
@@ -305,12 +386,18 @@
 
 			this.update = function (newSettings) {
 				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+
+				if (newSettings.smallDeviceMenuReverse) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
 				if (newSettings.smallDeviceSubMenuPadding) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+
+				if (newSettings.mediumDeviceMenuReverse) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
 				if (newSettings.mediumDeviceSubMenuPadding) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+
 				if (newSettings.largeDeviceMenuReverse) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
-				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
-				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }	
 				if (newSettings.largeDeviceSubMenuPadding) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+
+				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
 				if (newSettings.largeDeviceSubMenuOffset) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
 
 				if (newSettings.smallDeviceLogoColor) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
