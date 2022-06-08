@@ -9176,7 +9176,7 @@ svg:not(:root) {
 
 .list {
   padding: 0;
-  margin: 0 0 0 1rem;
+  margin: 0;
   list-style-type: none;
 }
 
@@ -9205,96 +9205,88 @@ svg:not(:root) {
   list-style-type: decimal;
 }
 
-.list-spacing-sm:not(.list-inline) li:not(:last-of-type) {
-  padding-bottom: 0.313rem;
+.nav-links-default > a,
+.nav-links-default > *:not(a) > a {
+  color: hsl(0deg, 0%, 87%);
 }
 
-.list-spacing-md:not(.list-inline) li:not(:last-of-type) {
-  padding-bottom: 0.938rem;
+.nav-links-light > a,
+.nav-links-light > :not(a) > a {
+  color: hsl(0deg, 0%, 100%);
 }
 
-.list-spacing-lg:not(.list-inline) li:not(:last-of-type) {
-  padding-bottom: 1.563rem;
+.nav-links-dark > a,
+.nav-links-dark > :not(a) > a {
+  color: hsl(0deg, 0%, 0%);
 }
 
-.list-spacing-sm.list-inline li:not(:last-of-type) {
-  padding-right: 2.313rem;
+.nav-links-accent-1 > a,
+.nav-links-accent-1 > :not(a) > a {
+  color: hsl(231deg, 44%, 60%);
 }
 
-.list-spacing-md.list-inline li:not(:last-of-type) {
-  padding-right: 2.938rem;
+.nav-links-accent-2 > a,
+.nav-links-accent-2 > :not(a) > a {
+  color: hsl(261deg, 46%, 60%);
 }
 
-.list-spacing-lg.list-inline li:not(:last-of-type) {
-  padding-right: 3.563rem;
+.nav-links-accent-3 > a,
+.nav-links-accent-3 > :not(a) > a {
+  color: hsl(291deg, 46%, 60%);
 }
 
-.nav-links a {
+.nav-links-accent-4 > a,
+.nav-links-accent-4 > :not(a) > a {
+  color: hsl(0deg, 0%, 60%);
+}
+
+.nav-links-accent-5 > a,
+.nav-links-accent-5 > :not(a) > a {
+  color: hsl(0deg, 0%, 40%);
+}
+
+.nav-links-success > a,
+.nav-links-success > :not(a) > a {
+  color: hsl(122deg, 40%, 50%);
+}
+
+.nav-links-info > a,
+.nav-links-info > :not(a) > a {
+  color: hsl(206deg, 89%, 50%);
+}
+
+.nav-links-warning > a,
+.nav-links-warning > :not(a) > a {
+  color: hsl(33deg, 100%, 50%);
+}
+
+.nav-links-danger > a,
+.nav-links-danger > :not(a) > a {
+  color: hsl(14deg, 100%, 50%);
+}
+
+.nav-links-transparent > a,
+.nav-links-transparent > :not(a) > a {
+  color: transparent;
+}
+
+.nav-links > a,
+.nav-links > :not(a) > a {
   text-decoration: none;
 }
 
-.nav-links > a:not(:last-child)::after {
-  content: "/";
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-  color: hsl(0deg, 0%, 74%);
-}
-
-.nav-links > a:last-child {
+.nav-links > a:last-child,
+.nav-links > :last-child > a {
   cursor: default;
   color: hsl(0deg, 0%, 74%);
 }
 
-.nav-links-default > :not(:last-child) a {
-  color: hsl(0deg, 0%, 87%);
-}
-
-.nav-links-light > :not(:last-child) a {
-  color: hsl(0deg, 0%, 100%);
-}
-
-.nav-links-dark > :not(:last-child) a {
-  color: hsl(0deg, 0%, 0%);
-}
-
-.nav-links-accent-1 > :not(:last-child) a {
-  color: hsl(231deg, 44%, 60%);
-}
-
-.nav-links-accent-2 > :not(:last-child) a {
-  color: hsl(261deg, 46%, 60%);
-}
-
-.nav-links-accent-3 > :not(:last-child) a {
-  color: hsl(291deg, 46%, 60%);
-}
-
-.nav-links-accent-4 > :not(:last-child) a {
-  color: hsl(0deg, 0%, 60%);
-}
-
-.nav-links-accent-5 > :not(:last-child) a {
-  color: hsl(0deg, 0%, 40%);
-}
-
-.nav-links-success > :not(:last-child) a {
-  color: hsl(122deg, 40%, 50%);
-}
-
-.nav-links-info > :not(:last-child) a {
-  color: hsl(206deg, 89%, 50%);
-}
-
-.nav-links-warning > :not(:last-child) a {
-  color: hsl(33deg, 100%, 50%);
-}
-
-.nav-links-danger > :not(:last-child) a {
-  color: hsl(14deg, 100%, 50%);
-}
-
-.nav-links-transparent > :not(:last-child) a {
-  color: transparent;
+.nav-links > a:not(:last-child)::after,
+.nav-links > :not(:last-child) > a::after {
+  content: "/";
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  color: hsl(0deg, 0%, 74%);
 }
 
 .input,
@@ -9537,8 +9529,6 @@ svg:not(:root) {
 }
 .menu-button-default:focus {
   background-color: hsl(0deg, 0%, 93%);
-}
-.menu-button-default:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(0deg, 0%, 93%);
 }
 
@@ -9549,8 +9539,6 @@ svg:not(:root) {
 }
 .menu-button-light:focus {
   background-color: hsl(0deg, 0%, 93%);
-}
-.menu-button-light:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(0deg, 0%, 93%);
 }
 
@@ -9561,8 +9549,6 @@ svg:not(:root) {
 }
 .menu-button-dark:focus {
   background-color: hsl(0deg, 0%, 45%);
-}
-.menu-button-dark:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(0deg, 0%, 45%);
 }
 
@@ -9573,8 +9559,6 @@ svg:not(:root) {
 }
 .menu-button-accent-1:focus {
   background-color: hsl(231deg, 44%, 40%);
-}
-.menu-button-accent-1:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(231deg, 44%, 40%);
 }
 
@@ -9585,8 +9569,6 @@ svg:not(:root) {
 }
 .menu-button-accent-2:focus {
   background-color: hsl(261deg, 46%, 40%);
-}
-.menu-button-accent-2:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(261deg, 46%, 40%);
 }
 
@@ -9597,8 +9579,6 @@ svg:not(:root) {
 }
 .menu-button-accent-3:focus {
   background-color: hsl(291deg, 46%, 40%);
-}
-.menu-button-accent-3:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(291deg, 46%, 40%);
 }
 
@@ -9609,8 +9589,6 @@ svg:not(:root) {
 }
 .menu-button-accent-4:focus {
   background-color: hsl(0deg, 0%, 40%);
-}
-.menu-button-accent-4:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(0deg, 0%, 40%);
 }
 
@@ -9621,8 +9599,6 @@ svg:not(:root) {
 }
 .menu-button-accent-5:focus {
   background-color: hsl(0deg, 0%, 20%);
-}
-.menu-button-accent-5:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(0deg, 0%, 20%);
 }
 
@@ -9633,8 +9609,6 @@ svg:not(:root) {
 }
 .menu-button-success:focus {
   background-color: hsl(122deg, 40%, 40%);
-}
-.menu-button-success:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(122deg, 40%, 40%);
 }
 
@@ -9645,8 +9619,6 @@ svg:not(:root) {
 }
 .menu-button-info:focus {
   background-color: hsl(206deg, 89%, 40%);
-}
-.menu-button-info:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(206deg, 89%, 40%);
 }
 
@@ -9657,8 +9629,6 @@ svg:not(:root) {
 }
 .menu-button-warning:focus {
   background-color: hsl(33deg, 100%, 40%);
-}
-.menu-button-warning:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(33deg, 100%, 40%);
 }
 
@@ -9669,8 +9639,6 @@ svg:not(:root) {
 }
 .menu-button-danger:focus {
   background-color: hsl(14deg, 100%, 43%);
-}
-.menu-button-danger:focus:not([class*=border-transparent]):not([class*=border-translucent]):not([class*=border-cap]) {
   border-color: hsl(14deg, 100%, 43%);
 }
 
@@ -11938,6 +11906,113 @@ svg:not(:root) {
   max-height: fit-content;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+
+.vertical-middle {
+  vertical-align: middle;
+}
+
+.vertical-bottom {
+  vertical-align: bottom;
+}
+
+.vertical-text-top {
+  vertical-align: text-top;
+}
+
+.vertical-text-bottom {
+  vertical-align: text-bottom;
+}
+
+.vertical-sub {
+  vertical-align: sub;
+}
+
+.vertical-super {
+  vertical-align: super;
+}
+
+.align-left {
+  margin: 0 auto 0 0;
+}
+
+.align-center {
+  margin: 0 auto;
+}
+
+.align-right {
+  margin: 0 0 0 auto;
+}
+
+.align-media-left {
+  display: table;
+  margin: 0 auto 0 0;
+}
+
+.align-media-center {
+  display: table;
+  margin: 0 auto;
+}
+
+.align-media-right {
+  display: table;
+  margin: 0 0 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-items-left > * {
+  float: left;
+}
+
+.float-left-stacked {
+  float: left;
+  clear: left;
+}
+
+.float-items-left-stacked > * {
+  float: left;
+  clear: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-items-right > * {
+  float: right;
+}
+
+.float-right-stacked {
+  float: right;
+  clear: right;
+}
+
+.float-items-right-stacked > * {
+  float: right;
+  clear: right;
+}
+
 .pad-initial {
   padding: 0;
 }
@@ -12216,77 +12291,6 @@ svg:not(:root) {
 
 .pad-bottom-xxl {
   padding-bottom: 1.876rem;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.vertical-top {
-  vertical-align: top;
-}
-
-.vertical-middle {
-  vertical-align: middle;
-}
-
-.vertical-bottom {
-  vertical-align: bottom;
-}
-
-.vertical-text-top {
-  vertical-align: text-top;
-}
-
-.vertical-text-bottom {
-  vertical-align: text-bottom;
-}
-
-.vertical-sub {
-  vertical-align: sub;
-}
-
-.vertical-super {
-  vertical-align: super;
-}
-
-.align-left {
-  margin: 0 auto 0 0;
-}
-
-.align-center {
-  margin: 0 auto;
-}
-
-.align-right {
-  margin: 0 0 0 auto;
-}
-
-.align-media-left {
-  display: table;
-  margin: 0 auto 0 0;
-}
-
-.align-media-center {
-  display: table;
-  margin: 0 auto;
-}
-
-.align-media-right {
-  display: table;
-  margin: 0 0 0 auto;
 }
 
 .margin-initial {
