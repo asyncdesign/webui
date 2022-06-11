@@ -353,7 +353,7 @@
 			});
 					
 			ui("#commandSetInvalid").click( function() { 
-				ui("#list1").setState("control", "control outline-danger", true);
+				ui("#list1").setControlState("control", "control outline-danger", true);
 			});
 			
 			ui("#commandDisableListConditionally").click( function() { 
@@ -425,8 +425,8 @@
 			});
 					
 			ui("#commandNormalise").click( function() { 
-				ui("#list1").setState("control-disabled outline-danger", "control", false);
-				ui("#list2").setState("control-disabled outline-danger", "control", false);
+				ui("#list1").setControlState("control-disabled outline-danger", "control", false);
+				ui("#list2").setControlState("control-disabled outline-danger", "control", false);
 			});
 					
 			ui("#commandDisableWithValue").click( function() { 
@@ -462,17 +462,17 @@
 			// Card login validation
 			ui("#buttonLogin").click( function() { 
 				if (!ui("#textUsername").hasConformingString(ui.BASIC_STRING, false)) {
-					ui("#textUsername").setState("input-sm", "input-sm control-highlight", true, "Please enter username", true);
+					ui("#textUsername").setControlState("input-sm", "input-sm control-highlight", true, "Please enter username", true);
 				}
 				else {
-					ui("#textUsername").setState("", "color-success");
+					ui("#textUsername").setControlState("", "color-success");
 				}
 
 				if (!ui("#textPassword").hasConformingString(ui.BASIC_STRING, false)) {
-					ui("#textPassword").setState("input-sm", "input-sm control-highlight", true, "Please enter password", true);
+					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", true, "Please enter password", true);
 				}
 				else if (!ui("#textPassword").hasConformingString(ui.PASSWORD_STRENGTH, false)) {
-					ui("#textPassword").setState("input-sm", "input-sm control-highlight", true, "Please enter stronger password", true);
+					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", true, "Please enter stronger password", true);
 				}
 
 			});

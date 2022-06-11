@@ -761,31 +761,31 @@
 			ui("#commandValidate").click( function() {
 
 				if (!ui("#textURL").hasConformingString(ui.URL, false)) {
-					ui("#textURL").setState("", "control-danger", "Please enter a valid URL", false, false);
+					ui("#textURL").setControlState("", "control-danger", "Please enter a valid URL", false, false);
 				}
 				else {
-					ui("#textURL").setState("control-danger", "control-success");
+					ui("#textURL").setControlState("control-danger", "control-success");
 				}
 				
 				if (!ui("#textStartDate").hasValidDateTime("DD/MM/YYYY", true)) {
-					ui("#textStartDate").setState("", "control-danger", "DD/MM/YYYY", false, false);
+					ui("#textStartDate").setControlState("", "control-danger", "DD/MM/YYYY", false, false);
 				}
 				else {
-					ui("#textStartDate").setState("control-danger", "", "Valid (allowEnpty is true)");
+					ui("#textStartDate").setControlState("control-danger", "", "Valid (allowEnpty is true)");
 				}
 				
 				if (!ui("#textEndDate").hasValidDateTime("DD/MM/YYYY", false)) {
-					ui("#textEndDate").setState("", "control-danger", "DD/MM/YYYY", false, false);
+					ui("#textEndDate").setControlState("", "control-danger", "DD/MM/YYYY", false, false);
 				}
 				else {
-					ui("#textEndDate").setState("control-danger", "", "Valid (Value is present and valid)");
+					ui("#textEndDate").setControlState("control-danger", "", "Valid (Value is present and valid)");
 
 					var startDate = ui.convertToDate(ui("#textStartDate").val(), "DD/MM/YYYY");
 					var endDate = ui.convertToDate(ui("#textEndDate").val(), "DD/MM/YYYY");
 						
 					if (startDate > endDate) {
-						ui("#textStartDate").setState("", "control-danger", "Start date greater than end date", true);
-						ui("#textEndDate").setState("", "control-danger", "Start date greater than end date", true);
+						ui("#textStartDate").setControlState("", "control-danger", "Start date greater than end date", true);
+						ui("#textEndDate").setControlState("", "control-danger", "Start date greater than end date", true);
 					}
 
 				}

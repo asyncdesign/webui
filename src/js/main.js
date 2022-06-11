@@ -1417,7 +1417,7 @@
 		this.first()[0].focus();
 	};
 
-	fn.setState = function (currentCssClass, newCssClass, controlMessage, revertOnClick, resetData) {
+	fn.setControlState = function (currentCssClass, newCssClass, controlMessage, revertOnClick, resetData) {
 		var args = arguments, messageId, messageEl;
 
 		if (args.length > 1) {
