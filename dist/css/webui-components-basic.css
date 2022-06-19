@@ -1443,126 +1443,6 @@
   border-style: solid;
 }
 
-.arrow-extend-sm::after {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-left: -0.25rem;
-  margin-top: -0.25rem;
-}
-
-.arrow-extend-md::after {
-  width: 1rem;
-  height: 1rem;
-  margin-left: -0.5rem;
-  margin-top: -0.5rem;
-}
-
-.arrow-extend-lg::after {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: -0.75rem;
-  margin-top: -0.75rem;
-}
-
-.arrow-extend-top::after {
-  top: 0;
-  left: 50%;
-  transform: rotate(225deg);
-}
-
-.arrow-extend-right::after {
-  top: 50%;
-  left: 100%;
-  transform: rotate(-45deg);
-}
-
-.arrow-extend-bottom::after {
-  top: 100%;
-  left: 50%;
-  transform: rotate(45deg);
-}
-
-.arrow-extend-left::after {
-  top: 50%;
-  left: 0;
-  transform: rotate(-225deg);
-}
-
-*[class*=arrow-extend-] {
-  position: absolute;
-}
-
-*[class*=arrow-extend-]::after {
-  position: inherit;
-  content: "";
-  background: inherit;
-  border-top: 0 inherit inherit;
-  border-right: inherit;
-  border-bottom: inherit;
-  border-left: 0 inherit inherit;
-}
-
-.bulge-extend-sm::after {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-left: -0.25rem;
-  margin-top: -0.25rem;
-}
-
-.bulge-extend-md::after {
-  width: 1rem;
-  height: 1rem;
-  margin-left: -0.5rem;
-  margin-top: -0.5rem;
-}
-
-.bulge-extend-lg::after {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: -0.75rem;
-  margin-top: -0.75rem;
-}
-
-.bulge-extend-top::after {
-  top: 0;
-  left: 50%;
-  transform: rotate(225deg);
-}
-
-.bulge-extend-right::after {
-  top: 50%;
-  left: 100%;
-  transform: rotate(-45deg);
-}
-
-.bulge-extend-bottom::after {
-  top: 100%;
-  left: 50%;
-  transform: rotate(45deg);
-}
-
-.bulge-extend-left::after {
-  top: 50%;
-  left: 0;
-  transform: rotate(-225deg);
-}
-
-*[class*=bulge-extend-] {
-  position: absolute;
-}
-
-*[class*=bulge-extend-]::after {
-  position: inherit;
-  content: "";
-  background: inherit;
-  border-top: 0 inherit inherit;
-  border-right: inherit;
-  border-bottom: inherit;
-  border-left: 0 inherit inherit;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
-
 .breadcrumb {
   display: flex;
   overflow: hidden;
@@ -1701,6 +1581,52 @@
 
 .breadcrumb > .breadcrumb-nopointer::after {
   visibility: hidden;
+}
+
+.rhombus-shape {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.rhomboid-shape {
+  clip-path: polygon(0% 100%, 30% 0%, 100% 0%, 70% 100%);
+}
+
+.kite-shape {
+  clip-path: polygon(50% 0%, 100% 30%, 50% 100%, 0% 30%);
+}
+
+.equilateral-triangle-shape {
+  clip-path: polygon(50% 15%, 100% 100%, 0% 100%);
+}
+
+.trapezoid-isosceles-shape {
+  clip-path: polygon(0% 100%, 30% 0%, 70% 0%, 100% 100%);
+}
+
+.triangle-isosceles-shape {
+  clip-path: polygon(0% 100%, 50% 0%, 50% 0%, 100% 100%);
+}
+
+.pentagon-shape {
+  clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+}
+
+.heptagon-shape {
+  clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.octagon-shape {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.star-shape {
+  clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
+}
+
+*[class*=-shape] {
+  width: 2rem;
+  height: 2rem;
+  background-color: hsl(0deg, 0%, 87%);
 }
 
 :root {
@@ -3624,34 +3550,6 @@ svg:not(:root) {
   border: none;
 }
 
-.badge-square-xs, .badge-round-xs {
-  padding: 0.125rem 0.297rem;
-}
-
-.badge-square-sm, .badge-round-sm {
-  padding: 0.125rem 0.359rem;
-}
-
-.badge-square-md, .badge-round-md {
-  padding: 0.125rem 0.391rem;
-}
-
-.badge-square-lg, .badge-round-lg {
-  padding: 0.125rem 0.484rem;
-}
-
-.badge-square-xl, .badge-round-xl {
-  padding: 0.125rem 0.547rem;
-}
-
-.badge-narrow {
-  padding: 0.125rem 0.297rem;
-}
-
-*[class*=badge-round-] {
-  border-radius: 1.25rem;
-}
-
 .control {
   color: hsl(0deg, 0%, 0%);
   background-color: hsl(0deg, 0%, 100%);
@@ -3680,20 +3578,17 @@ svg:not(:root) {
   border-color: hsl(122deg, 40%, 50%);
 }
 
-.control-success,
-.control-group-success,
-.control-group-success .control {
+.control-success[class*=input], .control-success[class*=button], .control-success.control,
+.control-group-success *[class*=input],
+.control-group-success *[class*=button],
+.control-group-success *.control {
   border-color: hsl(122deg, 40%, 50%);
 }
 .control-success[type=text], .control-success[type=button], .control-success[class*=button], .control-success.instrumentation,
-.control-group-success[type=text],
-.control-group-success[type=button],
-.control-group-success[class*=button],
-.control-group-success.instrumentation,
-.control-group-success .control[type=text],
-.control-group-success .control[type=button],
-.control-group-success .control[class*=button],
-.control-group-success .control.instrumentation {
+.control-group-success *[type=text],
+.control-group-success *[type=button],
+.control-group-success *[class*=button],
+.control-group-success *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%232DB200%27 d=%27M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -3701,8 +3596,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-success *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -3717,20 +3611,17 @@ svg:not(:root) {
   border-color: hsl(206deg, 89%, 50%);
 }
 
-.control-info,
-.control-group-info,
-.control-group-info .control {
+.control-info[class*=input], .control-info[class*=button], .control-info.control,
+.control-group-info *[class*=input],
+.control-group-info *[class*=button],
+.control-group-info *.control {
   border-color: hsl(206deg, 89%, 50%);
 }
 .control-info[type=text], .control-info[type=button], .control-info[class*=button], .control-info.instrumentation,
-.control-group-info[type=text],
-.control-group-info[type=button],
-.control-group-info[class*=button],
-.control-group-info.instrumentation,
-.control-group-info .control[type=text],
-.control-group-info .control[type=button],
-.control-group-info .control[class*=button],
-.control-group-info .control.instrumentation {
+.control-group-info *[type=text],
+.control-group-info *[type=button],
+.control-group-info *[class*=button],
+.control-group-info *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%230072FF%27 d=%27M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -3738,8 +3629,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-info *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -3754,20 +3644,17 @@ svg:not(:root) {
   border-color: hsl(33deg, 100%, 50%);
 }
 
-.control-warning,
-.control-group-warning,
-.control-group-warning .control {
+.control-warning[class*=input], .control-warning[class*=button], .control-warning.control,
+.control-group-warning *[class*=input],
+.control-group-warning *[class*=button],
+.control-group-warning *.control {
   border-color: hsl(33deg, 100%, 50%);
 }
 .control-warning[type=text], .control-warning[type=button], .control-warning[class*=button], .control-warning.instrumentation,
-.control-group-warning[type=text],
-.control-group-warning[type=button],
-.control-group-warning[class*=button],
-.control-group-warning.instrumentation,
-.control-group-warning .control[type=text],
-.control-group-warning .control[type=button],
-.control-group-warning .control[class*=button],
-.control-group-warning .control.instrumentation {
+.control-group-warning *[type=text],
+.control-group-warning *[type=button],
+.control-group-warning *[class*=button],
+.control-group-warning *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF9300%27 d=%27M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -3775,8 +3662,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-warning *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -3791,20 +3677,17 @@ svg:not(:root) {
   border-color: hsl(14deg, 100%, 50%);
 }
 
-.control-danger,
-.control-group-danger,
-.control-group-danger .control {
+.control-danger[class*=input], .control-danger[class*=button], .control-danger.control,
+.control-group-danger *[class*=input],
+.control-group-danger *[class*=button],
+.control-group-danger *.control {
   border-color: hsl(14deg, 100%, 50%);
 }
 .control-danger[type=text], .control-danger[type=button], .control-danger[class*=button], .control-danger.instrumentation,
-.control-group-danger[type=text],
-.control-group-danger[type=button],
-.control-group-danger[class*=button],
-.control-group-danger.instrumentation,
-.control-group-danger .control[type=text],
-.control-group-danger .control[type=button],
-.control-group-danger .control[class*=button],
-.control-group-danger .control.instrumentation {
+.control-group-danger *[type=text],
+.control-group-danger *[type=button],
+.control-group-danger *[class*=button],
+.control-group-danger *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF0000%27 d=%27M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -3812,8 +3695,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-danger *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -6040,7 +5922,11 @@ svg:not(:root) {
   border-radius: 0.588rem;
 }
 
-.rounded-full, .checkbox.rounded-full label {
+.rounded-pill {
+  border-radius: 100vmax;
+}
+
+.rounded-full {
   border-radius: 50%;
 }
 
@@ -6102,6 +5988,46 @@ svg:not(:root) {
 .rounded-bottom-lg {
   border-bottom-left-radius: 0.563rem;
   border-bottom-right-radius: 0.563rem;
+}
+
+.rounded-left-pill {
+  border-top-left-radius: 100vmax;
+  border-bottom-left-radius: 100vmax;
+}
+
+.rounded-right-pill {
+  border-top-right-radius: 100vmax;
+  border-bottom-right-radius: 100vmax;
+}
+
+.rounded-top-pill {
+  border-top-left-radius: 100vmax;
+  border-top-right-radius: 100vmax;
+}
+
+.rounded-bottom-pill {
+  border-bottom-left-radius: 100vmax;
+  border-bottom-right-radius: 100vmax;
+}
+
+.rounded-left-full {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.rounded-right-full {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.rounded-top-full {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.rounded-bottom-full {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .shadow-sm {

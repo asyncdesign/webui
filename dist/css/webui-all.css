@@ -9248,34 +9248,6 @@ svg:not(:root) {
   border: none;
 }
 
-.badge-square-xs, .badge-round-xs {
-  padding: 0.125rem 0.297rem;
-}
-
-.badge-square-sm, .badge-round-sm {
-  padding: 0.125rem 0.359rem;
-}
-
-.badge-square-md, .badge-round-md {
-  padding: 0.125rem 0.391rem;
-}
-
-.badge-square-lg, .badge-round-lg {
-  padding: 0.125rem 0.484rem;
-}
-
-.badge-square-xl, .badge-round-xl {
-  padding: 0.125rem 0.547rem;
-}
-
-.badge-narrow {
-  padding: 0.125rem 0.297rem;
-}
-
-*[class*=badge-round-] {
-  border-radius: 1.25rem;
-}
-
 .control {
   color: hsl(0deg, 0%, 0%);
   background-color: hsl(0deg, 0%, 100%);
@@ -9304,20 +9276,17 @@ svg:not(:root) {
   border-color: hsl(122deg, 40%, 50%);
 }
 
-.control-success,
-.control-group-success,
-.control-group-success .control {
+.control-success[class*=input], .control-success[class*=button], .control-success.control,
+.control-group-success *[class*=input],
+.control-group-success *[class*=button],
+.control-group-success *.control {
   border-color: hsl(122deg, 40%, 50%);
 }
 .control-success[type=text], .control-success[type=button], .control-success[class*=button], .control-success.instrumentation,
-.control-group-success[type=text],
-.control-group-success[type=button],
-.control-group-success[class*=button],
-.control-group-success.instrumentation,
-.control-group-success .control[type=text],
-.control-group-success .control[type=button],
-.control-group-success .control[class*=button],
-.control-group-success .control.instrumentation {
+.control-group-success *[type=text],
+.control-group-success *[type=button],
+.control-group-success *[class*=button],
+.control-group-success *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%232DB200%27 d=%27M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -9325,8 +9294,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-success .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-success *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -9341,20 +9309,17 @@ svg:not(:root) {
   border-color: hsl(206deg, 89%, 50%);
 }
 
-.control-info,
-.control-group-info,
-.control-group-info .control {
+.control-info[class*=input], .control-info[class*=button], .control-info.control,
+.control-group-info *[class*=input],
+.control-group-info *[class*=button],
+.control-group-info *.control {
   border-color: hsl(206deg, 89%, 50%);
 }
 .control-info[type=text], .control-info[type=button], .control-info[class*=button], .control-info.instrumentation,
-.control-group-info[type=text],
-.control-group-info[type=button],
-.control-group-info[class*=button],
-.control-group-info.instrumentation,
-.control-group-info .control[type=text],
-.control-group-info .control[type=button],
-.control-group-info .control[class*=button],
-.control-group-info .control.instrumentation {
+.control-group-info *[type=text],
+.control-group-info *[type=button],
+.control-group-info *[class*=button],
+.control-group-info *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%230072FF%27 d=%27M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -9362,8 +9327,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-info .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-info *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -9378,20 +9342,17 @@ svg:not(:root) {
   border-color: hsl(33deg, 100%, 50%);
 }
 
-.control-warning,
-.control-group-warning,
-.control-group-warning .control {
+.control-warning[class*=input], .control-warning[class*=button], .control-warning.control,
+.control-group-warning *[class*=input],
+.control-group-warning *[class*=button],
+.control-group-warning *.control {
   border-color: hsl(33deg, 100%, 50%);
 }
 .control-warning[type=text], .control-warning[type=button], .control-warning[class*=button], .control-warning.instrumentation,
-.control-group-warning[type=text],
-.control-group-warning[type=button],
-.control-group-warning[class*=button],
-.control-group-warning.instrumentation,
-.control-group-warning .control[type=text],
-.control-group-warning .control[type=button],
-.control-group-warning .control[class*=button],
-.control-group-warning .control.instrumentation {
+.control-group-warning *[type=text],
+.control-group-warning *[type=button],
+.control-group-warning *[class*=button],
+.control-group-warning *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF9300%27 d=%27M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -9399,8 +9360,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-warning .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-warning *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -9415,20 +9375,17 @@ svg:not(:root) {
   border-color: hsl(14deg, 100%, 50%);
 }
 
-.control-danger,
-.control-group-danger,
-.control-group-danger .control {
+.control-danger[class*=input], .control-danger[class*=button], .control-danger.control,
+.control-group-danger *[class*=input],
+.control-group-danger *[class*=button],
+.control-group-danger *.control {
   border-color: hsl(14deg, 100%, 50%);
 }
 .control-danger[type=text], .control-danger[type=button], .control-danger[class*=button], .control-danger.instrumentation,
-.control-group-danger[type=text],
-.control-group-danger[type=button],
-.control-group-danger[class*=button],
-.control-group-danger.instrumentation,
-.control-group-danger .control[type=text],
-.control-group-danger .control[type=button],
-.control-group-danger .control[class*=button],
-.control-group-danger .control.instrumentation {
+.control-group-danger *[type=text],
+.control-group-danger *[type=button],
+.control-group-danger *[class*=button],
+.control-group-danger *.instrumentation {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27%23FF0000%27 d=%27M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center right 0.625rem;
@@ -9436,8 +9393,7 @@ svg:not(:root) {
   padding-right: 2.5rem;
 }
 .control-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation,
-.control-group-danger .control:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
+.control-group-danger *:not(a):not([type=text]):not([type=button]):not([class*=button]).instrumentation {
   background-position: right 0.625rem top 0.5rem;
 }
 
@@ -11664,7 +11620,11 @@ svg:not(:root) {
   border-radius: 0.588rem;
 }
 
-.rounded-full, .checkbox.rounded-full label {
+.rounded-pill {
+  border-radius: 100vmax;
+}
+
+.rounded-full {
   border-radius: 50%;
 }
 
@@ -11726,6 +11686,46 @@ svg:not(:root) {
 .rounded-bottom-lg {
   border-bottom-left-radius: 0.563rem;
   border-bottom-right-radius: 0.563rem;
+}
+
+.rounded-left-pill {
+  border-top-left-radius: 100vmax;
+  border-bottom-left-radius: 100vmax;
+}
+
+.rounded-right-pill {
+  border-top-right-radius: 100vmax;
+  border-bottom-right-radius: 100vmax;
+}
+
+.rounded-top-pill {
+  border-top-left-radius: 100vmax;
+  border-top-right-radius: 100vmax;
+}
+
+.rounded-bottom-pill {
+  border-bottom-left-radius: 100vmax;
+  border-bottom-right-radius: 100vmax;
+}
+
+.rounded-left-full {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.rounded-right-full {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.rounded-top-full {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.rounded-bottom-full {
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .shadow-sm {
