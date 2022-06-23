@@ -297,7 +297,7 @@
 													if (activator) {
 														activator.find(".nav-indicator").addClass("active");
 													}
-												}, 0);											
+												});											
 											}
 											else {
 												el.expandHorizontal({ duration: transitionDuration }, function() {
@@ -317,7 +317,7 @@
 													if (activator) {
 														activator.find(".nav-indicator").addClass("active");
 													}
-												}, 0);
+												});
 											}
 											else {
 												el.expandVertical({ duration: transitionDuration }, function() {
@@ -2945,7 +2945,8 @@
   /* PUBLIC */
 
   fn.slideVertical = function (direction, distance, duration, callback) {
-    var args = arguments, els = this,
+    var els = this,
+      args = arguments,
       uiElement, uiPosition, uiDeltaPosition,
       uiDirection = direction.toLowerCase() === "down" ? 1 : 0,
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
@@ -2973,7 +2974,8 @@
   };
 
   fn.slideHorizontal = function (direction, distance, duration, callback) {
-    var args = arguments, els = this,
+    var els = this,
+      args = arguments,
       uiElement, uiPosition, uiDeltaPosition,
       uiDirection = direction.toLowerCase() === "right" ? 1 : 0,
       distanceValue = args.length > 1 ? ui.getValueFromCssSize(distance) : 0,
@@ -3012,7 +3014,8 @@
       borderBottomWidth: 0
     }, options),
     
-    els = this, 
+    els = this,
+    args = arguments, 
     uiElement, 
     uiOverflow, 
     uiOriginalHeight, 
@@ -3086,7 +3089,7 @@
 
         el.css("overflow", uiOverflow);
 
-        if (callback) {
+        if (args.length === 2 && callback) {
           callback(el);
         }
       });
@@ -3107,7 +3110,8 @@
       borderRightWidth: 0
     }, options),
     
-    els = this, 
+    els = this,
+    args = arguments,
     uiElement, 
     uiOverflow, 
     uiOriginalWidth, 
@@ -3181,7 +3185,7 @@
 
         el.css("overflow", uiOverflow);
 
-        if (callback) {
+        if (args.length === 2 && callback) {
           callback(el);
         }
       });
@@ -3200,7 +3204,8 @@
       borderBottomWidth: 0
     }, options),
     
-    els = this, 
+    els = this,
+    args = arguments,
     uiElement, 
     uiOverflow, 
     uiCurrentHeight, 
@@ -3245,7 +3250,7 @@
         if (!targetHeightValue) {
           el.css("display", "none");
         }
-        if (callback) {
+        if (args.length === 2 && callback) {
           callback(el);
         }
       });
@@ -3264,7 +3269,8 @@
       borderRightWidth: 0
     }, options),
     
-    els = this, 
+    els = this,
+    args = arguments,
     uiElement, 
     uiOverflow, 
     uiCurrentWidth, 
@@ -3309,7 +3315,7 @@
         if (!targetWidthValue) {
           el.css("display", "none");
         }
-        if (callback) {
+        if (args.length === 2 && callback) {
           callback(el);
         }
       });
@@ -3319,7 +3325,8 @@
   };
 
   fn.fadeIn = function (duration, initialOpacity, callback) {
-    var args = arguments, els = this,
+    var els = this,
+      args = arguments,
       uiElement, uiLimitOpacity;
 
     uiLimitOpacity = args.length > 1 && !isNaN(parseFloat(initialOpacity)) ? initialOpacity : 0;
@@ -3340,7 +3347,8 @@
   };
 
   fn.fadeOut = function (duration, finalOpacity, callback) {
-    var args = arguments, els = this,
+    var els = this,
+      args = arguments,
       uiElement, uiLimitOpacity;
 
     uiLimitOpacity = finalOpacity && !isNaN(parseFloat(finalOpacity)) ? finalOpacity : 0;
@@ -3368,6 +3376,7 @@
 
   fn.animate = function (animateWhat, delta, propertyValue, limitValue, duration, callback) {
     var els = this,
+      args = arguments,
       pv = propertyValue ? ui.getValueFromCssSize(propertyValue) : 0,
       pu = animateWhat !== "opacity" ? propertyValue ? ui.getUnitFromCssSize(propertyValue) : "px" : "",
       lv = limitValue ? ui.getValueFromCssSize(limitValue) : 0,
@@ -3392,13 +3401,17 @@
         if (timeFraction < 1) {
           requestAnimationFrame(animate);
         } else {
-          if (callback) { callback(els); }
+          if (args.length === 6 && callback) { 
+            callback(els); 
+          }
         }
       } else {
         if (timeFraction > 0) {
           requestAnimationFrame(animate);
         } else {
-          if (callback) { callback(els); }
+          if (args.length === 6 && callback) { 
+            callback(els); 
+          }
         }
       }
     });

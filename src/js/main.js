@@ -297,7 +297,7 @@
 													if (activator) {
 														activator.find(".nav-indicator").addClass("active");
 													}
-												}, 0);											
+												});											
 											}
 											else {
 												el.expandHorizontal({ duration: transitionDuration }, function() {
@@ -317,7 +317,7 @@
 													if (activator) {
 														activator.find(".nav-indicator").addClass("active");
 													}
-												}, 0);
+												});
 											}
 											else {
 												el.expandVertical({ duration: transitionDuration }, function() {
