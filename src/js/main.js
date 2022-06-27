@@ -138,7 +138,8 @@
 				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
 				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");	
 
-				var activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;			
+				var activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;	
+				console.log(activator);	
 
 
 				if (toggleItem.length) {
