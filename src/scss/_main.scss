@@ -33,28 +33,6 @@ progress {
 	border-radius: 0;
 	min-height: 1.25rem;	
 }
-table {
-	table-layout: fixed;
-	width: 100%;
-	border-collapse: collapse;
-}
-.table-auto {
-	table-layout: auto;
-	width: 100%;
-	border-collapse: collapse;
-}
-th.resize-y, td.resize-y {
-	overflow-y: auto;
-	resize: horizontal;
-}
-th.resize-x, td.resize-x {
-	overflow-x: auto;
-	resize: vertical;
-}
-th.resize, td.resize {
-	overflow: auto;
-	resize: both;
-}
 a:not([class*="button-link"]):not([class*="view-button-link"]):not([class*="menu-button-link"]) {
 	padding: 0 0.075rem;
 }
@@ -117,8 +95,15 @@ svg:not(:root) {
 	display: block;
 	clear: both;
 }
-.table th, .table td {
-  text-align: left;
+.table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-auto {
+	table-layout: auto;
+	width: 100%;
+	border-collapse: collapse;
 }
 .table-layout-auto {
 	table-layout: auto;
@@ -3622,6 +3607,18 @@ svg:not(:root) {
 .toggle-parent:focus .toggle-child,
 .toggle-parent-dynamic:hover .toggle-child {
 	display: block;
+}
+.resize {
+	overflow: auto;
+	resize: both;
+}
+.resize-x {
+	overflow-y: auto;
+	resize: horizontal;
+}
+.resize-y {
+	overflow-x: auto;
+	resize: vertical;
 }
 .screen-reader {
 	position: absolute;
