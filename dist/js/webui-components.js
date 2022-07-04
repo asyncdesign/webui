@@ -124,22 +124,24 @@
 			
 			if (toggleContainer.length) {
 
-				var toggleBody = webui(".off-canvas-body");
-				var toggleItem = toggleContainer.find(selector);
+				var toggleBody = webui(".off-canvas-body"),
+					toggleItem = toggleContainer.find(selector),
 
-				var transitionDuration = parseInt(toggleContainer.data("transition-duration"));
-				var transitionInDelay = toggleContainer.data("transition-in-delay");
-				var transitionOutDelay = toggleContainer.data("transition-out-delay");
-				var transitionType = toggleContainer.data("transition-type");
-				var transitionOrientation = toggleContainer.data("transition-orientation");
-				var transitionDistance = toggleContainer.data("transition-distance");
+					transitionDuration = parseInt(toggleContainer.data("transition-duration")),
+					transitionInDelay = toggleContainer.data("transition-in-delay"),
+					transitionOutDelay = toggleContainer.data("transition-out-delay"),
+					transitionType = toggleContainer.data("transition-type"),
+					transitionOrientation = toggleContainer.data("transition-orientation"),
+					transitionDistance = toggleContainer.data("transition-distance"),
+					focusElement = toggleContainer.data("focus-element"),
+					focusReturnElement = toggleContainer.data("focus-return-element"),
 
-				var offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer");
-				var offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right");
-				var offCanvasLeft = toggleItem.hasClass("off-canvas-left");	
 
-				var activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;	
-				console.log(activator);	
+					offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer"),
+					offCanvas = toggleItem.hasClass("off-canvas-left") || toggleItem.hasClass("off-canvas-right"),
+					offCanvasLeft = toggleItem.hasClass("off-canvas-left"),
+
+					activator = arguments.length === 3 && toggleActivator ? ui(toggleActivator) : null;	
 
 
 				if (toggleItem.length) {
@@ -156,6 +158,7 @@
 							toggleItem.trigger("ui.toggleItem.show.before");
 
 							delay(transitionInDelay, function () {
+								toggleItem.find(".toggle-item-content").show();
 								toggleItem.removeClass("off-canvas-closed");
 								
 								if (offCanvasLeft) {
@@ -166,7 +169,16 @@
 									toggleItem.css("transform", "translate(0, 0)");
 									toggleBody.css("transform", "translate(-" + toggleItemWidth + "px, 0)");
 								}
-								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.show.after"); });
+								toggleItem[0].ontransitionend = function(event) { toggleItem.trigger("ui.toggleItem.show.after"); }
+						
+								if (focusElement) {
+									var focusEl = toggleItem.find(focusElement).first();
+						
+									if (focusEl && !focusEl.hasClass("disabled")) {
+										focusEl[0].focus();
+									}	
+								}
+			
 							});				
 						} 
 						else {
@@ -183,7 +195,17 @@
 									toggleBody.css("transform", "translate(0, 0)");
 								}
 								toggleItem.addClass("off-canvas-closed");
-								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.hide.after"); });
+								toggleItem.find(".toggle-item-content").hide();
+								toggleItem[0].ontransitionend = function(event) { toggleItem.trigger("ui.toggleItem.hide.after"); }
+
+								if (focusReturnElement) {
+									var returnEl = webui(focusReturnElement).first();
+			
+									if (returnEl && !returnEl.hasClass("disabled")) {
+										returnEl[0].focus();
+									}
+								}
+			
 							});				
 						}
 					}
@@ -196,6 +218,7 @@
 							toggleItem.trigger("ui.toggleItem.show.before");
 
 							delay(transitionInDelay, function () {
+								toggleItem.find(".toggle-item-content").show();
 								toggleItem.removeClass("off-canvas-closed");
 								
 								if (offCanvasLeft) {
@@ -204,7 +227,16 @@
 								else {
 									toggleItem.css("transform", "translate(0, 0)");
 								}
-								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.show.after"); });
+								toggleItem[0].ontransitionend = function(event) { toggleItem.trigger("ui.toggleItem.show.after"); }
+
+								if (focusElement) {
+									var focusEl = toggleItem.find(focusElement).first();
+						
+									if (focusEl && !focusEl.hasClass("disabled")) {
+										focusEl[0].focus();
+									}	
+								}
+
 							});			
 						} 
 						else {
@@ -219,7 +251,17 @@
 									toggleItem.css("transform", "translate(" + toggleItemWidth + "px, 0)");
 								}
 								toggleItem.addClass("off-canvas-closed");
-								toggleItem.onTransitionEnd(function() { toggleItem.trigger("ui.toggleItem.hide.after"); });
+								toggleItem.find(".toggle-item-content").hide();
+								toggleItem[0].ontransitionend = function(event) { toggleItem.trigger("ui.toggleItem.hide.after"); }
+
+								if (focusReturnElement) {
+									var returnEl = webui(focusReturnElement).first();
+			
+									if (returnEl && !returnEl.hasClass("disabled")) {
+										returnEl[0].focus();
+									}
+								}
+
 							});						
 						}
 					}
@@ -272,13 +314,22 @@
 											activator.find(".nav-indicator").removeClass("active");				
 										}
 									}	
+
+									if (focusReturnElement) {
+										var returnEl = webui(focusReturnElement).first();
+				
+										if (returnEl && !returnEl.hasClass("disabled")) {
+											returnEl[0].focus();
+										}
+									}
+	
 								});	
 							} 
 							else {
 								el.trigger("ui.toggleItem.show.before");
 		
-								if (transitionDuration && transitionType === "fade") {
-									delay(transitionInDelay, function () {
+								delay(transitionInDelay, function () {
+									if (transitionDuration && transitionType === "fade") {
 										el.fadeIn(transitionDuration, 0, function() {
 											el.trigger("ui.toggleItem.show.after");
 
@@ -286,10 +337,8 @@
 												activator.find(".nav-indicator").addClass("active");
 											}
 										});
-									});
-								}
-								else if (transitionDuration && transitionType === "collapse") {
-									delay(transitionInDelay, function () {
+									}
+									else if (transitionDuration && transitionType === "collapse") {
 										if (transitionOrientation === "horizontal") {
 											if (transitionDistance) {
 												el.expandHorizontal({ duration: transitionDuration, targetWidth: transitionDistance }, function() {
@@ -330,18 +379,25 @@
 												});										
 											}
 										}
-									});
-								}
-								else {
-									delay(transitionInDelay, function () {
+									}
+									else {
 										el.show();
 										el.trigger("ui.toggleItem.show.after");
 
 										if (activator) {
 											activator.find(".nav-indicator").addClass("active");
 										}
-									});
-								}
+									}
+
+									if (focusElement) {
+										var focusEl = toggleItem.find(focusElement).first();
+							
+										if (focusEl && !focusEl.hasClass("disabled")) {
+											focusEl[0].focus();
+										}	
+									}
+	
+								});
 								
 								if (!toggleContainer.hasClass("toggle-inclusive")) {
 

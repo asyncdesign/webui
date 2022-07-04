@@ -367,7 +367,7 @@
 							</div>
 						</div>
 						<div class="col flex justify-content-end pad-xs pad-right-md">
-							<input type="text" class="input-sm rounded-sm accessibility" />
+							<input type="text" class="input-sm rounded-sm accessibility" id="menuTextbox" />
 						</div>
 					</div>
 					
@@ -911,12 +911,17 @@
 		<div id="ocButton2" data-target="#oc2" class="nav-button-sm toggle-activator transparent"></div>
 	</div>		
 
-	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="horizontal" data-transition-type="collapse" data-transition-distance="25%" data-close-external="#panel1">
-		<div class="toggle-item hidden dock-top-left light boundary-right-muted height-viewport layer-top" id="panel1">
+	<div class="toggle-container" data-transition-duration="600" data-transition-orientation="horizontal" data-close-external="#panel1"
+																data-focus-element="#firstName" data-focus-return-element="#menuTextbox">
+		<div class="toggle-item off-canvas-drawer off-canvas-left width-xl-xxl dock-top-left light boundary-right-muted height-viewport layer-top" id="panel1">
 			<div class="height-sm">
-				<p class="place-middle-center">Lorem ipsum dolor sit amet, mei decore nonumy tamquam ad, cu alienum adipiscing per. Cum tamquam albucius ex, his ad prima
-					nostrum menandri. An usu facilisis neglegentur, ius amet perfecto definiebas an. Eu legere sanctus interesset
-					qui, ridens impedit persecuti sit eu, vidit diceret nam eu.</p>
+				
+				<div class="toggle-item-content place-middle-center gap-vertical-md pad-sm">
+					<p>The form below uses a focus trap when this panel is open. Focus is returned to the menu textbox on the main page when closed.</p>
+					<input type="text" class="input-sm" id="firstName" /><br />
+					<input type="text" class="input-sm" id="middleName" /><br />
+					<input type="text" class="input-sm" id="lastName" />
+				</div>
 			</div>
 		</div>
 		<div class="dock-bottom-left layer-top">
@@ -1087,6 +1092,11 @@
 				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
 			});
 */
+
+			var offCanvasFocusTrap = ui("#panel1").focusTrapControl({
+				firstFocusElement: "#firstName",
+				lastFocusElement: "#lastName"		
+			});
 
 
 			// Radial navigation
