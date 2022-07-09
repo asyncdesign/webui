@@ -3171,6 +3171,18 @@ svg:not(:root) {
 .text-overflow-ellipsis {
 	text-overflow: ellipsis;
 }
+.text-emphasis {
+	text-emphasis: dot;
+}
+.text-emphasis-open {
+	text-emphasis: open dot;
+}
+.text-emphasis-sesame {
+	text-emphasis: sesame;
+}
+.text-emphasis-open-sesame {
+	text-emphasis: open sesame;
+}
 .text-overflow-clip {
 	text-overflow: clip;
 }
@@ -3207,6 +3219,9 @@ svg:not(:root) {
 .text-upright-digits {
 	text-combine-upright: digits 4;
 }
+.text-initial {
+	font-size: 1rem;
+}
 .text-xs {
 	font-size: 0.75em;
 }
@@ -3214,13 +3229,13 @@ svg:not(:root) {
 	font-size: 0.875em;
 }
 .text-md {
-	font-size: 1em;
+	font-size: 1.1em;
 }
 .text-lg {
-	font-size: 1.125em;
+	font-size: 1.25em;
 }
 .text-xl {
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 .text-mega {
 	font-size: 2.5em;
@@ -3241,13 +3256,13 @@ svg:not(:root) {
 	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.66rem, 0.875rem);
 }
 .text-scalable-md {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.75rem, 1rem);
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.75rem, 1.1rem);
 }
 .text-scalable-lg {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.84rem, 1.125rem);
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.84rem, 1.25rem);
 }
 .text-scalable-xl {
-	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.94rem, 1.25rem);
+	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 0.94rem, 1.5rem);
 }
 .text-scalable-mega {
 	@include interpolate(font-size, $settings_bp_1_over, $settings_bp_5_under, 1.87rem, 2.5rem);
