@@ -26,12 +26,6 @@
 		isElement = function (el) {
 			return el instanceof Element;
 		},
-		isDiv = function (el) {
-			return el && el.nodeName === "DIV";
-		},
-		isSpan = function (el) {
-			return el && el.nodeName === "SPAN";
-		},
 		isTextarea = function (el) {
 			return el && el.nodeName === "TEXTAREA";
 		},
