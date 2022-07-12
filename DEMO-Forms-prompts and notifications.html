@@ -443,18 +443,39 @@
 							Alerts and modals
 						</div>
 						<div class="col">
-							<div class="row col-padding-initial">
-								<div class="col">
+							<div class="row">
+								<div class="col pad-initial">
 									<div class="tooltip text-sm" id="tooltipAboutModals1">
 										<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Modal</button>
 										<div class="tooltip-static tooltip-top tooltip-md tooltip-info rounded-md"></div>							
 									</div>
+								</div>
+							</div>
+							<div class="row-spacing-sm"></div>
+							<div class="row">
+								<div class="col pad-initial">
 									<button id="commandShowModal2" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Dialog</button>		
 								</div>
 							</div>
+							<div class="row-spacing-sm"></div>
 							<div class="row">
-								<div class="col pad-top-sm">
+								<div class="col pad-initial">
 									<button type="button" id="commandShowAlert" class="button-sm button-accent-1 rounded-sm transition-medium">Show Alert</button>
+								</div>
+							</div>
+							<div class="row-spacing-sm"></div>
+							<div class="row">
+								<div class="col pad-initial">
+									<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm margin-bottom-xs transition-medium">Show Toast</button>
+									<select id="SelectToastPosition" class="control">
+										<option value="">Select Toast Position</option>
+										<option value="top-left">toast-top-left</option>
+										<option value="top-center">toast-top-center</option>
+										<option value="top-right">toast-top-right</option>
+										<option value="bottom-left">toast-bottom-left</option>
+										<option value="bottom-center">toast-bottom-center</option>
+										<option value="bottom-right">toast-bottom-right</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -464,16 +485,6 @@
 
 						</div>
 						<div class="col">
-							<button type="button" id="commandShowToast" class="button-sm button-accent-1 rounded-sm margin-bottom-xs transition-medium">Show Toast</button>
-							<select id="SelectToastPosition" class="control">
-								<option value="">Select Toast Position</option>
-								<option value="top-left">toast-top-left</option>
-								<option value="top-center">toast-top-center</option>
-								<option value="top-right">toast-top-right</option>
-								<option value="bottom-left">toast-bottom-left</option>
-								<option value="bottom-center">toast-bottom-center</option>
-								<option value="bottom-right">toast-bottom-right</option>
-							</select>
 						</div>
 					</div>
 					<div class="row">
@@ -618,21 +629,21 @@
 	</div>
 
 
-	<div class="toast-item color-accent-4-dark text-sm background-light rounded-sm shadow-md hidden" role="alert" id="toastItem1">
+	<div class="toast-item color-accent-4-dark background-light rounded-sm shadow-md hidden" role="alert" id="toastItem1">
 		<div class="flex-row flex-nowrap align-items-center pad-sm">
-			<div class="flex-auto gap-horizontal-sm text-lg">
-				<span class="text-bold text-lg color-accent-3">&asymp;</span><span class="text-bold text-sm">Notification</span>
+			<div class="flex-auto gap-horizontal-sm">
+				<span class="text-bold  color-accent-3">&asymp;</span><span class="text-bold text-sm">Notification</span>
 			</div>
-			<div class="flex-size-5 text-lg">
+			<div class="flex-size-5">
 				<div class="text-bold text-xs time-element"></div>
 			</div>
-			<div class="flex-initial justify-content-end text-lg">
-				<div class="toast-close button-link width-xs-sm text-lg text-bold color-hover-info">&cross;</div>
+			<div class="flex-initial justify-content-end">
+				<div class="toast-close button-link width-xs-sm text-bold color-hover-info">&cross;</div>
 			</div>
 		</div>
-		<div class="flex-row flex-nowrap background-accent-5-light pad-sm">
+		<div class="flex-row flex-nowrap background-accent-4-light pad-sm">
 			<div class="flex-auto height-xs">
-				<div class="text">Your files have been received.</div>
+				<div class="text text-sm">Your files have been received.</div>
 			</div>
 		</div>
 	</div>
@@ -676,7 +687,7 @@
 			});
 
 			ui("#commandShowToast").click( function() {
-				ui("#toastItem1").find(".time-element").first().text(new Date().toLocaleTimeString());
+				ui("#toastItem1").find(".time-element").first().text(new Date().toLocaleTimeString('en-us'));
 				toastContainer1.showToastItem();				
 			});
 

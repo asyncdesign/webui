@@ -1567,10 +1567,11 @@ svg:not(:root) {
   left: 3.3rem;
 }
 *[class*="toggle-switch"] input:not(:checked) + label {
+	color: $theme_accent_5;
   background-color: $theme_default;
 }
 *[class*="toggle-switch"] input:not(:checked) + label .toggle-switch-button {
-  background-color: $theme_default_highlight;
+  background-color: $theme_accent_5;
 }
 .image {
 	display: block;
@@ -3131,11 +3132,11 @@ svg:not(:root) {
 .cursor-disbaled {
 	cursor: not-allowed;
 }  
-.text, .text * {
+.text, .text *:not([class*="input"]):not([class*="button"]):not([class*="control"]) {
 	line-height: 1.7em;
 	text-decoration: none;
 }
-.text-normal, .text-normal * {
+.text-normal, .text-normal *:not([class*="input"]):not([class*="button"]):not([class*="control"]) {
 	line-height: 1.5em;
 	text-decoration: none;
 	white-space: normal;
@@ -3510,6 +3511,11 @@ svg:not(:root) {
 	background-image: none !important;
 	box-shadow: none !important;
 	cursor: not-allowed !important;
+}
+*[class*="toggle-switch"] input[disabled] + label .toggle-switch-button,
+*[class*="toggle-switch"].control-disabled label .toggle-switch-button,
+.control-group-disabled *[class*="toggle-switch"] label .toggle-switch-button {
+	background-color: $theme_disabled_overlay !important;
 }
 *[class*="view-button"][disabled],
 *[class*="view-button"].control-disabled,

@@ -9163,11 +9163,12 @@ svg:not(:root) {
 }
 
 *[class*=toggle-switch] input:not(:checked) + label {
+  color: hsl(0deg, 0%, 40%);
   background-color: hsl(0deg, 0%, 87%);
 }
 
 *[class*=toggle-switch] input:not(:checked) + label .toggle-switch-button {
-  background-color: hsl(0deg, 0%, 78%);
+  background-color: hsl(0deg, 0%, 40%);
 }
 
 .image {
@@ -11242,12 +11243,12 @@ svg:not(:root) {
   cursor: not-allowed;
 }
 
-.text, .text * {
+.text, .text *:not([class*=input]):not([class*=button]):not([class*=control]) {
   line-height: 1.7em;
   text-decoration: none;
 }
 
-.text-normal, .text-normal * {
+.text-normal, .text-normal *:not([class*=input]):not([class*=button]):not([class*=control]) {
   line-height: 1.5em;
   text-decoration: none;
   white-space: normal;
@@ -11752,7 +11753,7 @@ svg:not(:root) {
 .control-group-disabled label,
 .control-group-disabled *[class*=text],
 .control-group-disabled *[class*=control-label] {
-  color: hsl(0deg, 0%, 74%) !important;
+  color: hsl(0deg, 0%, 78%) !important;
   cursor: not-allowed !important;
 }
 
@@ -11776,7 +11777,7 @@ svg:not(:root) {
 .control-group-disabled *[class*=radio] label,
 .control-group-disabled *[class*=toggle-button] label,
 .control-group-disabled *[class*=toggle-switch] label {
-  color: hsl(0deg, 0%, 74%) !important;
+  color: hsl(0deg, 0%, 78%) !important;
   background-color: hsl(0deg, 0%, 93%) !important;
   border-color: hsl(0deg, 0%, 93%) !important;
   background-image: none !important;
@@ -11784,11 +11785,17 @@ svg:not(:root) {
   cursor: not-allowed !important;
 }
 
+*[class*=toggle-switch] input[disabled] + label .toggle-switch-button,
+*[class*=toggle-switch].control-disabled label .toggle-switch-button,
+.control-group-disabled *[class*=toggle-switch] label .toggle-switch-button {
+  background-color: hsl(0deg, 0%, 87%) !important;
+}
+
 *[class*=view-button][disabled],
 *[class*=view-button].control-disabled,
 .control-group-disabled *[class*=view-button] {
   text-decoration: line-through !important;
-  color: hsl(0deg, 0%, 74%) !important;
+  color: hsl(0deg, 0%, 78%) !important;
   background-color: transparent !important;
   border-color: transparent !important;
   cursor: not-allowed !important;
@@ -11822,7 +11829,7 @@ svg:not(:root) {
 
 .range-series.control-disabled,
 .control-group-disabled .range-series {
-  color: hsl(0deg, 0%, 74%) !important;
+  color: hsl(0deg, 0%, 78%) !important;
 }
 
 .no-break {
@@ -12277,7 +12284,7 @@ svg:not(:root) {
 }
 
 .disabled {
-  color: hsl(0deg, 0%, 74%);
+  color: hsl(0deg, 0%, 78%);
   background-color: hsl(0deg, 0%, 93%);
 }
 
@@ -12526,7 +12533,7 @@ svg:not(:root) {
 }
 
 .color-disabled {
-  color: hsl(0deg, 0%, 74%);
+  color: hsl(0deg, 0%, 78%);
 }
 
 .background-translucent {
