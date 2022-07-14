@@ -11034,7 +11034,9 @@ svg:not(:root) {
 }
 
 .control-hint > input,
-.control-hint > textarea {
+.control-hint-border > input,
+.control-hint > textarea,
+.control-hint-border > textarea {
   min-height: 2.475rem;
 }
 
@@ -11044,14 +11046,14 @@ svg:not(:root) {
   left: 0.3rem;
   top: 50%;
   min-height: 1rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   border: none;
   pointer-events: none;
   transform-origin: 0 0;
-  transform: translate(0, -50%);
+  transform: translate(0, -55%);
   transition: transform 0.3s ease-out;
 }
 
@@ -11059,9 +11061,9 @@ svg:not(:root) {
 .control-hint-border > textarea ~ label {
   position: absolute;
   left: 0.3rem;
-  top: 0.7rem;
+  top: 0.5rem;
   min-height: 1rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -11100,36 +11102,36 @@ svg:not(:root) {
   padding-top: 0.7rem;
 }
 .control-hint > input:not(.input-xl):not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-105%);
+  transform: scale(0.8125) translateY(-125%);
 }
 
 .control-hint > input.input-xl:not(:-moz-placeholder-shown) {
   padding-top: 0.7rem;
 }
 .control-hint > input.input-xl:not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-115%);
+  transform: scale(0.8125) translateY(-135%);
 }
 
 .control-hint-border > input:not(.input-xl):not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-150%);
+  transform: scale(0.8125) translateY(-175%);
 }
 
 .control-hint-border > input.input-xl:not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-165%);
+  transform: scale(0.8125) translateY(-190%);
 }
 
 .control-hint > textarea:not(:-moz-placeholder-shown) {
   padding-top: 1.2rem;
 }
 .control-hint > textarea:not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-55%);
+  transform: scale(0.8125) translateY(-30%);
 }
 
 .control-hint-border > textarea:not(:-moz-placeholder-shown) {
   padding-top: 0.7rem;
 }
 .control-hint-border > textarea:not(:-moz-placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-110%);
+  transform: scale(0.8125) translateY(-95%);
 }
 
 .control-hint > input:not(.input-xl):focus,
@@ -11138,7 +11140,7 @@ svg:not(:root) {
 }
 .control-hint > input:not(.input-xl):focus ~ label,
 .control-hint > input:not(.input-xl):not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-105%);
+  transform: scale(0.8125) translateY(-125%);
 }
 
 .control-hint > input.input-xl:focus,
@@ -11147,17 +11149,17 @@ svg:not(:root) {
 }
 .control-hint > input.input-xl:focus ~ label,
 .control-hint > input.input-xl:not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-115%);
+  transform: scale(0.8125) translateY(-135%);
 }
 
 .control-hint-border > input:not(.input-xl):focus ~ label,
 .control-hint-border > input:not(.input-xl):not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-150%);
+  transform: scale(0.8125) translateY(-200%);
 }
 
 .control-hint-border > input.input-xl:focus ~ label,
 .control-hint-border > input.input-xl:not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-165%);
+  transform: scale(0.8125) translateY(-215%);
 }
 
 .control-hint > textarea:focus,
@@ -11166,7 +11168,7 @@ svg:not(:root) {
 }
 .control-hint > textarea:focus ~ label,
 .control-hint > textarea:not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-55%);
+  transform: scale(0.8125) translateY(-30%);
 }
 
 .control-hint-border > textarea:focus,
@@ -11175,7 +11177,7 @@ svg:not(:root) {
 }
 .control-hint-border > textarea:focus ~ label,
 .control-hint-border > textarea:not(:placeholder-shown) ~ label {
-  transform: scale(0.8) translateY(-110%);
+  transform: scale(0.8125) translateY(-110%);
 }
 
 .accessibility a:focus,
@@ -12865,17 +12867,63 @@ svg:not(:root) {
   cursor: not-allowed;
 }
 
-.text, .text *:not([class*=input]):not([class*=button]):not([class*=control]) {
+.text-dropcap::first-letter {
+  display: block;
+  margin-right: 0.75rem;
+  float: left;
+  font-size: 4.5em;
+  line-height: 1;
+  margin-top: -6px;
+}
+
+.text p, .text pre, .text ul, .text ol, p.text, pre.text, ul.text, ol.text {
   line-height: 1.7em;
+}
+
+.text .text-dropcap::first-letter, .text.text-dropcap::first-letter {
+  font-size: 5em;
+  margin-top: -2px;
+}
+
+.text a:not(.text-underline) {
   text-decoration: none;
 }
 
-.text-normal, .text-normal *:not([class*=input]):not([class*=button]):not([class*=control]) {
+.text-readable p, .text-readable pre, .text-readable ul, .text-readable ol, p.text-readable, pre.text-readable, ul.text-readable, ol.text-readable {
   line-height: 1.5em;
-  text-decoration: none;
-  white-space: normal;
 }
 
+.text-readable .text-dropcap::first-letter, .text-readable.text-dropcap::first-letter {
+  font-size: 4.625em;
+  margin-top: -4px;
+}
+
+.text-readable a:not(.text-underline) {
+  text-decoration: none;
+}
+
+.text-normal p, .text-normal pre, .text-normal ul, .text-normal ol, p.text-normal, pre.text-normal, ul.text-normal, ol.text-normal {
+  line-height: normal;
+}
+
+.text-normal a:not(.text-underline) {
+  text-decoration: underline;
+}
+
+@supports (-moz-appearance: none) {
+  .text-dropcap::first-letter {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .text .text-dropcap::first-letter, .text.text-dropcap::first-letter {
+    margin-top: 0.5rem;
+  }
+
+  .text-readable .text-dropcap::first-letter, .text-readable.text-dropcap::first-letter {
+    margin-top: 0.375rem;
+  }
+}
 .text-wrap {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -13103,20 +13151,6 @@ svg:not(:root) {
   }
 }
 
-.text-dropcap::first-letter {
-  display: block;
-  margin-right: 0.75rem;
-  float: left;
-  font-size: 4.5em;
-  line-height: 1;
-  margin-top: -1px;
-}
-
-@supports (-moz-appearance: none) {
-  .text-dropcap::first-letter {
-    margin-top: 1.1%;
-  }
-}
 .control-label {
   line-height: 1rem;
 }
