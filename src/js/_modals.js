@@ -142,11 +142,11 @@
 			var control = new ModalInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.closeFromBackdrop) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
-				if (newSettings.disablePageScrolling) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
-				if (newSettings.focusElement) { settings.focusElement = newSettings.focusElement; }
-				if (newSettings.focusReturnElement) { settings.focusReturnElement = newSettings.focusReturnElement; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.closeFromBackdrop !== undefined) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
+				if (newSettings.disablePageScrolling !== undefined) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
+				if (newSettings.focusElement !== undefined) { settings.focusElement = newSettings.focusElement; }
+				if (newSettings.focusReturnElement !== undefined) { settings.focusReturnElement = newSettings.focusReturnElement; }
 				control = new ModalInstance(this.first(), settings);	
 			};
 

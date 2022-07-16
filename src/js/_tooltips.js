@@ -443,13 +443,13 @@
 
 			if (this.length > 1) { console.warn("WebUI tooltips component does not support initialising multiple controls. Initialize a new component instead.") }
 
-			var control = new TooltipInstance(this, settings);
+			var control = new TooltipInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.autoPositioning) { settings.autoPositioning = newSettings.autoPositioning; }
-				if (newSettings.autoResizing) { settings.autoResizing = newSettings.autoResizing; }
-				if (newSettings.autoPositioningMargin) { settings.autoPositioningMargin = newSettings.autoPositioningMargin; }
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.autoPositioning !== undefined) { settings.autoPositioning = newSettings.autoPositioning; }
+				if (newSettings.autoResizing !== undefined) { settings.autoResizing = newSettings.autoResizing; }
+				if (newSettings.autoPositioningMargin !== undefined) { settings.autoPositioningMargin = newSettings.autoPositioningMargin; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
 				control = new TooltipInstance(this.first(), settings);	
 			};
 

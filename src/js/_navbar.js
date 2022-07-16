@@ -385,41 +385,41 @@
 			var control = new NavbarInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
 
-				if (newSettings.smallDeviceMenuReverse) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
-				if (newSettings.smallDeviceSubMenuPadding) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+				if (newSettings.smallDeviceMenuReverse !== undefined) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
+				if (newSettings.smallDeviceSubMenuPadding !== undefined) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
 
-				if (newSettings.mediumDeviceMenuReverse) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
-				if (newSettings.mediumDeviceSubMenuPadding) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+				if (newSettings.mediumDeviceMenuReverse !== undefined) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
+				if (newSettings.mediumDeviceSubMenuPadding !== undefined) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
 
-				if (newSettings.largeDeviceMenuReverse) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
-				if (newSettings.largeDeviceSubMenuPadding) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+				if (newSettings.largeDeviceMenuReverse !== undefined) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
+				if (newSettings.largeDeviceSubMenuPadding !== undefined) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
 
-				if (newSettings.largeDeviceMenuSpacing) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
-				if (newSettings.largeDeviceMenuOffset) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
-				if (newSettings.largeDeviceSubMenuOffset) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+				if (newSettings.largeDeviceMenuSpacing !== undefined) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+				if (newSettings.largeDeviceMenuOffset !== undefined) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
+				if (newSettings.largeDeviceSubMenuOffset !== undefined) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
 
-				if (newSettings.smallDeviceLogoColor) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
-				if (newSettings.smallDeviceLogoBackground) { settings.smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
-				if (newSettings.smallDeviceMenuColor) { settings.smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
-				if (newSettings.smallDeviceMenuBackground) { settings.smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
-				if (newSettings.smallDeviceSubMenuColor) { settings.smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
-				if (newSettings.smallDeviceSubMenuBackground) { settings.smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
+				if (newSettings.smallDeviceLogoColor !== undefined) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
+				if (newSettings.smallDeviceLogoBackground !== undefined) { settings.smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
+				if (newSettings.smallDeviceMenuColor !== undefined) { settings.smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
+				if (newSettings.smallDeviceMenuBackground !== undefined) { settings.smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
+				if (newSettings.smallDeviceSubMenuColor !== undefined) { settings.smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
+				if (newSettings.smallDeviceSubMenuBackground !== undefined) { settings.smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
 
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
 
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
 				control = new NavbarInstance(this.first(), settings);	
 			};
 

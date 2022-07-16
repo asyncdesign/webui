@@ -184,17 +184,17 @@
 			var control = new AlertInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.position) { settings.position = newSettings.position; }
-				if (newSettings.duration) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.width) { settings.width = newSettings.width; }
-				if (newSettings.showHeader) { settings.showHeader = newSettings.showHeader; }
-				if (newSettings.inline) { settings.inline = newSettings.inline; }
-				if (newSettings.style) { settings.style = newSettings.style; }	
-				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
-				if (newSettings.showIcon) { settings.showIcon = newSettings.showIcon; }
-				if (newSettings.showClose) { settings.showClose = newSettings.showClose; }
+				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
+				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
+				if (newSettings.showHeader !== undefined) { settings.showHeader = newSettings.showHeader; }
+				if (newSettings.inline !== undefined) { settings.inline = newSettings.inline; }
+				if (newSettings.style !== undefined) { settings.style = newSettings.style; }	
+				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
+				if (newSettings.showIcon !== undefined) { settings.showIcon = newSettings.showIcon; }
+				if (newSettings.showClose !== undefined) { settings.showClose = newSettings.showClose; }
 				control = new AlertInstance(this.first(), settings);	
 			};
 

@@ -109,13 +109,13 @@
 			var control = new ToastInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.position) { settings.position = newSettings.position; }
-				if (newSettings.width) { settings.width = newSettings.width; }
-				if (newSettings.duration) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.toastItemTemplate) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
-				if (newSettings.displayOrder) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.autoHide) { settings.autoHide = newSettings.autoHide; }
+				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
+				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
+				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.toastItemTemplate !== undefined) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
+				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
+				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
 				control = new ToastInstance(this.first(), settings);	
 			};
 

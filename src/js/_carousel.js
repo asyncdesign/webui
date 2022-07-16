@@ -389,16 +389,16 @@
 			var control = new CarouselInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.interval) { settings.interval = newSettings.interval; }
-				if (newSettings.autoPlay) { settings.autoPlay = newSettings.autoPlay; }
-				if (newSettings.autoScale) { settings.autoScale = newSettings.autoScale; }
-				if (newSettings.playDirection) { settings.playDirection = newSettings.playDirection; }
-				if (newSettings.stopOnHover) { settings.stopOnHover = newSettings.stopOnHover; }
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
-				if (newSettings.transitionOrientation) { settings.transitionOrientation = newSettings.transitionOrientation; }	
-				if (newSettings.width) { settings.width = newSettings.width; }
-				if (newSettings.height) { settings.height = newSettings.height; }
+				if (newSettings.interval !== undefined) { settings.interval = newSettings.interval; }
+				if (newSettings.autoPlay !== undefined) { settings.autoPlay = newSettings.autoPlay; }
+				if (newSettings.autoScale !== undefined) { settings.autoScale = newSettings.autoScale; }
+				if (newSettings.playDirection !== undefined) { settings.playDirection = newSettings.playDirection; }
+				if (newSettings.stopOnHover !== undefined) { settings.stopOnHover = newSettings.stopOnHover; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
+				if (newSettings.transitionOrientation !== undefined) { settings.transitionOrientation = newSettings.transitionOrientation; }	
+				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
+				if (newSettings.height !== undefined) { settings.height = newSettings.height; }
 				control = new CarouselInstance(this.first(), settings);	
 			};
 

@@ -147,10 +147,10 @@
 			var control = new TabsInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.activeTabId) { settings.activeTabId = newSettings.activeTabId; }
-				if (newSettings.activeTabFocused) { settings.activeTabFocused = newSettings.activeTabFocused; }
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				if (newSettings.activeTabId !== undefined) { settings.activeTabId = newSettings.activeTabId; }
+				if (newSettings.activeTabFocused !== undefined) { settings.activeTabFocused = newSettings.activeTabFocused; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
 				control = new TabsInstance(this.first(), settings);	
 			};
 

@@ -224,8 +224,8 @@
 			var control = new MenuInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType) { settings.transitionType = newSettings.transitionType; }
+				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
+				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
 				control = new MenuInstance(this.first(), settings);	
 			};
 

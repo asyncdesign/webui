@@ -88,10 +88,10 @@
 			var control = new UploadInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.showFiles) { settings.showFiles = newSettings.showFiles; }
-				if (newSettings.showCount) { settings.showCount = newSettings.showCount; }
-				if (newSettings.scrollX) { settings.scrollX = newSettings.scrollX; }
-				if (newSettings.scrollY) { settings.scrollY = newSettings.scrollY; }
+				if (newSettings.showFiles !== undefined) { settings.showFiles = newSettings.showFiles; }
+				if (newSettings.showCount !== undefined) { settings.showCount = newSettings.showCount; }
+				if (newSettings.scrollX !== undefined) { settings.scrollX = newSettings.scrollX; }
+				if (newSettings.scrollY !== undefined) { settings.scrollY = newSettings.scrollY; }
 				control = new UploadInstance(this.first(), settings);	
 			};
 
