@@ -1402,20 +1402,12 @@
 		return this;
 	};
 
-	fn.trigger = function (eventCallback, args) {
-		var event;
-
+	fn.trigger = function (eventName, args) {
 		if (args && args.length) {
-			event = root.createEvent("CustomEvent");
-			event.initCustomEvent(eventCallback, true, true, args);
+			this[0].dispatchEvent(new CustomEvent(eventName, { bubbles: true, cancelable: true, detail: args }));	
 		}
-		else {
-			event = root.createEvent("HTMLEvents");
-			event.initEvent(eventCallback, true, true);
-		}
-
-		for (var i = 0; i < this.length; i++) {
-			this[i].dispatchEvent(event);
+		else { 
+			this[0].dispatchEvent(new CustomEvent(eventName, { bubbles: true, cancelable: true }));
 		}
 		return this;
 	};

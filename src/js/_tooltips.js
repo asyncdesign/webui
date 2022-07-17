@@ -287,7 +287,7 @@
 						if (arguments.length > 0 && message != null && message.length) {
 							tooltip.html(message);
 						}
-						var target = el.children(":not(.tooltip-dynamic):not(.tooltip-focus):not(.tooltip-static)").first();
+						var target = el.children(":not(.tooltip-hover):not(.tooltip-focus):not(.tooltip-static)").first();
 						var targetIsFirst = !target.prevSibling()[0] && (tooltip.hasClass("tooltip-top") || tooltip.hasClass("tooltip-bottom"));
 		
 						if (target.length) {
@@ -361,7 +361,7 @@
 			if (!disabledTarget.length) {
 				var disabledParent = tooltipWrapper.parents(".control-group-disabled").first();
 				if (!disabledParent.length) {
-					var tooltip = tooltipWrapper.children(".tooltip-dynamic").first();
+					var tooltip = tooltipWrapper.children(".tooltip-hover").first();
 					if (tooltip.length) {
 						showTooltip(tooltipWrapper);
 						resetTooltips();
@@ -371,7 +371,7 @@
 		});
 
 		context.find(".tooltip").hoverOut(function () {
-			var tooltip = webui(this).children(".tooltip-dynamic").first();
+			var tooltip = webui(this).children(".tooltip-hover").first();
 
 			if (tooltip.length && !tooltip.hasClass("tooltip-noautohide")) {
 				hideTooltip(webui(this));

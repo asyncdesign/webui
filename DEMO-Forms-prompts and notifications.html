@@ -69,8 +69,8 @@
 						<div class="col">
 							<div class="tooltip width-full" id="tooltipFirstName">
 								<input id="FirstName" type="text" autocomplete="off" class="input-sm control width-full rounded-sm" />
-								<div class="tooltip-dynamic tooltip-right tooltip-sm tooltip-dark rounded-md">
-									Hover tooltip.
+								<div class="tooltip-hover tooltip-sm tooltip-right tooltip-dark rounded-md">
+									Hover tooltip example.
 								</div>		
 							</div>
 						</div>
@@ -394,7 +394,7 @@
 									<label for="textURL" class="color-accent-1 background-light">Click here for custom tooltip</label>
 								</div>
 								
-								<div class="tooltip-focus tooltip-left tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md tooltip-md">
+								<div class="tooltip-focus tooltip-left tooltip-md tooltip-dark tooltip-nopadding tooltip-noautosize rounded-md">
 									<div class="flex flex-direction-column rounded-md">
 										<div class="accent-4-dark text-bold rounded-top-md width-full pad-md">
 											Heading
@@ -447,7 +447,7 @@
 								<div class="col pad-initial">
 									<div class="tooltip" id="tooltipAboutModals1">
 										<button id="commandShowModal1" type="button" class="button-sm button-accent-1 rounded-sm transition-medium">Show Modal</button>
-										<div class="tooltip-static tooltip-top tooltip-md tooltip-info rounded-md text-xs"></div>							
+										<div class="tooltip-static tooltip-top tooltip-info tooltip-md rounded-md text-xs"></div>							
 									</div>
 								</div>
 							</div>
@@ -652,7 +652,6 @@
 
 		webui.ready(function() {
 
-
 					
 			//Tooltips
 
@@ -667,6 +666,14 @@
 
 			tooltipContext1.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
 
+			/*
+			tooltipContext1.on("ui.tooltip.show.after", function(e) {
+				console.log("ui.tooltip.show.after");
+			});
+			tooltipContext1.on("ui.tooltip.hide.after", function(e) {
+				console.log("ui.tooltip.hide.after");
+			});
+			*/
 
 			// Toast notifications
 			var toastContainer1 = ui("#toastContainer1").toastControl({

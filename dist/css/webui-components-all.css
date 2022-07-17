@@ -7527,7 +7527,7 @@
   display: inline-block;
 }
 
-.tooltip .tooltip-dynamic,
+.tooltip .tooltip-hover,
 .tooltip .tooltip-focus,
 .tooltip .tooltip-static {
   display: none;
@@ -7540,7 +7540,7 @@
   white-space: normal;
   z-index: 120;
 }
-.tooltip .tooltip-dynamic::after,
+.tooltip .tooltip-hover::after,
 .tooltip .tooltip-focus::after,
 .tooltip .tooltip-static::after {
   content: "";
@@ -7548,12 +7548,12 @@
   border-width: 0.313rem;
   border-style: solid;
 }
-.tooltip .tooltip-dynamic.tooltip-nopadding,
+.tooltip .tooltip-hover.tooltip-nopadding,
 .tooltip .tooltip-focus.tooltip-nopadding,
 .tooltip .tooltip-static.tooltip-nopadding {
   padding: 0;
 }
-.tooltip .tooltip-dynamic.tooltip-nopointer::after,
+.tooltip .tooltip-hover.tooltip-nopointer::after,
 .tooltip .tooltip-focus.tooltip-nopointer::after,
 .tooltip .tooltip-static.tooltip-nopointer::after {
   border-style: none;
