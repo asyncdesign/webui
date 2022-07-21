@@ -1,15 +1,15 @@
 
-<p align="center">
+<p style="text-align: center;">
   <img src="images/webui_blue_96x96.png" alt="Webui Logo" />
 </p>
 
-<h1 align="center"><b>WebUI</b></h1>
+<h1 style="text-align: center;"><b>WebUI</b></h1>
 
-*Web design made easy*
+*The Swiss Army Knife of CSS frameworks*
 
 <p>&nbsp;</p>
 
-<p align="center">
+<p style="text-align: center;">
   <a href="https://github.com/asyncdesign/webui/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License">
   </a>
@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com" alt="npm">
   </a>
   <a href="https://github.com/webpack/webpack">
-    <img src="https://img.shields.io/badge/Webpack-4.46.0-blue.svg" alt="npm">
+    <img src="https://img.shields.io/badge/Webpack-5.71.0-blue.svg" alt="npm">
   </a>
   <a href="https://github.com/asyncdesign/webui/network/dependencies">
     <img src="https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg" alt="npm">
@@ -67,16 +67,16 @@ This is the recommended way to install WebUI if you are building websites using 
 `npm install asyncdesign-webui`
 
 
+#### **Yarn**
+Alternatively, you can use Yarn to install the WebUI packages.
+
+`yarn add asyncdesign-webui`
+
+
 #### **NuGet**
 If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.
 
 `Install-Package asyncdesign-webui`
-
-
-#### **Bower**
-Alternatively, you can use Bower to install the WebUI packages.
-
-`bower install asyncdesign-webui`
 
 
 That's it. You are ready to start developing with WebUI.
@@ -107,21 +107,24 @@ The GitHub download includes all WebUI files for the framework, docs website, de
 #### **Components Available**
 
 * Alerts
-* Animations
+* Animation
 * Carousel
 * Menus
 * Modals
 * Navbar
 * NavButton
+* NavIndicator
+* Positioning
 * Radial
 * Scrollspy
 * Shapes
 * Tabs
+* Toast Container
 * Toggle Container
 * Tooltips
 * Upload
 * Validation
-* Zoom				
+* Zoom		
 
 #
 
@@ -153,9 +156,9 @@ word "components" as in the above table. So, for the first 3 CSS files listed in
 All WebUI JavaScript should be enclosed in the document loaded event callback, as shown in the following examples. Use the second example to wait for all window
 content to be completed and the document.readyState === "complete" before running scripts. The first example only waits for the DOMContentLoaded event.
 
-**NOTE:** These events do not need to be used if you are using a framework lifecycle loaded event.
+**NOTE:** These events do not need to be used if you are using a framework lifecycle mounted or render event.
 
-````
+````JavaScript
 webui.ready(function() {
   // Call WebUI functions here...
 });

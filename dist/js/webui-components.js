@@ -1192,198 +1192,198 @@
 		return false;
 	};
 
-	fn.hoverIn = function (eventCallback) {
+	fn.hoverIn = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("mouseenter", eventCallback);
+			this[i].addEventListener("mouseenter", callback);
 		}
 		return this;
 	};
 
-	fn.hoverOut = function (eventCallback) {
+	fn.hoverOut = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("mouseleave", eventCallback);
+			this[i].addEventListener("mouseleave", callback);
 		}
 		return this;
 	};
 
-	fn.mouseUp = function (eventCallback) {
+	fn.mouseUp = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("mouseup", eventCallback);
+			this[i].addEventListener("mouseup", callback);
 		}
 		return this;
 	};
 
-	fn.mouseDown = function (eventCallback) {
+	fn.mouseDown = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("mousedown", eventCallback);
+			this[i].addEventListener("mousedown", callback);
 		}
 		return this;
 	};
 
-	fn.mouseMove = function (eventCallback) {
+	fn.mouseMove = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("mousemove", eventCallback);
+			this[i].addEventListener("mousemove", callback);
 		}
 		return this;
 	};
 
-	fn.focusIn = function (eventCallback) {
+	fn.focusIn = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("focusin", eventCallback);
+			this[i].addEventListener("focusin", callback);
 		}
 		return this;
 	};
 
-	fn.focusOut = function (eventCallback) {
+	fn.focusOut = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("focusout", eventCallback);
+			this[i].addEventListener("focusout", callback);
 		}
 		return this;
 	};
 
-	fn.focus = function (eventCallback) {
+	fn.focus = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("focus", eventCallback);
+			this[i].addEventListener("focus", callback);
 		}
 		return this;
 	};
 
-	fn.blur = function (eventCallback) {
+	fn.blur = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("blur", eventCallback);
+			this[i].addEventListener("blur", callback);
 		}
 		return this;
 	};
 
-	fn.change = function (eventCallback) {
+	fn.change = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("change", eventCallback);
+			this[i].addEventListener("change", callback);
 		}
 		return this;
 	};
 
-	fn.resize = function (eventCallback) {
+	fn.resize = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("resize", eventCallback);
+			this[i].addEventListener("resize", callback);
 		}
 		return this;
 	};
 
-	fn.scroll = function (eventCallback) {
+	fn.scroll = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("scroll", eventCallback);
+			this[i].addEventListener("scroll", callback);
 		}
 		return this;
 	};
 
-	fn.keyDown = function (eventCallback) {
+	fn.keyDown = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("keydown", eventCallback);
+			this[i].addEventListener("keydown", callback);
 		}
 		return this;
 	};
 
-	fn.keyUp = function (eventCallback) {
+	fn.keyUp = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("keyup", eventCallback);
+			this[i].addEventListener("keyup", callback);
 		}
 		return this;
 	};
 
-	fn.click = function (eventCallback) {
+	fn.click = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("click", eventCallback);
+			this[i].addEventListener("click", callback);
 		}
 		return this;
 	};
 
-	fn.dblclick = function (eventCallback) {
+	fn.dblclick = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dblclick", eventCallback);
+			this[i].addEventListener("dblclick", callback);
 		}
 		return this;
 	};
 
-	fn.dragStart = function (eventCallback) {
+	fn.dragStart = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dragstart", eventCallback);
+			this[i].addEventListener("dragstart", callback);
 		}
 		return this;
 	};
 
-	fn.drag = function (eventCallback) {
+	fn.drag = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("drag", eventCallback);
+			this[i].addEventListener("drag", callback);
 		}
 		return this;
 	};
 
-	fn.dragEnd = function (eventCallback) {
+	fn.dragEnd = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dragend", eventCallback);
+			this[i].addEventListener("dragend", callback);
 		}
 		return this;
 	};
 
-	fn.dragEnter = function (eventCallback) {
+	fn.dragEnter = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dragenter", eventCallback);
+			this[i].addEventListener("dragenter", callback);
 		}
 		return this;
 	};
 
-	fn.dragOver = function (eventCallback) {
+	fn.dragOver = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dragover", eventCallback);
+			this[i].addEventListener("dragover", callback);
 		}
 		return this;
 	};
 
-	fn.dragLeave = function (eventCallback) {
+	fn.dragLeave = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("dragleave", eventCallback);
+			this[i].addEventListener("dragleave", callback);
 		}
 		return this;
 	};
 
-	fn.drop = function (eventCallback) {
+	fn.drop = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("drop", eventCallback);
+			this[i].addEventListener("drop", callback);
 		}
 		return this;
 	};
 
-	fn.onTransitionStart = function (eventCallback) {
+	fn.onTransitionStart = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("transitionrun", eventCallback);
+			this[i].addEventListener("transitionrun", callback);
 		}
 		return this;
 	};
 
-	fn.onTransitionEnd = function (eventCallback) {
+	fn.onTransitionEnd = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("transitionend", eventCallback);
+			this[i].addEventListener("transitionend", callback);
 		}
 		return this;
 	};
 
-	fn.touchStart = function (eventCallback) {
+	fn.touchStart = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("touchstart", eventCallback);
+			this[i].addEventListener("touchstart", callback);
 		}
 		return this;
 	};
 
-	fn.touchEnd = function (eventCallback) {
+	fn.touchEnd = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("touchend", eventCallback);
+			this[i].addEventListener("touchend", callback);
 		}
 		return this;
 	};
 
-	fn.touchMove = function (eventCallback) {
+	fn.touchMove = function (callback) {
 		for (var i = 0; i < this.length; i++) {
-			this[i].addEventListener("touchmove", eventCallback);
+			this[i].addEventListener("touchmove", callback);
 		}
 		return this;
 	};
@@ -1811,7 +1811,7 @@
 		return this;
 	};
 
-	fn.resizeElement = function (eventCallback, params) {
+	fn.resizeElement = function (callback, params) {
 		var el;
 
 		for (var i = 0; i < this.length; i++) {
@@ -1867,7 +1867,7 @@
 					currentWidth = newWidth;
 					currentHeight = newHeight;
 		
-					eventCallback(el, params);
+					callback(el, params);
 				}
 				setScroll();
 			};
