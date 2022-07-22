@@ -664,16 +664,22 @@
 				transitionDuration: 500
 			});
 
-			tooltipContext1.showTooltip(ui("#tooltipAboutModals1"), "Try various sized modals that scale to screen size...");	
-
 			/*
+			tooltipContext1.on("ui.tooltip.show.before", function(e) {
+				console.log("ui.tooltip.show.before");
+			});			
 			tooltipContext1.on("ui.tooltip.show.after", function(e) {
 				console.log("ui.tooltip.show.after");
+			});
+			tooltipContext1.on("ui.tooltip.hide.before", function(e) {
+				console.log("ui.tooltip.hide.before");
 			});
 			tooltipContext1.on("ui.tooltip.hide.after", function(e) {
 				console.log("ui.tooltip.hide.after");
 			});
 			*/
+
+			tooltipContext1.showTooltip("#tooltipAboutModals1", "Try various sized modals that scale to screen size...");	
 
 			// Toast notifications
 			var toastContainer1 = ui("#toastContainer1").toastControl({
@@ -720,6 +726,21 @@
 				alertContainer1.showInfoAlert("<span class='text-bold'>Alert - </span>" + new Date().toTimeString(), true);
 			});
 
+			// Events
+			/*
+			alertContainer1.on("ui.alert.show.before", function() {
+				console.log("ui.alert.show.before");
+			});
+			alertContainer1.on("ui.alert.show.after", function() {
+				console.log("ui.alert.show.after");
+			});
+			alertContainer1.on("ui.alert.hide.before", function() {
+				console.log("ui.alert.hide.before");
+			});
+			alertContainer1.on("ui.alert.hide.after", function() {
+				console.log("ui.alert.hide.after");
+			});
+			*/
 
 			// Manual alerts
 			ui("#alert1, #alert2, #alert3, #alert4").fadeIn(700);
@@ -728,8 +749,8 @@
 				var alert = ui(this).closest(".alert")
 
 				alert.hide();
-
-			});			
+			});	
+			
 
 			// Modals
 

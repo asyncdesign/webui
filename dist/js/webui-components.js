@@ -2719,13 +2719,16 @@
 						.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
 						.appendTo(alertItemOuter);
 
-					alertItemInner.trigger("ui.alert.show.before");
+					alert.trigger("ui.alert.show.before");
 
 					if (transitionDuration) {
-						alertItemInner.fadeIn(transitionDuration).trigger("ui.alert.show.after");
+						alertItemInner.fadeIn(transitionDuration, 0, function() {
+							alert.trigger("ui.alert.show.after");
+						});
 					}
 					else {
-						alertItemInner.show().trigger("ui.alert.show.after");
+						alertItemInner.show();
+						alert.trigger("ui.alert.show.after");
 					}
 
 					if (displayOrder.toLowerCase() === "descending") {
@@ -2815,22 +2818,21 @@
 				}
 			},
 
-			hideAlert = function (alert, auto) {
-				if (alert) {
+			hideAlert = function (alertEl, auto) {
+				if (alertEl) {
 
-					alert.trigger("ui.alert.hide.before");
+					alertEl.trigger("ui.alert.hide.before");
 
 					if (auto && transitionDuration) {
 
-						alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
-
-						setTimeout(function () {
-							alert.parent().remove();
-						}, transitionDuration);
-
+						alertEl.fadeOut(transitionDuration, 0, function() {
+							alertEl.trigger("ui.alert.hide.after");
+							alertEl.parent().remove();
+						});
 					}
 					else {
-						alert.hide().parent().remove().trigger("ui.alert.hide.after");
+						alertEl.hide().trigger("ui.alert.hide.after");
+						alertEl.parent().remove();
 					}
 				}
 			};
@@ -2840,8 +2842,8 @@
 			showAlert(message, type, auto, icon, close);
 		};
 
-		this.hideAlert = function (alert) {
-			hideAlert(alert, false);
+		this.hideAlert = function (alertEl) {
+			hideAlert(alertEl, false);
 		};
 
 	};
@@ -4069,7 +4071,7 @@
 			toggleDropdown(webui(this));
 		});
 	
-		menu.find(".menu-activator-dynamic").hoverIn(function (e) {
+		menu.find(".menu-activator-hover").hoverIn(function (e) {
 			var menuActivator = webui(this);
 				
 			if (menuActivator.siblings("[class*='dropdown-']").css("display") === "none") {
@@ -4088,7 +4090,7 @@
 			}
 		});
 	
-		menu.find(".menu-activator-dynamic").hoverOut(function (e) {
+		menu.find(".menu-activator-hover").hoverOut(function (e) {
 			var menuActivator = webui(this);
 	
 			var allowHide = true;
@@ -4115,34 +4117,34 @@
 			}
 		});
 	
-		menu.find(".menu-activator-dynamic").siblings("[class*='dropdown-']").hoverIn(function () {
+		menu.find(".menu-activator-hover").siblings("[class*='dropdown-']").hoverIn(function () {
 			var dropdown = webui(this);
 	
 			if (dropdown.hasClass("menu-close")) {
 	
-				dropdown.find("[class*='menu-button']:not(.menu-activator-dynamic)").click(function () {
+				dropdown.find("[class*='menu-button']:not(.menu-activator-hover)").click(function () {
 					dropdown.hide().first().parents("[class*='dropdown-']").first().hide();
 					navigateTo(webui(this).data("url"));
 				});
-				dropdown.find("a:not(.menu-activator-dynamic)").click(function (e) {
+				dropdown.find("a:not(.menu-activator-hover)").click(function (e) {
 					dropdown.hide().first().parents("[class*='dropdown-']").first().hide();
 				});
 			}
 			else {
-				dropdown.find("[class*='menu-button']:not(.menu-activator-dynamic)").click(function () {
+				dropdown.find("[class*='menu-button']:not(.menu-activator-hover)").click(function () {
 					navigateTo(webui(this).data("url"));
 				});			
 			}
 		});
 	
-		menu.find(".menu-activator-dynamic").siblings("[class*='dropdown-']").hoverOut(function (e) {
+		menu.find(".menu-activator-hover").siblings("[class*='dropdown-']").hoverOut(function (e) {
 	
 			var dropdown = webui(this);
 	
 			var allowHide = true;
 			var el = webui.elementHoverAt(e.clientX, e.clientY);
 	
-			if (webui(el).is(".menu-activator-dynamic")) {
+			if (webui(el).is(".menu-activator-hover")) {
 				allowHide = false;
 			}
 	

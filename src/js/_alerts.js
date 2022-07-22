@@ -33,13 +33,16 @@
 						.css("padding-left", "0.625rem").css("padding-right", "0.625rem")
 						.appendTo(alertItemOuter);
 
-					alertItemInner.trigger("ui.alert.show.before");
+					alert.trigger("ui.alert.show.before");
 
 					if (transitionDuration) {
-						alertItemInner.fadeIn(transitionDuration).trigger("ui.alert.show.after");
+						alertItemInner.fadeIn(transitionDuration, 0, function() {
+							alert.trigger("ui.alert.show.after");
+						});
 					}
 					else {
-						alertItemInner.show().trigger("ui.alert.show.after");
+						alertItemInner.show();
+						alert.trigger("ui.alert.show.after");
 					}
 
 					if (displayOrder.toLowerCase() === "descending") {
@@ -129,22 +132,21 @@
 				}
 			},
 
-			hideAlert = function (alert, auto) {
-				if (alert) {
+			hideAlert = function (alertEl, auto) {
+				if (alertEl) {
 
-					alert.trigger("ui.alert.hide.before");
+					alertEl.trigger("ui.alert.hide.before");
 
 					if (auto && transitionDuration) {
 
-						alert.fadeOut(transitionDuration).trigger("ui.alert.hide.after");
-
-						setTimeout(function () {
-							alert.parent().remove();
-						}, transitionDuration);
-
+						alertEl.fadeOut(transitionDuration, 0, function() {
+							alertEl.trigger("ui.alert.hide.after");
+							alertEl.parent().remove();
+						});
 					}
 					else {
-						alert.hide().parent().remove().trigger("ui.alert.hide.after");
+						alertEl.hide().trigger("ui.alert.hide.after");
+						alertEl.parent().remove();
 					}
 				}
 			};
@@ -154,8 +156,8 @@
 			showAlert(message, type, auto, icon, close);
 		};
 
-		this.hideAlert = function (alert) {
-			hideAlert(alert, false);
+		this.hideAlert = function (alertEl) {
+			hideAlert(alertEl, false);
 		};
 
 	};
