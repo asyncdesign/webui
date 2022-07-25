@@ -124,6 +124,18 @@
 
 		};
 
+
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.activeTabId !== undefined) { activeTabId = newSettings.activeTabId; }
+			if (newSettings.activeTabFocused !== undefined) { activeTabFocused = newSettings.activeTabFocused; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+		};
+
+
+		/* EVENTS */
+
 		initializeTabEvents(function() {
 			setActiveTab();
 		});			
@@ -147,13 +159,8 @@
 			var control = new TabsInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.activeTabId !== undefined) { settings.activeTabId = newSettings.activeTabId; }
-				if (newSettings.activeTabFocused !== undefined) { settings.activeTabFocused = newSettings.activeTabFocused; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				control = new TabsInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 	
 			return this;
 		},

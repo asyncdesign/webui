@@ -69,6 +69,15 @@
 			}
 		});	
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.showFiles !== undefined) { showFiles = newSettings.showFiles; }
+			if (newSettings.showCount !== undefined) { showCount = newSettings.showCount; }
+			if (newSettings.scrollX !== undefined) { scrollX = newSettings.scrollX; }
+			if (newSettings.scrollY !== undefined) { scrollY = newSettings.scrollY; }
+		};
+
+
 	};
 
 	/* PUBLIC */
@@ -88,13 +97,8 @@
 			var control = new UploadInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.showFiles !== undefined) { settings.showFiles = newSettings.showFiles; }
-				if (newSettings.showCount !== undefined) { settings.showCount = newSettings.showCount; }
-				if (newSettings.scrollX !== undefined) { settings.scrollX = newSettings.scrollX; }
-				if (newSettings.scrollY !== undefined) { settings.scrollY = newSettings.scrollY; }
-				control = new UploadInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 			
 			return this;
 		},

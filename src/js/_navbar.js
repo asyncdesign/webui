@@ -202,6 +202,49 @@
 		
 			};
 
+
+		this.updateInstance = function (newSettings) {
+			
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+
+			if (newSettings.smallDeviceMenuReverse !== undefined) { smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
+			if (newSettings.smallDeviceSubMenuPadding !== undefined) { smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+
+			if (newSettings.mediumDeviceMenuReverse !== undefined) { mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
+			if (newSettings.mediumDeviceSubMenuPadding !== undefined) { mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+
+			if (newSettings.largeDeviceMenuReverse !== undefined) { largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
+			if (newSettings.largeDeviceSubMenuPadding !== undefined) { largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+
+			if (newSettings.largeDeviceMenuSpacing !== undefined) { largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+			if (newSettings.largeDeviceMenuOffset !== undefined) { largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
+			if (newSettings.largeDeviceSubMenuOffset !== undefined) { largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+
+			if (newSettings.smallDeviceLogoColor !== undefined) { smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
+			if (newSettings.smallDeviceLogoBackground !== undefined) { smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
+			if (newSettings.smallDeviceMenuColor !== undefined) { smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
+			if (newSettings.smallDeviceMenuBackground !== undefined) { smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
+			if (newSettings.smallDeviceSubMenuColor !== undefined) { smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
+			if (newSettings.smallDeviceSubMenuBackground !== undefined) { smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
+
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			
+			resetNavbar();
+		};
+	
+
 		setNavbarProperties();
 		
 
@@ -385,44 +428,8 @@
 			var control = new NavbarInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-
-				if (newSettings.smallDeviceMenuReverse !== undefined) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
-				if (newSettings.smallDeviceSubMenuPadding !== undefined) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
-
-				if (newSettings.mediumDeviceMenuReverse !== undefined) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
-				if (newSettings.mediumDeviceSubMenuPadding !== undefined) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
-
-				if (newSettings.largeDeviceMenuReverse !== undefined) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
-				if (newSettings.largeDeviceSubMenuPadding !== undefined) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
-
-				if (newSettings.largeDeviceMenuSpacing !== undefined) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
-				if (newSettings.largeDeviceMenuOffset !== undefined) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
-				if (newSettings.largeDeviceSubMenuOffset !== undefined) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
-
-				if (newSettings.smallDeviceLogoColor !== undefined) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
-				if (newSettings.smallDeviceLogoBackground !== undefined) { settings.smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
-				if (newSettings.smallDeviceMenuColor !== undefined) { settings.smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
-				if (newSettings.smallDeviceMenuBackground !== undefined) { settings.smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
-				if (newSettings.smallDeviceSubMenuColor !== undefined) { settings.smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
-				if (newSettings.smallDeviceSubMenuBackground !== undefined) { settings.smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
-
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				control = new NavbarInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 
 			return this;
 		},

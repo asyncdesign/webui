@@ -87,6 +87,18 @@
 			showToastItem();
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.position !== undefined) { position = newSettings.position; }
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.duration !== undefined) { duration = newSettings.duration; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.toastItemTemplate !== undefined) { toastItemTemplate = newSettings.toastItemTemplate; }
+			if (newSettings.displayOrder !== undefined) { displayOrder = newSettings.displayOrder; }
+			if (newSettings.autoHide !== undefined) { autoHide = newSettings.autoHide; }
+		};
+
+
 	};
 
 	/* PUBLIC */
@@ -108,19 +120,12 @@
 
 			var control = new ToastInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.toastItemTemplate !== undefined) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
-				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
-				control = new ToastInstance(this.first(), settings);	
-			};
-
 			this.showToastItem = function () {
 				control.showToastItem();	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;

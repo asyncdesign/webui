@@ -160,6 +160,21 @@
 			hideAlert(alertEl, false);
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.position !== undefined) { position = newSettings.position; }
+			if (newSettings.duration !== undefined) { duration = newSettings.duration; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.displayOrder !== undefined) { displayOrder = newSettings.displayOrder; }
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.showHeader !== undefined) { showHeader = newSettings.showHeader; }
+			if (newSettings.inline !== undefined) { inline = newSettings.inline; }
+			if (newSettings.style !== undefined) { style = newSettings.style; }	
+			if (newSettings.autoHide !== undefined) { autoHide = newSettings.autoHide; }
+			if (newSettings.showIcon !== undefined) { showIcon = newSettings.showIcon; }
+			if (newSettings.showClose !== undefined) { showClose = newSettings.showClose; }
+		};
+
 	};
 
 	/* PUBLIC */
@@ -184,22 +199,6 @@
 			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new AlertInstance(this.first(), settings);
-
-			this.update = function (newSettings) {
-				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
-				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.showHeader !== undefined) { settings.showHeader = newSettings.showHeader; }
-				if (newSettings.inline !== undefined) { settings.inline = newSettings.inline; }
-				if (newSettings.style !== undefined) { settings.style = newSettings.style; }	
-				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
-				if (newSettings.showIcon !== undefined) { settings.showIcon = newSettings.showIcon; }
-				if (newSettings.showClose !== undefined) { settings.showClose = newSettings.showClose; }
-				control = new AlertInstance(this.first(), settings);	
-			};
-
 
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {
@@ -282,6 +281,10 @@
 					default:
 						break;
 				}
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;

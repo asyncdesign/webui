@@ -101,7 +101,25 @@
 					}
 				}
 
+			},
+
+			resetMenu = function() {
+
+				menu.find(".menu-activator").nextSibling("[class*='dropdown-']").attr("style", "");
+				menu.find(".menu-activator-focus").nextSibling("[class*='dropdown-']").attr("style", "");
+				menu.find(".menu-activator-hover").nextSibling("[class*='dropdown-']").attr("style", "");	
+							
 			};
+
+			
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+
+			resetMenu();
+		};
+	
 	
 		/* EVENTS */
 	
@@ -224,11 +242,8 @@
 			var control = new MenuInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				control = new MenuInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 
 			return this;
 

@@ -98,6 +98,17 @@
 			hideModal();
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.closeFromBackdrop !== undefined) { closeFromBackdrop = newSettings.closeFromBackdrop; }
+			if (newSettings.disablePageScrolling !== undefined) { disablePageScrolling = newSettings.disablePageScrolling; }
+			if (newSettings.focusElement !== undefined) { focusElement = newSettings.focusElement; }
+			if (newSettings.focusReturnElement !== undefined) { focusReturnElement = newSettings.focusReturnElement; }
+		};
+
+
+		/* EVENTS */
 		
 		if (closeFromBackdrop) {
 			modal.click(function (e) {
@@ -141,23 +152,17 @@
 
 			var control = new ModalInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.closeFromBackdrop !== undefined) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
-				if (newSettings.disablePageScrolling !== undefined) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
-				if (newSettings.focusElement !== undefined) { settings.focusElement = newSettings.focusElement; }
-				if (newSettings.focusReturnElement !== undefined) { settings.focusReturnElement = newSettings.focusReturnElement; }
-				control = new ModalInstance(this.first(), settings);	
-			};
-
-
 			this.open = function () {
 				control.openModal();	
 			};
 		
 			this.close = function () {		
 				control.closeModal();	
-			};	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
+			};
 			
 			return this;
 		},

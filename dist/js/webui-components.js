@@ -2846,6 +2846,21 @@
 			hideAlert(alertEl, false);
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.position !== undefined) { position = newSettings.position; }
+			if (newSettings.duration !== undefined) { duration = newSettings.duration; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.displayOrder !== undefined) { displayOrder = newSettings.displayOrder; }
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.showHeader !== undefined) { showHeader = newSettings.showHeader; }
+			if (newSettings.inline !== undefined) { inline = newSettings.inline; }
+			if (newSettings.style !== undefined) { style = newSettings.style; }	
+			if (newSettings.autoHide !== undefined) { autoHide = newSettings.autoHide; }
+			if (newSettings.showIcon !== undefined) { showIcon = newSettings.showIcon; }
+			if (newSettings.showClose !== undefined) { showClose = newSettings.showClose; }
+		};
+
 	};
 
 	/* PUBLIC */
@@ -2870,22 +2885,6 @@
 			if (this.length > 1) { console.warn("WebUI alerts component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new AlertInstance(this.first(), settings);
-
-			this.update = function (newSettings) {
-				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
-				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.showHeader !== undefined) { settings.showHeader = newSettings.showHeader; }
-				if (newSettings.inline !== undefined) { settings.inline = newSettings.inline; }
-				if (newSettings.style !== undefined) { settings.style = newSettings.style; }	
-				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
-				if (newSettings.showIcon !== undefined) { settings.showIcon = newSettings.showIcon; }
-				if (newSettings.showClose !== undefined) { settings.showClose = newSettings.showClose; }
-				control = new AlertInstance(this.first(), settings);	
-			};
-
 
 			this.showAlert = function (message, type, auto, icon, close) {
 				switch (arguments.length) {
@@ -2968,6 +2967,10 @@
 					default:
 						break;
 				}
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;
@@ -3828,7 +3831,21 @@
 	
 		this.stop = function () {	
 			stopCarousel();
-		};		
+		};
+
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.interval !== undefined) { interval = newSettings.interval; }
+			if (newSettings.autoPlay !== undefined) { autoPlay = newSettings.autoPlay; }
+			if (newSettings.autoScale !== undefined) { autoScale = newSettings.autoScale; }
+			if (newSettings.playDirection !== undefined) { playDirection = newSettings.playDirection; }
+			if (newSettings.stopOnHover !== undefined) { stopOnHover = newSettings.stopOnHover; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+			if (newSettings.transitionOrientation !== undefined) { transitionOrientation = newSettings.transitionOrientation; }	
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.height !== undefined) { height = newSettings.height; }
+		};	
 	
 	};
 
@@ -3854,20 +3871,6 @@
 
 			var control = new CarouselInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.interval !== undefined) { settings.interval = newSettings.interval; }
-				if (newSettings.autoPlay !== undefined) { settings.autoPlay = newSettings.autoPlay; }
-				if (newSettings.autoScale !== undefined) { settings.autoScale = newSettings.autoScale; }
-				if (newSettings.playDirection !== undefined) { settings.playDirection = newSettings.playDirection; }
-				if (newSettings.stopOnHover !== undefined) { settings.stopOnHover = newSettings.stopOnHover; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				if (newSettings.transitionOrientation !== undefined) { settings.transitionOrientation = newSettings.transitionOrientation; }	
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.height !== undefined) { settings.height = newSettings.height; }
-				control = new CarouselInstance(this.first(), settings);	
-			};
-
 			this.prev = function () {
 				control.prev();	
 			};
@@ -3886,7 +3889,11 @@
 		
 			this.stop = function () {		
 				control.stop();				
-			};		
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
+			};	
 	
 			return this;
 
@@ -4059,7 +4066,25 @@
 					}
 				}
 
+			},
+
+			resetMenu = function() {
+
+				menu.find(".menu-activator").nextSibling("[class*='dropdown-']").attr("style", "");
+				menu.find(".menu-activator-focus").nextSibling("[class*='dropdown-']").attr("style", "");
+				menu.find(".menu-activator-hover").nextSibling("[class*='dropdown-']").attr("style", "");	
+							
 			};
+
+			
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+
+			resetMenu();
+		};
+	
 	
 		/* EVENTS */
 	
@@ -4182,11 +4207,8 @@
 			var control = new MenuInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				control = new MenuInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 
 			return this;
 
@@ -4298,6 +4320,17 @@
 			hideModal();
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.closeFromBackdrop !== undefined) { closeFromBackdrop = newSettings.closeFromBackdrop; }
+			if (newSettings.disablePageScrolling !== undefined) { disablePageScrolling = newSettings.disablePageScrolling; }
+			if (newSettings.focusElement !== undefined) { focusElement = newSettings.focusElement; }
+			if (newSettings.focusReturnElement !== undefined) { focusReturnElement = newSettings.focusReturnElement; }
+		};
+
+
+		/* EVENTS */
 		
 		if (closeFromBackdrop) {
 			modal.click(function (e) {
@@ -4341,23 +4374,17 @@
 
 			var control = new ModalInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.closeFromBackdrop !== undefined) { settings.closeFromBackdrop = newSettings.closeFromBackdrop; }
-				if (newSettings.disablePageScrolling !== undefined) { settings.disablePageScrolling = newSettings.disablePageScrolling; }
-				if (newSettings.focusElement !== undefined) { settings.focusElement = newSettings.focusElement; }
-				if (newSettings.focusReturnElement !== undefined) { settings.focusReturnElement = newSettings.focusReturnElement; }
-				control = new ModalInstance(this.first(), settings);	
-			};
-
-
 			this.open = function () {
 				control.openModal();	
 			};
 		
 			this.close = function () {		
 				control.closeModal();	
-			};	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
+			};
 			
 			return this;
 		},
@@ -4571,6 +4598,49 @@
 		
 			};
 
+
+		this.updateInstance = function (newSettings) {
+			
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+
+			if (newSettings.smallDeviceMenuReverse !== undefined) { smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
+			if (newSettings.smallDeviceSubMenuPadding !== undefined) { smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
+
+			if (newSettings.mediumDeviceMenuReverse !== undefined) { mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
+			if (newSettings.mediumDeviceSubMenuPadding !== undefined) { mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
+
+			if (newSettings.largeDeviceMenuReverse !== undefined) { largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
+			if (newSettings.largeDeviceSubMenuPadding !== undefined) { largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
+
+			if (newSettings.largeDeviceMenuSpacing !== undefined) { largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
+			if (newSettings.largeDeviceMenuOffset !== undefined) { largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
+			if (newSettings.largeDeviceSubMenuOffset !== undefined) { largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+
+			if (newSettings.smallDeviceLogoColor !== undefined) { smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
+			if (newSettings.smallDeviceLogoBackground !== undefined) { smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
+			if (newSettings.smallDeviceMenuColor !== undefined) { smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
+			if (newSettings.smallDeviceMenuBackground !== undefined) { smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
+			if (newSettings.smallDeviceSubMenuColor !== undefined) { smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
+			if (newSettings.smallDeviceSubMenuBackground !== undefined) { smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
+
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+			if (newSettings.mediumDeviceLogoColor !== undefined) { mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
+
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			if (newSettings.largeDeviceLogoColor !== undefined) { largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
+			
+			resetNavbar();
+		};
+	
+
 		setNavbarProperties();
 		
 
@@ -4754,44 +4824,8 @@
 			var control = new NavbarInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-
-				if (newSettings.smallDeviceMenuReverse !== undefined) { settings.smallDeviceMenuReverse = newSettings.smallDeviceMenuReverse; }
-				if (newSettings.smallDeviceSubMenuPadding !== undefined) { settings.smallDeviceSubMenuPadding = newSettings.smallDeviceSubMenuPadding; }
-
-				if (newSettings.mediumDeviceMenuReverse !== undefined) { settings.mediumDeviceMenuReverse = newSettings.mediumDeviceMenuReverse; }
-				if (newSettings.mediumDeviceSubMenuPadding !== undefined) { settings.mediumDeviceSubMenuPadding = newSettings.mediumDeviceSubMenuPadding; }
-
-				if (newSettings.largeDeviceMenuReverse !== undefined) { settings.largeDeviceMenuReverse = newSettings.largeDeviceMenuReverse; }
-				if (newSettings.largeDeviceSubMenuPadding !== undefined) { settings.largeDeviceSubMenuPadding = newSettings.largeDeviceSubMenuPadding; }
-
-				if (newSettings.largeDeviceMenuSpacing !== undefined) { settings.largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
-				if (newSettings.largeDeviceMenuOffset !== undefined) { settings.largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
-				if (newSettings.largeDeviceSubMenuOffset !== undefined) { settings.largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
-
-				if (newSettings.smallDeviceLogoColor !== undefined) { settings.smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
-				if (newSettings.smallDeviceLogoBackground !== undefined) { settings.smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
-				if (newSettings.smallDeviceMenuColor !== undefined) { settings.smallDeviceMenuColor = newSettings.smallDeviceMenuColor; }
-				if (newSettings.smallDeviceMenuBackground !== undefined) { settings.smallDeviceMenuBackground = newSettings.smallDeviceMenuBackground; }
-				if (newSettings.smallDeviceSubMenuColor !== undefined) { settings.smallDeviceSubMenuColor = newSettings.smallDeviceSubMenuColor; }
-				if (newSettings.smallDeviceSubMenuBackground !== undefined) { settings.smallDeviceSubMenuBackground = newSettings.smallDeviceSubMenuBackground; }
-
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-				if (newSettings.mediumDeviceLogoColor !== undefined) { settings.mediumDeviceLogoColor = newSettings.mediumDeviceLogoColor; }
-
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				if (newSettings.largeDeviceLogoColor !== undefined) { settings.largeDeviceLogoColor = newSettings.largeDeviceLogoColor; }
-				control = new NavbarInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 
 			return this;
 		},
@@ -5300,6 +5334,18 @@
 
 		};
 
+
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.activeTabId !== undefined) { activeTabId = newSettings.activeTabId; }
+			if (newSettings.activeTabFocused !== undefined) { activeTabFocused = newSettings.activeTabFocused; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+		};
+
+
+		/* EVENTS */
+
 		initializeTabEvents(function() {
 			setActiveTab();
 		});			
@@ -5323,13 +5369,8 @@
 			var control = new TabsInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.activeTabId !== undefined) { settings.activeTabId = newSettings.activeTabId; }
-				if (newSettings.activeTabFocused !== undefined) { settings.activeTabFocused = newSettings.activeTabFocused; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				control = new TabsInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 	
 			return this;
 		},
@@ -5427,6 +5468,18 @@
 			showToastItem();
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.position !== undefined) { position = newSettings.position; }
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.duration !== undefined) { duration = newSettings.duration; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.toastItemTemplate !== undefined) { toastItemTemplate = newSettings.toastItemTemplate; }
+			if (newSettings.displayOrder !== undefined) { displayOrder = newSettings.displayOrder; }
+			if (newSettings.autoHide !== undefined) { autoHide = newSettings.autoHide; }
+		};
+
+
 	};
 
 	/* PUBLIC */
@@ -5448,19 +5501,12 @@
 
 			var control = new ToastInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.position !== undefined) { settings.position = newSettings.position; }
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.duration !== undefined) { settings.duration = newSettings.duration; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.toastItemTemplate !== undefined) { settings.toastItemTemplate = newSettings.toastItemTemplate; }
-				if (newSettings.displayOrder !== undefined) { settings.displayOrder = newSettings.displayOrder; }
-				if (newSettings.autoHide !== undefined) { settings.autoHide = newSettings.autoHide; }
-				control = new ToastInstance(this.first(), settings);	
-			};
-
 			this.showToastItem = function () {
 				control.showToastItem();	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;
@@ -5810,6 +5856,13 @@
 			hideTooltip(tooltipWrapper);
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.autoPositioning !== undefined) { autoPositioning = newSettings.autoPositioning; }
+			if (newSettings.autoResizing !== undefined) { autoResizing = newSettings.autoResizing; }
+			if (newSettings.autoPositioningMargin !== undefined) { autoPositioningMargin = newSettings.autoPositioningMargin; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+		};
 	
 
 		/* EVENTS */
@@ -5917,21 +5970,16 @@
 
 			var control = new TooltipInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.autoPositioning !== undefined) { settings.autoPositioning = newSettings.autoPositioning; }
-				if (newSettings.autoResizing !== undefined) { settings.autoResizing = newSettings.autoResizing; }
-				if (newSettings.autoPositioningMargin !== undefined) { settings.autoPositioningMargin = newSettings.autoPositioningMargin; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				control = new TooltipInstance(this.first(), settings);	
-			};
-
-
 			this.showTooltip = function (tooltipWrapper, message) {
 				control.showTooltip(tooltipWrapper, message);	
 			};
 
 			this.hideTooltip = function (tooltipWrapper) {
 				control.hideTooltip(tooltipWrapper);	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;
@@ -6012,6 +6060,15 @@
 			}
 		});	
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.showFiles !== undefined) { showFiles = newSettings.showFiles; }
+			if (newSettings.showCount !== undefined) { showCount = newSettings.showCount; }
+			if (newSettings.scrollX !== undefined) { scrollX = newSettings.scrollX; }
+			if (newSettings.scrollY !== undefined) { scrollY = newSettings.scrollY; }
+		};
+
+
 	};
 
 	/* PUBLIC */
@@ -6031,13 +6088,8 @@
 			var control = new UploadInstance(this.first(), settings);
 
 			this.update = function (newSettings) {
-				if (newSettings.showFiles !== undefined) { settings.showFiles = newSettings.showFiles; }
-				if (newSettings.showCount !== undefined) { settings.showCount = newSettings.showCount; }
-				if (newSettings.scrollX !== undefined) { settings.scrollX = newSettings.scrollX; }
-				if (newSettings.scrollY !== undefined) { settings.scrollY = newSettings.scrollY; }
-				control = new UploadInstance(this.first(), settings);	
+				control.updateInstance(newSettings);
 			};
-
 			
 			return this;
 		},

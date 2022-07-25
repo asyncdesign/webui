@@ -338,6 +338,13 @@
 			hideTooltip(tooltipWrapper);
 		};
 
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.autoPositioning !== undefined) { autoPositioning = newSettings.autoPositioning; }
+			if (newSettings.autoResizing !== undefined) { autoResizing = newSettings.autoResizing; }
+			if (newSettings.autoPositioningMargin !== undefined) { autoPositioningMargin = newSettings.autoPositioningMargin; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+		};
 	
 
 		/* EVENTS */
@@ -445,21 +452,16 @@
 
 			var control = new TooltipInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.autoPositioning !== undefined) { settings.autoPositioning = newSettings.autoPositioning; }
-				if (newSettings.autoResizing !== undefined) { settings.autoResizing = newSettings.autoResizing; }
-				if (newSettings.autoPositioningMargin !== undefined) { settings.autoPositioningMargin = newSettings.autoPositioningMargin; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				control = new TooltipInstance(this.first(), settings);	
-			};
-
-
 			this.showTooltip = function (tooltipWrapper, message) {
 				control.showTooltip(tooltipWrapper, message);	
 			};
 
 			this.hideTooltip = function (tooltipWrapper) {
 				control.hideTooltip(tooltipWrapper);	
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
 			};
 
 			return this;

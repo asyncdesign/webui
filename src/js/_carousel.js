@@ -362,7 +362,21 @@
 	
 		this.stop = function () {	
 			stopCarousel();
-		};		
+		};
+
+		this.updateInstance = function (newSettings) {
+
+			if (newSettings.interval !== undefined) { interval = newSettings.interval; }
+			if (newSettings.autoPlay !== undefined) { autoPlay = newSettings.autoPlay; }
+			if (newSettings.autoScale !== undefined) { autoScale = newSettings.autoScale; }
+			if (newSettings.playDirection !== undefined) { playDirection = newSettings.playDirection; }
+			if (newSettings.stopOnHover !== undefined) { stopOnHover = newSettings.stopOnHover; }
+			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
+			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+			if (newSettings.transitionOrientation !== undefined) { transitionOrientation = newSettings.transitionOrientation; }	
+			if (newSettings.width !== undefined) { width = newSettings.width; }
+			if (newSettings.height !== undefined) { height = newSettings.height; }
+		};	
 	
 	};
 
@@ -388,20 +402,6 @@
 
 			var control = new CarouselInstance(this.first(), settings);
 
-			this.update = function (newSettings) {
-				if (newSettings.interval !== undefined) { settings.interval = newSettings.interval; }
-				if (newSettings.autoPlay !== undefined) { settings.autoPlay = newSettings.autoPlay; }
-				if (newSettings.autoScale !== undefined) { settings.autoScale = newSettings.autoScale; }
-				if (newSettings.playDirection !== undefined) { settings.playDirection = newSettings.playDirection; }
-				if (newSettings.stopOnHover !== undefined) { settings.stopOnHover = newSettings.stopOnHover; }
-				if (newSettings.transitionDuration !== undefined) { settings.transitionDuration = newSettings.transitionDuration; }
-				if (newSettings.transitionType !== undefined) { settings.transitionType = newSettings.transitionType; }
-				if (newSettings.transitionOrientation !== undefined) { settings.transitionOrientation = newSettings.transitionOrientation; }	
-				if (newSettings.width !== undefined) { settings.width = newSettings.width; }
-				if (newSettings.height !== undefined) { settings.height = newSettings.height; }
-				control = new CarouselInstance(this.first(), settings);	
-			};
-
 			this.prev = function () {
 				control.prev();	
 			};
@@ -420,7 +420,11 @@
 		
 			this.stop = function () {		
 				control.stop();				
-			};		
+			};
+
+			this.update = function (newSettings) {
+				control.updateInstance(newSettings);
+			};	
 	
 			return this;
 
