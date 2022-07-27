@@ -47,6 +47,12 @@
 
 			</div>
 
+			<div id="nav-indicator-holder">
+				<label class="nav-indicator"></label>
+			</div>
+			<div class="row-spacing-lg"></div>
+			<button class="button-sm button-dark" id="nav-indicator-button">Toggle Nav Indicator</button>
+
 			<div class="row-spacing-lg"></div>
 
 			<div class="row">
@@ -171,7 +177,7 @@
 								<div class="nav-logo"><div class="dark text-xl pad-left-md pad-right-md">Your Logo</div></div>
 
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 1<span class="nav-indicator margin-left-xxs"></span></a>
+									<a class="nav-activator" href="#0">Menu 1<label class="nav-indicator margin-left-xxs pad-bottom-md"></label></a>
 									
 									<div class="nav-sub-menu">
 
@@ -191,7 +197,7 @@
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 2<span class="nav-indicator margin-left-xxs"></span></a>
+									<a class="nav-activator" href="#0">Menu 2<label class="nav-indicator margin-left-xxs pad-bottom-md"></label></a>
 									<div class="nav-sub-menu">
 
 											<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
@@ -203,7 +209,7 @@
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 3<span class="nav-indicator margin-left-xxs"></span></a>
+									<a class="nav-activator" href="#0">Menu 3<label class="nav-indicator margin-left-xxs pad-bottom-md"></label></a>
 									<div class="nav-sub-menu">
 
 											<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
@@ -215,7 +221,7 @@
 									</div>
 								</div>
 								<div class="nav-item">
-									<a class="nav-activator" href="#0">Menu 4<span class="nav-indicator margin-left-xxs"></span></a>
+									<a class="nav-activator" href="#0">Menu 4<label class="nav-indicator margin-left-xxs pad-bottom-md"></label></a>
 									<div class="nav-sub-menu">
 
 											<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
@@ -1052,9 +1058,22 @@
 				indicatorType: "chevron",
 				indicatorSize: "medium",
 				backgroundColor: "transparent", 
-				color: "rgb(14, 143, 241)",
-				transitionDuration: 300
+				color: "#FFF",
+				transitionDuration: 500
 			});
+
+			ui("#nav-indicator-holder [class*=nav-indicator]").navIndicatorControl({ 
+				indicatorType: "arrow",
+				indicatorSize: "medium",
+				backgroundColor: "transparent", 
+				color: "rgb(14, 143, 241)",
+				transitionDuration: 500
+			});
+
+			ui("#nav-indicator-button").click(function() {
+				ui("#nav-indicator-holder [class*=nav-indicator]").toggleClass("active");
+			})
+
 
 			// Events
 			/*
@@ -1096,15 +1115,15 @@
 				indicatorSize: "large",
 				backgroundColor: "transparent", 
 				color: "rgb(203, 188, 230)",
-				transitionDuration: 300
+				transitionDuration: 500
 			});
 
 			ui("#accordion2 .nav-indicator").navIndicatorControl({ 
-				indicatorType: "chevron",
+				indicatorType: "caret",
 				indicatorSize: "small",
 				backgroundColor: "transparent", 
 				color: "#FFF",
-				transitionDuration: 300
+				transitionDuration: 500
 			});
 
 			

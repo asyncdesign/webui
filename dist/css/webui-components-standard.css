@@ -7131,22 +7131,46 @@
   transform: rotate(-45deg);
 }
 
-.nav-indicator {
+*[class*=nav-indicator] {
   position: relative;
 }
-.nav-indicator .nav-indicator-item {
+*[class*=nav-indicator] .indicator-item {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1rem;
-  height: 1rem;
-  transform-origin: center 40%;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform-origin: center;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: 40% center;
 }
 
-.nav-indicator.active .nav-indicator-item {
+.nav-indicator-left .indicator-item {
+  transform: rotate(-90deg);
+}
+
+.nav-indicator-right .indicator-item {
+  transform: rotate(90deg);
+}
+
+.nav-indicator-up .indicator-item {
   transform: rotate(180deg);
+}
+
+.nav-indicator.active .indicator-item {
+  transform: rotate(180deg);
+}
+
+.nav-indicator-left.active .indicator-item {
+  transform: rotate(90deg);
+}
+
+.nav-indicator-right.active .indicator-item {
+  transform: rotate(-90deg);
+}
+
+.nav-indicator-up.active .indicator-item {
+  transform: rotate(0deg);
 }
 
 .modal {

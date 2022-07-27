@@ -276,7 +276,7 @@
 											el.trigger("ui.toggleItem.hide.after");
 
 											if (activator) {
-												activator.find(".nav-indicator").removeClass("active");				
+												activator.find("[class*='nav-indicator']").removeClass("active");				
 											}			
 										});
 									}
@@ -286,7 +286,7 @@
 												el.trigger("ui.toggleItem.hide.after");
 					
 												if (activator) {
-													activator.find(".nav-indicator").removeClass("active");				
+													activator.find("[class*='nav-indicator']").removeClass("active");				
 												}
 											});
 										}
@@ -295,7 +295,7 @@
 												el.trigger("ui.toggleItem.hide.after");
 
 												if (activator) {
-													activator.find(".nav-indicator").removeClass("active");				
+													activator.find("[class*='nav-indicator']").removeClass("active");				
 												}
 											});
 										}
@@ -305,7 +305,7 @@
 										el.trigger("ui.toggleItem.hide.after");
 
 										if (activator) {
-											activator.find(".nav-indicator").removeClass("active");				
+											activator.find("[class*='nav-indicator']").removeClass("active");				
 										}
 									}	
 
@@ -328,7 +328,7 @@
 											el.trigger("ui.toggleItem.show.after");
 
 											if (activator) {
-												activator.find(".nav-indicator").addClass("active");
+												activator.find("[class*='nav-indicator']").addClass("active");
 											}
 										});
 									}
@@ -339,7 +339,7 @@
 													el.trigger("ui.toggleItem.show.after");
 
 													if (activator) {
-														activator.find(".nav-indicator").addClass("active");
+														activator.find("[class*='nav-indicator']").addClass("active");
 													}
 												});											
 											}
@@ -348,7 +348,7 @@
 													el.trigger("ui.toggleItem.show.after");
 
 													if (activator) {
-														activator.find(".nav-indicator").addClass("active");
+														activator.find("[class*='nav-indicator']").addClass("active");
 													}
 												});
 											}
@@ -359,7 +359,7 @@
 													el.trigger("ui.toggleItem.show.after");
 
 													if (activator) {
-														activator.find(".nav-indicator").addClass("active");
+														activator.find("[class*='nav-indicator']").addClass("active");
 													}
 												});
 											}
@@ -368,7 +368,7 @@
 													el.trigger("ui.toggleItem.show.after");
 
 													if (activator) {
-														activator.find(".nav-indicator").addClass("active");
+														activator.find("[class*='nav-indicator']").addClass("active");
 													}
 												});										
 											}
@@ -379,7 +379,7 @@
 										el.trigger("ui.toggleItem.show.after");
 
 										if (activator) {
-											activator.find(".nav-indicator").addClass("active");
+											activator.find("[class*='nav-indicator']").addClass("active");
 										}
 									}
 
@@ -400,7 +400,7 @@
 											el.siblings(".toggle-item").fadeOut(transitionDuration);
 
 											if (activator) {
-												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												activator.siblings(".toggle-activator").find("[class*='nav-indicator']").removeClass("active");				
 											}
 										}
 										else if (transitionDuration && transitionType === "collapse") {
@@ -408,14 +408,14 @@
 												el.siblings(".toggle-item").collapseHorizontal({ duration: transitionDuration });	
 
 												if (activator) {
-													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+													activator.siblings(".toggle-activator").find("[class*='nav-indicator']").removeClass("active");				
 												}
 											}
 											else {
 												el.siblings(".toggle-item").collapseVertical({ duration: transitionDuration });	
 
 												if (activator) {
-													activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+													activator.siblings(".toggle-activator").find("[class*='nav-indicator']").removeClass("active");				
 												}
 											}
 										}
@@ -423,7 +423,7 @@
 											el.siblings(".toggle-item").hide();
 
 											if (activator) {
-												activator.siblings(".toggle-activator").find(".nav-indicator").removeClass("active");				
+												activator.siblings(".toggle-activator").find("[class*='nav-indicator']").removeClass("active");				
 											}
 										}
 									});
