@@ -1056,6 +1056,41 @@
 				transitionDuration: 300
 			});
 
+			// Events
+			/*
+			ui( "#navbar1" ).on("ui.navbar.menu.show.before", function(e) {
+				console.log("ui.navbar.menu.show.before");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.menu.show.after", function(e) {
+				console.log("ui.navbar.menu.show.after");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.menu.hide.before", function(e) {
+				console.log("ui.navbar.menu.hide.before");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.menu.hide.after", function(e) {
+				console.log("ui.navbar.menu.hide.after");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.submenu.show.before", function(e) {
+				console.log("ui.navbar.submenu.show.before");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.submenu.show.after", function(e) {
+				console.log("ui.navbar.submenu.show.after");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.submenu.hide.before", function(e) {
+				console.log("ui.navbar.submenu.hide.before");
+			});
+
+			ui( "#navbar1" ).on("ui.navbar.submenu.hide.after", function(e) {
+				console.log("ui.navbar.submenu.hide.after");
+			});
+			*/
+
 			ui("#accordion1 .nav-indicator").navIndicatorControl({ 
 				indicatorType: "caret",
 				indicatorSize: "large",
@@ -1150,7 +1185,7 @@
 			// Positioning for right off-canvas menu button
 			ui("#ocButton2").snapPosition("#oc2", [-1.1, 1.1], "rem", "top-left");
 
-			// Toggle right off-canvas button icon
+			// Toggle right off-canvas button
 			ui( "#oc2" ).on("ui.toggleItem.show.after", function(e) {
 				ui("#ocButton2").addClass("active");
 			});
@@ -1161,7 +1196,8 @@
 			ui("#slideButton1, #slideButton2, #slideButton3, #slideButton4").navButtonControl({ 
 				transitionDuration: 300
 			});
-			// Toggle slide-out button icon
+
+			// Toggle slide-out buttons
 			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {		
 				ui("#slideButton1").addClass("active");
 			});
