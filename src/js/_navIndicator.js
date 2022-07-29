@@ -11,11 +11,11 @@
 		value: function (options) {
 
 			var settings = ui.extend({
-				indicatorType: "chevron",
+				indicatorType: "caret",
 				indicatorSize: "medium",
 				backgroundColor: "transparent", 
 				color: "#000000",
-				transitionDuration: 300
+				transitionDuration: 500
 			}, options);
 
 			var controls = this;
