@@ -978,7 +978,7 @@
 
 	<script>
 
-		webui.ready(function() {
+		webui.ready( () => {
 
 			
 			// Menus
@@ -1070,42 +1070,42 @@
 				transitionDuration: 500
 			});
 
-			ui("#nav-indicator-button").click(function() {
+			ui("#nav-indicator-button").click( () => {
 				ui("#nav-indicator-holder [class*=nav-indicator]").toggleClass("active");
 			})
 
 
 			// Events
 			/*
-			ui( "#navbar1" ).on("ui.navbar.menu.show.before", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.menu.show.before", (e) => {
 				console.log("ui.navbar.menu.show.before");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.menu.show.after", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.menu.show.after", (e) => {
 				console.log("ui.navbar.menu.show.after");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.menu.hide.before", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.menu.hide.before", (e) => {
 				console.log("ui.navbar.menu.hide.before");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.menu.hide.after", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.menu.hide.after", (e) => {
 				console.log("ui.navbar.menu.hide.after");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.submenu.show.before", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.submenu.show.before", (e) => {
 				console.log("ui.navbar.submenu.show.before");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.submenu.show.after", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.submenu.show.after", (e) => {
 				console.log("ui.navbar.submenu.show.after");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.submenu.hide.before", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.submenu.hide.before", (e) => {
 				console.log("ui.navbar.submenu.hide.before");
 			});
 
-			ui( "#navbar1" ).on("ui.navbar.submenu.hide.after", function(e) {
+			ui( "#navbar1" ).on("ui.navbar.submenu.hide.after", (e) => {
 				console.log("ui.navbar.submenu.hide.after");
 			});
 			*/
@@ -1143,7 +1143,7 @@
 			});
 			
 			/*
-			ui("#tabs1").on("ui.tabs.change.after", function(e) {
+			ui("#tabs1").on("ui.tabs.change.after", (e) => {
 				console.log("ui.tabs.change.after: pervious tab id = " + e.detail[0] + ", current tab id = " + e.detail[1]);
 			});
 			*/
@@ -1194,10 +1194,10 @@
 			ui("#ocButton1").snapPosition("#oc1", [1.1, 1.1], "rem", "top-right");
 
 			// Toggle left off-canvas button
-			ui( "#oc1" ).on("ui.toggleItem.show.after", function(e) {		
+			ui( "#oc1" ).on("ui.toggleItem.show.after", (e) => {		
 				ui("#ocButton1").addClass("active");			
 			});
-			ui( "#oc1" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#oc1" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#ocButton1").removeClass("active");	
 			});
 
@@ -1205,10 +1205,10 @@
 			ui("#ocButton2").snapPosition("#oc2", [-1.1, 1.1], "rem", "top-left");
 
 			// Toggle right off-canvas button
-			ui( "#oc2" ).on("ui.toggleItem.show.after", function(e) {
+			ui( "#oc2" ).on("ui.toggleItem.show.after", (e) => {
 				ui("#ocButton2").addClass("active");
 			});
-			ui( "#oc2" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#oc2" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#ocButton2").removeClass("active");
 			});
 
@@ -1217,31 +1217,31 @@
 			});
 
 			// Toggle slide-out buttons
-			ui( "#panel1" ).on("ui.toggleItem.show.after", function(e) {		
+			ui( "#panel1" ).on("ui.toggleItem.show.after", (e) => {		
 				ui("#slideButton1").addClass("active");
 			});
-			ui( "#panel1" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#panel1" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#slideButton1").removeClass("active");	
 			});
 
-			ui( "#panel2" ).on("ui.toggleItem.show.after", function(e) {
+			ui( "#panel2" ).on("ui.toggleItem.show.after", (e) => {
 				ui("#slideButton2").addClass("active");
 			});
-			ui( "#panel2" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#panel2" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#slideButton2").removeClass("active");
 			});
 
-			ui( "#panel3" ).on("ui.toggleItem.show.after", function(e) {
+			ui( "#panel3" ).on("ui.toggleItem.show.after", (e) => {
 				ui("#slideButton3").addClass("active");
 			});
-			ui( "#panel3" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#panel3" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#slideButton3").removeClass("active");
 			});
 
-			ui( "#panel4" ).on("ui.toggleItem.show.after", function(e) {
+			ui( "#panel4" ).on("ui.toggleItem.show.after", (e) => {
 				ui("#slideButton4").addClass("active");
 			});
-			ui( "#panel4" ).on("ui.toggleItem.hide.after", function(e) {
+			ui( "#panel4" ).on("ui.toggleItem.hide.after", (e) => {
 				ui("#slideButton4").removeClass("active");
 			});
 			

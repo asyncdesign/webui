@@ -173,30 +173,30 @@
 
 	<script>
 
-		webui.ready(function() {
+		webui.ready( () => {
 			
 
 			// Slide transitions
-			ui("#commandSlideDown").click( function() {
+			ui("#commandSlideDown").click( () => {
 				ui("#slideContainer").slideVertical("down", "7.36rem", 1000);
 			});
 
-			ui("#commandSlideUp").click( function() { 
+			ui("#commandSlideUp").click( () => { 
 				ui("#slideContainer").slideVertical("up", "7.36rem", 1000);
 			});
 
-			ui("#commandSlideRight").click( function() { 
+			ui("#commandSlideRight").click( () => { 
 				ui("#slideContainer").slideHorizontal("right", "7.36rem", 1000);
 			});
 
-			ui("#commandSlideLeft").click( function() { 
+			ui("#commandSlideLeft").click( () => { 
 				ui("#slideContainer").slideHorizontal("left", "7.36rem", 1000);
 			});
 
 
 			// Expand /collapse transitions
 
-			ui("#commandExpandVertical").click( function() {
+			ui("#commandExpandVertical").click( () => {
 
 				ui("#expandCollapseContainer").expandVertical({ 
 						duration: 1000, 
@@ -211,7 +211,7 @@
 
 			});
 
-			ui("#commandCollapseVertical").click( function() { 
+			ui("#commandCollapseVertical").click( () => { 
 
 				ui("#expandCollapseContainer").collapseVertical({ 
 						duration: 1000, 
@@ -225,7 +225,7 @@
 
 			});
 
-			ui("#commandExpandHorizontal").click( function() { 
+			ui("#commandExpandHorizontal").click( () => { 
 
 				ui("#expandCollapseContainer").expandHorizontal({ 
 						duration: 1000, 
@@ -240,7 +240,7 @@
 
 			});
 
-			ui("#commandCollapseHorizontal").click( function() { 
+			ui("#commandCollapseHorizontal").click( () => { 
 
 				ui("#expandCollapseContainer").collapseHorizontal({ 
 						duration: 1000, 

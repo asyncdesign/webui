@@ -336,131 +336,131 @@
 
 	<script>
 
-		webui.ready(function() {
+		webui.ready( () => {
 
 			var selectCounter = 1;
 				
-			ui("#commandAdd").click( function() { 
+			ui("#commandAdd").click( () => { 
 				ui("#list1").moveOptionsTo("#list2", false);
 			});
 			
-			ui("#commandRemove").click( function() { 
+			ui("#commandRemove").click( () => { 
 				ui("#list2").moveOptionsTo("#list1", false);
 			});
 			
-			ui("#commandClearSelected").click( function() { 
+			ui("#commandClearSelected").click( () => { 
 				ui("#list2").removeOptions(true);
 			});
 					
-			ui("#commandSetInvalid").click( function() { 
+			ui("#commandSetInvalid").click( () => { 
 				ui("#list1").setControlState("control", "control outline-danger", true);
 			});
 			
-			ui("#commandDisableListConditionally").click( function() { 
+			ui("#commandDisableListConditionally").click( () => { 
 				ui("#list1, #list2").disableConditionally("#textbox1", ["0"], "control control-disabled", "control");
 			});
 			
-			ui("#commandGetOptionValues").click( function() { 
+			ui("#commandGetOptionValues").click( () => { 
 				alert(ui("#list2").getOptionValues());
 			});
 			
-			ui("#commandGetOptionTexts").click( function() { 
+			ui("#commandGetOptionTexts").click( () => { 
 				alert(ui("#list2").getOptionLabels());
 			});
 			
-			ui("#commandGetSelection").click( function() { 
+			ui("#commandGetSelection").click( () => { 
 				alert(ui.getSelectedContent("#textbox1", false, false));
 			});
 			
-			ui("#commandCheckboxChecked").click( function() { 
+			ui("#commandCheckboxChecked").click( () => { 
 				alert(ui("#checkbox1").isChecked("#checkbox2", ui.FALSE_VALUE));
 			});
 			
-			ui("#commandConformingString").click( function() { 
+			ui("#commandConformingString").click( () => { 
 				alert(ui("#textbox1").hasConformingString(ui.EMAIL_ADDRESS, true, "#textbox2", ui.ANY_VALUE));
 			});
 			
-			ui("#commandNumericRange").click( function() { 
+			ui("#commandNumericRange").click( () => { 
 				alert(ui("#textbox1").hasNumericInRange(0.5, 99.9, false));
 			});
 			
-			ui("#commandIntegerRange").click( function() { 
+			ui("#commandIntegerRange").click( () => { 
 				alert(ui("#textbox1").hasIntegerInRange(-20, 20, false, "#checkbox1", ui.FALSE_VALUE));
 			});
 			
-			ui("#commandValidateInteger").click( function() { 
+			ui("#commandValidateInteger").click( () => { 
 				alert(ui("#textbox1").hasIntegerInRange(1, 31, true, "#list1", /^(England)$/));
 			});
 			
-			ui("#commandValidDate").click( function() { 
+			ui("#commandValidDate").click( () => { 
 				alert(ui("#textbox1").hasValidDateTime("DD/MM/YYYY"));
 			});
 			
-			ui("#commandRetrospectiveDate").click( function() { 
+			ui("#commandRetrospectiveDate").click( () => { 
 				alert(ui("#textbox1").hasPastDateTime("DD/MM/YYYY", true));
 			});
 			
-			ui("#commandFutureDate").click( function() { 
+			ui("#commandFutureDate").click( () => { 
 				alert(ui("#textbox1").hasFutureDateTime("DD/MM/YYYY"));
 			});
 			
-			ui("#commandDateGreaterThan").click( function() { 
+			ui("#commandDateGreaterThan").click( () => { 
 				var dateTime1 = ui.convertToDate(ui("#textbox1").val(), "DD/MM/YYYY HH:mm:ss");
 				var dateTime2 = ui.convertToDate(ui("#textbox2").val(), "DD/MM/YYYY HH:mm:ss");
 
 				alert(dateTime2 > dateTime1);
 			});
 					
-			ui("#commandDisableTextboxConditionally").click( function() { 
+			ui("#commandDisableTextboxConditionally").click( () => { 
 				ui("#textbox1").disableConditionally(["#textbox2"], ["0"], "input control-disabled", "input", "Disabled", "Enabled");
 			});
 			
-			ui("#commandEnableTextboxConditionally").click( function() { 
+			ui("#commandEnableTextboxConditionally").click( () => { 
 				ui("#textbox1").enableConditionally(["#textbox2"], ["0"], "input", "input control-disabled", "Enabled", "Disbaled");
 			});
 			
-			ui("#commandReset").click( function() { 
+			ui("#commandReset").click( () => { 
 				ui("#list1").reset(true);
 				ui("#list2").reset(true);
 			});
 					
-			ui("#commandNormalise").click( function() { 
+			ui("#commandNormalise").click( () => { 
 				ui("#list1").setControlState("control-disabled outline-danger", "control", false);
 				ui("#list2").setControlState("control-disabled outline-danger", "control", false);
 			});
 					
-			ui("#commandDisableWithValue").click( function() { 
+			ui("#commandDisableWithValue").click( () => { 
 				ui("#buttonExampleText").disable("button button-disabled", "button button-success", "Changed Text");
 			});
 			
-			ui("#commandEnableWithValue").click( function() { 
+			ui("#commandEnableWithValue").click( () => { 
 				ui("#buttonExampleText").enable("button button-success", "button button-disabled", "Example Text");
 			});
 			
-			ui("#commandAddSelectOption").click( function() {
+			ui("#commandAddSelectOption").click( () => {
 				ui("#selectInitialise").addOption(selectCounter, "Option " + selectCounter);
 				selectCounter++;
 			});
 			
-			ui("#commandInitialiseSelect").click( function() { 
+			ui("#commandInitialiseSelect").click( () => { 
 				ui("#selectInitialise").initializeOptionsList();
 			});
 			
-			ui("#commandInitialiseSelectWithClasses").click( function() { 
+			ui("#commandInitialiseSelectWithClasses").click( () => { 
 				ui("#selectInitialise").initializeOptionsList("input", "input control-disabled");
 			});
 			
-			ui("#commandInitialiseSelectWithClassesWithValues").click( function() { 
+			ui("#commandInitialiseSelectWithClassesWithValues").click( () => { 
 				ui("#selectInitialise").initializeOptionsList("input", "input control-disabled", "Available items", "Unavailable");
 			});
 						
-			ui("#commandSetSelectedIndex").click( function() { 
+			ui("#commandSetSelectedIndex").click( () => { 
 				ui("#selectInitialise").setSelectedOption(2);
 			});
 			
 /*
 			// Card login validation
-			ui("#buttonLogin").click( function() { 
+			ui("#buttonLogin").click( () => { 
 				if (!ui("#textUsername").hasConformingString(ui.BASIC_STRING, false)) {
 					ui("#textUsername").setControlState("input-sm", "input-sm control-highlight", true, "Please enter username", true);
 				}

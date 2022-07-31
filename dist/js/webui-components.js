@@ -5420,13 +5420,13 @@
 						}
 					}
 
-					toastItem.trigger("ui.toastitem.show.before");
+					toastItem.trigger("ui.toast.show.before");
 	
 					if (transitionDuration) {
-						toastItem.fadeIn(transitionDuration).trigger("ui.toastitem.show.after");
+						toastItem.fadeIn(transitionDuration).trigger("ui.toast.show.after");
 					}
 					else {
-						toastItem.show().trigger("ui.toastitem.show.after");
+						toastItem.show().trigger("ui.toast.show.after");
 					}
 
 					if (autoHide) {
@@ -5450,11 +5450,11 @@
 
 				if (toastItem) {
 		
-					toastItem.trigger("ui.toastitem.hide.before");
+					toastItem.trigger("ui.toast.hide.before");
 					
 					if (transitionDuration) {
 		
-						toastItem.fadeOut(transitionDuration).trigger("ui.toastitem.hide.after");
+						toastItem.fadeOut(transitionDuration).trigger("ui.toast.hide.after");
 						
 						setTimeout(function() {
 							toastItem.remove();
@@ -5462,7 +5462,7 @@
 						
 					}
 					else {
-						toastItem.hide().trigger("ui.toastitem.hide.after");
+						toastItem.hide().trigger("ui.toast.hide.after");
 					}
 				}
 			};

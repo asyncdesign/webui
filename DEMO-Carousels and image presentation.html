@@ -273,7 +273,7 @@
 
 	<script>
 
-		webui.ready(function() {
+		webui.ready( () => {
 							
 
 			var carousel1 = ui("#carousel1")
@@ -289,13 +289,13 @@
 							});
 			
 			
-			carousel1.on("ui.carousel.change.before", function(e) {
+			carousel1.on("ui.carousel.change.before", (e) => {
 				ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
 			});
 			
 			ui("#c1_textForSlide1").fadeIn(1000);
 			
-			carousel1.on("ui.carousel.change.after", function(e) {
+			carousel1.on("ui.carousel.change.after", (e) => {
 				if (e.detail == 1) {
 					ui("#c1_textForSlide1").fadeIn(1000);
 				}
@@ -324,22 +324,22 @@
 				
 			});
 			
-			ui("#c1_prev").click(function(e) {
+			ui("#c1_prev").click( (e) => {
 				e.preventDefault();
 				carousel1.prev();
 			});
 			
-			ui("#c1_next").click(function(e) {
+			ui("#c1_next").click( (e) => {
 				e.preventDefault();
 				carousel1.next();
 			});
 
-			ui("#c1_play").click(function(e) {
+			ui("#c1_play").click( (e) => {
 				e.preventDefault();
 				carousel1.play();
 			});
 			
-			ui("#c1_stop").click(function(e) {
+			ui("#c1_stop").click( (e) => {
 				e.preventDefault();
 				carousel1.stop();
 			});
@@ -362,12 +362,12 @@
 							});
 
 
-			carousel2.on("ui.carousel.change.before", function(e) {
+			carousel2.on("ui.carousel.change.before", (e) => {
 				ui("#c2_textForSlide1, #c2_textForSlide2, #c2_textForSlide3").hide();
 			});
 			
 
-			carousel2.on("ui.carousel.change.after", function(e) {
+			carousel2.on("ui.carousel.change.after", (e) => {
 				if (e.detail == 1) {
 					ui("#c2_textForSlide1").fadeIn(1000);
 				}
@@ -394,22 +394,22 @@
 				}
 			});
 			
-			ui("#c2_prev").click(function(e) {
+			ui("#c2_prev").click( (e) => {
 				e.preventDefault();
 				carousel2.prev();
 			});
 			
-			ui("#c2_next").click(function(e) {
+			ui("#c2_next").click( (e) => {
 				e.preventDefault();
 				carousel2.next();
 			});
 
-			ui("#c2_play").click(function(e) {
+			ui("#c2_play").click( (e) => {
 				e.preventDefault();
 				carousel2.play();
 			});
 			
-			ui("#c2_stop").click(function(e) {
+			ui("#c2_stop").click( (e) => {
 				e.preventDefault();
 				carousel2.stop();
 			});

@@ -548,34 +548,31 @@
 		<div class="modal-md modal-auto-stretch accent-1-light">
 
 			<div class="text-mega place-top-right">
-				<!-- Use absolute positioning for "thethered" modal buttons if the modal is not sized, otherwise use fixed positioning -->
 				<a href="javascript:void(0)" class="modal-close button-link text-lg color-dark color-hover-info margin-top-minus-xs-sm margin-left-minus-xs-sm fixed">&cross;</a>
 			</div>
-			
 
 			<!--<div><img src="images/pears.jpg" alt="picture" class="image"></div>-->
 
-			<div class="modal-scroll-body">
-				<div class="row">
-					<div class="col pad-left-md pad-top-md">
+			<div class="modal-scroll-body min-height-three-quarters">
+				<div class="flex flex-direction-column height-full">
+					<div class="flex-initial pad-md">
 							<span class="text-xl text-bold">Modal Example</span>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col pad-md">
-						<div class="box pad-left-md pad-right-md border-xs border-muted">
+					<div class="flex-expand pad-md">
+						<div class="border-xs border-muted pad-md">
 							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
 								quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
 								ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
 								erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
-								eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-								Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam
-								erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+								eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.</p>
+              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+                quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+                erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+                eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.</p>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="flex justify-content-end gap-horizontal-sm pad-md-lg">
+					<div class="flex-initial flex justify-content-end gap-horizontal-sm pad-md">
 						<div><button type="button" class="button-sm button-success rounded-md" id="modal1OkButton">OK</button></div>
 						<div><button type="button" class="button-sm button-accent-4 rounded-md modal-close" id="modal1CancelButton">Cancel</button></div>
 					</div>						
@@ -584,7 +581,6 @@
 
 		</div>
 	</div>
-
 
 	<!-- The .modal wrapper should not be used for normal dialog windows -->
 	<div class="modal-unsized modal-bottom-left light hidden border-xs" id="dialog1">
@@ -650,7 +646,7 @@
 
 	<script>
 
-		webui.ready(function() {
+		webui.ready( () => {
 
 					
 			//Tooltips
@@ -665,16 +661,16 @@
 			});
 
 			/*
-			tooltipContext1.on("ui.tooltip.show.before", function(e) {
+			tooltipContext1.on("ui.tooltip.show.before", (e) => {
 				console.log("ui.tooltip.show.before");
 			});			
-			tooltipContext1.on("ui.tooltip.show.after", function(e) {
+			tooltipContext1.on("ui.tooltip.show.after", (e) => {
 				console.log("ui.tooltip.show.after");
 			});
-			tooltipContext1.on("ui.tooltip.hide.before", function(e) {
+			tooltipContext1.on("ui.tooltip.hide.before", (e) => {
 				console.log("ui.tooltip.hide.before");
 			});
-			tooltipContext1.on("ui.tooltip.hide.after", function(e) {
+			tooltipContext1.on("ui.tooltip.hide.after", (e) => {
 				console.log("ui.tooltip.hide.after");
 			});
 			*/
@@ -688,11 +684,11 @@
 				duration: 15000,
 				transitionDuration: 600,
 				toastItemTemplate: "#toastItem1",
-				toastItemOrder: "ascending",
+				displayOrder: "ascending",
 				autoHide: true
 			});
 
-			ui("#commandShowToast").click( function() {
+			ui("#commandShowToast").click( () => {
 				ui("#toastItem1").find(".time-element").first().text(new Date().toLocaleTimeString('en-us'));
 				toastContainer1.showToastItem();				
 			});
@@ -709,17 +705,17 @@
 
 			// Events
 			/*
-			toastContainer1.on("ui.toastitem.show.before", function() {
-				console.log("ui.toastitem.show.before");
+			toastContainer1.on("ui.toast.show.before", (e) => {
+				console.log("ui.toast.show.before");
 			});
-			toastContainer1.on("ui.toastitem.show.after", function() {
-				console.log("ui.toastitem.show.after");
+			toastContainer1.on("ui.toast.show.after", (e) => {
+				console.log("ui.toast.show.after");
 			});
-			toastContainer1.on("ui.toastitem.hide.before", function() {
-				console.log("ui.toastitem.hide.before");
+			toastContainer1.on("ui.toast.hide.before", (e) => {
+				console.log("ui.toast.hide.before");
 			});
-			toastContainer1.on("ui.toastitem.hide.after", function() {
-				console.log("ui.toastitem.hide.after");
+			toastContainer1.on("ui.toast.hide.after", (e) => {
+				console.log("ui.toast.hide.after");
 			});
 			*/
 
@@ -739,22 +735,22 @@
 				showClose: true
 			});
 
-			ui("#commandShowAlert").click( function() { 
+			ui("#commandShowAlert").click( () => { 
 				alertContainer1.showInfoAlert("<span class='text-bold'>Alert - </span>" + new Date().toTimeString(), true);
 			});
 
 			// Events
 			/*
-			alertContainer1.on("ui.alert.show.before", function() {
+			alertContainer1.on("ui.alert.show.before", (e) => {
 				console.log("ui.alert.show.before");
 			});
-			alertContainer1.on("ui.alert.show.after", function() {
+			alertContainer1.on("ui.alert.show.after", (e) => {
 				console.log("ui.alert.show.after");
 			});
-			alertContainer1.on("ui.alert.hide.before", function() {
+			alertContainer1.on("ui.alert.hide.before", (e) => {
 				console.log("ui.alert.hide.before");
 			});
-			alertContainer1.on("ui.alert.hide.after", function() {
+			alertContainer1.on("ui.alert.hide.after", (e) => {
 				console.log("ui.alert.hide.after");
 			});
 			*/
@@ -792,11 +788,11 @@
 				focusElement: "#dialog1CancelButton"
 			});
 
-			ui("#commandShowModal1").click( function() {
+			ui("#commandShowModal1").click( () => {
 				modal1.open();
 			});
 
-			ui("#commandShowModal2").click( function() {
+			ui("#commandShowModal2").click( () => {
 				dialog1.open();
 			});
 
@@ -807,7 +803,7 @@
 
 			
 			// Validation
-			ui("#commandValidate").click( function() {
+			ui("#commandValidate").click( () => {
 
 				if (!ui("#textURL").hasConformingString(ui.URL, false)) {
 					ui("#textURL").setControlState("", "control-danger", "Please enter a valid URL", false, false);
