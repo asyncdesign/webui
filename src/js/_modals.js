@@ -109,16 +109,16 @@
 
 
 		/* EVENTS */
-		
-		if (closeFromBackdrop) {
-			modal.click(function (e) {
+			
+		modal.click(function (e) {
+			if (closeFromBackdrop) {
 				if (e.target !== this) {
 					return;
 				}
 				hideModal();
-			});
-		}
-
+			}
+		});
+		
 		modal.find(".modal-close").click(function (e) {
 			e.preventDefault();
 			hideModal();

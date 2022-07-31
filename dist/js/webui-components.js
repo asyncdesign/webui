@@ -4331,16 +4331,16 @@
 
 
 		/* EVENTS */
-		
-		if (closeFromBackdrop) {
-			modal.click(function (e) {
+			
+		modal.click(function (e) {
+			if (closeFromBackdrop) {
 				if (e.target !== this) {
 					return;
 				}
 				hideModal();
-			});
-		}
-
+			}
+		});
+		
 		modal.find(".modal-close").click(function (e) {
 			e.preventDefault();
 			hideModal();
@@ -5241,7 +5241,7 @@
 					activeTab.show().children().fadeIn(transitionDuration);
 				}
 				else if (transitionType === "collapse") {
-					activeTab.expandVertical(transitionDuration, "auto");
+					activeTab.show().children().expandVertical({ duration: transitionDuration });
 				}
 				else {
 					activeTab.show();
@@ -5259,12 +5259,12 @@
 					activeTab.find(".tabs").find(".tab-item").first().show().children().fadeIn(transitionDuration);			
 				}
 				else if (transitionType === "collapse") {
-					activeTab.siblings(".tab-item").collapseVertical(transitionDuration);
-					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
-					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);			
-					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").collapseVertical(transitionDuration);
+					activeTab.siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
+					activeTab.parents(".tabs").parents(".tabs").first().children(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
+					activeTab.parents(".tabs").parents(".tabs").last().children(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });			
+					activeTab.find(".tabs").find(".tab-item").first().siblings(".tab-item").hide().children().collapseVertical({ duration: transitionDuration });
 
-					activeTab.find(".tabs").find(".tab-item").first().expandVertical(transitionDuration, "auto");			
+					activeTab.find(".tabs").find(".tab-item").first().show().children().expandVertical({ duration: transitionDuration });			
 				}
 				else {
 					activeTab.siblings(".tab-item").hide();			
@@ -5304,6 +5304,7 @@
 		setActiveTab = function () {
 
 			if (settings.activeTabId) {
+
 				var dataTarget = tabs.find("[data-target='" + settings.activeTabId + "']").first();
 				if (dataTarget) {
 					dataTarget[0].click();
