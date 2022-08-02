@@ -6,22 +6,24 @@
 	var TabsInstance = function(tabs, settings) {
 
 		var 
+		activeTabId = settings.activeTabId,
+		activeTabFocused = settings.activeTabFocused,
 		transitionDuration = settings.transitionDuration,
 		transitionType = settings.transitionType,
 
-		selectTab = function (tabAcivator) {
+		selectTab = function (tabActivator) {
 
-			var tabId = tabAcivator.data("target");
+			var tabId = tabActivator.data("target");
 
 			if (tabId) {
 
-				var prevTabId = "#" + tabAcivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
+				var prevTabId = "#" + tabActivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
 
-				tabAcivator.parents(".tabs").find(".tab-item").removeClass("selected");
+				tabActivator.parents(".tabs").find(".tab-item").removeClass("selected");
 
-				tabAcivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
+				tabActivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
 
-				var activeTab = tabAcivator.parents(".tabs").find(tabId).first();
+				var activeTab = tabActivator.parents(".tabs").find(tabId).first();
 				
 				if (transitionType === "fade") {
 					activeTab.show().children().fadeIn(transitionDuration);
@@ -61,7 +63,7 @@
 					activeTab.find(".tabs").find(".tab-item").first().show();									
 				}
 				
-				tabAcivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
+				tabActivator.trigger("ui.tabs.change.after", [ prevTabId, tabId ]);
 			}
 		},
 
@@ -89,22 +91,22 @@
 
 		setActiveTab = function () {
 
-			if (settings.activeTabId) {
+			if (activeTabId) {
 
-				var dataTarget = tabs.find("[data-target='" + settings.activeTabId + "']").first();
+				var dataTarget = tabs.find("[data-target='" + activeTabId + "']").first();
 				if (dataTarget) {
 					dataTarget[0].click();
 					dataTarget.addClass("selected");
-					if (settings.activeTabFocused) {
+					if (activeTabFocused) {
 						dataTarget[0].focus();
 					}
 				}
 				else {
-					var href = tabs.find("[href='" + settings.activeTabId + "']").first();
+					var href = tabs.find("[href='" + activeTabId + "']").first();
 					if (href) {
 						href[0].click();
 						href.addClass("selected");
-						if (settings.activeTabFocused) {
+						if (activeTabFocused) {
 							href[0].focus();
 						}
 					}							
@@ -123,6 +125,13 @@
 				}
 			}		
 
+		},
+
+		resetTabs = function() {
+
+			tabs.find(".tab-item").children().attr("style", "");
+			setActiveTab();
+						
 		};
 
 
@@ -132,6 +141,8 @@
 			if (newSettings.activeTabFocused !== undefined) { activeTabFocused = newSettings.activeTabFocused; }
 			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
 			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
+
+			resetTabs();
 		};
 
 

@@ -67,16 +67,7 @@
 					}
 				}
 			}
-		});	
-
-		this.updateInstance = function (newSettings) {
-
-			if (newSettings.showFiles !== undefined) { showFiles = newSettings.showFiles; }
-			if (newSettings.showCount !== undefined) { showCount = newSettings.showCount; }
-			if (newSettings.scrollX !== undefined) { scrollX = newSettings.scrollX; }
-			if (newSettings.scrollY !== undefined) { scrollY = newSettings.scrollY; }
-		};
-
+		});
 
 	};
 
@@ -95,10 +86,6 @@
 			if (this.length > 1) { console.warn("WebUI upload component does not support initialising multiple controls. Initialize a new component instead.") }
 
 			var control = new UploadInstance(this.first(), settings);
-
-			this.update = function (newSettings) {
-				control.updateInstance(newSettings);
-			};
 			
 			return this;
 		},

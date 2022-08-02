@@ -6,10 +6,10 @@
 	var CarouselInstance = function(carousel, settings) { 
 		
 		var 
-			interval = settings.interval,
 			autoPlay = settings.autoPlay,
 			autoScale = settings.autoScale,
 			playDirection = settings.playDirection,
+			playInterval = settings.playInterval,
 			stopOnHover = settings.stopOnHover,
 			transitionDuration = settings.transitionDuration,
 			transitionType = settings.transitionType,
@@ -269,12 +269,12 @@
 				if (playDirection === "next") {
 					run = setInterval(function() {
 						nextSlide();
-					}, interval);
+					}, playInterval);
 				}
 				else if (playDirection === "prev") {
 					run = setInterval(function() {
 						prevSlide();
-					}, interval);					
+					}, playInterval);					
 				}	
 
 			},		
@@ -364,19 +364,19 @@
 			stopCarousel();
 		};
 
-		this.updateInstance = function (newSettings) {
+		this.playDirection = function (direction) {	
+			playDirection = direction;
+			if (autoPlay) {
+				playCarousel();
+			}
+		};
 
-			if (newSettings.interval !== undefined) { interval = newSettings.interval; }
-			if (newSettings.autoPlay !== undefined) { autoPlay = newSettings.autoPlay; }
-			if (newSettings.autoScale !== undefined) { autoScale = newSettings.autoScale; }
-			if (newSettings.playDirection !== undefined) { playDirection = newSettings.playDirection; }
-			if (newSettings.stopOnHover !== undefined) { stopOnHover = newSettings.stopOnHover; }
-			if (newSettings.transitionDuration !== undefined) { transitionDuration = newSettings.transitionDuration; }
-			if (newSettings.transitionType !== undefined) { transitionType = newSettings.transitionType; }
-			if (newSettings.transitionOrientation !== undefined) { transitionOrientation = newSettings.transitionOrientation; }	
-			if (newSettings.width !== undefined) { width = newSettings.width; }
-			if (newSettings.height !== undefined) { height = newSettings.height; }
-		};	
+		this.playInterval = function (interval) {	
+			playInterval = interval;
+			if (autoPlay) {
+				playCarousel();
+			}
+		};
 	
 	};
 
@@ -386,12 +386,12 @@
 		value: function (options) {
 
 			var settings = ui.extend({
-				interval: 10000,
 				autoPlay: true,
 				autoScale: true,
 				playDirection: "next",
+				playInterval: 10000,
 				stopOnHover: true,
-				transitionDuration: 1500,
+				transitionDuration: 1000,
 				transitionType: "slide",
 				transitionOrientation: "horizontal",
 				width: "600px",
@@ -422,10 +422,14 @@
 				control.stop();				
 			};
 
-			this.update = function (newSettings) {
-				control.updateInstance(newSettings);
-			};	
-	
+			this.playDirection = function (direction) {		
+				control.playDirection(direction);				
+			};
+
+			this.playInterval = function (interval) {		
+				control.playInterval(interval);				
+			};
+
 			return this;
 
 		},
