@@ -40,19 +40,28 @@
 					var files = upload[0].files;
 					if (files != null && files.length > 0) {
 						if (label) {
-							var textValue = "";
-							if (label.hasClass("hide-files") === false) {
+							var textValue = "",
+									hideFiles = label.hasClass("hide-files"),
+									hideCount = label.hasClass("hide-count");
+
+							if (!hideCount) {
+								if (files.length === 1) {
+									textValue += "(1) file.";
+								}
+								else if (files.length > 1) {
+									textValue += "(" + files.length + ") files.";
+								}
+							}
+							if (!hideFiles) {
+								if (!hideCount) {
+									textValue += "<br /><br />";
+								}
 								for (var i = 0; i < files.length; i++) {
 									textValue += files[i].name + "<br />";
 								}
 							}
-							if (label.hasClass("hide-count") === false) {
-								if (files.length > 1) {
-									textValue += "<br />(" + files.length + ") files.";
-								}
-							}
-							if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-								textValue += "<br />Files ready.";
+							if (hideFiles && hideCount) {
+								textValue += "Files ready.";
 							}
 							label.html(textValue);
 							upload.trigger("ui.upload.change.after");

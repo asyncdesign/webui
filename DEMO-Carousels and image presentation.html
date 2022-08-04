@@ -420,9 +420,18 @@
 			ui(".zoom-image").zoomControl({ 
 				zoomFactor: 1.2,
 				trigger: "hover",
-				transitionDuration: 300
+				transitionDuration: 300,
+				zoomInCallback: zoomIn,
+				zoomOutCallback: zoomOut
 			});
 
+			function zoomIn(e) {
+				//console.log(e.target);
+			}
+			function zoomOut(e) {
+				//console.log(e.target);
+			}
+			
 				
 		}, true);
 

@@ -54,8 +54,8 @@
       if (settings.activatorCallback) {
         var activators = controls.find(settings.activatorSelector);
         for (var i = 0; i < activators.length; i++) {
-          activators[i].addEventListener("click", function () {
-            settings.activatorCallback();
+          activators[i].addEventListener("click", function (e) {
+            settings.activatorCallback(e);
           });
         }
       }

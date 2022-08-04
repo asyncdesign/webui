@@ -5110,8 +5110,8 @@
       if (settings.activatorCallback) {
         var activators = controls.find(settings.activatorSelector);
         for (var i = 0; i < activators.length; i++) {
-          activators[i].addEventListener("click", function () {
-            settings.activatorCallback();
+          activators[i].addEventListener("click", function (e) {
+            settings.activatorCallback(e);
           });
         }
       }
@@ -6051,19 +6051,28 @@
 					var files = upload[0].files;
 					if (files != null && files.length > 0) {
 						if (label) {
-							var textValue = "";
-							if (label.hasClass("hide-files") === false) {
+							var textValue = "",
+									hideFiles = label.hasClass("hide-files"),
+									hideCount = label.hasClass("hide-count");
+
+							if (!hideCount) {
+								if (files.length === 1) {
+									textValue += "(1) file.";
+								}
+								else if (files.length > 1) {
+									textValue += "(" + files.length + ") files.";
+								}
+							}
+							if (!hideFiles) {
+								if (!hideCount) {
+									textValue += "<br /><br />";
+								}
 								for (var i = 0; i < files.length; i++) {
 									textValue += files[i].name + "<br />";
 								}
 							}
-							if (label.hasClass("hide-count") === false) {
-								if (files.length > 1) {
-									textValue += "<br />(" + files.length + ") files.";
-								}
-							}
-							if (label.hasClass("hide-files") && label.hasClass("hide-count")) {
-								textValue += "<br />Files ready.";
+							if (hideFiles && hideCount) {
+								textValue += "Files ready.";
 							}
 							label.html(textValue);
 							upload.trigger("ui.upload.change.after");
@@ -6649,9 +6658,11 @@
 		value: function (options) {
 
 			var settings = ui.extend({
-				zoomFactor: 1.05,
+				zoomFactor: 1.1,
 				trigger: "hover",
-				transitionDuration: 500
+				transitionDuration: 300,
+				zoomInCallback: null,
+				zoomOutCallback: null
 			}, options);
 
 
@@ -6666,19 +6677,31 @@
 				if (settings.trigger === "hover") {
 					control.hoverIn(function (e) {
 						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
+						if (settings.zoomInCallback) {
+							settings.zoomInCallback(e);
+						}		
 					});
 					control.hoverOut(function (e) {
 						webui(this).css("transform", "scale(1)");
+						if (settings.zoomOutCallback) {
+							settings.zoomOutCallback(e);
+						}		
 					});
 				}
 				else if (settings.trigger === "focus") {
 					control.focus(function (e) {
 						webui(this).css("transform", "scale(" + settings.zoomFactor + ")");
+						if (settings.zoomInCallback) {
+							settings.zoomInCallback(e);
+						}		
 					});
 					control.blur(function (e) {
 						webui(this).css("transform", "scale(1)");
+						if (settings.zoomOutCallback) {
+							settings.zoomOutCallback(e);
+						}
 					});
-				}
+				}	
 			}
 
 			return this;
