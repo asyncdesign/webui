@@ -38,7 +38,7 @@ module.exports = {
       bundles: [
         {
           dest: './dist/js/webui.min.js',
-          src: './src/js/main.js',
+          src: ['./src/js/_settings.js', './src/js/main.js'],
           transforms: {
             after: async (code) => {
               const minifiedCode = await terser.minify(code);

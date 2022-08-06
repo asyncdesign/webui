@@ -30,7 +30,7 @@ module.exports = {
       bundles: [
         {
           dest: './dist/js/webui.js',
-          src: './src/js/main.js'
+          src: ['./src/js/_settings.js', './src/js/main.js']
         }]
     }),
     new MiniCssExtractPlugin({
