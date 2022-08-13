@@ -139,14 +139,12 @@
         }
       }
 
-      targetHeightUnit = "px";
-
       if (settings.paddingTop) { uiElement.animate("padding-top", 1, settings.paddingTop, 0, settings.duration); }
       if (settings.paddingBottom) { uiElement.animate("padding-bottom", 1, settings.paddingBottom, 0, settings.duration); }
       if (settings.borderTopWidth) { uiElement.animate("border-top-width", 1, settings.borderTopWidth, 0, settings.duration); }
       if (settings.borderBottomWidth) { uiElement.animate("border-bottom-width", 1, settings.borderBottomWidth, 0, settings.duration); }
 
-      uiElement.animate("height", 1, (uiTargetHeight - uiOriginalHeight) + targetHeightUnit, uiOriginalHeight, settings.duration, function (el) {
+      uiElement.animate("height", 1, (uiTargetHeight - uiOriginalHeight) + "px", uiOriginalHeight, settings.duration, function (el) {
         
         if (settings.targetHeight === "auto") {
           el.css("height", "auto");
@@ -235,14 +233,12 @@
         }
       }
 
-      targetWidthUnit = "px";
-
       if (settings.paddingLeft) { uiElement.animate("padding-left", 1, settings.paddingLeft, 0, settings.duration); }
       if (settings.paddingRight) { uiElement.animate("padding-right", 1, settings.paddingRight, 0, settings.duration); }
       if (settings.borderLeftWidth) { uiElement.animate("border-left-width", 1, settings.borderLeftWidth, 0, settings.duration); }
       if (settings.borderRightWidth) { uiElement.animate("border-right-width", 1, settings.borderRightWidth, 0, settings.duration); }
 
-      uiElement.animate("width", 1, (uiTargetWidth - uiOriginalWidth) + targetWidthUnit, uiOriginalWidth, settings.duration, function (el) {
+      uiElement.animate("width", 1, (uiTargetWidth - uiOriginalWidth) + "px", uiOriginalWidth, settings.duration, function (el) {
         
         if (settings.targetWidth === "auto") {
           el.css("width", "auto");
@@ -302,14 +298,12 @@
         }
       }
 
-      targetHeightUnit = "px";
-
       if (settings.paddingTop) { uiElement.animate("padding-top", 0, settings.paddingTop, 0, settings.duration); }
       if (settings.paddingBottom) { uiElement.animate("padding-bottom", 0, settings.paddingBottom, 0, settings.duration); }
       if (settings.borderTopWidth) { uiElement.animate("border-top-width", 0, settings.borderTopWidth, 0, settings.duration); }
       if (settings.borderBottomWidth) { uiElement.animate("border-bottom-width", 0, settings.borderBottomWidth, 0, settings.duration); }
  
-      uiElement.animate("height", 0, (uiCurrentHeight - uiTargetHeight) + targetHeightUnit, uiTargetHeight, settings.duration, function (el) {
+      uiElement.animate("height", 0, (uiCurrentHeight - uiTargetHeight) + "px", uiTargetHeight, settings.duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetHeightValue) {
@@ -367,14 +361,12 @@
         }
       }
 
-      targetWidthUnit = "px";
-
       if (settings.paddingLeft) { uiElement.animate("padding-left", 0, settings.paddingLeft, 0, settings.duration); }
       if (settings.paddingRight) { uiElement.animate("padding-right", 0, settings.paddingRight, 0, settings.duration); }
       if (settings.borderLeftWidth) { uiElement.animate("border-left-width", 0, settings.borderLeftWidth, 0, settings.duration); }
       if (settings.borderRightWidth) { uiElement.animate("border-right-width", 0, settings.borderRightWidth, 0, settings.duration); }
  
-      uiElement.animate("width", 0, (uiCurrentWidth - uiTargetWidth) + targetWidthUnit, uiTargetWidth, settings.duration, function (el) {
+      uiElement.animate("width", 0, (uiCurrentWidth - uiTargetWidth) + "px", uiTargetWidth, settings.duration, function (el) {
         el.css("overflow", uiOverflow);
 
         if (!targetWidthValue) {

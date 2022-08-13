@@ -1,15 +1,15 @@
 
-<p style="text-align: center;">
+<p align="center">
   <img src="images/webui_blue_96x96.png" alt="Webui Logo" />
 </p>
 
-<h1 style="text-align: center;"><b>WebUI</b></h1>
+<h1 align="center"><b>WebUI</b></h1>
 
 *The Swiss Army Knife of CSS frameworks*
 
 <p>&nbsp;</p>
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://github.com/asyncdesign/webui/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License">
   </a>
@@ -109,18 +109,17 @@ The GitHub download includes all WebUI files for the framework, docs website, de
 * Alerts
 * Animation
 * Carousel
+* Focus Trap
 * Menus
 * Modals
 * Navbar
 * NavButton
 * NavIndicator
-* Positioning
 * Radial
 * Scrollspy
 * Shapes
 * Tabs
 * Toast Container
-* Toggle Container
 * Tooltips
 * Upload
 * Validation
@@ -159,11 +158,11 @@ content to be completed and the document.readyState === "complete" before runnin
 **NOTE:** These events do not need to be used if you are using a framework lifecycle mounted or render event.
 
 ````JavaScript
-webui.ready(function() {
+webui.ready( () => {
   // Call WebUI functions here...
 });
 
-webui.ready(function() {
+webui.ready( () => {
   // Call WebUI functions here...
 }, true);
 ````
@@ -172,31 +171,31 @@ webui.ready(function() {
 
 #### **Angular**
 
-* From the command line, navigate to your **Angular CLI** project folder.
-* Type **npm install asyncdesign-webui** and wait for the install to finish.
-* In **tsconfig.json** add **"allowJs": true** to the **"compilerOptions"** object.
-* In **.angular-cli.json** add **"../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css"** to the styles array.
-* In **.angular-cli.json** add **"../node_modules/asyncdesign-webui/dist/js/webui-components.min.js"** to the scripts array.
-* In **typings.d.ts** add **declare var webui: any**
-* In your **app.components.ts** add **import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-components.min.js';** at the top of your file.
+* From the command line, navigate to your `Angular CLI` project folder.
+* Type `npm install asyncdesign-webui` and wait for the install to finish.
+* In `tsconfig.json` add `"allowJs": true` to the `"compilerOptions"` object.
+* In `.angular-cli.json` add `"../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css"` to the styles array.
+* In `.angular-cli.json` add `"../node_modules/asyncdesign-webui/dist/js/webui-components.min.js"` to the scripts array.
+* In `typings.d.ts` add `declare var webui: any`
+* In your `app.components.ts` add `import * as webui from '../../node_modules/asyncdesign-webui/dist/js/webui-components.min.js';` at the top of your file.
 		
 #### **React**
 
-* From the command line, navigate to your **React** project folder.
-* Type **npm install asyncdesign-webui** and wait for the install to finish.
-* In your **React** component js file such as **App.js** add **import webui from '../node_modules/asyncdesign-webui/dist/js/webui-components.min.js'**
-* Then add **import '../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css'**
-* Don't forget to use **className=""** instead of **class=""** on your html elements.
-* If you need to use WebUI javascript functions, this should be done in the **componentDidMount()** lifecycle method.
+* From the command line, navigate to your `React` project folder.
+* Type `npm install asyncdesign-webui` and wait for the install to finish.
+* In your `React` component js file such as `App.js` add `import webui from '../node_modules/asyncdesign-webui/dist/js/webui-components.min.js'`
+* Then add `import '../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css'`
+* Don't forget to use `className=""` instead of `class=""` on your html elements.
+* If you need to use WebUI javascript functions, this should be done in the `componentDidMount()` lifecycle method.
 
 #### **Vue**
 
-* From the command line, navigate to your **Vue CLI** project folder.
-* Type **npm install asyncdesign-webui** and wait for the install to finish.
-* In **webpack.base.conf.js** under **resolve: alias:** add **'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-components.min.js')**
-* In **main.js** add **import webui from 'webui';**
-* In **main.js** add **import '../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css';**
-* Then finally, add **Vue.use(webui)** directly below your imports.
+* From the command line, navigate to your `Vue CLI` project folder.
+* Type `npm install asyncdesign-webui` and wait for the install to finish.
+* In `webpack.base.conf.js` under `resolve: alias:` add `'webui': resolve('node_modules/asyncdesign-webui/dist/js/webui-components.min.js')`
+* In `main.js` add `import webui from 'webui';`
+* In `main.js` add `import '../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css';`
+* Then finally, add `Vue.use(webui)` directly below your imports.
 
 #
 
