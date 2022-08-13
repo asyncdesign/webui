@@ -101,6 +101,33 @@
 		</div>
 
 
+		<div class="row-spacing-lg"></div>
+
+		<div class="row">
+			<div class="col">
+				<div class="text-sm pad-bottom-md">Use snap positioning to position shapes.</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				
+				<div class="width-xl height-md-lg border-sm border-color-muted" id="containerSnapPosition">
+					<div class="kite-clip-shape width-md height-md background-accent-1" id="shapeSnapPosition"></div>
+				</div>
+	
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+
+		
+			</div>
+		</div>
+
+
+
 		<!--
 		<div class="row-spacing-lg"></div>
 
@@ -144,6 +171,8 @@
 
 			});
 			
+			// Target element must have width and height defined.
+			ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [-6, 0], "rem");
 				
 		});
 			

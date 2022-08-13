@@ -1353,14 +1353,21 @@
 		return this;
 	};
 
-	fn.onTransitionStart = function (callback) {
+	fn.transitionStart = function (callback) {
+		for (var i = 0; i < this.length; i++) {
+			this[i].addEventListener("transitionstart", callback);
+		}
+		return this;
+	};
+
+	fn.transitionRun = function (callback) {
 		for (var i = 0; i < this.length; i++) {
 			this[i].addEventListener("transitionrun", callback);
 		}
 		return this;
 	};
 
-	fn.onTransitionEnd = function (callback) {
+	fn.transitionEnd = function (callback) {
 		for (var i = 0; i < this.length; i++) {
 			this[i].addEventListener("transitionend", callback);
 		}
@@ -1807,73 +1814,6 @@
 					this.css("min-height", "1px");
 				}
 			}
-		}
-		return this;
-	};
-
-	fn.resizeElement = function (callback, params) {
-		var el;
-
-		for (var i = 0; i < this.length; i++) {
-			el = this[i];
-
-			var zIndex = parseInt(getComputedStyle(el).getPropertyValue("z-index"));
-
-			if (isNaN(zIndex)) { 
-				zIndex = 0; 
-			};
-			zIndex--;
-		
-			var expand = document.createElement("div");
-			webui(expand).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
-		
-			var expandChild = document.createElement("div");
-			webui(expandChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "10000000px").css("height", "10000000px");
-			expand.appendChild(expandChild);
-		
-			var shrink = document.createElement("div");
-			webui(shrink).css("position", "absolute").css("left", "0").css("top", "0").css("right", "0").css("bottom", "0").css("overflow", "hidden").css("visibility", "hidden").css("zIndex", zIndex);
-		
-			var shrinkChild = document.createElement("div");
-			webui(shrinkChild).css("position", "absolute").css("left", "0").css("top", "0").css("width", "200%").css("height", "200%");
-			shrink.appendChild(shrinkChild);
-		
-			el.appendChild(expand);
-			el.appendChild(shrink);
-		
-			function setScroll()
-			{
-				expand.scrollLeft = 10000000;
-				expand.scrollTop = 10000000;		
-				shrink.scrollLeft = 10000000;
-				shrink.scrollTop = 10000000;
-			};
-			setScroll();
-		
-			var size = el.getBoundingClientRect();
-		
-			var currentWidth = size.width;
-			var currentHeight = size.height;
-		
-			var onScroll = function()
-			{
-				var size = el.getBoundingClientRect();
-		
-				var newWidth = size.width;
-				var newHeight = size.height;
-		
-				if (newWidth != currentWidth || newHeight != currentHeight)
-				{
-					currentWidth = newWidth;
-					currentHeight = newHeight;
-		
-					callback(el, params);
-				}
-				setScroll();
-			};
-		
-			expand.addEventListener("scroll", onScroll);
-			shrink.addEventListener("scroll", onScroll);
 		}
 		return this;
 	};
