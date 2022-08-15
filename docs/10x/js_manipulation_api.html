@@ -1,0 +1,4259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WebUI mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
+
+  <link rel="stylesheet" href="/webui/10x/assets/font_awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/webui/10x/assets/css/webui-components-all.css">
+  <link rel="stylesheet" href="/webui/10x/assets/css/site.css">
+  <link rel="canonical" href="http://localhost:4000/webui/10x/js_manipulation_api.html">
+  <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/10x/feed.xml">
+  <link rel="shortcut icon" href="/webui/10x/favicon.ico">
+
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: normal;
+      src:url("/webui/10x/assets/google/fonts/OpenSans-Regular.ttf");
+    } 
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: bold;
+      src:url("/webui/10x/assets/google/fonts/OpenSans-SemiBold.ttf");
+    } 
+  </style>
+  
+  
+</head>
+
+
+<body class="text-sm">
+
+  <div class="dock-top-center width-full height-sm background-light border-sm border-transparent border-bottom-accent-1-light show-bp-4-under" id="mobileNav">
+    <div class="toggle-container" data-transition-duration="700" data-close-external="#homeMobileSideNav">
+
+      <div class="content-col dock-top-left layer-top show-bp-4-under">
+        <button data-target="#homeMobileSideNav" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars"></button>
+      </div>
+
+      <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="homeMobileSideNav">
+        
+    <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
+
+      <div>
+        <a href="/webui/10x/index.html" class="color-dark text-bold color-hover-info">Home</a>
+      </div>
+      <div>
+        <a href="/webui/10x/getting_started.html" class="color-dark text-bold color-hover-info">Getting Started</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
+        <div class="pad-left-sm">
+          <a href="#installation" class="color-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#whatsIncluded" class="color-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#useage" class="color-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#gridLayouts" class="color-dark color-hover-info" data-scrollspy="#gridLayouts">Grid Layouts</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#addingContent" class="color-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#addingColor" class="color-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text text-bold pad-left-lg pad-right-lg">
+      <div class="row-spacing-md border-xs border-transparent border-top-info-light"></div>
+
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+        </div>
+      </div>
+
+      <div class="row-spacing-xs"></div>
+    </div>
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
+
+      <div>
+        <a href="/webui/10x/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gridSystemMenu">
+        <div class="pad-left-sm">
+          <a href="#gridSystemOverview" class="color-dark color-info color-hover-info" data-scrollspy="#gridSystemOverview">Overview</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#contentGrid" class="color-dark color-hover-info" data-scrollspy="#contentGrid">Content Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#formGrid" class="color-dark color-hover-info" data-scrollspy="#formGrid">Form Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tableGrid" class="color-dark color-hover-info" data-scrollspy="#tableGrid">Table Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#nestingColumns" class="color-dark color-hover-info" data-scrollspy="#nestingColumns">Nesting Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalWidthColumns" class="color-dark color-hover-info" data-scrollspy="#equalWidthColumns">Equal Width Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalHeightColumns" class="color-dark color-hover-info" data-scrollspy="#equalHeightColumns">Equal Height Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
+      </div>
+
+      <div>
+        <a href="/webui/10x/flexbox.html" class="color-dark text-bold color-hover-info">Flexbox</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
+        <div class="pad-left-sm">
+          <a href="#flexboxOverview" class="color-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxBasicStructure" class="color-dark color-hover-info" data-scrollspy="#flexboxBasicStructure">Basic Structure</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxFlexItemSizing" class="color-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxOrientation" class="color-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="containersMenu">
+        <div class="pad-left-sm">
+          <a href="#containersOverview" class="color-dark color-info color-hover-info" data-scrollspy="#containersOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersContainerClasses">Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersMediaContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersMediaContainerClasses">Media Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersResponsiveGutters" class="color-dark color-hover-info" data-scrollspy="#containersResponsiveGutters">Responsive Gutters</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alignment.html" class="color-dark text-bold color-hover-info">Alignment</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
+        <div class="pad-left-sm">
+          <a href="#textAlignment" class="color-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#elementAlignment" class="color-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#floatAlignment" class="color-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/padding.html" class="color-dark text-bold color-hover-info">Padding</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
+        <div class="pad-left-sm">
+          <a href="#basicPadding" class="color-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingForGrids" class="color-dark color-hover-info" data-scrollspy="#paddingForGrids">Padding for Grids</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingWithFlexbox" class="color-dark color-hover-info" data-scrollspy="#paddingWithFlexbox">Padding with Flexbox</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/spacing.html" class="color-dark text-bold color-hover-info">Spacing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
+        <div class="pad-left-sm">
+          <a href="#horizontalSpacing" class="color-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#verticalSpacing" class="color-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/positioning.html" class="color-dark text-bold color-hover-info">Positioning</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
+        <div class="pad-left-sm">
+          <a href="#absolutePositioning" class="color-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#fixedPositioning" class="color-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/sizing.html" class="color-dark text-bold color-hover-info">Sizing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
+        <div class="pad-left-sm">
+          <a href="#widthClasses" class="color-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#heightClasses" class="color-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#aspectRatios" class="color-dark color-hover-info" data-scrollspy="#aspectRatios">Aspect Ratios</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/colors.html" class="color-dark text-bold color-hover-info">Colors</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
+        <div class="pad-left-sm">
+          <a href="#themeColors" class="color-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#translucency" class="color-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#focusAndHoverEvents" class="color-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/typography.html" class="color-dark text-bold color-hover-info">Typography</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
+        <div class="pad-left-sm">
+          <a href="#textSizes" class="color-dark color-info color-hover-info" data-scrollspy="#textSizes">Text Sizes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#moreTextClasses" class="color-dark color-hover-info" data-scrollspy="#moreTextClasses">More Text Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" class="color-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/buttons.html" class="color-dark text-bold color-hover-info">Buttons</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
+        <div class="pad-left-sm">
+          <a href="#buttonClasses" class="color-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#buttons" class="color-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuButtons" class="color-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/form_controls.html" class="color-dark text-bold color-hover-info">Form Controls</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
+        <div class="pad-left-sm">
+          <a href="#inputClasses" class="color-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#controlClasses" class="color-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#textboxes" class="color-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textareas" class="color-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#dropdownsAndDatalists" class="color-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#checkboxesAndRadioButtons" class="color-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
+        </div>   
+      </div>
+  
+      <div>
+        <a href="/webui/10x/tooltips.html" class="color-dark text-bold color-hover-info">Tooltips</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
+        <div class="pad-left-sm">
+          <a href="#tooltipClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#basicTooltips" class="color-dark color-hover-info" data-scrollspy="#basicTooltips">Basic Tooltips</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsDetailedUseage" class="color-dark color-hover-info" data-scrollspy="#tooltipsDetailedUseage">Detailed Useage</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsCustomisation" class="color-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alerts.html" class="color-dark text-bold color-hover-info">Alerts</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
+        <div class="pad-left-sm">
+          <a href="#alerts" class="color-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#alertCustomisation" class="color-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/menus.html" class="color-dark text-bold color-hover-info">Menus</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
+        <div class="pad-left-sm">
+          <a href="#menuClasses" class="color-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#menuAttributes" class="color-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
+        </div>     
+        <div class="pad-left-sm">
+          <a href="#menus" class="color-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuDropdowns" class="color-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuCustomisation" class="color-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/modals.html" class="color-dark text-bold color-hover-info">Modals</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
+        <div class="pad-left-sm">
+          <a href="#modalClasses" class="color-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#modals" class="color-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#modalEvents" class="color-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/tabs.html" class="color-dark text-bold color-hover-info">Tabs</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
+        <div class="pad-left-sm">
+          <a href="#tabClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#tabs" class="color-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" class="color-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/toggle_container.html" class="color-dark text-bold color-hover-info">Toggle Container</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
+        <div class="pad-left-sm">
+          <a href="#toggleContainerClasses" class="color-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainer" class="color-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" class="color-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/scrollspy.html" class="color-dark text-bold color-hover-info">Scrollspy</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+        <div class="pad-left-sm">
+          <a href="#scrollspyClasses" class="color-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#scrollspySettings" class="color-dark color-hover-info" data-scrollspy="#scrollspySettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#scrollspyUseage" class="color-dark color-hover-info" data-scrollspy="#scrollspyUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/radials.html" class="color-dark text-bold color-hover-info">Radials</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+        <div class="pad-left-sm">
+          <a href="#radialClasses" class="color-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#radialSettings" class="color-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#radials" class="color-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+        </div>
+      </div>
+  
+      <div>
+        <a href="/webui/10x/shapes.html" class="color-dark text-bold color-hover-info">Shapes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
+        <div class="pad-left-sm">
+          <a href="#transformShapes" class="color-dark color-info color-hover-info" data-scrollspy="#transformShapes">Transform Shapes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#clipPathShapes" class="color-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#breadcrumbShapes" class="color-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#razorBladeShapes" class="color-dark color-hover-info" data-scrollspy="#razorBladeShapes">Razor-Blade Shapes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#extendShapes" class="color-dark color-hover-info" data-scrollspy="#extendShapes">Extend Shapes</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/carousels.html" class="color-dark text-bold color-hover-info">Carousels</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
+        <div class="pad-left-sm">
+          <a href="#carouselClasses" class="color-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
+        <div class="pad-left-sm">
+          <a href="#uploadClasses" class="color-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadSettings" class="color-dark color-hover-info" data-scrollspy="#uploadSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadControl" class="color-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/utility_classes.html" class="color-dark text-bold color-hover-info">Utility Classes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
+        <div class="pad-left-sm">
+          <a href="#borders" class="color-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#boundaries" class="color-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#outlines" class="color-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#shadows" class="color-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#visibility" class="color-dark color-hover-info" data-scrollspy="#visibility">Visibility</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#mediaUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#mediaUtilityClasses">Media Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#otherUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#otherUtilityClasses">Other Classes</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+
+      <div>
+        <a href="/webui/10x/js_introduction.html" class="color-dark text-bold color-hover-info">Introduction</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
+        <div class="pad-left-sm">
+          <a href="#jsOverview" class="color-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUseage" class="color-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_traversal_api.html" class="color-dark text-bold color-hover-info">DOM Traversal API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsChildren" class="color-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFirst" class="color-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHas" class="color-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsIs" class="color-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsLast" class="color-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSibling" class="color-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSiblings" class="color-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsParent" class="color-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsParents" class="color-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSibling" class="color-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_manipulation_api.html" class="color-dark text-bold color-hover-info">DOM Manipulation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAddClass" class="color-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAppend" class="color-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsAppendTo" class="color-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAttr" class="color-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCss" class="color-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsData" class="color-dark color-hover-info" data-scrollspy="#jsData">data</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasClass" class="color-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHidden" class="color-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHide" class="color-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHtml" class="color-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsPrependTo" class="color-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsRemove" class="color-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsRemoveChildren" class="color-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemoveClass" class="color-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShow" class="color-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" class="color-dark color-hover-info" data-scrollspy="#jsText">text</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggle" class="color-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggleClass" class="color-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsVal" class="color-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+        </div>
+      </div>
+      
+      <div>
+        <a href="/webui/10x/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsBlur" class="color-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDrag" class="color-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragEnd" class="color-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsDragEnter" class="color-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragLeave" class="color-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragOver" class="color-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragStart" class="color-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsDrop" class="color-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocus" class="color-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusIn" class="color-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusOut" class="color-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverIn" class="color-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverOut" class="color-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsKeyDown" class="color-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOff" class="color-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOn" class="color-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsResize" class="color-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsTrigger" class="color-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_transitions_api.html" class="color-dark text-bold color-hover-info">Transitions API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTransitionsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsCollapseHorizontal" class="color-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCollapseVertical" class="color-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandVertical" class="color-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeIn" class="color-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeOut" class="color-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_utilities_api.html" class="color-dark text-bold color-hover-info">Utilities API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAccessibilityContrastColor" class="color-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgHeight" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetColorShade" class="color-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetElementViewportStatus" class="color-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetScrollbarWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetTimeOffsetFromNow" class="color-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIsWindowInBreakPointRange" class="color-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_validation_api.html" class="color-dark text-bold color-hover-info">Validation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsIsChecked" class="color-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHasConformingString" class="color-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasNumericInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasIntegerInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasValidDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPastDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPresentDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasFutureDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasDateTimeInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>  
+ 
+      </div>
+
+    </div>
+
+      </div>
+
+      <div class="content-col dock-top-right right-xxs control-group text height-control-md flex-items-center">
+        <a href="#0" class="menu-button-link accent-1-light" id="v11MenuSwitchMobile">11.x</a>
+        <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>      
+      </div>
+
+    </div>
+  </div>
+
+  <div class="dock-top-center width-full height-sm-md background-translucent-6 border-sm border-transparent border-bottom-accent-1-light show-bp-4-over" id="desktopTopBar">
+    <div class="panel pad-left-xxl gap-horizontal-md flex-items-center">
+        <img src="/webui/10x/assets/images/webui_blue_32x32.png" alt="Media" />
+        <span class="text-xl text-bold color-info">WebUI</span>
+    </div>
+
+    <div class="pad-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v11MenuSwitch">11.x</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="box">
+    <div class="dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
+      <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
+        
+    <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
+
+      <div>
+        <a href="/webui/10x/index.html" class="color-dark text-bold color-hover-info">Home</a>
+      </div>
+      <div>
+        <a href="/webui/10x/getting_started.html" class="color-dark text-bold color-hover-info">Getting Started</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
+        <div class="pad-left-sm">
+          <a href="#installation" class="color-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#whatsIncluded" class="color-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#useage" class="color-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#gridLayouts" class="color-dark color-hover-info" data-scrollspy="#gridLayouts">Grid Layouts</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#addingContent" class="color-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#addingColor" class="color-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text text-bold pad-left-lg pad-right-lg">
+      <div class="row-spacing-md border-xs border-transparent border-top-info-light"></div>
+
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+        </div>
+      </div>
+
+      <div class="row-spacing-xs"></div>
+    </div>
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
+
+      <div>
+        <a href="/webui/10x/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gridSystemMenu">
+        <div class="pad-left-sm">
+          <a href="#gridSystemOverview" class="color-dark color-info color-hover-info" data-scrollspy="#gridSystemOverview">Overview</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#contentGrid" class="color-dark color-hover-info" data-scrollspy="#contentGrid">Content Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#formGrid" class="color-dark color-hover-info" data-scrollspy="#formGrid">Form Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tableGrid" class="color-dark color-hover-info" data-scrollspy="#tableGrid">Table Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#nestingColumns" class="color-dark color-hover-info" data-scrollspy="#nestingColumns">Nesting Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalWidthColumns" class="color-dark color-hover-info" data-scrollspy="#equalWidthColumns">Equal Width Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalHeightColumns" class="color-dark color-hover-info" data-scrollspy="#equalHeightColumns">Equal Height Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
+      </div>
+
+      <div>
+        <a href="/webui/10x/flexbox.html" class="color-dark text-bold color-hover-info">Flexbox</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
+        <div class="pad-left-sm">
+          <a href="#flexboxOverview" class="color-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxBasicStructure" class="color-dark color-hover-info" data-scrollspy="#flexboxBasicStructure">Basic Structure</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxFlexItemSizing" class="color-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxOrientation" class="color-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="containersMenu">
+        <div class="pad-left-sm">
+          <a href="#containersOverview" class="color-dark color-info color-hover-info" data-scrollspy="#containersOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersContainerClasses">Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersMediaContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersMediaContainerClasses">Media Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersResponsiveGutters" class="color-dark color-hover-info" data-scrollspy="#containersResponsiveGutters">Responsive Gutters</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alignment.html" class="color-dark text-bold color-hover-info">Alignment</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
+        <div class="pad-left-sm">
+          <a href="#textAlignment" class="color-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#elementAlignment" class="color-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#floatAlignment" class="color-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/padding.html" class="color-dark text-bold color-hover-info">Padding</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
+        <div class="pad-left-sm">
+          <a href="#basicPadding" class="color-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingForGrids" class="color-dark color-hover-info" data-scrollspy="#paddingForGrids">Padding for Grids</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingWithFlexbox" class="color-dark color-hover-info" data-scrollspy="#paddingWithFlexbox">Padding with Flexbox</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/spacing.html" class="color-dark text-bold color-hover-info">Spacing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
+        <div class="pad-left-sm">
+          <a href="#horizontalSpacing" class="color-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#verticalSpacing" class="color-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/positioning.html" class="color-dark text-bold color-hover-info">Positioning</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
+        <div class="pad-left-sm">
+          <a href="#absolutePositioning" class="color-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#fixedPositioning" class="color-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/sizing.html" class="color-dark text-bold color-hover-info">Sizing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
+        <div class="pad-left-sm">
+          <a href="#widthClasses" class="color-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#heightClasses" class="color-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#aspectRatios" class="color-dark color-hover-info" data-scrollspy="#aspectRatios">Aspect Ratios</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/colors.html" class="color-dark text-bold color-hover-info">Colors</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
+        <div class="pad-left-sm">
+          <a href="#themeColors" class="color-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#translucency" class="color-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#focusAndHoverEvents" class="color-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/typography.html" class="color-dark text-bold color-hover-info">Typography</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
+        <div class="pad-left-sm">
+          <a href="#textSizes" class="color-dark color-info color-hover-info" data-scrollspy="#textSizes">Text Sizes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#moreTextClasses" class="color-dark color-hover-info" data-scrollspy="#moreTextClasses">More Text Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" class="color-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/buttons.html" class="color-dark text-bold color-hover-info">Buttons</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
+        <div class="pad-left-sm">
+          <a href="#buttonClasses" class="color-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#buttons" class="color-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuButtons" class="color-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/form_controls.html" class="color-dark text-bold color-hover-info">Form Controls</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
+        <div class="pad-left-sm">
+          <a href="#inputClasses" class="color-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#controlClasses" class="color-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#textboxes" class="color-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textareas" class="color-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#dropdownsAndDatalists" class="color-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#checkboxesAndRadioButtons" class="color-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
+        </div>   
+      </div>
+  
+      <div>
+        <a href="/webui/10x/tooltips.html" class="color-dark text-bold color-hover-info">Tooltips</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
+        <div class="pad-left-sm">
+          <a href="#tooltipClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#basicTooltips" class="color-dark color-hover-info" data-scrollspy="#basicTooltips">Basic Tooltips</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsDetailedUseage" class="color-dark color-hover-info" data-scrollspy="#tooltipsDetailedUseage">Detailed Useage</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsCustomisation" class="color-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alerts.html" class="color-dark text-bold color-hover-info">Alerts</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
+        <div class="pad-left-sm">
+          <a href="#alerts" class="color-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#alertCustomisation" class="color-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/menus.html" class="color-dark text-bold color-hover-info">Menus</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
+        <div class="pad-left-sm">
+          <a href="#menuClasses" class="color-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#menuAttributes" class="color-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
+        </div>     
+        <div class="pad-left-sm">
+          <a href="#menus" class="color-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuDropdowns" class="color-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuCustomisation" class="color-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/modals.html" class="color-dark text-bold color-hover-info">Modals</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
+        <div class="pad-left-sm">
+          <a href="#modalClasses" class="color-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#modals" class="color-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#modalEvents" class="color-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/tabs.html" class="color-dark text-bold color-hover-info">Tabs</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
+        <div class="pad-left-sm">
+          <a href="#tabClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#tabs" class="color-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" class="color-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/toggle_container.html" class="color-dark text-bold color-hover-info">Toggle Container</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
+        <div class="pad-left-sm">
+          <a href="#toggleContainerClasses" class="color-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainer" class="color-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" class="color-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/scrollspy.html" class="color-dark text-bold color-hover-info">Scrollspy</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+        <div class="pad-left-sm">
+          <a href="#scrollspyClasses" class="color-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#scrollspySettings" class="color-dark color-hover-info" data-scrollspy="#scrollspySettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#scrollspyUseage" class="color-dark color-hover-info" data-scrollspy="#scrollspyUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/radials.html" class="color-dark text-bold color-hover-info">Radials</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+        <div class="pad-left-sm">
+          <a href="#radialClasses" class="color-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#radialSettings" class="color-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#radials" class="color-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+        </div>
+      </div>
+  
+      <div>
+        <a href="/webui/10x/shapes.html" class="color-dark text-bold color-hover-info">Shapes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
+        <div class="pad-left-sm">
+          <a href="#transformShapes" class="color-dark color-info color-hover-info" data-scrollspy="#transformShapes">Transform Shapes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#clipPathShapes" class="color-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#breadcrumbShapes" class="color-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#razorBladeShapes" class="color-dark color-hover-info" data-scrollspy="#razorBladeShapes">Razor-Blade Shapes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#extendShapes" class="color-dark color-hover-info" data-scrollspy="#extendShapes">Extend Shapes</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/carousels.html" class="color-dark text-bold color-hover-info">Carousels</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
+        <div class="pad-left-sm">
+          <a href="#carouselClasses" class="color-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
+        <div class="pad-left-sm">
+          <a href="#uploadClasses" class="color-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadSettings" class="color-dark color-hover-info" data-scrollspy="#uploadSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadControl" class="color-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/utility_classes.html" class="color-dark text-bold color-hover-info">Utility Classes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
+        <div class="pad-left-sm">
+          <a href="#borders" class="color-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#boundaries" class="color-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#outlines" class="color-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#shadows" class="color-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#visibility" class="color-dark color-hover-info" data-scrollspy="#visibility">Visibility</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#mediaUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#mediaUtilityClasses">Media Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#otherUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#otherUtilityClasses">Other Classes</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+
+      <div>
+        <a href="/webui/10x/js_introduction.html" class="color-dark text-bold color-hover-info">Introduction</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
+        <div class="pad-left-sm">
+          <a href="#jsOverview" class="color-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUseage" class="color-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_traversal_api.html" class="color-dark text-bold color-hover-info">DOM Traversal API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsChildren" class="color-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFirst" class="color-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHas" class="color-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsIs" class="color-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsLast" class="color-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSibling" class="color-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSiblings" class="color-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsParent" class="color-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsParents" class="color-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSibling" class="color-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_manipulation_api.html" class="color-dark text-bold color-hover-info">DOM Manipulation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAddClass" class="color-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAppend" class="color-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsAppendTo" class="color-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAttr" class="color-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCss" class="color-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsData" class="color-dark color-hover-info" data-scrollspy="#jsData">data</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasClass" class="color-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHidden" class="color-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHide" class="color-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHtml" class="color-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsPrependTo" class="color-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsRemove" class="color-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsRemoveChildren" class="color-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemoveClass" class="color-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShow" class="color-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" class="color-dark color-hover-info" data-scrollspy="#jsText">text</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggle" class="color-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggleClass" class="color-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsVal" class="color-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+        </div>
+      </div>
+      
+      <div>
+        <a href="/webui/10x/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsBlur" class="color-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDrag" class="color-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragEnd" class="color-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsDragEnter" class="color-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragLeave" class="color-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragOver" class="color-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragStart" class="color-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsDrop" class="color-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocus" class="color-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusIn" class="color-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusOut" class="color-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverIn" class="color-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverOut" class="color-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsKeyDown" class="color-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOff" class="color-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOn" class="color-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsResize" class="color-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsTrigger" class="color-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_transitions_api.html" class="color-dark text-bold color-hover-info">Transitions API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTransitionsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsCollapseHorizontal" class="color-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCollapseVertical" class="color-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandVertical" class="color-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeIn" class="color-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeOut" class="color-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_utilities_api.html" class="color-dark text-bold color-hover-info">Utilities API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAccessibilityContrastColor" class="color-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgHeight" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetColorShade" class="color-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetElementViewportStatus" class="color-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetScrollbarWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetTimeOffsetFromNow" class="color-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIsWindowInBreakPointRange" class="color-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_validation_api.html" class="color-dark text-bold color-hover-info">Validation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsIsChecked" class="color-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHasConformingString" class="color-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasNumericInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasIntegerInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasValidDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPastDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPresentDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasFutureDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasDateTimeInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>  
+ 
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+
+    <div class="align-center pad-left-xxl pad-right-xxl" id="main">
+      <section class="scrollspy text" id="jsAddClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>addClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Adds the specified class(es) to each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").addClass("background-accent-1-light border-lg border-dark");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsAppend">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>append (elements, appendToStart)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Appends the specified elements or DOM fragment to each element in the set of matched elements or DOM fragment. Element objects specified as the first
+    argument can be an HTMLElement, a WebUI onject, or a valid DOM fragment. If a valid DOM fragment string is specified, a new DOM element is created and 
+    converted to a WebUI object, and then appended.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">elements</div>
+      <div class="table-col-4">Onject or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">appendToStart</div>
+      <div class="table-col-4">Boolean</div>
+      <div class="table-col-10">Either true or false. If true, elements are appended before any existing elements in the node list.</div>
+    </div>  
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+    ui("#element1").append(ui("#element2").append("&lt;div class='width-md height-sm'&gt;Element 2A&lt;/div&gt;"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+  
+<section class="scrollspy text" id="jsAppendTo">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>appendTo (to)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>This method is similar to append(), but appends the matched elements or DOM fragment to a specified target elements or DOM fragment at the end of the node list.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">to</div>
+      <div class="table-col-4">Object or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+    ui("&lt;div class='width-md height-sm'&gt;Element 3&lt;/div&gt;").appendTo(ui(".flex-row"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsAttr">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>attr (attrName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified attribute values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single attribute value or an array of attribute values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var ids = ui("#exampleArea .flex-row div").attr("id");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>attr (attrName, attrValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified attribute value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">attrValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single attribute value. If set to null or "", the named attribute will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="exampleDiv2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().attr("id", "div1");
+  ui("#exampleArea .flex-row div").last().attr("id", "div2")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsCss">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>css (ruleName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified computed css property values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single css property value or an array of css property values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm""&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var heights = ui("#exampleArea .flex-row div").css("height");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>css (ruleName, ruleValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified css property value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">ruleValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single css property value. If set to null or "", the named css property will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().css("height", "5rem");
+  ui("#exampleArea .flex-row div").last().css("height", "5rem")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsData">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>data (dataName)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the specified data attribute values of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single data attribute value or an array of attribute values.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute name.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" data-percent="20"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" data-percent="50"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var percentages = ui("#exampleArea .flex-row div").data("percent");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>data (dataName, dataValue)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified data attribute value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataName</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute name.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">dataValue</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single data attribute value. If set to null or "", the named data attribute will be removed from the element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" data-percent="20"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" data-percent="50"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().data("percent", "10");
+  ui("#exampleArea .flex-row div").last().data("percent", "25")
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHasClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hasClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Determines whether the specified class(es) exist on any element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").hasClass("example");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHidden">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hidden ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the visibility property to hidden of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().hidden();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHide">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>hide ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the display property to none of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().hide();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsHtml">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>html ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the inner html of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - The element inner html fragment or an array of element inner html fragments.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row control-group"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-md background-accent-1-light pad-sm" id="exampleDiv"&gt;&lt;div class="width-sm height-xs accent-1"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var divTextContent = ui("#exampleDiv").html();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>html (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified inner html fragment for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">Any html fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row control-group"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-md background-accent-1-light pad-sm" id="exampleDiv"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleDiv").html("&lt;div class='width-xs height-sm background-dark'&gt;&lt;/div&gt;");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsPrependTo">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>prependTo (to)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>This method is similar to appendTo(), but prepends the matched elements or DOM fragment to a specified target elements or DOM fragment at the start of the node list.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">to</div>
+      <div class="table-col-4">Object or String</div>
+      <div class="table-col-10">An HTMLElement, a WebUI object, or a valid DOM fragment.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm" id="element1"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm" id="element2"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+    ui("&lt;div class='width-md height-sm'&gt;Element 3&lt;/div&gt;").prependTo(ui(".flex-row"));
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsRemove">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>remove ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").remove();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsRemoveChildren">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>removeChildren ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes all child elements of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm example"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row").removeChildren();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>   
+
+<section class="scrollspy text" id="jsRemoveClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>removeClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes the specified class(es) from each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm background-accent-1-light border-lg border-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-sm background-accent-1-light border-lg border-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").removeClass("border-lg border-dark");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsShow">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>show ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the display property to block of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm hidden"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm hidden"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().show();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsText">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>text ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the text content of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single text content value or an array of text content values.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-sm" id="exampleDiv"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col"&gt;
+      &lt;textarea class="control width-xl height-md" id="exampleTextarea"&gt;Lorem ipsum dolor sit amet&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var divTextContent = ui("#exampleDiv").text();
+  var textareaTextContent = ui("#exampleTextarea").text();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>text (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified text content for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single text value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area"&gt;
+  &lt;div class="flex-row"&gt;
+    &lt;div class="form-col"&gt;
+      &lt;div class="width-md height-sm" id="exampleDiv"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-col"&gt;
+      &lt;textarea class="control width-xl height-md" id="exampleTextarea"&gt;Lorem ipsum dolor sit amet&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleDiv").text("10");
+  ui("#exampleTextarea").text("Example text");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsToggle">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>toggle</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Shows or hides all elements in the set of matched elements, and sets the aria-hidden attribute to either true or false.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButton"&gt;Toggle&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButton").click(function() {
+    ui("#exampleArea .flex-row div").toggle();	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>toggle (toggleState)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Shows or hides all elements in the set of matched elements depending on the toggleState argument, and sets the aria-hidden attribute to either true or false.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">toggleState</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A value of "on" or "off".</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButtonOn"&gt;Toggle On&lt;/button&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButtonOff"&gt;Toggle Off&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButtonOn").click(function() {
+    ui("#exampleArea .flex-row div").toggle("on");	
+  });
+  ui("#toggleButtonOff").click(function() {
+    ui("#exampleArea .flex-row div").toggle("off");	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsToggleClass">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>toggleClass (className)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Toggles the addition or removal of a class or set of classes for all elements in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">className</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single class name or a list of class names separated by a space.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area text-sm" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;button type="button" class="button-sm button-accent-1" id="toggleButton"&gt;Toggle On&lt;/button&gt;
+    &lt;div class="width-md height-control-sm background-dark boundary-success"&gt;&lt;/div&gt;
+    &lt;div class="width-md height-control-sm background-dark boundary-success"&gt;&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#toggleButton").click(function() {
+    ui("#exampleArea .flex-row div").toggleClass("background-dark");	
+  });
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsVal">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>val ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Gets the value of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - A single element value or an array of element values.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="form-col"&gt;
+    &lt;input type="text" value="20" class="input-sm" id="exampleInput" /&gt;
+  &lt;/div&gt;
+  &lt;div class="form-col"&gt;
+    &lt;select class="input-sm" id="exampleSelect"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>	
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  var textInputValue = ui("#exampleInput").val();
+  var selectInputValue = ui("#exampleSelect").val();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <h3>val (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the specified value for each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+    <div class="table-row text-bold">
+      <div class="table-col-6">Argument</div>
+      <div class="table-col-4">Type</div>
+      <div class="table-col-10">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-6">value</div>
+      <div class="table-col-4">String</div>
+      <div class="table-col-10">A single value.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="flex-row"&gt;
+  &lt;div class="form-col"&gt;
+    &lt;input type="text" value="20" class="input-sm" id="exampleInput" /&gt;
+  &lt;/div&gt;
+  &lt;div class="form-col"&gt;
+    &lt;select class="input-sm" id="exampleSelect"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>	
+                                        
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleInput").val("10");
+  ui("#exampleSelect").val("5");
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="jsVisible">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>visible ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sets the visibility property to visible of each element in the set of matched elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="table-row background-secondary text-bold">
+      <div class="table-col-20">Returns - WebUI object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="area" id="exampleArea"&gt;
+  &lt;div class="flex-row gap-horizontal-sm"&gt;
+    &lt;div class="width-md height-sm invisible"&gt;Element 1&lt;/div&gt;
+    &lt;div class="width-md height-sm invisible"&gt;Element 2&lt;/div&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-warning-light text-xs">Script</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary script-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>webui.ready(function() {
+
+  ui("#exampleArea .flex-row div").first().visible();
+
+});</pre>
+                          
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    </div>
+
+    <div class="dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
+      <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
+        
+<div class="area text-center">    
+    <a href="https://github.com/asyncdesign/webui" class="text text-bold color-accent-5-dark">
+      <div>WebUI on GitHub</div>
+      <img src="/webui/10x/assets/images/webui_github.jpg" alt="Media" class="border-sm border-color-muted" />
+    </a>   
+</div>
+
+<div class="area text-center">    
+    <a href="https://twitter.com/asyncdesign?lang=en" class="text text-bold color-accent-5-dark">
+      <div>WebUI on Twitter</div>
+      <img src="/webui/10x/assets/images/webui_twitter.jpg" alt="Media" class="border-sm border-color-muted" />
+    </a>   
+</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-4-under"></i>
+
+
+  <script src="/webui/10x/assets/js/webui-components.js"></script>
+
+  <script src="/webui/10x/assets/js/mark.js"></script>
+  <script src="/webui/10x/assets/js/site.js"></script>
+
+  <script>
+
+	    webui.ready(function() {        
+        
+        // Initialisation
+
+        ui.initMenus({
+          transitionDuration: 700,
+				  transitionType: "collapse"
+        });
+  
+        ui(".siteSideMenu").scrollspy({ 
+          activatorSelector: "div > div > a",
+          activatorActiveClass: "color-info",
+          scrollTargetClass: "scrollspy",
+          scrollTargetOffset: 50,
+          activatorCallback: onMenuItemSelect
+        });			         
+
+        function onMenuItemSelect() {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
+            var menuWidth = ui("#homeMobileSideNav")[0].offsetWidth + "px";
+            ui("#homeMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
+          }
+        }
+
+        ui("#v11MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui/10x".replace("webui/10x", "webui");
+        });
+
+        ui("#v11MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui/10x".replace("webui/10x", "webui");
+        });
+
+        ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+
+        ui("#cssMenuSwitch").click(function() {
+          document.location.href = "/webui/10x/getting_started.html";
+          ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui("#jsMenuSwitch").click(function() {
+          document.location.href = "/webui/10x/js_introduction.html";
+          ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui(".code-copy").click(function() {
+          var el = ui(this).parent().find("pre");
+          if (el && el.length) {
+            ui.copyToClipboard(el.text());
+          }
+        });
+
+    
+        var loc = document.location.pathname;
+        var parts = loc.split("\/");
+        if (parts && parts.length > 0) {
+          switch(parts[parts.length -1]) {
+            case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "columns.html": ui("#columnsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "padding.html": ui("#paddingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "spacing.html": ui("#spacingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "positioning.html": 
+            
+                  ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");
+
+                  ui("#toggleFixedFooterPanel").click(function() {
+                    ui("#fixedFooterPanel").toggle();
+                  });
+
+                  ui("#positioningMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "sizing.html": ui("#sizingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "colors.html": ui("#colorsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "typography.html": ui("#typographyMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "buttons.html": 
+            
+                  ui("#navButtonExample1, #navButtonExample2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  ui("#navButtonExample1, #navButtonExample2").click(function() { 
+                    ui(this).toggleClass("active");
+                  });
+
+                  ui("#buttonsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "form_controls.html": ui("#formControlsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "tooltips.html": 
+            
+                  ui.initTooltips({
+                    autoPositioning: true,
+                    autoResizing: true,
+                    autoPositioningMargin: 0,
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
+                  });
+
+                  ui("#tooltipsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "alerts.html": 
+
+                  ui.initAlerts({
+                    position: "top-center",
+                    duration: 6000,
+                    transitionDuration: 2000,
+                    width: "60rem",
+                    showHeader: true,
+                    inline: true,
+                    style: "outline-rounded",
+                    autoHide: false,
+                    showIcon: true,
+                    showClose: true
+                  });
+        
+                  ui("#alert1, #alert2, #alert3, #alert4").fadeIn(1000);
+
+                  ui("#showAlert").click( function() { 
+                    ui.showInfoAlert("<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.", false);
+                  });
+
+                  ui("#alertsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "menus.html": ui("#menusMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "navbars.html": ui("#navbarsMenu").expandVertical(700, "auto"); 
+
+                  ui("#navbar1").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 0,
+                    largeDeviceMenuOffset: -40,
+                    smallDeviceAlignment: "left",		
+                    smallDeviceBreakpoint: 2,
+                    smallDeviceExpansion: "overlay"			
+                  });
+
+                  ui("#navbar2").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 50,
+                    largeDeviceMenuOffset: -70,
+                    smallDeviceAlignment: "right",
+                    smallDeviceBreakpoint: 3,
+                    smallDeviceExpansion: "expand"
+                  });
+      
+                  ui("#navToggle1, #navToggle2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
+            case "modals.html": 
+            
+                  var modal1 = ui("#modal1").modalControl({
+                    closeFromBackdrop: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#showModal").click( function() { 
+                    modal1.open();
+                    ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
+                  });
+                 
+                  ui("#modalsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "tabs.html": 
+            
+                  ui("#tabs1").tabControl({ 
+                    activeTabId: "#tab1", 
+                    activeTabFocused: true,
+                    transitionDuration: 1000,
+                    transitionType: "fade"
+                  });
+
+                  ui("#tabsNested1").tabControl({ 
+                    activeTabId: "#tabNested1", 
+                    activeTabFocused: false,
+                    transitionDuration: 1000,
+                    transitionType: "fade"
+                  });
+
+                  ui("#tabsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "toggle_container.html": ui("#toggleContainerMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "scrollspy.html": 
+            
+                  ui("#exampleMenu").scrollspy({ 
+                    activatorSelector: "div > div > a",
+                    activatorActiveClass: "color-info",
+                    scrollTargetClass: "scrollspy-example",
+                    scrollTargetOffset: 50,
+                    activatorCallback: null
+                  });
+
+                  ui("#scrollspyMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "radials.html": 
+            
+                  ui("#radialFull").radialControl({
+                    zoom: 0.75,
+                    mode: "full",
+                    responsive: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#radialTop").radialControl({
+                    zoom: 0.75,
+                    mode: "top",
+                    responsive: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#radialsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "shapes.html": 
+            
+                  ui("#customClipShape").renderPolygonShape("0.2 0.7, 0.5 0, 0.5 0, 1 1");
+
+                  ui("#shapesMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "carousels.html": 
+                   
+                  var carousel = ui("#carousel")
+                    .carouselControl({ 
+                      interval: 10000,
+                      autoPlay: true,
+                      autoScale: true,
+                      playDirection: "next",
+                      stopOnHover: true,
+                      transitionDuration: 1200, 
+                      transitionType: "slide", 
+                      transitionOrientation: "vertical" 
+                    });
+                  
+                  ui("#c1_textForSlide1").fadeIn(1500);
+
+
+                  carousel.on("ui.carousel.change.before", function(e) {
+                    ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
+                  });
+
+
+                  carousel.on("ui.carousel.change.after", function(e) {
+                    if (e.detail == 1) {
+                      ui("#c1_textForSlide1").fadeIn(1500);
+                    }
+                    else if (e.detail == 2) {
+                      ui("#c1_textForSlide2").fadeIn(1500);
+                    }
+                    else if (e.detail == 3) {
+                      ui("#c1_textForSlide3").fadeIn(1500);
+                    }
+                  });
+
+
+                  ui("#c1_selectSlide").change( function() { 
+                    var index = webui(this).getOptionValues(true)[0];
+                    carousel.select(index);
+                    if (index == 0) {
+                      ui("#c1_textForSlide1").fadeIn(1500);
+                    }
+                    else if (index == 1) {
+                      ui("#c1_textForSlide2").fadeIn(1500);
+                    }
+                    else if (index == 2) {
+                      ui("#c1_textForSlide3").fadeIn(1500);
+                    }
+                  });
+
+                  ui("#c1_prev").click(function(e) {
+                    e.preventDefault();
+                    carousel.prev();
+                  });
+
+                  ui("#c1_next").click(function(e) {
+                    e.preventDefault();
+                    carousel.next();
+                  });
+
+                  ui("#c1_play").click(function(e) {
+                    e.preventDefault();
+                    carousel.play();
+                  });
+
+                  ui("#c1_stop").click(function(e) {
+                    e.preventDefault();
+                    carousel.stop();
+                  });
+
+                  ui("#carouselsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
+            case "upload.html": 
+            
+                  ui("#fileUpload1").uploadControl({
+                    showCount: false
+                  });
+
+                  ui("#fileUpload2").uploadControl({
+                    showCount: false,
+                    scrollY: false
+                  });
+
+                  ui("#fileUpload3").uploadControl({
+                    scrollY: false
+                  });
+
+                  ui("#uploadMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "utility_classes.html": ui("#utilityClassesMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "zoom.html": 
+            
+                  ui(".zoom-image").zoomControl({ 
+                    zoom: 1.1,
+                    trigger: "hover",
+                    transitionDuration: 300
+                  });
+
+                  ui("#zoomMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+
+            case "js_introduction.html": 
+            
+                  ui("#jsIntroductionMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_traversal_api.html": 
+            
+                  ui("#jsTraversalApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_manipulation_api.html": 
+            
+                  ui("#jsManipulationApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+            
+                  break;
+            case "js_extended_api.html": 
+            
+                  ui("#jsExtendedApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+            
+                  break;
+
+            case "js_events_api.html": 
+            
+                  ui("#jsEventsApiMenu").expandVertical(700, "auto");
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+
+                   break;
+            case "js_transitions_api.html": 
+            
+                  ui("#jsTransitionsApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_validation_api.html": 
+            
+                  ui("#jsValidationApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "js_utilities_api.html": 
+            
+                  ui("#jsUtilitiesApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            
+            default: break;
+          }
+
+          if (parts[parts.length -1].indexOf("js_") > -1) {
+            ui("#cssMenu").hide();
+            ui("#jsMenu").show();
+            ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
+            ui("#jsMenuSwitch").setState("accent-1-light", "accent-1");
+          }
+          else {
+            ui("#jsMenu").hide();
+            ui("#cssMenu").show();
+            ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+            ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+          }
+        }
+
+      }, true);
+
+    </script>
+
+</body>
+
+</html>

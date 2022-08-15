@@ -1,0 +1,3937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WebUI mobile-first CSS</title>
+  <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
+
+  <link rel="stylesheet" href="/webui/10x/assets/font_awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/webui/10x/assets/css/webui-components-all.css">
+  <link rel="stylesheet" href="/webui/10x/assets/css/site.css">
+  <link rel="canonical" href="http://localhost:4000/webui/10x/form_controls.html">
+  <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/10x/feed.xml">
+  <link rel="shortcut icon" href="/webui/10x/favicon.ico">
+
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: normal;
+      src:url("/webui/10x/assets/google/fonts/OpenSans-Regular.ttf");
+    } 
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: bold;
+      src:url("/webui/10x/assets/google/fonts/OpenSans-SemiBold.ttf");
+    } 
+  </style>
+  
+  
+</head>
+
+
+<body class="text-sm">
+
+  <div class="dock-top-center width-full height-sm background-light border-sm border-transparent border-bottom-accent-1-light show-bp-4-under" id="mobileNav">
+    <div class="toggle-container" data-transition-duration="700" data-close-external="#homeMobileSideNav">
+
+      <div class="content-col dock-top-left layer-top show-bp-4-under">
+        <button data-target="#homeMobileSideNav" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars"></button>
+      </div>
+
+      <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-sm border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="homeMobileSideNav">
+        
+    <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
+
+      <div>
+        <a href="/webui/10x/index.html" class="color-dark text-bold color-hover-info">Home</a>
+      </div>
+      <div>
+        <a href="/webui/10x/getting_started.html" class="color-dark text-bold color-hover-info">Getting Started</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
+        <div class="pad-left-sm">
+          <a href="#installation" class="color-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#whatsIncluded" class="color-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#useage" class="color-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#gridLayouts" class="color-dark color-hover-info" data-scrollspy="#gridLayouts">Grid Layouts</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#addingContent" class="color-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#addingColor" class="color-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text text-bold pad-left-lg pad-right-lg">
+      <div class="row-spacing-md border-xs border-transparent border-top-info-light"></div>
+
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+        </div>
+      </div>
+
+      <div class="row-spacing-xs"></div>
+    </div>
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
+
+      <div>
+        <a href="/webui/10x/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gridSystemMenu">
+        <div class="pad-left-sm">
+          <a href="#gridSystemOverview" class="color-dark color-info color-hover-info" data-scrollspy="#gridSystemOverview">Overview</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#contentGrid" class="color-dark color-hover-info" data-scrollspy="#contentGrid">Content Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#formGrid" class="color-dark color-hover-info" data-scrollspy="#formGrid">Form Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tableGrid" class="color-dark color-hover-info" data-scrollspy="#tableGrid">Table Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#nestingColumns" class="color-dark color-hover-info" data-scrollspy="#nestingColumns">Nesting Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalWidthColumns" class="color-dark color-hover-info" data-scrollspy="#equalWidthColumns">Equal Width Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalHeightColumns" class="color-dark color-hover-info" data-scrollspy="#equalHeightColumns">Equal Height Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
+      </div>
+
+      <div>
+        <a href="/webui/10x/flexbox.html" class="color-dark text-bold color-hover-info">Flexbox</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
+        <div class="pad-left-sm">
+          <a href="#flexboxOverview" class="color-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxBasicStructure" class="color-dark color-hover-info" data-scrollspy="#flexboxBasicStructure">Basic Structure</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxFlexItemSizing" class="color-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxOrientation" class="color-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="containersMenu">
+        <div class="pad-left-sm">
+          <a href="#containersOverview" class="color-dark color-info color-hover-info" data-scrollspy="#containersOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersContainerClasses">Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersMediaContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersMediaContainerClasses">Media Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersResponsiveGutters" class="color-dark color-hover-info" data-scrollspy="#containersResponsiveGutters">Responsive Gutters</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alignment.html" class="color-dark text-bold color-hover-info">Alignment</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
+        <div class="pad-left-sm">
+          <a href="#textAlignment" class="color-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#elementAlignment" class="color-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#floatAlignment" class="color-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/padding.html" class="color-dark text-bold color-hover-info">Padding</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
+        <div class="pad-left-sm">
+          <a href="#basicPadding" class="color-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingForGrids" class="color-dark color-hover-info" data-scrollspy="#paddingForGrids">Padding for Grids</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingWithFlexbox" class="color-dark color-hover-info" data-scrollspy="#paddingWithFlexbox">Padding with Flexbox</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/spacing.html" class="color-dark text-bold color-hover-info">Spacing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
+        <div class="pad-left-sm">
+          <a href="#horizontalSpacing" class="color-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#verticalSpacing" class="color-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/positioning.html" class="color-dark text-bold color-hover-info">Positioning</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
+        <div class="pad-left-sm">
+          <a href="#absolutePositioning" class="color-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#fixedPositioning" class="color-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/sizing.html" class="color-dark text-bold color-hover-info">Sizing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
+        <div class="pad-left-sm">
+          <a href="#widthClasses" class="color-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#heightClasses" class="color-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#aspectRatios" class="color-dark color-hover-info" data-scrollspy="#aspectRatios">Aspect Ratios</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/colors.html" class="color-dark text-bold color-hover-info">Colors</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
+        <div class="pad-left-sm">
+          <a href="#themeColors" class="color-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#translucency" class="color-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#focusAndHoverEvents" class="color-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/typography.html" class="color-dark text-bold color-hover-info">Typography</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
+        <div class="pad-left-sm">
+          <a href="#textSizes" class="color-dark color-info color-hover-info" data-scrollspy="#textSizes">Text Sizes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#moreTextClasses" class="color-dark color-hover-info" data-scrollspy="#moreTextClasses">More Text Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" class="color-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/buttons.html" class="color-dark text-bold color-hover-info">Buttons</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
+        <div class="pad-left-sm">
+          <a href="#buttonClasses" class="color-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#buttons" class="color-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuButtons" class="color-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/form_controls.html" class="color-dark text-bold color-hover-info">Form Controls</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
+        <div class="pad-left-sm">
+          <a href="#inputClasses" class="color-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#controlClasses" class="color-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#textboxes" class="color-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textareas" class="color-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#dropdownsAndDatalists" class="color-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#checkboxesAndRadioButtons" class="color-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
+        </div>   
+      </div>
+  
+      <div>
+        <a href="/webui/10x/tooltips.html" class="color-dark text-bold color-hover-info">Tooltips</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
+        <div class="pad-left-sm">
+          <a href="#tooltipClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#basicTooltips" class="color-dark color-hover-info" data-scrollspy="#basicTooltips">Basic Tooltips</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsDetailedUseage" class="color-dark color-hover-info" data-scrollspy="#tooltipsDetailedUseage">Detailed Useage</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsCustomisation" class="color-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alerts.html" class="color-dark text-bold color-hover-info">Alerts</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
+        <div class="pad-left-sm">
+          <a href="#alerts" class="color-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#alertCustomisation" class="color-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/menus.html" class="color-dark text-bold color-hover-info">Menus</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
+        <div class="pad-left-sm">
+          <a href="#menuClasses" class="color-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#menuAttributes" class="color-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
+        </div>     
+        <div class="pad-left-sm">
+          <a href="#menus" class="color-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuDropdowns" class="color-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuCustomisation" class="color-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/modals.html" class="color-dark text-bold color-hover-info">Modals</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
+        <div class="pad-left-sm">
+          <a href="#modalClasses" class="color-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#modals" class="color-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#modalEvents" class="color-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/tabs.html" class="color-dark text-bold color-hover-info">Tabs</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
+        <div class="pad-left-sm">
+          <a href="#tabClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#tabs" class="color-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" class="color-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/toggle_container.html" class="color-dark text-bold color-hover-info">Toggle Container</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
+        <div class="pad-left-sm">
+          <a href="#toggleContainerClasses" class="color-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainer" class="color-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" class="color-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/scrollspy.html" class="color-dark text-bold color-hover-info">Scrollspy</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+        <div class="pad-left-sm">
+          <a href="#scrollspyClasses" class="color-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#scrollspySettings" class="color-dark color-hover-info" data-scrollspy="#scrollspySettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#scrollspyUseage" class="color-dark color-hover-info" data-scrollspy="#scrollspyUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/radials.html" class="color-dark text-bold color-hover-info">Radials</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+        <div class="pad-left-sm">
+          <a href="#radialClasses" class="color-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#radialSettings" class="color-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#radials" class="color-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+        </div>
+      </div>
+  
+      <div>
+        <a href="/webui/10x/shapes.html" class="color-dark text-bold color-hover-info">Shapes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
+        <div class="pad-left-sm">
+          <a href="#transformShapes" class="color-dark color-info color-hover-info" data-scrollspy="#transformShapes">Transform Shapes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#clipPathShapes" class="color-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#breadcrumbShapes" class="color-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#razorBladeShapes" class="color-dark color-hover-info" data-scrollspy="#razorBladeShapes">Razor-Blade Shapes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#extendShapes" class="color-dark color-hover-info" data-scrollspy="#extendShapes">Extend Shapes</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/carousels.html" class="color-dark text-bold color-hover-info">Carousels</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
+        <div class="pad-left-sm">
+          <a href="#carouselClasses" class="color-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
+        <div class="pad-left-sm">
+          <a href="#uploadClasses" class="color-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadSettings" class="color-dark color-hover-info" data-scrollspy="#uploadSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadControl" class="color-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/utility_classes.html" class="color-dark text-bold color-hover-info">Utility Classes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
+        <div class="pad-left-sm">
+          <a href="#borders" class="color-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#boundaries" class="color-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#outlines" class="color-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#shadows" class="color-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#visibility" class="color-dark color-hover-info" data-scrollspy="#visibility">Visibility</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#mediaUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#mediaUtilityClasses">Media Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#otherUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#otherUtilityClasses">Other Classes</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+
+      <div>
+        <a href="/webui/10x/js_introduction.html" class="color-dark text-bold color-hover-info">Introduction</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
+        <div class="pad-left-sm">
+          <a href="#jsOverview" class="color-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUseage" class="color-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_traversal_api.html" class="color-dark text-bold color-hover-info">DOM Traversal API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsChildren" class="color-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFirst" class="color-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHas" class="color-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsIs" class="color-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsLast" class="color-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSibling" class="color-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSiblings" class="color-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsParent" class="color-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsParents" class="color-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSibling" class="color-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_manipulation_api.html" class="color-dark text-bold color-hover-info">DOM Manipulation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAddClass" class="color-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAppend" class="color-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsAppendTo" class="color-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAttr" class="color-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCss" class="color-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsData" class="color-dark color-hover-info" data-scrollspy="#jsData">data</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasClass" class="color-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHidden" class="color-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHide" class="color-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHtml" class="color-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsPrependTo" class="color-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsRemove" class="color-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsRemoveChildren" class="color-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemoveClass" class="color-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShow" class="color-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" class="color-dark color-hover-info" data-scrollspy="#jsText">text</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggle" class="color-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggleClass" class="color-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsVal" class="color-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+        </div>
+      </div>
+      
+      <div>
+        <a href="/webui/10x/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsBlur" class="color-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDrag" class="color-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragEnd" class="color-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsDragEnter" class="color-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragLeave" class="color-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragOver" class="color-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragStart" class="color-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsDrop" class="color-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocus" class="color-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusIn" class="color-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusOut" class="color-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverIn" class="color-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverOut" class="color-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsKeyDown" class="color-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOff" class="color-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOn" class="color-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsResize" class="color-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsTrigger" class="color-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_transitions_api.html" class="color-dark text-bold color-hover-info">Transitions API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTransitionsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsCollapseHorizontal" class="color-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCollapseVertical" class="color-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandVertical" class="color-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeIn" class="color-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeOut" class="color-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_utilities_api.html" class="color-dark text-bold color-hover-info">Utilities API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAccessibilityContrastColor" class="color-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgHeight" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetColorShade" class="color-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetElementViewportStatus" class="color-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetScrollbarWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetTimeOffsetFromNow" class="color-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIsWindowInBreakPointRange" class="color-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_validation_api.html" class="color-dark text-bold color-hover-info">Validation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsIsChecked" class="color-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHasConformingString" class="color-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasNumericInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasIntegerInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasValidDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPastDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPresentDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasFutureDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasDateTimeInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>  
+ 
+      </div>
+
+    </div>
+
+      </div>
+
+      <div class="content-col dock-top-right right-xxs control-group text height-control-md flex-items-center">
+        <a href="#0" class="menu-button-link accent-1-light" id="v11MenuSwitchMobile">11.x</a>
+        <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitchMobile">10.x</a>      
+      </div>
+
+    </div>
+  </div>
+
+  <div class="dock-top-center width-full height-sm-md background-translucent-6 border-sm border-transparent border-bottom-accent-1-light show-bp-4-over" id="desktopTopBar">
+    <div class="panel pad-left-xxl gap-horizontal-md flex-items-center">
+        <img src="/webui/10x/assets/images/webui_blue_32x32.png" alt="Media" />
+        <span class="text-xl text-bold color-info">WebUI</span>
+    </div>
+
+    <div class="pad-md dock-top-right control-group width-lg text">
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light" id="v11MenuSwitch">11.x</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1" id="v10MenuSwitch">10.x</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="box">
+    <div class="dock-top-left top-sm-md bottom-initial scroll-y-always show-bp-4-over" id="homeSideNav">
+      <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
+        
+    <div class="menu dropdown area text gap-vertical-sm siteSideMenu" id="menu">
+
+      <div>
+        <a href="/webui/10x/index.html" class="color-dark text-bold color-hover-info">Home</a>
+      </div>
+      <div>
+        <a href="/webui/10x/getting_started.html" class="color-dark text-bold color-hover-info">Getting Started</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
+        <div class="pad-left-sm">
+          <a href="#installation" class="color-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#whatsIncluded" class="color-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#useage" class="color-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#gridLayouts" class="color-dark color-hover-info" data-scrollspy="#gridLayouts">Grid Layouts</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#addingContent" class="color-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#addingColor" class="color-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#accessibility" class="color-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text text-bold pad-left-lg pad-right-lg">
+      <div class="row-spacing-md border-xs border-transparent border-top-info-light"></div>
+
+      <div class="flex-row">
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+        </div>
+        <div class="flex-col flex-fit">
+          <a href="#0" class="menu-button-link accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+        </div>
+      </div>
+
+      <div class="row-spacing-xs"></div>
+    </div>
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
+
+      <div>
+        <a href="/webui/10x/grid_system.html" class="color-dark text-bold color-hover-info">Grid System</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gridSystemMenu">
+        <div class="pad-left-sm">
+          <a href="#gridSystemOverview" class="color-dark color-info color-hover-info" data-scrollspy="#gridSystemOverview">Overview</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#contentGrid" class="color-dark color-hover-info" data-scrollspy="#contentGrid">Content Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#formGrid" class="color-dark color-hover-info" data-scrollspy="#formGrid">Form Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tableGrid" class="color-dark color-hover-info" data-scrollspy="#tableGrid">Table Grid</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#nestingColumns" class="color-dark color-hover-info" data-scrollspy="#nestingColumns">Nesting Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalWidthColumns" class="color-dark color-hover-info" data-scrollspy="#equalWidthColumns">Equal Width Columns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#equalHeightColumns" class="color-dark color-hover-info" data-scrollspy="#equalHeightColumns">Equal Height Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#fixedAndVariableColumns" class="color-dark color-hover-info" data-scrollspy="#fixedAndVariableColumns">Fixed / Variable Width Columns</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#gridMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#gridMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>     
+      </div>
+
+      <div>
+        <a href="/webui/10x/flexbox.html" class="color-dark text-bold color-hover-info">Flexbox</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
+        <div class="pad-left-sm">
+          <a href="#flexboxOverview" class="color-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxBasicStructure" class="color-dark color-hover-info" data-scrollspy="#flexboxBasicStructure">Basic Structure</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxFlexItemSizing" class="color-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxOrientation" class="color-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxLayouts" class="color-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#flexboxMediaBreakpointUtilities" class="color-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/columns.html" class="color-dark text-bold color-hover-info">Columns</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="columnsMenu">
+        <div class="pad-left-sm">
+          <a href="#flowColumns" class="color-dark color-info color-hover-info" data-scrollspy="#flowColumns">Flow Columns</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/media_breakpoints.html" class="color-dark text-bold color-hover-info">Media Breakpoints</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
+        <div class="pad-left-sm">
+          <a href="#breakpointSettings" class="color-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#breakpoints" class="color-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/containers.html" class="color-dark text-bold color-hover-info">Containers</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="containersMenu">
+        <div class="pad-left-sm">
+          <a href="#containersOverview" class="color-dark color-info color-hover-info" data-scrollspy="#containersOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersContainerClasses">Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersMediaContainerClasses" class="color-dark color-hover-info" data-scrollspy="#containersMediaContainerClasses">Media Container Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#containersResponsiveGutters" class="color-dark color-hover-info" data-scrollspy="#containersResponsiveGutters">Responsive Gutters</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alignment.html" class="color-dark text-bold color-hover-info">Alignment</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
+        <div class="pad-left-sm">
+          <a href="#textAlignment" class="color-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#elementAlignment" class="color-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#floatAlignment" class="color-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/padding.html" class="color-dark text-bold color-hover-info">Padding</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
+        <div class="pad-left-sm">
+          <a href="#basicPadding" class="color-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingForGrids" class="color-dark color-hover-info" data-scrollspy="#paddingForGrids">Padding for Grids</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#paddingWithFlexbox" class="color-dark color-hover-info" data-scrollspy="#paddingWithFlexbox">Padding with Flexbox</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/spacing.html" class="color-dark text-bold color-hover-info">Spacing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
+        <div class="pad-left-sm">
+          <a href="#horizontalSpacing" class="color-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#verticalSpacing" class="color-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rowSpacing" class="color-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customMargins" class="color-dark color-hover-info" data-scrollspy="#customMargins">Custom Margins</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/positioning.html" class="color-dark text-bold color-hover-info">Positioning</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
+        <div class="pad-left-sm">
+          <a href="#absolutePositioning" class="color-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#fixedPositioning" class="color-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#customPositioning" class="color-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#positioningUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/sizing.html" class="color-dark text-bold color-hover-info">Sizing</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
+        <div class="pad-left-sm">
+          <a href="#widthClasses" class="color-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#heightClasses" class="color-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#aspectRatios" class="color-dark color-hover-info" data-scrollspy="#aspectRatios">Aspect Ratios</a>
+        </div>
+      </div>  
+
+      <div>
+        <a href="/webui/10x/colors.html" class="color-dark text-bold color-hover-info">Colors</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
+        <div class="pad-left-sm">
+          <a href="#themeColors" class="color-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#translucency" class="color-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#focusAndHoverEvents" class="color-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/typography.html" class="color-dark text-bold color-hover-info">Typography</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
+        <div class="pad-left-sm">
+          <a href="#textSizes" class="color-dark color-info color-hover-info" data-scrollspy="#textSizes">Text Sizes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#moreTextClasses" class="color-dark color-hover-info" data-scrollspy="#moreTextClasses">More Text Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" class="color-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/buttons.html" class="color-dark text-bold color-hover-info">Buttons</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
+        <div class="pad-left-sm">
+          <a href="#buttonClasses" class="color-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#buttons" class="color-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuButtons" class="color-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#viewButtons" class="color-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navButtons" class="color-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/form_controls.html" class="color-dark text-bold color-hover-info">Form Controls</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
+        <div class="pad-left-sm">
+          <a href="#inputClasses" class="color-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#controlClasses" class="color-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#textboxes" class="color-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textareas" class="color-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#dropdownsAndDatalists" class="color-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#checkboxesAndRadioButtons" class="color-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#lists" class="color-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#rangeControls" class="color-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#progressControls" class="color-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#badges" class="color-dark color-hover-info" data-scrollspy="#badges">Badges</a>
+        </div>   
+      </div>
+  
+      <div>
+        <a href="/webui/10x/tooltips.html" class="color-dark text-bold color-hover-info">Tooltips</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
+        <div class="pad-left-sm">
+          <a href="#tooltipClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#basicTooltips" class="color-dark color-hover-info" data-scrollspy="#basicTooltips">Basic Tooltips</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsDetailedUseage" class="color-dark color-hover-info" data-scrollspy="#tooltipsDetailedUseage">Detailed Useage</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tooltipsCustomisation" class="color-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/alerts.html" class="color-dark text-bold color-hover-info">Alerts</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
+        <div class="pad-left-sm">
+          <a href="#alerts" class="color-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#alertCustomisation" class="color-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/menus.html" class="color-dark text-bold color-hover-info">Menus</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
+        <div class="pad-left-sm">
+          <a href="#menuClasses" class="color-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#menuAttributes" class="color-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
+        </div>     
+        <div class="pad-left-sm">
+          <a href="#menus" class="color-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuDropdowns" class="color-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#menuCustomisation" class="color-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#menuEvents" class="color-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/navbars.html" class="color-dark text-bold color-hover-info">Navbars</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
+        <div class="pad-left-sm">
+          <a href="#navbarClasses" class="color-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#navbars" class="color-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarSettings" class="color-dark color-hover-info" data-scrollspy="#navbarSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarEvents" class="color-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/modals.html" class="color-dark text-bold color-hover-info">Modals</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
+        <div class="pad-left-sm">
+          <a href="#modalClasses" class="color-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#modals" class="color-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#modalEvents" class="color-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/tabs.html" class="color-dark text-bold color-hover-info">Tabs</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
+        <div class="pad-left-sm">
+          <a href="#tabClasses" class="color-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#tabs" class="color-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" class="color-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/toggle_container.html" class="color-dark text-bold color-hover-info">Toggle Container</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
+        <div class="pad-left-sm">
+          <a href="#toggleContainerClasses" class="color-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainer" class="color-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" class="color-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/scrollspy.html" class="color-dark text-bold color-hover-info">Scrollspy</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+        <div class="pad-left-sm">
+          <a href="#scrollspyClasses" class="color-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#scrollspySettings" class="color-dark color-hover-info" data-scrollspy="#scrollspySettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#scrollspyUseage" class="color-dark color-hover-info" data-scrollspy="#scrollspyUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/radials.html" class="color-dark text-bold color-hover-info">Radials</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+        <div class="pad-left-sm">
+          <a href="#radialClasses" class="color-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#radialSettings" class="color-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#radials" class="color-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+        </div>
+      </div>
+  
+      <div>
+        <a href="/webui/10x/shapes.html" class="color-dark text-bold color-hover-info">Shapes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
+        <div class="pad-left-sm">
+          <a href="#transformShapes" class="color-dark color-info color-hover-info" data-scrollspy="#transformShapes">Transform Shapes</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#clipPathShapes" class="color-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#breadcrumbShapes" class="color-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#razorBladeShapes" class="color-dark color-hover-info" data-scrollspy="#razorBladeShapes">Razor-Blade Shapes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#extendShapes" class="color-dark color-hover-info" data-scrollspy="#extendShapes">Extend Shapes</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/carousels.html" class="color-dark text-bold color-hover-info">Carousels</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
+        <div class="pad-left-sm">
+          <a href="#carouselClasses" class="color-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselSettings" class="color-dark color-hover-info" data-scrollspy="#carouselSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#carouselControl" class="color-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#carouselEvents" class="color-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/upload.html" class="color-dark text-bold color-hover-info">Upload</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
+        <div class="pad-left-sm">
+          <a href="#uploadClasses" class="color-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadSettings" class="color-dark color-hover-info" data-scrollspy="#uploadSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadControl" class="color-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#uploadEvents" class="color-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+        </div>  
+      </div>
+
+      <div>
+        <a href="/webui/10x/zoom.html" class="color-dark text-bold color-hover-info">Zoom</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
+        <div class="pad-left-sm">
+          <a href="#zoomSettings" class="color-dark color-hover-info" data-scrollspy="#zoomSettings">Settings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#zoomControl" class="color-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/utility_classes.html" class="color-dark text-bold color-hover-info">Utility Classes</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
+        <div class="pad-left-sm">
+          <a href="#borders" class="color-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#boundaries" class="color-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#outlines" class="color-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#shadows" class="color-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" class="color-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#visibility" class="color-dark color-hover-info" data-scrollspy="#visibility">Visibility</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#mediaUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#mediaUtilityClasses">Media Classes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#otherUtilityClasses" class="color-dark color-hover-info" data-scrollspy="#otherUtilityClasses">Other Classes</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="menu dropdown area text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+
+      <div>
+        <a href="/webui/10x/js_introduction.html" class="color-dark text-bold color-hover-info">Introduction</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
+        <div class="pad-left-sm">
+          <a href="#jsOverview" class="color-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUseage" class="color-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_traversal_api.html" class="color-dark text-bold color-hover-info">DOM Traversal API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsChildren" class="color-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClosest" class="color-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElements" class="color-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEq" class="color-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFind" class="color-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsFirst" class="color-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHas" class="color-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsIs" class="color-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsLast" class="color-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSibling" class="color-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsNextSiblings" class="color-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsParent" class="color-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsParents" class="color-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSibling" class="color-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPrevSiblings" class="color-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSelect" class="color-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsSiblings" class="color-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_manipulation_api.html" class="color-dark text-bold color-hover-info">DOM Manipulation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAddClass" class="color-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAppend" class="color-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsAppendTo" class="color-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAttr" class="color-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCss" class="color-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsData" class="color-dark color-hover-info" data-scrollspy="#jsData">data</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasClass" class="color-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHidden" class="color-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHide" class="color-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHtml" class="color-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsPrependTo" class="color-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsRemove" class="color-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsRemoveChildren" class="color-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemoveClass" class="color-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShow" class="color-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" class="color-dark color-hover-info" data-scrollspy="#jsText">text</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggle" class="color-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsToggleClass" class="color-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsVal" class="color-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsVisible" class="color-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+        </div>
+      </div>
+      
+      <div>
+        <a href="/webui/10x/js_events_api.html" class="color-dark text-bold color-hover-info">DOM Events API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsBlur" class="color-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsChange" class="color-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDblClick" class="color-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsClick" class="color-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDrag" class="color-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragEnd" class="color-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsDragEnter" class="color-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragLeave" class="color-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragOver" class="color-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsDragStart" class="color-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsDrop" class="color-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocus" class="color-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusIn" class="color-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFocusOut" class="color-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverIn" class="color-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHoverOut" class="color-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsKeyDown" class="color-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOff" class="color-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsOn" class="color-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsResize" class="color-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsTrigger" class="color-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_transitions_api.html" class="color-dark text-bold color-hover-info">Transitions API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTransitionsApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsCollapseHorizontal" class="color-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCollapseVertical" class="color-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsExpandVertical" class="color-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeIn" class="color-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFadeOut" class="color-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideHorizontal" class="color-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlideVertical" class="color-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsAnimate" class="color-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_utilities_api.html" class="color-dark text-bold color-hover-info">Utilities API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsConvertToDate" class="color-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCopyToClipboard" class="color-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsElementHoverAt" class="color-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAccessibilityContrastColor" class="color-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgHeight" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetAvgWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetColorShade" class="color-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetElementViewportStatus" class="color-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetScrollbarWidth" class="color-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsGetTimeOffsetFromNow" class="color-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIsWindowInBreakPointRange" class="color-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" class="color-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemToPx" class="color-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" class="color-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsCalculatePointerSpeed" class="color-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/10x/js_validation_api.html" class="color-dark text-bold color-hover-info">Validation API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsIsChecked" class="color-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsHasConformingString" class="color-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+        </div> 
+        <div class="pad-left-sm">
+          <a href="#jsHasNumericInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasIntegerInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasValidDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPastDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasPresentDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasFutureDateTime" class="color-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+        </div>  
+        <div class="pad-left-sm">
+          <a href="#jsHasDateTimeInRange" class="color-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>  
+ 
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+
+    <div class="align-center pad-left-xxl pad-right-xxl" id="main">
+      <section class="scrollspy text" id="inputClasses">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Input Classes</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Sizes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-14">Classes</div>
+      <div class="table-col-6">Height</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input-xs</div>
+      <div class="table-col-6">1.5rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input-sm</div>
+      <div class="table-col-6">1.75rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input-md</div>
+      <div class="table-col-6">2.125rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input-lg</div>
+      <div class="table-col-6">2.375rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input-xl</div>
+      <div class="table-col-6">2.75rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">input</div>
+      <div class="table-col-6">Un-sized - height expands with content</div>
+    </div>	
+  </div>
+  
+  <p>All input classes can be used without adding the suffix -xs, -sm, -md, -lg, -xl, etc., which means the height of the element will only expand to accomodate its
+    content with a small amount of padding by default.
+  </p>
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-warning-light background-secondary area">
+    <div class="flex-items-center">
+      <span class="color-warning fa fa-warning fa-2x pad-right-sm"></span><span class="text-bold">Textbox sizing</span>
+    </div>
+    <p class="text-sm">It is recommended that the height of textboxes and dropdowns is not customised, since the height is preset to match other form controls such as buttons 
+      and labels.</p>
+  </blockquote>
+  
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Styling</p>
+  
+  <p>The simplest way to style form controls is to use a single class to set the form control type and size. The syntax is 
+    <span class="color-info text-bold">[control type]-[control size]</span>.</p>
+
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm col-padding-md">
+    <div class="table-col">
+      <input type="text" placeholder="Textbox 1" class="input-sm">
+    </div>
+    <div class="table-col">
+      <input type="text" placeholder="Textbox 2" class="input-md">
+    </div>
+    <div class="table-col">
+      <input type="text" placeholder="Textbox 3" class="input-xl">
+    </div>		
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input type="text" placeholder="Textbox 1" class="input-sm"&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input type="text" placeholder="Textbox 2" class="input-md"&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input type="text" placeholder="Textbox 3" class="input-xl"&gt;
+  &lt;/div&gt;		
+&lt;/div&gt;</pre>
+                                    
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+
+  <blockquote class="border-info-light background-secondary area">
+    <div class="flex-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Input Widths</span>
+    </div>
+    <p class="text-sm">You can change the width of input controls by using any of the utility classes, such as <span class="color-info text-bold">width-full</span> 
+      to make the control expand to the width of its container element or <span class="color-info text-bold">width-xl</span> to set a fixed width of extra large for example.</p>
+  </blockquote>
+  
+</section>
+
+<section class="scrollspy text" id="controlClasses">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Control Classes</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Classes</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control</div>
+      <div class="table-col-13">Styles an element to the default form control color and padding style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-success</div>
+      <div class="table-col-13">Styles an element to the theme success style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-info</div>
+      <div class="table-col-13">Styles an element to the theme info style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-warning</div>
+      <div class="table-col-13">Styles an element to the theme warning style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-danger</div>
+      <div class="table-col-13">Styles an element to the theme danger style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-highlight</div>
+      <div class="table-col-13">Styles an element to the theme highlight style, but does not set any dimensions.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-disabled</div>
+      <div class="table-col-13">Styles an element to the theme disabled style, but does not set any dimensions.</div>
+    </div>
+  </div>
+  
+  <p>The control classes are useful when form controls such as textareas need to match the appearance of other controls. These classes can also be used to
+    style almost any element.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row col-padding-lg">
+    <div class="table-col">
+      <textarea class="control width-lg height-md-lg"></textarea>
+    </div>
+    <div class="table-col">
+      <div class="control width-lg height-md-lg"></div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+    
+<pre>&lt;div class="table-row col-padding-lg"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;textarea class="control width-lg height-md-lg"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="control width-lg height-md-lg"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                                                      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Labels</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-14">Classes</div>
+      <div class="table-col-6">Line height</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label</div>
+      <div class="table-col-6">1rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-xxs</div>
+      <div class="table-col-6">1.25rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-xs</div>
+      <div class="table-col-6">1.5rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-sm</div>
+      <div class="table-col-6">1.75rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-md</div>
+      <div class="table-col-6">2.125rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-lg</div>
+      <div class="table-col-6">2.375rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-xl</div>
+      <div class="table-col-6">2.75rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-14">control-label-xxl</div>
+      <div class="table-col-6">3.125rem</div>
+    </div>
+  </div>
+  
+  <p>The control label classes are sized to match the standard form control heights.</p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row col-padding-sm control-group">
+    <div class="table-col control-label-sm">
+        First name
+    </div>
+    <div class="table-col">
+      <input id="FirstName" type="text" class="input-sm width-full rounded-sm" />
+    </div>
+  </div>
+    
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+    
+<pre>&lt;div class="table-row col-padding-sm control-group"&gt;
+  &lt;div class="table-col control-label-sm"&gt;
+      First name
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input id="FirstName" type="text" class="input-sm width-full rounded-sm" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                                                            
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Control Grouping</p>
+  
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Classes</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-block</div>
+      <div class="table-col-13">Groups elements by setting the display property of the immediate child elements to block.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group</div>
+      <div class="table-col-13">Groups elements by setting the display property to table, and the immediate child elements to table-cell.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-append</div>
+      <div class="table-col-13">Groups elements by adjusting the word spacing property.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+
+  <blockquote class="border-info-light background-secondary area">
+    <div class="flex-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="color-dark text-bold">Control Grouping</span>
+    </div>
+    <p class="text-sm">Controls grouping classes are provided for backwards compatibity. However, it is recommended that flexbox is used in preference going forward.</p>
+  </blockquote>
+  
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm col-padding-md">
+    <div class="table-col">
+      <div class="control-group">
+          <button class="button-sm menu-button-info background-focus-info-dark rounded-left-sm transition-long"><i class="fa fa-angle-double-left"></i></button>
+          <button class="button-sm menu-button-info background-focus-info-dark transition-long">1</button>
+          <button class="button-sm menu-button-info background-focus-info-dark transition-long">2</button>
+          <button class="button-sm menu-button-info background-focus-info-dark transition-long">3</button>
+          <button class="button-sm menu-button-info background-focus-info-dark rounded-right-sm transition-long"><i class="fa fa-angle-double-right"></i></button>
+        </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="control-group"&gt;
+        &lt;button class="button-sm menu-button-info background-focus-info-dark rounded-left-sm transition-long"&gt;&lt;i class="fa fa-angle-double-left"&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;button class="button-sm menu-button-info background-focus-info-dark transition-long"&gt;1&lt;/button&gt;
+        &lt;button class="button-sm menu-button-info background-focus-info-dark transition-long"&gt;2&lt;/button&gt;
+        &lt;button class="button-sm menu-button-info background-focus-info-dark transition-long"&gt;3&lt;/button&gt;
+        &lt;button class="button-sm menu-button-info background-focus-info-dark rounded-right-sm transition-long"&gt;&lt;i class="fa fa-angle-double-right"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div> 
+  
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Group Validation Styling</p>
+
+  <p>Styles can be applied to a group of form controls by using one of the following classes. The <span class="color-info text-bold">control-group-*</span> 
+    classes must be added to the parent element of the controls that require styling.</p>
+
+  <div class="row-spacing-md"></div>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-success</div>
+      <div class="table-col-13">Applies success styling to a group of form controls.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-info</div>
+      <div class="table-col-13">Applies info styling to a group of form controls.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-warning</div>
+      <div class="table-col-13">Applies warning styling to a group of form controls.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-danger</div>
+      <div class="table-col-13">Applies danger styling to a group of form controls.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">control-group-disabled</div>
+      <div class="table-col-13">Applies disabled styling to a group of form controls.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+      
+  <p>In addition to changing the colour of the controls, a validation icon will be added inside the control on the right if it is an HTML input or button. 
+    You can also force any individual HTML element to have a validation icon by adding the class <span class="color-info text-bold">instrumentation</span> to it, 
+    where the element type would not normally be given one, such as a textarea or div.</p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row col-padding-sm control-group control-group-success">
+    <div class="table-col control-label-sm">
+        First name
+    </div>
+    <div class="table-col">
+      <input id="FirstName" type="text" class="input-sm width-full rounded-sm" />
+    </div>
+  </div>
+
+  <div class="table-row col-padding-sm">
+    <div class="table-col flex-auto">
+      <textarea class="control control-warning height-md instrumentation"></textarea>
+    </div>
+  </div>  
+  
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+    
+<pre>&lt;div class="table-row col-padding-sm control-group control-group-success"&gt;
+  &lt;div class="table-col control-label-sm"&gt;
+      First name
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input id="FirstName" type="text" class="input-sm width-full rounded-sm" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="table-row col-padding-sm"&gt;
+  &lt;div class="table-col flex-auto"&gt;
+    &lt;textarea class="control control-warning height-md instrumentation"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre> 
+                                                                                                
+      </div>
+    </div>
+  </div>
+  
+</section>
+  
+<section class="scrollspy text" id="textboxes">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Textboxes</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>As shown in the table above, textboxes can be set to one of the sizes provided or be set to un-sized. When un-sized, the height of the control will depend on
+    the font size. In the example below, the first textbox inherits an extra small font-size from the row which has the class 
+    <span class="color-info text-bold">text-xs</span> applied.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="form-row text-xs">
+    <div class="form-col-20">
+      <input type="text" class="input width-sm">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-col-20">
+      <input type="text" class="input-sm width-lg">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-col-20">
+      <input type="text" class="input-lg width-full">
+    </div>		
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="form-row text-xs"&gt;
+  &lt;div class="form-col-20"&gt;
+    &lt;input type="text" class="input width-sm"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-row"&gt;
+  &lt;div class="form-col-20"&gt;
+    &lt;input type="text" class="input-sm width-lg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-row"&gt;
+  &lt;div class="form-col-20"&gt;
+    &lt;input type="text" class="input-lg width-full"&gt;
+  &lt;/div&gt;		
+&lt;/div&gt;</pre>
+                                                        
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="textareas">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Textareas</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Textareas can be styled using the <span class="color-info text-bold">control</span> class. Then any of the <span class="color-info text-bold">width-*</span>
+    and <span class="color-info text-bold">height-*</span> classes can be added to set the size of the control. Most browsers support a resize handle for textareas, 
+    but resizing the width is prevented in WebUI to avoid potential form layout distortions.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row">
+    <div class="table-col flex-auto">
+      <textarea class="control height-lg"></textarea>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row"&gt;
+  &lt;div class="table-col flex-auto"&gt;
+    &lt;textarea class="control height-lg"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                        
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="dropdownsAndDatalists">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Dropdowns and Datalists</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Select and datalist elements can be styled using the same input classes as textboxes - this ensures that the height and style will match for all input controls.
+    If the select or datalist is being used as a multi-select list, where you need to define the height, then the <span class="color-info text-bold">control</span>
+    class should be used instead of using the <span class="color-info text-bold">input-*</span> classes. Then any of the <span class="color-info text-bold">height-*</span>
+    classes can be added to set the height. See the following example.
+  </p>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row">
+    <div class="table-col">
+      <select class="input-sm width-lg-xl">
+        <option value="1">Austria</option>
+        <option value="3">Bulgaria</option>
+        <option value="4">Canada</option>
+        <option value="5">Denmark</option>
+        <option value="6">England</option>
+        <option value="7">Finland</option>
+        <option value="8">Germany</option>
+      </select>
+    </div>
+    <div class="table-col">
+      <select multiple="multiple" class="control height-lg width-lg-xl scroll-y">
+        <option value="1">Austria</option>
+        <option value="3">Bulgaria</option>
+        <option value="4">Canada</option>
+        <option value="5">Denmark</option>
+        <option value="6">England</option>
+        <option value="7">Finland</option>
+        <option value="8">Germany</option>
+      </select>
+    </div>	
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;select class="input-sm width-lg-xl"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;select multiple="multiple" class="control height-lg width-lg-xl scroll-y"&gt;
+      &lt;option value="1"&gt;Austria&lt;/option&gt;
+      &lt;option value="3"&gt;Bulgaria&lt;/option&gt;
+      &lt;option value="4"&gt;Canada&lt;/option&gt;
+      &lt;option value="5"&gt;Denmark&lt;/option&gt;
+      &lt;option value="6"&gt;England&lt;/option&gt;
+      &lt;option value="7"&gt;Finland&lt;/option&gt;
+      &lt;option value="8"&gt;Germany&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                              
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row">
+    <div class="table-col">
+      <input list="brands" class="input-sm width-lg-xl">
+      <datalist id="brands">
+        <option value="Apple">Apple</option>
+        <option value="Huawei">Huawei</option>
+        <option value="LG">LG</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Sony">Sony</option>
+      </datalist>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;input list="brands" class="input-sm width-lg-xl"&gt;
+    &lt;datalist id="brands"&gt;
+      &lt;option value="Apple"&gt;Apple&lt;/option&gt;
+      &lt;option value="Huawei"&gt;Huawei&lt;/option&gt;
+      &lt;option value="LG"&gt;LG&lt;/option&gt;
+      &lt;option value="Microsoft"&gt;Microsoft&lt;/option&gt;
+      &lt;option value="Samsung"&gt;Samsung&lt;/option&gt;
+      &lt;option value="Sony"&gt;Sony&lt;/option&gt;
+    &lt;/datalist&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                                              
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="checkboxesAndRadioButtons">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Checkboxes and Radio Buttons</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Checkboxes</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm col-padding-md">
+    <div class="table-col">
+      <div class="checkbox border-accent-4">
+        <input type="checkbox" value="" id="checkbox3" />
+        <label for="checkbox3"></label>
+      </div>    
+    </div>
+    <div class="table-col">
+      <div class="checkbox border-info">
+        <input type="checkbox" value="" id="checkbox2" />
+        <label for="checkbox2"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="checkbox border-accent-3 control-disabled">
+        <input type="checkbox" value="" id="checkbox1" disabled />
+        <label for="checkbox1"></label>
+      </div>   
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="checkbox border-accent-4"&gt;
+      &lt;input type="checkbox" value="" id="checkbox3" /&gt;
+      &lt;label for="checkbox3"&gt;&lt;/label&gt;
+    &lt;/div&gt;    
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="checkbox border-info"&gt;
+      &lt;input type="checkbox" value="" id="checkbox2" /&gt;
+      &lt;label for="checkbox2"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="checkbox border-accent-3 control-disabled"&gt;
+      &lt;input type="checkbox" value="" id="checkbox1" disabled /&gt;
+      &lt;label for="checkbox1"&gt;&lt;/label&gt;
+    &lt;/div&gt;   
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Checkbox Toggle Switches</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row col-padding-md">
+    <div class="table-col">
+      <div class="toggle-switch-xs accent-1-light rounded-sm">	
+        <input type="checkbox" value="1" id="check-switch-1" />
+        <label for="check-switch-1" class="background-accent-1 left-transition-medium"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="toggle-switch-sm onoff accent-2-light rounded-sm">	
+        <input type="checkbox" value="2" id="check-switch-2" />
+        <label for="check-switch-2" class="background-accent-2 left-transition-medium"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="toggle-switch-md yesno accent-3-light rounded-sm control-disabled">	
+        <input type="checkbox" value="3" id="check-switch-3" disabled />
+        <label for="check-switch-3" class="background-default left-transition-medium"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-xs accent-1-light rounded-sm"&gt;	
+      &lt;input type="checkbox" value="1" id="check-switch-1" /&gt;
+      &lt;label for="check-switch-1" class="background-accent-1 left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-sm onoff accent-2-light rounded-sm"&gt;	
+      &lt;input type="checkbox" value="2" id="check-switch-2" /&gt;
+      &lt;label for="check-switch-2" class="background-accent-2 left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-md yesno accent-3-light rounded-sm control-disabled"&gt;	
+      &lt;input type="checkbox" value="3" id="check-switch-3" disabled /&gt;
+      &lt;label for="check-switch-3" class="background-default left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>     
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Checkbox Toggle Buttons</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="content-row">
+    <div class="control-group">
+      <div class="toggle-button-sm toggle-button-accent-1">			
+        <input type="checkbox" id="checkButton1" checked>
+        <label for="checkButton1" class="transition-medium">Check 1 (preselected)</label>
+      </div>
+      <div class="toggle-button-sm toggle-button-accent-1">
+        <input type="checkbox" id="checkButton2"> 
+        <label for="checkButton2" class="transition-medium">Check 2</label>
+      </div>
+      <div class="toggle-button-sm toggle-button-accent-1">
+        <input type="checkbox" id="checkButton3"> 
+        <label for="checkButton3" class="transition-medium">Check 3</label>
+      </div>
+    </div>				
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="content-row"&gt;
+  &lt;div class="control-group"&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;			
+      &lt;input type="checkbox" id="checkButton1" checked&gt;
+      &lt;label for="checkButton1" class="transition-medium"&gt;Check 1 (preselected)&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;
+      &lt;input type="checkbox" id="checkButton2"&gt; 
+      &lt;label for="checkButton2" class="transition-medium"&gt;Check 2&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;
+      &lt;input type="checkbox" id="checkButton3"&gt; 
+      &lt;label for="checkButton3" class="transition-medium"&gt;Check 3&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;				
+&lt;/div&gt;</pre>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Radio Buttons</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm col-padding-md">
+    <div class="table-col">
+      <div class="radio border-success">
+        <input type="radio" value="" name="radiogroup1" id="radio1" />
+        <label for="radio1"></label>
+      </div>    
+    </div>
+    <div class="table-col">
+      <div class="radio border-accent-1">
+        <input type="radio" value="" name="radiogroup1" id="radio2" />
+        <label for="radio2"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="radio border-accent-2 control-disabled">
+        <input type="radio" value="" name="radiogroup1" id="radio3" disabled />
+        <label for="radio3"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="radio border-success"&gt;
+      &lt;input type="radio" value="" name="radiogroup1" id="radio1" /&gt;
+      &lt;label for="radio1"&gt;&lt;/label&gt;
+    &lt;/div&gt;    
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="radio border-accent-1"&gt;
+      &lt;input type="radio" value="" name="radiogroup1" id="radio2" /&gt;
+      &lt;label for="radio2"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="radio border-accent-2 control-disabled"&gt;
+      &lt;input type="radio" value="" name="radiogroup1" id="radio3" disabled /&gt;
+      &lt;label for="radio3"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-lg"></div>
+
+  <p class="text-bold">Radio Button Toggle Switches</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row col-padding-md">
+    <div class="table-col">
+      <div class="toggle-switch-xs accent-1-light rounded-sm">	
+        <input type="radio" value="1" id="radio-switch-1" name="radio-switch-1" />
+        <label for="radio-switch-1" class="background-accent-1 left-transition-medium"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="toggle-switch-sm onoff accent-2-light rounded-sm">	
+        <input type="radio" value="2" id="radio-switch-2" name="radio-switch-1" />
+        <label for="radio-switch-2" class="background-accent-2 left-transition-medium"></label>
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="toggle-switch-md yesno accent-3-light rounded-sm control-disabled">	
+        <input type="radio" value="3" id="radio-switch-3" name="radio-switch-1" disabled />
+        <label for="radio-switch-3" class="background-default left-transition-medium"></label>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-xs accent-1-light rounded-sm"&gt;	
+      &lt;input type="radio" value="1" id="radio-switch-1" name="radio-switch-1" /&gt;
+      &lt;label for="radio-switch-1" class="background-accent-1 left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-sm onoff accent-2-light rounded-sm"&gt;	
+      &lt;input type="radio" value="2" id="radio-switch-2" name="radio-switch-1" /&gt;
+      &lt;label for="radio-switch-2" class="background-accent-2 left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="toggle-switch-md yesyno accent-3-light rounded-sm control-disabled"&gt;	
+      &lt;input type="radio" value="3" id="radio-switch-3" name="radio-switch-1" disabled /&gt;
+      &lt;label for="radio-switch-3" class="background-default left-transition-medium"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre> 
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Radio Toggle Buttons</p>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="content-row">
+    <div class="control-group">
+      <div class="toggle-button-sm toggle-button-accent-1">			
+        <input type="radio" name="radioButton" id="radioButton1" checked>
+        <label for="radioButton1" class="transition-medium">Radio 1 (preselected)</label>
+      </div>
+      <div class="toggle-button-sm toggle-button-accent-1">
+        <input type="radio" name="radioButton" id="radioButton2"> 
+        <label for="radioButton2" class="transition-medium">Radio 2</label>
+      </div>
+      <div class="toggle-button-sm toggle-button-accent-1">
+        <input type="radio" name="radioButton" id="radioButton3"> 
+        <label for="radioButton3" class="transition-medium">Radio 3</label>
+      </div>
+    </div>				
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="content-row"&gt;
+  &lt;div class="control-group"&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;			
+      &lt;input type="radio" name="radioButton" id="radioButton1" checked&gt;
+      &lt;label for="radioButton1" class="transition-medium"&gt;Radio 1 (preselected)&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;
+      &lt;input type="radio" name="radioButton" id="radioButton2"&gt; 
+      &lt;label for="radioButton2" class="transition-medium"&gt;Radio 2&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="toggle-button-sm toggle-button-accent-1"&gt;
+      &lt;input type="radio" name="radioButton" id="radioButton3"&gt; 
+      &lt;label for="radioButton3" class="transition-medium"&gt;Radio 3&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;				
+&lt;/div&gt;</pre>
+                  
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="lists">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Lists</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Styling Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list</div>
+      <div class="table-col-13">Formats ordered and unordered lists without a list style or padding, and with a small left margin.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-inline</div>
+      <div class="table-col-13">Formats ordered and unordered lists inline without a list style or padding, and with a small left margin.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-bullet</div>
+      <div class="table-col-13">Sets the list style type to disc.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-bullet-square</div>
+      <div class="table-col-13">Sets the list style type to square.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-alpha</div>
+      <div class="table-col-13">Sets the list style type to lower-alpha.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-alpha-upper</div>
+      <div class="table-col-13">Sets the list style type to upper-alpha.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">list-number</div>
+      <div class="table-col-13">Sets the list style type to decimal.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <p class="text-bold">Spacing Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-10">Classes</div>
+      <div class="table-col-5">Spacing</div>
+      <div class="table-col-5">Spacing (inline)</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-10">list-spacing-sm</div>
+      <div class="table-col-5">0.313rem</div>
+      <div class="table-col-5">2.313rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-10">list-spacing-md</div>
+      <div class="table-col-5">0.938rem</div>
+      <div class="table-col-5">2.938rem</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-10">list-spacing-lg</div>
+      <div class="table-col-5">1.563rem</div>
+      <div class="table-col-5">3.563rem</div>
+    </div>
+  </div>  
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm text-nowrap col-padding-lg">
+    <div class="table-col">
+      <ul class="list list-spacing-md">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+    <div class="table-col">
+      <ul class="list list-spacing-md list-number">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+    <div class="table-col">
+      <ul class="list list-spacing-md list-alpha-upper">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+    <div class="table-col">
+      <ul class="list-inline list-spacing-md">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm text-nowrap col-padding-lg"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;ul class="list list-spacing-md"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;ul class="list list-spacing-md list-number"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;ul class="list list-spacing-md list-alpha-upper"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;ul class="list-inline list-spacing-md"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                              
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="scrollspy text" id="rangeControls">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Range Controls</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Range Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range</div>
+      <div class="table-col-13">The mandatory class for range control styling.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-xs, range-sm, range-md, range-lg, range-xl</div>
+      <div class="table-col-13">Specifies the overall height of the range control.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-[WebUI color suffix]</div>
+      <div class="table-col-13">Specifies the range control color. The color suffix can be one of the standard WebUI colors.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-disabled</div>
+      <div class="table-col-13">Specifies that the range control should be styled as disabled.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-rounded</div>
+      <div class="table-col-13">Specifies that the range control thumb should be round instead of a rectangle.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">range-series</div>
+      <div class="table-col-13">Used to style a range control series.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="range-series width-full color-dark">
+    <span>0</span>
+    <span>25</span>
+    <span>50</span>
+    <span>75</span>
+    <span>100</span>
+  </div>
+  <input type="range" value="25" min="0" max="100" class="range width-full" />
+
+  <div class="row-spacing-xl"></div>
+
+  <div class="content-row">
+    <div class="content-col-20">
+      <input type="range" value="25" min="0" max="100" class="range range-lg range-success width-full" />
+    </div>
+  </div>
+  <div class="content-row">
+    <div class="content-col-20">
+      <ul class="range-series list-inline margin-initial width-full color-success">
+        <li>0</li>
+        <li>25</li>
+        <li>50</li>
+        <li>75</li>
+        <li>100</li>
+      </ul>
+    </div>	
+  </div>
+          
+  <div class="row-spacing-xl"></div>
+
+  <div class="content-row">
+    <div class="content-col-20">
+      <input type="range" value="25" min="0" max="100" class="range range-xs range-info width-full" />
+    </div>
+  </div>
+  <div class="content-row">
+    <div class="content-col-20">
+      <ul class="range-series list-inline margin-initial width-full color-accent-5">
+        <li>0</li>
+        <li>25</li>
+        <li>50</li>
+        <li>75</li>
+        <li>100</li>
+      </ul>
+    </div>	
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="range-series width-full color-dark"&gt;
+  &lt;span&gt;0&lt;/span&gt;
+  &lt;span&gt;25&lt;/span&gt;
+  &lt;span&gt;50&lt;/span&gt;
+  &lt;span&gt;75&lt;/span&gt;
+  &lt;span&gt;100&lt;/span&gt;
+&lt;/div&gt;
+&lt;input type="range" value="25" min="0" max="100" class="range width-full" /&gt;
+
+&lt;div class="row-spacing-xl"&gt;&lt;/div&gt;
+
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;input type="range" value="25" min="0" max="100" class="range range-lg range-success width-full" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;ul class="range-series list-inline margin-initial width-full color-success"&gt;
+      &lt;li&gt;0&lt;/li&gt;
+      &lt;li&gt;25&lt;/li&gt;
+      &lt;li&gt;50&lt;/li&gt;
+      &lt;li&gt;75&lt;/li&gt;
+      &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;
+        
+&lt;div class="row-spacing-xl"&gt;&lt;/div&gt;
+
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;input type="range" value="25" min="0" max="100" class="range range-xs range-info width-full" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="content-row"&gt;
+  &lt;div class="content-col-20"&gt;
+    &lt;ul class="range-series list-inline margin-initial width-full color-accent-5"&gt;
+      &lt;li&gt;0&lt;/li&gt;
+      &lt;li&gt;25&lt;/li&gt;
+      &lt;li&gt;50&lt;/li&gt;
+      &lt;li&gt;75&lt;/li&gt;
+      &lt;li&gt;100&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;	
+&lt;/div&gt;</pre>
+                                                    
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="scrollspy text" id="progressControls">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Progress Controls</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Progress Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress</div>
+      <div class="table-col-13">The mandatory class for progress control wrapper element.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress-[WebUI color suffix]</div>
+      <div class="table-col-13">Specifies the progress control color. The color suffix can be one of the standard WebUI colors.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">progress-labal</div>
+      <div class="table-col-13">Class for a supplimentary overlay text.</div>
+    </div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="progress progress-accent-2 width-full rounded-sm">			
+    <progress value="25" max="100" id="progressbar"></progress>
+    <div class="progress-label color-dark">25%</div>  
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="progress progress-accent-2 width-full rounded-sm"&gt;			
+  &lt;progress value="25" max="100" id="progressbar"&gt;&lt;/progress&gt;
+  &lt;div class="progress-label color-dark"&gt;25%&lt;/div&gt;  
+&lt;/div&gt;</pre>
+                                                    
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section class="scrollspy text" id="badges">
+
+  <div class="height-md show-bp-4-over"></div>
+  <div class="height-sm show-bp-4-under"></div>
+
+  <h3>Badges</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p class="text-bold">Classes</p>
+
+  <div class="container col-padding-sm text-center text-sm text-wrap">
+    <div class="table-row background-secondary">
+      <div class="table-col-7">Class</div>
+      <div class="table-col-13">Description</div>					
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-square-xs</div>
+      <div class="table-col-13">Defines an extra small badge with no rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-square-sm</div>
+      <div class="table-col-13">Defines a small badge with no rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-square-md</div>
+      <div class="table-col-13">Defines a medium size badge with no rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-square-lg</div>
+      <div class="table-col-13">Defines a large badge with no rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-square-xl</div>
+      <div class="table-col-13">Defines an extra large badge with no rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-round-xs</div>
+      <div class="table-col-13">Defines an extra small badge with rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-round-sm</div>
+      <div class="table-col-13">Defines a small badge with rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-round-md</div>
+      <div class="table-col-13">Defines a medium size badge with rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-round-lg</div>
+      <div class="table-col-13">Defines a large badge with rounding.</div>
+    </div>
+    <div class="table-row text-left">
+      <div class="table-col-7">badge-round-xl</div>
+      <div class="table-col-13">Defines an extra large badge with rounding.</div>
+    </div>  
+  </div>
+
+  <div class="row-spacing-md"></div>
+
+  <span class="badge-square-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="table-row text-sm col-padding-md">
+    <div class="table-col">
+      <div class="badge-square-xs warning">
+        This is a warning
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="badge-round-sm info">
+        55
+      </div>
+    </div>
+    <div class="table-col">
+      <div class="badge-round-sm dark">
+        A dark badge
+      </div>
+    </div>
+  </div>  
+  
+  <div class="row-spacing-md"></div>
+  
+  <span class="badge-square-xs background-success-light text-xs">Markup</span>
+  <div class="row-spacing-sm"></div>
+
+  <div class="body background-secondary code-block">
+    <div class="content-row">
+      <div class="content-col-20 scroll-y">
+        <button type="button" class="button button-transparent color-accent-5 border-accent-5 color-focus-dark text-xs place-top-right code-copy">Copy</button>
+
+<pre>&lt;div class="table-row text-sm col-padding-md"&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="badge-square-xs warning"&gt;
+      This is a warning.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="badge-round-sm info"&gt;
+      55
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="table-col"&gt;
+    &lt;div class="badge-round-sm dark"&gt;
+      A dark badge.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre> 
+                                                        
+      </div>
+    </div>
+  </div>
+
+</section>
+   
+
+    </div>
+
+    <div class="dock-top-right top-sm-md bottom-initial show-bp-5-over" id="homeInfoPanel">
+      <div class="pad-left-xl-xxl pad-right-xl-xxl width-xl">
+        
+<div class="area text-center">    
+    <a href="https://github.com/asyncdesign/webui" class="text text-bold color-accent-5-dark">
+      <div>WebUI on GitHub</div>
+      <img src="/webui/10x/assets/images/webui_github.jpg" alt="Media" class="border-sm border-color-muted" />
+    </a>   
+</div>
+
+<div class="area text-center">    
+    <a href="https://twitter.com/asyncdesign?lang=en" class="text text-bold color-accent-5-dark">
+      <div>WebUI on Twitter</div>
+      <img src="/webui/10x/assets/images/webui_twitter.jpg" alt="Media" class="border-sm border-color-muted" />
+    </a>   
+</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-2 color-hover-muted dock-bottom-right pad-xs show-bp-4-under"></i>
+
+
+  <script src="/webui/10x/assets/js/webui-components.js"></script>
+
+  <script src="/webui/10x/assets/js/mark.js"></script>
+  <script src="/webui/10x/assets/js/site.js"></script>
+
+  <script>
+
+	    webui.ready(function() {        
+        
+        // Initialisation
+
+        ui.initMenus({
+          transitionDuration: 700,
+				  transitionType: "collapse"
+        });
+  
+        ui(".siteSideMenu").scrollspy({ 
+          activatorSelector: "div > div > a",
+          activatorActiveClass: "color-info",
+          scrollTargetClass: "scrollspy",
+          scrollTargetOffset: 50,
+          activatorCallback: onMenuItemSelect
+        });			         
+
+        function onMenuItemSelect() {
+          if (ui.isWindowInBreakPointRange([0, 4])) {
+            var menuWidth = ui("#homeMobileSideNav")[0].offsetWidth + "px";
+            ui("#homeMobileSideNav").css("transform", "translate(-" + menuWidth + ", 0)").addClass("off-canvas-closed");
+          }
+        }
+
+        ui("#v11MenuSwitchMobile").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitchMobile").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui/10x".replace("webui/10x", "webui");
+        });
+
+        ui("#v11MenuSwitch").click(function() {         
+          ui(this).setState("accent-1-light", "accent-1");
+          ui("#v10MenuSwitch").setState("accent-1", "accent-1-light");
+          document.location.href = "/webui/10x".replace("webui/10x", "webui");
+        });
+
+        ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+
+        ui("#cssMenuSwitch").click(function() {
+          document.location.href = "/webui/10x/getting_started.html";
+          ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui("#jsMenuSwitch").click(function() {
+          document.location.href = "/webui/10x/js_introduction.html";
+          ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
+        });
+
+        ui(".code-copy").click(function() {
+          var el = ui(this).parent().find("pre");
+          if (el && el.length) {
+            ui.copyToClipboard(el.text());
+          }
+        });
+
+    
+        var loc = document.location.pathname;
+        var parts = loc.split("\/");
+        if (parts && parts.length > 0) {
+          switch(parts[parts.length -1]) {
+            case "getting_started.html": ui("#gettingStartedMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "grid_system.html": ui("#gridSystemMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "flexbox.html": ui("#flexboxMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "columns.html": ui("#columnsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "media_breakpoints.html": ui("#mediaBreakpointsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "containers.html": ui("#containersMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "alignment.html": ui("#alignmentMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "padding.html": ui("#paddingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "spacing.html": ui("#spacingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "positioning.html": 
+            
+                  ui("#shapeSnapPosition").snapPosition("#containerSnapPosition", [0, -0.6], "rem");
+
+                  ui("#toggleFixedFooterPanel").click(function() {
+                    ui("#fixedFooterPanel").toggle();
+                  });
+
+                  ui("#positioningMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "sizing.html": ui("#sizingMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "colors.html": ui("#colorsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "typography.html": ui("#typographyMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "buttons.html": 
+            
+                  ui("#navButtonExample1, #navButtonExample2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  ui("#navButtonExample1, #navButtonExample2").click(function() { 
+                    ui(this).toggleClass("active");
+                  });
+
+                  ui("#buttonsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "form_controls.html": ui("#formControlsMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "tooltips.html": 
+            
+                  ui.initTooltips({
+                    autoPositioning: true,
+                    autoResizing: true,
+                    autoPositioningMargin: 0,
+                    transitionDuration: 2000
+                  });
+
+                  ui("#tooltipStaticShow").click(function() {
+                    ui("#tooltipStatic").showTooltip("Static tooltip with message.");
+                  });
+
+                  ui("#tooltipStaticHide").click(function() {
+                    ui("#tooltipStatic").hideTooltip();
+                  });
+
+                  ui("#tooltipsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "alerts.html": 
+
+                  ui.initAlerts({
+                    position: "top-center",
+                    duration: 6000,
+                    transitionDuration: 2000,
+                    width: "60rem",
+                    showHeader: true,
+                    inline: true,
+                    style: "outline-rounded",
+                    autoHide: false,
+                    showIcon: true,
+                    showClose: true
+                  });
+        
+                  ui("#alert1, #alert2, #alert3, #alert4").fadeIn(1000);
+
+                  ui("#showAlert").click( function() { 
+                    ui.showInfoAlert("<span class='text-bold'>Alert</span> - Configure behaviour, structure, and style.", false);
+                  });
+
+                  ui("#alertsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "menus.html": ui("#menusMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "navbars.html": ui("#navbarsMenu").expandVertical(700, "auto"); 
+
+                  ui("#navbar1").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 0,
+                    largeDeviceMenuOffset: -40,
+                    smallDeviceAlignment: "left",		
+                    smallDeviceBreakpoint: 2,
+                    smallDeviceExpansion: "overlay"			
+                  });
+
+                  ui("#navbar2").navbarControl({ 
+                    transitionDuration: 700,
+                    largeDeviceOffset: 50,
+                    largeDeviceMenuOffset: -70,
+                    smallDeviceAlignment: "right",
+                    smallDeviceBreakpoint: 3,
+                    smallDeviceExpansion: "expand"
+                  });
+      
+                  ui("#navToggle1, #navToggle2").navButtonControl({ 
+                    transitionDuration: 300, 
+                    backgroundColor: "rgb(92, 107, 192)", 
+                    color: "#FFF"
+                  });
+
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
+            case "modals.html": 
+            
+                  var modal1 = ui("#modal1").modalControl({
+                    closeFromBackdrop: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#showModal").click( function() { 
+                    modal1.open();
+                    ui("#modalClose1").css("margin-top", "-0.75rem").css("margin-left", "-1.25rem");
+                  });
+                 
+                  ui("#modalsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "tabs.html": 
+            
+                  ui("#tabs1").tabControl({ 
+                    activeTabId: "#tab1", 
+                    activeTabFocused: true,
+                    transitionDuration: 1000,
+                    transitionType: "fade"
+                  });
+
+                  ui("#tabsNested1").tabControl({ 
+                    activeTabId: "#tabNested1", 
+                    activeTabFocused: false,
+                    transitionDuration: 1000,
+                    transitionType: "fade"
+                  });
+
+                  ui("#tabsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "toggle_container.html": ui("#toggleContainerMenu").expandVertical(700, "auto"); 
+            
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "scrollspy.html": 
+            
+                  ui("#exampleMenu").scrollspy({ 
+                    activatorSelector: "div > div > a",
+                    activatorActiveClass: "color-info",
+                    scrollTargetClass: "scrollspy-example",
+                    scrollTargetOffset: 50,
+                    activatorCallback: null
+                  });
+
+                  ui("#scrollspyMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "radials.html": 
+            
+                  ui("#radialFull").radialControl({
+                    zoom: 0.75,
+                    mode: "full",
+                    responsive: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#radialTop").radialControl({
+                    zoom: 0.75,
+                    mode: "top",
+                    responsive: true,
+                    transitionDuration: 500
+                  });
+
+                  ui("#radialsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "shapes.html": 
+            
+                  ui("#customClipShape").renderPolygonShape("0.2 0.7, 0.5 0, 0.5 0, 1 1");
+
+                  ui("#shapesMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "carousels.html": 
+                   
+                  var carousel = ui("#carousel")
+                    .carouselControl({ 
+                      interval: 10000,
+                      autoPlay: true,
+                      autoScale: true,
+                      playDirection: "next",
+                      stopOnHover: true,
+                      transitionDuration: 1200, 
+                      transitionType: "slide", 
+                      transitionOrientation: "vertical" 
+                    });
+                  
+                  ui("#c1_textForSlide1").fadeIn(1500);
+
+
+                  carousel.on("ui.carousel.change.before", function(e) {
+                    ui("#c1_textForSlide1, #c1_textForSlide2, #c1_textForSlide3").hide();
+                  });
+
+
+                  carousel.on("ui.carousel.change.after", function(e) {
+                    if (e.detail == 1) {
+                      ui("#c1_textForSlide1").fadeIn(1500);
+                    }
+                    else if (e.detail == 2) {
+                      ui("#c1_textForSlide2").fadeIn(1500);
+                    }
+                    else if (e.detail == 3) {
+                      ui("#c1_textForSlide3").fadeIn(1500);
+                    }
+                  });
+
+
+                  ui("#c1_selectSlide").change( function() { 
+                    var index = webui(this).getOptionValues(true)[0];
+                    carousel.select(index);
+                    if (index == 0) {
+                      ui("#c1_textForSlide1").fadeIn(1500);
+                    }
+                    else if (index == 1) {
+                      ui("#c1_textForSlide2").fadeIn(1500);
+                    }
+                    else if (index == 2) {
+                      ui("#c1_textForSlide3").fadeIn(1500);
+                    }
+                  });
+
+                  ui("#c1_prev").click(function(e) {
+                    e.preventDefault();
+                    carousel.prev();
+                  });
+
+                  ui("#c1_next").click(function(e) {
+                    e.preventDefault();
+                    carousel.next();
+                  });
+
+                  ui("#c1_play").click(function(e) {
+                    e.preventDefault();
+                    carousel.play();
+                  });
+
+                  ui("#c1_stop").click(function(e) {
+                    e.preventDefault();
+                    carousel.stop();
+                  });
+
+                  ui("#carouselsMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+
+                  break;
+            case "upload.html": 
+            
+                  ui("#fileUpload1").uploadControl({
+                    showCount: false
+                  });
+
+                  ui("#fileUpload2").uploadControl({
+                    showCount: false,
+                    scrollY: false
+                  });
+
+                  ui("#fileUpload3").uploadControl({
+                    scrollY: false
+                  });
+
+                  ui("#uploadMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "utility_classes.html": ui("#utilityClassesMenu").expandVertical(700, "auto"); codeHighlighter.highlight(".code-block"); break;
+            case "zoom.html": 
+            
+                  ui(".zoom-image").zoomControl({ 
+                    zoom: 1.1,
+                    trigger: "hover",
+                    transitionDuration: 300
+                  });
+
+                  ui("#zoomMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+
+            case "js_introduction.html": 
+            
+                  ui("#jsIntroductionMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_traversal_api.html": 
+            
+                  ui("#jsTraversalApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_manipulation_api.html": 
+            
+                  ui("#jsManipulationApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+            
+                  break;
+            case "js_extended_api.html": 
+            
+                  ui("#jsExtendedApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+            
+                  break;
+
+            case "js_events_api.html": 
+            
+                  ui("#jsEventsApiMenu").expandVertical(700, "auto");
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+
+                   break;
+            case "js_transitions_api.html": 
+            
+                  ui("#jsTransitionsApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block");
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            case "js_validation_api.html": 
+            
+                  ui("#jsValidationApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block");
+                  
+                  break;
+            case "js_utilities_api.html": 
+            
+                  ui("#jsUtilitiesApiMenu").expandVertical(700, "auto"); 
+                  codeHighlighter.highlight(".code-block"); 
+                  scriptHighlighter.highlight(".script-block"); 
+                  
+                  break;
+            
+            default: break;
+          }
+
+          if (parts[parts.length -1].indexOf("js_") > -1) {
+            ui("#cssMenu").hide();
+            ui("#jsMenu").show();
+            ui("#cssMenuSwitch").setState("accent-1", "accent-1-light");
+            ui("#jsMenuSwitch").setState("accent-1-light", "accent-1");
+          }
+          else {
+            ui("#jsMenu").hide();
+            ui("#cssMenu").show();
+            ui("#jsMenuSwitch").setState("accent-1", "accent-1-light");
+            ui("#cssMenuSwitch").setState("accent-1-light", "accent-1");
+          }
+        }
+
+      }, true);
+
+    </script>
+
+</body>
+
+</html>

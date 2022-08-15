@@ -3,7 +3,7 @@
 	var codeHighlighter = {
 		
 		highlight : function (selector) {
-			var tags = ["html", "head", "body", "div", "span", "header", "footer", "nav", "label", "link", "img", "input", "button", "select", "option", "textarea", "blockquote", "ul", "li", "a", "i", "p", "b"];
+			var tags = ["html", "head", "body", "div", "span", "header", "footer", "nav", "label", "link", "img", "input", "button", "select", "option", "textarea", "blockquote", "table", "thead", "tbody", "tfoot", "tr", "th", "td", "ul", "li", "a", "i", "p", "b"];
 			var attributes = ["class", "type", "id", "href", "rel", "src"];
 			
 			var codeBlock;
@@ -25,7 +25,7 @@
 	var scriptHighlighter = {
 		
 		highlight : function (selector) {
-			var tags = ["script", "webui", "ui", "var", "function", "class"];
+			var tags = ["script", "webui", "ui", "var", "new", "function", "module", "modules", "plugins", "bundles", "entry"];
 			
 			var scriptBlock;
 
@@ -35,8 +35,9 @@
 			
 				scriptBlock = new Mark(scriptBlocks[i]);
 				
-				scriptBlock.mark(tags, { className: "html-tag", "accuracy": { "value": "exactly", "limiters": ["(", "."]}, caseSensitive: true });
-				
+				scriptBlock.mark(tags, { className: "html-tag", "accuracy": { "value": "exactly", "limiters": ["(", ".", ":"]}, caseSensitive: true });
+
+				scriptBlock.markRegExp(/[\{\}\[\]\(\)]/, { className: "js-closure" });				
 				scriptBlock.markRegExp(/"[^"]+"/, { className: "string-literal" });
 			}
 		}	
