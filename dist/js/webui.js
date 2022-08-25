@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.1.0
+* Version: 11.2.0
 * MIT License
 */
 
@@ -2441,7 +2441,7 @@
 		}
 	};
 
-	webui.version = "v11.1.0";
+	webui.version = "v11.2.0";
 
 
 	/* EVENT HANDLERS */
