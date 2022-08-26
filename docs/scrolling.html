@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/js_validation_api.html">
+  <link rel="canonical" href="http://localhost:4000/webui/scrolling.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -2189,1188 +2189,625 @@
     </div>
 
     <div class="align-center pad-left-xxl pad-right-xxl" id="main">
-      <section class="scrollspy text" id="jsIsChecked">
+      <section class="scrollspy text" id="scrollSnap">
 
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+	<div class="height-sm-bp-4-under height-md-bp-4-over"></div>
 
-  <h3>isChecked ()</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	<h3>Scroll Snap</h3>
+	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Determines whether all checkboxes or radio buttons are checked within the set of matched elements.
-  </p>
-  
+	<p>The <strong>scroll-snap-*</strong> classes allow the creation of scroll anchor points within a scroll container. Scroll items (scroll container children) 
+    will snap to a scroll position relative to their scroll container, and depending on the behavior specified.</p>
+
   <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
+
+  <blockquote class="border-info background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Scroll Snap Type</span>
     </div>
+    <p class="text-sm"><b>NOTE:</b> Classes listed in the following table are used on the scroll container and not the scroll items.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <table class="table table-light table-bordered table-head-bordered col-padding-sm text-sm text-wrap">
+    <thead>
+      <tr class="background-secondary">
+        <th class="width-one-third">CSS</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>scroll-snap</td>
+        <td>Sets scroll snap type to <strong>proximity</strong> on both the block and the inline axis (or x and y axis).</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-inline</td>
+        <td>Sets scroll snap type to <strong>proximity</strong> on the inline axis only.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-block</td>
+        <td>Sets scroll snap type to <strong>proximity</strong> on the block axis only.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-mandatory</td>
+        <td>Sets scroll snap type to <strong>mandatory</strong> on both the block and the inline axis (or x and y axis).</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-inline-mandatory</td>
+        <td>Sets scroll snap type to <strong>mandatory</strong> on the inline axis only.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-block-mandatory</td>
+        <td>Sets scroll snap type to <strong>mandatory</strong> on the block axis only.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-inherit</td>
+        <td>Inherits the scroll snap type from the parent element.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-info background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Scroll Snap Align</span>
+    </div>
+    <p class="text-sm"><b>NOTE:</b> Classes listed in the following table are used on the scroll items or child elements of the scroll container.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <table class="table table-light table-bordered table-head-bordered col-padding-sm text-sm text-wrap">
+    <thead>
+      <tr class="background-secondary">
+        <th class="width-one-third">CSS</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>scroll-snap-align</td>
+        <td>Causes a scroll item to align with the start or end of the scroll container depending on its proximity and container properties.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-align-start</td>
+        <td>Causes a scroll item to align with the start of the scroll container depending on its proximity and container properties.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-align-center</td>
+        <td>Causes a scroll item to align with the center of the scroll container depending on its proximity and container properties.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-align-end</td>
+        <td>Causes a scroll item to align with the end of the scroll container depending on its proximity and container properties.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-align-inherit</td>
+        <td>Causes a scroll item to inherit alignment behavior from its parent.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-stop</td>
+        <td>Sets the scroll snap to <strong>always</strong>, so that the container cannot skip a snap position for this item.</td>
+      </tr>
+      <tr>
+        <td>scroll-snap-stop-inherit</td>
+        <td>Sets the scroll snap to <strong>inherit</strong>, so that the item inherits scroll snap stop behavior from its parent.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+	<div class="row-spacing-lg"></div>
+
+  <span class="pad-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-md"></div>
+
+  <div class="scroll-snap-inline width-full height-md scroll pad-items-md flex">
+    <div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none">1</div>
+    <div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none">2</div>
+    <div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none">3</div>
+    <div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none">4</div>
+    <div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none">5</div>
   </div>
-  
-  <div class="row-spacing-lg"></div>
-  
+
+	<div class="row-spacing-md"></div>
+	
   <span class="pad-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-md"></div>
-  
+
   <div class="background-secondary pad-sm code-block">
     <div class="container">
       <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
       <div class="scroll-y">
 
-<pre>&lt;div class="row gap-md pad-sm align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox1" checked /&gt;
-      &lt;label for="checkbox1"&gt;&lt;/label&gt;
-    &lt;/div&gt; 
-  &lt;/div&gt;
-  &lt;div class="col"&gt;	
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox2" /&gt;
-      &lt;label for="checkbox2"&gt;&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="scroll-snap-inline width-full height-md scroll pad-items-md flex"&gt;
+  &lt;div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none"&gt;1&lt;/div&gt;
+  &lt;div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none"&gt;2&lt;/div&gt;
+  &lt;div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none"&gt;3&lt;/div&gt;
+  &lt;div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none"&gt;4&lt;/div&gt;
+  &lt;div class="scroll-snap-align-center width-two-thirds height-full border-xs border-muted flex-none"&gt;5&lt;/div&gt;
 &lt;/div&gt;</pre>
-                                        
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let chk1Checked = ui("#checkbox1").isChecked();
-  let groupChecked = ui("[name=checkGroup1]").isChecked();
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <h3>isChecked (dependsOnSelector, dependsOnRegExp)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether all checkboxes or radio buttons are checked within the set of matched elements, depending on whether the specified depentant
-    control has a value or property matching the specified dependant regular expression.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnSelector</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid CSS selector expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnRegExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md pad-sm align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" id="checkboxDependsOn" /&gt;
-      &lt;label for="checkboxDependsOn"&gt;&lt;/label&gt;
-    &lt;/div&gt; 
-  &lt;/div&gt;
-  &lt;div class="col-fixed"&gt;	
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox1" checked /&gt;
-      &lt;label for="checkbox1"&gt;&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;	
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" name="checkGroup1" id="checkbox2" /&gt;
-      &lt;label for="checkbox2"&gt;&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                                
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let chk1Checked = ui("#checkbox1").isChecked("#checkboxDependsOn", ui.TRUE_VALUE);
-  let groupChecked = ui("[name=checkGroup1]").isChecked("#checkboxDependsOn", ui.TRUE_VALUE);
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-  
-</section>
-
-<section class="scrollspy text" id="jsHasConformingString">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasConformingString (regExp, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements matches the regular expression, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">regExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-              
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasConformingString(ui.BASIC_STRING, false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a basic string", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <h3>hasConformingString (regExp, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements matches the regular expression, and 
-      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">regExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnSelector</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid CSS selector expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnRegExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" id="checkboxDependsOn" /&gt;
-      &lt;label for="checkboxDependsOn"&gt;&lt;/label&gt;
-    &lt;/div&gt;	
-  &lt;/div&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                                
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasConformingString(ui.BASIC_STRING, false, "#checkboxDependsOn", ui.TRUE_VALUE);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a basic string", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-  
-</section>
-
-<section class="scrollspy text" id="jsHasNumericInRange">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasNumericInRange (lowerLimit, upperLimit, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid numeric value within the specified lower and upper limit, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">lowerLimit</div>
-      <div class="col-6">Numeric</div>
-      <div class="col-12">A valid numeric value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">upperLimit</div>
-      <div class="col-6">Numeric</div>
-      <div class="col-12">A valid numeric value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasNumericInRange(10.5, 20.5, false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a valid number between 10.5 and 20.5", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <h3>hasNumericInRange (lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid numeric value within the specified lower and upper limit, and 
-      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">lowerLimit</div>
-      <div class="col-6">Numeric</div>
-      <div class="col-12">A valid numeric value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">upperLimit</div>
-      <div class="col-6">Numeric</div>
-      <div class="col-12">A valid numeric value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnSelector</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid CSS selector expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnRegExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" id="checkboxDependsOn" /&gt;
-      &lt;label for="checkboxDependsOn"&gt;&lt;/label&gt;
-    &lt;/div&gt;	
-  &lt;/div&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                                        
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasNumericInRange(10.5, 20.5, false, "#checkboxDependsOn", ui.TRUE_VALUE);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a valid number between 10.5 and 20.5", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-  
-</section>
-
-<section class="scrollspy text" id="jsHasIntegerInRange">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasIntegerInRange (lowerLimit, upperLimit, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid integer value within the specified lower and upper limit, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">lowerLimit</div>
-      <div class="col-6">Integer</div>
-      <div class="col-12">A valid integer value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">upperLimit</div>
-      <div class="col-6">Integer</div>
-      <div class="col-12">A valid integer value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasIntegerInRange(10, 20, false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a valid integer between 10 and 20", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-
-  <h3>hasIntegerInRange (lowerLimit, upperLimit, allowEmpty, dependsOnSelector, dependsOnRegExp)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid integer value within the specified lower and upper limit, and 
-      optionally allows an empty value, depending on whether the specified depentant control has a value or property matching the specified dependant regular expression.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">lowerLimit</div>
-      <div class="col-6">Integer</div>
-      <div class="col-12">A valid integer value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">upperLimit</div>
-      <div class="col-6">Integer</div>
-      <div class="col-12">A valid integer value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnSelector</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid CSS selector expression.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">dependsOnRegExp</div>
-      <div class="col-6">Regular Expression</div>
-      <div class="col-12">A valid regular expression.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;div class="checkbox"&gt;
-      &lt;input type="checkbox" value="" id="checkboxDependsOn" /&gt;
-      &lt;label for="checkboxDependsOn"&gt;&lt;/label&gt;
-    &lt;/div&gt;	
-  &lt;/div&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                                        
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasIntegerInRange(10, 20, false, "#checkboxDependsOn", ui.TRUE_VALUE);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a valid number between 10.5 and 20.5", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-  
-</section>
-
-<section class="scrollspy text" id="jsHasValidDateTime">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasValidDateTime (format, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid datetime value for the specified format, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">format</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime format.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasValidDateTime("DD/MM/YYYY hh:mm", false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a valid datetime in the format DD/MM/YYYY hh:mm", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
+										
+			</div>
+		</div>
+	</div>
 
 </section>
 
-<section class="scrollspy text" id="jsHasPastDateTime">
+<section class="scrollspy text" id="scrollBehavior">
 
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+	<div class="height-sm-bp-4-under height-md-bp-4-over"></div>
 
-  <h3>hasPastDateTime (format, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	<h3>Scroll Behavior</h3>
+	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>Determines whether the value of all controls within the set of matched elements is a valid past datetime value for the specified format, and 
-    optionally allows an empty value.
-  </p>
-  
+	<p>The <strong>scroll-behavior-*</strong> classes allow the scrolling animation to be changed.</p>
+
   <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
+
+  <blockquote class="border-warning background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-warning fa fa-warning fa-2x pad-right-sm"></span><span class="text-bold">Scroll Behaviour</span>
     </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
+    <p class="text-sm">Scroll behaviour is experimental in the Chrome browser as of this writing. It can be enabled by using chrome development flags, but 
+      is best avoided for production websites.
+    </p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-info background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Scroll Behaviour</span>
     </div>
-    <div class="row text-left">
-      <div class="col-6">format</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime format.</div>
+    <p class="text-sm"><b>NOTE:</b> Classes listed in the following table are used on the scroll container and not the scroll items.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+    
+  <table class="table table-light table-bordered table-head-bordered col-padding-sm text-sm text-wrap">
+    <thead>
+      <tr class="background-secondary">
+        <th class="width-one-third">CSS</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>scroll-behavior-smooth</td>
+        <td>Causes the scrolling animation of the scroll container items to appear <strong>smooth</strong> when scrolling is triggered by navigation or
+        via the CSS Object Model.</td>
+      </tr>
+      <tr>
+        <td>scroll-behavior-inherit</td>
+        <td>Causes the scrolling animation of the scroll container to inherit from its parent.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section class="scrollspy text" id="scrollPadding">
+
+	<div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+	<h3>Scroll Padding</h3>
+	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	
+
+	<p>The <strong>scroll-padding-*</strong> classes are used to apply padding to a scroll container.</p>
+
+  <div class="row-spacing-md"></div>
+
+  <blockquote class="border-info background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Scroll Padding</span>
     </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
+    <p class="text-sm"><b>NOTE:</b> Classes listed in the following table are used on the scroll container and not the scroll items.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <table class="table table-light table-bordered table-head-bordered col-padding-sm text-sm text-wrap">
+    <thead>
+      <tr class="background-secondary">
+        <th class="width-two-thirds">Class</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>scroll-padding-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-xl</td>
+        <td>1.563rem</td>
+      </tr>   
+      <tr>
+        <td>scroll-padding-inline-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-xl</td>
+        <td>1.563rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-start-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-start-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-start-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-start-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-start-xl</td>
+        <td>1.563rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-end-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-end-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-end-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-end-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-inline-end-xl</td>
+        <td>1.563rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-xl</td>
+        <td>1.563rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-start-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-start-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-start-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-start-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-start-xl</td>
+        <td>1.563rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-end-xs</td>
+        <td>0.313rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-end-sm</td>
+        <td>0.625rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-end-md</td>
+        <td>0.938rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-end-lg</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-padding-block-end-xl</td>
+        <td>1.563rem</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+	<div class="row-spacing-lg"></div>
+	
+  <span class="pad-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-md"></div>
+
+  <div class="scroll-snap-inline scroll-padding-md width-full height-md scroll pad-items-md flex">
+    <div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none">1</div>
+    <div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none">2</div>
+    <div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none">3</div>
+    <div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none">4</div>
+    <div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none">5</div>
   </div>
-  
-  <div class="row-spacing-lg"></div>
-  
+
+	<div class="row-spacing-md"></div>
+	
   <span class="pad-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-md"></div>
-  
+
   <div class="background-secondary pad-sm code-block">
     <div class="container">
       <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
       <div class="scroll-y">
 
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="scroll-snap-inline scroll-padding-md width-full height-md scroll pad-items-md flex"&gt;
+  &lt;div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none"&gt;1&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none"&gt;2&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none"&gt;3&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none"&gt;4&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start width-two-thirds height-full border-xs border-muted flex-none"&gt;5&lt;/div&gt;
 &lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasPastDateTime("DD/MM/YYYY hh:mm", false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a retrospective datetime in the format DD/MM/YYYY hh:mm", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
+										
+			</div>
+		</div>
+	</div>
 
 </section>
 
-<section class="scrollspy text" id="jsHasPresentDateTime">
+<section class="scrollspy text" id="scrollMargin">
 
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+	<div class="height-sm-bp-4-under height-md-bp-4-over"></div>
 
-  <h3>hasPresentDateTime (format, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	<h3>Scroll Margin</h3>
+	<div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+	
 
-  <p>Determines whether the value of all controls within the set of matched elements is a valid present datetime value for the specified format, and 
-    optionally allows an empty value.
-  </p>
-  
+	<p>The <strong>scroll-margin-*</strong> classes are used to apply margin to a scroll items.</p>
+
   <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
+
+  <blockquote class="border-info background-secondary">
+    <div class="flex align-items-center">
+      <span class="color-info fa fa-info-circle fa-2x pad-right-sm"></span><span class="text-bold">Scroll Margin</span>
     </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">format</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime format.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
+    <p class="text-sm"><b>NOTE:</b> Classes listed in the following table are used on the scroll items or child elements of the scroll container.</p>
+  </blockquote>
+
+  <div class="row-spacing-md"></div>
+
+  <table class="table table-light table-bordered table-head-bordered col-padding-sm text-sm text-wrap">
+    <thead>
+      <tr class="background-secondary">
+        <th class="width-two-thirds">Class</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>scroll-margin-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-xl</td>
+        <td>20rem</td>
+      </tr>   
+      <tr>
+        <td>scroll-margin-inline-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-xl</td>
+        <td>20rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-start-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-start-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-start-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-start-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-start-xl</td>
+        <td>20rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-end-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-end-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-end-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-end-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-inline-end-xl</td>
+        <td>20rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-xl</td>
+        <td>20rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-start-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-start-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-start-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-start-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-start-xl</td>
+        <td>20rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-end-xs</td>
+        <td>1.25rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-end-sm</td>
+        <td>2.5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-end-md</td>
+        <td>5rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-end-lg</td>
+        <td>10rem</td>
+      </tr>
+      <tr>
+        <td>scroll-margin-block-end-xl</td>
+        <td>20rem</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+	<div class="row-spacing-lg"></div>
+	
+  <span class="pad-xs background-info-light text-xs">Example</span>
+  <div class="row-spacing-md"></div>
+
+  <div class="scroll-snap-inline width-full height-md scroll pad-items-md flex">
+    <div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none">1</div>
+    <div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none">2</div>
+    <div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none">3</div>
+    <div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none">4</div>
+    <div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none">5</div>
   </div>
-  
-  <div class="row-spacing-lg"></div>
-  
+
+	<div class="row-spacing-md"></div>
+	
   <span class="pad-xs background-success-light text-xs">Markup</span>
   <div class="row-spacing-md"></div>
-  
+
   <div class="background-secondary pad-sm code-block">
     <div class="container">
       <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
       <div class="scroll-y">
 
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
+<pre>&lt;div class="scroll-snap-inline width-full height-md scroll pad-items-md flex"&gt;
+  &lt;div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none"&gt;1&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none"&gt;2&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none"&gt;3&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none"&gt;4&lt;/div&gt;
+  &lt;div class="scroll-snap-align-start scroll-margin-sm width-two-thirds height-full border-xs border-muted flex-none"&gt;5&lt;/div&gt;
 &lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasPresentDateTime("DD/MM/YYYY hh:mm", false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a current datetime in the format DD/MM/YYYY hh:mm", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
+										
+			</div>
+		</div>
+	</div>
 
 </section>
-
-<section class="scrollspy text" id="jsHasFutureDateTime">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasFutureDateTime (format, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid future datetime value for the specified format, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">format</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime format.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasFutureDateTime("DD/MM/YYYY hh:mm", false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a future datetime in the format DD/MM/YYYY hh:mm", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<section class="scrollspy text" id="jsHasDateTimeInRange">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>hasDateTimeInRange (minDateTimeString, maxDateTimeString, format, allowEmpty)</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Determines whether the value of all controls within the set of matched elements is a valid datetime value within a min and max value for the specified format, and 
-    optionally allows an empty value.
-  </p>
-  
-  <div class="row-spacing-md"></div>
-  
-  <div class="container col-padding-sm text-sm text-wrap">
-    <div class="row background-secondary text-bold">
-      <div class="col">Returns - Boolean.</div>				
-    </div>
-    <div class="row text-bold">
-      <div class="col-6">Argument</div>
-      <div class="col-6">Type</div>
-      <div class="col-12">Description</div>					
-    </div>
-    <div class="row text-left">
-      <div class="col-6">minDateTimeString</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime string.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">maxDateTimeString</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime string.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">format</div>
-      <div class="col-6">String</div>
-      <div class="col-12">A valid datetime format.</div>
-    </div>
-    <div class="row text-left">
-      <div class="col-6">allowEmpty</div>
-      <div class="col-6">Boolean</div>
-      <div class="col-12">Whether to allow an empty value.</div>
-    </div>
-  </div>
-  
-  <div class="row-spacing-lg"></div>
-  
-  <span class="pad-xs background-success-light text-xs">Markup</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm code-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>&lt;div class="row gap-md align-items-center"&gt;
-  &lt;div class="col-fixed"&gt;
-    &lt;label&gt;String&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;input type="text" class="input input-sm rounded-sm" id="textbox1" data-validation-text="message1" /&gt;	
-    &lt;label id="message1" class="control-message text-sm text-italic"&gt;&nbsp;&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                      
-      </div>
-    </div>
-  </div>
-
-  <div class="row-spacing-md"></div>
-  
-  <span class="pad-xs background-warning-light text-xs">Script</span>
-  <div class="row-spacing-md"></div>
-  
-  <div class="background-secondary pad-sm script-block">
-    <div class="container">
-      <button type="button" class="button button-transparent hover-dark transition-short text-xs place-top-right code-copy">Copy</button>
-      <div class="scroll-y">
-
-<pre>webui.ready( () => {
-
-  let txt1Valid = ui("#textbox1").hasDateTimeInRange("17/09/2018 12:00", "17/09/2018 13:30", "DD/MM/YYYY hh:mm", false);
-
-  if (!txt1Valid) {
-    ui("#textbox1").setControlState("", "control-danger", "Please enter a datetime between 17/09/2018 12:00 and 17/09/2018 13:30", false, false);
-  }
-  else {
-    ui("#textbox1").setControlState("control-danger", "control-success");
-  }
-
-});</pre>
-                          
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
 
 
     </div>
