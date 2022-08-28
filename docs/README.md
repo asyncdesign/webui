@@ -1,35 +1,13 @@
 
-<img src="images/webui_blue_96x96.png" alt="Webui Logo" />
-
-<h1><b>WebUI</b></h1>
+## **WebUI**
 
 *The Swiss Army Knife of CSS frameworks*
 
 \
 \
-<a href="https://github.com/asyncdesign/webui/blob/master/LICENSE">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License">
-</a>
-<a href="https://github.com/asyncdesign/webui">
-  <img src="https://img.shields.io/badge/contributions-welcome-yellow.svg" alt="Contributions">
-</a>
-<a href="https://www.npmjs.com/package/asyncdesign-webui">
-  <img src="https://img.shields.io/npm/v/npm.svg?registry_uri=https://registry.npmjs.com" alt="npm">
-</a>
-<a href="https://github.com/webpack/webpack">
-  <img src="https://img.shields.io/badge/Webpack-5.71.0-blue.svg" alt="npm">
-</a>
-<a href="https://github.com/asyncdesign/webui/network/dependencies">
-  <img src="https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg" alt="npm">
-</a>
-<a href="https://www.jsdelivr.com/package/npm/asyncdesign-webui">
-  <img src="https://data.jsdelivr.com/v1/package/npm/asyncdesign-webui/badge?style=rounded" alt="npm">
-</a>
-
-\
-\
 WebUI is a little different to most other CSS frameworks due to an emphasis on flexibility and creativity. Although most frameworks do attempt to provide flexibility, they often enforce a particular approach or style, and come with too many limitations. WebUI has been build from the ground up with flexibility as the primary goal - even the components are made that way. WebUI is a system that allows you to invent new designs, and provides simple building blocks to construct much larger CSS components. Complex data entry forms can be created in a precise layout using the built-in grid system that doesn't throw any surprises. Add responsive behaviour exactly where you want it, with the flexibility to create fixed non-responsive layouts or layout sections.
 
+\
 \
 **Check out the [full documentation](https://asyncdesign.github.io/webui/) to learn more about WebUI**
 
@@ -39,7 +17,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.1.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.3.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -127,11 +105,11 @@ WebUI comes with a range of pre-built CSS and JavaScript files. The following ta
 
 | CSS                            | JS                    | Includes                                                                                                                                              |
 |--------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| webui-all.min.css										| webui.min.js (Optional)		| Includes everything, with advanced styles, flexbox, and the traditional grid system. Does not include any components.|
-| webui-standard.min.css							| webui.min.js (Optional)		| Includes standard styles, flexbox, the traditional grid system. Does not include any components.|
+| webui-all.min.css										| webui.min.js (Optional)		| Includes everything, with advanced styles, the layout grid system, and flexbox. Does not include any components.|
+| webui-standard.min.css							| webui.min.js (Optional)		| Includes standard styles, the layout grid system, and flexbox. Does not include any components.|
 | webui-basic.min.css									| webui.min.js (Optional)		| Includes only basic styles. Does not include any components.|
-| webui-components-all.min.css				| webui-components.min.js		| Includes everything, with advanced styles, flexbox, the traditional grid system, and all components.|
-| webui-components-standard.min.css		| webui-components.min.js		| Includes standard styles, flexbox, the traditional grid system, and all components.|
+| webui-components-all.min.css				| webui-components.min.js		| Includes everything, with advanced styles, the layout grid system, flexbox, and all components.|
+| webui-components-standard.min.css		| webui-components.min.js		| Includes standard styles, the layout grid system, flexbox, and all components.|
 | webui-components-basic.min.css			| webui-components.min.js		| Includes only basic styles, and all components.|
 
 #### **Styles Without JavaScript**
