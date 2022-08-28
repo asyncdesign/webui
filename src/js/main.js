@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.2.0
+* Version: 11.3.0
 * MIT License
 */
 
@@ -43,7 +43,7 @@
 		},
 		isTextbox = function (el) {
 			if (el && el.nodeName === "INPUT") {
-				if (el.getAttribute("type") === null || ~["text", "number", "password", "date", "search", "tel", "email", "url"].indexOf(el.getAttribute("type"))) {
+				if (el.getAttribute("type") === null || ~["text", "number", "password", "date", "time", "search", "tel", "email", "url"].indexOf(el.getAttribute("type"))) {
 					return true;
 				}
 			}
@@ -956,13 +956,18 @@
 		return webui([]);
 	};
 
-	fn.removeChildren = function () {
+	fn.removeChildren = function (query) {
 		var el;
 
-		for (var i = 0; i < this.length; i++) {
-			el = this[i];
-			while (el.lastChild) {
-				el.removeChild(el.lastChild);
+		if (arguments.length) {
+			webui(this).children().select(query).remove();
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				el = this[i];
+				while (el.lastChild) {
+					el.removeChild(el.lastChild);
+				}
 			}
 		}
 		return this;
@@ -2441,7 +2446,7 @@
 		}
 	};
 
-	webui.version = "v11.2.0";
+	webui.version = "11.3.0";
 
 
 	/* EVENT HANDLERS */
