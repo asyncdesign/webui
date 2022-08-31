@@ -1689,6 +1689,12 @@
     <script src="/webui/assets/js/webui-components.js"></script>
  
     <script>
+      window.onerror = function(e) {
+        document.location.href = "/webui".replace("webui", "webui/10x");
+      };
+    </script>
+
+    <script>
 
       webui.ready( () => {
 
