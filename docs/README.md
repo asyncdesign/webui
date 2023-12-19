@@ -17,7 +17,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.3.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -64,11 +64,11 @@ Be sure to look at the static **DEMO** pages at the root of the download, contai
 #### **NPM**
 The NPM package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
+#### **Yarn**
+Yarn installs the same package as with NPM, but may be better suited to certain projects or environments.
+
 #### **NuGet**
 The NuGet package includes only the minified and development distribution files.
-
-#### **Bower**
-The Bower package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
 #### **GitHub Download**
 The GitHub download includes all WebUI files for the framework, docs website, demo pages, and build files.

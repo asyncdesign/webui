@@ -2563,3 +2563,31 @@
 		height: fit-content;
 	}
 }
+@media all and (max-width: $settings_table_bp) {
+	.table.table-responsive th {
+		display: none;
+	}
+	.table.table-responsive td {
+		display: block;
+	}
+	.table.table-responsive td:first-child {
+		margin-top: 2rem;
+	}
+	.table.table-responsive td:last-child {
+		margin-bottom: 2rem;
+	}
+	.table.table-responsive.table-bordered td:not(:last-child) {
+		border-bottom: none;
+	}
+	.table.table-responsive.table-bordered thead tr {
+		border-bottom: none;
+	}
+	.table.table-responsive td:not(tfoot td):before {
+		content: attr(data-th);
+		width: 30%;
+		padding-right: 1rem;
+		display: inline-block;
+		word-wrap: break-word;
+		font-weight: bold;
+	}
+}

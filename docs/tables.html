@@ -2252,6 +2252,10 @@
         <td>Adds a themed hover color to table rows (tr).</td>
       </tr>
       <tr>
+        <td>table-responsive</td>
+        <td>When added to the table element, the table will stack at the breakpoint specified in the settings.</td>
+      </tr>
+      <tr>
         <td>table-default</td>
         <td>Styles a table using the default theme color.</td>
       </tr>
@@ -2733,12 +2737,15 @@
     </div>
   </div>
 
-  <div class="row-spacing-md"></div>
+  <div class="row-spacing-lg"></div>
+
+  <p>In the following example, the <strong>table-responsive</strong> class is used. Each table data cell must have a <strong>data-th</strong>
+  attribute defined if a heading is required for each row when the table is stacked and in small screen mode.</p>
   
   <span class="pad-xs background-info-light text-xs">Example</span>
   <div class="row-spacing-md"></div>
 
-  <table class="table table-dark table-bordered table-striped table-hover width-full col-padding-sm text-sm">
+  <table class="table table-dark table-bordered table-striped table-hover table-responsive width-full col-padding-sm text-sm">
     <thead class="text-left color-warning-light">
       <tr>
         <th class="width-sm">
@@ -2757,58 +2764,58 @@
     </thead>
     <tbody class="color-default">
       <tr>
-        <td>
+        <td data-th="#">
           1
         </td>
-        <td>
+        <td data-th="First name">
           John
         </td>
-        <td>
+        <td data-th="Last name">
           Doe
         </td>
-        <td>
+        <td data-th="Email">
           johndoe@hotmail.com
         </td>
       </tr>
       <tr>
-        <td>
+        <td data-th="#">
           2
         </td>
-        <td>
+        <td data-th="First name">
           Aisha
         </td>
-        <td>
+        <td data-th="Last name">
           Craig
         </td>
-        <td>
+        <td data-th="Email">
           aishacraig@gmail.com
         </td>
       </tr>
       <tr>
-        <td>
+        <td data-th="#">
           3
         </td>
-        <td>
+        <td data-th="First name">
           Nicolas
         </td>
-        <td>
+        <td data-th="Last name">
           Hughes
         </td>
-        <td>
+        <td data-th="Email">
           nickhughes@gmail.com
         </td>
       </tr>
       <tr>
-        <td>
+        <td data-th="#">
           4
         </td>
-        <td>
+        <td data-th="First name">
           Nyasia
         </td>
-        <td>
+        <td data-th="Last name">
           Santiago
         </td>
-        <td>
+        <td data-th="Email">
           nsantiago@hotmail.com
         </td>
       </tr>
@@ -2833,7 +2840,7 @@
       <div class="scroll-y">
 
 <pre>&lt;table class="table table-dark table-bordered 
-    table-striped table-hover width-full col-padding-sm text-sm"&gt;
+    table-striped table-hover table-responsive width-full col-padding-sm text-sm"&gt;
   &lt;thead class="text-left color-warning-light"&gt;
     &lt;tr&gt;
       &lt;th class="width-sm"&gt;
@@ -2852,58 +2859,58 @@
   &lt;/thead&gt;
   &lt;tbody class="color-default"&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;td data-th="#"&gt;
         1
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="First name"&gt;
         John
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Last name"&gt;
         Doe
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Email"&gt;
         johndoe@hotmail.com
       &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;td data-th="#"&gt;
         2
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="First name"&gt;
         Aisha
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Last name"&gt;
         Craig
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Email"&gt;
         aishacraig@gmail.com
       &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;td data-th="#"&gt;
         3
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="First name"&gt;
         Nicolas
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Last name"&gt;
         Hughes
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Email"&gt;
         nickhughes@gmail.com
       &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;td data-th="#"&gt;
         4
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="First name"&gt;
         Nyasia
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Last name"&gt;
         Santiago
       &lt;/td&gt;
-      &lt;td&gt;
+      &lt;td data-th="Email"&gt;
         nsantiago@hotmail.com
       &lt;/td&gt;
     &lt;/tr&gt;

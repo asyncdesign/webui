@@ -1,16 +1,15 @@
 
 ## **WebUI**
 
-\
-\
 *The Swiss Army Knife of CSS frameworks*
 
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
 [![NPM](https://img.shields.io/npm/v/npm.svg?style=flat-square&registry_uri=https://registry.npmjs.com)](https://www.npmjs.com/package/asyncdesign-webui)
-[![Webpack](https://img.shields.io/badge/Webpack-5.71.0-blue.svg?style=flat-square)](https://github.com/webpack/webpack)
+[![Webpack](https://img.shields.io/badge/Webpack-5.89.0-blue.svg?style=flat-square)](https://github.com/webpack/webpack)
 [![Dependencies](https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/network/dependencies)
-[![jsdeliver](https://data.jsdelivr.com/v1/package/npm/asyncdesign-webui/badge?style=flat-square)](https://www.jsdelivr.com/package/npm/asyncdesign-webui)
+[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/webui?color=red&style=flat-square&label=npm)](https://www.jsdelivr.com/)
+[![Nuget](https://img.shields.io/nuget/dt/asyncdesign-webui?color=darkblue&style=flat-square&label=nuget)](https://www.nuget.org/packages/asyncdesign-webui)
 
 \
 \
@@ -25,7 +24,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.3.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -70,13 +69,13 @@ Be sure to look at the static **DEMO** pages at the root of the download, contai
 
 
 #### **NPM**
-The NPM package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
+The NPM package includes the WebUI source files and the minified and development distribution files.
+
+#### **Yarn**
+Yarn installs the same package as with NPM, but may be better suited to certain projects or environments.
 
 #### **NuGet**
 The NuGet package includes only the minified and development distribution files.
-
-#### **Bower**
-The Bower package includes the WebUI source files, the minified and development distribution files, and a set of WebUI demo pages.
 
 #### **GitHub Download**
 The GitHub download includes all WebUI files for the framework, docs website, demo pages, and build files.

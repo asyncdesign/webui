@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.3.0
+* Version: 11.4.0
 * MIT License
 */
 
@@ -129,6 +129,7 @@
 					transitionDistance = toggleContainer.data("transition-distance"),
 					focusElement = toggleContainer.data("focus-element"),
 					focusReturnElement = toggleContainer.data("focus-return-element"),
+					allowEscapeKey = toggleContainer.data("allow-escape-key"),
 
 
 					offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer"),
@@ -432,6 +433,16 @@
 						}
 					}
 				}
+
+				if (allowEscapeKey === "true") {
+					toggleContainer.keyDown(function (e) {	
+						if (e.which == 27) {
+							e.preventDefault();
+							toggleContainer[0].click();
+						}
+					});
+				}	
+
 			}
 		},
 		enableDisable = function (selector, enableSelector, currentCssClass, removeCssClass, withValue) {
@@ -2446,7 +2457,7 @@
 		}
 	};
 
-	webui.version = "11.3.0";
+	webui.version = "11.4.0";
 
 
 	/* EVENT HANDLERS */
