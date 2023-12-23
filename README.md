@@ -5,11 +5,15 @@
 
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
-[![NPM](https://img.shields.io/npm/v/npm.svg?style=flat-square&registry_uri=https://registry.npmjs.com)](https://www.npmjs.com/package/asyncdesign-webui)
-[![Webpack](https://img.shields.io/badge/Webpack-5.89.0-blue.svg?style=flat-square)](https://github.com/webpack/webpack)
 [![Dependencies](https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/network/dependencies)
-[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/webui?color=red&style=flat-square&label=npm)](https://www.jsdelivr.com/)
-[![Nuget](https://img.shields.io/nuget/dt/asyncdesign-webui?color=darkblue&style=flat-square&label=nuget)](https://www.nuget.org/packages/asyncdesign-webui)
+[![Webpack](https://img.shields.io/badge/Webpack-5.89.0-blue.svg?style=flat-square)](https://github.com/webpack/webpack)
+[![SASS](https://img.shields.io/badge/SASS-1.69.3-pink.svg?style=flat-square)](https://github.com/webpack/webpack)
+
+[![npm version](https://img.shields.io/npm/v/asyncdesign-webui?style=flat-square&color=blue&logo=npm)](https://www.npmjs.com/package/asyncdesign-webui)
+[![NuGet version](https://img.shields.io/nuget/vpre/asyncdesign-webui?style=flat-square&logo=nuget)](https://www.nuget.org/packages/asyncdesign-webui/absoluteLatest)
+
+[![jsDelivr](https://img.shields.io/jsdelivr/npm/hm/asyncdesign-webui?color=red&style=flat-square&label=npm)](https://www.jsdelivr.com/)
+
 
 \
 \
@@ -24,7 +28,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.0.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.1.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
