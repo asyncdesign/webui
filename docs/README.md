@@ -17,7 +17,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.1.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.2.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -47,9 +47,15 @@ Alternatively, you can use Yarn to install the WebUI packages.
 
 
 #### **NuGet**
-If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.
+If you are using Visual Studio before VS2019 to develop websites, then this is the preferred way to install WebUI.
 
 `Install-Package asyncdesign-webui`
+
+#### **LibMan**
+
+If you are using Visual Studio 2019 or later, then the built-in "LibMan" utility is the best way to manage client-side libraries.
+
+**[LibMan documentation](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-8.0)**
 
 
 That's it. You are ready to start developing with WebUI.

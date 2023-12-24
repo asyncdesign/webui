@@ -6,13 +6,13 @@
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/blob/master/LICENSE)
 [![Dependencies](https://img.shields.io/badge/dev&nbsp;dependencies-up&nbsp;to&nbsp;date-green.svg?style=flat-square)](https://github.com/asyncdesign/webui/network/dependencies)
-[![Webpack](https://img.shields.io/badge/Webpack-5.89.0-blue.svg?style=flat-square)](https://github.com/webpack/webpack)
-[![SASS](https://img.shields.io/badge/SASS-1.69.3-pink.svg?style=flat-square)](https://github.com/webpack/webpack)
+[![Webpack](https://img.shields.io/badge/Webpack-5.89.0-blue.svg?logo=webpack&style=flat-square)](https://github.com/webpack/webpack)
+[![SASS](https://img.shields.io/badge/SASS-1.69.3-pink.svg?logo=sass&style=flat-square)](https://github.com/webpack/webpack)
 
-[![npm version](https://img.shields.io/npm/v/asyncdesign-webui?style=flat-square&color=blue&logo=npm)](https://www.npmjs.com/package/asyncdesign-webui)
-[![NuGet version](https://img.shields.io/nuget/vpre/asyncdesign-webui?style=flat-square&logo=nuget)](https://www.nuget.org/packages/asyncdesign-webui/absoluteLatest)
-
-[![jsDelivr](https://img.shields.io/jsdelivr/npm/hm/asyncdesign-webui?color=red&style=flat-square&label=npm)](https://www.jsdelivr.com/)
+[![npm version](https://img.shields.io/npm/v/asyncdesign-webui?lable=npm&color=blue&style=flat-square)](https://www.npmjs.com/package/asyncdesign-webui)
+[![jsDelivr](https://img.shields.io/jsdelivr/npm/hm/asyncdesign-webui?label=npm&color=darkblue&style=flat-square)](https://www.jsdelivr.com/)
+[![NuGet version](https://img.shields.io/nuget/vpre/asyncdesign-webui?label=nuget&style=flat-square)](https://www.nuget.org/packages/asyncdesign-webui/absoluteLatest)
+[![Nuget](https://img.shields.io/nuget/dt/asyncdesign-webui?label=nuget&color=darkblue&style=flat-square)](https://www.nuget.org/packages/asyncdesign-webui)
 
 
 \
@@ -28,7 +28,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.1.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.2.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
@@ -58,9 +58,15 @@ Alternatively, you can use Yarn to install the WebUI packages.
 
 
 #### **NuGet**
-If you are using Visual Studio to develop websites, then this is the preferred way to install WebUI.
+If you are using Visual Studio before VS2019 to develop websites, then this is the preferred way to install WebUI.
 
 `Install-Package asyncdesign-webui`
+
+#### **LibMan**
+
+If you are using Visual Studio 2019 or later, then the built-in "LibMan" utility is the best way to manage client-side libraries.
+
+**[LibMan documentation](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-8.0)**
 
 
 That's it. You are ready to start developing with WebUI.
