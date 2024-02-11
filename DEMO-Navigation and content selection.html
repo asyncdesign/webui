@@ -8,7 +8,6 @@
 
 	<title>DEMO-Navigation and content selection</title>
 
-	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-components-all.css">
 
 	<link rel="stylesheet" href="site.css">
@@ -75,10 +74,10 @@
 								<ul class="nav-sub-menu">
 									<li class="nav-item"><a href="#0">Sub Menu Item 1</a></li>
 									<li class="nav-component">
-										<div class="toggle-switch-sm">	
+										<div class="toggle-switch-sm check">	
 											<input type="checkbox" value="4" id="check-switch-1" />
-											<label for="check-switch-1" class="accent-1-light rounded-sm">
-												<div class="toggle-switch-button background-dark left-transition-medium"></div>
+											<label for="check-switch-1" class="warning-light rounded-sm">
+												<div class="toggle-switch-button background-danger-dark left-transition-medium"></div>
 											</label>
 										</div>
 									</li>
@@ -118,7 +117,7 @@
 								</ul>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-control-md">
+								<div class="flex align-items-center height-control-lg">
 									<div class="toggle-switch-xs onoff">	
 										<input type="checkbox" value="1" id="check-switch-2" />
 										<label for="check-switch-2" class="info-light rounded-pill">
@@ -128,7 +127,7 @@
 								</div>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-control-md">
+								<div class="flex align-items-center height-control-lg">
 									<div class="toggle-switch">	
 										<input type="checkbox" value="2" id="check-switch-3" />
 										<label for="check-switch-3" class="info-light rounded-pill">
@@ -138,7 +137,7 @@
 								</div>
 							</li>
 							<li class="nav-component">
-								<div class="flex align-items-center height-control-md">
+								<div class="flex align-items-center height-control-lg">
 									<div class="toggle-switch">	
 										<input type="checkbox" value="3" id="check-switch-4" />
 										<label for="check-switch-4" class="info-light rounded-pill">
@@ -183,7 +182,7 @@
 
 											<div class="nav-item"><a href="#0">Sub Menu Item 1</a></div>
 											<div class="nav-component">
-												<div class="toggle-switch-sm">	
+												<div class="toggle-switch-sm check">	
 													<input type="checkbox" value="4" id="check-switch-5" />
 													<label for="check-switch-5" class="accent-1-light rounded-sm">
 														<div class="toggle-switch-button background-dark left-transition-medium"></div>
@@ -244,13 +243,13 @@
 										</div>
 									</div>
 								</div>
-								<div class="nav-component">
+								<div class="nav-component text-normal">
 									<div class="flex align-items-center justify-content-end gap-horizontal-md">
 										<label>Dark theme</label>
-										<div class="toggle-switch">	
+										<div class="toggle-switch darklight">	
 											<input type="checkbox" value="3" id="check-switch-7" />
-											<label for="check-switch-7" class="success-light rounded-pill">
-												<div class="toggle-switch-button background-info left-transition-medium"></div>
+											<label for="check-switch-7" class="dark-alternate rounded-pill">
+												<div class="toggle-switch-button background-dark transition-medium"></div>
 											</label>
 										</div>
 									</div>
@@ -279,13 +278,13 @@
 
 					<div class="row flex-nowrap toolbar-sm dark text-sm" id="menuControl1">
 
-						<div class="col-2 pad-left-md pad-top-sm-md">
-							<i class="fa fa-photo fa-lg"></i>
+						<div class="col-2 flex align-items-center pad-left-md">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 						</div>
 
 						<div class="col-fixed">
 							<div class="dropdown">
-								<button id="menu1" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 1 <i class="fa fa-caret-down"></i></button>
+								<button id="menu1" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 1</button>
 								<div class="dropdown-content menu-close width-xl dark">
 									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Typography</button>
 									<button type="button" class="menu-button-sm menu-button-dark hover-accent-5 border-hover-accent-5 text-left">Colours</button>
@@ -299,7 +298,7 @@
 							</div>
 						</div>
 						<div class="col-fixed">
-							<button id="menu2" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 2 <i class="fa fa-caret-down"></i></button>
+							<button id="menu2" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 2</button>
 							<div class="dropdown-sheet menu-close">
 								<div class="row">
 									<div class="col">
@@ -359,8 +358,8 @@
 						</div>
 						<div class="col-fixed">
 							<div class="dropdown">
-								<button id="menu3" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 3 <i class="fa fa-caret-down"></i></button>
-								<div class="dropdown-content menu-close width-lg-xl light rounded-bottom-lg overflow-hidden">
+								<button id="menu3" type="button" class="menu-activator-hover menu-button-sm menu-button-dark text-left width-md">Menu 3</button>
+								<div class="dropdown-content menu-close width-lg-xl light overflow-hidden">
 									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Typography</button>
 									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Colours</button>
 									<button type="button" class="menu-button-sm menu-button-light hover-accent-5 border-hover-accent-5 text-left">Forms</button>
@@ -398,11 +397,13 @@
 								<div class="float-left pad-top-xs">
 									<input type="text" class="input-sm rounded-sm width-lg-xl margin-left-xxs accessibility" />	
 								</div>		
-								<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-accent-1 width-control-xl"><i class="fa fa-bars"></i></button>
+								<button id="MenuHamburger" type="button" class="menu-activator menu-button-sm menu-button-accent-1 width-sm-md">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+								</button>
 								<div class="dropdown-content menu-inclusive accent-1 width-full raised-md">
 									<div class="row">
 										<div class="col width-full">
-											<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 1 <i class="fa fa-caret-down"></i></button>
+											<button id="menu5" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 1</button>
 											<div class="dropdown-content-expand menu-close accent-1 width-full">
 												<button type="button" class="menu-button-sm menu-button-accent-1 hover-accent-1-dark text-left pad-left-xl">Getting Started</button>
 												<button type="button" class="menu-button-sm menu-button-accent-1 hover-accent-1-dark text-left pad-left-xl">Creating Components</button>
@@ -410,7 +411,7 @@
 												<button type="button" class="menu-button-sm menu-button-accent-1 hover-accent-1-dark text-left pad-left-xl">Templating</button>
 												<button type="button" class="menu-button-sm menu-button-accent-1 hover-accent-1-dark text-left pad-left-xl">Routing</button>
 											</div>
-											<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 2 <i class="fa fa-caret-down"></i></button>
+											<button id="menu6" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 2</button>
 											<div class="dropdown-content-expand menu-close width-full pad-left-xl background-primary">
 												<div class="container light text-left pad-lg">
 													<div class="row">
@@ -459,7 +460,7 @@
 													</div>
 												</div>
 											</div>
-											<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 3 <i class="fa fa-caret-down"></i></button>
+											<button id="menu7" type="button" class="menu-activator menu-button-sm menu-button-accent-1 text-left">Menu 3</button>
 											<div class="dropdown-content-expand menu-close width-full text-left">
 												<div class="panel dark text-left border-secondary height-md">
 													<span class="place-middle-center">
@@ -1043,9 +1044,13 @@
 				largeDeviceSubMenuPadding: "1rem 2rem",	
 				largeDeviceMenuSpacing: "1rem",
 				largeDeviceMenuOffset: "2rem",
-				largeDeviceSubMenuOffset: "-3.5rem",
+				largeDeviceSubMenuOffset: "-1rem",
 
-				//largeDeviceMenuReverse: true
+				largeDeviceMenuReverse: false,
+				//largeDeviceSubMenuGap: "3px"
+
+				//largeDeviceSubMenuReverse: true,
+				//largeDeviceSubMenuGap: "3px"
 
 			});
 			
@@ -1064,9 +1069,13 @@
 				largeDeviceSubMenuBackground: "url(images/scotland_banner_1_dark.jpg) no-repeat center/cover",
 				largeDeviceMenuSpacing: "0.5rem",
 				largeDeviceMenuOffset: "1rem",
-				largeDeviceSubMenuOffset: "-1rem",
+				largeDeviceSubMenuOffset: "17rem",
 
-				//largeDeviceMenuReverse: true
+				//largeDeviceMenuReverse: true,
+
+				largeDeviceSubMenuReverse: true,
+				largeDeviceSubMenuGap: "1px"
+		
 			});
 			
 

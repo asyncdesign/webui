@@ -8,14 +8,13 @@
 
 	<title>DEMO-Carousels and image presentation</title>
 
-	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-components-all.css">
 
 	<link rel="stylesheet" href="site.css">
 
 </head>
 
-<body class="text-sm background-accent-2-light color-accent-5 accessibility-dark">
+<body class="text-sm background-accent-2-light color-accent-5">
 
 	<div class="responsive-gutter-sm">
 	
@@ -77,8 +76,12 @@
 						</div>
 					</div>
 					<div class="text text-xl text-bold">
-						<a href="#0" id="c1_prev" class="text-xl background-transparent color-light fa fa-step-backward place-middle-left left-xs layer-top"></a>
-						<a href="#0" id="c1_next" class="text-xl background-transparent color-light fa fa-step-forward place-middle-right right-xs layer-top"></a>
+						<a href="#0" id="c1_prev" class="color-light place-middle-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+						</a>
+						<a href="#0" id="c1_next" class="color-light place-middle-right">
+							<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+						</a>
 					</div>
 					<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c1_textForSlide1">Fade in text for slide 1</div>
 					<div class="text-xl text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c1_textForSlide2">Fade in text for slide 2</div>
@@ -87,7 +90,7 @@
 			
 				<div class="row-spacing-md"></div>
 
-				<div class="flex align-items-center gap-horizontal-sm">
+				<div class="flex align-items-center gap-horizontal-md">
 					<div>
 						<select id="c1_selectSlide" class="control width-lg">
 							<option value="">Select slide</option>
@@ -99,9 +102,13 @@
 							<option value="5">6</option>
 						</select>
 					</div>	
-					<div class="pad-right-xs-sm gap-horizontal-xs">
-						<button id="c1_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
-						<button id="c1_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
+					<div class="flex width-md-lg">
+						<button id="c1_play" class="view-button-sm border-initial color-success color-focus-accent-5 text-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+						</button>
+						<button id="c1_stop" class="view-button-sm border-initial color-danger color-focus-accent-5 text-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-stop-circle"><circle cx="12" cy="12" r="10"></circle><rect x="9" y="9" width="6" height="6"></rect></svg>
+						</button>
 					</div>
 				</div>
 
@@ -141,8 +148,12 @@
 						</div>
 					</div>
 					<div class="text text-xl text-bold">
-						<a href="#0" id="c2_prev" class="text-lg background-transparent color-light fa fa-step-backward place-middle-left left-xs layer-top"></a>
-						<a href="#0" id="c2_next" class="text-lg background-transparent color-light fa fa-step-forward place-middle-right right-xs layer-top"></a>
+						<a href="#0" id="c2_prev" class="color-light place-middle-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+						</a>
+						<a href="#0" id="c2_next" class="color-light place-middle-right">
+							<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+						</a>
 					</div>
 					<div class="text-lg text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c2_textForSlide1">Fade in text for slide 1</div>
 					<div class="text-lg text-sm-bp-2-under color-light hidden place-middle-center layer-top" id="c2_textForSlide2">Fade in text for slide 2</div>
@@ -151,7 +162,7 @@
 			
 				<div class="row-spacing-md"></div>
 
-				<div class="flex align-items-center gap-horizontal-sm">
+				<div class="flex align-items-center gap-horizontal-md">
 					<div>
 						<select id="c2_selectSlide" class="control width-lg">
 							<option value="">Select slide</option>
@@ -163,9 +174,13 @@
 							<option value="5">6</option>
 						</select>
 					</div>	
-					<div class="pad-right-xs-sm gap-horizontal-xs">
-						<button id="c2_play" class="button-sm button-light background-focus-accent-2-light fa fa-play"></button>
-						<button id="c2_stop" class="button-sm button-light background-focus-accent-2-light fa fa-stop"></button>
+					<div class="flex width-md-lg">
+						<button id="c2_play" class="view-button-sm border-initial color-success color-focus-accent-5 text-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+						</button>
+						<button id="c2_stop" class="view-button-sm border-initial color-danger color-focus-accent-5 text-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-stop-circle"><circle cx="12" cy="12" r="10"></circle><rect x="9" y="9" width="6" height="6"></rect></svg>
+						</button>
 					</div>
 				</div>
 

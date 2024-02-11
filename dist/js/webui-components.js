@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.4.2
+* Version: 11.5.0
 * MIT License
 */
 
@@ -96,12 +96,6 @@
 			}
 			if (isString(newCssClass) && newCssClass.trim()) {
 				els.addClass(newCssClass);
-			}
-
-			for (var i = 0; i < els.length; i++) {
-				if (isSelect(els[i])) {
-					webui(els[i]).find("option").css("color", webui(els[i]).css("color"));
-				}
 			}
 		},
 		delay = function (delay, callback) {
@@ -667,24 +661,30 @@
 				}
 				return webui.createArray(selector, this);
 			},
+			at: [].at,
+			concat: [].concat,
+			every: [].every,
+			filter: [].filter,
+			find: [].find,
+			forEach: [].forEach,
+			includes: [].includes,
+			indexOf: [].indexOf,
+			join: [].join,
+			map: [].map,
 			pop: [].pop,
 			push: [].push,
+			reduce: [].reduce,
+			reduceRight: [].reduceRight,
 			reverse: [].reverse,
 			shift: [].shift,
+			slice: [].slice,
+			some: [].some,
 			sort: [].sort,
 			splice: [].splice,
-			slice: [].slice,
-			indexOf: [].indexOf,
-			forEach: [].forEach,
-			unshift: [].unshift,
-			concat: [].concat,
-			join: [].join,
-			every: [].every,
-			some: [].some,
-			filter: [].filter,
-			map: [].map,
-			reduce: [].reduce,
-			reduceRight: [].reduceRight
+			toReversed: [].toReversed,
+			toSorted: [].toSorted,
+			toSpliced: [].toSpliced,
+			unshift: [].unshift	
 		};
 
 	fn.constructor = webui;
@@ -1120,6 +1120,42 @@
 		else {
 			for (var i = 0; i < this.length; i++) {
 				values.push(this[i].value);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.checked = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].checked = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].checked);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.indeterminate = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].indeterminate = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].indeterminate);
 			}
 			return values.length === 1 ? values[0] : values;
 		}
@@ -2208,6 +2244,7 @@
 		return "";
 	};
 
+	// DEPRECATED
 	webui.copyToClipboard = function (valueOrSelector) {
 		if (arguments.length) {		
 			var el = valueOrSelector;
@@ -2226,6 +2263,13 @@
 			}
 		}
 	};
+
+	webui.copyTextToClipboard = function(textToCopy) {
+		if (navigator?.clipboard?.writeText) {
+			return navigator.clipboard.writeText(textToCopy);
+		}
+		return Promise.reject('The Clipboard API is not available.');
+	}	
 
 	webui.createArray = function (obj, wrapper) {
 		var arr = wrapper || [];
@@ -2287,6 +2331,13 @@
     } 
 		return text;
   };
+
+	webui.capitalizeFirstLetter = function (text) {
+		if (text && text.length) {
+			return text.length > 1 ? text[0].toUpperCase() + text.slice(1) : text[0].toUpperCase();
+		}
+		return text;
+	}
 
   webui.limitWords = function (text, wordCount, addEllipsis) {
     if (arguments.length > 1) {
@@ -2457,7 +2508,7 @@
 		}
 	};
 
-	webui.version = "11.4.2";
+	webui.version = "11.5.0";
 
 
 	/* EVENT HANDLERS */
@@ -4368,6 +4419,8 @@
 			largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
 			largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
 			largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
+			largeDeviceSubMenuGap = settings.largeDeviceSubMenuGap,
+			largeDeviceSubMenuReverse = settings.largeDeviceSubMenuReverse,
 
 			smallDeviceLogoColor = settings.smallDeviceLogoColor,
 			smallDeviceLogoBackground = settings.smallDeviceLogoBackground,
@@ -4473,6 +4526,7 @@
 				
 				navItems.css("margin-left", largeDeviceMenuSpacing);
 				navSubMenus.css("margin-left", largeDeviceSubMenuOffset);
+				navSubMenus.css("margin-top", largeDeviceSubMenuGap);
 				navSubMenus.css("padding", largeDeviceSubMenuPadding);
 				
 				navLogo.css("color", largeDeviceLogoColor);
@@ -4490,6 +4544,26 @@
 
 				navMenu.children(".nav-item").last().css("margin-bottom", "0");
 				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
+
+				if (largeDeviceSubMenuReverse) {
+					var totalWidth = parseFloat(navSubMenus.last().css("right", largeDeviceMenuOffset).css("right"));
+						
+					var navItemWidth = 0;
+					var menuSpacing = parseFloat(navItems.first().css("margin-left"));
+					
+					if (navSubMenus.length > 0) {
+						navSubMenus.reverse().forEach((sm) => {
+							webui(sm).css("right", totalWidth + "px");
+							navItemWidth = parseFloat(webui(sm).closest(".nav-item").css("width"));
+							totalWidth += navItemWidth + menuSpacing;								
+						});
+
+						navSubMenus.reverse();
+
+						navSubMenus.css("margin-right", largeDeviceSubMenuOffset);
+					}
+				}
+
 			},
 
 			setNavbarProperties = function() {
@@ -4567,6 +4641,8 @@
 			if (newSettings.largeDeviceMenuSpacing !== undefined) { largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
 			if (newSettings.largeDeviceMenuOffset !== undefined) { largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
 			if (newSettings.largeDeviceSubMenuOffset !== undefined) { largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+			if (newSettings.largeDeviceSubMenuGap !== undefined) { largeDeviceSubMenuGap = newSettings.largeDeviceSubMenuGap; }
+			if (newSettings.largeDeviceSubMenuReverse !== undefined) { largeDeviceSubMenuReverse = newSettings.largeDeviceSubMenuReverse; }
 
 			if (newSettings.smallDeviceLogoColor !== undefined) { smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
 			if (newSettings.smallDeviceLogoBackground !== undefined) { smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
@@ -4747,6 +4823,7 @@
 				largeDeviceMenuSpacing: 0,
 				largeDeviceMenuOffset: 0,				
 				largeDeviceSubMenuOffset: 0,
+				largeDeviceSubMenuReverse: false,
 
 				smallDeviceLogoColor: "inherit",
 				smallDeviceLogoBackground: "",
@@ -5026,8 +5103,18 @@
             return;
           }
 
-          controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
-          activeItem.addClass(settings.activatorActiveClass);
+          var styleParts = null;
+					if (settings.activatorActiveStyle) {
+						styleParts = settings.activatorActiveStyle.split(":");
+					}
+          if (styleParts && styleParts.length === 2) {
+            controls.find(settings.activatorSelector).css(styleParts[0], "");
+            activeItem.css(styleParts[0], styleParts[1]);
+          }
+					else {
+						controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
+						activeItem.addClass(settings.activatorActiveClass);	
+					}
         }
       }
     };
@@ -5040,6 +5127,7 @@
       var settings = ui.extend({
         activatorSelector: "li > a",
         activatorActiveClass: "active",
+        activatorActiveStyle: null,
         scrollTargetClass: "scroll-target",
         scrollTargetOffset: 0,
         activatorCallback: null

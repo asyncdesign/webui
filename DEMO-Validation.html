@@ -8,7 +8,6 @@
 
 	<title>DEMO-Validation</title>
 
-	<link rel="stylesheet" href="vendor/font_awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dist/css/webui-all.css">
 
 	<link rel="stylesheet" href="site.css">
@@ -216,7 +215,7 @@
 
 					<div class="row align-items-center">
 						<div class="col">
-							<select id="list1" name="list1" multiple="multiple" class="control height-lg width-full scroll-y rounded-sm">
+							<select id="list1" name="list1" multiple class="control height-lg width-full scroll-y rounded-sm">
 								<option value="1">Austria</option>
 								<option value="3">Bulgaria</option>
 								<option value="4">Canada</option>
@@ -237,7 +236,7 @@
 
 					<div class="row align-items-center">
 						<div class="col">
-							<select id="list2" name="list2" multiple="multiple" class="control height-lg width-full scroll-y rounded-sm">
+							<select id="list2" name="list2" multiple class="control height-lg width-full scroll-y rounded-sm">
 							</select>		
 
 						</div>
@@ -462,17 +461,17 @@
 			// Card login validation
 			ui("#buttonLogin").click( () => { 
 				if (!ui("#textUsername").hasConformingString(ui.BASIC_STRING, false)) {
-					ui("#textUsername").setControlState("input-sm", "input-sm control-highlight", true, "Please enter username", true);
+					ui("#textUsername").setControlState("input-sm", "input-sm control-highlight", "Please enter username", true, true);
 				}
 				else {
 					ui("#textUsername").setControlState("", "color-success");
 				}
 
 				if (!ui("#textPassword").hasConformingString(ui.BASIC_STRING, false)) {
-					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", true, "Please enter password", true);
+					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", "Please enter password", true, true);
 				}
 				else if (!ui("#textPassword").hasConformingString(ui.PASSWORD_STRENGTH, false)) {
-					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", true, "Please enter stronger password", true);
+					ui("#textPassword").setControlState("input-sm", "input-sm control-highlight", "Please enter stronger password", true, true);
 				}
 
 			});

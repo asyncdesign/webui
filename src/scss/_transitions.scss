@@ -92,3 +92,20 @@
 .top-transition-long {
 	transition: top 0.7s ease-in; 
 }
+.feedback-hover:hover {
+	animation: feedback-effect 0.3s linear;
+}
+.feedback-focus:focus {
+	animation: feedback-effect 0.3s linear;
+}
+.feedback-active:active {
+	animation: feedback-effect 0.3s linear;
+}
+@keyframes feedback-effect {
+	50% {
+		box-shadow: 0px 0px 50px 0px rgb(143, 143, 143);
+	}
+	100% {
+		box-shadow: 0px 0px 50px 0px transparent;
+	}
+}

@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.4.2
+* Version: 11.5.0
 * MIT License
 */
 
@@ -96,12 +96,6 @@
 			}
 			if (isString(newCssClass) && newCssClass.trim()) {
 				els.addClass(newCssClass);
-			}
-
-			for (var i = 0; i < els.length; i++) {
-				if (isSelect(els[i])) {
-					webui(els[i]).find("option").css("color", webui(els[i]).css("color"));
-				}
 			}
 		},
 		delay = function (delay, callback) {
@@ -667,24 +661,30 @@
 				}
 				return webui.createArray(selector, this);
 			},
+			at: [].at,
+			concat: [].concat,
+			every: [].every,
+			filter: [].filter,
+			find: [].find,
+			forEach: [].forEach,
+			includes: [].includes,
+			indexOf: [].indexOf,
+			join: [].join,
+			map: [].map,
 			pop: [].pop,
 			push: [].push,
+			reduce: [].reduce,
+			reduceRight: [].reduceRight,
 			reverse: [].reverse,
 			shift: [].shift,
+			slice: [].slice,
+			some: [].some,
 			sort: [].sort,
 			splice: [].splice,
-			slice: [].slice,
-			indexOf: [].indexOf,
-			forEach: [].forEach,
-			unshift: [].unshift,
-			concat: [].concat,
-			join: [].join,
-			every: [].every,
-			some: [].some,
-			filter: [].filter,
-			map: [].map,
-			reduce: [].reduce,
-			reduceRight: [].reduceRight
+			toReversed: [].toReversed,
+			toSorted: [].toSorted,
+			toSpliced: [].toSpliced,
+			unshift: [].unshift	
 		};
 
 	fn.constructor = webui;
@@ -1120,6 +1120,42 @@
 		else {
 			for (var i = 0; i < this.length; i++) {
 				values.push(this[i].value);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.checked = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].checked = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].checked);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.indeterminate = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].indeterminate = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].indeterminate);
 			}
 			return values.length === 1 ? values[0] : values;
 		}
@@ -2208,6 +2244,7 @@
 		return "";
 	};
 
+	// DEPRECATED
 	webui.copyToClipboard = function (valueOrSelector) {
 		if (arguments.length) {		
 			var el = valueOrSelector;
@@ -2226,6 +2263,13 @@
 			}
 		}
 	};
+
+	webui.copyTextToClipboard = function(textToCopy) {
+		if (navigator?.clipboard?.writeText) {
+			return navigator.clipboard.writeText(textToCopy);
+		}
+		return Promise.reject('The Clipboard API is not available.');
+	}	
 
 	webui.createArray = function (obj, wrapper) {
 		var arr = wrapper || [];
@@ -2287,6 +2331,13 @@
     } 
 		return text;
   };
+
+	webui.capitalizeFirstLetter = function (text) {
+		if (text && text.length) {
+			return text.length > 1 ? text[0].toUpperCase() + text.slice(1) : text[0].toUpperCase();
+		}
+		return text;
+	}
 
   webui.limitWords = function (text, wordCount, addEllipsis) {
     if (arguments.length > 1) {
@@ -2457,7 +2508,7 @@
 		}
 	};
 
-	webui.version = "11.4.2";
+	webui.version = "11.5.0";
 
 
 	/* EVENT HANDLERS */

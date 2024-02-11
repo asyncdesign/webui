@@ -22,8 +22,18 @@
             return;
           }
 
-          controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
-          activeItem.addClass(settings.activatorActiveClass);
+          var styleParts = null;
+					if (settings.activatorActiveStyle) {
+						styleParts = settings.activatorActiveStyle.split(":");
+					}
+          if (styleParts && styleParts.length === 2) {
+            controls.find(settings.activatorSelector).css(styleParts[0], "");
+            activeItem.css(styleParts[0], styleParts[1]);
+          }
+					else {
+						controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
+						activeItem.addClass(settings.activatorActiveClass);	
+					}
         }
       }
     };
@@ -36,6 +46,7 @@
       var settings = ui.extend({
         activatorSelector: "li > a",
         activatorActiveClass: "active",
+        activatorActiveStyle: null,
         scrollTargetClass: "scroll-target",
         scrollTargetOffset: 0,
         activatorCallback: null
