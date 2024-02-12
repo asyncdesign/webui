@@ -741,6 +741,13 @@
 		return webui(nodes);
 	};
 
+	fn.element = function () {
+		if (this.length && this.length === 1) {
+			return this[0];
+		}
+		return undefined;
+	};
+
 	fn.elements = function () {
 		var nodes = [];
 		for (var i = 0; i < this.length; i++) {
