@@ -2355,6 +2355,7 @@
 		return text;
   };
 
+	// DEPRECATED
   webui.getQueryString = function (key) {
     if (arguments.length === 1) {
       var temp = location.search.match(new RegExp(key + "=(.*?)($|\\&)", "i"));
@@ -2365,6 +2366,7 @@
 		return "";
   };
 
+	// DEPRECATED
   webui.navigateInternal = function (id, navigate) {
     if (arguments.length) {
       var url = window.location.href.split("#");
@@ -2379,6 +2381,7 @@
     }
   };
 
+	// DEPRECATED
   webui.getAbsoluteUri = function (relativeUrl, virtualRoot, addReturnUrl) {
     try {
       var cleanUrl = relativeUrl.replace(/\.\.\//g, "").replace(/\./g, "");
@@ -2409,7 +2412,7 @@
       if (end == -1) {
         end = document.cookie.length;
       }
-      return unescape(document.cookie.substring(len, end));
+      return decodeURIComponent(document.cookie.substring(len, end));
     } 
     catch (ex) {
       return null;
@@ -2424,7 +2427,7 @@
         expires = expires * 1e3 * 60 * 60 * 24;
       }
       var expiryDate = new Date(today.getTime() + expires);
-      document.cookie = name + "=" + escape(value) + (expires ? ";expires=" + expiryDate.toUTCString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
+      document.cookie = name + "=" + encodeURIComponent(value) + (expires ? ";expires=" + expiryDate.toUTCString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
       return true;
     } 
     catch (ex) {
