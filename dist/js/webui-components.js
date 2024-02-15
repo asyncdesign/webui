@@ -5281,13 +5281,16 @@
 
 			if (tabId) {
 
-				var prevTabId = "#" + tabActivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
+				var tabs = tabActivator.parents(".tabs");
 
-				tabActivator.parents(".tabs").find(".tab-item").removeClass("selected");
+				var prevTabId = "#" + tabs.find(".tab-item.selected").last().attr("id");
+
+				tabs.find(".tab-activator").removeClass("active");
+				tabs.find(".tab-item").removeClass("selected");
 
 				tabActivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
 
-				var activeTab = tabActivator.parents(".tabs").find(tabId).first();
+				var activeTab = tabs.find(tabId).first();
 				
 				if (transitionType === "fade") {
 					activeTab.show().children().fadeIn(transitionDuration);
@@ -5299,8 +5302,10 @@
 					activeTab.show();
 				}
 
-				
+				tabActivator.addClass("active");
 				activeTab.addClass("selected");
+
+
 
 				if (transitionType === "fade") {
 					activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);
