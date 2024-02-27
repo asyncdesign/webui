@@ -66,12 +66,12 @@ If you prefer not to download the full package and just want to try it out, then
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title></title> 
 
-    <link rel="stylesheet" href="https://unpkg.com/browse/asyncdesign-webui@latest/dist/css/webui-standard.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/asyncdesign-webui@latest/dist/css/webui-standard.min.css">
   </head>
   
   <body>
 
-    <script src="https://unpkg.com/browse/asyncdesign-webui@latest/dist/js/webui-components.min.js"></script>
+    <script src="https://unpkg.com/asyncdesign-webui@latest/dist/js/webui-components.min.js"></script>
   </body>
 </html>
 ````
