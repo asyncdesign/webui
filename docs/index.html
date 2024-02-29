@@ -9,23 +9,42 @@
   <title>WebUI mobile-first CSS</title>
   <meta name="description" content="Mobile-first CSS and JavaScript front end framework that supports responsive mobile first and fixed desktop layouts.">
 
-  <link rel="stylesheet" href="/webui/assets/font_awesome/css/font-awesome.min.css">
+  <style>
+    body {
+      background: rgb(102, 102, 102);
+    }
+  </style>
+
+  <link rel="stylesheet" href="" id="colorModeSS">
+
+  <script>
+    var webuiDarkMode = localStorage.getItem("asyncDesignWebuiDM");
+    var colorModeSS = document.getElementById("colorModeSS");
+
+    if (webuiDarkMode === "enabled") {
+      colorModeSS.setAttribute("href", "/webui/assets/css/dark-mode.css");
+    }
+    else {
+      colorModeSS.setAttribute("href", "/webui/assets/css/light-mode.css");
+    }
+  </script>
+
   <link rel="stylesheet" href="/webui/assets/css/webui-components-all.css">
   <link rel="stylesheet" href="/webui/assets/css/site.css">
-  <link rel="canonical" href="http://localhost:4000/webui/">
-  <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
-  <link rel="shortcut icon" href="/webui/favicon.ico">
 
   <style>
     @font-face {
       font-family: "Open Sans";
       font-weight: normal;
-      src:url("/webui/assets/google/fonts/OpenSans-Regular.ttf");
+      src: url("/webui/assets/google/fonts/OpenSans-Regular.ttf");
     } 
     @font-face {
       font-family: "Open Sans";
       font-weight: bold;
-      src:url("/webui/assets/google/fonts/OpenSans-SemiBold.ttf");
+      src: url("/webui/assets/google/fonts/OpenSans-SemiBold.ttf");
+    }
+    body {
+      font-family: "Open Sans", Arial, Helvetica;
     }
 
     .grid-example-columns {
@@ -43,20 +62,51 @@
       grid-column: 5 / 7;
       grid-row: 3;
     }
-    
-    /*
-    * {
-      background: rgb(0 100 0 / 0.1) !important;
-    } 
-    */
-
   </style>
-  
+
+  <link rel="canonical" href="http://localhost:4000/webui/">
+  <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
+  <link rel="shortcut icon" href="/webui/favicon.ico">
+
   
 </head>
 
 
-  <body class="background-info text-sm color-accent-5-dark">
+  <body class="text-sm">
+
+    
+<div id="webuiSearchModal" class="modal">
+
+  <div class="modal-md modal-top-center height-xxl rounded-sm text text-sm">
+
+    <!--
+    <div class="place-top-right pad-right-xl-xxl margin-top-xs-sm">
+      <a href="javascript:void(0)" class="button-link modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </a>
+    </div>
+    -->     
+
+    <div class="height-md pad-xxl width-three-quarters relative">
+      <label class="place-middle-right margin-right-sm margin-top-xxs-xs pad-bottom-xxs">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(14, 143, 241)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </label>
+      <input type="text" class="input-xl pad-left-xl pad-right-xxl rounded-sm width-full border-sm border-info text-lg" id="webuiSearchInput" />
+    </div>
+
+    <div class="scroll-y height-xl-xxl pad-xxl text-md text-wrap">
+      <div>
+        <div id="webuiSearchResult"></div>
+      </div>
+    </div>
+
+    <div class="flex justify-content-space-between align-items-center height-md pad-xxl">
+      <span class="color-accent-4">Press <label class="dark pad-xxs">Esc</label> or click outside to close.</span><span class="pad-right-md-lg color-accent-4">WebUI Search</span>
+    </div>
+
+  </div>
+
+</div>
 
     <div class="hidden-bp-4-under" id="defaultTopNav">
       
@@ -67,7 +117,7 @@
         <button type="button" class="menu-button-lg background-transparent border-transparent color-primary color-hover-muted text-left cursor-pointer" id="menuButtonDocumentation">Documentation</button>
       </div>
       <div class="col-fixed">
-        <button type="button" class="menu-activator menu-button-lg background-transparent border-transparent color-primary color-hover-muted text-left cursor-pointer" id="menuButtonAbout">About<i class="fa fa-caret-down pad-left-sm"></i></button>
+        <button type="button" class="menu-activator menu-button-lg background-transparent border-transparent color-primary color-hover-muted text-left cursor-pointer" id="menuButtonAbout">About</button>
         <div class="dropdown-sheet transparent color-accent-4-dark">
           
           <div class="text background-primary pad-lg">
@@ -82,32 +132,80 @@
                 </p>
                 
                 <p><i>Be creative. Start something amazing today!</i></p>
-                <p><span class="color-accent-1">Current version:</span> 11.4.2</p>
+                <p class="color-info text-bold">Current version: 11.5.0</p>
               </div>
             </div>
-            <div class="row">
-              <div class="col pad-xs text-xs text-italic gap-horizontal-lg">
-                <a href="https://twitter.com/asyncdesign"><i class="fa fa-twitter fa-2x color-info"></i></a>
-                <a href="https://github.com/asyncdesign/webui"><i class="fa fa-github fa-2x color-accent-5"></i></a>
+            <div class="flex-container align-items-center">
+
+              <div class="text-center width-lg pad-lg text-sm">    
+                <a href="https://github.com/asyncdesign/webui" target="_blank" class="color-dark color-hover-accent-4 text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  <div>WebUI on GitHub</div>
+                </a>   
               </div>
+              
+              <div class="text-center width-lg pad-lg text-sm">    
+                <a href="https://www.npmjs.com/package/asyncdesign-webui" target="_blank" class="color-dark color-hover-accent-4 text-bold">
+                  <svg width="50" height="20"  viewBox="0 0 780 250" role="img">
+                    <path fill="currentColor" d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z"></path>
+                  </svg>
+                  <div>WebUI on NPM</div>
+                </a>   
+              </div>
+              
+              <div class="text-center width-lg pad-lg text-sm">    
+                <a href="https://twitter.com/asyncdesign?lang=en" target="_blank" class="color-dark color-hover-accent-4 text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" role="img">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  </svg>
+                  <div>WebUI on X</div>
+                </a>   
+              </div>
+
             </div>
-            <div class="row-spacing-sm"></div>
+
             <div class="row">
               <div class="col pad-xs text-sm color-accent-4">
-                MIT License (MIT) Copyright (c) 2010 - 2023 AsyncDesign.
+                MIT License (MIT) Copyright (c) 2010 - 2024 AsyncDesign.
               </div>
-            </div>	
+            </div>
+
           </div>
 
           <div class="row border-xs border-muted"></div>
         </div>
       </div>
-      <div class="dock-top-right pad-top-sm-md pad-right-md control-group width-lg text">
-        <a href="#0" class="button-link-sm accent-1" id="v11MenuSwitch">11.x</a>
-        <a href="#0" class="button-link-sm accent-1-light" id="v10MenuSwitch">10.x</a>
+      <div class="col">
+
+        <div class="flex-container align-items-center justify-content-end gap-xl text height-full nav-button-set">
+
+          <div class="pad-top-xxs">
+            <a href="javascript:void(0)" class="button-link-lg pad-top-xs-sm color-light color-hover-accent-4" id="webuiSearchButtonDefault">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </a>
+          </div>
+    
+          <div class="toggle-switch darklight">	
+            <input type="checkbox" value="1" id="darkModeSwitchDefault" />
+            <label for="darkModeSwitchDefault" class="background-dark-alternate rounded-pill">
+              <div class="toggle-switch-button background-dark transition-medium"></div>
+            </label>
+          </div>
+
+          <div class="flex">
+            <a href="#0" class="button-link-sm info-dark" id="v11MenuSwitch">11.x</a>
+            <a href="#0" class="button-link-sm info-light" id="v10MenuSwitch">10.x</a>
+          </div>
+    
+        </div>
+    
       </div>
 
     </div>
+
+
   </div>
 </div>
 
@@ -115,50 +213,52 @@
 
     </div>
 
-    <div class="dock-top-center width-full height-sm background-transparent hidden-bp-4-over" id="mobileNav">
+    <div class="dock-top-center width-full height-sm background-info hidden-bp-4-over" id="defaultMobileNav">
         <div class="toggle-container" data-transition-duration="700" data-close-external="#defaultMobileSideNav">
   
-            <div class="dock-top-left layer-top">
-              <button data-target="#defaultMobileSideNav" class="toggle-activator menu-button-sm color-accent-4-dark color-hover-muted background-transparent border-transparent width-sm text-xl fa fa-bars" id="slideButton1"></button>
-            </div>
-                
-            <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-xs border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="defaultMobileSideNav">         
+          <div class="dock-top-left layer-top">
+            <button data-target="#defaultMobileSideNav" class="toggle-activator menu-button-sm background-transparent border-transparent width-sm" id="defaultSideNavButton">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+          </div>
               
-    <div class="menu dropdown pad-xxl text gap-vertical-sm siteSideMenu" id="menu">
+          <div class="toggle-item off-canvas-left dock-top-left background-primary pad-left-xl pad-right-xl border-xs border-transparent border-right-muted width-xl height-viewport scroll-y-always layer-top" id="defaultMobileSideNav">      
+            
+    <div class="menu dropdown pad-xxl text gap-vertical-sm siteSideMenu" id="sideNavMenu">
 
       <div>
-        <a href="/webui/index.html" class="color-accent-5-dark text-bold color-hover-info">Home</a>
+        <a href="/webui/index.html" class="text-bold">Home</a>
       </div>
       <div>
-        <a href="/webui/getting_started.html" class="color-accent-5-dark text-bold color-hover-info">Getting Started</a>
+        <a href="/webui/getting_started.html" class="text-bold">Getting Started</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="gettingStartedMenu">
         <div class="pad-left-sm">
-          <a href="#installation" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#installation">Installation</a>
+          <a href="#installation" data-scrollspy="#installation">Installation</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#whatsIncluded" class="color-accent-5-dark color-hover-info" data-scrollspy="#whatsIncluded">What's Included?</a>
+          <a href="#whatsIncluded" data-scrollspy="#whatsIncluded">What's Included?</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#build" class="color-accent-5-dark color-hover-info" data-scrollspy="#build">Build</a>
+          <a href="#build" data-scrollspy="#build">Build</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#useage" class="color-accent-5-dark color-hover-info" data-scrollspy="#useage">Useage</a>
+          <a href="#useage" data-scrollspy="#useage">Useage</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#webuiLayouts" class="color-accent-5-dark color-hover-info" data-scrollspy="#webuiLayouts">WebUI Layouts</a>
+          <a href="#webuiLayouts" data-scrollspy="#webuiLayouts">WebUI Layouts</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexbox" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexbox">Flexbox</a>
+          <a href="#flexbox" data-scrollspy="#flexbox">Flexbox</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#addingContent" class="color-accent-5-dark color-hover-info" data-scrollspy="#addingContent">Adding Content</a>
+          <a href="#addingContent" data-scrollspy="#addingContent">Adding Content</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#addingColor" class="color-accent-5-dark color-hover-info" data-scrollspy="#addingColor">Adding Color</a>
+          <a href="#addingColor" data-scrollspy="#addingColor">Adding Color</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#accessibility" class="color-accent-5-dark color-hover-info" data-scrollspy="#accessibility">Accessibility</a>
+          <a href="#accessibility" data-scrollspy="#accessibility">Accessibility</a>
         </div>
       </div>
     </div>
@@ -168,651 +268,576 @@
 
       <div class="flex-row">
         <div class="flex-col flex-fit">
-          <a href="#0" class="button-link-sm accent-1-light focus-accent-1" id="cssMenuSwitch">CSS</a>
+          <a href="#0" class="button-link-sm info-dark focus-info-dark" id="cssMenuSwitch">CSS</a>
         </div>
         <div class="flex-col flex-fit">
-          <a href="#0" class="button-link-sm accent-1-light focus-accent-1" id="jsMenuSwitch">JS</a>
+          <a href="#0" class="button-link-sm info-light focus-info-dark" id="jsMenuSwitch">JS</a>
         </div>
       </div>
 
       <div class="row-spacing-xs"></div>
     </div>
 
-    <div class="menu dropdown pad-xxl text gap-vertical-sm hidden siteSideMenu" id="cssMenu">
+    <div class="menu dropdown pad-xxl text gap-vertical-sm siteSideMenu" id="cssMenu">
 
       <div>
-        <a href="/webui/layout.html" class="color-accent-5-dark text-bold color-hover-info">WebUI Layout</a>
+        <a href="/webui/layout.html" class="text-bold">WebUI Layout</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="layoutMenu">
         <div class="pad-left-sm">
-          <a href="#layoutOverview" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#layoutOverview">Overview</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#layoutGrid" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutGrid">Grid System</a>
+          <a href="#layoutGrid" data-scrollspy="#layoutGrid">Grid System</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutColumns" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutColumns">HTML Columns (Multi-column)</a>
+          <a href="#layoutColumns" data-scrollspy="#layoutColumns">HTML Columns (Multi-column)</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutContainers" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutContainers">Containers</a>
+          <a href="#layoutContainers" data-scrollspy="#layoutContainers">Containers</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutGutters" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutGutters">Responsive Gutters</a>
+          <a href="#layoutGutters" data-scrollspy="#layoutGutters">Responsive Gutters</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutSpacing" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutSpacing">Layout Spacing</a>
+          <a href="#layoutSpacing" data-scrollspy="#layoutSpacing">Layout Spacing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutProperties" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutProperties">Layout Properties</a>
+          <a href="#layoutProperties" data-scrollspy="#layoutProperties">Layout Properties</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/flexbox.html" class="color-accent-5-dark text-bold color-hover-info">Flexbox</a>
+        <a href="/webui/flexbox.html" class="text-bold">Flexbox</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="flexboxMenu">
         <div class="pad-left-sm">
-          <a href="#flexboxOverview" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#flexboxOverview">Overview</a>
+          <a href="#flexboxOverview" data-scrollspy="#flexboxOverview">Flexbox</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxBasicConcepts" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxBasicConcepts">Basic Concepts</a>
+          <a href="#flexboxClasses" data-scrollspy="#flexboxClasses">Flexbox Classes</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxFlexItemSizing" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
+          <a href="#flexboxFlexItemSizing" data-scrollspy="#flexboxFlexItemSizing">Flexbox Item Sizing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxOrientation" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
+          <a href="#flexboxOrientation" data-scrollspy="#flexboxOrientation">Flexbox Orientation</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxLayouts" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
+          <a href="#flexboxLayouts" data-scrollspy="#flexboxLayouts">Flexbox Layouts</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxMediaBreakpointUtilities" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
+          <a href="#flexboxMediaBreakpointUtilities" data-scrollspy="#flexboxMediaBreakpointUtilities">Media Breakpoint Utilities</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#flexboxProperties" class="color-accent-5-dark color-hover-info" data-scrollspy="#flexboxProperties">Flexbox Properties</a>
+          <a href="#flexboxProperties" data-scrollspy="#flexboxProperties">Flexbox Properties</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/tables.html" class="color-accent-5-dark text-bold color-hover-info">HTML Tables</a>
+        <a href="/webui/tables.html" class="text-bold">HTML Tables</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tablesMenu">
         <div class="pad-left-sm">
-          <a href="#tableOverview" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tableOverview">Overview</a>
+          <a href="#tablesOverview" data-scrollspy="#tablesOverview">Tables</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tableClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tableClasses">Classes</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#tableExamples" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tableExamples">Examples</a>
+          <a href="#tablesResponsive" data-scrollspy="#tablesResponsive">Responsive Tables</a>
         </div>
       </div>  
 
       <div>
-        <a href="/webui/media_breakpoints.html" class="color-accent-5-dark text-bold color-hover-info">Media Breakpoints</a>
+        <a href="/webui/media_breakpoints.html" class="text-bold">Media Breakpoints</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="mediaBreakpointsMenu">
         <div class="pad-left-sm">
-          <a href="#breakpointSettings" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
+          <a href="#breakpoints" data-scrollspy="#breakpoints">Breakpoints</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#breakpoints" class="color-accent-5-dark color-hover-info" data-scrollspy="#breakpoints">Breakpoints</a>
+          <a href="#breakpointSettings" data-scrollspy="#breakpointSettings">Breakpoint Settings</a>
         </div>
       </div>  
 
       <div>
-        <a href="/webui/alignment.html" class="color-accent-5-dark text-bold color-hover-info">Alignment</a>
+        <a href="/webui/alignment.html" class="text-bold">Alignment</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alignmentMenu">
         <div class="pad-left-sm">
-          <a href="#textAlignment" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#textAlignment">Text Alignment</a>
+          <a href="#textAlignment" data-scrollspy="#textAlignment">Text Alignment</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#elementAlignment" class="color-accent-5-dark color-hover-info" data-scrollspy="#elementAlignment">Element Alignment</a>
+          <a href="#elementAlignment" data-scrollspy="#elementAlignment">Element Alignment</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#floatAlignment" class="color-accent-5-dark color-hover-info" data-scrollspy="#floatAlignment">Float Alignment</a>
+          <a href="#floatAlignment" data-scrollspy="#floatAlignment">Float Alignment</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/padding.html" class="color-accent-5-dark text-bold color-hover-info">Padding</a>
+        <a href="/webui/padding.html" class="text-bold">Padding</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="paddingMenu">
         <div class="pad-left-sm">
-          <a href="#basicPadding" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#basicPadding">Basic Padding</a>
+          <a href="#basicPadding" data-scrollspy="#basicPadding">Basic Padding</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#layoutPadding" class="color-accent-5-dark color-hover-info" data-scrollspy="#layoutPadding">Padding for Layouts</a>
+          <a href="#layoutPadding" data-scrollspy="#layoutPadding">Padding for Layouts</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tablePadding" class="color-accent-5-dark color-hover-info" data-scrollspy="#tablePadding">Padding for HTML Tables</a>
+          <a href="#tablePadding" data-scrollspy="#tablePadding">Padding for HTML Tables</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/spacing.html" class="color-accent-5-dark text-bold color-hover-info">Spacing</a>
+        <a href="/webui/spacing.html" class="text-bold">Spacing</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="spacingMenu">
         <div class="pad-left-sm">
-          <a href="#horizontalSpacing" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
+          <a href="#horizontalSpacing" data-scrollspy="#horizontalSpacing">Horizontal Spacing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#verticalSpacing" class="color-accent-5-dark color-hover-info" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
+          <a href="#verticalSpacing" data-scrollspy="#verticalSpacing">Vertical Spacing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#rowSpacing" class="color-accent-5-dark color-hover-info" data-scrollspy="#rowSpacing">Row Spacing</a>
+          <a href="#rowSpacing" data-scrollspy="#rowSpacing">Row Spacing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#customMargins" class="color-accent-5-dark color-hover-info" data-scrollspy="#customMargins">Margins</a>
+          <a href="#customMargins" data-scrollspy="#customMargins">Margins</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/positioning.html" class="color-accent-5-dark text-bold color-hover-info">Positioning</a>
+        <a href="/webui/positioning.html" class="text-bold">Positioning</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="positioningMenu">
         <div class="pad-left-sm">
-          <a href="#absolutePositioning" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
+          <a href="#absolutePositioning" data-scrollspy="#absolutePositioning">Absolute Positioning </a>
         </div>
         <div class="pad-left-sm">
-          <a href="#fixedPositioning" class="color-accent-5-dark color-hover-info" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
+          <a href="#fixedPositioning" data-scrollspy="#fixedPositioning">Fixed Positioning</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#customPositioning" class="color-accent-5-dark color-hover-info" data-scrollspy="#customPositioning">Custom Positioning</a>
+          <a href="#customPositioning" data-scrollspy="#customPositioning">Custom Positioning</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#positioningUtilityClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
+          <a href="#positioningUtilityClasses" data-scrollspy="#positioningUtilityClasses">Utility Classes</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/sizing.html" class="color-accent-5-dark text-bold color-hover-info">Sizing</a>
+        <a href="/webui/sizing.html" class="text-bold">Sizing</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="sizingMenu">
         <div class="pad-left-sm">
-          <a href="#widthClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#widthClasses">Width Classes</a>
+          <a href="#widthClasses" data-scrollspy="#widthClasses">Width Classes</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#heightClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#heightClasses">Height Classes</a>
+          <a href="#heightClasses" data-scrollspy="#heightClasses">Height Classes</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#aspectRatios" class="color-accent-5-dark color-hover-info" data-scrollspy="#aspectRatios">Aspect Ratios</a>
+          <a href="#aspectRatios" data-scrollspy="#aspectRatios">Aspect Ratios</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/scrolling.html" class="color-accent-5-dark text-bold color-hover-info">Scrolling</a>
+        <a href="/webui/scrolling.html" class="text-bold">Scrolling</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollingMenu">
         <div class="pad-left-sm">
-          <a href="#scrollSnap" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#scrollSnap">Scroll Snap</a>
+          <a href="#scrollSnap" data-scrollspy="#scrollSnap">Scroll Snap</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#scrollBehavior" class="color-accent-5-dark color-hover-info" data-scrollspy="#scrollBehavior">Scroll Behavior</a>
+          <a href="#scrollBehavior" data-scrollspy="#scrollBehavior">Scroll Behavior</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#scrollPadding" class="color-accent-5-dark color-hover-info" data-scrollspy="#scrollPadding">Scroll Padding</a>
+          <a href="#scrollPadding" data-scrollspy="#scrollPadding">Scroll Padding</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#scrollMargin" class="color-accent-5-dark color-hover-info" data-scrollspy="#scrollMargin">Scroll Margin</a>
+          <a href="#scrollMargin" data-scrollspy="#scrollMargin">Scroll Margin</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/colors.html" class="color-accent-5-dark text-bold color-hover-info">Colors</a>
+        <a href="/webui/colors.html" class="text-bold">Colors</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="colorsMenu">
         <div class="pad-left-sm">
-          <a href="#themeColors" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#themeColors">Theme Colors</a>
+          <a href="#themeColors" data-scrollspy="#themeColors">Theme Colors</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#translucency" class="color-accent-5-dark color-hover-info" data-scrollspy="#translucency">Translucency</a>
+          <a href="#translucency" data-scrollspy="#translucency">Translucency</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#focusAndHoverEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#focusAndHoverEvents">Focus and Hover Events</a>
+          <a href="#focusAndHoverColors" data-scrollspy="#focusAndHoverColors">Focus and Hover Colors</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#colorModes" data-scrollspy="#colorModes">Color Modes for Custom Controls</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/typography.html" class="color-accent-5-dark text-bold color-hover-info">Typography</a>
+        <a href="/webui/typography.html" class="text-bold">Typography</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="typographyMenu">
         <div class="pad-left-sm">
-          <a href="#textHeadingsParagraphs" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#textHeadingsParagraphs">Headings and Paragraphs</a>
+          <a href="#textHeadingsParagraphs" data-scrollspy="#textHeadingsParagraphs">Headings and Paragraphs</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textSpacing" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#textSpacing">Spacing</a>
+          <a href="#textSpacing" data-scrollspy="#textSpacing">Spacing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textSizing" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#textSizing">Sizing</a>
+          <a href="#textSizing" data-scrollspy="#textSizing">Sizing</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textInternational" class="color-accent-5-dark color-hover-info" data-scrollspy="#textInternational">Internationalization</a>
+          <a href="#textClasses" data-scrollspy="#textClasses">Text Classes</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#textClasses">Text Classes</a>
+          <a href="#textInternational" data-scrollspy="#textInternational">Internationalization</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textCustomization" class="color-accent-5-dark color-hover-info" data-scrollspy="#textCustomization">Customisation</a>
+          <a href="#lists" data-scrollspy="#lists">Lists</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#textCustomization" data-scrollspy="#textCustomization">Customisation</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/buttons.html" class="color-accent-5-dark text-bold color-hover-info">Buttons</a>
+        <a href="/webui/buttons.html" class="text-bold">Buttons</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="buttonsMenu">
         <div class="pad-left-sm">
-          <a href="#buttonClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#buttonClasses">Button Classes</a>
+          <a href="#buttonsOverview" data-scrollspy="#buttonsOverview">Buttons</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#buttons" class="color-accent-5-dark color-hover-info" data-scrollspy="#buttons">Buttons</a>
+          <a href="#defaultButtons" data-scrollspy="#defaultButtons">Default Buttons</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#menuButtons" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuButtons">Menu Buttons</a>
+          <a href="#menuButtons" data-scrollspy="#menuButtons">Menu Buttons</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#viewButtons" class="color-accent-5-dark color-hover-info" data-scrollspy="#viewButtons">View Buttons</a>
+          <a href="#viewButtons" data-scrollspy="#viewButtons">View Buttons</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#navButtons" class="color-accent-5-dark color-hover-info" data-scrollspy="#navButtons">Nav Buttons</a>
+          <a href="#navButtons" data-scrollspy="#navButtons">Nav Buttons</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/form_controls.html" class="color-accent-5-dark text-bold color-hover-info">Form Controls</a>
+        <a href="/webui/form_controls.html" class="text-bold">Form Controls</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="formControlsMenu">
         <div class="pad-left-sm">
-          <a href="#inputClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#inputClasses">Input Classes</a>
+          <a href="#textboxes" data-scrollspy="#textboxes">Textboxes</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#controlClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#controlClasses">Control Classes</a>
-        </div>  
-        <div class="pad-left-sm">
-          <a href="#textboxes" class="color-accent-5-dark color-hover-info" data-scrollspy="#textboxes">Textboxes</a>
+          <a href="#textareas" data-scrollspy="#textareas">Textareas</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#textareas" class="color-accent-5-dark color-hover-info" data-scrollspy="#textareas">Textareas</a>
+          <a href="#controlHints" data-scrollspy="#controlHints">Control Hints</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#controlHints" class="color-accent-5-dark color-hover-info" data-scrollspy="#controlHints">Control Hints</a>
+          <a href="#selects" data-scrollspy="#selects">Select Controls</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#dropdownsAndDatalists" class="color-accent-5-dark color-hover-info" data-scrollspy="#dropdownsAndDatalists">Dropdowns and Datalists</a>
+          <a href="#checkboxesAndRadioButtons" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#checkboxesAndRadioButtons" class="color-accent-5-dark color-hover-info" data-scrollspy="#checkboxesAndRadioButtons">Checkboxes and Radio Buttons</a>
+          <a href="#rangeControls" data-scrollspy="#rangeControls">Range Controls</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#lists" class="color-accent-5-dark color-hover-info" data-scrollspy="#lists">Lists</a>
+          <a href="#progressControls" data-scrollspy="#progressControls">Progress Controls</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#rangeControls" class="color-accent-5-dark color-hover-info" data-scrollspy="#rangeControls">Range Controls</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#progressControls" class="color-accent-5-dark color-hover-info" data-scrollspy="#progressControls">Progress Controls</a>
+          <a href="#controlClasses" data-scrollspy="#controlClasses">Control Classes</a>
         </div>
       </div>
   
       <div>
-        <a href="/webui/toggle_container.html" class="color-accent-5-dark text-bold color-hover-info">Toggle Container</a>
+        <a href="/webui/toggle_container.html" class="text-bold">Toggle Container</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toggleContainerMenu">
         <div class="pad-left-sm">
-          <a href="#toggleContainerClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#toggleContainerClasses">Classes</a>
-        </div>    
-        <div class="pad-left-sm">
-          <a href="#toggleContainer" class="color-accent-5-dark color-hover-info" data-scrollspy="#toggleContainer">Toggle Container</a>
+          <a href="#toggleContainer" data-scrollspy="#toggleContainer">Toggle Container</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#toggleContainerEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#toggleContainerEvents">Events</a>
+          <a href="#toggleContainerOffCanvas" data-scrollspy="#toggleContainerOffCanvas">Off-Canvas</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainerAccordion" data-scrollspy="#toggleContainerAccordion">Accordion</a>
+        </div>    
+        <div class="pad-left-sm">
+          <a href="#toggleContainerEvents" data-scrollspy="#toggleContainerEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/tooltips.html" class="color-accent-5-dark text-bold color-hover-info">Tooltips</a>
+        <a href="/webui/tooltips.html" class="text-bold">Tooltips</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tooltipsMenu">
         <div class="pad-left-sm">
-          <a href="#tooltipClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tooltipClasses">Tooltip Classes</a>
+          <a href="#tooltips" data-scrollspy="#tooltips">Tooltips</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tooltipConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tooltipConfig">Configuration</a>
+          <a href="#tooltipsCustomisation" data-scrollspy="#tooltipsCustomisation">Customisation</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#ooltips" class="color-accent-5-dark color-hover-info" data-scrollspy="#tooltips">Tooltips</a>
+          <a href="#tooltipsUpdate" data-scrollspy="#tooltipsUpdate">Component Update</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tooltipsCustomisation" class="color-accent-5-dark color-hover-info" data-scrollspy="#tooltipsCustomisation">Customisation</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#tooltipsUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#tooltipsUpdate">Component Update</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#tooltipEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#tooltipEvents">Events</a>
+          <a href="#tooltipEvents" data-scrollspy="#tooltipEvents">Events</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/alerts.html" class="color-accent-5-dark text-bold color-hover-info">Alerts</a>
+        <a href="/webui/alerts.html" class="text-bold">Alerts</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="alertsMenu">
         <div class="pad-left-sm">
-          <a href="#alertClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#alertClasses">Alert Classes</a>
+          <a href="#alerts" data-scrollspy="#alerts">Alerts</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#alertConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#alertConfig">Configuration</a>
+          <a href="#alertCustomisation" data-scrollspy="#alertCustomisation">Customisation</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#alerts" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#alerts">Alerts</a>
+          <a href="#alertUpdate" data-scrollspy="#alertUpdate">Component Update</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#alertCustomisation" class="color-accent-5-dark color-hover-info" data-scrollspy="#alertCustomisation">Customisation</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#alertUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#alertUpdate">Component Update</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#alertEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#alertEvents">Events</a>
+          <a href="#alertEvents" data-scrollspy="#alertEvents">Events</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/menus.html" class="color-accent-5-dark text-bold color-hover-info">Menus</a>
+        <a href="/webui/menus.html" class="text-bold">Menus</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="menusMenu">
         <div class="pad-left-sm">
-          <a href="#menuClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#menuClasses">Menu Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#menuAttributes" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuAttributes">Menu Attributes</a>
-        </div>  
-        <div class="pad-left-sm">
-          <a href="#menuConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#menuConfig">Configuration</a>
-        </div>   
-        <div class="pad-left-sm">
-          <a href="#menus" class="color-accent-5-dark color-hover-info" data-scrollspy="#menus">Menus</a>
+          <a href="#menus" data-scrollspy="#menus">Menus</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#menuDropdowns" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
+          <a href="#menuDropdowns" data-scrollspy="#menuDropdowns">Menu Dropdowns</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#menuCustomisation" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuCustomisation">Customisation</a>
+          <a href="#menuCustomisation" data-scrollspy="#menuCustomisation">Customisation</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#menuUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuUpdate">Component Update</a>
+          <a href="#menuUpdate" data-scrollspy="#menuUpdate">Component Update</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#menuEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#menuEvents">Events</a>
+          <a href="#menuEvents" data-scrollspy="#menuEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/navbars.html" class="color-accent-5-dark text-bold color-hover-info">Navbars</a>
+        <a href="/webui/navbars.html" class="text-bold">Navbars</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navbarsMenu">
         <div class="pad-left-sm">
-          <a href="#navbarClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#navbarClasses">Navbar Classes</a>
+          <a href="#navbars" data-scrollspy="#navbars">Navbars</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#navbarCustomisation" data-scrollspy="#navbarCustomisation">Customisation</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#navbarConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#navbarConfig">Configuration</a>
+          <a href="#navbarUpdate" data-scrollspy="#navbarUpdate">Component Update</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#navbars" class="color-accent-5-dark color-hover-info" data-scrollspy="#navbars">Navbars</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#navbarCustomisation" class="color-accent-5-dark color-hover-info" data-scrollspy="#navbarCustomisation">Customisation</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#navbarUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#navbarUpdate">Component Update</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#navbarEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#navbarEvents">Events</a>
+          <a href="#navbarEvents" data-scrollspy="#navbarEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/nav_indicator.html" class="color-accent-5-dark text-bold color-hover-info">Nav Indicator</a>
+        <a href="/webui/nav_indicator.html" class="text-bold">Nav Indicator</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="navIndicatorMenu">
         <div class="pad-left-sm">
-          <a href="#navIndicatorClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#navIndicatorClasses">Nav Indicator Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#navIndicatorConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#navIndicatorConfig">Configuration</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#navIndicators" class="color-accent-5-dark color-hover-info" data-scrollspy="#navIndicators">Nav Indicators</a>
+          <a href="#navIndicators" data-scrollspy="#navIndicators">Nav Indicator</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/toast_container.html" class="color-accent-5-dark text-bold color-hover-info">Toast Container</a>
+        <a href="/webui/toast_container.html" class="text-bold">Toast Container</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="toastContainerMenu">
         <div class="pad-left-sm">
-          <a href="#toastClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#toastClasses">Toast Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#toastConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#toastConfig">Configuration</a>
+          <a href="#toasts" data-scrollspy="#toasts">Toast Messages</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#toasts" class="color-accent-5-dark color-hover-info" data-scrollspy="#toasts">Toast Messages</a>
+          <a href="#toastUpdate" data-scrollspy="#toastUpdate">Component Update</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#toastUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#toastUpdate">Component Update</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#toastEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#toastEvents">Events</a>
+          <a href="#toastEvents" data-scrollspy="#toastEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/modals.html" class="color-accent-5-dark text-bold color-hover-info">Modals</a>
+        <a href="/webui/modals.html" class="text-bold">Modals</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="modalsMenu">
         <div class="pad-left-sm">
-          <a href="#modalClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#modalClasses">Modal Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#modalConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#modalConfig">Configuration</a>
-        </div>   
-        <div class="pad-left-sm">
-          <a href="#modals" class="color-accent-5-dark color-hover-info" data-scrollspy="#modals">Modals</a>
+          <a href="#modals" data-scrollspy="#modals">Modals</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#modalUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#modalUpdate">Component Update</a>
+          <a href="#modalUpdate" data-scrollspy="#modalUpdate">Component Update</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#modalEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#modalEvents">Events</a>
+          <a href="#modalEvents" data-scrollspy="#modalEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/tabs.html" class="color-accent-5-dark text-bold color-hover-info">Tabs</a>
+        <a href="/webui/tabs.html" class="text-bold">Tabs</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="tabsMenu">
         <div class="pad-left-sm">
-          <a href="#tabClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tabClasses">Tab Classes</a>
+          <a href="#tabsOverview" data-scrollspy="#tabsOverview">Tabs</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#tabsConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#tabsConfig">Configuration</a>
-        </div>  
-        <div class="pad-left-sm">
-          <a href="#tabs" class="color-accent-5-dark color-hover-info" data-scrollspy="#tabs">Tabs</a>
+          <a href="#nestedTabs" data-scrollspy="#nestedTabs">Nested Tabs</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tabsUpdate" class="color-accent-5-dark color-hover-info" data-scrollspy="#tabsUpdate">Component Update</a>
+          <a href="#horizontalTabs" data-scrollspy="#horizontalTabs">Horizontal Tabs</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#tabEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#tabEvents">Events</a>
+          <a href="#tabsUpdate" data-scrollspy="#tabsUpdate">Component Update</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#tabEvents" data-scrollspy="#tabEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/carousels.html" class="color-accent-5-dark text-bold color-hover-info">Carousels</a>
+        <a href="/webui/carousels.html" class="text-bold">Carousels</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="carouselsMenu">
         <div class="pad-left-sm">
-          <a href="#carouselClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#carouselClasses">Classes</a>
+          <a href="#carouselControl" data-scrollspy="#carouselControl">Carousel</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#carouselConfig" class="color-accent-5-dark color-hover-info" data-scrollspy="#carouselConfig">Configuration</a>
+          <a href="#carouselCustomisation" data-scrollspy="#carouselCustomisation">Customisation</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#carouselControl" class="color-accent-5-dark color-hover-info" data-scrollspy="#carouselControl">Carousel</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#carouselEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#carouselEvents">Events</a>
+          <a href="#carouselEvents" data-scrollspy="#carouselEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/upload.html" class="color-accent-5-dark text-bold color-hover-info">Upload</a>
+        <a href="/webui/upload.html" class="text-bold">Upload</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="uploadMenu">
         <div class="pad-left-sm">
-          <a href="#uploadClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#uploadClasses">Classes</a>
+          <a href="#uploadControl" data-scrollspy="#uploadControl">Upload</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#uploadConfig" class="color-accent-5-dark color-hover-info" data-scrollspy="#uploadConfig">Configuration</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#uploadControl" class="color-accent-5-dark color-hover-info" data-scrollspy="#uploadControl">Upload</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#uploadEvents" class="color-accent-5-dark color-hover-info" data-scrollspy="#uploadEvents">Events</a>
+          <a href="#uploadEvents" data-scrollspy="#uploadEvents">Events</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/zoom.html" class="color-accent-5-dark text-bold color-hover-info">Zoom</a>
+        <a href="/webui/zoom.html" class="text-bold">Zoom</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="zoomMenu">
         <div class="pad-left-sm">
-          <a href="#zoomConfig" class="color-accent-5-dark color-hover-info" data-scrollspy="#zoomConfig">Configuration</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#zoomControl" class="color-accent-5-dark color-hover-info" data-scrollspy="#zoomControl">Zoom</a>
+          <a href="#zoomControl" data-scrollspy="#zoomControl">Zoom</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/focus_trap.html" class="color-accent-5-dark text-bold color-hover-info">Focus Trap</a>
+        <a href="/webui/focus_trap.html" class="text-bold">Focus Trap</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="focusTrapMenu">
         <div class="pad-left-sm">
-          <a href="#focusTrapConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#focusTrapConfig">Configuration</a>
-        </div>
-        <div class="pad-left-sm">
-          <a href="#focusTrap" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#focusTrap">Focus Trap</a>
+          <a href="#focusTrap" data-scrollspy="#focusTrap">Focus Trap</a>
         </div> 
       </div>
 
       <div>
-        <a href="/webui/scrollspy.html" class="color-accent-5-dark text-bold color-hover-info">Scrollspy</a>
+        <a href="/webui/scrollspy.html" class="text-bold">Scrollspy</a>
       </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu">
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="scrollspyMenu"> 
         <div class="pad-left-sm">
-          <a href="#scrollspyClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#scrollspyClasses">Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#scrollspyConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#scrollspyConfig">Configuration</a>
-        </div>   
-        <div class="pad-left-sm">
-          <a href="#scrollspyControl" class="color-accent-5-dark color-hover-info" data-scrollspy="#scrollspyControl">Scrollspy</a>
+          <a href="#scrollspyControl" data-scrollspy="#scrollspyControl">Scrollspy</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/radials.html" class="color-accent-5-dark text-bold color-hover-info">Radials</a>
+        <a href="/webui/radials.html" class="text-bold">Radials</a>
       </div>
-      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="radialsMenu">  
         <div class="pad-left-sm">
-          <a href="#radialClasses" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#radialClasses">Classes</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#radialConfig" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#radialConfig">Configuration</a>
-        </div> 
-        <div class="pad-left-sm">
-          <a href="#radialSettings" class="color-accent-5-dark color-hover-info" data-scrollspy="#radialSettings">Settings</a>
-        </div>    
-        <div class="pad-left-sm">
-          <a href="#radials" class="color-accent-5-dark color-hover-info" data-scrollspy="#radials">Radials</a>
+          <a href="#radials" data-scrollspy="#radials">Radials</a>
         </div>
       </div>
   
       <div>
-        <a href="/webui/shapes.html" class="color-accent-5-dark text-bold color-hover-info">Shapes</a>
+        <a href="/webui/shapes.html" class="text-bold">Shapes</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="shapesMenu">
         <div class="pad-left-sm">
-          <a href="#clipPathShapes" class="color-accent-5-dark color-hover-info" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
+          <a href="#clipPathShapes" data-scrollspy="#clipPathShapes">Clip-Path Shapes</a>
         </div>    
         <div class="pad-left-sm">
-          <a href="#breadcrumbShapes" class="color-accent-5-dark color-hover-info" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
+          <a href="#breadcrumbShapes" data-scrollspy="#breadcrumbShapes">Braedcrumbs</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#pointerShapes" class="color-accent-5-dark color-hover-info" data-scrollspy="#pointerShapes">Pointer Shapes</a>
+          <a href="#pointerShapes" data-scrollspy="#pointerShapes">Pointer Shapes</a>
         </div>  
       </div>
 
       <div>
-        <a href="/webui/utility_classes.html" class="color-accent-5-dark text-bold color-hover-info">Utility Classes</a>
+        <a href="/webui/utility_classes.html" class="text-bold">Utility Classes</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="utilityClassesMenu">
         <div class="pad-left-sm">
-          <a href="#borders" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#borders">Borders</a>
+          <a href="#borders" data-scrollspy="#borders">Borders</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#boundaries" class="color-accent-5-dark color-hover-info" data-scrollspy="#boundaries">Boundaries</a>
+          <a href="#boundaries" data-scrollspy="#boundaries">Boundaries</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#outlines" class="color-accent-5-dark color-hover-info" data-scrollspy="#outlines">Outlines</a>
+          <a href="#outlines" data-scrollspy="#outlines">Outlines</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#shadows" class="color-accent-5-dark color-hover-info" data-scrollspy="#shadows">Shadows</a>
+          <a href="#shadows" data-scrollspy="#shadows">Shadows</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#userFeedback" data-scrollspy="#userFeedback">User Feedback Effects</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#transitionEffects" data-scrollspy="#transitionEffects">Transitions</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#transitionEffects" class="color-accent-5-dark color-hover-info" data-scrollspy="#transitionEffects">Transitions</a>
-        </div>  
-        <div class="pad-left-sm">
-          <a href="#cursorClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#cursorClasses">Cursors</a>
+          <a href="#cursorClasses" data-scrollspy="#cursorClasses">Cursors</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#scrollClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#scrollClasses">Scrolling</a>
+          <a href="#scrollClasses" data-scrollspy="#scrollClasses">Scrolling</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#visibilityClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#visibilityClasses">Visibility</a>
+          <a href="#visibilityClasses" data-scrollspy="#visibilityClasses">Visibility</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#mediaUtilityClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#mediaUtilityClasses">Media</a>
+          <a href="#mediaUtilityClasses" data-scrollspy="#mediaUtilityClasses">Media</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#otherUtilityClasses" class="color-accent-5-dark color-hover-info" data-scrollspy="#otherUtilityClasses">Other Classes</a>
+          <a href="#miscUtilityClasses" data-scrollspy="#miscUtilityClasses">Miscellaneous</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/build.html" class="color-accent-5-dark text-bold color-hover-info">WebUI Build</a>
+        <a href="/webui/build.html" class="text-bold">WebUI Build</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="webuiBuildMenu">
         <div class="pad-left-sm">
-          <a href="#buildPrerequisites" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#buildPrerequisites">Prerequisites</a>
+          <a href="#buildPrerequisites" data-scrollspy="#buildPrerequisites">Prerequisites</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#buildDependencies" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#buildDependencies">Dependencies</a>
+          <a href="#buildDependencies" data-scrollspy="#buildDependencies">Dependencies</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#buildFiles" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#buildFiles">Building the Source Files</a>
+          <a href="#buildFiles" data-scrollspy="#buildFiles">Building the Source Files</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#changingThemes" class="color-accent-5-dark color-hover-info" data-scrollspy="#changingThemes">Changing SASS theme files</a>
+          <a href="#changingThemes" data-scrollspy="#changingThemes">Changing SASS theme files</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#changingBreakpoints" class="color-accent-5-dark color-hover-info" data-scrollspy="#changingBreakpoints">Changing breakpoint settings</a>
+          <a href="#changingBreakpoints" data-scrollspy="#changingBreakpoints">Changing breakpoint settings</a>
         </div>  
       </div>
 
@@ -820,371 +845,478 @@
     </div>
 
 
-    <div class="menu dropdown pad-xxl text gap-vertical-sm hidden siteSideMenu" id="jsMenu">
+    <div class="menu dropdown pad-xxl text gap-vertical-sm siteSideMenu" id="jsMenu">
 
       <div>
-        <a href="/webui/js_introduction.html" class="color-accent-5-dark text-bold color-hover-info">Introduction</a>
+        <a href="/webui/js_introduction.html" class="text-bold">Introduction</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsIntroductionMenu">
         <div class="pad-left-sm">
-          <a href="#jsOverview" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsOverview">Overview</a>
+          <a href="#jsOverview" data-scrollspy="#jsOverview">Overview</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsUseage" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsUseage">Useage</a>
+          <a href="#jsUseage" data-scrollspy="#jsUseage">Useage</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/js_traversal_api.html" class="color-accent-5-dark text-bold color-hover-info">DOM Traversal API</a>
+        <a href="/webui/js_traversal_api.html" class="text-bold">DOM Traversal API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsTraversalApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsChildren" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsChildren">children</a>
+          <a href="#jsChildren" data-scrollspy="#jsChildren">children</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsClosest" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsClosest">closest</a>
+          <a href="#jsClosest" data-scrollspy="#jsClosest">closest</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsElements" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsElements">elements</a>
+          <a href="#jsElements" data-scrollspy="#jsElements">elements</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsEq" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsEq">eq</a>
+          <a href="#jsEq" data-scrollspy="#jsEq">eq</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsFind" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFind">find</a>
+          <a href="#jsFind" data-scrollspy="#jsFind">find</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsFirst" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFirst">first</a>
+          <a href="#jsFirst" data-scrollspy="#jsFirst">first</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsHas" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHas">has</a>
+          <a href="#jsHas" data-scrollspy="#jsHas">has</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsIs" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsIs">is</a>
+          <a href="#jsIs" data-scrollspy="#jsIs">is</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsLast" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsLast">last</a>
+          <a href="#jsLast" data-scrollspy="#jsLast">last</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsNextSibling" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsNextSibling">nextSibling</a>
+          <a href="#jsNextSibling" data-scrollspy="#jsNextSibling">nextSibling</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsNextSiblings" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsNextSiblings">nextSiblings</a>
+          <a href="#jsNextSiblings" data-scrollspy="#jsNextSiblings">nextSiblings</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsParent" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsParent">parent</a>
+          <a href="#jsParent" data-scrollspy="#jsParent">parent</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsParents" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsParents">parents</a>
+          <a href="#jsParents" data-scrollspy="#jsParents">parents</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsPrevSibling" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsPrevSibling">prevSibling</a>
+          <a href="#jsPrevSibling" data-scrollspy="#jsPrevSibling">prevSibling</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsPrevSiblings" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
+          <a href="#jsPrevSiblings" data-scrollspy="#jsPrevSiblings">prevSiblings</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsSelect" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsSelect">select</a>
+          <a href="#jsSelect" data-scrollspy="#jsSelect">select</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsSiblings" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsSiblings">siblings</a>
+          <a href="#jsSiblings" data-scrollspy="#jsSiblings">siblings</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/js_manipulation_api.html" class="color-accent-5-dark text-bold color-hover-info">DOM Manipulation API</a>
+        <a href="/webui/js_manipulation_api.html" class="text-bold">DOM Manipulation API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsManipulationApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsAddClass" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsAddClass">addClass</a>
+          <a href="#jsAddClass" data-scrollspy="#jsAddClass">addClass</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsAppend" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsAppend">append</a>
+          <a href="#jsAppend" data-scrollspy="#jsAppend">append</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsAppendTo" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsAppendTo">appendTo</a>
+          <a href="#jsAppendTo" data-scrollspy="#jsAppendTo">appendTo</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsAttr" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsAttr">attr</a>
+          <a href="#jsAttr" data-scrollspy="#jsAttr">attr</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsCss" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsCss">css</a>
+          <a href="#jsCss" data-scrollspy="#jsCss">css</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsData" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsData">data</a>
+          <a href="#jsData" data-scrollspy="#jsData">data</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsHasClass" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasClass">hasClass</a>
+          <a href="#jsHasClass" data-scrollspy="#jsHasClass">hasClass</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsHidden" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHidden">hidden</a>
+          <a href="#jsHidden" data-scrollspy="#jsHidden">hidden</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsHide" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHide">hide</a>
+          <a href="#jsHide" data-scrollspy="#jsHide">hide</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsHtml" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHtml">html</a>
+          <a href="#jsHtml" data-scrollspy="#jsHtml">html</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsPrependTo" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsPrependTo">prependTo</a>
+          <a href="#jsPrependTo" data-scrollspy="#jsPrependTo">prependTo</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsRemove" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRemove">remove</a>
+          <a href="#jsRemove" data-scrollspy="#jsRemove">remove</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsRemoveChildren" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRemoveChildren">removeChildren</a>
+          <a href="#jsRemoveChildren" data-scrollspy="#jsRemoveChildren">removeChildren</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsRemoveClass" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRemoveClass">removeClass</a>
+          <a href="#jsRemoveClass" data-scrollspy="#jsRemoveClass">removeClass</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsShow" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsShow">show</a>
+          <a href="#jsSetControlState" data-scrollspy="#jsSetControlState">setControlState</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsText" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsText">text</a>
+          <a href="#jsShow" data-scrollspy="#jsShow">show</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsText" data-scrollspy="#jsText">text</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsToggle" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsToggle">toggle</a>
+          <a href="#jsToggle" data-scrollspy="#jsToggle">toggle</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsToggleClass" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsToggleClass">toggleClass</a>
+          <a href="#jsToggleClass" data-scrollspy="#jsToggleClass">toggleClass</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsVal" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsVal">val</a>
+          <a href="#jsVal" data-scrollspy="#jsVal">val</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsVisible" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsVisible">visible</a>
+          <a href="#jsVisible" data-scrollspy="#jsVisible">visible</a>
         </div>
       </div>
       
       <div>
-        <a href="/webui/js_events_api.html" class="color-accent-5-dark text-bold color-hover-info">DOM Events API</a>
+        <a href="/webui/js_events_api.html" class="text-bold">DOM Events API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsEventsApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsBlur" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsBlur">blur</a>
+          <a href="#jsBlur" data-scrollspy="#jsBlur">blur</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsChange" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsChange">change</a>
+          <a href="#jsChange" data-scrollspy="#jsChange">change</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsClick" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsClick">click</a>
+          <a href="#jsClick" data-scrollspy="#jsClick">click</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDblClick" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDblClick">dblclick</a>
+          <a href="#jsDblClick" data-scrollspy="#jsDblClick">dblclick</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDrag" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDrag">drag</a>
+          <a href="#jsDrag" data-scrollspy="#jsDrag">drag</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDragEnd" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDragEnd">dragEnd</a>
+          <a href="#jsDragEnd" data-scrollspy="#jsDragEnd">dragEnd</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsDragEnter" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDragEnter">dragEnter</a>
+          <a href="#jsDragEnter" data-scrollspy="#jsDragEnter">dragEnter</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDragLeave" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDragLeave">dragLeave</a>
+          <a href="#jsDragLeave" data-scrollspy="#jsDragLeave">dragLeave</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDragOver" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDragOver">dragOver</a>
+          <a href="#jsDragOver" data-scrollspy="#jsDragOver">dragOver</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsDragStart" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDragStart">dragStart</a>
+          <a href="#jsDragStart" data-scrollspy="#jsDragStart">dragStart</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsDrop" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsDrop">drop</a>
+          <a href="#jsDrop" data-scrollspy="#jsDrop">drop</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsFocus" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFocus">focus</a>
+          <a href="#jsFocus" data-scrollspy="#jsFocus">focus</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsFocusIn" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFocusIn">focusIn</a>
+          <a href="#jsFocusIn" data-scrollspy="#jsFocusIn">focusIn</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsFocusOut" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFocusOut">focusOut</a>
+          <a href="#jsFocusOut" data-scrollspy="#jsFocusOut">focusOut</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsHoverIn" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHoverIn">hoverIn</a>
+          <a href="#jsHoverIn" data-scrollspy="#jsHoverIn">hoverIn</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsHoverOut" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHoverOut">hoverOut</a>
+          <a href="#jsHoverOut" data-scrollspy="#jsHoverOut">hoverOut</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsKeyDown" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsKeyDown">keyDown</a>
+          <a href="#jsKeyDown" data-scrollspy="#jsKeyDown">keyDown</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsOff" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsOff">off</a>
+          <a href="#jsOff" data-scrollspy="#jsOff">off</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsOn" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsOn">on</a>
+          <a href="#jsOn" data-scrollspy="#jsOn">on</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsResize" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsResize">resize</a>
+          <a href="#jsResize" data-scrollspy="#jsResize">resize</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsScroll" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsScroll">scroll</a>
+          <a href="#jsScroll" data-scrollspy="#jsScroll">scroll</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTouchEnd" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTouchEnd">touchEnd</a>
+          <a href="#jsTouchEnd" data-scrollspy="#jsTouchEnd">touchEnd</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTouchMove" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTouchMove">touchMove</a>
+          <a href="#jsTouchMove" data-scrollspy="#jsTouchMove">touchMove</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTouchStart" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTouchStart">touchStart</a>
+          <a href="#jsTouchStart" data-scrollspy="#jsTouchStart">touchStart</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTransitionEnd" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTransitionEnd">transitionEnd</a>
+          <a href="#jsTransitionEnd" data-scrollspy="#jsTransitionEnd">transitionEnd</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTransitionRun" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTransitionRun">transitionRun</a>
+          <a href="#jsTransitionRun" data-scrollspy="#jsTransitionRun">transitionRun</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTransitionStart" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTransitionStart">transitionStart</a>
+          <a href="#jsTransitionStart" data-scrollspy="#jsTransitionStart">transitionStart</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsTrigger" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsTrigger">trigger</a>
+          <a href="#jsTrigger" data-scrollspy="#jsTrigger">trigger</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/js_animation_api.html" class="color-accent-5-dark text-bold color-hover-info">Animation API</a>
+        <a href="/webui/js_prototype_api.html" class="text-bold">Array Prototype API</a>
+      </div>
+      <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsPrototypeApiMenu">
+        <div class="pad-left-sm">
+          <a href="#jsAt" data-scrollspy="#jsAt">at</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsConcat" data-scrollspy="#jsConcat">concat</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsEvery" data-scrollspy="#jsEvery">every</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsFilter" data-scrollspy="#jsFilter">filter</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsForEach" data-scrollspy="#jsForEach">forEach</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIncludes" data-scrollspy="#jsIncludes">includes</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsIndexOf" data-scrollspy="#jsIndexOf">indexOf</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsJoin" data-scrollspy="#jsJoin">join</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsMap" data-scrollspy="#jsMap">map</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPop" data-scrollspy="#jsPop">pop</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPush" data-scrollspy="#jsPush">push</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsReduce" data-scrollspy="#jsReduce">reduce</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsReduceRight" data-scrollspy="#jsReduceRight">reduceRight</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsReverse" data-scrollspy="#jsReverse">reverse</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsShift" data-scrollspy="#jsShift">shift</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSlice" data-scrollspy="#jsSlice">slice</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSome" data-scrollspy="#jsSome">some</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSort" data-scrollspy="#jsSort">sort</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsSplice" data-scrollspy="#jsSplice">splice</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsToReversed" data-scrollspy="#jsToReversed">toReversed</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsToSorted" data-scrollspy="#jsToSorted">toSorted</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsToSpliced" data-scrollspy="#jsToSpliced">toSpliced</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsUnshift" data-scrollspy="#jsUnshift">unshift</a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/webui/js_animation_api.html" class="text-bold">Animation API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsAnimationApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsCollapseHorizontal" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
+          <a href="#jsCollapseHorizontal" data-scrollspy="#jsCollapseHorizontal">collapseHorizontal</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsCollapseVertical" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
+          <a href="#jsCollapseVertical" data-scrollspy="#jsCollapseVertical">collapseVertical</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsExpandHorizontal" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
+          <a href="#jsExpandHorizontal" data-scrollspy="#jsExpandHorizontal">expandHorizontal</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsExpandVertical" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsExpandVertical">expandVertical</a>
+          <a href="#jsExpandVertical" data-scrollspy="#jsExpandVertical">expandVertical</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsFadeIn" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFadeIn">fadeIn</a>
+          <a href="#jsFadeIn" data-scrollspy="#jsFadeIn">fadeIn</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsFadeOut" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsFadeOut">fadeOut</a>
+          <a href="#jsFadeOut" data-scrollspy="#jsFadeOut">fadeOut</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsSlideHorizontal" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
+          <a href="#jsSlideHorizontal" data-scrollspy="#jsSlideHorizontal">slideHorizontal</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsSlideVertical" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsSlideVertical">slideVertical</a>
+          <a href="#jsSlideVertical" data-scrollspy="#jsSlideVertical">slideVertical</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsAnimate" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsAnimate">animate</a>
+          <a href="#jsAnimate" data-scrollspy="#jsAnimate">animate</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/js_utilities_api.html" class="color-accent-5-dark text-bold color-hover-info">Utilities API</a>
+        <a href="/webui/js_utilities_api.html" class="text-bold">Utilities API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsUtilitiesApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsConvertToDate" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsConvertToDate">convertToDate</a>
+          <a href="#jsCalculatePointerSpeed" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsCopyToClipboard" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
+          <a href="#jsConvertToDate" data-scrollspy="#jsConvertToDate">convertToDate</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsElementHoverAt" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
+          <a href="#jsCopyTextToClipboard" data-scrollspy="#jsCopyTextToClipboard">copyTextToClipboard</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetAccessibilityContrastColor" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
+          <a href="#jsCopyToClipboard" data-scrollspy="#jsCopyToClipboard">copyToClipboard</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetAvgHeight" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
+          <a href="#jsElementHoverAt" data-scrollspy="#jsElementHoverAt">elementHoverAt</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetAvgWidth" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
+          <a href="#jsExtend" data-scrollspy="#jsExtend">extend</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetColorShade" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetColorShade">getColorShade</a>
+          <a href="#jsGetAccessibilityContrastColor" data-scrollspy="#jsGetAccessibilityContrastColor">getAccessibilityContrastColor</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetElementViewportStatus" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
+          <a href="#jsGetAvgHeight" data-scrollspy="#jsGetAvgHeight">getAvgHeight</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetScrollbarWidth" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
+          <a href="#jsGetAvgWidth" data-scrollspy="#jsGetAvgWidth">getAvgWidth</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsGetTimeOffsetFromNow" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
+          <a href="#jsGetColorShade" data-scrollspy="#jsGetColorShade">getColorShade</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsIsWindowInBreakPointRange" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+          <a href="#jsGetElementViewportStatus" data-scrollspy="#jsGetElementViewportStatus">getElementViewportStatus</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsPxToRem" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsPxToRem">pxToRem</a>
+          <a href="#jsGetScrollbarWidth" data-scrollspy="#jsGetScrollbarWidth">getScrollbarWidth</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsRemToPx" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRemToPx">remToPx</a>
+          <a href="#jsGetTimeOffsetFromNow" data-scrollspy="#jsGetTimeOffsetFromNow">getTimeOffsetFromNow</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsRgbStringToHex" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+          <a href="#jsGetUnitFromCssSize" data-scrollspy="#jsGetUnitFromCssSize">getUnitFromCssSize</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsRgbToHex" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsRgbToHex">rgbToHex</a>
+          <a href="#jsGetValueFromCssSize" data-scrollspy="#jsGetValueFromCssSize">getValueFromCssSize</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsCalculatePointerSpeed" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsCalculatePointerSpeed">calculatePointerSpeed</a>
+          <a href="#jsIsWindowInBreakPointRange" data-scrollspy="#jsIsWindowInBreakPointRange">isWindowInBreakPointRange</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsPxToRem" data-scrollspy="#jsPxToRem">pxToRem</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRemToPx" data-scrollspy="#jsRemToPx">remToPx</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbStringToHex" data-scrollspy="#jsRgbStringToHex">rgbStringToHex</a>
+        </div>
+        <div class="pad-left-sm">
+          <a href="#jsRgbToHex" data-scrollspy="#jsRgbToHex">rgbToHex</a>
         </div>
       </div>
 
       <div>
-        <a href="/webui/js_validation_api.html" class="color-accent-5-dark text-bold color-hover-info">Validation API</a>
+        <a href="/webui/js_validation_api.html" class="text-bold">Validation API</a>
       </div>
       <div class="dropdown-content-expand menu-inclusive gap-vertical-xs text-sm" id="jsValidationApiMenu">
         <div class="pad-left-sm">
-          <a href="#jsIsChecked" class="color-accent-5-dark color-info color-hover-info" data-scrollspy="#jsIsChecked">isChecked</a>
+          <a href="#jsIsChecked" data-scrollspy="#jsIsChecked">isChecked</a>
         </div>
         <div class="pad-left-sm">
-          <a href="#jsHasConformingString" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasConformingString">hasConformingString</a>
+          <a href="#jsHasConformingString" data-scrollspy="#jsHasConformingString">hasConformingString</a>
         </div> 
         <div class="pad-left-sm">
-          <a href="#jsHasNumericInRange" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
+          <a href="#jsHasNumericInRange" data-scrollspy="#jsHasNumericInRange">hasNumericInRange</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasIntegerInRange" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
+          <a href="#jsHasIntegerInRange" data-scrollspy="#jsHasIntegerInRange">hasIntegerInRange</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasValidDateTime" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
+          <a href="#jsHasValidDateTime" data-scrollspy="#jsHasValidDateTime">hasValidDateTime</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasPastDateTime" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
+          <a href="#jsHasPastDateTime" data-scrollspy="#jsHasPastDateTime">hasPastDateTime</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasPresentDateTime" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
+          <a href="#jsHasPresentDateTime" data-scrollspy="#jsHasPresentDateTime">hasPresentDateTime</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasFutureDateTime" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
+          <a href="#jsHasFutureDateTime" data-scrollspy="#jsHasFutureDateTime">hasFutureDateTime</a>
         </div>  
         <div class="pad-left-sm">
-          <a href="#jsHasDateTimeInRange" class="color-accent-5-dark color-hover-info" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
-        </div>  
- 
+          <a href="#jsHasDateTimeInRange" data-scrollspy="#jsHasDateTimeInRange">hasDateTimeInRange</a>
+        </div>
       </div>
 
     </div>
 
-            </div>
-
-            <div class="dock-top-right right-xxs text height-full flex align-items-center">
-              <a href="#0" class="button-link-sm accent-1" id="v11MenuSwitchMobile">11.x</a>
-              <a href="#0" class="button-link-sm accent-1-light" id="v10MenuSwitchMobile">10.x</a>
-            </div>
-
           </div>
+      
+        </div>
+
+        <div class="flex-container align-items-center gap-xl dock-top-right right-xs text height-full nav-button-set">
+
+          <div class="">
+            <a href="javascript:void(0)" class="button-link-lg pad-top-xs-sm color-light color-hover-accent-4" id="webuiSearchButtonDefaultMobile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </a>
+          </div>
+
+          <div class="toggle-switch darklight">	
+            <input type="checkbox" value="1" id="darkModeSwitchDefaultMobile" />
+            <label for="darkModeSwitchDefaultMobile" class="background-dark-alternate rounded-pill">
+              <div class="toggle-switch-button background-dark transition-medium"></div>
+            </label>
+          </div>
+
+          <div class="flex">
+            <a href="#0" class="button-link-sm info-dark" id="v11MenuSwitchMobile">11.x</a>
+            <a href="#0" class="button-link-sm info-light" id="v10MenuSwitchMobile">10.x</a>
+          </div>
+
+        </div>
+         
     </div>
 
     
     <div class="row">					
-      <div class="container" id="pageMain">
+      <div class="container background-info" id="pageMain">
 
-  <div class="row-spacing-xl-bp-3-over"></div>
+  <div class="row-spacing-xl"></div>
   <div class="row-spacing-md-bp-4-over"></div>
   <div class="row-spacing-xl-bp-5-over"></div>
 
@@ -1217,7 +1349,7 @@
             </div>
             <div class="row-spacing-lg"></div>
             <div class="text-bold">
-              Current version 11.4.2
+              Current version 11.5.0
             </div>
           </span>
         </div>
@@ -1231,7 +1363,7 @@
   <div class="row-spacing-xl-bp-5-over"></div>
 
   <div class="row">
-    <div class="col pad-xs background-light text text-center">
+    <div class="col pad-xs color-accent-5-dark background-light text text-center transition-short" id="mainPageContent">
 
       <div class="row-spacing-md"></div>
 
@@ -1548,70 +1680,6 @@
       </div>
 
 
-
-      <div class="row-spacing-md"></div>
-
-      <div class="row">
-        <div class="col pad-xs color-info text-center text-lg">
-          <span class="text-xl text-italic">Arriving soon... </span>Updated WebUI themes using WebUI 11.x
-        </div>
-      </div>
-
-      <div class="row-spacing-lg"></div>
-
-      <div class="row">
-        <div class="col pad-xs text-center text-lg">
-          WebUI themes to get you started. All open source and easy to customize.
-        </div>
-      </div>
-
-      <div class="row-spacing-lg"></div>
-
-      <div class="row responsive-gutter-sm">
-
-        <div class="col">
-
-          <div class="row">
-            <div class="col">
-              <div class="pad-md">
-                Ecommerce fashion theme<br />(In development)
-              </div>
-              <a href="#0">
-                  <img src="/webui/assets/images/theme_ecommerce_fashion.jpg" class="image border-xs border-accent-4" alt="theme_ecommerce_fashion" />
-                </a>
-              <div class="row-spacing-md"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="pad-md">
-                Sales dashboard theme<br />(In development)
-              </div>
-              <a href="#0">
-                  <img src="/webui/assets/images/theme_dashboard_sales.jpg" class="image border-xs border-accent-4" alt="theme_dashboard_sales" />
-                </a>
-              <div class="row-spacing-md"></div>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col pad-xs text-center">
-              No custom CSS or javascript, just the standard WebUI and Slick carousel or Chart.js so you can add your
-              mark!
-            </div>
-          </div>
-
-
-          <div class="row-spacing-xl"></div>
-
-
-        </div>
-
-      </div>
-
-
-
       <div class="row">
         <div class="col pad-xs text-center text-lg">
           Flexibility built in
@@ -1668,11 +1736,37 @@
       <input type="button" value="See getting started guide" class="button-lg button-transparent border-secondary border-sm color-hover-dark background-hover-secondary rounded-sm" id="commandDocumentation"/>
     </div>
 
-    <div class="row-spacing-sm"></div>
+    <div class="row-spacing-lg"></div>
 
-    <div class="flex justify-content-center text text-lg gap-horizontal-lg">
-      <a href="https://twitter.com/asyncdesign" class="text-lg fa fa-twitter color-info"></a>
-      <a href="https://github.com/asyncdesign/webui" class="text-lg fa fa-github color-primary"></a>
+    <div class="flex justify-content-center text">
+
+      <div class="text-center width-lg pad-lg">    
+        <a href="https://github.com/asyncdesign/webui" target="_blank" class="text-sm text-bold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <div>WebUI on GitHub</div>
+        </a>   
+      </div>
+      
+      <div class="text-center width-lg pad-lg">    
+        <a href="https://www.npmjs.com/package/asyncdesign-webui" target="_blank" class="text-sm text-bold">
+          <svg width="50" height="20"  viewBox="0 0 780 250" role="img">
+            <path fill="currentColor" d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z"></path>
+          </svg>
+          <div>WebUI on NPM</div>
+        </a>   
+      </div>
+      
+      <div class="text-center width-lg pad-lg">    
+        <a href="https://twitter.com/asyncdesign?lang=en" target="_blank" class="text-sm text-bold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" role="img">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+          <div>WebUI on X</div>
+        </a>   
+      </div>
+
     </div>
 
     <div class="row-spacing-xl"></div>
@@ -1681,20 +1775,71 @@
     </div>
 
     
-    <i onclick="location.href='#top'" class="fa fa-angle-up fa-2x text-bold color-accent-1 color-hover-muted dock-bottom-right pad-xs hidden-bp-3-over"></i>
+    <i onclick="location.href='#top'" class="dock-bottom-right pad-xs cursor-pointer hidden-bp-3-over">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+    </i>
 
     
     <script src="/webui/assets/js/webui-components.js"></script>
+
+    <script src="/webui/assets/js/mark.js"></script>
+    <script src="/webui/assets/js/syntax_highlight.js"></script>
+  
+    <script src="/webui/assets/js/site.js"></script>
  
     <script>
       window.onerror = function(e) {
         document.location.href = "/webui".replace("webui", "webui/10x");
       };
-    </script>
-
-    <script>
 
       webui.ready( () => {
+
+        // Site color mode
+
+        if (webuiDarkMode === "enabled") {
+          ui("#darkModeSwitchDefaultMobile").checked(true);
+          ui("#darkModeSwitchDefault").checked(true);
+        }
+        else {
+          ui("#darkModeSwitchDefaultMobile").checked(false);
+          ui("#darkModeSwitchDefault").checked(false);
+        }
+
+        ui("#darkModeSwitchDefaultMobile").change( function() {
+          if (ui("#darkModeSwitchDefaultMobile").checked()) {
+            switchToDarkMode();
+            localStorage.setItem("asyncDesignWebuiDM", "enabled");
+          }
+          else {
+            switchToLightMode();
+            localStorage.setItem("asyncDesignWebuiDM", null);
+          }
+        });
+
+        ui("#darkModeSwitchDefault").change( function() {
+          if (ui("#darkModeSwitchDefault").checked()) {
+            switchToDarkMode();
+            localStorage.setItem("asyncDesignWebuiDM", "enabled");
+          }
+          else {
+            switchToLightMode();
+            localStorage.setItem("asyncDesignWebuiDM", null);
+          }
+        });
+
+        function switchToDarkMode() {
+          colorModeSS.setAttribute("href", "/webui/assets/css/dark-mode.css");
+          ui("#darkModeSwitchDefaultMobile").checked(true);
+          ui("#darkModeSwitchDefault").checked(true);
+        }
+        
+        function switchToLightMode() {
+          colorModeSS.setAttribute("href", "/webui/assets/css/light-mode.css");
+          ui("#darkModeSwitchDefaultMobile").checked(false);
+          ui("#darkModeSwitchDefault").checked(false);
+        }
+
+        // Initialisation
 
         ui("#defaultMenu").menuControl({
           transitionDuration: 300,
@@ -1703,11 +1848,14 @@
   
         ui(".siteSideMenu").scrollspyControl({ 
           activatorSelector: "div > div > a",
-          activatorActiveClass: "color-info",
+          activatorActiveClass: null,
+          activatorActiveStyle: "color: rgb(14, 143, 241)",
           scrollTargetClass: "scrollspy",
           scrollTargetOffset: 50,
           activatorCallback: onMenuItemSelect
-        });			         
+        });
+        
+        // Events
 
         function onMenuItemSelect() {
           if (ui.isWindowInBreakPointRange([0, 4])) {
@@ -1717,38 +1865,31 @@
         }
 
         ui("#v10MenuSwitchMobile").click( function() {         
-          ui(this).setControlState("accent-1-light", "accent-1");
-          ui("#v11MenuSwitchMobile").setControlState("accent-1", "accent-1-light");
+          ui(this).setControlState("info-light", "info-dark");
+          ui("#v11MenuSwitchMobile").setControlState("info-dark", "info-light");
           document.location.href = "/webui".replace("webui", "webui/10x");
         });
 
         ui("#v10MenuSwitch").click( function() {         
-          ui(this).setControlState("accent-1-light", "accent-1");
-          ui("#v11MenuSwitch").setControlState("accent-1", "accent-1-light");
+          ui(this).setControlState("info-light", "info-dark");
+          ui("#v11MenuSwitch").setControlState("info-dark", "info-light");
           document.location.href = "/webui".replace("webui", "webui/10x");
         });
 
-        ui("#cssMenuSwitch").setControlState("accent-1-light", "accent-1");
 
-        ui("#cssMenuSwitch").click( () => {
+        ui("#cssMenuSwitch").click( () => {       
           document.location.href = "/webui/getting_started.html";
-          ui("#jsMenuSwitch").setControlState("accent-1", "accent-1-light");
+          ui("#jsMenuSwitch").setControlState("info-dark", "info-light");     
         });
 
-        ui("#jsMenuSwitch").click( () => {
+        ui("#jsMenuSwitch").click( () => {    
           document.location.href = "/webui/js_introduction.html";
-          ui("#cssMenuSwitch").setControlState("accent-1", "accent-1-light");
+          ui("#cssMenuSwitch").setControlState("info-dark", "info-light");
         });
-
-        ui("#jsMenu").hide();
-        ui("#cssMenu").show();
-        ui("#jsMenuSwitch").setControlState("accent-1", "accent-1-light");
-        ui("#cssMenuSwitch").setControlState("accent-1-light", "accent-1");
-
 
 
         ui("#commandDownload").click( () => { 
-          document.location.href = "https://github.com/asyncdesign/webui/archive/v11.4.2.zip";
+          document.location.href = "https://github.com/asyncdesign/webui/archive/v11.5.0.zip";
         });
         
         ui("#commandDocumentation").click( () => {
@@ -1763,8 +1904,9 @@
         ui("#menuButtonDocumentation").click( () => {
           document.location.href = "/webui/getting_started.html"
         });
-   
-        ui("#menuButtonExamples").click( () => {         
+
+        ui("#webuiSearchButtonDefault, #webuiSearchButtonDefaultMobile").click( () => { 
+          initialiseSearchData();
         });
 
         

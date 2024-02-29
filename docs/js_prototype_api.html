@@ -64,7 +64,7 @@
     }
   </style>
 
-  <link rel="canonical" href="http://localhost:4000/webui/colors.html">
+  <link rel="canonical" href="http://localhost:4000/webui/js_prototype_api.html">
   <link rel="alternate" type="application/rss+xml" title="WebUI mobile-first CSS" href="/webui/feed.xml">
   <link rel="shortcut icon" href="/webui/favicon.ico">
 
@@ -2306,502 +2306,38 @@
     </div>
 
     <div class="align-center pad-left-lg pad-right-lg" id="main">
-      <section class="scrollspy text" id="themeColors">
+      <section class="scrollspy text" id="jsAt">
 
   <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
 
-  <h3>Theme Colors</h3>
+  <h3>at (index)</h3>
   <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
 
-  <p>The default set of theme colors are provided as RGB and HSL SASS files and may be switched or edited. If changes are made to these SASS files the WebUI project
-    will need to be rebuilt using the included build tools. 
-    For more information on editing source files and building the project, see the <a href="/webui/build.html" 
-    class="color-info color-hover-accent-4 text-underline text-bold">WebUI Build</a> section.</p>
-
-  <sub-section id="ssColorTheme">
-
-    <h4>Default Theme File</h4>
-
-    <p>These colors are from the default theme shipped with WebUI and can be replaced in either <strong>_theme.scss</strong> or <strong>_theme-hsl.scss</strong>. 
-      For projects using the SASS files as a development build step this is very straightforward.</p>
-  
-    <div class="row-spacing-md"></div>
-
-    <div class="text-sm">
-      <div class="col-padding-sm pad-bottom-xl">
-        <div class="row">
-          <div class="col primary">primary</div>
-          <div class="col secondary">secondary</div>
-          <div class="col highlight">highlight</div>
-        </div>
-        <div class="row">
-          <div class="col muted">muted</div>		
-          <div class="col disabled">disabled</div>
-          <div class="col transparent">transparent</div>
-        </div>				
-      </div>
-  
-      <div class="col-padding-sm pad-bottom-xl">
-        <div class="row">
-          <div class="col default-highlight">default-highlight</div>
-          <div class="col default">default</div>
-          <div class="col default-alternate">default-alternate</div>
-        </div>
-        <div class="row">
-          <div class="col light">light</div>
-          <div class="col light-alternate">light-alternate</div>
-          <div class="col light-highlight">light-highlight</div>
-        </div>
-        <div class="row">						
-          <div class="col dark">dark</div>
-          <div class="col dark-alternate">dark-alternate</div>
-          <div class="col dark-highlight">dark-highlight</div>
-        </div>
-      </div>
-
-      <div class="col-padding-sm pad-bottom-xl">
-        <div class="row">
-          <div class="col info-light">info-light</div>
-          <div class="col info">info</div>
-          <div class="col info-dark">info-dark</div>
-        </div>
-        <div class="row">
-          <div class="col success-light">success-light</div>
-          <div class="col success">success</div>
-          <div class="col success-dark">success-dark</div>
-        </div>
-        <div class="row">
-          <div class="col warning-light">warning-light</div>
-          <div class="col warning">warning</div>
-          <div class="col warning-dark">warning-dark</div>
-        </div>
-        <div class="row">
-          <div class="col danger-light">danger-light</div>
-          <div class="col danger">danger</div>
-          <div class="col danger-dark">danger-dark</div>
-        </div>					
-      </div>
-  
-      <div class="col-padding-sm">
-        <div class="row">
-          <div class="col accent-1-light">accent-1-light</div>
-          <div class="col accent-1-alternate">accent-1-alternate</div>
-          <div class="col accent-1-highlight">accent-1-highlight</div>
-          <div class="col accent-1">accent-1</div>
-          <div class="col accent-1-dark">accent-1-dark</div>
-        </div>
-        <div class="row">
-          <div class="col accent-2-light">accent-2-light</div>
-          <div class="col accent-2-alternate">accent-2-alternate</div>
-          <div class="col accent-2-highlight">accent-2-highlight</div>
-          <div class="col accent-2">accent-2</div>
-          <div class="col accent-2-dark">accent-2-dark</div>
-        </div>		
-        <div class="row">
-          <div class="col accent-3-light">accent-3-light</div>
-          <div class="col accent-3-alternate">accent-3-alternate</div>
-          <div class="col accent-3-highlight">accent-3-highlight</div>
-          <div class="col accent-3">accent-3</div>
-          <div class="col accent-3-dark">accent-3-dark</div>
-        </div>
-        <div class="row">
-          <div class="col accent-4-light">accent-4-light</div>
-          <div class="col accent-4-alternate">accent-4-alternate</div>
-          <div class="col accent-4-highlight">accent-4-highlight</div>
-          <div class="col accent-4">accent-4</div>
-          <div class="col accent-4-dark">accent-4-dark</div>
-        </div>
-        <div class="row">
-          <div class="col accent-5-light">accent-5-light</div>
-          <div class="col accent-5-alternate">accent-5-alternate</div>
-          <div class="col accent-5-highlight">accent-5-highlight</div>
-          <div class="col accent-5">accent-5</div>
-          <div class="col accent-5-dark">accent-5-dark</div>
-        </div>
-      </div>
-    </div>
-
-  </sub-section>
-  
-  <sub-section id="ssColorExample">
-
-    <h4>Color Example</h4>
-
-    <p>The above classes all set the background and a complimentary foreground color. However, you can use the background and foreground colors separately by
-      simply prefixing the class name with <strong>background-</strong> or <strong>color-</strong>.
-      See the following example.
-    </p>
-
-    <div class="row-spacing-md"></div>
-  
-    <div class="text-sm">
-      <div class="row col-padding-sm">
-        <div class="col background-accent-1-dark color-light">Lorem ipsum</div>
-        <div class="col background-accent-3-dark color-accent-3-alternate">Lorem ipsum</div>	
-        <div class="col background-accent-4-dark color-highlight">Lorem ipsum</div>
-      </div>
-    </div>
-      
-    <div class="row-spacing-md"></div>
-    
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
-<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
-  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
-  <div class="color-hover-accent-4 code-copy">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-  </div>
-</div>
-
-
-        <div class="scroll-y">
-  
-<pre>&lt;div class="text-sm"&gt;
-  &lt;div class="row col-padding-sm"&gt;
-    &lt;div class="col background-accent-1-dark color-light"&gt;Lorem ipsum&lt;/div&gt;
-    &lt;div class="col background-accent-3-dark color-accent-3-alternate"&gt;Lorem ipsum&lt;/div&gt;	
-    &lt;div class="col background-accent-4-dark color-highlight"&gt;Lorem ipsum&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                                
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
-    </div>
-
-  </sub-section>
-
-  <sub-section id="ssColorCurrent">
-
-    <h4>Inherited Colors</h4>
-  
-    <p>The following color classes are available for using the inherited color value known as the <strong>currentColor</strong> property in CSS.</p>
-
-    <ul class="list-bullet">
-      <li>color-current</li>
-      <li>color-focus-current</li>
-      <li>color-hover-current</li>
-      <li>background-current</li>
-      <li>background-focus-current</li>
-      <li>background-hover-current</li>
-    </ul>
-  
-  </sub-section>
-  
-  <div class="row-spacing-md"></div>
-
-  <p>If you are using the <strong>webui-all.css</strong> or <strong>webui-components-all.css</strong> files, 
-    then you are also able to set border, boundary, and outline colors by prefixing with <strong>border-</strong>, 
-    <strong>boundary-</strong>, or <strong>outline-</strong> instead.</p>
-  
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-sm border-info">
-    <div class="flex align-items-center">
-      <span class="color-info pad-right-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-      </span>
-      <span class="text-bold">Naming convention</span>
-    </div>
-    <p class="text-sm">To use the event color classes the following format should be followed.
-      <strong>[element attribute]-[element event]-[theme color]</strong>.</p>
-    <p class="text-sm">For example <strong>background-focus-info</strong> or <strong>border-hover-accent-1</strong></p>
-  </blockquote>
-    
-  <div class="row-spacing-md"></div>
-
-  <blockquote class="border-sm border-warning">
-    <div class="flex align-items-center">
-      <span class="color-warning pad-right-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-      </span>
-      <span class="text-bold">Color Combinations</span>
-    </div>
-    <p class="text-sm">Color combinations should always be chosen carefully, taking into account people with partial sight and / or color blindness.</p>
-  </blockquote>
-  
-</section>
-
-
-<section class="scrollspy text" id="translucency">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>Translucency</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>The <strong>translucent-*</strong> classes range from a zero alpha transparency to a value of 0.9,
-    and can be used to set color and background together, or to set the color only with the <strong>color-</strong> prefix and the
-    background only with the <strong>background-</strong> prefix.</p>
-
-  <sub-section id="ssColorTranslucentExample">
-
-    <h4>Translucent Example</h4>
-
-    <p>Additional color shades can be created using the translucent classes.</p>
-  
-    <div class="container background-accent-1 color-light">
-      <div class="background-translucent pad-md">
-        background-translucent
-      </div>
-      <div class="background-translucent-1 pad-md">
-        background-translucent-1
-      </div>
-      <div class="background-translucent-2 pad-md">
-        background-translucent-2
-      </div>
-      <div class="background-translucent-3 pad-md">
-        background-translucent-3
-      </div>
-      <div class="background-translucent-4 pad-md">
-        background-translucent-4
-      </div>	
-      <div class="background-translucent-5 pad-md">
-        background-translucent-5
-      </div>							
-      <div class="background-translucent-6 pad-md">
-        background-translucent-6
-      </div>							
-      <div class="background-translucent-7 pad-md">
-        background-translucent-7
-      </div>							
-      <div class="background-translucent-8 pad-md">
-        background-translucent-8
-      </div>							
-      <div class="background-translucent-9 pad-md">
-        background-translucent-9
-      </div>						
-    </div>
-  
-    <div class="row-spacing-md"></div>
-  
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
-<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
-  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
-  <div class="color-hover-accent-4 code-copy">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-  </div>
-</div>
-
-
-        <div class="scroll-y">
-  
-<pre>&lt;div class="container background-accent-1 color-light"&gt;
-  &lt;div class="background-translucent pad-md"&gt;
-    background-translucent
-  &lt;/div&gt;
-  &lt;div class="background-translucent-1 pad-md"&gt;
-    background-translucent-1
-  &lt;/div&gt;
-  &lt;div class="background-translucent-2 pad-md"&gt;
-    background-translucent-2
-  &lt;/div&gt;
-  &lt;div class="background-translucent-3 pad-md"&gt;
-    background-translucent-3
-  &lt;/div&gt;
-  &lt;div class="background-translucent-4 pad-md"&gt;
-    background-translucent-4
-  &lt;/div&gt;	
-  &lt;div class="background-translucent-5 pad-md"&gt;
-    background-translucent-5
-  &lt;/div&gt;							
-  &lt;div class="background-translucent-6 pad-md"&gt;
-    background-translucent-6
-  &lt;/div&gt;							
-  &lt;div class="background-translucent-7 pad-md"&gt;
-    background-translucent-7
-  &lt;/div&gt;							
-  &lt;div class="background-translucent-8 pad-md"&gt;
-    background-translucent-8
-  &lt;/div&gt;							
-  &lt;div class="background-translucent-9 pad-md"&gt;
-    background-translucent-9
-  &lt;/div&gt;						
-&lt;/div&gt;</pre>
-                                            
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
-    </div>
-  
-  </sub-section>
-
-  <sub-section id="colorTranslucentClasses">
-
-    <h4>Translucent Classes</h4>
-
-    <p>The following classes can be used to quickly add a translucent background and foreground to any element.</p>
-
-    <table class="table col-padding-sm text-sm text-wrap">
-      <thead>
-        <tr>
-          <th class="width-three-quarters">Classes</th>
-          <th class="width-one-quarter">Alpha value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>translucent, color-translucent, background-translucent</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>translucent-1, color-translucent-1, background-translucent-1</td>
-          <td>0.1</td>
-        </tr>
-        <tr>
-          <td>translucent-2, color-translucent-2, background-translucent-2</td>
-          <td>0.2</td>
-        </tr>
-        <tr>
-          <td>translucent-3, color-translucent-3, background-translucent-3</td>
-          <td>0.3</td>
-        </tr>
-        <tr>
-          <td>translucent-4, color-translucent-4, background-translucent-4</td>
-          <td>0.4</td>
-        </tr>
-        <tr>
-          <td>translucent-5, color-translucent-5, background-translucent-5</td>
-          <td>0.5</td>
-        </tr>
-        <tr>
-          <td>translucent-6, color-translucent-6, background-translucent-6</td>
-          <td>0.6</td>
-        </tr>
-        <tr>
-          <td>translucent-7, color-translucent-7, background-translucent-7</td>
-          <td>0.7</td>
-        </tr>
-        <tr>
-          <td>translucent-8, color-translucent-8, background-translucent-8</td>
-          <td>0.8</td>
-        </tr>
-        <tr>
-          <td>translucent-9, color-translucent-9, background-translucent-9</td>
-          <td>0.9</td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </sub-section>
-
-</section>
-
-<section class="scrollspy text" id="focusAndHoverColors">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>Focus and Hover Colors</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-  
-
-  <sub-section id="ssColorFocusHoverEvents">
-
-    <h4>Focus and Hover Events</h4>
-
-    <p>WebUI has a full range classes supporting focus and hover events for colors. These are used for various types of button by default, but are also there for you to use
-      on other elements.</p>
-    
-  
-    <div class="container gap-vertical-md width-lg-xl">
-      <button type="button" class="menu-button-sm menu-button-info background-focus-info-dark">Background Focus</button>
-      <input type="text" class="input-lg border-sm border-focus-info-dark width-full" placeholder="Border Focus" />
-      <button type="button" class="menu-button-sm menu-button-info background-hover-info-dark">Background Hover</button>
-      <input type="text" class="input-lg border-sm border-hover-info-dark width-full" placeholder="Border Hover" />	
-    </div>
-  
-    <div class="row-spacing-md"></div>
-  
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
-<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
-  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
-  <div class="color-hover-accent-4 code-copy">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-  </div>
-</div>
-
-
-        <div class="scroll-y">
-  
-<pre>&lt;div class="container gap-vertical-md width-lg-xl"&gt;
-  &lt;button type="button" class="menu-button-sm menu-button-info background-focus-info-dark"&gt;Background Focus&lt;/button&gt;
-  &lt;input type="text" class="input-lg border-sm border-focus-info-dark width-full" placeholder="Border Focus" /&gt;
-  &lt;button type="button" class="menu-button-sm menu-button-info background-hover-info-dark"&gt;Background Hover&lt;/button&gt;
-  &lt;input type="text" class="input-lg border-sm border-hover-info-dark width-full" placeholder="Border Hover" /&gt;	
-&lt;/div&gt;</pre>
-                                                          
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
-    </div>
-  
-    <div class="row-spacing-md"></div>
-  
-    <blockquote class="border-sm border-info">
-      <div class="flex align-items-center">
-        <span class="color-info pad-right-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        </span>
-        <span class="text-bold">Supported Elements</span>
-      </div>
-      <p class="text-sm">Not all HTML elements accept focus events by default. If you need focus events for elements such as divs or spans, then you will need to
-        to add a tabindex attribute to them and set the value to -1, 0 or the required sequential order.
-      </p>
-    </blockquote>
-  
-  </sub-section>
-
-</section>
-
-<section class="scrollspy text" id="colorModes">
-
-  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
-
-  <h3>Color Modes for Custom Controls</h3>
-  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
-
-  <p>Toggle switches, checkboxes and radio buttons support a <strong>dark-mode</strong> and a <strong>light-mode</strong> class. This makes it easy to switch between 
-    light and dark modes using existing theme colors and avoids the need to re-compile SASS themes, with the ability to change a single class for individual controls.
+  <p>Gets the element at the specified index within the WebUI object. A negative index will count back from the end of the array.
   </p>
-
-  <p>When the <strong>light-mode</strong> class is present, it cannot be overridden by <strong>dark-mode</strong>. However, <strong>light-mode</strong> will override
-    <strong>dark-mode</strong> and is the default.</p>
-
-  <sub-section id="ssColorToggleSwitch">
-    
-    <h4>Custom Toggle Switches</h4>
-
-    <p>
-      When the <strong>dark-mode</strong> class is applied to the root element of the control the background will be dark grey in color and the switch button will
-      be black, based on the default theme (approximately inverse to the default theme). If the <strong>light-mode</strong> class is applied there would be no change to the default behavior, but it allows switching 
-      between light and dark modes programmatically. Any WebUI color class may be applied directly to the label or <strong>toggle-switch-button</strong>, 
-      overriding the background, foreground color or switch color. Any colors applied will only affect the <strong>checked</strong> state, not unchecked.
-    </p>
-
-    <div class="row-spacing-md"></div>
   
-    <div class="row col-padding-md">
-      <div class="col">
-        <div class="toggle-switch-sm check dark-mode">	
-          <input type="checkbox" value="1" id="check-switch-1" />
-          <label for="check-switch-1" class="info rounded-sm text-xl">
-            <div class="toggle-switch-button background-info-dark left-transition-medium"></div>
-          </label>
-        </div>
-      </div>
-      <div class="col">
-        <div class="toggle-switch-sm check light-mode">	
-          <input type="checkbox" value="2" id="check-switch-2" />
-          <label for="check-switch-2" class="danger-dark rounded-sm text-xl">
-            <div class="toggle-switch-button background-warning-dark left-transition-medium"></div>
-          </label>
-        </div>
-      </div>
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - HTMLElement.</div>				
     </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">integer</div>
+      <div class="col-12">A positive or negative integer.</div>
+    </div>
+  </div>
   
-    <div class="row-spacing-md"></div>
+  <div class="row-spacing-lg"></div>
   
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
 <div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
   <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
   <div class="color-hover-accent-4 code-copy">
@@ -2810,63 +2346,21 @@
 </div>
 
     
-        <div class="scroll-y">
-  
-<pre>&lt;div class="row col-padding-md"&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="toggle-switch-sm check dark-mode"&gt;	
-      &lt;input type="checkbox" value="1" id="check-switch-1" /&gt;
-      &lt;label for="check-switch-1" class="info rounded-sm text-xl"&gt;
-        &lt;div class="toggle-switch-button background-info-dark left-transition-medium"&gt;&lt;/div&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="toggle-switch-sm check light-mode"&gt;	
-      &lt;input type="checkbox" value="2" id="check-switch-2" /&gt;
-      &lt;label for="check-switch-2" class="danger-dark rounded-sm text-xl"&gt;
-        &lt;div class="toggle-switch-button background-warning-dark left-transition-medium"&gt;&lt;/div&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>     
-  
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                
     </div>
-  
-  </sub-section>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
 
-  <sub-section id="ssColorCheckbox">
-
-    <h4>Custom Checkboxes and Radio Buttons</h4>
-    <p>
-      When the <strong>dark-mode</strong> class is applied to the root element of the control the check mark will be light in color and the background dark. If the 
-      <strong>light-mode</strong> class is applied there would be no change to the default behavior, but it allows switching between light and dark modes 
-      programmatically. Any WebUI color class (except combined colors) may be applied directly to the label overriding the background color.
-    </p>
-
-    <div class="row-spacing-lg"></div>
+  <div class="row-spacing-md"></div>
   
-    <div class="row text-sm col-padding-md">
-      <div class="col">
-        <div class="checkbox dark-mode">
-          <input type="checkbox" value="1" id="checkbox1" />
-          <label for="checkbox1"></label>
-        </div>    
-      </div>
-      <div class="col">
-        <div class="checkbox light-mode">
-          <input type="checkbox" value="2" id="checkbox2" />
-          <label for="checkbox2"></label>
-        </div>
-      </div>
-    </div>
-  
-    <div class="row-spacing-md"></div>
-  
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
 <div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
   <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
   <div class="color-hover-accent-4 code-copy">
@@ -2875,97 +2369,1957 @@
 </div>
 
     
-        <div class="scroll-y">
-  
-<pre>&lt;div class="row text-sm col-padding-md"&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="checkbox dark-mode"&gt;
-      &lt;input type="checkbox" value="1" id="checkbox1" /&gt;
-      &lt;label for="checkbox1"&gt;&lt;/label&gt;
-    &lt;/div&gt;    
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="checkbox light-mode"&gt;
-      &lt;input type="checkbox" value="2" id="checkbox2" /&gt;
-      &lt;label for="checkbox2"&gt;&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-        
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
-    </div>
+      <div class="scroll-y">
 
-    <div class="row-spacing-xl"></div>
+<pre>webui.ready( () => {
 
-    <div class="row text-sm col-padding-md">
-      <div class="col">
-        <div class="radio dark-mode">
-          <input type="radio" value="1" name="radiogroup1" id="radio1" />
-          <label for="radio1"></label>
-        </div>    
-      </div>
-      <div class="col">
-        <div class="radio light-mode">
-          <input type="radio" value="2" name="radiogroup1" id="radio2" />
-          <label for="radio2"></label>
-        </div>
-      </div>
+  const elements = webui("#button1, #button2, #button3, #button4");
+
+  let element = elements.at(2);
+
+});</pre>
+                          
     </div>
-  
-    <div class="row-spacing-md"></div>
-  
-    <div class="code-block container pad-left-md pad-right-md text-md">
-      
-<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
-  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
-  <div class="color-hover-accent-4 code-copy">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
   </div>
-</div>
-
-    
-        <div class="scroll-y">
-  
-<pre>&lt;div class="row text-sm col-padding-md"&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="radio dark-mode"&gt;
-      &lt;input type="radio" value="1" name="radiogroup1" id="radio1" /&gt;
-      &lt;label for="radio1"&gt;&lt;/label&gt;
-    &lt;/div&gt;    
-  &lt;/div&gt;
-  &lt;div class="col"&gt;
-    &lt;div class="radio light-mode"&gt;
-      &lt;input type="radio" value="2" name="radiogroup1" id="radio2" /&gt;
-      &lt;label for="radio2"&gt;&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-        
-      </div>
-      <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
-    </div>
-
-    <div class="row-spacing-md"></div>
-
-    <blockquote class="border-sm border-warning">
-      <div class="flex align-items-center">
-        <span class="color-warning pad-right-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-        </span>
-        <span class="text-bold">Combined Color Classes</span>
-      </div>
-      <p class="text-sm">Custom checkboxes and radio buttons don't support combined color classes such as <strong>info-dark</strong> which sets the color and background
-        color at the same time. Instead, use the separate <strong>background-*</strong> classes. Using <strong>color-*</strong> classes will have no effect on the 
-        check mark.</p>
-    </blockquote>
-  
-  </sub-section>
-
+ 
 </section>
 
+<section class="scrollspy text" id="jsConcat">
 
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
 
+  <h3>concat (array1, array2, ...)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Merges one or more array like objects into a new array.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array1, array2, ...</div>
+      <div class="col-6">Object list</div>
+      <div class="col-12">One or more array like objects.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const obj1 = webui("#button1, #button2");
+  const obj2 = webui("#button3, #button4");
+
+  let elems = obj1.elements().concat(obj2.elements());
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsEvery">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>every (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Tests whether each element in an array meets the conditions specified by the provided callback function.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Boolean.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">element</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">The current array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">A interger value.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array</div>
+      <div class="col-6">Array</div>
+      <div class="col-12">The array being operated on.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+  const isButton = (currentValue) => ui(currentValue).is("button");
+
+  const result = elems.every(isButton);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsFilter">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>filter (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Creates a new array containing the elements of an original array that meet the conditions specified by the provided callback function.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Boolean.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">element</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">The current array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">A interger value.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array</div>
+      <div class="col-6">Array</div>
+      <div class="col-12">The array being operated on.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-success" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-success" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+
+  let filteredArray = elems.filter((button) => ui(button).hasClass("button-success"));
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsForEach">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>forEach (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Calls the callback function for each element in an array.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - undefined.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">element</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">The current array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">A interger value.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array</div>
+      <div class="col-6">Array</div>
+      <div class="col-12">The array being operated on.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+
+  elems.forEach((element) => {
+    console.log(element);
+  });
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsIncludes">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>includes (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Searches an array for the presence of the specified value.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Boolean.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">value</div>
+      <div class="col-6">Object or primative</div>
+      <div class="col-12">A value to search for.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">An integer index to start searching from.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+  const elem = webui("#button3");
+
+  const result = elems.includes(elem[0]);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsIndexOf">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>indexOf (value)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Returns the index of the specified value within an array.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Integer.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">value</div>
+      <div class="col-6">Object or primative</div>
+      <div class="col-12">A value to search for.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">An integer index to start searching from.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+  const elem = webui("#button3");
+
+  const result = elems.indexOf(elem[0]);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsJoin">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>join (separator)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Returns a concatenated string separated by commas, or separated by a specified separator.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - String.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">separator</div>
+      <div class="col-6">String</div>
+      <div class="col-12">A string that should be used to separate each item of the concatenated string.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+
+  const mapped = elems.map((x) => ui(x).text());
+  const str = mapped.join();
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsMap">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>map (function)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Returns a new array containg all elements of the original array, but transformed by specified function.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">element</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">The current array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">A interger value.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array</div>
+      <div class="col-6">Array</div>
+      <div class="col-12">The array being operated on.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+  
+  const arr = elems.map((x) => ui(x).text());
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsPop">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>pop ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes the last element from an array and returns it.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Object.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+  
+  const elem = elems.pop();
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsPush">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>push (object, object, ...)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Adds new elements to the end of an array and returns the new length.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Integer.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">object, object, ...</div>
+      <div class="col-6">Object list</div>
+      <div class="col-12">One or more objects to be added to an array.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3");
+  const newElem = ui("#button4");
+  
+  const length = elems.push(newElem);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsReduce">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>reduce (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Reduces the values of elements in an array to a single value by executing a callback function used
+    to accumulate a running result.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Object or primative.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A function serving as a reducer.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;input type="text" value="22.5" id="txt1" /&gt;
+&lt;input type="text" value="17.1" id="txt2" /&gt;
+&lt;input type="text" value="6.9" id="txt3" /&gt;
+&lt;input type="text" value="12.7" id="txt4" /&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#txt1, #txt2, #txt3, #txt4");
+
+  const initialValue = 0;
+  const total = elems.reduce(
+    (accumulator, current) => accumulator + parseFloat(current.value),
+    initialValue,
+  );
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsReduceRight">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>reduceRight (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Reduces the values of elements in an array to a single value by executing a callback function used
+    to accumulate a running result. ReduceRight works from the end of an array to the beginning.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Object or primative.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A function serving as a reducer.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;input type="text" value="22.5" id="txt1" /&gt;
+&lt;input type="text" value="17.1" id="txt2" /&gt;
+&lt;input type="text" value="6.9" id="txt3" /&gt;
+&lt;input type="text" value="12.7" id="txt4" /&gt;</pre>
+                                                  
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#txt1, #txt2, #txt3, #txt4");
+
+  const initialValue = 0;
+  const total = elems.reduceRight(
+    (accumulator, current) => accumulator + parseFloat(current.value),
+    initialValue,
+  );
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsReverse">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>reverse ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Reverses the order of all elements in an array and returns the it.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                            
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button1, #button2, #button3, #button4");
+
+  const arr = elems.reverse();
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsShift">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>shift ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Removes the first element in an array and returns the it.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Object or primative.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                            
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button1, #button2, #button3, #button4");
+
+  const firstItem = elems.shift();
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsSlice">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>slice (start, end)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Returns a copy of all or part of an array, depending on the start and end index. If no end index is specified then an array from start
+    to the end of the array is returned. If no start index is specified a copy of the original array is returned.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">start</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The starting index.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">end</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The ending index.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                            
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#button1, #button2, #button3, #button4");
+
+  const arr = elems.slice(2);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsSome">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>some (callback)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Returns true or false, depending on whether at least one element of an array meets the condition specified by the callback function.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Boolean.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">callback</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">element</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">The current array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">index</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">A interger value.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">array</div>
+      <div class="col-6">Array</div>
+      <div class="col-12">The array being operated on.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;input type="text" value="22.5" id="txt1" /&gt;
+&lt;input type="text" value="17.1" id="txt2" /&gt;
+&lt;input type="text" value="6.9" id="txt3" /&gt;
+&lt;input type="text" value="12.7" id="txt4" /&gt;</pre>
+                                                                      
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#txt1, #txt2, #txt3, #txt4");
+
+  const result = elems.some((x) => parseFloat(x.value) > 30);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsSort">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>sort (compare)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Sorts an array according to the specified compare function, or sorts in acsending order using a string comparison if no compare
+    function is provided.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">compare</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">a</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">An array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">b</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">An array element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;input type="text" value="22.5" id="txt1" /&gt;
+&lt;input type="text" value="17.1" id="txt2" /&gt;
+&lt;input type="text" value="6.9" id="txt3" /&gt;
+&lt;input type="text" value="12.7" id="txt4" /&gt;</pre>
+                                                                      
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#txt1, #txt2, #txt3, #txt4");
+
+  function compareNumbers(a, b) {
+    return a.value - b.value;
+  }
+
+  const arr = elems.sort(compareNumbers);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsSplice">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>splice (start, deleteCount, item, item, ...)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Inserts elements into an array at the start index and optionally deletes elements of an array from the start index, then returns
+    an array containing the deleted elements.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">start</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The index to start inserting new elements.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">deleteCount</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The number of elements to remove from the start index.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">item, item, ...</div>
+      <div class="col-6">Object or primative</div>
+      <div class="col-12">One or more items to insert.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                                      
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button1, #button4");
+
+  const arr = elems.splice(1, 0, ui("#button2").element(), ui("#button3").element());
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsToReversed">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>toReversed ()</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Creates a new array with all elements in reverse order. The original array is not changed.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                            
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button1, #button2, #button3, #button4");
+
+  const arr = elems.toReversed();
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsToSorted">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>toSorted (compare)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Creates a new array and sorts it according to the specified compare function, or sorts in acsending order using a string comparison if no compare
+    function is provided. The original array is not changed.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">compare</div>
+      <div class="col-6">Function</div>
+      <div class="col-12">A callback function.</div>
+    </div>
+  </div>
+
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Callback function arguments</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">a</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">An array element.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">b</div>
+      <div class="col-6">Object or primative.</div>
+      <div class="col-12">An array element.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;input type="text" value="22.5" id="txt1" /&gt;
+&lt;input type="text" value="17.1" id="txt2" /&gt;
+&lt;input type="text" value="6.9" id="txt3" /&gt;
+&lt;input type="text" value="12.7" id="txt4" /&gt;</pre>
+                                                                      
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  const elems = webui("#txt1, #txt2, #txt3, #txt4");
+
+  function compareNumbers(a, b) {
+    return a.value - b.value;
+  }
+
+  const arr = elems.toSorted(compareNumbers);
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsToSpliced">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>toSpliced (start, deleteCount, item, item, ...)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Creates a new array, inserts elements into it at the start index and optionally deletes elements of an array from the start index, then returns
+    the array modified array. The original array is not changed.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Array.</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">start</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The index to start inserting new elements.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">deleteCount</div>
+      <div class="col-6">Integer</div>
+      <div class="col-12">The number of elements to remove from the start index.</div>
+    </div>
+    <div class="row text-left">
+      <div class="col-6">item, item, ...</div>
+      <div class="col-6">Object or primative</div>
+      <div class="col-12">One or more items to insert.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                                      
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button1, #button4");
+
+  const arr = elems.toSpliced(1, 0, ui("#button2").element(), ui("#button3").element());
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
+
+<section class="scrollspy text" id="jsUnshift">
+
+  <div class="height-sm-bp-4-under height-md-bp-4-over"></div>
+
+  <h3>unshift (elem1, elem2, ...)</h3>
+  <div class="row-spacing-sm border-xs border-transparent border-top-info-light"></div>
+
+  <p>Adds elements to the beginning of an array and returns the length of the expanded array.
+  </p>
+  
+  <div class="row-spacing-md"></div>
+  
+  <div class="container col-padding-sm text-sm text-wrap">
+    <div class="row background-accent-2 color-light text-bold">
+      <div class="col">Returns - Integer</div>				
+    </div>
+    <div class="row color-accent-2 text-bold">
+      <div class="col-6">Argument</div>
+      <div class="col-6">Type</div>
+      <div class="col-12">Description</div>					
+    </div>
+    <div class="row text-left">
+      <div class="col-6">item, item, ...</div>
+      <div class="col-6">Object or primative</div>
+      <div class="col-12">One or more items to insert.</div>
+    </div>
+  </div>
+  
+  <div class="row-spacing-lg"></div>
+  
+  <div class="code-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>&lt;button class="button-sm button-info" id="button1"&gt;Button 1&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button2"&gt;Button 2&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button3"&gt;Button 3&lt;/button&gt;
+&lt;button class="button-sm button-info" id="button4"&gt;Button 4&lt;/button&gt;</pre>
+                                                            
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">HTML</div>
+  </div>
+
+  <div class="row-spacing-md"></div>
+  
+  <div class="script-block container pad-left-md pad-right-md text-md">
+    
+<div class="tooltip place-top-right top-xxs-xs right-xxs-xs height-sm text-xs" id="codeCopyTooltip">
+  <div class="tooltip-static tooltip-left tooltip-sm tooltip-noautopos tooltip-transparent rounded-sm text-right"></div>
+  <div class="color-hover-accent-4 code-copy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+  </div>
+</div>
+
+    
+      <div class="scroll-y">
+
+<pre>webui.ready( () => {
+
+  let elems = webui("#button3, #button4");
+
+  const length = elems.unshift(ui("#button1").element(), ui("#button2").element());
+
+});</pre>
+                          
+    </div>
+    <div class="place-top-right top-sm right-xxs-xs text-xs color-info">JS</div>
+  </div>
+  
+</section>
 
     </div>
 

@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.3.0
+* Version: 11.5.0
 * MIT License
 */
 
@@ -97,12 +97,6 @@
 			if (isString(newCssClass) && newCssClass.trim()) {
 				els.addClass(newCssClass);
 			}
-
-			for (var i = 0; i < els.length; i++) {
-				if (isSelect(els[i])) {
-					webui(els[i]).find("option").css("color", webui(els[i]).css("color"));
-				}
-			}
 		},
 		delay = function (delay, callback) {
 			if (delay) {
@@ -129,6 +123,7 @@
 					transitionDistance = toggleContainer.data("transition-distance"),
 					focusElement = toggleContainer.data("focus-element"),
 					focusReturnElement = toggleContainer.data("focus-return-element"),
+					allowEscapeKey = toggleContainer.data("allow-escape-key"),
 
 
 					offCanvasDrawer = toggleItem.hasClass("off-canvas-drawer"),
@@ -432,6 +427,16 @@
 						}
 					}
 				}
+
+				if (allowEscapeKey === "true") {
+					toggleContainer.keyDown(function (e) {	
+						if (e.which == 27) {
+							e.preventDefault();
+							toggleContainer[0].click();
+						}
+					});
+				}	
+
 			}
 		},
 		enableDisable = function (selector, enableSelector, currentCssClass, removeCssClass, withValue) {
@@ -656,24 +661,30 @@
 				}
 				return webui.createArray(selector, this);
 			},
+			at: [].at,
+			concat: [].concat,
+			every: [].every,
+			filter: [].filter,
+			find: [].find,
+			forEach: [].forEach,
+			includes: [].includes,
+			indexOf: [].indexOf,
+			join: [].join,
+			map: [].map,
 			pop: [].pop,
 			push: [].push,
+			reduce: [].reduce,
+			reduceRight: [].reduceRight,
 			reverse: [].reverse,
 			shift: [].shift,
+			slice: [].slice,
+			some: [].some,
 			sort: [].sort,
 			splice: [].splice,
-			slice: [].slice,
-			indexOf: [].indexOf,
-			forEach: [].forEach,
-			unshift: [].unshift,
-			concat: [].concat,
-			join: [].join,
-			every: [].every,
-			some: [].some,
-			filter: [].filter,
-			map: [].map,
-			reduce: [].reduce,
-			reduceRight: [].reduceRight
+			toReversed: [].toReversed,
+			toSorted: [].toSorted,
+			toSpliced: [].toSpliced,
+			unshift: [].unshift	
 		};
 
 	fn.constructor = webui;
@@ -728,6 +739,13 @@
 			}
 		}
 		return webui(nodes);
+	};
+
+	fn.element = function () {
+		if (this.length && this.length === 1) {
+			return this[0];
+		}
+		return undefined;
 	};
 
 	fn.elements = function () {
@@ -1109,6 +1127,42 @@
 		else {
 			for (var i = 0; i < this.length; i++) {
 				values.push(this[i].value);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.checked = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].checked = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].checked);
+			}
+			return values.length === 1 ? values[0] : values;
+		}
+		return this;
+	};
+
+	fn.indeterminate = function (value) {
+		var args = arguments,
+			values = [];
+
+		if (args.length === 1) {
+			for (var i = 0; i < this.length; i++) {
+				this[i].indeterminate = value;
+			}
+		}
+		else {
+			for (var i = 0; i < this.length; i++) {
+				values.push(this[i].indeterminate);
 			}
 			return values.length === 1 ? values[0] : values;
 		}
@@ -2197,6 +2251,7 @@
 		return "";
 	};
 
+	// DEPRECATED
 	webui.copyToClipboard = function (valueOrSelector) {
 		if (arguments.length) {		
 			var el = valueOrSelector;
@@ -2215,6 +2270,13 @@
 			}
 		}
 	};
+
+	webui.copyTextToClipboard = function(textToCopy) {
+		if (navigator?.clipboard?.writeText) {
+			return navigator.clipboard.writeText(textToCopy);
+		}
+		return Promise.reject('The Clipboard API is not available.');
+	}	
 
 	webui.createArray = function (obj, wrapper) {
 		var arr = wrapper || [];
@@ -2277,6 +2339,13 @@
 		return text;
   };
 
+	webui.capitalizeFirstLetter = function (text) {
+		if (text && text.length) {
+			return text.length > 1 ? text[0].toUpperCase() + text.slice(1) : text[0].toUpperCase();
+		}
+		return text;
+	}
+
   webui.limitWords = function (text, wordCount, addEllipsis) {
     if (arguments.length > 1) {
       var words = text.split(" ");
@@ -2286,6 +2355,7 @@
 		return text;
   };
 
+	// DEPRECATED
   webui.getQueryString = function (key) {
     if (arguments.length === 1) {
       var temp = location.search.match(new RegExp(key + "=(.*?)($|\\&)", "i"));
@@ -2296,6 +2366,7 @@
 		return "";
   };
 
+	// DEPRECATED
   webui.navigateInternal = function (id, navigate) {
     if (arguments.length) {
       var url = window.location.href.split("#");
@@ -2310,6 +2381,7 @@
     }
   };
 
+	// DEPRECATED
   webui.getAbsoluteUri = function (relativeUrl, virtualRoot, addReturnUrl) {
     try {
       var cleanUrl = relativeUrl.replace(/\.\.\//g, "").replace(/\./g, "");
@@ -2340,7 +2412,7 @@
       if (end == -1) {
         end = document.cookie.length;
       }
-      return unescape(document.cookie.substring(len, end));
+      return decodeURIComponent(document.cookie.substring(len, end));
     } 
     catch (ex) {
       return null;
@@ -2355,7 +2427,7 @@
         expires = expires * 1e3 * 60 * 60 * 24;
       }
       var expiryDate = new Date(today.getTime() + expires);
-      document.cookie = name + "=" + escape(value) + (expires ? ";expires=" + expiryDate.toUTCString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
+      document.cookie = name + "=" + encodeURIComponent(value) + (expires ? ";expires=" + expiryDate.toUTCString() : "") + (path ? ";path=" + path : "") + (domain ? ";domain=" + domain : "") + (secure ? ";secure" : "");
       return true;
     } 
     catch (ex) {
@@ -2446,7 +2518,7 @@
 		}
 	};
 
-	webui.version = "11.3.0";
+	webui.version = "11.5.0";
 
 
 	/* EVENT HANDLERS */
@@ -4357,6 +4429,8 @@
 			largeDeviceMenuSpacing = settings.largeDeviceMenuSpacing,
 			largeDeviceMenuOffset = settings.largeDeviceMenuOffset,
 			largeDeviceSubMenuOffset = settings.largeDeviceSubMenuOffset,
+			largeDeviceSubMenuGap = settings.largeDeviceSubMenuGap,
+			largeDeviceSubMenuReverse = settings.largeDeviceSubMenuReverse,
 
 			smallDeviceLogoColor = settings.smallDeviceLogoColor,
 			smallDeviceLogoBackground = settings.smallDeviceLogoBackground,
@@ -4462,6 +4536,7 @@
 				
 				navItems.css("margin-left", largeDeviceMenuSpacing);
 				navSubMenus.css("margin-left", largeDeviceSubMenuOffset);
+				navSubMenus.css("margin-top", largeDeviceSubMenuGap);
 				navSubMenus.css("padding", largeDeviceSubMenuPadding);
 				
 				navLogo.css("color", largeDeviceLogoColor);
@@ -4479,6 +4554,26 @@
 
 				navMenu.children(".nav-item").last().css("margin-bottom", "0");
 				navMenu.find(".nav-sub-menu").children(":last-of-type").css("margin-bottom", "0.5rem");
+
+				if (largeDeviceSubMenuReverse) {
+					var totalWidth = parseFloat(navSubMenus.last().css("right", largeDeviceMenuOffset).css("right"));
+						
+					var navItemWidth = 0;
+					var menuSpacing = parseFloat(navItems.first().css("margin-left"));
+					
+					if (navSubMenus.length > 0) {
+						navSubMenus.reverse().forEach((sm) => {
+							webui(sm).css("right", totalWidth + "px");
+							navItemWidth = parseFloat(webui(sm).closest(".nav-item").css("width"));
+							totalWidth += navItemWidth + menuSpacing;								
+						});
+
+						navSubMenus.reverse();
+
+						navSubMenus.css("margin-right", largeDeviceSubMenuOffset);
+					}
+				}
+
 			},
 
 			setNavbarProperties = function() {
@@ -4556,6 +4651,8 @@
 			if (newSettings.largeDeviceMenuSpacing !== undefined) { largeDeviceMenuSpacing = newSettings.largeDeviceMenuSpacing; }
 			if (newSettings.largeDeviceMenuOffset !== undefined) { largeDeviceMenuOffset = newSettings.largeDeviceMenuOffset; }
 			if (newSettings.largeDeviceSubMenuOffset !== undefined) { largeDeviceSubMenuOffset = newSettings.largeDeviceSubMenuOffset; }
+			if (newSettings.largeDeviceSubMenuGap !== undefined) { largeDeviceSubMenuGap = newSettings.largeDeviceSubMenuGap; }
+			if (newSettings.largeDeviceSubMenuReverse !== undefined) { largeDeviceSubMenuReverse = newSettings.largeDeviceSubMenuReverse; }
 
 			if (newSettings.smallDeviceLogoColor !== undefined) { smallDeviceLogoColor = newSettings.smallDeviceLogoColor; }
 			if (newSettings.smallDeviceLogoBackground !== undefined) { smallDeviceLogoBackground = newSettings.smallDeviceLogoBackground; }
@@ -4736,6 +4833,7 @@
 				largeDeviceMenuSpacing: 0,
 				largeDeviceMenuOffset: 0,				
 				largeDeviceSubMenuOffset: 0,
+				largeDeviceSubMenuReverse: false,
 
 				smallDeviceLogoColor: "inherit",
 				smallDeviceLogoBackground: "",
@@ -5015,8 +5113,18 @@
             return;
           }
 
-          controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
-          activeItem.addClass(settings.activatorActiveClass);
+          var styleParts = null;
+					if (settings.activatorActiveStyle) {
+						styleParts = settings.activatorActiveStyle.split(":");
+					}
+          if (styleParts && styleParts.length === 2) {
+            controls.find(settings.activatorSelector).css(styleParts[0], "");
+            activeItem.css(styleParts[0], styleParts[1]);
+          }
+					else {
+						controls.find(settings.activatorSelector).removeClass(settings.activatorActiveClass);
+						activeItem.addClass(settings.activatorActiveClass);	
+					}
         }
       }
     };
@@ -5029,6 +5137,7 @@
       var settings = ui.extend({
         activatorSelector: "li > a",
         activatorActiveClass: "active",
+        activatorActiveStyle: null,
         scrollTargetClass: "scroll-target",
         scrollTargetOffset: 0,
         activatorCallback: null
@@ -5172,13 +5281,16 @@
 
 			if (tabId) {
 
-				var prevTabId = "#" + tabActivator.parents(".tabs").find(".tab-item.selected").last().attr("id");
+				var tabs = tabActivator.parents(".tabs");
 
-				tabActivator.parents(".tabs").find(".tab-item").removeClass("selected");
+				var prevTabId = "#" + tabs.find(".tab-item.selected").last().attr("id");
+
+				tabs.find(".tab-activator").removeClass("active");
+				tabs.find(".tab-item").removeClass("selected");
 
 				tabActivator.trigger("ui.tabs.change.before", [ prevTabId, tabId ]);
 
-				var activeTab = tabActivator.parents(".tabs").find(tabId).first();
+				var activeTab = tabs.find(tabId).first();
 				
 				if (transitionType === "fade") {
 					activeTab.show().children().fadeIn(transitionDuration);
@@ -5190,8 +5302,10 @@
 					activeTab.show();
 				}
 
-				
+				tabActivator.addClass("active");
 				activeTab.addClass("selected");
+
+
 
 				if (transitionType === "fade") {
 					activeTab.siblings(".tab-item").hide().children().fadeOut(transitionDuration);

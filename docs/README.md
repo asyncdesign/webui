@@ -17,20 +17,51 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
 
 #### **Simple Method**
 
-* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.4.2.zip)
+* [Download the latest release](https://github.com/asyncdesign/webui/archive/v11.5.0.zip)
 * Extract the CSS and JavaScript files from the dist folder to your project folders.
 * WebUI has no dependencies, so you don't need to include jQuery.
 * In your web page add a link to the CSS in the head section of your page and links to the JavaScript files at the bottom of the body section, for example:
 
 ````html
-<html>
-<head>
-  <link rel="stylesheet" href="css/webui-standard.min.css"> 
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
 
-  <script src="js/webui.min.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title></title>
+
+    <link rel="stylesheet" href="lib/webui/dist/css/webui-components-standard.css">
+
+  </head>
+  
+  <body>
+
+    <script src="js/webui-components.min.js"></script>
+  </body>
+</html>
+````
+
+#### **Using a CDN**
+
+If you prefer not to download the full package and just want to try it out, then this can be done by linking to the required files on a CDN as follows.
+
+````html
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title></title> 
+
+    <link rel="stylesheet" href="https://unpkg.com/asyncdesign-webui@latest/dist/css/webui-standard.min.css">
+  </head>
+  
+  <body>
+
+    <script src="https://unpkg.com/asyncdesign-webui@latest/dist/js/webui-components.min.js"></script>
+  </body>
 </html>
 ````
 
