@@ -54,7 +54,7 @@ let displayResults = (filteredResult, filteredContent) => {
 					if (item.Heading !== null) {
 
 						ui(`<a href="${siteBaseUrl}${item.Url}${item.SectionId}" 
-						class="menu-button-link text-left" onclick="closeSearchModal()" tabindex="0">
+						class="menu-button-link text-left pad-initial-bp-3-under" onclick="closeSearchModal()" tabindex="0">
 						<div class="pad-sm search-block">${item.Heading}</div></a>`).appendTo("#webuiSearchHeadings");
 
 					}
@@ -86,7 +86,7 @@ let displayResults = (filteredResult, filteredContent) => {
 						ui(`<div class="width-full margin-bottom-xs rounded-sm border-xs border-accent-5" id="webuiSearchHeadings"></div>`).appendTo(webuiSearchResult);
 						
 						ui(`<a href="${siteBaseUrl}${item.Url}${item.SectionId}" 
-						class="menu-button-link text-left" onclick="closeSearchModal()" tabindex="0">
+						class="menu-button-link text-left pad-initial-bp-3-under" onclick="closeSearchModal()" tabindex="0">
 						<div class="pad-sm pad-top-md search-block">${item.TextContent}${item.HtmlContent}</div></a>`).appendTo("#webuiSearchHeadings");
 
 					}
