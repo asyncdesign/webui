@@ -633,30 +633,23 @@
 
 				if (isString(selector)) {
 					if (selectorRegExp.test(selector)) {
-						var el = root.querySelectorAll(selector);
-						if (el.length === 0) {
+						let nl = root.querySelectorAll(selector);
+						if (nl.length === 0) {
 							return this;
 						}
-						else if (el.length === 1) {
-							this[0] = el[0];
+						else if (nl.length === 1) {
+							this[0] = nl[0];
 							this.length = 1;
 							return this;
 						}
-						else if (el.length > 1) {
-							return webui.mergeArray(this, el);
+						else if (nl.length > 1) {
+							return webui.mergeArray(this, nl);
 						}
 					}
 					else if (domFragRegExp.test(selector)) {
-						var fragment = root.createDocumentFragment();
-						var wrapper = root.createElement("div");
-						wrapper.innerHTML = selector;
+						let nl = document.createRange().createContextualFragment(selector).childNodes;
 
-						while (wrapper.lastChild) {
-							fragment.appendChild(wrapper.firstChild);
-						}
-						var elements = [].slice.call(fragment.childNodes);
-
-						return webui.mergeArray(this, elements);
+						return webui.mergeArray(this, nl);
 					}
 				}
 				return webui.createArray(selector, this);

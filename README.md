@@ -42,7 +42,7 @@ WebUI is a little different to most other CSS frameworks due to an emphasis on f
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title></title>
 
-    <link rel="stylesheet" href="lib/webui/dist/css/webui-components-standard.css">
+    <link rel="stylesheet" href="css/webui-components-standard.min.css">
 
   </head>
   
@@ -196,7 +196,7 @@ webui.ready( () => {
 
 * From the command line, navigate to your `React` project folder.
 * Type `npm install asyncdesign-webui` and wait for the install to finish.
-* In your `React` component js file such as `App.js` add `import webui from '../node_modules/asyncdesign-webui/dist/js/webui-components.min.js'`
+* In your `React` root js file such as `index.js` or `App.js` add `import webui from '../node_modules/asyncdesign-webui/dist/js/webui-components.min.js'`
 * Then add `import '../node_modules/asyncdesign-webui/dist/css/webui-components-standard.min.css'`
 * Don't forget to use `className=""` instead of `class=""` on your html elements.
 * If you need to use WebUI javascript functions, this should be done in the `componentDidMount()` lifecycle method.
