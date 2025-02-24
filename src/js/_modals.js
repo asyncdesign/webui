@@ -27,10 +27,10 @@
 					}
 						
 					if (disablePageScrolling) {
-						var scrollShift = Math.floor(ui.getScrollbarWidth()) + "px";
+						let scrollShift = ui.getScrollbarWidth();
 						
-						if (parseFloat(webui("body").css("height")) > win.innerHeight) {
-							webui("body").css("padding-right", scrollShift);
+						if (scrollShift) {
+							webui("body").css("padding-right", scrollShift + "px");
 							webui("body").css("overflow", "hidden");
 						}
 					}

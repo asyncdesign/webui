@@ -1,6 +1,6 @@
 ﻿/*!
 * Name: webui - UI functions
-* Version: 11.5.1
+* Version: 11.6.0
 * MIT License
 */
 
@@ -781,15 +781,14 @@
 	};
 
 	fn.prevSiblings = function (query) {
-		var args = arguments.length,
+		let args = arguments.length,
 			nodes = [];
 
-		for (var i = 0; i < this.length; i++) {
-			var el = this[i];
+		for (let i = 0; i < this.length; i++) {
+			let el = this[i];
 
-			while (el.previousElementSibling) {
-				nodes.push(el.previousElementSibling);
-				el = el.previousElementSibling;
+			while (el = el.previousElementSibling) {
+				nodes.push(el);
 			}
 		}
 		return args ? webui(nodes).select(query) : webui(nodes);
@@ -815,9 +814,8 @@
 		for (var i = 0; i < this.length; i++) {
 			var el = this[i];
 
-			while (el.nextElementSibling) {
-				nodes.push(el.nextElementSibling);
-				el = el.nextElementSibling;
+			while (el = el.nextElementSibling) {
+				nodes.push(el);
 			}
 		}
 		return args ? webui(nodes).select(query) : webui(nodes);
@@ -839,20 +837,18 @@
 	fn.parents = function (query) {
 		var args = arguments.length,
 			nodes = [],
-			el, els;
+			el;
 
 		for (var i = 0; i < this.length; i++) {
 			el = this[i];
 
-			while (el.parentElement) {
-				els = webui(el.parentElement);
+			while (el = el.parentElement) {
 
-				if (els && els.length) {
-					if (!~nodes.indexOf(els[0])) {
-						nodes.push(els[0]);
+				if (el) {
+					if (!~nodes.indexOf(el)) {
+						nodes.push(el);
 					}
 				}
-				el = el.parentElement;
 			}
 		}
 		return args ? webui(nodes).select(query) : webui(nodes);
@@ -968,13 +964,13 @@
 	};
 
 	fn.removeChildren = function (query) {
-		var el;
 
 		if (arguments.length) {
 			webui(this).children().select(query).remove();
 		}
 		else {
-			for (var i = 0; i < this.length; i++) {
+			let el;
+			for (let i = 0; i < this.length; i++) {
 				el = this[i];
 				while (el.lastChild) {
 					el.removeChild(el.lastChild);
@@ -1084,24 +1080,26 @@
 	};
 
 	fn.css = function (ruleName, ruleValue) {
-		var args = arguments,
+		let args = arguments,
 			styles = [];
 
 		if (args.length === 1) {
-			for (var i = 0; i < this.length; i++) {
-				var val = win.getComputedStyle(this[i])[ruleName];
-				if (ruleName === "height" && this[i].getBoundingClientRect().height > parseFloat(val)) {
-						val = this[i].getBoundingClientRect().height + "px";
+			for (let i = 0; i < this.length; i++) {
+				let val = win.getComputedStyle(this[i])[ruleName];
+				let rect = this[i].getBoundingClientRect();
+				
+				if (ruleName === "height" && rect.height > parseFloat(val)) {
+						val = rect.height + "px";
 				}
-				else if (ruleName === "width" && this[i].getBoundingClientRect().width > parseFloat(val)) {
-						val = this[i].getBoundingClientRect().width + "px";
+				else if (ruleName === "width" && rect.width > parseFloat(val)) {
+						val = rect.width + "px";
 				}
 				styles.push(val != "" ? val : this[i].style[ruleName]);
 			}
 			return styles.length === 1 ? styles[0] : styles;
 		}
 		else if (args.length === 2) {
-			for (var i = 0; i < this.length; i++) {
+			for (let i = 0; i < this.length; i++) {
 				this[i].style[ruleName] = ruleValue;
 			}
 		}
@@ -1471,11 +1469,20 @@
 		return this;
 	};
 
-	fn.toggle = function (toggleState) {
+	fn.toggle = function (displayType) {
+		let el, st;
 
 		if (arguments.length === 1) {
-			if (toggleState === "on") {
-				this.css("display", "block");
+			let dt = displayType.toLowerCase();
+
+			if (dt !== "off" && dt !== "none") {
+
+				if (dt === "on" || dt === "block") this.css("display", "block");
+				else if (dt === "grid") this.css("display", "grid");
+				else if (dt === "flex") this.css("display", "flex");
+				else if (dt === "inline-block") this.css("display", "inline-block");
+				else if (dt === "inline") this.css("display", "inline");
+
 				this.attr("aria-hidden", "false");
 			}
 			else {
@@ -1484,14 +1491,15 @@
 			}
 		}
 		else {
-			var el;
-			for (var i = 0; i < this.length; i++) {
+			for (let i = 0; i < this.length; i++) {
 				el = this[i];
-				if (webui(el).css("display") === "block") {
+				st = win.getComputedStyle(el)["display"];
+
+				if (st !== "none") {
 					el.style["display"] = "none";
 					el.setAttribute("aria-hidden", "true");
 				}
-				else {
+				else if (st === "none") {
 					el.style["display"] = "block";
 					el.setAttribute("aria-hidden", "false");
 				}
@@ -1501,10 +1509,10 @@
 	};
 
 	fn.toggleClass = function (className) {
-		var els = this, el;
-		
-		for (var i = 0; i < els.length; i++) {
-				el = webui(els[i]);
+		let el;
+
+		for (var i = 0; i < this.length; i++) {
+				el = webui(this[i]);
 				if (el.hasClass(className)) {
 					el.removeClass(className);
 				}
@@ -2078,14 +2086,7 @@
 		return max;
 	};
 
-	webui.getScrollbarWidth = function () {
-		var ruler = root.createElement("div");
-		ruler.className = "scrollbar-measure";
-		root.body.appendChild(ruler);
-		var scrollbarWidth = ruler.offsetWidth - ruler.clientWidth;
-		root.body.removeChild(ruler);
-		return scrollbarWidth;
-	};
+	webui.getScrollbarWidth = () => Math.floor(window.innerWidth - document.documentElement.clientWidth);
 
 	webui.rgbToHex = function (r, g, b) {
 		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
@@ -2511,7 +2512,7 @@
 		}
 	};
 
-	webui.version = "11.5.1";
+	webui.version = "11.6.0";
 
 
 	/* EVENT HANDLERS */
