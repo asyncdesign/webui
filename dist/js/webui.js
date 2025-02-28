@@ -1086,13 +1086,15 @@
 		if (args.length === 1) {
 			for (let i = 0; i < this.length; i++) {
 				let val = win.getComputedStyle(this[i])[ruleName];
-				let rect = this[i].getBoundingClientRect();
+				let rect = ruleName === "height" || ruleName === "width" ? this[i].getBoundingClientRect() : null;
 				
-				if (ruleName === "height" && rect.height > parseFloat(val)) {
-						val = rect.height + "px";
-				}
-				else if (ruleName === "width" && rect.width > parseFloat(val)) {
-						val = rect.width + "px";
+				if (rect) {
+					if (ruleName === "height" && rect.height > parseFloat(val)) {
+							val = rect.height + "px";
+					}
+					else if (ruleName === "width" && rect.width > parseFloat(val)) {
+							val = rect.width + "px";
+					}
 				}
 				styles.push(val != "" ? val : this[i].style[ruleName]);
 			}
