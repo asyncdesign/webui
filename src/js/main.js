@@ -734,6 +734,21 @@
 		return webui(nodes);
 	};
 
+	fn.selectFirst = function (query) {
+		let el;
+
+		let els = root.querySelectorAll(query);
+		for (let i = 0; i < els.length; i++) {
+			for (let j = 0; j < this.length; j++) {
+				el = els[i];
+				if (el && el === this[j]) {
+					return webui(el);
+				}
+			}
+		}
+		return undefined;
+	};
+
 	fn.element = function () {
 		if (this.length && this.length === 1) {
 			return this[0];
@@ -855,27 +870,26 @@
 	};
 
 	fn.closest = function (query) {
-		var nodes = [],
-			el, els;
+		let nodes = [],
+			el, matchedEl;
 
-		for (var i = 0; i < this.length; i++) {
+		for (let i = 0; i < this.length; i++) {
 			el = this[i];
-			els = webui(el).select(query);
+			matchedEl = webui(el).selectFirst(query);
 
-			if (els && els.length) {
-				nodes.push(els[0]);
+			if (matchedEl) {
+				nodes.push(matchedEl[0]);
 			}
 			else {
-				while (el.parentElement) {
-					els = webui(el.parentElement).select(query);
+				while (el = el.parentElement) {
+					matchedEl = webui(el).selectFirst(query);
 
-					if (els && els.length) {
-						if (!~nodes.indexOf(els[0])) {
-							nodes.push(els[0]);
+					if (matchedEl) {
+						if (!~nodes.indexOf(matchedEl[0])) {
+							nodes.push(matchedEl[0]);
 						}
 						break;
 					}
-					el = el.parentElement;
 				}
 			}
 		}
@@ -1199,7 +1213,7 @@
 	};
 
 	fn.show = function (displayType) {
-		var dt = arguments.length > 0 && displayType ? displayType : "block";
+		var dt = arguments.length > 0 && displayType ? displayType.toLowerCase() : "block";
 		for (var i = 0; i < this.length; i++) {
 			this[i].style["display"] = dt;
 		}
@@ -1479,11 +1493,12 @@
 
 			if (dt !== "off" && dt !== "none") {
 
-				if (dt === "on" || dt === "block") this.css("display", "block");
-				else if (dt === "grid") this.css("display", "grid");
-				else if (dt === "flex") this.css("display", "flex");
-				else if (dt === "inline-block") this.css("display", "inline-block");
-				else if (dt === "inline") this.css("display", "inline");
+				if (dt === "on") {
+					this.css("display", "block");
+				}
+				else {
+					this.css("display", dt);
+				}
 
 				this.attr("aria-hidden", "false");
 			}
@@ -1497,13 +1512,13 @@
 				el = this[i];
 				st = win.getComputedStyle(el)["display"];
 
-				if (st !== "none") {
-					el.style["display"] = "none";
-					el.setAttribute("aria-hidden", "true");
-				}
-				else if (st === "none") {
+				if (st === "none") {
 					el.style["display"] = "block";
 					el.setAttribute("aria-hidden", "false");
+				}
+				else {
+					el.style["display"] = "none";
+					el.setAttribute("aria-hidden", "true");
 				}
 			}
 		}
