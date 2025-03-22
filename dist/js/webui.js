@@ -605,12 +605,12 @@
 			return selector;
 		},
 
+		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:\"\']{1,255})$/,
+		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
+
 		webui = function (selector) {
 			return new fn.o(selector);
 		},
-
-		selectorRegExp = /^([a-zA-Z0-9_=\-\s\[\]\.\#\*\,\>\+\~\(\)\:\"\']{1,255})$/,
-		domFragRegExp = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 		fn = webui.fn = webui.prototype = {
 			length: 0,
@@ -720,31 +720,20 @@
 	};
 
 	fn.select = function (query) {
-		var nodes = [],
-			el;
 
-		var els = root.querySelectorAll(query);
-		for (var i = 0; i < els.length; i++) {
-			for (var j = 0; j < this.length; j++) {
-				if (!~nodes.indexOf(el = els[i]) && el && el === this[j]) {
-					nodes.push(el);
-				}
-			}
-		}
+		let nodes = Array.from(this.elements()).filter(element => 
+			element.matches(query)
+		);
 		return webui(nodes);
 	};
 
 	fn.selectFirst = function (query) {
-		let el;
 
-		let els = root.querySelectorAll(query);
-		for (let i = 0; i < els.length; i++) {
-			for (let j = 0; j < this.length; j++) {
-				el = els[i];
-				if (el && el === this[j]) {
-					return webui(el);
-				}
-			}
+		let nodes = Array.from(this.elements()).filter(element => 
+			element.matches(query)
+		);
+		if (nodes && nodes.length) {
+			return webui(nodes).first();
 		}
 		return undefined;
 	};
@@ -1492,14 +1481,12 @@
 			let dt = displayType.toLowerCase();
 
 			if (dt !== "off" && dt !== "none") {
-
 				if (dt === "on") {
 					this.css("display", "block");
 				}
 				else {
 					this.css("display", dt);
 				}
-
 				this.attr("aria-hidden", "false");
 			}
 			else {
