@@ -1317,6 +1317,20 @@
 		return this;
 	};
 
+	fn.input = function (callback) {
+		for (let i = 0; i < this.length; i++) {
+			this[i].addEventListener("input", callback);
+		}
+		return this;
+	};
+	
+	fn.paste = function (callback) {
+		for (let i = 0; i < this.length; i++) {
+			this[i].addEventListener("paste", callback);
+		}
+		return this;
+	};
+
 	fn.resize = function (callback) {
 		for (var i = 0; i < this.length; i++) {
 			this[i].addEventListener("resize", callback);
