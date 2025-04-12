@@ -43,7 +43,8 @@
 		},
 		isTextbox = function (el) {
 			if (el && el.nodeName === "INPUT") {
-				if (el.getAttribute("type") === null || ~["text", "number", "password", "date", "time", "search", "tel", "email", "url"].indexOf(el.getAttribute("type"))) {
+				if (el.getAttribute("type") === null || 
+					~["text", "number", "password", "search", "tel", "email", "url", "date", "time", "month", "week", "datetime-local"].indexOf(el.getAttribute("type"))) {
 					return true;
 				}
 			}
@@ -56,8 +57,10 @@
 			return false;
 		},
 		isButton = function (el) {
-			if (el && el.nodeName === "BUTTON" || el && el.nodeName === "INPUT" && el.getAttribute("type") === "button") {
-				return true;
+			if (el) {
+				if (el.nodeName === "BUTTON" || el.nodeName === "INPUT" && el.getAttribute("type") === "button") {
+					return true;
+				}
 			}
 			return false;
 		},
@@ -80,7 +83,7 @@
 		valueEquals = function (selector, value) {
 			var el = webui(selector);
 
-			if (el.length === 1) {
+			if (el && el.length === 1) {
 				return (isTextbox(el[0]) && el.val() === value) || (isTextarea(el[0]) && el.text() === value) ||
 					(isSelect(el[0]) && el.find("option:checked").text() === value) ||
 					(isCheckbox(el[0]) && el.is(":checked") === value) ||
