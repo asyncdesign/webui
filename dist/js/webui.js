@@ -1250,6 +1250,13 @@
 		return false;
 	};
 
+	fn.hover = function (callback) {
+		for (let i = 0; i < this.length; i++) {
+			this[i].addEventListener("mouseover", callback);
+		}
+		return this;
+	};
+	
 	fn.hoverIn = function (callback) {
 		for (var i = 0; i < this.length; i++) {
 			this[i].addEventListener("mouseenter", callback);
